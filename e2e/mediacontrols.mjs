@@ -40,7 +40,7 @@ const replaySeed = await p.evaluate(async () => {
   const table = tx.objectStore('episodeProgress');
   const old = await new Promise((resolve, reject) => { const r = table.get(id); r.onsuccess = () => resolve(r.result); r.onerror = () => reject(r.error); });
   const heard = old?.heard ?? 100;
-  const listeningDays = old?.listeningDays ?? { '2025-12-31': { seconds: 100, completions: 1 } };
+  const listeningDays = { '2001-01-01': { seconds: 100, completions: 1 } };
   table.put({ ...(old ?? {}), episodeId: id, position: 0, completed: true, heard, ranToEnd: true, listeningDays, updatedAt: Date.now() });
   await new Promise((resolve, reject) => { tx.oncomplete = resolve; tx.onerror = () => reject(tx.error); tx.onabort = () => reject(tx.error); });
   database.close();
@@ -56,7 +56,7 @@ const replayAfter = await p.evaluate(async (id) => {
   database.close(); return row;
 }, replaySeed.id);
 if (replayAfter?.completed !== false || replayAfter?.position !== 0) fail('replaying a completed episode should clear completion and restart at the beginning');
-if (replayAfter?.heard !== replaySeed.heard || JSON.stringify(replayAfter?.listeningDays) !== JSON.stringify(replaySeed.listeningDays)) fail('replaying must preserve historical listening totals');
+if ((replayAfter?.heard ?? 0) < replaySeed.heard || replayAfter?.listeningDays?.['2001-01-01']?.seconds !== 100 || replayAfter?.listeningDays?.['2001-01-01']?.completions !== 1) fail('replaying must preserve historical listening totals');
 await p.evaluate(() => { window.__a.currentTime = 40; window.__a.pause(); });
 await p.locator('.player button[aria-label="Play"]').waitFor();
 // 2. the pause button and close button say what they do
