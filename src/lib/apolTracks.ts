@@ -163,18 +163,18 @@ export const chainRoute = (type: string, id: string) => ROUTE_MODE[type] ? `${MO
 /** InTracks: which tracks mention a chain, claim, heresy, lesson … . Keys look like "chain:real-presence". */
 const TYPE_ALIAS: Record<string, string> = { arguments: 'chain', claims: 'claim', heresies: 'heresy' };
 const reverseKey = (type: string, id: string) => `${TYPE_ALIAS[type] ?? type}:${id}`;
-let revCache: Promise<Map<string, Track[]>> | null = null;
+const loadReverseTracks = memoizePromise(async () => {
+  const ts = await loadTracks();
+  const m = new Map<string, Track[]>();
+  const add = (k: string, t: Track) => { const a = m.get(k) ?? []; if (!a.includes(t)) a.push(t); m.set(k, a); };
+  for (const t of ts) for (const l of t.levels) for (const s of l.steps) {
+    if (s.kind === 'inapp') add(reverseKey(s.type, s.id), t);
+    if (s.kind === 'drill') add(reverseKey(s.source.type, s.source.id), t);
+  }
+  return m;
+});
 export function tracksFor(type: string, id: string): Promise<Track[]> {
-  revCache ??= loadTracks().then((ts) => {
-    const m = new Map<string, Track[]>();
-    const add = (k: string, t: Track) => { const a = m.get(k) ?? []; if (!a.includes(t)) a.push(t); m.set(k, a); };
-    for (const t of ts) for (const l of t.levels) for (const s of l.steps) {
-      if (s.kind === 'inapp') add(reverseKey(s.type, s.id), t);
-      if (s.kind === 'drill') add(reverseKey(s.source.type, s.source.id), t);
-    }
-    return m;
-  });
-  return revCache.then((m) => m.get(reverseKey(type, id)) ?? []);
+  return loadReverseTracks().then((m) => m.get(reverseKey(type, id)) ?? []);
 }
 
 /* ------------------------------------------------------------------ progress */
