@@ -62,7 +62,7 @@ export function GoFurther({ lesson, extras }: { lesson: LessonLike; extras?: Ext
       const known = await verifyWorks(r.known, roomKey ? roomKey.split(',') : [], workReadable);
       const failed = [...new Set([...r.failed, ...(known.failed?.has('library') && !r.failed.includes('library') ? (['library'] as SourceName[]) : [])])];
       if (live) setLoad({ status: failed.length === 0 ? 'complete' : r.status === 'failed' ? 'failed' : 'partial', known, failed });
-    }).catch(() => live && setLoad({ status: 'failed', known: { edition: 'webc', cccMax: 0, apolTopics: new Map(), works: new Map(), tracks: new Map(), tracksOfLesson: new Map(), chains: new Map(), failed: new Set(['apologetics', 'library', 'catechism', 'tracks', 'chains']) }, failed: ['apologetics', 'library', 'catechism', 'tracks', 'chains'] }));
+    }).catch(() => live && setLoad({ status: 'failed', known: { edition: 'webc', cccMax: 0, apolTopics: new Map(), works: new Map(), tracks: new Map(), tracksOfLesson: new Map(), chains: new Map(), failed: new Set(['apologetics', 'library', 'catechism', 'tracks', 'chains', 'editions']) }, failed: ['apologetics', 'library', 'catechism', 'tracks', 'chains', 'editions'] }));
     return () => { live = false; };
   }, [attempt, roomKey]);
   const key = (extras?.tracks ?? []).map((t) => t.id).join(',') + '|' + (extras?.debate ?? []).map((d) => d.type + d.id).join(',');
@@ -72,9 +72,9 @@ export function GoFurther({ lesson, extras }: { lesson: LessonLike; extras?: Ext
     return buildGoFurther(lesson, load.known, extras, ctx);
   }, [load, lesson.id, key, ed?.id, editions.length]); // eslint-disable-line react-hooks/exhaustive-deps
   if (!result || load.status === 'loading') return <div className="lp-gofurther" data-state="loading" aria-busy="true" />;
-  const { links, unavailable } = result;
+  const { links, broken, unavailable } = result;
   const problem = load.status !== 'complete';
-  if (!links.length && !unavailable.length && !problem) return null;
+  if (!links.length && !broken.length && !unavailable.length && !problem) return null;
   return (
     <div className="lp-gofurther" aria-label="Go further" data-state={load.status}>
       <h3 className="lp-ask">Go further</h3>
@@ -83,6 +83,7 @@ export function GoFurther({ lesson, extras }: { lesson: LessonLike; extras?: Ext
         return items.length ? <p key={g.title} className="small"><strong>{g.title}:</strong> {items.map((l, i) => <span key={l.kind + l.to}>{i ? ' · ' : ''}<Link to={l.to}>{l.label.replace(/^(Read |Track: |Questions about the faith: |Read in the Reading room: )/, '')}</Link>{l.note ? <span className="muted" data-note="approximate"> ({l.note})</span> : null}</span>)}</p> : null;
       })}
       {unavailable.length ? <p className="small muted" data-unavailable>{unavailable.map((u) => `${u.label}: ${u.reason}`).join('; ')}.</p> : null}
+      {broken.length ? <p className="small muted" data-broken>Some lesson references could not be opened: {broken.join('; ')}.</p> : null}
       {problem ? (
         <p className="small" role="status" data-load-problem>
           {load.status === 'failed' ? 'Links could not be loaded.' : `Some links could not be loaded (${load.failed.map((f) => SOURCE_WORDS[f]).join(', ')}).`}{' '}
