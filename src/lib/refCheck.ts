@@ -166,8 +166,24 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   const issue = checkRefIn(target, t.ref);
   if (issue) {
     if (issue.kind === 'absent') return { ...base, status: 'absent', anchor, reason: issue.reason };
-    const chapterOnly: Ref = { book: t.ref.book, c1: t.ref.c1, c2: t.ref.c1 };
-    return { ...base, status: 'approximate', anchor, native: chapterOnly, reason: `${numbering ?? issue.reason}; the numbering of this passage differs in ${target.id}, so the chapter opens without a verse selected` };
+    const targetScheme = target.scheme as Scheme;
+    const targetKnown = Boolean(
+      chapterAlignmentNote(targetScheme, t.ref.book, t.ref.c1) ||
+      chapterAlignmentNote(targetScheme, t.ref.book, t.ref.c2) ||
+      chapterAlignmentNote(sourceScheme, ref.book, ref.c1) ||
+      chapterAlignmentNote(sourceScheme, ref.book, ref.c2)
+    );
+    const endpoints = [{ chapter: t.ref.c1, verse: t.ref.v1 }, { chapter: t.ref.c2, verse: t.ref.v2 }]
+      .filter((x): x is { chapter: number; verse: number } => x.verse !== undefined);
+    const withinOneTargetOverrun = endpoints.length > 0 && endpoints.every(({ chapter, verse }) => {
+      const max = target.verseCounts?.[t.ref.book]?.[chapter - 1];
+      return max !== undefined && verse >= 1 && verse <= max + 1;
+    });
+    const chapterOnly: Ref = { book: t.ref.book, c1: t.ref.c1, c2: t.ref.c2 };
+    const chapterIssue = checkRefIn(target, chapterOnly);
+    if (issue.scope !== 'verse' || !targetKnown || !withinOneTargetOverrun || chapterIssue)
+      return { ...base, status: 'invalid', anchor, reason: issue.reason };
+    return { ...base, status: 'approximate', anchor, native: chapterOnly, reason: `${numbering ?? issue.reason}; only the verified chapter range is available in ${target.id}, so no verse is selected` };
   }
   if (numbering || (!sameTradition && (!conv.exact || !t.exact))) {
     return { ...base, status: 'approximate', anchor, native: t.ref, reason: numbering ?? t.note ?? 'The verse numbering of this passage differs between editions, so the matching verses may be off by one or two.' };
