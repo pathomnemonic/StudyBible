@@ -91,14 +91,15 @@ describe('backup round trip', () => {
     expect(await db.notes.count()).toBe(1);
   });
 
-  it('replace mode drops old deletion records so restored rows are not deleted on the next sync', async () => {
+  it('replace mode preserves deletion records for rows that the backup does not restore', async () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
     await db.tombs.add({ tbl: 'notes', uid: 'gone', updatedAt: 1 } as any);
     await db.notes.add({ kind: 'note', body: 'keep', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);
     const json = await ops.exportAll();
     await ops.importAll(json, 'replace');
-    expect(await db.tombs.count()).toBe(0);
+    expect(await db.tombs.count()).toBe(1);
+    expect(await db.tombs.filter((row) => row.uid === 'gone').count()).toBe(1);
   });
 
   it('refuses damaged, foreign, newer and unsafe backups without touching the data', async () => {
