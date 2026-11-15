@@ -372,6 +372,12 @@ export async function importCollections(json: string): Promise<{ added: number; 
   if (!data.collections.every(validCollection)) throw new Error('The collections file is damaged. Nothing was imported.');
   const { sameValue } = await import('../lib/canonical');
   const { doneKeyMatches } = await import('../lib/collections');
+  // Collection imports can merge into existing collections, so keep a local safety copy before any writes.
+  try { await import('../lib/safety').then((m) => m.snapshotIfDue(true)); }
+  catch (error) {
+    const detail = error instanceof Error ? error.message : 'The storage operation failed.';
+    throw new Error(`A safety copy could not be made. Nothing was imported. ${detail}`);
+  }
   // A collections file may carry only the records it points at, never unrelated tables or settings.
   // Keep every write in one transaction: if either the records or collections fail, neither is imported.
   const rest = {
