@@ -9,8 +9,7 @@ import { db, newUid, type Collection, type Target } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';
 import { useSettings } from '../../lib/store';
 import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
-import { pooledCounts, resolveRef } from '../../lib/refCheck';
-import { validateAnchorPlanReferences } from '../../lib/planReferences';
+import { resolvePlanReferences, validateAnchorPlanReferences } from '../../lib/planReferences';
 import { collectionHtml, collectionMarkdown, moveItem, resolveAll, type Resolved } from '../../lib/collections';
 import { download, exportCollections } from '../../db/ops';
 import { restoreFromTrash, trashedFor } from '../../lib/trash';
@@ -65,19 +64,13 @@ export default function CollectionPage() {
   if (!c) return <div className="page" data-state="not-found"><h1>Collection not found</h1><p><Link to="/library?tab=collections">Back to your collections</Link></p></div>;
 
   const addPassage = async () => {
-    const p = parseRefs(pass);
-    if (!p.ok) { setMsg('Check the passage, for example John 6:51-58.'); return; }
-    const source = pooledCounts(editions, 'english');
-    const anchor = editions.find((e) => e.id === 'vulgate');
-    if (!source || !anchor) { setMsg('Passage numbering cannot be checked yet because the source or canonical Vulgate counts are unavailable. Nothing was added.'); return; }
+    const parsed = parseRefs(pass);
+    if (!parsed.ok) { setMsg('Check the passage, for example John 6:51-58.'); return; }
+    const checked = resolvePlanReferences(parsed.refs.map((x) => x.ref), editions);
+    if (!checked.ok) { setMsg(`This passage cannot be added automatically: ${checked.reason}. English/KJV references are stored only when their Vulgate anchor is exact. Nothing was added.`); return; }
     const targets: Target[] = [];
-    for (const item of p.refs) {
-      const resolved = resolveRef(source, anchor, item.ref, 'kjv', anchor);
-      if (resolved.status !== 'exact' || !resolved.anchor) {
-        setMsg(`${formatRef(item.ref)} uses English/KJV numbering and has no exact, verified Vulgate anchor. Nothing was added; choose a verified passage instead.`);
-        return;
-      }
-      const target: Target = { type: 'passage', ref: refId(resolved.anchor) };
+    for (const ref of checked.refs) {
+      const target: Target = { type: 'passage', ref: refId(ref) };
       if (!c?.items.some((x) => sameValue(x, target)) && !targets.some((x) => sameValue(x, target))) targets.push(target);
     }
     if (!targets.length) setMsg('Those passages are already in this collection.');
