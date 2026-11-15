@@ -46,12 +46,15 @@ describe('your writing survives', () => {
     expect(await db.cache.where('key').startsWith('snap:').count()).toBeGreaterThan(1);
   });
 
-  it('counts changed highlights in backup status even though updatedAt is not indexed', async () => {
+  it('counts changed records across auto-id and keyed tables in backup status', async () => {
     const { db } = await import('../src/db/db');
     const safety = await import('../src/lib/safety');
-    await db.highlights.add({ ref: 'JHN.3.16', book: 'JHN', c: 3, color: 'yellow', createdAt: Date.now() } as never);
+    const now = Date.now();
+    await db.highlights.add({ ref: 'JHN.3.16', book: 'JHN', c: 3, color: 'yellow', createdAt: now } as never);
+    await db.bookmarks.add({ ref: 'JHN.3.16', kind: 'bookmark', createdAt: now } as never);
+    await db.episodeProgress.put({ episodeId: 'new-progress', position: 10, completed: false, heard: 10, updatedAt: now } as never);
     const status = await safety.backupStatus(false);
-    expect(status.changedSince).toBe(1);
+    expect(status.changedSince).toBe(3);
   });
 
   it('does not replace existing data when its required safety copy fails', async () => {
