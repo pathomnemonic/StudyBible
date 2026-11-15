@@ -192,12 +192,14 @@ export function resolveRef(source: CountsEdition, target: CountsEdition, ref: Re
   if (issue) {
     if (issue.kind === 'absent') return { ...base, status: 'absent', anchor, reason: issue.reason };
     const targetScheme = target.scheme as Scheme;
-    const targetKnown = Boolean(
-      chapterAlignmentNote(targetScheme, t.ref.book, t.ref.c1) ||
-      chapterAlignmentNote(targetScheme, t.ref.book, t.ref.c2) ||
-      chapterAlignmentNote(sourceScheme, ref.book, ref.c1) ||
-      chapterAlignmentNote(sourceScheme, ref.book, ref.c2)
-    );
+    const targetRangeValid =
+      Number.isInteger(t.ref.c1) && Number.isInteger(t.ref.c2) &&
+      t.ref.c1 >= 1 && t.ref.c2 >= t.ref.c1 &&
+      t.ref.c2 <= (target.chapters[t.ref.book] ?? 0);
+    const targetKnown = knownAlignment || Boolean(targetRangeValid && Array.from(
+      { length: t.ref.c2 - t.ref.c1 + 1 },
+      (_, i) => chapterAlignmentNote(targetScheme, t.ref.book, t.ref.c1 + i),
+    ).some(Boolean));
     const endpoints = [{ chapter: t.ref.c1, verse: t.ref.v1 }, { chapter: t.ref.c2, verse: t.ref.v2 }]
       .filter((x): x is { chapter: number; verse: number } => x.verse !== undefined);
     const withinOneTargetOverrun = endpoints.length > 0 && endpoints.every(({ chapter, verse }) => {
