@@ -69,6 +69,12 @@ describe('semantic Scripture reference validation', () => {
     expect(crossesUnverified.note).toMatch(/chapter whose verse alignment is not verified/i);
   });
 
+  it('downgrades a known one-verse source/anchor mismatch to a verified chapter-only anchor', () => {
+    const r = resolveRef(english, english, { book: 'MRK', c1: 4, v1: 41, c2: 4, v2: 41 }, 'kjv', anchor);
+    expect(r.status).toBe('approximate');
+    expect(r.anchor).toEqual({ book: 'MRK', c1: 4, c2: 4 });
+  });
+
   it('downgrades a known verse-count mismatch to a verified chapter-only anchor', () => {
     const r = resolveRef(english, anchor, { book: 'MRK', c1: 4, v1: 41, c2: 4, v2: 41 }, 'kjv', anchor);
     expect(r.status).toBe('approximate');
