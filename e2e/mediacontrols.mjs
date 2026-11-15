@@ -19,7 +19,19 @@ await p.route((u) => /\.(mp3|m4a|wav|ogg)$/.test(u.pathname), async (r) => {
   if (range) { const m = /bytes=(\d+)-(\d*)/.exec(range); const s = +m[1], e = m[2] ? +m[2] : wav.length - 1; return r.fulfill({ status: 206, body: wav.subarray(s, e + 1), headers: { 'content-type': 'audio/wav', 'content-range': `bytes ${s}-${e}/${wav.length}`, 'accept-ranges': 'bytes', 'access-control-allow-origin': '*' } }); }
   return r.fulfill({ status: 200, body: wav, headers: { 'content-type': 'audio/wav', 'accept-ranges': 'bytes', 'access-control-allow-origin': '*' } });
 });
-const startMeditate = async () => { await p.goto(`${BASE}/#/listen?tab=meditate`); await p.waitForSelector('.med-list li'); await p.locator('button:has-text("Play all")').first().click(); await p.waitForSelector('.player'); };
+const startMeditate = async () => {
+  await p.goto(`${BASE}/#/listen?tab=meditate`);
+  await p.waitForSelector('.med-list li');
+  await p.waitForFunction(() => !!window.__a);
+  const previousGeneration = await p.evaluate(() => window.__a?._playGeneration ?? null);
+  await p.locator('button:has-text("Play all")').first().click();
+  await p.waitForSelector('.player');
+  await p.waitForFunction((previous) => {
+    const a = window.__a;
+    return !!a && typeof a._playGeneration === 'number' && a._playGeneration !== previous &&
+      !!a._ep?.id?.startsWith('med:') && !!a.getAttribute('src') && a.duration > 50;
+  }, previousGeneration, { timeout: 15000 });
+};
 
 // 1. pause keeps the player and the place; the pause button is named for what it does
 await startMeditate();
@@ -142,12 +154,15 @@ await startMeditate();
 await p.waitForFunction(() => window.__a && window.__a.duration > 50);
 const retryEpisodeId = await p.evaluate(() => {
   const a = window.__a;
+  if (!a?._ep?.id?.startsWith('med:') || typeof a._playGeneration !== 'number' || !a.getAttribute('src') || a.duration <= 50) return null;
   a.currentTime = 40;
   a.dispatchEvent(new Event('timeupdate'));
+  try { delete a.error; } catch { /* native property may be non-configurable */ }
   Object.defineProperty(a, 'error', { configurable: true, value: { code: 4 } });
   a.dispatchEvent(new Event('error'));
-  return a._ep?.id;
+  return a._ep.id;
 });
+if (!retryEpisodeId) fail('the retry regression did not start a new meditation source');
 await p.waitForSelector('.player-msg[role="alert"]');
 await p.locator('.player-msg button:has-text("Try again")').click();
 await p.evaluate(() => { delete window.__a.error; });

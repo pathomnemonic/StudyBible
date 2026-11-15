@@ -375,3 +375,25 @@ These are test-harness and stale-view corrections identified by the #1298 logs/s
 ### Follow-up correction to the fault-injector phases
 
 Review immediately after commit `55e1ab9cd5fdb52d7a3e6578b24a446ec5702632` found that the repair-phase state object remains defined (disabled) when the restore-phase object is enabled. The interceptor now selects the enabled phase object rather than using nullish fallback, so the restore test exercises its own transaction and abort assertion. The subsequent CI run must verify both phases.
+
+## Seventh audit checkpoint — CI #1302 browser regressions — 2026-11-15
+
+Run #1302 (`43689782266`) tested head `68ba48890484755c1082d0b630782893950448a6`.
+
+| Job | Result |
+|---|---|
+| `fast` | Passed install, typecheck, exact-reference index generation/upload/commit step, unit tests, generated-doc check, data validation, build, size budget and dependency audit |
+| `secrets` | Passed |
+| `accounts` | Passed |
+| `browser (1/3)` | Failed in `datahealth.mjs`: a write and abort attempt were observed, but the Data Health refresh-error alert did not appear; the other 16 checks passed |
+| `browser (2/3)` | Failed in `mediacontrols.mjs`: the second synthetic audio-error case did not display its alert; the other 16 checks passed |
+| `browser (3/3)` | Passed all 17 checks |
+| `sweep-full` | Still running when this corrective push was prepared; the concurrency policy cancels this superseded job. No pass is claimed for #1302. The next full run must pass the full sweep. |
+
+### Corrective work
+
+- The Data Health injector previously aborted a read-only notes transaction at transaction creation. That could hit an unrelated read and disarm before the explicit follow-up scan; it also counted an abort attempt even when `abort()` failed. The replacement intercepts the actual notes `getAll()` / `openCursor()` bulk read, aborts after the request is queued, counts only successful aborts, and stays armed until the UI error is observed. Repair and restore fault phases are independently controlled.
+- The Media Controls helper previously treated an existing `.player` as proof that the newly selected meditation source was ready. It now waits for a changed playback generation, `med:` episode identity, attached source and loaded duration before injecting the error. The position-flush regression refuses to proceed without that active-source identity.
+- A separate reference-conversion review confirmed that a direct reader link can be exact within a numbering tradition while its optional Vulgate anchor remains approximate; the source explicitly preserves this distinction. No code change was needed.
+
+PR #11 remains open, draft, and unmerged. Authored fixes require fresh CI verification.

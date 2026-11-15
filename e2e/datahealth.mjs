@@ -24,14 +24,38 @@ await ctx.addInitScript(() => {
           state.writes++;
           // Arm only after the selected mutation has actually committed.
           tx.addEventListener('complete', () => { if (state.enabled) state.armed = true; });
-        } else if (mode === 'readonly' && state.armed) {
-          state.armed = false;
-          state.abortedReads++;
-          try { tx.abort(); } catch { /* transaction may already have completed */ }
         }
       }
       return tx;
     };
+  }
+
+  // Dexie Table.toArray() uses IDBObjectStore.getAll() where supported and openCursor() as fallback.
+  // Abort after the notes read request is queued, and stay armed until the test sees the failed refresh.
+  const storeProto = IDBObjectStore.prototype;
+  const storeMarker = '__studyBibleDataHealthReadFaultInstalled';
+  if (!storeProto[storeMarker]) {
+    Object.defineProperty(storeProto, storeMarker, { value: true });
+    for (const method of ['getAll', 'openCursor']) {
+      const originalRead = storeProto[method];
+      if (typeof originalRead !== 'function') continue;
+      storeProto[method] = function (...args) {
+        const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
+        const tx = this.transaction;
+        const shouldAbort = state?.enabled && state.armed &&
+          tx.db.name === 'studybible' && tx.mode === 'readonly' && this.name === 'notes';
+        const request = originalRead.apply(this, args);
+        if (shouldAbort) {
+          try {
+            tx.abort();
+            state.abortedReads++;
+          } catch {
+            state.abortFailures++;
+          }
+        }
+        return request;
+      };
+    }
   }
 });
 const p = await ctx.newPage(); p.setDefaultTimeout(20000);
@@ -49,13 +73,13 @@ const id = await p.evaluate(async () => {
 });
 await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Fix this' }).waitFor();
-await p.evaluate(() => { window.__dataHealthFault = { enabled: true, armed: false, writes: 0, abortedReads: 0 }; });
+await p.evaluate(() => { window.__dataHealthFault = { enabled: true, armed: false, writes: 0, abortedReads: 0, abortFailures: 0 }; });
 await p.getByRole('button', { name: 'Fix this' }).click();
 await p.waitForFunction(() => window.__dataHealthFault?.writes > 0 && window.__dataHealthFault?.abortedReads > 0, null, { timeout: 5000 }).catch(() => fail('the repair fault injector did not abort the follow-up notes read'));
 await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();
 if (await p.getByRole('button', { name: 'Fix this' }).count()) fail('stale repair actions must be cleared when the committed repair cannot be rechecked');
 if (await p.getByText(/Everything found/).count()) fail('stale findings must be cleared when the committed repair cannot be rechecked');
-await p.evaluate(() => { window.__dataHealthFault.enabled = false; });
+await p.evaluate(() => { window.__dataHealthFault.enabled = false; window.__dataHealthFault.armed = false; });
 const repaired = await p.evaluate(async (id) => {
   const request = indexedDB.open('studybible');
   const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
@@ -85,13 +109,13 @@ const restoreFixture = await p.evaluate(async () => {
 });
 await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Restore' }).waitFor();
-await p.evaluate(() => { window.__dataHealthRestoreFault = { enabled: true, armed: false, writes: 0, abortedReads: 0 }; });
+await p.evaluate(() => { window.__dataHealthRestoreFault = { enabled: true, armed: false, writes: 0, abortedReads: 0, abortFailures: 0 }; });
 await p.getByRole('button', { name: 'Restore' }).click();
 await p.waitForFunction(() => window.__dataHealthRestoreFault?.writes > 0 && window.__dataHealthRestoreFault?.abortedReads > 0, null, { timeout: 5000 }).catch(() => fail('the restore fault injector did not abort the follow-up notes read'));
 await p.getByRole('alert').filter({ hasText: 'Restore committed, but the check could not refresh' }).waitFor();
 if (await p.getByRole('button', { name: 'Restore' }).count()) fail('stale restore actions must be cleared after a committed restore with a failed refresh');
 if (await p.getByText('Nothing wrong found.').count()) fail('a stale check result must be cleared after a committed restore with a failed refresh');
-await p.evaluate(() => { window.__dataHealthRestoreFault.enabled = false; });
+await p.evaluate(() => { window.__dataHealthRestoreFault.enabled = false; window.__dataHealthRestoreFault.armed = false; });
 const restoreState = await p.evaluate(async (ids) => {
   const request = indexedDB.open('studybible');
   const db = await new Promise((resolve, reject) => { request.onsuccess = () => resolve(request.result); request.onerror = () => reject(request.error); });
