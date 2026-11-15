@@ -50,6 +50,21 @@ describe('playback request race protection', () => {
     await expect(result).resolves.toBeNull();
   });
 
+  it('does not advance an ended episode queue over a newer user selection', async () => {
+    let generation = 0;
+    const pendingQueue = deferred<string[]>();
+    const request = ++generation;
+    const queueResult = resolveIfCurrent(request, () => generation, () => pendingQueue.promise);
+    // The user selects another episode while the ended handler is reading the queue.
+    generation++;
+    pendingQueue.resolve(['older-queued-episode']);
+    const queue = await queueResult;
+    const started: string[] = [];
+    if (queue !== null) started.push(...queue);
+    expect(queue).toBeNull();
+    expect(started).toEqual([]);
+  });
+
   it('invalidates an in-flight lookup when playback is stopped', async () => {
     let generation = 0;
     const pending = deferred<string>();
