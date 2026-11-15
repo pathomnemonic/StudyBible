@@ -160,7 +160,7 @@ export function keyVerse(lesson: { mem?: string }, ctx?: { source: CountsEdition
   const res = resolveRef(ctx.source, ctx.source, r, 'kjv', ctx.anchor);
   if (res.status === 'invalid' || res.status === 'absent') return { status: 'invalid', label: cite, reason: res.reason ?? 'not a passage in this numbering' };
   const exact = conv.exact && res.status === 'exact';
-  return { status: exact ? 'exact' : 'approximate', label: cite, ref: conv.ref, original: r, sourceScheme: 'kjv', exact, reason: exact ? undefined : res.reason ?? 'The verse numbering of this passage differs between editions.' };
+  return { status: exact ? 'exact' : 'approximate', label: cite, ref: res.anchor ?? conv.ref, original: r, sourceScheme: 'kjv', exact, reason: exact ? undefined : res.reason ?? 'The verse numbering of this passage differs between editions.' };
 }
 
 /** Compatibility wrapper: the exact key verse only, null for anything else. */
