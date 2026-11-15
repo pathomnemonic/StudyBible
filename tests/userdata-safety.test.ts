@@ -3,11 +3,11 @@ import Dexie from 'dexie';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const store = new Map<string, string>();
-vi.stubGlobal('localStorage', { getItem: (k: string) => store.get(k) ?? null, setItem: (k: string, v: string) => void store.set(k, v), removeItem: (k: string) => void store.delete(k) });
+vi.stubGlobal('localStorage', { getItem: (k: string) => store.get(k) ?? null, setItem: (k: string, v: string) => void store.set(k, v), removeItem: (k: string) => void store.delete(k), key: (i: number) => [...store.keys()][i] ?? null, get length() { return store.size; } });
 const note = (body: string) => ({ kind: 'note', body, tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 }) as any;
 
 describe('your writing survives', () => {
-  beforeEach(async () => { await Dexie.delete('studybible'); vi.resetModules(); vi.restoreAllMocks(); });
+  beforeEach(async () => { await Dexie.delete('studybible'); vi.resetModules(); vi.restoreAllMocks(); store.clear(); });
 
   it('closing and reopening the browser keeps notes, edits and deletions', async () => {
     let { db } = await import('../src/db/db');
