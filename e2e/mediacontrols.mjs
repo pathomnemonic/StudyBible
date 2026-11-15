@@ -166,6 +166,9 @@ const retryEpisodeId = await p.evaluate(() => {
 });
 if (!retryEpisodeId) fail('the retry regression did not start a new meditation source');
 await p.waitForSelector('.player-msg[role="alert"]');
+// A queued playing event from the previous load must not clear the new source's MediaError.
+await p.evaluate(() => { window.__a.dispatchEvent(new Event('playing')); });
+await p.locator('.player-msg button:has-text("Try again")').waitFor();
 await p.locator('.player-msg button:has-text("Try again")').click();
 await p.evaluate(() => { delete window.__a.error; });
 await p.waitForFunction(() => !document.querySelector('.player-msg') && !window.__a.paused && Math.abs(window.__a.currentTime - 40) < 3, null, { timeout: 15000 }).catch(() => fail('retry should restore the active audio position after flushing it'));

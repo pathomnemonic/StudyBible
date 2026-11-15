@@ -163,7 +163,7 @@ export function PlayerProvider({ children }: { children: ReactNode }) {
     });
     a.addEventListener('loadedmetadata', () => setDuration(a.duration || 0));
     // a stream that cannot load is said out loud, with a way to try again; it clears the moment sound is flowing
-    a.addEventListener('playing', () => { if (!a.paused) setError(null); });
+    a.addEventListener('playing', () => { if (!a.paused && !a.error) setError(null); });
     a.addEventListener('loadeddata', () => { if (!a.error) setError(null); });
     a.addEventListener('play', () => { if (!a.paused) { lastT = a.currentTime; setPlaying(true); } });
     a.addEventListener('seeking', () => { lastT = -1; });

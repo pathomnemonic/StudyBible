@@ -8,33 +8,34 @@ await ctx.addInitScript(() => {
   localStorage.setItem('sb:tour', '1');
   localStorage.setItem('sb:setup', '2');
   localStorage.setItem('sb:audienceAsked', '1');
-  // Observe successful notes writes at the object-store boundary. This covers both
-  // Dexie Table.update() (put) and restoreFromTrash() (add), then arms only after commit.
+  // Arm after any committed read/write transaction that includes notes. Repair and restore
+  // both use multi-table Dexie transactions; this database boundary also observes writes
+  // when Dexie wraps IDBObjectStore.add()/put() internally.
+  const dbProto = IDBDatabase.prototype;
+  const txMarker = '__studyBibleDataHealthTransactionFaultInstalled';
+  if (!dbProto[txMarker]) {
+    const originalTransaction = dbProto.transaction;
+    Object.defineProperty(dbProto, txMarker, { value: true });
+    dbProto.transaction = function (...args) {
+      const tx = originalTransaction.apply(this, args);
+      const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
+      const names = typeof args[0] === 'string' ? [args[0]] : Array.from(args[0] ?? []);
+      const mode = typeof args[1] === 'string' ? args[1] : 'readonly';
+      if (state?.enabled && this.name === 'studybible' && names.includes('notes') && mode === 'readwrite') {
+        tx.addEventListener('complete', () => {
+          if (state.enabled) { state.writes++; state.armed = true; }
+        }, { once: true });
+      }
+      return tx;
+    };
+  }
+
+  // Dexie Table.toArray() uses IDBObjectStore.getAll() where supported and openCursor() as fallback.
+  // Abort after the notes read request is queued, and stay armed until the test sees the failed refresh.
   const storeProto = IDBObjectStore.prototype;
   const storeMarker = '__studyBibleDataHealthReadFaultInstalled';
   if (!storeProto[storeMarker]) {
     Object.defineProperty(storeProto, storeMarker, { value: true });
-    for (const method of ['add', 'put']) {
-      const originalWrite = storeProto[method];
-      if (typeof originalWrite !== 'function') continue;
-      storeProto[method] = function (...args) {
-        const request = originalWrite.apply(this, args);
-        const state = [window.__dataHealthFault, window.__dataHealthRestoreFault].find((candidate) => candidate?.enabled);
-        const tx = this.transaction;
-        if (state?.enabled && tx.db.name === 'studybible' && tx.mode === 'readwrite' && this.name === 'notes') {
-          request.addEventListener('success', () => {
-            // A successful request is not enough: arm only once the containing transaction commits.
-            tx.addEventListener('complete', () => {
-              if (state.enabled) { state.writes++; state.armed = true; }
-            }, { once: true });
-          }, { once: true });
-        }
-        return request;
-      };
-    }
-
-    // Dexie Table.toArray() uses IDBObjectStore.getAll() where supported and openCursor() as fallback.
-    // Abort after the notes read request is queued, and stay armed until the test sees the failed refresh.
     for (const method of ['getAll', 'openCursor']) {
       const originalRead = storeProto[method];
       if (typeof originalRead !== 'function') continue;
@@ -46,6 +47,7 @@ await ctx.addInitScript(() => {
         const request = originalRead.apply(this, args);
         if (shouldAbort) {
           try {
+            state.readRequests = (state.readRequests ?? 0) + 1;
             tx.abort();
             state.abortedReads++;
           } catch {
@@ -72,9 +74,9 @@ const id = await p.evaluate(async () => {
 });
 await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Fix this' }).waitFor();
-await p.evaluate(() => { window.__dataHealthFault = { enabled: true, armed: false, writes: 0, abortedReads: 0, abortFailures: 0 }; });
+await p.evaluate(() => { window.__dataHealthFault = { enabled: true, armed: false, writes: 0, readRequests: 0, abortedReads: 0, abortFailures: 0 }; });
 await p.getByRole('button', { name: 'Fix this' }).click();
-await p.waitForFunction(() => window.__dataHealthFault?.writes > 0 && window.__dataHealthFault?.abortedReads > 0, null, { timeout: 5000 }).catch(() => fail('the repair fault injector did not abort the follow-up notes read'));
+await p.waitForFunction(() => window.__dataHealthFault?.writes > 0 && window.__dataHealthFault?.abortedReads > 0, null, { timeout: 5000 }).catch(async () => fail('the repair fault injector did not abort the follow-up notes read: ' + JSON.stringify(await p.evaluate(() => window.__dataHealthFault))));
 await p.getByRole('alert').filter({ hasText: 'repair was committed' }).waitFor();
 if (await p.getByRole('button', { name: 'Fix this' }).count()) fail('stale repair actions must be cleared when the committed repair cannot be rechecked');
 if (await p.getByText(/Everything found/).count()) fail('stale findings must be cleared when the committed repair cannot be rechecked');
@@ -110,7 +112,7 @@ await p.getByRole('button', { name: 'Run the check' }).click();
 await p.getByRole('button', { name: 'Restore' }).waitFor();
 await p.evaluate(() => { window.__dataHealthRestoreFault = { enabled: true, armed: false, writes: 0, abortedReads: 0, abortFailures: 0 }; });
 await p.getByRole('button', { name: 'Restore' }).click();
-await p.waitForFunction(() => window.__dataHealthRestoreFault?.writes > 0 && window.__dataHealthRestoreFault?.abortedReads > 0, null, { timeout: 5000 }).catch(() => fail('the restore fault injector did not abort the follow-up notes read'));
+await p.waitForFunction(() => window.__dataHealthRestoreFault?.writes > 0 && window.__dataHealthRestoreFault?.abortedReads > 0, null, { timeout: 5000 }).catch(async () => fail('the restore fault injector did not abort the follow-up notes read: ' + JSON.stringify(await p.evaluate(() => window.__dataHealthRestoreFault))));
 await p.getByRole('alert').filter({ hasText: 'Restore committed, but the check could not refresh' }).waitFor();
 if (await p.getByRole('button', { name: 'Restore' }).count()) fail('stale restore actions must be cleared after a committed restore with a failed refresh');
 if (await p.getByText('Nothing wrong found.').count()) fail('a stale check result must be cleared after a committed restore with a failed refresh');

@@ -425,3 +425,25 @@ Run #1306 (`43693150610`) tested head `ca75b50ed09ba0d23d237d93b8083fcc8e007237`
 - The player stop path now removes its source-error listener, clears the old source identity, removes the source and calls `load()` to reset the reusable media element. This prevents an old queued error/native MediaError from being mistaken for a later request when replaying the same meditation URL. The existing same-source retry and position-flush assertions remain enabled.
 
 Run #1306 concluded failure because browser shards 1/3 and 2/3 failed; the full-width sweep passed. The source fixes require a new full CI run on the pushed head. Cancelled or superseded runs are not passes. PR #11 remains open, draft, and unmerged.
+
+
+## Ninth audit checkpoint — CI #1307/#1308 regressions — 2026-11-15
+
+Both runs tested the same head, `e6e79bf69a7983bea80f89393ed754a12ce16a8d`.
+
+| Job | #1307 (`43697776463`) | #1308 (`43697780276`) |
+|---|---|---|
+| `fast` | Passed | Passed |
+| `secrets` | Passed | Passed |
+| `accounts` | Passed | Passed |
+| `browser (1/3)` | Failed: Data Health repair fault injector did not abort the follow-up notes read | Same failure |
+| `browser (2/3)` | Failed: synthetic source-error test timed out waiting for the Retry control | Same failure |
+| `browser (3/3)` | Passed all 17 checks | Passed all 17 checks |
+| `sweep-full` | Passed all 2,480 screens; 4,040 folds, 256 tab rows, 1,036 tabs, 45,728 first-party requests, zero failed clicks | Passed all 2,480 screens; 3,775 folds, 256 tab rows, 1,036 tabs, 45,715 first-party requests, zero failed clicks |
+
+### Follow-up corrections
+
+- The object-store `add`/`put` interception did not observe the Dexie write on every path. The Data Health test now arms after a committed read/write transaction whose scope includes `notes`, while still aborting the actual follow-up `getAll` or `openCursor` request (not the transaction at creation). Failure output includes the write/read/abort counters so any remaining harness mismatch is diagnosable.
+- The player cleared the error state on any `playing` event, even if a `MediaError` was already attached to the active audio element. A queued event from the previous load could therefore remove the Retry control after the current source error was reported. The listener now clears the error only when the audio element has no active error; the browser test explicitly dispatches a queued `playing` event and verifies Retry remains available.
+
+Both workflows concluded failure because browser shards 1/3 and 2/3 failed. The two browser failures are addressed in the next commit and require a fresh full CI run. PR #11 remains open, draft, and unmerged.
