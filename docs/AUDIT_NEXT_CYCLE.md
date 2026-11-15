@@ -378,7 +378,7 @@ Review immediately after commit `55e1ab9cd5fdb52d7a3e6578b24a446ec5702632` found
 
 ## Seventh audit checkpoint — CI #1302 browser regressions — 2026-11-15
 
-Run #1302 (`43689782266`) tested head `68ba48890484755c1082d0b630782893950448a6`.
+Run #1302 (`43689967257`) tested head `68ba48890484755c1082d0b630782893950448a6`.
 
 | Job | Result |
 |---|---|
@@ -397,3 +397,9 @@ Run #1302 (`43689782266`) tested head `68ba48890484755c1082d0b630782893950448a6`
 - A separate reference-conversion review confirmed that a direct reader link can be exact within a numbering tradition while its optional Vulgate anchor remains approximate; the source explicitly preserves this distinction. No code change was needed.
 
 PR #11 remains open, draft, and unmerged. Authored fixes require fresh CI verification.
+
+### Pre-run correction to the Media Controls source wait
+
+Before the next browser run began, source review caught that the new `startMeditate()` helper's metadata wait also applied to the intentional failed-stream scenario. A failed stream cannot provide metadata, so the helper now waits for an active `med:` source/generation in every case and waits for duration metadata only when `mode === 'ok'`. The regression's failure alert and Retry assertions remain required.
+
+The #1302 workflow run ID in the preceding table is corrected to `43689967257`.

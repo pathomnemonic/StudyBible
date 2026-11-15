@@ -29,8 +29,10 @@ const startMeditate = async () => {
   await p.waitForFunction((previous) => {
     const a = window.__a;
     return !!a && typeof a._playGeneration === 'number' && a._playGeneration !== previous &&
-      !!a._ep?.id?.startsWith('med:') && !!a.getAttribute('src') && a.duration > 50;
+      !!a._ep?.id?.startsWith('med:') && !!a.getAttribute('src');
   }, previousGeneration, { timeout: 15000 });
+  // A deliberate network failure will never provide metadata; healthy-stream cases must.
+  if (mode === 'ok') await p.waitForFunction(() => !!window.__a && window.__a.duration > 50, null, { timeout: 15000 });
 };
 
 // 1. pause keeps the player and the place; the pause button is named for what it does
