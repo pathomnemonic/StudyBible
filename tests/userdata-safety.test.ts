@@ -46,6 +46,14 @@ describe('your writing survives', () => {
     expect(await db.cache.where('key').startsWith('snap:').count()).toBeGreaterThan(1);
   });
 
+  it('counts changed highlights in backup status even though updatedAt is not indexed', async () => {
+    const { db } = await import('../src/db/db');
+    const safety = await import('../src/lib/safety');
+    await db.highlights.add({ ref: 'JHN.3.16', book: 'JHN', c: 3, color: 'yellow', createdAt: Date.now() } as never);
+    const status = await safety.backupStatus(false);
+    expect(status.changedSince).toBe(1);
+  });
+
   it('does not replace existing data when its required safety copy fails', async () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
