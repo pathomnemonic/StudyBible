@@ -21,7 +21,7 @@ export async function creditListening(episodeId: string, secs: number, patch: { 
     const done = patch.completed ?? old?.completed ?? false;
     const day = listeningDay(at);
     const ledger = { ...(old?.listeningDays ?? {}) };
-    const undatedHeard = old?.undatedHeard ?? (old?.heard !== undefined && !Object.keys(old.listeningDays ?? {}).length ? old.heard : undefined);
+    const undatedHeard = old?.undatedHeard ?? ((old?.heard ?? 0) > 0 && !Object.keys(old.listeningDays ?? {}).length ? old.heard : undefined);
     const undatedCompletions = old?.undatedCompletions ?? (old?.ranToEnd && !Object.keys(old.listeningDays ?? {}).length ? 1 : undefined);
     // Do not create empty day entries for ordinary position-only saves.
     if (secs > 0 || patch.ranToEnd) {
@@ -57,6 +57,10 @@ export function listeningStats(rows: Pick<EpisodeProgress, 'listeningDays'>[], y
 
 /** Older rows with cumulative seconds or a boolean completion cannot be assigned to a calendar year. */
 export function hasUndatedListening(rows: Pick<EpisodeProgress, 'heard' | 'ranToEnd' | 'listeningDays' | 'undatedHeard' | 'undatedCompletions'>[]): boolean {
-  return rows.some((r) => r.undatedHeard !== undefined || r.undatedCompletions !== undefined || ((r.heard !== undefined || r.ranToEnd) && !Object.keys(r.listeningDays ?? {}).length));
+  return rows.some((r) =>
+    (r.undatedHeard ?? 0) > 0 ||
+    (r.undatedCompletions ?? 0) > 0 ||
+    (((r.heard ?? 0) > 0 || r.ranToEnd === true) && !Object.keys(r.listeningDays ?? {}).length),
+  );
 }
 
