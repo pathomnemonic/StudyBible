@@ -54,6 +54,7 @@ const loadTracksCached = memoizePromise(async (): Promise<Track[]> => {
   const real = entries.filter(([p]) => !(p.split('/').pop() ?? '').startsWith('_'));
   // While developing with no real tracks yet, the sample file lets the pages be seen.
   const use = real.length || !import.meta.env.DEV ? real : entries;
+  if (!use.length) throw new Error('No apologetics track files were found; the track index is unavailable.');
   const all = await Promise.all(use.map(([, f]) => f()));
   if (all.some((t) => !t || typeof t.id !== 'string' || !Array.isArray(t.levels)))
     throw new Error('One or more apologetics track files are malformed; the track index is incomplete.');
