@@ -1,4 +1,5 @@
 import { getJson } from '../data/loader';
+import { memoizePromise } from './promiseCache';
 import { GLOSSARY } from '../data/glossary';
 import { loadChains } from '../chains/load';
 import { MODES, type Chain, type ChainMode } from '../chains/types';
@@ -47,17 +48,19 @@ export const INAPP_LABEL: Record<InappType, { label: string; icon: string }> = {
 
 /* ----------------------------------------------------------------- loading */
 const files = import.meta.glob('../data/apologetics/tracks/*.json', { import: 'default' }) as Record<string, () => Promise<Track>>;
-let cache: Promise<Track[]> | null = null;
-/** All tracks (files starting with "_" are samples and are skipped), in a stable order: group, then title. */
-export function loadTracks(): Promise<Track[]> {
+/** All tracks (files starting with "_" are samples and are skipped), in a stable order: group, then title. A failed chunk rejects and is retried next time. */
+const loadTracksCached = memoizePromise(async (): Promise<Track[]> => {
   const entries = Object.entries(files);
   const real = entries.filter(([p]) => !(p.split('/').pop() ?? '').startsWith('_'));
   // While developing with no real tracks yet, the sample file lets the pages be seen.
   const use = real.length || !import.meta.env.DEV ? real : entries;
-  cache ??= Promise.all(use.map(([, f]) => f().catch(() => null)))
-    .then((all) => (all.filter((t): t is Track => !!t && typeof t.id === 'string' && Array.isArray(t.levels)) as Track[])
-      .sort((a, b) => GROUPS.findIndex((g) => g.id === a.group) - GROUPS.findIndex((g) => g.id === b.group) || a.title.localeCompare(b.title)));
-  return cache;
+  const all = await Promise.all(use.map(([, f]) => f()));
+  if (all.some((t) => !t || typeof t.id !== 'string' || !Array.isArray(t.levels)))
+    throw new Error('One or more apologetics track files are malformed; the track index is incomplete.');
+  return all.sort((a, b) => GROUPS.findIndex((g) => g.id === a.group) - GROUPS.findIndex((g) => g.id === b.group) || a.title.localeCompare(b.title));
+});
+export function loadTracks(): Promise<Track[]> {
+  return loadTracksCached();
 }
 
 /* -------------------------------------------------------------- validation */
