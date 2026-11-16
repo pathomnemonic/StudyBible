@@ -63,13 +63,10 @@ describe('a collection item whose original was deleted', () => {
   it('bumps an existing stale live row past its newer tombstone and wakes sync', async () => {
     const { db, syncFlags } = await import('../src/db/db');
     const { restoreFromTrash } = await import('../src/lib/trash');
-    syncFlags.applying = true;
-    try {
+    { const q = await import('../src/db/db'); await q.quietly(q.quietTables(), async () => {
       await db.notes.add({ uid: 'stale-existing', kind: 'note', body: 'keep current content', targets: [], tags: [], createdAt: 1, updatedAt: 10 } as never);
       await db.tombs.add({ tbl: 'notes', uid: 'stale-existing', updatedAt: 50 });
-    } finally {
-      syncFlags.applying = false;
-    }
+    }); }
     const trashId = await db.trash.add({ tbl: 'notes', data: { uid: 'stale-existing', kind: 'note', body: 'older trashed content', targets: [], tags: [], createdAt: 1, updatedAt: 5 }, deletedAt: 50 });
     const notify = vi.fn();
     syncFlags.onLocalChange = notify;

@@ -10,7 +10,7 @@
 export type Row = Record<string, any>;
 
 /** fields that never count as a difference: identity, bookkeeping and values derived from others */
-const IGNORED = new Set(['id', 'uid', 'updatedAt', 'createdAt', 'history', 'chapterKeys']);
+const IGNORED = new Set(['id', 'uid', 'updatedAt', 'createdAt', 'history', 'chapterKeys', '_unsent']);
 
 /** fields where both devices' values can simply be joined */
 const UNION = new Set(['tags', 'refs']);
@@ -39,6 +39,8 @@ export interface Resolution {
   copy: Row | null;
   /** which fields differed (for tests and the status line) */
   differing: string[];
+  /** the merged record holds something the remote one did not (joined tags or references, a kept pin), so it has to be sent back */
+  joined: boolean;
 }
 
 export function resolveConflict(table: 'notes' | 'journal' | string, local: Row, remote: Row, now = Date.now()): Resolution {
@@ -57,14 +59,15 @@ export function resolveConflict(table: 'notes' | 'journal' | string, local: Row,
       lost[k] = local[k] ?? null;
     }
   }
-  if (!Object.keys(lost).length || (table !== 'notes' && table !== 'journal')) return { merged, copy: null, differing };
-  const { id: _id, uid, ...rest } = local;
+  const joined = differing.some((k) => (UNION.has(k) || OR.has(k)) && norm(merged[k]) !== norm(remote[k]));
+  if (!Object.keys(lost).length || (table !== 'notes' && table !== 'journal')) return { merged, copy: null, differing, joined };
+  const { id: _id, uid, _unsent: _u, ...rest } = local;
   const copy: Row = { ...rest, uid: conflictUid(String(uid), lost), updatedAt: now };
   if (table === 'notes') copy.title = `${local.title || 'Note'} (other version kept at sync)`;
   else copy.body = `(Other version kept at sync)\n\n${local.body ?? ''}`;
   // the copy is a plain note of its own: it is not pinned and does not claim the original's place in a folder
   delete copy.pinned;
-  return { merged, copy, differing };
+  return { merged, copy, differing, joined };
 }
 
 /** does a record hold anything worth keeping if the other device deleted it? (text, a title, tags, targets) */
