@@ -1,9 +1,11 @@
 /**
  * Offline liturgical calendar computation (Roman Rite, ordinary form).
  *
- * This gives the season, week, Sunday/weekday cycle and the principal movable days without any network access.
- * It does NOT know every local calendar: saints' days, national solemnities and local transfers come from the
- * LitCal service (see litcal.ts) when online. Results here are therefore labelled "computed" in the UI.
+ * This gives the season, week, Sunday/weekday cycle, the movable days, and the celebrations of the General Roman Calendar
+ * that change what a Sunday or a Friday is: the fixed-date solemnities, All Souls, and the feasts of the Lord, each with
+ * its transfer when a higher day falls on the same date (Universal Norms on the Liturgical Year and the Calendar, 5, 7,
+ * 13, 59, 60). It does NOT know every local calendar: memorials, other saints' feasts, national solemnities and local
+ * transfers come from the LitCal service (see litcal.ts) when online. Results here are labelled "computed" in the UI.
  */
 
 export type Season = 'advent' | 'christmas' | 'lent' | 'triduum' | 'easter' | 'ordinary';
@@ -97,13 +99,13 @@ const ord = (n: number) => {
 };
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-export function liturgicalDay(date: Date, variant: CalendarVariant = 'universal'): LiturgicalDay {
+/** The day by the seasons and the movable feasts alone (the Proper of Time). */
+function temporal(date: Date, variant: CalendarVariant): LiturgicalDay {
   const y = date.getUTCFullYear();
   const E = easter(y);
   const ash = addDays(E, -46);
   const pentecost = addDays(E, 49);
   const advent = adventStart(y);
-  const prevAdvent = adventStart(y - 1);
   const { baptism } = epiphanyBaptism(y, variant);
   const base = { date: iso(date), sundayCycle: sundayCycle(date), weekdayCycle: weekdayCycle(date) };
   const dn = DAYS[dow(date)];
@@ -113,14 +115,17 @@ export function liturgicalDay(date: Date, variant: CalendarVariant = 'universal'
   const xmas = utc(y, 12, 25);
   if (date >= xmas || date <= baptism) {
     const isBaptism = iso(date) === iso(baptism);
-    let name = `${dn} in the Christmas season`;
-    if (date.getUTCMonth() === 11 && date.getUTCDate() === 25) name = 'The Nativity of the Lord (Christmas)';
-    else if (date.getUTCMonth() === 0 && date.getUTCDate() === 1) name = 'Solemnity of Mary, the Holy Mother of God';
-    else if (iso(date) === iso(epiphanyBaptism(date.getUTCMonth() === 11 ? y + 1 : y, variant).epiphany)) name = 'The Epiphany of the Lord';
-    else if (isBaptism) name = 'The Baptism of the Lord';
-    else if (sun && date.getUTCMonth() === 11) name = 'Feast of the Holy Family';
+    const dec = date.getUTCMonth() === 11;
+    let name = `${dn} ${dec || date.getUTCDate() === 1 ? 'within the Octave of Christmas' : 'in the Christmas season'}`;
+    let rank: LiturgicalDay['rank'] = sun ? 'sunday' : 'weekday';
+    if (dec && date.getUTCDate() === 25) { name = 'The Nativity of the Lord (Christmas)'; rank = 'solemnity'; }
+    else if (!dec && date.getUTCDate() === 1) { name = 'Solemnity of Mary, the Holy Mother of God'; rank = 'solemnity'; }
+    else if (iso(date) === iso(epiphanyBaptism(dec ? y + 1 : y, variant).epiphany)) { name = 'The Epiphany of the Lord'; rank = 'solemnity'; }
+    else if (isBaptism) { name = 'The Baptism of the Lord'; rank = 'feast'; }
+    // the Sunday within the octave; when Christmas itself is a Sunday there is none, and the feast is kept on 30 December
+    else if (dec && (sun || (date.getUTCDate() === 30 && dow(xmas) === 0))) { name = 'The Holy Family of Jesus, Mary and Joseph'; rank = 'feast'; }
     else if (sun) name = 'Second Sunday after Christmas';
-    return { ...base, season: 'christmas', seasonName: 'Christmas', dayName: name, color: 'white', rank: sun || /Nativity|Mary|Epiphany|Baptism/.test(name) ? 'solemnity' : 'weekday' };
+    return { ...base, season: 'christmas', seasonName: 'Christmas', dayName: name, color: 'white', rank };
   }
   // Advent
   if (date >= advent) {
@@ -130,9 +135,10 @@ export function liturgicalDay(date: Date, variant: CalendarVariant = 'universal'
   }
   // Ordinary Time, first part: after Baptism (Mon) → before Ash Wednesday
   if (date > baptism && date < ash) {
-    const S = sundayOnOrBefore(date);
-    const wk = 1 + Math.floor(diffDays(S, baptism) / 7);
-    const w = iso(baptism) === iso(S) || wk === 1 ? 1 : wk;
+    // Week 1 begins the day after the Baptism of the Lord, whether that feast is a Sunday or (where the Epiphany is kept on
+    // 7 or 8 January) a Monday; the Sunday that follows is always the Second Sunday in Ordinary Time.
+    const secondSunday = addDays(baptism, 7 - dow(baptism));
+    const w = date < secondSunday ? 1 : 2 + Math.floor(diffDays(sundayOnOrBefore(date), secondSunday) / 7);
     return { ...base, season: 'ordinary', seasonName: 'Ordinary Time', week: w, dayName: sun ? `${ord(w)} Sunday in Ordinary Time` : `${dn} of the ${ord(w)} week in Ordinary Time`, color: 'green', rank: sun ? 'sunday' : 'weekday' };
   }
   // Lent
@@ -178,14 +184,70 @@ export function liturgicalDay(date: Date, variant: CalendarVariant = 'universal'
   const wk = 34 - Math.round(diffDays(week34Sunday, S) / 7);
   let name = sun ? `${ord(wk)} Sunday in Ordinary Time` : `${dn} of the ${ord(wk)} week in Ordinary Time`;
   let rank: LiturgicalDay['rank'] = sun ? 'sunday' : 'weekday';
+  let color: Color = 'green';
   const since = diffDays(date, pentecost);
-  const corpus = variant === 'usa' ? 63 : 60;
-  if (since === 7) { name = 'The Most Holy Trinity'; rank = 'solemnity'; }
-  else if (since === corpus) { name = 'The Most Holy Body and Blood of Christ (Corpus Christi)'; rank = 'solemnity'; }
-  else if (since === 19) { name = 'The Most Sacred Heart of Jesus'; rank = 'solemnity'; }
-  else if (sun && wk === 34) { name = 'Our Lord Jesus Christ, King of the Universe'; rank = 'solemnity'; }
-  void prevAdvent;
-  return { ...base, season: 'ordinary', seasonName: 'Ordinary Time', week: wk, dayName: name, color: 'green', rank };
+  // counted from Pentecost: Trinity the Sunday after; Corpus Christi the Thursday after that (or the next Sunday); the Sacred Heart the Friday after the second Sunday
+  const corpus = variant === 'usa' ? 14 : 11;
+  if (since === 7) { name = 'The Most Holy Trinity'; rank = 'solemnity'; color = 'white'; }
+  else if (since === corpus) { name = 'The Most Holy Body and Blood of Christ (Corpus Christi)'; rank = 'solemnity'; color = 'white'; }
+  else if (since === 19) { name = 'The Most Sacred Heart of Jesus'; rank = 'solemnity'; color = 'white'; }
+  else if (sun && wk === 34) { name = 'Our Lord Jesus Christ, King of the Universe'; rank = 'solemnity'; color = 'white'; }
+  return { ...base, season: 'ordinary', seasonName: 'Ordinary Time', week: wk, dayName: name, color, rank };
+}
+
+/** A celebration with a fixed date that outranks an ordinary Sunday. */
+interface Fixed { m: number; d: number; name: string; rank: 'solemnity' | 'feast'; color: Color }
+const FIXED: Fixed[] = [
+  { m: 2, d: 2, name: 'The Presentation of the Lord', rank: 'feast', color: 'white' },
+  { m: 3, d: 19, name: 'Saint Joseph, Spouse of the Blessed Virgin Mary', rank: 'solemnity', color: 'white' },
+  { m: 3, d: 25, name: 'The Annunciation of the Lord', rank: 'solemnity', color: 'white' },
+  { m: 6, d: 24, name: 'The Nativity of Saint John the Baptist', rank: 'solemnity', color: 'white' },
+  { m: 6, d: 29, name: 'Saints Peter and Paul, Apostles', rank: 'solemnity', color: 'red' },
+  { m: 8, d: 6, name: 'The Transfiguration of the Lord', rank: 'feast', color: 'white' },
+  { m: 8, d: 15, name: 'The Assumption of the Blessed Virgin Mary', rank: 'solemnity', color: 'white' },
+  { m: 9, d: 14, name: 'The Exaltation of the Holy Cross', rank: 'feast', color: 'red' },
+  { m: 11, d: 1, name: 'All Saints', rank: 'solemnity', color: 'white' },
+  { m: 11, d: 2, name: 'The Commemoration of All the Faithful Departed (All Souls)', rank: 'solemnity', color: 'violet' },
+  { m: 11, d: 9, name: 'The Dedication of the Lateran Basilica', rank: 'feast', color: 'white' },
+  { m: 12, d: 8, name: 'The Immaculate Conception of the Blessed Virgin Mary', rank: 'solemnity', color: 'white' },
+];
+
+/**
+ * The date a fixed solemnity is actually kept in a year.
+ *  - A Sunday of Advent, Lent or Easter outranks it: it moves to the Monday (Norms 5, 60).
+ *  - Saint Joseph falling on Palm Sunday or in Holy Week is kept on the Saturday before Palm Sunday; the Annunciation falling
+ *    in Holy Week or the Easter octave is kept on the Monday after the Second Sunday of Easter (Norms 60, as amended).
+ *  - Meeting a movable solemnity of the Lord, it gives way: the Birth of John the Baptist meeting the Sacred Heart is kept the
+ *    day before, 23 June (as the Holy See directed in 2022); any other such meeting moves it to the next day.
+ * Solemnities on a Sunday in Ordinary Time, and feasts of the Lord, stay where they are and replace that Sunday.
+ */
+export function fixedDate(f: { m: number; d: number }, year: number, variant: CalendarVariant = 'universal'): Date {
+  const date = utc(year, f.m, f.d);
+  const E = easter(year);
+  if (f.m === 3 && f.d === 19 && date >= addDays(E, -7)) return addDays(E, -8);
+  if (f.m === 3 && f.d === 25 && date >= addDays(E, -7)) return addDays(E, 8); // the latest date for either is before any later season
+  const t = temporal(date, variant);
+  if (dow(date) === 0 && (t.season === 'advent' || t.season === 'lent' || t.season === 'easter')) return addDays(date, 1);
+  if (t.rank === 'solemnity' && t.season === 'ordinary') return f.m === 6 && f.d === 24 && /Sacred Heart/.test(t.dayName) ? addDays(date, -1) : addDays(date, 1);
+  return date;
+}
+
+/** The fixed celebration kept on this date, if any (after transfers). */
+function fixedOn(date: Date, variant: CalendarVariant): Fixed | null {
+  const y = date.getUTCFullYear();
+  const key = iso(date);
+  for (const f of FIXED) if (iso(f.rank === 'solemnity' && !(f.m === 11 && f.d === 2) ? fixedDate(f, y, variant) : utc(y, f.m, f.d)) === key) return f;
+  return null;
+}
+
+export function liturgicalDay(date: Date, variant: CalendarVariant = 'universal'): LiturgicalDay {
+  const t = temporal(date, variant);
+  const f = fixedOn(date, variant);
+  if (!f) return t;
+  // a transferred solemnity always lands on a free day; a feast of the Lord yields to anything the seasons rank as a solemnity
+  if (f.rank === 'feast' && (t.rank === 'solemnity' || t.rank === 'triduum' || t.season !== 'ordinary')) return t;
+  if (f.m === 11 && f.d === 2 && t.rank === 'solemnity') return t;
+  return { ...t, dayName: f.name, rank: f.rank, color: f.color };
 }
 
 export const COLOR_NAME: Record<Color, string> = { green: 'Green', violet: 'Violet', white: 'White', red: 'Red', rose: 'Rose' };

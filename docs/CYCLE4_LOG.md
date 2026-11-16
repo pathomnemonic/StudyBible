@@ -29,3 +29,35 @@ Left alone, on purpose:
 - The server silently passes over a push older than its own copy, and caps a far-future client time. With per-row monotonic times this no longer loses a later local edit, but a device whose clock is far *behind* a second device's still loses a race it should win; fixing that needs server-assigned versions (a protocol change).
 - Which rows of a batch the server refused is not reported, so a batch with one refusal is resent whole. Needs a protocol change.
 - `episodeProgress` is last-writer-wins per episode across devices; listening totals from two devices in the same period are not added.
+
+## 2. The two browser checks recorded as failing in the last cycle
+
+Both were reproduced first (after pointing the pinned Playwright at the browser installed in this container).
+
+**`e2e/datahealth.mjs`.** Cause confirmed as the previous record suspected, and then fixed at both ends rather than chosen between:
+- The injected fault aborted "the next read of the notes store". After a repair, two things re-read it: the Data Health re-scan and the live queries elsewhere on the page. Whichever came first took the fault; when it was a live query, `dexie-react-hooks` threw during render and the page became "This page did not load".
+- Product change 1: the re-scan now reads its six tables in **one read transaction** (`src/pages/library/DataHealth.tsx`). That is the right behaviour in itself (a collection and the note it points at are compared as they were at the same instant, so a sync landing between two reads cannot be reported as a broken link), and it gives the scan a shape nothing else on the page has, which the test now uses to aim the fault.
+- Product change 2: `src/lib/live.ts` wraps `useLiveQuery` so a failed read is tried once more at once; a second failure is thrown as before. All 69 call sites import it. `tests/liveRetry.test.ts` shows the retry works, that the live query still observes later changes after a retry, and that without it one aborted read ends the query.
+- Test change: the fault targets the scan transaction; the second half of the test used an unscoped "Restore" button that also matched the Recently-deleted list on the same tab (a strict-mode failure that had never been reached because the first half always failed). It is scoped to the health card. Nothing was loosened. Three consecutive passes.
+
+**`e2e/mediacontrols.mjs` step 10 (offline notice).** The product was right. Step 9, added later, leaves the page on the programmes tab; step 10 then waited 20 s for a meditation button that is not on that tab, fell into its `catch`, and only changed tab without pressing play. No playback, so no notice. The step now opens the list while online, goes offline, presses play, and requires both the player and the notice. Passes.
+
+## 3. The offline liturgical calendar was wrong on several days of the year
+
+Files: `src/liturgy/compute.ts`, `src/liturgy/discipline.ts`. Tests: `tests/liturgy-calendar.test.ts` (new; dates checked against printed calendars for 2008, 2016, 2022 to 2029, plus whole-range properties for 2000 to 2100 in both calendars).
+
+Found by reading the computation against the Universal Norms on the Liturgical Year and the Calendar. The existing tests covered Easter, Advent and a handful of names; none of the following.
+
+| # | What the app showed | What is right | Cause |
+|---|---|---|---|
+| L1 | **Corpus Christi about seven weeks late** (2026: Thursday 23 July; U.S. Sunday 26 July) and an ordinary green weekday on the real day | Thursday after Trinity Sunday (4 June 2026), or the following Sunday where transferred | The offset from Easter (60/63 days) was compared with a count of days from Pentecost |
+| L2 | United States, years when the Epiphany is 7 or 8 January (2018, 2023, 2024, 2029, 2030…): "Tuesday of the  week in Ordinary Time" (week 0, empty ordinal), then every Sunday before Lent one too low ("First Sunday" on the Second) | Week 1 starts the day after the Monday Baptism; the next Sunday is the Second | Week counted from the Sunday on or before the Baptism |
+| L3 | 15 August: "Friday of the 19th week in Ordinary Time". Likewise St Joseph, the Annunciation, the Birth of John the Baptist, Sts Peter and Paul, All Saints, All Souls, the Immaculate Conception; and the Presentation, Transfiguration, Exaltation of the Cross and Lateran Basilica when they replace a Sunday | Named, ranked and coloured, with transfers (Sunday of Advent or Lent: Monday; St Joseph in Holy Week: Saturday before Palm Sunday; the Annunciation in Holy Week or the Easter octave: Monday after the Second Sunday of Easter; the Baptist meeting the Sacred Heart: 23 June) | Not computed offline at all |
+| L4 | "Friday of Lent: abstain from meat" on **Friday 19 March 2027** (St Joseph), and "Friday: a day of penance" on any solemnity falling on a Friday | Canon 1251: no Friday penance on a solemnity | Follows from L3 |
+| L5 | No Friday penance on any Friday from Christmas to the Baptism of the Lord | Only solemnities lift it; the days of the Christmas octave are not solemnities | Whole season exempted |
+| L6 | Holy Family missing when Christmas is a Sunday (30 December 2022, 2033) | Kept on 30 December | Only a Sunday was looked for |
+| L7 | Trinity, Corpus Christi, the Sacred Heart and Christ the King in green | White | Colour not set |
+| L8 | Holy Family and the Baptism of the Lord ranked as solemnities | Feasts | — |
+| L9 | United States: "Holy day of obligation: The Ascension. Mass is required today" on the Thursday, while the same calendar keeps the Ascension on the Sunday | The Thursday binds only in the provinces of Boston, Hartford, New York, Newark, Omaha and Philadelphia; the card now says "in some places" and names them | Two modules disagreed |
+
+Limits, stated in the file header: memorials, the other saints' feasts and local calendars still come from the LitCal service when online. Two meetings that have no published ruling I could cite are resolved by the general rule (move to the next day): Sts Peter and Paul with the Sacred Heart (next in 2057) and the Baptist with Corpus Christi on a Thursday (2038). The U.S. question of whether the obligation follows the Immaculate Conception to Monday 9 December was left exactly as it was.
