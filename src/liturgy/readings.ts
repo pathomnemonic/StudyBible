@@ -1,5 +1,5 @@
 import { db } from '../db/db';
-import { parseRefs, type Ref } from '../lib/refs';
+import { HEBREW_CHAPTERS, parseRefs, refId, type Ref } from '../lib/refs';
 import { chapterToAnchorRefs, convertRef } from '../lib/versification';
 import { litDay, type LitEvent } from './litcal';
 import { getJson } from '../data/loader';
@@ -34,22 +34,74 @@ export interface DayReadings {
   events: LitEvent[];
 }
 
+/**
+ * The Greek additions to Esther are lettered A to F in the Lectionary's Bible; the Vulgate anchor keeps them as 10:4 to 16:24.
+ * The verse divisions inside each addition differ, so a lettered citation opens the matching Vulgate section whole.
+ */
+const ESTHER_ADDITION = (letter: string, verse: number): Ref | null => {
+  const R = (c1: number, v1: number, c2: number, v2: number): Ref => ({ book: 'EST', c1, v1, c2, v2 });
+  switch (letter.toUpperCase()) {
+    case 'A': return R(11, 2, 12, 6);
+    case 'B': return R(13, 1, 13, 7);
+    case 'C': return verse <= 11 ? R(13, 8, 13, 18) : R(14, 1, 14, 19);
+    case 'D': return R(15, 1, 15, 19);
+    case 'E': return R(16, 1, 16, 24);
+    case 'F': return R(10, 4, 11, 1);
+    default: return null;
+  }
+};
+
+/**
+ * A citation as the published reading lists print it, made readable for the reference parser:
+ * "Cf. Mark 9:7", "Psalm 1:1-2, 3, 4 and 6", "Psalm 138:1-2ab, 2cde-3, 7c-8", "Luke 2:22-40 or 2:22-32", "Acts 17:15, 22—18:1",
+ * "Psalm 128:1-2, 3, 4-5.". Each of these used to be refused, so the reading had no link to the text at all.
+ */
+export function cleanCitation(piece: string): string {
+  return piece
+    .replace(/^\s*(?:cf\.?|see)\s+/i, '')
+    .replace(/\s+or\s+.*$/i, '') // a shorter form offered as an alternative: the longer one comes first
+    .replace(/\([^)]*\)/g, '') // "(1)" after a psalm (its refrain verse), "(cited in Luke 4:18)"
+    .replace(/(\d)[a-z]+\b/gi, '$1') // parts of a verse: 2cde, 7c, 16bc, 15AB
+    .replace(/\s+and\s+|\s*&\s*/gi, ', ')
+    .replace(/\s*[–—]\s*/g, '-')
+    .replace(/[.\s]+$/, '')
+    .trim();
+}
+
 /** Lectionary references use the Lectionary's (NABRE/Hebrew-tradition) numbering; Psalms are opened by whole psalm. */
-function toItem(slot: Slot, text: string): ReadingItem {
+export function toItem(slot: Slot, text: string): ReadingItem {
   const refs: Ref[] = [];
   let approximate = false;
   let note: string | undefined;
   for (const piece of text.split('|')) {
-    const p = parseRefs(piece.replace(/(\d)[a-d]+\b/g, '$1').replace(/\s*[–—]\s*/g, '-').replace(/\(\d+\)/g, ''));
+    const est = /^\s*Esther\s+([A-F]):(\d+)/i.exec(piece);
+    if (est) {
+      const r = ESTHER_ADDITION(est[1], +est[2]);
+      if (r) { refs.push(r); approximate = true; note = 'The Greek additions to Esther are divided differently in the Vulgate; the whole matching section is opened.'; }
+      continue;
+    }
+    const cleaned = cleanCitation(piece);
+    let p = parseRefs(cleaned, { chapters: HEBREW_CHAPTERS });
+    // a book name misspelt in the published list ("Phippians", "Sirarch"): accept the one book it can only be
+    if (!p.ok && p.suggestions.length) {
+      const m = /^((?:[1-4]\s*)?[a-z][a-z ]*?)\s*(\d.*)$/i.exec(cleaned);
+      const fixed = m && m[1].replace(/\s+/g, '').length >= 5 ? parseRefs(`${p.suggestions[0]} ${m[2]}`, { chapters: HEBREW_CHAPTERS }) : null;
+      if (fixed?.ok) p = fixed;
+    }
     if (!p.ok) continue;
     for (const { ref } of p.refs) {
       if (ref.book === 'PSA') {
         // Psalm verse numbers differ between the Lectionary and the Vulgate; open the whole psalm in the anchor.
-        for (let c = ref.c1; c <= ref.c2; c++) refs.push(...chapterToAnchorRefs('kjv', 'PSA', c).map((x) => x.ref));
+        // Where one psalm of the Lectionary is two in the Vulgate (116 is 114 and 115, 147 is 146 and 147), the cited verses say which.
+        const add = (r: Ref) => { if (!refs.some((x) => refId(x) === refId(r))) refs.push(r); };
+        if (ref.v1 !== undefined && ref.c1 === ref.c2) { const m = convertRef('nabre', 'vulgate', ref).ref; for (let c = m.c1; c <= m.c2; c++) add({ book: 'PSA', c1: c, c2: c }); }
+        else for (let c = ref.c1; c <= ref.c2; c++) for (const x of chapterToAnchorRefs('nabre', 'PSA', c)) add(x.ref.v1 === undefined ? x.ref : { book: 'PSA', c1: x.ref.c1, c2: x.ref.c2 });
         approximate = true;
         note = 'Psalm numbering differs (Vulgate/Douay vs. Lectionary); the whole psalm is opened.';
       } else {
-        const c = convertRef('kjv', 'vulgate', ref);
+        // The Lectionary cites the NABRE, which follows the Hebrew numbering: Isaiah 9:1-6 there is 9:2-7 in the Vulgate,
+        // Malachi 3:19-20 is 4:1-2, Joel 3:1-5 is 2:28-32. Reading these as English (KJV) numbers opened the wrong verses.
+        const c = convertRef('nabre', 'vulgate', ref);
         refs.push(c.ref);
         if (!c.exact) approximate = true;
       }

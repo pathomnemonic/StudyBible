@@ -73,3 +73,20 @@ Files: `src/liturgy/missaEF.ts`. Tests: `tests/missa.test.ts` (4 new, one over e
 | E3 | The page of a resumed Sunday showed "Only the Latin text is in the source" for the prayers and readings, because the source lists these days by name only and the fallback to the Epiphany Sunday could never be reached. | The Collect, Epistle, Gospel, Secret and Postcommunion are those of the Sunday after Epiphany; the Introit, Gradual, Offertory and Communion are those of the 23rd Sunday after Pentecost. `resumedSunday()` composes exactly that from texts already in the app. The source's own copy of the chants on those days is identical to the 23rd Sunday's, which the test asserts. |
 
 No data file was changed.
+
+## 5. Mass readings: citations were read in the wrong numbering, and one form in ten was refused
+
+Files: `src/liturgy/readings.ts`, `src/lib/refs.ts`. Tests: `tests/lectionary-citations.test.ts` (21 new, one of them over every reading shipped for 2026 to 2028).
+
+| # | Fault | Example | Fix |
+|---|---|---|---|
+| R1 | The Lectionary cites the NABRE, which follows the Hebrew numbering. Citations were converted as if they were English (KJV) numbers, although a verified `nabre` table has been in the app since the NABRE was added. The result was marked exact. | Christmas, Mass during the Night, "Isaiah 9:1-6" opened 9:1-6 in the Vulgate (one verse early, losing "the zeal of the Lord of hosts"); "Malachi 3:19-20" pointed at verses the Vulgate does not have; "Joel 3:1-5" (Pentecost Vigil) opened the wrong chapter. Eight chapters used by the Lectionary were affected. | Converted with the `nabre` table. |
+| R2 | The reference parser refused the forms the published lists actually use, and a refused citation was silently dropped: 215 citation forms over three years. | "Psalm 1:1-2, 3, 4 and 6", "Psalm 138:1-2ab, 2cde-3, 7c-8", "Cf. Mark 9:7", "Luke 2:22-40 or 2:22-32", a trailing full stop, "Acts 17:15, 22—18:1", "Esther C:12, 14-16, 23-25" | `cleanCitation()` normalises them; the lettered additions to Esther open the matching Vulgate section (marked approximate). |
+| R3 | In a list, "30–19:3" after a chapter was read as chapters 30 to 19, an impossible range, and the whole reference was refused. This is in the shared parser, so it also affected references typed by the reader. | "2 Samuel 18:9-10, 14b, 24-25a, 30–19:3" | Continues from verse 30 of the chapter already named. A leading "1-2:3" is still a chapter range. |
+| R4 | The parser limited chapters to the Vulgate's count, so "Joel 4" was refused although the caller, not the parser, decides the numbering. | "Joel 4:12-21" | Callers that know the text is in Hebrew numbering say so (`HEBREW_CHAPTERS`). |
+| R5 | A responsorial psalm from a psalm that is two psalms in the Vulgate opened both. | "Psalm 116:12-13…" opened 114 and 115 | The cited verses decide (here 115). |
+| R6 | A book name misspelt in the published list left the reading without a link. | "Phippians", "Sirarch", "2 Ttimothy" | Read as the one book it can be. |
+
+After the change, 2,458 of 2,493 readings have a link. The 35 that do not are 33 stray `">` entries in the list itself (a gospel acclamation the source page did not cite) and two entries too garbled to read safely ("Psalm 23: 1-3a, 3b4, 5, 6", "Jonah 1:1–2:1-2, 11"); the test pins exactly that set. The data files were not edited.
+
+Not solved here: chapters the numbering tables list as "unverified" stay marked approximate (John 6, Mark 4, 8 and 9, Matthew 17, several chapters of Acts). See section 6.

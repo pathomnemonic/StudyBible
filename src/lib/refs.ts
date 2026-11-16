@@ -194,7 +194,14 @@ const SEP = /[:.]/; // "3:16" or "3.16"
  * `ps23`, `jn6.51-58`, or a list `Jn 6:51-58; 1 Cor 11:23-26, 29`.
  * Numbers are returned exactly as typed; the caller decides which numbering scheme applies.
  */
-export function parseRefs(input: string): ParseResult {
+export interface ParseOptions {
+  /** Chapters a book has in the numbering the text was written in, where that is more than the Vulgate's (Joel has four chapters in the Hebrew numbering, three in the Vulgate). */
+  chapters?: Record<string, number>;
+}
+/** Hebrew-tradition editions (the NABRE, and so the Lectionary) divide Joel into four chapters. */
+export const HEBREW_CHAPTERS: Record<string, number> = { JOL: 4 };
+
+export function parseRefs(input: string, opts: ParseOptions = {}): ParseResult {
   const text = input.trim().replace(/[–—]/g, '-').replace(/\s+/g, ' ');
   if (!text) return { ok: false, error: 'Empty reference', suggestions: [] };
   const parts = text.split(/\s*;\s*/);
@@ -218,15 +225,16 @@ export function parseRefs(input: string): ParseResult {
       return { ok: false, error: `Unrecognised book: “${bookText || part}”`, suggestions: suggestBooks(bookText || part) };
     }
     lastBook = book;
-    const parsed = parseTail(book, tail);
+    const parsed = parseTail(book, tail, opts.chapters?.[book]);
     if (typeof parsed === 'string') return { ok: false, error: parsed, suggestions: [] };
     for (const r of parsed) refs.push({ ref: r, bookText });
   }
   return { ok: true, refs };
 }
 
-function parseTail(book: string, tailIn: string): Ref[] | string {
+function parseTail(book: string, tailIn: string, chaptersHere?: number): Ref[] | string {
   const b = getBook(book);
+  const limit = Math.max(b.chapters, chaptersHere ?? 0);
   const tail = tailIn.replace(/\s+/g, '');
   if (!tail) return [{ book, c1: 1, c2: b.chapters }];
   const segs = tail.split(',').filter(Boolean);
@@ -240,7 +248,10 @@ function parseTail(book: string, tailIn: string): Ref[] | string {
       out.push({ book, c1: +m[1], v1: +m[2], c2: +m[3], v2: +m[4] });
       curChapter = +m[3];
     } else if ((m = /^(\d+)-(\d+)[:.](\d+)$/.exec(seg))) {
-      out.push({ book, c1: +m[1], c2: +m[2], v2: +m[3] });
+      // after a chapter has been named, "30-19:3" continues from verse 30 of that chapter into the next ("2 Sam 18:9-10, 30-19:3");
+      // read as chapters 30 to 19 it would be an impossible range and the whole reference was refused
+      if (curChapter !== null && i > 0 && +m[2] > curChapter) out.push({ book, c1: curChapter, v1: +m[1], c2: +m[2], v2: +m[3] });
+      else out.push({ book, c1: +m[1], c2: +m[2], v2: +m[3] });
       curChapter = +m[2];
     } else if ((m = new RegExp(`^(\\d+)${SEP.source}(\\d+)-(\\d+)$`).exec(seg))) {
       out.push({ book, c1: +m[1], v1: +m[2], c2: +m[1], v2: +m[3] });
@@ -265,7 +276,7 @@ function parseTail(book: string, tailIn: string): Ref[] | string {
     }
   }
   for (const r of out) {
-    if (r.c1 < 1 || r.c2 < r.c1 || r.c2 > b.chapters) {
+    if (r.c1 < 1 || r.c2 < r.c1 || r.c2 > limit) {
       return `${b.name} has ${b.chapters} chapter${b.chapters === 1 ? '' : 's'} (in the Vulgate numbering).`;
     }
   }
