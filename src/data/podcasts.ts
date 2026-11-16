@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import { getJson } from './loader';
 import type { BiayEpisode } from './content';

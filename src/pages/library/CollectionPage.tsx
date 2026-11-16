@@ -4,7 +4,7 @@ import { beginSave } from '../../lib/dirty';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { parseTags, planDaysFromCollection } from '../../lib/collectionsView';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db, newUid, type Collection, type Target } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';
 import { useSettings } from '../../lib/store';

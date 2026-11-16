@@ -2,7 +2,7 @@ import { ShowWorks } from '../../components/WorkPodcasts';
 import SaveOffline from '../../components/SaveOffline';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { fmtDuration } from '../../data/biay';
 import { rememberEpisode, usePlayer } from '../../data/PlayerContext';

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import FinePrint from '../../components/FinePrint';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { useSettings, updateSettings } from '../../lib/store';
 import { getExtras, getFeatured, withPassageVideos, type Extras } from '../../curriculum/extras';

@@ -1,7 +1,7 @@
 import { beginSave } from '../../lib/dirty';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db, type JournalEntry } from '../../db/db';
 import { renderMarkdown } from '../../lib/markdown';
 import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';

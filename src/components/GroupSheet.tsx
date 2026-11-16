@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import { rangesOverlap } from '../db/ops';
 import { parseRefId, formatRef, type Ref } from '../lib/refs';

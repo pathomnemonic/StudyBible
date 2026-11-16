@@ -3,7 +3,7 @@ import { logHistory } from '../db/log';
 import { pageTitle } from '../lib/brand';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { useEditions } from '../data/EditionsContext';
 import { getBookText } from '../data/loader';
 import type { BookData } from '../lib/types';

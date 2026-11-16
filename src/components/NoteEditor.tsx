@@ -5,7 +5,7 @@ import Modal from './Modal';
 import { db, type Note, type NoteKind, type Target } from '../db/db';
 import { saveNote } from '../db/ops';
 import { renderMarkdown } from '../lib/markdown';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { formatRef, parseRefId, parseRefs } from '../lib/refs';
 import { refId } from '../lib/refs';
 import { completeLink, openLinkAt, suggestNotes } from '../lib/noteLinks';

@@ -1,7 +1,7 @@
 import { beginSave } from '../../lib/dirty';
 import { useEffect, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';
 import { useSettings } from '../../lib/store';

@@ -1,4 +1,4 @@
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db, type UserBook } from '../db/db';
 import type { LibraryWorkMeta } from './content';
 import { readBookFile } from '../lib/importBook';

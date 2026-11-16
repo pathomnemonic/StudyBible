@@ -1,6 +1,6 @@
 import { beginSave } from '../lib/dirty';
 import { useEffect, useState } from 'react';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 
 /** The teacher's own notes on a lesson: what to change, what worked, what to add. Kept as an ordinary note (tagged with the lesson), so it is saved, backed up and synced with everything else. */

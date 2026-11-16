@@ -1,4 +1,4 @@
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import type { LiveView } from '../live/types';
 import { DEFAULT_CATEGORIES, DEFAULT_SCALE, matchStudent, today, uid, type ClassDoc, type ClassWork, type Mark, type SessionResult, type Student } from './model';

@@ -1,4 +1,4 @@
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from './live';
 import { db } from '../db/db';
 
 const norm = (q: string) => q.trim().toLowerCase().replace(/\s+/g, ' ');

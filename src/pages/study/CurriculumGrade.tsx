@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { getGrade, getGlossary, gradeLabel, progressId, type Glossary, type GradeData } from '../../curriculum/model';
 import { starsOf, xpId } from '../../curriculum/LessonPlay';

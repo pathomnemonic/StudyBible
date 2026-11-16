@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import { resolveEpisode, usePlayer } from '../data/PlayerContext';
 import type { BiayEpisode, EpisodeChapter } from '../data/content';

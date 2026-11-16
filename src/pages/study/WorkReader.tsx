@@ -2,7 +2,7 @@ import AddToCollection from '../../components/AddToCollection';
 import { logHistory } from '../../db/log';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { getLibraryIndex, getWork, type LibraryWorkMeta } from '../../data/content';
 import { db, type HighlightColor, type Note } from '../../db/db';
 import { saveNote } from '../../db/ops';

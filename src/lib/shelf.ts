@@ -1,4 +1,4 @@
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from './live';
 import { db, type LibraryProgress, type ShelfStatus } from '../db/db';
 
 export const STATUS_LABEL: Record<ShelfStatus | 'none', string> = {

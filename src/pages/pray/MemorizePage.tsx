@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { latestRequest } from '../../lib/latestRequest';
 import { Tip } from '../../components/Hints';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db, type MemoryCard } from '../../db/db';
 import { useSettings } from '../../lib/store';
 import { useEditions } from '../../data/EditionsContext';
