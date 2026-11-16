@@ -61,3 +61,15 @@ Found by reading the computation against the Universal Norms on the Liturgical Y
 | L9 | United States: "Holy day of obligation: The Ascension. Mass is required today" on the Thursday, while the same calendar keeps the Ascension on the Sunday | The Thursday binds only in the provinces of Boston, Hartford, New York, Newark, Omaha and Philadelphia; the card now says "in some places" and names them | Two modules disagreed |
 
 Limits, stated in the file header: memorials, the other saints' feasts and local calendars still come from the LitCal service when online. Two meetings that have no published ruling I could cite are resolved by the general rule (move to the next day): Sts Peter and Paul with the Sacred Heart (next in 2057) and the Baptist with Corpus Christi on a Thursday (2038). The U.S. question of whether the obligation follows the Immaculate Conception to Monday 9 December was left exactly as it was.
+
+## 4. Extraordinary Form (1962): the Sundays between the 23rd and the last after Pentecost
+
+Files: `src/liturgy/missaEF.ts`. Tests: `tests/missa.test.ts` (4 new, one over every year 1962 to 2100).
+
+| # | What the app did | What the 1960 Code of Rubrics (no. 18) says |
+|---|---|---|
+| E1 | In a year with more than 24 Sundays after Pentecost, the 24th Sunday got the Mass of the *Last* Sunday (Matthew 24), which was then said again on the real last Sunday. 8 November 2026 was such a day. | The Mass of the 24th is said only on the last Sunday. |
+| E2 | The remaining extra Sundays were counted forward from the first Epiphany Sunday that had been omitted (15 November 2026: the Fourth after Epiphany). | They are counted back from the end: the last extra Sunday is always the Sixth after Epiphany (15 November 2026: the Sixth). |
+| E3 | The page of a resumed Sunday showed "Only the Latin text is in the source" for the prayers and readings, because the source lists these days by name only and the fallback to the Epiphany Sunday could never be reached. | The Collect, Epistle, Gospel, Secret and Postcommunion are those of the Sunday after Epiphany; the Introit, Gradual, Offertory and Communion are those of the 23rd Sunday after Pentecost. `resumedSunday()` composes exactly that from texts already in the app. The source's own copy of the chants on those days is identical to the 23rd Sunday's, which the test asserts. |
+
+No data file was changed.

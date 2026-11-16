@@ -37,12 +37,13 @@ export function temporaKey(d: Date): { key: string; sunday: string; epiSundays: 
     const w = Math.floor(utcDays(d, pent) / 7);
     const lastSunday = addDays(adv, -7);
     const wLast = Math.floor(utcDays(lastSunday, pent) / 7);
-    let wk = w;
-    let epiExtra = -1;
-    if (w === wLast) wk = 24;
-    else if (w > 24) { epiExtra = w - 25; wk = 25; }
-    if (wk === 25) { const k = `PentEpi${epiSundays + 1 + epiExtra}-${dow}`; return { key: k, sunday: `PentEpi${epiSundays + 1 + epiExtra}-0`, epiSundays }; }
-    const ww = String(wk).padStart(2, '0');
+    // The Mass of the 24th Sunday is always said on the last Sunday before Advent. When there are more than 24 Sundays, the ones
+    // between the 23rd and the last take the Masses of the Sundays after Epiphany that had no room in January and February,
+    // counted back from the end (Code of Rubrics, 1960, no. 18): with 25 Sundays the 24th is the Sixth after Epiphany; with 26,
+    // the Fifth and Sixth; with 27, the Fourth, Fifth and Sixth; with 28, the Third to the Sixth.
+    if (w === wLast) return { key: `Pent24-${dow}`, sunday: 'Pent24-0', epiSundays };
+    if (w >= 24) { const e = 6 - (wLast - 1 - w); return { key: `PentEpi${e}-${dow}`, sunday: `PentEpi${e}-0`, epiSundays }; }
+    const ww = String(w).padStart(2, '0');
     return { key: `Pent${ww}-${dow}`, sunday: `Pent${ww}-0`, epiSundays };
   }
   if (d >= E) { const w = Math.floor(utcDays(d, E) / 7); return n(`Pasc${w}-${dow}`, `Pasc${w}-0`); }
@@ -58,6 +59,26 @@ export function temporaKey(d: Date): { key: string; sunday: string; epiSundays: 
   return n(`Nat1-${dow}`, 'Nat1-0');
 }
 
+/**
+ * A Sunday after Epiphany resumed after the 23rd Sunday after Pentecost. The source lists these days by name only. By the Missal,
+ * the prayers and readings (Collect, Epistle, Gospel, Secret, Postcommunion) are those of the Sunday after Epiphany, and the chants
+ * (Introit, Gradual and Alleluia, Offertory, Communion) are those of the 23rd Sunday after Pentecost.
+ */
+export function resumedSunday(T: Table, key: string): EfDay | undefined {
+  const own = T[key];
+  const epi = T[key.replace('PentEpi', 'Epi')];
+  const p23 = T['Pent23-0'];
+  if (!epi) return own;
+  const CHANTS = ['Introitus', 'Graduale', 'Offertorium', 'Communio'];
+  const join = (e: Record<string, string> | undefined, c: Record<string, string> | undefined, o: Record<string, string> | undefined) => {
+    if (!e && !c && !o) return undefined;
+    const out: Record<string, string> = { ...(e ?? {}) };
+    for (const k of CHANTS) { if (c?.[k]) out[k] = c[k]; else if (e) delete out[k]; }
+    return { ...out, ...(o ?? {}) };
+  };
+  return { ...epi, ...(own ?? {}), name: own?.name ?? `${epi.name} (resumed)`, rule: epi.rule, commune: epi.commune, p: join(epi.p, p23?.p, own?.p) ?? {}, lat: join(epi.lat, p23?.lat, own?.lat) };
+}
+
 export interface EfResult { day: EfDay; source: 'tempora' | 'sancti'; key: string; notes: string[]; passiontide: boolean; sunday: boolean }
 
 /** The Mass of a date in the Extraordinary Form (1962 books), chosen by rank between the season and the saint of the day. */
@@ -66,10 +87,11 @@ export async function efDay(iso: string): Promise<EfResult | null> {
   const tk = temporaKey(d);
   const [T, S] = await Promise.all([tempora(), month(iso.slice(5, 7))]);
   const notes: string[] = [];
-  let tDay = T[tk.key];
+  const dayOf = (k: string): EfDay | undefined => (/^PentEpi\d-0$/.test(k) ? resumedSunday(T, k) : T[k]);
+  let tDay = dayOf(tk.key);
   let fell = false;
   if (!tDay || !tDay.p.Introitus) {
-    const base = T[tk.sunday] ?? (tk.sunday.startsWith('PentEpi') ? T[tk.sunday.replace('PentEpi', 'Epi')] : undefined);
+    const base = dayOf(tk.sunday);
     if (base) { tDay = tDay ? { ...tDay, p: { ...base.p, ...tDay.p }, rule: tDay.rule.gloria || tDay.rule.credo ? tDay.rule : base.rule } : { ...base, rank: 1.0, name: `Feria (Mass of ${base.name})`, cls: 'Feria' }; fell = !T[tk.key]; }
   }
   const sDay = S[iso.slice(8, 10)];
