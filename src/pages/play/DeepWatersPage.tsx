@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import GameHelp from '../../components/GameHelp';
 import ShareButton from '../../components/ShareButton';
 import { dayIndex, isPractice, markDailyDone } from '../../lib/dailyGame';
-import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, findDeepAnswer, practiceDeepPrompts } from '../../lib/deepWaters';
+import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, deepMissMessage, matchDeepAnswer, practiceDeepPrompts } from '../../lib/deepWaters';
 import type { DeepAnswer, DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
@@ -25,6 +25,11 @@ export default function DeepWatersPage() {
   const [done, setDone] = useState(false);
   const [showAnswers, setShowAnswers] = useState(false);
   const prompt: DeepPrompt = prompts[round];
+  const inputRef = useRef<HTMLInputElement>(null);
+  const nextRef = useRef<HTMLButtonElement>(null);
+  // a new question puts the cursor in the answer box; a locked one moves it to the button that goes on, so a keyboard player never loses their place
+  useEffect(() => { if (!done && !locked) inputRef.current?.focus(); }, [round, locked, done, practiceSeed, practice]);
+  useEffect(() => { if (locked) nextRef.current?.focus(); }, [locked]);
 
   useEffect(() => {
     if (done || locked) return;
@@ -52,8 +57,9 @@ export default function DeepWatersPage() {
     if (locked || done) return;
     const trimmed = guess.trim();
     if (!trimmed) { setFeedback('Enter an answer first.'); return; }
-    const found = findDeepAnswer(prompt, trimmed);
-    if (!found) { setFeedback('Not recognized. Try another answer.'); return; }
+    const match = matchDeepAnswer(prompt, trimmed);
+    if (match.status !== 'match') { setFeedback(deepMissMessage(prompt, match)); return; }
+    const found = match.answer;
     const points = DEEP_POINTS[found.tier];
     const entry: RoundResult = { prompt: prompt.prompt, guess: trimmed, answer: found.answer, tier: found.tier, points, timedOut: false };
     setScore((s) => s + points); setResult(entry); setHistory((h) => [...h, entry]);
@@ -67,6 +73,8 @@ export default function DeepWatersPage() {
 
   const share = `Deep Waters ${practice ? 'practice' : '#' + today}\n${score} points\n${history.map((r, i) => `${i + 1}. ${r.points ? '+' + r.points : '—'}`).join('\n')}`;
   const accepted = useMemo(() => [...prompt.answers].sort((a, b) => b.tier - a.tier || a.answer.localeCompare(b.answer)), [prompt]);
+  // a whole set is listed in full; an open one shows the deepest cuts and says there are more
+  const shownAnswers = useMemo(() => (prompt.closed ? accepted : accepted.slice(0, 15)), [prompt, accepted]);
 
   return (
     <div className="page deep-waters">
@@ -78,8 +86,8 @@ export default function DeepWatersPage() {
       <GameHelp how={[
         'Each round gives you a broad Catholic or biblical prompt. Enter one answer before the 25-second timer runs out.',
         'A recognized answer earns more points when it is a deeper cut: 1, 2, 4, 8 or 16 points.',
-        'Rarity is curated for the game, not calculated from player-survey statistics. Answers must still be accurate.',
-        'If an answer is not recognized, try another spelling or a different answer while time remains.',
+        'Rarity is the editors\' judgement, not player-survey statistics. For questions with a fixed answer (the 21 councils, the 37 Doctors of the Church, the books of the Bible) the list is complete. For open questions it is long but not complete: an answer we do not know is called "not on our list", never wrong.',
+        'Spelling does not need to be exact: capital letters, accents, "Saint" and "St.", Roman numerals or digits, and one typo in a long word are all fine. If a guess could mean more than one answer you will be asked to be more specific.',
         'The daily set is shared by everyone using the same local calendar date. Practice runs do not count.'
       ]} onPractice={(on) => { setPracticeMode(on); reset(on); }} />
       {!done ? (
@@ -99,18 +107,18 @@ export default function DeepWatersPage() {
             <form onSubmit={(e) => { e.preventDefault(); submit(); }}>
               <label className="dw-answer-label" htmlFor="dw-answer">Your answer</label>
               <div className="dw-entry">
-                <input id="dw-answer" value={guess} onChange={(e) => { setGuess(e.target.value); setFeedback(''); }} disabled={locked} autoComplete="off" autoCapitalize="words" />
+                <input id="dw-answer" ref={inputRef} value={guess} onChange={(e) => { setGuess(e.target.value); setFeedback(''); }} disabled={locked} autoComplete="off" autoCapitalize="words" />
                 {!locked && <button className="btn primary" type="submit">Lock answer</button>}
               </div>
             </form>
             <p className="dw-feedback" aria-live="polite">{feedback}</p>
             {locked && result && (
               <div className={`dw-reveal ${result.points ? 'scored' : ''}`}>
-                {result.points ? <><strong>+{result.points} points · {DEEP_TIER_NAMES[result.tier!]}</strong><span>{result.answer}</span></> : <><strong>{result.timedOut ? 'Time is up.' : 'No score this round.'}</strong><span>{result.timedOut ? 'The accepted answers are below.' : result.answer}</span></>}
+                {result.points ? <><strong>+{result.points} points · {DEEP_TIER_NAMES[result.tier!]}</strong><span>{result.answer}</span></> : <><strong>{result.timedOut ? 'Time is up.' : 'No score this round.'}</strong><span>{result.timedOut ? 'Open "See accepted answers" to look them over.' : result.answer}</span></>}
                 <p>{prompt.context}</p>
                 <button type="button" className="btn ghost" onClick={() => setShowAnswers((v) => !v)}>{showAnswers ? 'Hide' : 'See'} accepted answers</button>
-                {showAnswers && <ul className="dw-answer-list">{accepted.map((a) => <li key={a.answer}><span>{a.answer}</span><b>{DEEP_POINTS[a.tier]} pts</b></li>)}</ul>}
-                <button type="button" className="btn primary dw-next" onClick={advance}>{round + 1 === DEEP_ROUNDS ? 'See results' : 'Next question →'}</button>
+                {showAnswers && <><ul className="dw-answer-list">{shownAnswers.map((a) => <li key={a.answer}><span>{a.answer}</span><b>{DEEP_POINTS[a.tier]} pts</b></li>)}</ul>{shownAnswers.length < accepted.length && <p className="small">…and {accepted.length - shownAnswers.length} more. This list is not complete: other true answers may exist.</p>}</>}
+                <button type="button" ref={nextRef} className="btn primary dw-next" onClick={advance}>{round + 1 === DEEP_ROUNDS ? 'See results' : 'Next question →'}</button>
               </div>
             )}
           </section>

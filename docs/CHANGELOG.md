@@ -1,5 +1,8 @@
 # What changed
 
+## Deep Waters
+- New game: seven Catholic questions a day, a timer, and more points for a less obvious answer (Games, "Deep dives"). Answers do not need exact spelling, and a true answer that is not on the list is told "not on our list yet", never wrong. Rarity is the editors' judgement, not player data. The lists await human review (see `docs/DATA_SOURCES.md`).
+
 ## Reference integrity cycle
 - Lesson Scripture links and the key-verse review card now check both ends of a passage (and every chapter between) against the real verse counts of the numbering it was written in and of the edition you read, instead of a chapter count. A verse that does not exist is reported as a data error; a book your edition lacks is named, not redirected; a mapping that is not verified opens the chapter with a note, and the review card is not added for you but offered as a clearly labelled choice. The card keeps the passage as the lesson wrote it.
 - Adding a lesson verse to Memorize is one atomic step: rapid clicks cannot duplicate it, a failed write shows a readable error and the lesson stays done.
