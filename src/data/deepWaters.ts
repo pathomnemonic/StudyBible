@@ -1,4 +1,5 @@
 import CURRICULUM_PROMPTS_1 from './deepWatersCurriculum1.generated.json';
+import AUTHORED_DEEP_WATERS from './deepWatersAuthored.json';
 import CURRICULUM_PROMPTS_2 from './deepWatersCurriculum2.generated.json';
 import CURRICULUM_PROMPTS_3 from './deepWatersCurriculum3.generated.json';
 import CURRICULUM_PROMPTS_4 from './deepWatersCurriculum4.generated.json';
@@ -10,7 +11,7 @@ import SCRIPTURE_PROMPTS_4 from './deepWatersScripture4b.generated.json';
 /** Deep Waters combines authored category prompts, curriculum questions, and public-domain Scripture clozes. Tiers are editorial game weights. */
 export type DeepTier = 1 | 2 | 3 | 4 | 5;
 export interface DeepAnswer { answer: string; tier: DeepTier; aliases?: string[] }
-export interface DeepPrompt { id: string; prompt: string; context: string; hint: string; answers: DeepAnswer[]; status?: 'draft' | 'reviewed'; answerMode?: 'single' | 'many'; source?: string }
+export interface DeepPrompt { id: string; prompt: string; context: string; hint: string; answers: DeepAnswer[]; status?: 'draft' | 'reviewed'; answerMode?: 'single' | 'many'; source?: string; theme?: string }
 
 const CURATED_DEEP_WATERS: DeepPrompt[] = [
   { id: 'orders', prompt: 'Name a Catholic religious order or congregation.', context: 'Religious families have different charisms, histories and rules of life.', hint: 'Think of monastic, mendicant, teaching, and missionary communities.', answers: [
@@ -46,7 +47,7 @@ const CURATED_DEEP_WATERS: DeepPrompt[] = [
 ];
 
 export const DEEP_WATERS: DeepPrompt[] = [
-  ...CURATED_DEEP_WATERS,
+  ...(AUTHORED_DEEP_WATERS as DeepPrompt[]),
   ...(CURRICULUM_PROMPTS_1 as DeepPrompt[]),
   ...(CURRICULUM_PROMPTS_2 as DeepPrompt[]),
   ...(CURRICULUM_PROMPTS_3 as DeepPrompt[]),
