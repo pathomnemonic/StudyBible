@@ -1,9 +1,14 @@
+import CURRICULUM_PROMPTS from './deepWatersCurriculum.generated.json';
+import SCRIPTURE_PROMPTS_1 from './deepWatersScripture1.generated.json';
+import SCRIPTURE_PROMPTS_2 from './deepWatersScripture2.generated.json';
+import SCRIPTURE_PROMPTS_3 from './deepWatersScripture3.generated.json';
+import SCRIPTURE_PROMPTS_4 from './deepWatersScripture4.generated.json';
 /** Curated Catholic knowledge prompts. Rarity is editorial game weighting, not population-survey data. */
 export type DeepTier = 1 | 2 | 3 | 4 | 5;
 export interface DeepAnswer { answer: string; tier: DeepTier; aliases?: string[] }
-export interface DeepPrompt { id: string; prompt: string; context: string; hint: string; answers: DeepAnswer[]; status?: 'draft' | 'reviewed' }
+export interface DeepPrompt { id: string; prompt: string; context: string; hint: string; answers: DeepAnswer[]; status?: 'draft' | 'reviewed'; answerMode?: 'single' | 'many'; source?: string }
 
-export const DEEP_WATERS: DeepPrompt[] = [
+const CURATED_DEEP_WATERS: DeepPrompt[] = [
   { id: 'orders', prompt: 'Name a Catholic religious order or congregation.', context: 'Religious families have different charisms, histories and rules of life.', hint: 'Think of monastic, mendicant, teaching, and missionary communities.', answers: [
     { answer: 'Benedictines', tier: 1, aliases: ['Order of Saint Benedict'] }, { answer: 'Franciscans', tier: 1, aliases: ['Order of Friars Minor'] }, { answer: 'Jesuits', tier: 1, aliases: ['Society of Jesus'] }, { answer: 'Dominicans', tier: 1, aliases: ['Order of Preachers'] }, { answer: 'Carmelites', tier: 2 }, { answer: 'Augustinians', tier: 2 }, { answer: 'Cistercians', tier: 3 }, { answer: 'Trappists', tier: 3, aliases: ['Order of Cistercians of the Strict Observance'] }, { answer: 'Redemptorists', tier: 3 }, { answer: 'Salesians', tier: 3 }, { answer: 'Capuchins', tier: 2 }, { answer: 'Carthusians', tier: 4 }, { answer: 'Oratorians', tier: 4 }, { answer: 'Premonstratensians', tier: 5, aliases: ['Norbertines'] }, { answer: 'Discalced Carmelites', tier: 4 }, { answer: 'Missionaries of Charity', tier: 3 }, { answer: 'Piarists', tier: 5 }, { answer: 'De La Salle Brothers', tier: 4 }
   ]},
@@ -34,4 +39,13 @@ export const DEEP_WATERS: DeepPrompt[] = [
   { id: 'places', prompt: 'Name a city or place mentioned in the New Testament.', context: 'Think beyond Jerusalem and Bethlehem: the early Church spread across the Roman world.', hint: "Paul's missionary journeys are a rich source of answers.", answers: [
     { answer: 'Jerusalem', tier: 1 }, { answer: 'Bethlehem', tier: 1 }, { answer: 'Nazareth', tier: 1 }, { answer: 'Capernaum', tier: 2 }, { answer: 'Antioch', tier: 2 }, { answer: 'Ephesus', tier: 2 }, { answer: 'Corinth', tier: 2 }, { answer: 'Philippi', tier: 3 }, { answer: 'Thessalonica', tier: 3 }, { answer: 'Patmos', tier: 3 }, { answer: 'Joppa', tier: 3 }, { answer: 'Caesarea', tier: 3 }, { answer: 'Iconium', tier: 4 }, { answer: 'Lystra', tier: 4 }, { answer: 'Derbe', tier: 4 }, { answer: 'Troas', tier: 4 }, { answer: 'Miletus', tier: 4 }, { answer: 'Berea', tier: 4 }, { answer: 'Puteoli', tier: 5 }, { answer: 'Malta', tier: 3 }, { answer: 'Damascus', tier: 1 }, { answer: 'Rome', tier: 1 }, { answer: 'Cana', tier: 1 }, { answer: 'Tarsus', tier: 2 }, { answer: 'Jericho', tier: 1 }, { answer: 'Emmaus', tier: 2 }, { answer: 'Golgotha', tier: 2, aliases: ['Calvary'] }, { answer: 'Gethsemane', tier: 2 }, { answer: 'Mount of Olives', tier: 2 }, { answer: 'Jordan River', tier: 1 }, { answer: 'Sea of Galilee', tier: 1 }, { answer: 'Dead Sea', tier: 2 }, { answer: 'Smyrna', tier: 3 }, { answer: 'Pergamum', tier: 3, aliases: ['Pergamon'] }, { answer: 'Thyatira', tier: 4 }, { answer: 'Sardis', tier: 3 }, { answer: 'Philadelphia', tier: 2 }, { answer: 'Laodicea', tier: 3 }, { answer: 'Assos', tier: 4 }, { answer: 'Athens', tier: 1 }
   ]}
+];
+
+export const DEEP_WATERS: DeepPrompt[] = [
+  ...CURATED_DEEP_WATERS,
+  ...(CURRICULUM_PROMPTS as DeepPrompt[]),
+  ...(SCRIPTURE_PROMPTS_1 as DeepPrompt[]),
+  ...(SCRIPTURE_PROMPTS_2 as DeepPrompt[]),
+  ...(SCRIPTURE_PROMPTS_3 as DeepPrompt[]),
+  ...(SCRIPTURE_PROMPTS_4 as DeepPrompt[]),
 ];
