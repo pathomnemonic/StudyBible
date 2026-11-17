@@ -135,7 +135,7 @@ export default function DeepWatersPage() {
   const suggestions = useMemo(() => guess.trim() && !locked ? suggestDeepAnswers(prompt, guess) : [], [prompt, guess, locked]);
 
   return (
-    <div className="page deep-waters">
+    <div className="page deep-waters" data-resume-state={snapshot ? (canResume ? 'restored' : 'mismatch') : 'new'} data-resume-day={today}>
       <div className="dw-atmosphere" aria-hidden="true"><i /><i /><i /><i /><i /></div>
       <header className="dw-head">
         <p className="dw-kicker"><span className="dw-orbit" /> A Catholic knowledge challenge</p>
