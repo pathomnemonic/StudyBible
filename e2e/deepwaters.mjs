@@ -43,8 +43,26 @@ try {
   await p.getByRole('button', { name: 'Next round' }).click();
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
   if (!(await p.locator('.dw-round-count').innerText()).includes('02')) throw new Error('did not advance to round two');
+  await p.fill('#dw-answer', 'Dama');
+  const clock = p.locator('.dw-clock span');
+  await p.evaluate(() => {
+    Object.defineProperty(document, 'visibilityState', { configurable: true, value: 'hidden' });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  const pausedSeconds = Number(await clock.innerText());
+  await p.waitForTimeout(1500);
+  await p.evaluate(() => {
+    Object.defineProperty(document, 'visibilityState', { configurable: true, value: 'visible' });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await p.waitForTimeout(250);
+  const resumedSeconds = Number(await clock.innerText());
+  if (resumedSeconds < pausedSeconds - 1) throw new Error('round timer continued while tab was hidden');
+  await p.reload();
+  await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
+  if (await p.locator('#dw-answer').inputValue() !== 'Dama') throw new Error('in-progress answer did not restore after reload');
   if (errors.length) throw new Error(errors.join('; '));
-  console.log('deep waters e2e ok: preview, accepted answer, spelling suggestion, reload resume, next round');
+  console.log('deep waters e2e ok: preview, accepted answer, spelling suggestion, locked and in-progress reload restore, next round, hidden-tab timer pause');
 } finally {
   await b.close();
 }
