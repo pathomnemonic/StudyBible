@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { DEEP_WATERS } from '../src/data/deepWaters';
 import { GENERATED_DEEP_CANDIDATES } from '../src/lib/deepWatersBankGenerator';
-import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, findDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts } from '../src/lib/deepWaters';
+import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, findDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../src/lib/deepWaters';
 
 describe('Deep Waters content and rules', () => {
   it('has enough Catholic prompts for a seven-round daily set', () => {
@@ -55,6 +55,16 @@ describe('Deep Waters content and rules', () => {
     expect(findDeepAnswer(orders, 'Norbertines')?.answer).toBe('Premonstratensians');
     expect(findDeepAnswer(orders, 'Jesuit')).toBeNull();
     expect(findDeepAnswer(orders, '')).toBeNull();
+  });
+
+  it('offers spelling suggestions without accepting them automatically', () => {
+    const councils = DEEP_WATERS.find((p) => p.id === 'councils')!;
+    expect(suggestDeepAnswers(councils, 'Nicaea')).toHaveLength(0);
+    const places = DEEP_WATERS.find((p) => p.id === 'places')!;
+    const suggestions = suggestDeepAnswers(places, 'Damascu');
+    expect(suggestions[0]?.answer).toBe('Damascus');
+    expect(findDeepAnswer(places, 'Damascu')).toBeNull();
+    expect(suggestDeepAnswers(places, 'xyz')).toEqual([]);
   });
 
   it('recognizes common valid answers from player review and labels the key as curated', () => {
