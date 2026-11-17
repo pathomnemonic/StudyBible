@@ -54,7 +54,7 @@ export default function DeepWatersPage() {
     const trimmed = guess.trim();
     if (!trimmed) { setFeedback('Type an answer before locking it in.'); return; }
     const found = findDeepAnswer(prompt, trimmed);
-    if (!found) { setFeedback('Not in the answer key. Check the spelling or try another idea.'); return; }
+    if (!found) { setFeedback('Not on our list. Your answer may still be valid; try another listed possibility while time remains.'); return; }
     const points = DEEP_POINTS[found.tier];
     const entry: RoundResult = { prompt: prompt.prompt, guess: trimmed, answer: found.answer, tier: found.tier, points, timedOut: false };
     setScore((s) => s + points); setResult(entry); setHistory((h) => [...h, entry]);
@@ -77,13 +77,13 @@ export default function DeepWatersPage() {
       <header className="dw-head">
         <p className="dw-kicker"><span className="dw-orbit" /> A Catholic rare-answer challenge</p>
         <h1>Deep <em>Waters</em></h1>
-        <p>Seven rounds. One answer each. How deep does your knowledge go?</p>
+        <p>Seven rounds. One answer each. Find a recognized answer in our curated key.</p>
       </header>
       <GameHelp how={[
-        'Each round gives you a broad Catholic or biblical prompt. Enter one accepted answer before the 30-second timer runs out.',
+        'Each round gives you a Catholic or biblical category. Enter one answer from the curated key before the 30-second timer runs out.',
         'A recognized answer earns more points when it is a deeper cut: 1, 2, 4, 8 or 16 points.',
         'Use the optional hint if you get stuck. Rarity is curated for the game, not calculated from player surveys.',
-        'If an answer is not recognized, check the spelling or try another answer while time remains.',
+        'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
         'The daily set is shared by everyone using the same local calendar date. Practice runs do not count.'
       ]} onPractice={(on) => { setPracticeMode(on); reset(on); }} />
       {!done ? (
