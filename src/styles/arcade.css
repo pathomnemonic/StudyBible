@@ -512,3 +512,16 @@ html[data-game='trivia'] .arc-bg::before, html[data-game='charades'] .arc-bg::be
 @keyframes arc-curtain { 0%, 35% { clip-path: circle(150% at 50% 50%); opacity: 1; } 100% { clip-path: circle(0% at 50% 50%); opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .arc-curtain { display: none; } }
 :root[data-motion='none'] .arc-curtain { display: none; }
+
+/* ---------- the daily dive banner on the front door ---------- */
+.gp-dive { position: relative; z-index: 1; display: flex; align-items: center; gap: 12px; margin: 18px 0 4px; padding: 14px 18px 14px 10px; border-radius: 26px; overflow: hidden; text-decoration: none; color: #fff; background: radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.4), transparent 45%), linear-gradient(180deg, #19b6d8 0%, #0c6fa8 45%, #0a2f7a 100%); box-shadow: 0 7px 0 #06204f, 0 16px 30px rgba(10, 4, 40, 0.45); transition: transform 0.1s, box-shadow 0.1s; }
+.gp-dive:active { transform: translateY(5px); box-shadow: 0 2px 0 #06204f; }
+.gp-dive-whale { flex: none; filter: drop-shadow(0 8px 8px rgba(0, 20, 60, 0.45)); animation: arc-bob 3.2s ease-in-out infinite; }
+.gp-dive-text { display: grid; gap: 2px; min-width: 0; }
+.gp-dive-text small { font-family: var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: #ffd23f; font-size: 0.78rem; }
+.gp-dive-text strong { font-family: var(--font-display); font-weight: 400; font-size: 1.9rem; line-height: 1; text-shadow: 0 3px 0 rgba(0, 30, 80, 0.5); }
+.gp-dive-text em { font-style: normal; font-weight: 500; color: #e6f8ff; font-size: 0.92rem; }
+.gp-dive-go { margin-left: auto; flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 50%; font-size: 1.1rem; color: #2a1700; background: linear-gradient(180deg, #ffe27a, #ffb02e); box-shadow: 0 4px 0 #b86a00; }
+.gp-dive-bubbles i { position: absolute; bottom: -20px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.7); animation: sea-bub 7s ease-in infinite; }
+.gp-dive-bubbles i:nth-child(1) { left: 12%; animation-delay: 0s; } .gp-dive-bubbles i:nth-child(2) { left: 32%; animation-delay: -2s; width: 8px; height: 8px; } .gp-dive-bubbles i:nth-child(3) { left: 58%; animation-delay: -4s; } .gp-dive-bubbles i:nth-child(4) { left: 74%; animation-delay: -1s; width: 9px; height: 9px; } .gp-dive-bubbles i:nth-child(5) { left: 90%; animation-delay: -5s; }
+@media (prefers-reduced-motion: reduce) { .gp-dive-bubbles i, .gp-dive-whale { animation: none; } }

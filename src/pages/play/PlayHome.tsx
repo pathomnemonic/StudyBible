@@ -91,6 +91,16 @@ export default function PlayHome() {
           <p className="pf-hero-actions"><Link className="btn primary big" to={featured.to}>Let’s go →</Link> <button className="btn big gp-dice" onClick={surprise}><span aria-hidden="true">🎲</span> Surprise me</button></p>
         </div>
       </section>
+      <Link to="/play/deepwaters" className="gp-dive" aria-label="Deep Waters, today's dive">
+        <span className="gp-dive-bubbles" aria-hidden="true"><i /><i /><i /><i /><i /></span>
+        <Art n="whale" size={110} className="gp-dive-whale" />
+        <span className="gp-dive-text">
+          <small>{dailyDone('deepwaters') ? 'Dive complete' : 'Daily dive'}</small>
+          <strong>Deep Waters</strong>
+          <em>{dailyDone('deepwaters') ? `Today: ${dailyDone('deepwaters')}. Practise or come back tomorrow.` : 'Seven questions. Go deeper than everyone else.'}</em>
+        </span>
+        <span className="gp-dive-go" aria-hidden="true">▶</span>
+      </Link>
       {GROUPS.map((grp) => (
         <section key={grp.id} className="pf-group" aria-labelledby={`pf-${grp.id}`}>
           <h2 id={`pf-${grp.id}`} className="gp-banner"><span>{grp.title}</span></h2>
