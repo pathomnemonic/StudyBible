@@ -56,8 +56,8 @@ html[data-arcade] .shell { position: relative; z-index: 1; background: transpare
 html[data-arcade] .main, html[data-arcade] main { background: transparent; }
 
 /* ---------- the moving backdrop ---------- */
-.arc-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
-.arc-blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.55; animation: arc-float 18s ease-in-out infinite; }
+.arc-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; contain: layout paint; }
+.arc-blob { position: absolute; border-radius: 50%; filter: blur(44px); opacity: 0.55; animation: arc-float 18s ease-in-out infinite; will-change: transform; }
 .arc-blob.b1 { width: 340px; height: 340px; left: -90px; top: -60px; background: var(--blob1, #ff4fa3); }
 .arc-blob.b2 { width: 380px; height: 380px; right: -140px; top: 34%; background: var(--blob2, #2ee6d6); opacity: 0.32; animation-delay: -6s; }
 .arc-blob.b3 { width: 320px; height: 320px; left: 10%; bottom: -120px; background: #ffb02e; opacity: 0.3; animation-delay: -11s; }
