@@ -13,7 +13,7 @@ function ranked(names: string[], aliases: AliasMap = {}): DeepPrompt['answers'] 
   });
 }
 
-const LONG_TAIL_PROMPTS: CheckedPrompt[] = [
+const checkedLongTailPrompts: CheckedPrompt[] = [
   {
     id: 'longtail-all-popes', theme: 'people',
     prompt: 'Name a pope in the historical succession of the Bishops of Rome.',
@@ -23,8 +23,8 @@ const LONG_TAIL_PROMPTS: CheckedPrompt[] = [
     answers: ranked([
       'Peter','Gregory I','Leo I','John Paul II','Francis','Benedict XVI','John XXIII','Pius X','Paul VI','Pius IX','Pius XII','Leo XIII','Gregory VII','Urban II','Innocent III','Pius V','Gregory IX','Clement I','Sylvester I','Leo IX','Leo XIV',
       'Linus','Anacletus','Alexander I','Sixtus I','Pius I','Callistus I','Fabian','Sixtus II','Damasus I','Gelasius I','Gregory II','Gregory III','Zachary','Adrian I','Leo III','Nicholas I','Sylvester II','Benedict IX','Victor II','Alexander II','Paschal II','Alexander III','Celestine V','Martin V','Pius II','Alexander VI','Julius II','Paul III','Clement VII','Pius IV','Clement V','Boniface VIII','Innocent IV',
-      'Evaristus','Telesphorus','Hyginus','Anicetus','Soter','Eleutherius','Victor I','Zephyrinus','Urban I','Pontian','Cornelius','Lucius I','Stephen I','Dionysius','Felix I','Marcellinus','Marcellus I','Eusebius','Miltiades','Mark','Julius I','Liberius','Siricius','Innocent I','Zosimus','Boniface I','Celestine I','Sixtus III','Hilarius','Simplicius','Felix III','Anastasius II','Symmachus','Hormisdas','John I','Felix IV','Boniface II','Agapetus I','Silverius','Vigilius','Pelagius I','John III','Pelagius II',
-      'Sabinian','Boniface III','Boniface IV','Boniface V','Honorius I','Severinus','John IV','Theodore I','Martin I','Eugene I','Vitalian','Adeodatus II','Donus','Agatho','Leo II','Benedict II','John V','Conon','Sergius I','John VI','John VII','Sisinnius','Constantine','Stephen II','Paul I','Stephen III','Stephen IV','Paschal I','Eugene II','Valentine','Sergius II','Leo IV','Benedict III','Adrian II','John VIII','Marinus I','Adrian III','Stephen V','Formosus','Boniface VI','Stephen VI','Romanus','Theodore II','John IX','Benedict IV','Leo V','Sergius III','Anastasius III','Lando','John X','Leo VI','Stephen VII','John XI','Leo VII','Stephen VIII','Marinus II','Agapetus II','John XII','Leo VIII','Benedict V','John XIII','Benedict VI','Benedict VII','John XIV','John XV','Gregory V','John XVII','John XVIII','Sergius IV','Benedict VIII','John XIX','Sylvester III','Gregory VI','Clement II','Damasus II','Leo IX','Stephen IX','Nicholas II','Victor III','Gelasius II','Callixtus II','Honorius II','Innocent II','Celestine II','Lucius II','Eugene III','Anastasius IV','Adrian IV','Lucius III','Urban III','Gregory VIII','Clement III','Celestine III','Honorius III','Celestine IV','Gregory X','Innocent V','Adrian V','John XXI','Nicholas III','Martin IV','Honorius IV','Nicholas IV','Benedict XI','John XXII','Benedict XII','Clement VI','Innocent VI','Urban V','Gregory XI','Urban VI','Boniface IX','Innocent VII','Gregory XII','Eugene IV','Nicholas V','Callixtus III','Paul II','Sixtus IV','Innocent VIII','Pius III','Leo X','Adrian VI','Julius III','Marcellus II','Paul IV','Gregory XIII','Sixtus V','Urban VII','Gregory XIV','Innocent IX','Clement VIII','Leo XI','Paul V','Gregory XV','Urban VIII','Innocent X','Alexander VII','Clement IX','Clement X','Innocent XI','Alexander VIII','Innocent XII','Clement XI','Innocent XIII','Benedict XIII','Clement XII','Benedict XIV','Clement XIII','Clement XIV','Pius VI','Pius VII','Leo XII','Pius VIII','Gregory XVI','Gregory V','Benedict XV','Paul VI','John Paul I'
+      'Anterus','John II','Benedict I','Gregory IV','Evaristus','Telesphorus','Hyginus','Anicetus','Soter','Eleutherius','Victor I','Zephyrinus','Urban I','Pontian','Cornelius','Lucius I','Stephen I','Dionysius','Felix I','Marcellinus','Marcellus I','Eusebius','Miltiades','Mark','Julius I','Liberius','Siricius','Innocent I','Zosimus','Boniface I','Celestine I','Sixtus III','Hilarius','Simplicius','Felix III','Anastasius II','Symmachus','Hormisdas','John I','Felix IV','Boniface II','Agapetus I','Silverius','Vigilius','Pelagius I','John III','Pelagius II',
+      'Sabinian','Boniface III','Boniface IV','Boniface V','Honorius I','Severinus','John IV','Theodore I','Martin I','Eugene I','Vitalian','Adeodatus II','Donus','Agatho','Leo II','Benedict II','John V','Conon','Sergius I','John VI','John VII','Sisinnius','Constantine','Stephen II','Paul I','Stephen III','Stephen IV','Paschal I','Eugene II','Valentine','Sergius II','Leo IV','Benedict III','Adrian II','John VIII','Marinus I','Adrian III','Stephen V','Formosus','Boniface VI','Stephen VI','Romanus','Theodore II','John IX','Benedict IV','Leo V','Sergius III','Anastasius III','Lando','John X','Leo VI','Stephen VII','John XI','Leo VII','Stephen VIII','Marinus II','Agapetus II','John XII','Leo VIII','Benedict V','John XIII','Benedict VI','Benedict VII','John XIV','John XV','Gregory V','John XVII','John XVIII','Sergius IV','Benedict VIII','John XIX','Sylvester III','Gregory VI','Clement II','Damasus II','Leo IX','Stephen IX','Nicholas II','Victor III','Gelasius II','Callixtus II','Honorius II','Innocent II','Celestine II','Lucius II','Eugene III','Anastasius IV','Adrian IV','Lucius III','Urban III','Gregory VIII','Clement III','Celestine III','Honorius III','Celestine IV','Gregory X','Innocent V','Adrian V','John XXI','Nicholas III','Martin IV','Honorius IV','Nicholas IV','Benedict XI','John XXII','Benedict XII','Clement VI','Innocent VI','Urban V','Gregory XI','Urban VI','Boniface IX','Innocent VII','Gregory XII','Eugene IV','Nicholas V','Callixtus III','Paul II','Sixtus IV','Innocent VIII','Pius III','Leo X','Adrian VI','Julius III','Marcellus II','Paul IV','Gregory XIII','Sixtus V','Urban VII','Gregory XIV','Innocent IX','Clement VIII','Leo XI','Paul V','Gregory XV','Urban VIII','Innocent X','Alexander VII','Clement IX','Clement X','Innocent XI','Alexander VIII','Innocent XII','Clement XI','Innocent XIII','Benedict XIII','Clement XII','Benedict XIV','Clement XIII','Clement XIV','Pius VI','Pius VII','Leo XII','Pius VIII','Gregory XVI','Benedict XV','John Paul I'
     ], {
       'Peter':'Saint Peter|Simon Peter',
       'Anacletus':'Cletus|Anencletus',
@@ -169,7 +169,7 @@ const LONG_TAIL_PROMPTS: CheckedPrompt[] = [
   },
   {
     id: 'longtail-english-martyrs', theme: 'saints',
-    prompt: 'Name a Catholic martyr of the English Reformation and its aftermath.',
+    prompt: 'Name a Catholic confessor or martyr of the English Reformation and its aftermath.',
     context: 'The source catalogue covers English confessors and martyrs from 1534 to 1729, including the Elizabethan and later persecutions.',
     basis: 'Source list: Catholic Encyclopedia / Catholic Answers, “English Confessors and Martyrs (1534–1729)”: https://www.newadvent.org/cathen/05474a.htm ; https://www.catholic.com/encyclopedia/english-confessors-and-martyrs .',
     answers: ranked([
@@ -332,7 +332,7 @@ const LONG_TAIL_PROMPTS: CheckedPrompt[] = [
       'On the Incarnation','Against Heresies','On the Holy Spirit','On the Priesthood','Life of Antony',
       'First Apology','Second Apology','Dialogue with Trypho','The Didache','First Clement','Second Clement','The Martyrdom of Polycarp',
       'Epistle to the Philippians','Epistle of Barnabas','Shepherd of Hermas','Epistle to Diognetus','Stromata','The Instructor','Exhortation to the Greeks','On First Principles','Against Celsus','On Prayer','Commentary on John','Commentary on Matthew',
-      'On the Unity of the Church','On the Lapsed','On Mortality','On Works and Almsgiving','On the Lord’s Prayer','To Donatus','On the Mysteries','On the Sacraments','On the Duties of the Clergy','Hexaemeron','On the Christian Faith','Five Theological Orations','On the Love of the Poor','Life of Moses','The Great Catechism','On the Soul and Resurrection','On Virginity','Against Eunomius','Homilies on Matthew','Homilies on John','Homilies on Romans','Homilies on First Corinthians','Homilies on Genesis','Homilies on the Statues','On the Incomprehensible Nature of God','On the Priesthood','Baptismal Instructions','Paschal Homily','On the Holy Spirit','Against Eunomius','On the Making of Man','On the Holy Images','An Exact Exposition of the Orthodox Faith','Demonstration of the Apostolic Preaching','On the Apostolic Preaching','Against the Jews','On the Resurrection','The Apology of Aristides','Octavius','Divine Institutes','On the Deaths of the Persecutors','Ecclesiastical History','Chronicle','Life of Constantine','On the Holy Spirit to Amphilochius','Letters of Ignatius','The Seven Epistles of Ignatius'
+      'On the Unity of the Church','On the Lapsed','On Mortality','On Works and Almsgiving','On the Lord’s Prayer','To Donatus','On the Mysteries','On the Sacraments','On the Duties of the Clergy','Hexaemeron','On the Christian Faith','Five Theological Orations','On the Love of the Poor','Life of Moses','The Great Catechism','On the Soul and Resurrection','On Virginity','Against Eunomius','Homilies on Matthew','Homilies on John','Homilies on Romans','Homilies on First Corinthians','Homilies on Genesis','Homilies on the Statues','On the Incomprehensible Nature of God','On the Priesthood','Baptismal Instructions','Paschal Homily','On the Making of Man','On the Holy Images','An Exact Exposition of the Orthodox Faith','Demonstration of the Apostolic Preaching','On the Apostolic Preaching','Against the Jews','On the Resurrection','Letters to Serapion','Life of Macrina','The Apology of Aristides','Octavius','Divine Institutes','On the Deaths of the Persecutors','Ecclesiastical History','Chronicle','Life of Constantine','On the Holy Spirit to Amphilochius','Letters of Ignatius','The Seven Epistles of Ignatius'
     ], {
       'On the Incarnation':'De Incarnatione',
       'Against Heresies':'Adversus Haereses',
@@ -603,7 +603,7 @@ const LONG_TAIL_PROMPTS: CheckedPrompt[] = [
   },
   {
     id: 'longtail-late-medieval-theologians', theme: 'people',
-    prompt: 'Name a Catholic theologian or ecclesiastical writer active between 800 and 1199.',
+    prompt: 'Name a Christian theologian or ecclesiastical writer active between 800 and 1199.',
     context: 'The historical window bridges the early Fathers and the later medieval writers already represented elsewhere in the bank.',
     basis: 'Source references: Oxford Dictionary of the Christian Church; standard histories of medieval theology; Stanford Encyclopedia of Philosophy entries on medieval figures: https://www.oxfordreference.com/ ; https://plato.stanford.edu/ .',
     answers: ranked([
@@ -682,7 +682,7 @@ const LONG_TAIL_PROMPTS: CheckedPrompt[] = [
       'Camino Francés','Via Francigena','Camino Portugués','Camino Primitivo','Chartres Pilgrimage',
       'California Mission Trail','St Francis Way','Camino del Norte','Camino Inglés','Via di Francesco','Camino Finisterre','St Olav’s Way',
       'Birgittaleden','Augustine Camino','Altötting Pilgrimage','Aparecida Pilgrimage','Camino Mozárabe','Camino Sanabrés','Camino de Invierno','Camino Lebaniego','Camino de Madrid','Camino de Levante','Camino Catalán','Camino Aragonés',
-      'Via Romea Germanica','Via Romea Strata','Via Postumia','Via Lauretana','Via Matildica','Via degli Abati','Cammino di San Benedetto','Cammino di Sant’Antonio','Cammino Celeste','Cammino Materano','Cammino di San Francesco','Cammino di Assisi','Cammino di San Jacopo','Cammino di San Vili','Cammino delle Dolomiti','Cammino del Salento','Cammino di Oropa','Cammino di San Colombano','Cammino di San Vicinio','Cammino di San Rocco','Cammino di Santa Barbara','Cammino di San Nilo','Cammino di San Filippo Neri','Camino de la Lana','Camino de Uclés','Camino de Santiago de Gran Canaria','Camin del Oriente','Camino de San Salvador','Camino de Baztan','Camino de Fisterra','Camino de Muxía','Camino de Puy','Camino de Le Puy','Camino de la Costa','Camino de Invierno','Camino de San Rosendo','Camino de San Frutos','Camino de Guadalupe','Pilgrimage to Walsingham','Pilgrimage to Knock','Pilgrimage to Lourdes','Pilgrimage to Fatima','Pilgrimage to Czestochowa','Pilgrimage to Mariazell','Pilgrimage to Rome','Pilgrimage to Santiago','Pilgrimage to Loreto','Pilgrimage to Montserrat','Pilgrimage to Aparecida'
+      'Via Romea Germanica','Via Romea Strata','Via Postumia','Via Lauretana','Via Matildica','Via degli Abati','Cammino di San Benedetto','Cammino di Sant’Antonio','Cammino Celeste','Cammino Materano','Cammino di San Francesco','Cammino di Assisi','Cammino di San Jacopo','Cammino di San Vili','Cammino delle Dolomiti','Cammino del Salento','Cammino di Oropa','Cammino di San Colombano','Cammino di San Vicinio','Cammino di San Rocco','Cammino di Santa Barbara','Cammino di San Nilo','Cammino di San Filippo Neri','Camino de la Lana','Camino de Uclés','Camino de Santiago de Gran Canaria','Camin del Oriente','Camino de San Salvador','Camino de Baztan','Camino de Fisterra','Camino de Muxía','Camino de Puy','Camino de Le Puy','Camino de la Costa','Camino de San Rosendo','Camino de San Frutos','Camino de Guadalupe','Pilgrimage to Walsingham','Pilgrimage to Knock','Pilgrimage to Lourdes','Pilgrimage to Fatima','Pilgrimage to Czestochowa','Pilgrimage to Mariazell','Pilgrimage to Rome','Pilgrimage to Santiago','Pilgrimage to Loreto','Pilgrimage to Montserrat','Pilgrimage to Aparecida'
     ], {
       'Camino Francés':'French Way',
       'Via Francigena':'Way of the Franks',
@@ -751,7 +751,7 @@ const LONG_TAIL_PROMPTS: CheckedPrompt[] = [
     commonGuesses: [
       { guess: 'Teresa of Calcutta', accepted: true }, { guess: 'John Paul II', accepted: true },
       { guess: 'Oscar Romero', accepted: true }, { guess: 'Carlo Acutis', accepted: true }, { guess: 'John Henry Newman', accepted: true },
-      { guess: 'Padre Pio', accepted: false, reason: 'Canonized in 2002? no: Padre Pio was canonized in 2002 by John Paul II? correction: canonized by John Paul II in 2002, so this should be accepted.' },
+      { guess: 'Padre Pio', accepted: false, reason: 'Canonized in 2002 by John Paul II, before the stated period.' },
       { guess: 'Thomas Aquinas', accepted: false, reason: 'Canonized in 1323, before Pope Francis’s pontificate.' },
       { guess: 'Ignatius of Loyola', accepted: false, reason: 'Canonized in 1622.' },
       { guess: 'Francis of Assisi', accepted: false, reason: 'Canonized centuries before Pope Francis.' },
@@ -764,10 +764,11 @@ function normalizeGuess(s: string): string {
   return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 }
 
-for (const p of LONG_TAIL_PROMPTS) {
+for (const p of checkedLongTailPrompts) {
   if (p.answers.length < 60) throw new Error(`${p.id}: open answer bank has only ${p.answers.length} answers`);
   if (p.closed !== undefined) throw new Error(`${p.id}: long-tail prompt must remain open`);
   if (!p.basis || !p.basis.includes('https://')) throw new Error(`${p.id}: missing named source list and URL`);
+  if (new Set(p.answers.map(a => a.tier)).size !== 6) throw new Error(`${p.id}: all six familiarity tiers must be represented`);
   if (p.commonGuesses.length !== 10) throw new Error(`${p.id}: expected exactly ten common guesses`);
   const canonical = new Set<string>();
   for (const a of p.answers) {
@@ -783,4 +784,4 @@ for (const p of LONG_TAIL_PROMPTS) {
   }
 }
 
-export const LONG_TAIL_PROMPTS: DeepPrompt[] = LONG_TAIL_PROMPTS;
+export const LONG_TAIL_PROMPTS: CheckedPrompt[] = checkedLongTailPrompts;
