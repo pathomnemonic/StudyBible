@@ -31,7 +31,7 @@ export default function DeepWatersPage() {
   const [locked, setLocked] = useState(canResume && snapshot!.phase === 'locked');
   const [feedback, setFeedback] = useState('');
   const [history, setHistory] = useState<RoundResult[]>(canResume ? snapshot!.history as RoundResult[] : []);
-  const [result, setResult] = useState<RoundResult | null>(canResume && snapshot!.phase === 'locked' ? (snapshot!.history.at(-1) as RoundResult ?? null) : null);
+  const [result, setResult] = useState<RoundResult | null>(canResume && snapshot!.phase === 'locked' ? (snapshot!.history[snapshot!.history.length - 1] as RoundResult ?? null) : null);
   const [score, setScore] = useState(canResume ? snapshot!.score : 0);
   const [done, setDone] = useState(canResume && snapshot!.phase === 'done');
   const [showAnswers, setShowAnswers] = useState(false);
@@ -66,15 +66,34 @@ export default function DeepWatersPage() {
   useEffect(() => {
     if (seconds !== 0 || locked || done || !prompt) return;
     const missed: RoundResult = { prompt: prompt.prompt, guess: '', answer: null, tier: null, points: 0, timedOut: true };
+    deadlineRef.current = 0;
     setLocked(true); setResult(missed); setHistory((h) => [...h, missed]);
   }, [seconds, locked, done, prompt]);
 
   useEffect(() => {
-    if (done && !practice) markDailyDone('deepwaters', `${score} pts`, score >= 32);
+    if (done && !practice) {
+      markDailyDone('deepwaters', `${score} pts`, score >= 32);
+      const entries = recordDeepDive({ day: today, score, scoredRounds: history.filter((r) => r.points > 0).length, totalRounds: DEEP_ROUNDS, pearlFound: history.some((r) => (r.pearlBonus ?? 0) > 0), practice: false });
+      setLogbook(entries);
+    }
   }, [done]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    saveDeepSession({
+      version: 1, day: today, practice, practiceSeed, promptIds: prompts.map((p) => p.id),
+      round, phase: done ? 'done' : locked ? 'locked' : 'playing', score,
+      history: history.map((entry, index) => ({ promptId: prompts[index]?.id ?? '', prompt: entry.prompt, guess: entry.guess, answer: entry.answer, tier: entry.tier, points: entry.points, timedOut: entry.timedOut })),
+      guess, deadlineAt: done || locked ? null : deadlineRef.current,
+      remainingMs: document.visibilityState === 'hidden' ? remainingRef.current : seconds * 1000,
+      paused: document.visibilityState === 'hidden', pearlAnswer: null,
+      pearlFound: history.some((r) => (r.pearlBonus ?? 0) > 0),
+    });
+  }, [today, practice, practiceSeed, prompts, round, done, locked, score, history, guess, seconds]);
+
   const reset = (nextPractice = practice) => {
+    clearDeepSession();
     if (nextPractice) setPracticeSeed(newPracticeSeed());
+    deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000;
     setRound(0); setSeconds(DEEP_SECONDS); setGuess(''); setLocked(false); setFeedback('');
     setResult(null); setHistory([]); setScore(0); setDone(false); setShowAnswers(false); setShowHint(false);
   };
@@ -88,12 +107,12 @@ export default function DeepWatersPage() {
     const points = DEEP_POINTS[found.tier];
     const entry: RoundResult = { prompt: prompt.prompt, guess: trimmed, answer: found.answer, tier: found.tier, points, timedOut: false };
     setScore((s) => s + points); setResult(entry); setHistory((h) => [...h, entry]);
-    setLocked(true); setFeedback('');
+    setLocked(true); deadlineRef.current = 0; setFeedback('');
   };
 
   const advance = () => {
     if (round + 1 >= DEEP_ROUNDS) { setDone(true); return; }
-    setRound((n) => n + 1); setSeconds(DEEP_SECONDS); setGuess(''); setLocked(false);
+    setRound((n) => n + 1); deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000; setSeconds(DEEP_SECONDS); setGuess(''); setLocked(false);
     setFeedback(''); setResult(null); setShowAnswers(false); setShowHint(false);
   };
 
