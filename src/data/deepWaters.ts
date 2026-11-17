@@ -33,6 +33,7 @@ export interface DeepPrompt {
 
 import { MORE_PROMPTS } from './deepWatersMore';
 import { AUTHORED_PROMPTS } from './deepWatersAuthored';
+import { LONG_TAIL_PROMPTS } from './deepWatersLongTail';
 import GENERATED_PROMPTS from './deepWaters.generated.json';
 
 type Row = [name: string, tier: DeepTier, aliases?: string];
@@ -272,4 +273,4 @@ const CORE_THEMES: Record<string, DeepTheme> = {
 const core: DeepPrompt[] = CORE_PROMPTS.map((p) => ({ ...p, theme: CORE_THEMES[p.id] ?? 'doctrine' }));
 
 /** Every prompt: the first fifteen written by hand, the second group written by hand, and the groups generated from the app's own data (see scripts/deepwaters). */
-export const DEEP_WATERS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[])];
+export const DEEP_WATERS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...LONG_TAIL_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[])];
