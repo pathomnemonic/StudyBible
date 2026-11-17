@@ -550,20 +550,6 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     ]),
   },
   {
-    id: 'evangelist-symbols', theme: 'art-music', ignore: ['symbol'],
-    prompt: 'Name a traditional symbol of one of the four Evangelists.',
-    context: 'Christian art traditionally represents Matthew, Mark, Luke and John by a winged man, lion, ox and eagle, respectively.',
-    source: 'Catholic Encyclopedia (1913, public domain), “Symbolism” and “Evangelist”: https://www.newadvent.org/cathen/14373b.htm and https://www.newadvent.org/cathen/05645a.htm.',
-    status: 'draft',
-    closed: 4,
-    answers: rows([
-      ['Man', 1, 'Winged man|Angel'],
-      ['Lion', 1, 'Winged lion'],
-      ['Eagle', 2, 'Winged eagle'],
-      ['Ox', 5, 'Bull|Winged ox|Winged calf'],
-    ]),
-  },
-  {
     id: 'saint-art-attributes', theme: 'art-music', ignore: ['attribute'],
     prompt: 'Name an attribute traditionally used to identify a saint in art.',
     context: 'Christian sacred art often gives saints a recognizable object, animal or emblem associated with their life or martyrdom.',

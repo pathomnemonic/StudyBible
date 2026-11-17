@@ -830,12 +830,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "evangelist-symbols",
-   "sha256": "291bd971c98debc438157cc728bc72b7517fd70047e4392f973a45a4cee97570",
-   "answers": 4,
-   "status": "unreviewed"
-  },
-  {
    "id": "saint-art-attributes",
    "sha256": "da78c9bef31099685a22b115ee915a10926ca6d1ab704ddae93ef837701769ba",
    "answers": 30,

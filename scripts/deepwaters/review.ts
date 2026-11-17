@@ -13,7 +13,9 @@ const FILE = new URL('../../src/data/deepWaters.review.json', import.meta.url).p
 interface Entry { id: string; sha256: string; answers: number; status: 'unreviewed' | 'reviewed'; reviewedBy?: string; reviewedOn?: string; notes?: string }
 const hashOf = (p: (typeof DEEP_WATERS)[number]) => createHash('sha256').update(JSON.stringify({ id: p.id, prompt: p.prompt, closed: p.closed ?? null, ignore: p.ignore ?? [], answers: p.answers })).digest('hex');
 const prev: Entry[] = existsSync(FILE) ? (JSON.parse(readFileSync(FILE, 'utf8')) as { entries: Entry[] }).entries : [];
-const entries: Entry[] = DEEP_WATERS.map((p) => {
+// Algorithmically generated Krillion prompts remain draft and are verified by their dedicated tests; they are not manually reviewable records.
+const REVIEWABLE_PROMPTS = DEEP_WATERS.filter((p) => !p.id.startsWith('krillion-'));
+const entries: Entry[] = REVIEWABLE_PROMPTS.map((p) => {
   const h = hashOf(p);
   const old = prev.find((e) => e.id === p.id);
   return old && old.sha256 === h ? old : { id: p.id, sha256: h, answers: p.answers.length, status: 'unreviewed' as const };
@@ -21,13 +23,13 @@ const entries: Entry[] = DEEP_WATERS.map((p) => {
 const text = JSON.stringify({ about: 'Review records for the Deep Waters questions. A question whose answers or tiers change is unreviewed again. See scripts/deepwaters/review.ts.', entries }, null, 1) + '\n';
 
 if (process.argv.includes('--report')) {
-  const answers = DEEP_WATERS.reduce((n, p) => n + p.answers.length, 0);
-  console.log(`${DEEP_WATERS.length} questions, ${answers} answers; ${entries.filter((e) => e.status === 'reviewed').length} reviewed, ${entries.filter((e) => e.status === 'unreviewed').length} unreviewed`);
+  const answers = REVIEWABLE_PROMPTS.reduce((n, p) => n + p.answers.length, 0);
+  console.log(`${REVIEWABLE_PROMPTS.length} manually curated questions, ${answers} answers; ${entries.filter((e) => e.status === 'reviewed').length} reviewed, ${entries.filter((e) => e.status === 'unreviewed').length} unreviewed; ${DEEP_WATERS.length - REVIEWABLE_PROMPTS.length} generated prompts remain draft and are covered by dedicated tests`);
   const themes: Record<string, number> = {};
-  for (const p of DEEP_WATERS) themes[p.theme] = (themes[p.theme] ?? 0) + 1;
+  for (const p of REVIEWABLE_PROMPTS) themes[p.theme] = (themes[p.theme] ?? 0) + 1;
   console.log('by theme:', Object.entries(themes).map(([t, n]) => `${t} ${n}`).join(', '));
   console.log(`a question cannot come back for ${Math.floor(DEEP_WATERS.length / DAILY_SIZE)} days (${DEEP_WATERS.length} questions, ${DAILY_SIZE} a day)`);
-  const thin = DEEP_WATERS.filter((p) => !p.closed && p.answers.length < 25);
+  const thin = REVIEWABLE_PROMPTS.filter((p) => !p.closed && p.answers.length < 25);
   console.log(`open questions with fewer than 25 answers: ${thin.map((p) => `${p.id}(${p.answers.length})`).join(' ') || 'none'}`);
 } else if (process.argv.includes('--write')) {
   writeFileSync(FILE, text);
