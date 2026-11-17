@@ -2548,7 +2548,10 @@
       {
         "answer": "Isaiah",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6.",
+        "aliases": [
+          "Isaiah of Jerusalem"
+        ]
       },
       {
         "answer": "Jeremiah",
@@ -2669,8 +2672,8 @@
       },
       {
         "guess": "Isaiah of Jerusalem",
-        "accept": false,
-        "reason": "The canonical answer is Isaiah; this longer form is not an accepted alias."
+        "accept": true,
+        "answer": "Isaiah"
       }
     ]
   },
