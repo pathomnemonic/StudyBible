@@ -21,7 +21,7 @@ describe('reading-plan passage validation', () => {
   });
 
   it('rejects a mixed day as a whole when one passage is unverified', () => {
-    const result = resolvePlanReferences(refs('John 3:16; John 6:51-58'), editions);
+    const result = resolvePlanReferences(refs('John 3:16; Romans 14:1-10'), editions);
     expect(result.ok).toBe(false);
     if (!result.ok) expect(result.reason).toMatch(/numbering|differ|unverified|approximate/i);
   });

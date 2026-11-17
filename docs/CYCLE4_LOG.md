@@ -90,3 +90,33 @@ Files: `src/liturgy/readings.ts`, `src/lib/refs.ts`. Tests: `tests/lectionary-ci
 After the change, 2,458 of 2,493 readings have a link. The 35 that do not are 33 stray `">` entries in the list itself (a gospel acclamation the source page did not cite) and two entries too garbled to read safely ("Psalm 23: 1-3a, 3b4, 5, 6", "Jonah 1:1–2:1-2, 11"); the test pins exactly that set. The data files were not edited.
 
 Not solved here: chapters the numbering tables list as "unverified" stay marked approximate (John 6, Mark 4, 8 and 9, Matthew 17, several chapters of Acts). See section 6.
+
+## 6. Verse numbering verified for the most-read New Testament chapters
+
+Files: `scripts/ingest/bible.ts` (rules), `scripts/ingest/nabre-scheme.ts`, `scripts/versification/rebuild.ts` (new), `src/lib/versification.ts`, `public/data/versification.json`, `public/data/editions.json`, `public/data/manifest.json`. Tests: `tests/versification-nt.test.ts` (new, 17).
+
+Until now ten New Testament chapters were "unverified": every reference into them from a modern Bible, a lesson, a devotion or the Lectionary was marked approximate, devotions and reading plans withheld their links, and "repair this address" refused. John 6 alone is cited 55 times in three years of Mass readings.
+
+**How each rule was established.** A verse aligner (dynamic programming over shared wording, allowing one-for-one, one-for-two and two-for-one) was run between the Douay text and each of WEB-C, the RSV-2CE and the NABRE. All three gave the same structure for every chapter below, and I read both sides of every join. Then the rules were entered in the generator, not in the data file.
+
+| Chapter | Modern numbering → Vulgate |
+|---|---|
+| John 6 | 6:51 = 6:51-52; 6:52-71 = 6:53-72 |
+| Mark 8, 9 | 9:1 = 8:39; 9:2-50 = 9:1-49 |
+| Mark 4 | 4:40-41 = 4:40 |
+| Matthew 17 | 17:14-15 = 17:14; 17:16-27 = 17:15-26 |
+| Acts 7 | 7:55-56 = 7:55; 7:57-60 = 7:56-59 |
+| Acts 14 | 14:6-7 = 14:6; 14:8-28 = 14:7-27 |
+| Acts 19 | 19:40-41 = 19:40 |
+| 2 Corinthians 13 | 13:12-13 = 13:12; 13:14 = 13:13 |
+| Revelation 12 | 12:17 = 12:17-18 |
+
+**Reproducible.** There are no publishers' downloads in this container, so `npm run data:build` cannot run. `scripts/versification/rebuild.ts` runs the same `buildVersification` code over the edition files already shipped. Before any rule was added it reproduced the shipped `english` and `nabre` tables exactly, rule for rule in the same order. It found one divergence: the shipped `kjv` table lists Tobit, Judith, Esther, Sirach and Daniel as "compare by chapter", but the generator said `unalignedBooks: {}`, so the next full rebuild would have silently marked every Sirach cross-reference as exact. The generator now says what the shipped file and its tests say. `npx tsx scripts/versification/rebuild.ts --check` fails if the file and the code ever disagree again.
+
+**Two supporting changes.**
+- `convertRef` treats a passage as exact when an end of it is one verse that a verified rule maps to a whole group (John 6:51-58 becomes 6:51-59, exact). A single half-verse is still reported as inexact (Matthew 17:15 points at 17:14, marked).
+- In the NABRE table a verified group no longer marks its whole chapter unverified.
+
+**Tests re-pointed, not loosened.** Eleven existing assertions used John 6 or Mark 4 as their example of an unverified chapter. Each now uses a chapter that is still unverified (Romans 14, Jonah 1, Ecclesiastes 6), so the caution they test is still tested, and each gained an assertion of the new, correct result where there is one.
+
+**Left unverified, with reasons.** Romans 14 and 16 (WEB-C prints the doxology at 14:24-26, the RSV and the Vulgate at 16:25-27: one table cannot serve both editions; needs per-edition rules). About 68 Old Testament chapters: the aligner and the survey script are ready, but each join has to be read by someone, and several depend on where a verse crosses a chapter boundary. For the NABRE, Matthew 17, Mark 4, Acts 7, 14 and 19, 2 Corinthians 13 and Revelation 12 now map to the right verses but are still labelled approximate, because the NABRE-to-WEB matching has an unpartnered verse in each. Daniel in the NABRE follows the Vulgate's own arrangement and could be aligned directly; not done.

@@ -266,6 +266,18 @@ export function buildVersification(
     ['JOB', 40, 6, 24, 40, 1, 19],
     ['JOB', 41, 1, 9, 40, 20, 28],
     ['JOB', 41, 10, 34, 41, 1, 25],
+    // New Testament chapters where the Vulgate divides one verse differently. Each was checked by aligning the Douay text
+    // against WEB-C, the RSV-2CE and the NABRE verse by verse and reading both sides of every join (docs/CYCLE4_LOG.md, 6).
+    // A rule with unequal sides means "these verses together are that verse": it is reported as inexact, never guessed.
+    ['MAT', 17, 1, 13, 17, 1, 13], ['MAT', 17, 14, 15, 17, 14, 14], ['MAT', 17, 16, 27, 17, 15, 26],
+    ['MRK', 4, 1, 39, 4, 1, 39], ['MRK', 4, 40, 41, 4, 40, 40],
+    ['MRK', 8, 1, 38, 8, 1, 38], ['MRK', 9, 1, 1, 8, 39, 39], ['MRK', 9, 2, 50, 9, 1, 49],
+    ['JHN', 6, 1, 50, 6, 1, 50], ['JHN', 6, 51, 51, 6, 51, 52], ['JHN', 6, 52, 71, 6, 53, 72],
+    ['ACT', 7, 1, 54, 7, 1, 54], ['ACT', 7, 55, 56, 7, 55, 55], ['ACT', 7, 57, 60, 7, 56, 59],
+    ['ACT', 14, 1, 5, 14, 1, 5], ['ACT', 14, 6, 7, 14, 6, 6], ['ACT', 14, 8, 28, 14, 7, 27],
+    ['ACT', 19, 1, 39, 19, 1, 39], ['ACT', 19, 40, 41, 19, 40, 40],
+    ['2CO', 13, 1, 11, 13, 1, 11], ['2CO', 13, 12, 13, 13, 12, 12], ['2CO', 13, 14, 14, 13, 13, 13],
+    ['REV', 12, 1, 16, 12, 1, 16], ['REV', 12, 17, 17, 12, 17, 18],
   ];
   rules.push(...verifiedExtra);
   const verifiedChapters = new Set(verifiedExtra.map((r) => `${r[0]}.${r[1]}`));
@@ -323,7 +335,10 @@ export function buildVersification(
           'The numbering used by external English-tradition data (OpenBible cross-references, plans, lectionary lists, typed references): KJV/RSV-style. Same Psalm rules as `english`, plus the Daniel chapter 3/4 boundary. Not an edition: used only to convert references into the Vulgate anchor.',
         rules: [...rules, ...danielRules],
         unverifiedChapters: Object.fromEntries(Object.entries(unverified).filter(([b]) => b !== 'DAN')),
-        unalignedBooks: {},
+        // External English-numbered data cites Tobit, Judith, Esther, Sirach and Daniel in numberings the Vulgate does not share: they
+        // stay "compare by chapter", as the shipped file and its tests have it. (This line used to say `{}`, which the shipped file
+        // never reflected; a rebuild would have marked every Sirach cross-reference as exact.)
+        unalignedBooks: unaligned,
       },
     },
   };

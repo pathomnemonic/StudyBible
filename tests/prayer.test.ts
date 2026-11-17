@@ -14,8 +14,10 @@ loadVersification(JSON.parse(readFileSync('public/data/versification.json', 'utf
 describe('devotions', () => {
   it('withholds devotional passage links when any KJV-to-anchor mapping is unverified', () => {
     expect(toRefs('John 3:16').map(refId)).toEqual(['JHN.3.16']);
-    expect(toRefs('John 6:51-58')).toEqual([]);
-    expect(toRefs('John 3:16; John 6:51-58')).toEqual([]);
+    expect(toRefs('Romans 14:1-10')).toEqual([]);
+    expect(toRefs('John 3:16; Romans 14:1-10')).toEqual([]);
+    // verified since the fourth cycle: the Bread of Life discourse opens at the right verses of the Vulgate
+    expect(toRefs('John 6:51-58').map(refId)).toEqual(['JHN.6.51-59']);
   });
   it('has twenty mysteries whose references all parse', () => {
     const all = MYSTERIES.flatMap((m) => m.mysteries);

@@ -11,8 +11,8 @@ const english = pooledCounts(editions, 'english')!;
 const anchor = editions.find((e) => e.id === 'vulgate')!;
 
 describe('semantic Scripture reference validation', () => {
-  it('withholds the KJV John 6:51–58 conversion because its chapter is unverified', () => {
-    const ref: Ref = { book: 'JHN', c1: 6, v1: 51, c2: 6, v2: 58 };
+  it('withholds the KJV Romans 14:1–10 conversion because its chapter is unverified', () => {
+    const ref: Ref = { book: 'ROM', c1: 14, v1: 1, c2: 14, v2: 10 };
     expect(convertRef('kjv', 'vulgate', ref).exact).toBe(false);
     expect(resolveRef(english, anchor, ref, 'kjv', anchor).status).toBe('approximate');
   });
@@ -76,16 +76,16 @@ describe('semantic Scripture reference validation', () => {
   });
 
   it('downgrades a known one-verse source/anchor mismatch to a verified chapter-only anchor', () => {
-    expect(chapterAlignmentNote('kjv', 'MRK', 4)).toBeTruthy();
-    const r = resolveRef(english, english, { book: 'MRK', c1: 4, v1: 41, c2: 4, v2: 41 }, 'kjv', anchor);
+    expect(chapterAlignmentNote('kjv', 'JON', 1)).toBeTruthy();
+    const r = resolveRef(english, english, { book: 'JON', c1: 1, v1: 17, c2: 1, v2: 17 }, 'kjv', anchor);
     expect(r.status).toBe('approximate');
-    expect(r.anchor).toEqual({ book: 'MRK', c1: 4, c2: 4 });
+    expect(r.anchor).toEqual({ book: 'JON', c1: 1, c2: 1 });
   });
 
   it('downgrades a known verse-count mismatch to a verified chapter-only anchor', () => {
-    const r = resolveRef(english, anchor, { book: 'MRK', c1: 4, v1: 41, c2: 4, v2: 41 }, 'kjv', anchor);
+    const r = resolveRef(english, anchor, { book: 'JON', c1: 1, v1: 17, c2: 1, v2: 17 }, 'kjv', anchor);
     expect(r.status).toBe('approximate');
-    expect(r.anchor).toEqual({ book: 'MRK', c1: 4, c2: 4 });
+    expect(r.anchor).toEqual({ book: 'JON', c1: 1, c2: 1 });
     expect(r.reason).toMatch(/only the chapter range can be verified/i);
   });
 
