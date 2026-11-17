@@ -5169,130 +5169,6 @@
     ]
   },
   {
-    "id": "batch2-fruits-spirit",
-    "theme": "Holy Spirit",
-    "prompt": "Name one of the twelve traditional fruits of the Holy Spirit.",
-    "context": "Use the twelve-fruit list in the Vulgate-based Catholic tradition; count: 12.",
-    "hint": "Several are familiar Christian virtues, but use the traditional list.",
-    "source": "Hand-authored closed key; authority: Galatians 5:22–23; CCC 1832; Vulgate tradition. Count: 12.",
-    "status": "draft",
-    "answerMode": "closed",
-    "answers": [
-      {
-        "answer": "Charity",
-        "tier": 1,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Joy",
-        "tier": 1,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Peace",
-        "tier": 1,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Patience",
-        "tier": 2,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Kindness",
-        "tier": 2,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Goodness",
-        "tier": 2,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Generosity",
-        "tier": 3,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Gentleness",
-        "tier": 2,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Faithfulness",
-        "tier": 2,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Modesty",
-        "tier": 3,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Self-control",
-        "tier": 2,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      },
-      {
-        "answer": "Chastity",
-        "tier": 3,
-        "source": "Galatians 5:22–23; CCC 1832; Vulgate tradition"
-      }
-    ],
-    "commonGuesses": [
-      {
-        "guess": "Charity",
-        "accept": true,
-        "answer": "Charity"
-      },
-      {
-        "guess": "Joy",
-        "accept": true,
-        "answer": "Joy"
-      },
-      {
-        "guess": "Peace",
-        "accept": true,
-        "answer": "Peace"
-      },
-      {
-        "guess": "Patience",
-        "accept": true,
-        "answer": "Patience"
-      },
-      {
-        "guess": "Kindness",
-        "accept": true,
-        "answer": "Kindness"
-      },
-      {
-        "guess": "Wisdom",
-        "accept": false,
-        "reason": "A gift of the Holy Spirit, not one of the twelve fruits."
-      },
-      {
-        "guess": "Understanding",
-        "accept": false,
-        "reason": "A gift, not a fruit."
-      },
-      {
-        "guess": "Courage",
-        "accept": false,
-        "reason": "A virtue or synonym for fortitude, not a traditional fruit."
-      },
-      {
-        "guess": "Humility",
-        "accept": false,
-        "reason": "Not in the traditional twelve-fruit list."
-      },
-      {
-        "guess": "Forgiveness",
-        "accept": false,
-        "reason": "A Christian duty, not one of the twelve named fruits."
-      }
-    ]
-  },
-  {
     "id": "batch2-beatitudes",
     "theme": "Sermon on the Mount",
     "prompt": "Name one of the eight Beatitudes in Matthew's Sermon on the Mount.",
@@ -5853,90 +5729,6 @@
     ]
   },
   {
-    "id": "batch2-four-marks",
-    "theme": "Ecclesiology",
-    "prompt": "Name one of the four traditional marks of the Church in the Nicene Creed.",
-    "context": "Use the four marks confessed in the Creed; count: 4.",
-    "hint": "They describe the Church's unity, holiness, universality, and apostolic origin.",
-    "source": "Hand-authored closed key; authority: Niceno-Constantinopolitan Creed; CCC 811–870. Count: 4.",
-    "status": "draft",
-    "answerMode": "closed",
-    "answers": [
-      {
-        "answer": "One",
-        "tier": 1,
-        "source": "Niceno-Constantinopolitan Creed; CCC 811–870"
-      },
-      {
-        "answer": "Holy",
-        "tier": 1,
-        "source": "Niceno-Constantinopolitan Creed; CCC 811–870"
-      },
-      {
-        "answer": "Catholic",
-        "tier": 1,
-        "source": "Niceno-Constantinopolitan Creed; CCC 811–870"
-      },
-      {
-        "answer": "Apostolic",
-        "tier": 1,
-        "source": "Niceno-Constantinopolitan Creed; CCC 811–870"
-      }
-    ],
-    "commonGuesses": [
-      {
-        "guess": "One",
-        "accept": true,
-        "answer": "One"
-      },
-      {
-        "guess": "Holy",
-        "accept": true,
-        "answer": "Holy"
-      },
-      {
-        "guess": "Catholic",
-        "accept": true,
-        "answer": "Catholic"
-      },
-      {
-        "guess": "Apostolic",
-        "accept": true,
-        "answer": "Apostolic"
-      },
-      {
-        "guess": "Roman",
-        "accept": false,
-        "reason": "A rite and communion descriptor, not a mark."
-      },
-      {
-        "guess": "Universal",
-        "accept": false,
-        "reason": "A translation of Catholic, but the standard Creed wording is Catholic."
-      },
-      {
-        "guess": "Orthodox",
-        "accept": false,
-        "reason": "A term used in the Creed in some traditions, not one of the four marks."
-      },
-      {
-        "guess": "Infallible",
-        "accept": false,
-        "reason": "A doctrine about the Church's teaching office, not a mark."
-      },
-      {
-        "guess": "Indefectible",
-        "accept": false,
-        "reason": "A theological property, not one of the four marks."
-      },
-      {
-        "guess": "Universal",
-        "accept": false,
-        "reason": "A gloss of Catholic, not the standard Creed wording."
-      }
-    ]
-  },
-  {
     "id": "batch2-precepts-church",
     "theme": "Catholic teaching",
     "prompt": "Name one of the five precepts of the Catholic Church.",
@@ -6037,352 +5829,6 @@
         "guess": "Make a pilgrimage",
         "accept": false,
         "reason": "Not one of the five precepts."
-      }
-    ]
-  },
-  {
-    "id": "batch2-cardinal-virtues",
-    "theme": "Moral theology",
-    "prompt": "Name one of the four cardinal virtues.",
-    "context": "Use the four principal human virtues named in Catholic moral teaching; count: 4.",
-    "hint": "They are prudence, justice, fortitude, and temperance.",
-    "source": "Hand-authored closed key; authority: Wisdom 8:7; CCC 1805–1809. Count: 4.",
-    "status": "draft",
-    "answerMode": "closed",
-    "answers": [
-      {
-        "answer": "Prudence",
-        "tier": 1,
-        "source": "Wisdom 8:7; CCC 1805–1809"
-      },
-      {
-        "answer": "Justice",
-        "tier": 1,
-        "source": "Wisdom 8:7; CCC 1805–1809"
-      },
-      {
-        "answer": "Fortitude",
-        "tier": 1,
-        "source": "Wisdom 8:7; CCC 1805–1809"
-      },
-      {
-        "answer": "Temperance",
-        "tier": 1,
-        "source": "Wisdom 8:7; CCC 1805–1809"
-      }
-    ],
-    "commonGuesses": [
-      {
-        "guess": "Prudence",
-        "accept": true,
-        "answer": "Prudence"
-      },
-      {
-        "guess": "Justice",
-        "accept": true,
-        "answer": "Justice"
-      },
-      {
-        "guess": "Fortitude",
-        "accept": true,
-        "answer": "Fortitude"
-      },
-      {
-        "guess": "Temperance",
-        "accept": true,
-        "answer": "Temperance"
-      },
-      {
-        "guess": "Faith",
-        "accept": false,
-        "reason": "A theological virtue."
-      },
-      {
-        "guess": "Hope",
-        "accept": false,
-        "reason": "A theological virtue."
-      },
-      {
-        "guess": "Charity",
-        "accept": false,
-        "reason": "A theological virtue."
-      },
-      {
-        "guess": "Humility",
-        "accept": false,
-        "reason": "A virtue, but not one of the four cardinal virtues."
-      },
-      {
-        "guess": "Patience",
-        "accept": false,
-        "reason": "A virtue, but not one of the four cardinal virtues."
-      },
-      {
-        "guess": "Humility",
-        "accept": false,
-        "reason": "A virtue, but not one of the four cardinal virtues."
-      }
-    ]
-  },
-  {
-    "id": "batch2-theological-virtues",
-    "theme": "Moral theology",
-    "prompt": "Name one of the three theological virtues.",
-    "context": "Use the three virtues infused by God and named in Catholic doctrine; count: 3.",
-    "hint": "Paul names all three together in 1 Corinthians 13.",
-    "source": "Hand-authored closed key; authority: 1 Corinthians 13:13; CCC 1812–1829. Count: 3.",
-    "status": "draft",
-    "answerMode": "closed",
-    "answers": [
-      {
-        "answer": "Faith",
-        "tier": 1,
-        "source": "1 Corinthians 13:13; CCC 1812–1829"
-      },
-      {
-        "answer": "Hope",
-        "tier": 1,
-        "source": "1 Corinthians 13:13; CCC 1812–1829"
-      },
-      {
-        "answer": "Charity",
-        "tier": 1,
-        "source": "1 Corinthians 13:13; CCC 1812–1829",
-        "aliases": [
-          "Love"
-        ]
-      }
-    ],
-    "commonGuesses": [
-      {
-        "guess": "Faith",
-        "accept": true,
-        "answer": "Faith"
-      },
-      {
-        "guess": "Hope",
-        "accept": true,
-        "answer": "Hope"
-      },
-      {
-        "guess": "Charity",
-        "accept": true,
-        "answer": "Charity"
-      },
-      {
-        "guess": "Prudence",
-        "accept": false,
-        "reason": "A cardinal virtue."
-      },
-      {
-        "guess": "Justice",
-        "accept": false,
-        "reason": "A cardinal virtue."
-      },
-      {
-        "guess": "Fortitude",
-        "accept": false,
-        "reason": "A cardinal virtue."
-      },
-      {
-        "guess": "Temperance",
-        "accept": false,
-        "reason": "A cardinal virtue."
-      },
-      {
-        "guess": "Patience",
-        "accept": false,
-        "reason": "A virtue, but not a theological virtue."
-      },
-      {
-        "guess": "Patience",
-        "accept": false,
-        "reason": "A virtue, but not a theological virtue."
-      },
-      {
-        "guess": "Mercy",
-        "accept": false,
-        "reason": "A divine attribute, not one of the three theological virtues."
-      }
-    ]
-  },
-  {
-    "id": "batch2-archangels",
-    "theme": "Angels",
-    "prompt": "Name one of the three angels named in Scripture and venerated as archangels in Catholic tradition.",
-    "context": "Use the three named archangels recognized in Catholic liturgical tradition; count: 3.",
-    "hint": "Their names are associated with protection, divine strength, and healing.",
-    "source": "Hand-authored closed key; authority: Daniel 8–12; Luke 1:19,26; Jude 9; Roman Martyrology; General Roman Calendar. Count: 3.",
-    "status": "draft",
-    "answerMode": "closed",
-    "answers": [
-      {
-        "answer": "Michael",
-        "tier": 1,
-        "source": "Daniel 8–12; Luke 1:19,26; Jude 9; Roman Martyrology; General Roman Calendar",
-        "aliases": [
-          "Saint Michael",
-          "St Michael"
-        ]
-      },
-      {
-        "answer": "Gabriel",
-        "tier": 1,
-        "source": "Daniel 8–12; Luke 1:19,26; Jude 9; Roman Martyrology; General Roman Calendar",
-        "aliases": [
-          "Saint Gabriel",
-          "St Gabriel"
-        ]
-      },
-      {
-        "answer": "Raphael",
-        "tier": 1,
-        "source": "Daniel 8–12; Luke 1:19,26; Jude 9; Roman Martyrology; General Roman Calendar",
-        "aliases": [
-          "Saint Raphael",
-          "St Raphael"
-        ]
-      }
-    ],
-    "commonGuesses": [
-      {
-        "guess": "Michael",
-        "accept": true,
-        "answer": "Michael"
-      },
-      {
-        "guess": "Gabriel",
-        "accept": true,
-        "answer": "Gabriel"
-      },
-      {
-        "guess": "Raphael",
-        "accept": true,
-        "answer": "Raphael"
-      },
-      {
-        "guess": "Uriel",
-        "accept": false,
-        "reason": "Not among the three archangels in the Roman liturgical calendar."
-      },
-      {
-        "guess": "Lucifer",
-        "accept": false,
-        "reason": "Not venerated as an archangel."
-      },
-      {
-        "guess": "Seraphiel",
-        "accept": false,
-        "reason": "Not one of the three named archangels in Catholic liturgical tradition."
-      },
-      {
-        "guess": "Ariel",
-        "accept": false,
-        "reason": "Not one of the three named archangels in the Roman calendar."
-      },
-      {
-        "guess": "Metatron",
-        "accept": false,
-        "reason": "Not a biblical archangel in Catholic canon."
-      },
-      {
-        "guess": "Uriel",
-        "accept": false,
-        "reason": "Not one of the three archangels in the Roman liturgical calendar."
-      },
-      {
-        "guess": "Metatron",
-        "accept": false,
-        "reason": "Not a biblical archangel in Catholic canon."
-      }
-    ]
-  },
-  {
-    "id": "batch2-pentateuch",
-    "theme": "Scripture",
-    "prompt": "Name one of the five books of the Pentateuch.",
-    "context": "Use the first five books of the Catholic Bible; count: 5.",
-    "hint": "The first book is Genesis; the last is Deuteronomy.",
-    "source": "Hand-authored closed key; authority: Catholic Bible; CCC 120. Count: 5.",
-    "status": "draft",
-    "answerMode": "closed",
-    "answers": [
-      {
-        "answer": "Genesis",
-        "tier": 1,
-        "source": "Catholic Bible; CCC 120"
-      },
-      {
-        "answer": "Exodus",
-        "tier": 1,
-        "source": "Catholic Bible; CCC 120"
-      },
-      {
-        "answer": "Leviticus",
-        "tier": 2,
-        "source": "Catholic Bible; CCC 120"
-      },
-      {
-        "answer": "Numbers",
-        "tier": 2,
-        "source": "Catholic Bible; CCC 120"
-      },
-      {
-        "answer": "Deuteronomy",
-        "tier": 1,
-        "source": "Catholic Bible; CCC 120"
-      }
-    ],
-    "commonGuesses": [
-      {
-        "guess": "Genesis",
-        "accept": true,
-        "answer": "Genesis"
-      },
-      {
-        "guess": "Exodus",
-        "accept": true,
-        "answer": "Exodus"
-      },
-      {
-        "guess": "Leviticus",
-        "accept": true,
-        "answer": "Leviticus"
-      },
-      {
-        "guess": "Numbers",
-        "accept": true,
-        "answer": "Numbers"
-      },
-      {
-        "guess": "Deuteronomy",
-        "accept": true,
-        "answer": "Deuteronomy"
-      },
-      {
-        "guess": "Joshua",
-        "accept": false,
-        "reason": "The next book, not part of the Pentateuch."
-      },
-      {
-        "guess": "Psalms",
-        "accept": false,
-        "reason": "A wisdom book."
-      },
-      {
-        "guess": "Isaiah",
-        "accept": false,
-        "reason": "A prophetic book."
-      },
-      {
-        "guess": "Judges",
-        "accept": false,
-        "reason": "A historical book after the Pentateuch."
-      },
-      {
-        "guess": "Ruth",
-        "accept": false,
-        "reason": "A historical book, not in the Pentateuch."
       }
     ]
   },
@@ -7240,85 +6686,6 @@
     ]
   },
   {
-    "id": "batch2-three-evangelical-counsels",
-    "theme": "Consecrated life",
-    "prompt": "Name one of the three evangelical counsels professed in consecrated life.",
-    "context": "The three evangelical counsels are poverty, chastity, and obedience; count: 3.",
-    "hint": "They are the basis of the public vows in many religious institutes.",
-    "source": "Hand-authored closed key; authority: Lumen gentium 42–43; Perfectae caritatis 1–2; Code of Canon Law 573. Count: 3.",
-    "status": "draft",
-    "answerMode": "closed",
-    "answers": [
-      {
-        "answer": "Poverty",
-        "tier": 1,
-        "source": "Lumen gentium 42–43; Perfectae caritatis 1–2; Code of Canon Law 573"
-      },
-      {
-        "answer": "Chastity",
-        "tier": 1,
-        "source": "Lumen gentium 42–43; Perfectae caritatis 1–2; Code of Canon Law 573"
-      },
-      {
-        "answer": "Obedience",
-        "tier": 1,
-        "source": "Lumen gentium 42–43; Perfectae caritatis 1–2; Code of Canon Law 573"
-      }
-    ],
-    "commonGuesses": [
-      {
-        "guess": "Poverty",
-        "accept": true,
-        "answer": "Poverty"
-      },
-      {
-        "guess": "Chastity",
-        "accept": true,
-        "answer": "Chastity"
-      },
-      {
-        "guess": "Obedience",
-        "accept": true,
-        "answer": "Obedience"
-      },
-      {
-        "guess": "Stability",
-        "accept": false,
-        "reason": "A Benedictine vow in some traditions, not one of the three evangelical counsels."
-      },
-      {
-        "guess": "Silence",
-        "accept": false,
-        "reason": "A monastic discipline, not an evangelical counsel."
-      },
-      {
-        "guess": "Enclosure",
-        "accept": false,
-        "reason": "A canonical discipline, not one of the three counsels."
-      },
-      {
-        "guess": "Humility",
-        "accept": false,
-        "reason": "A virtue, not one of the three counsels."
-      },
-      {
-        "guess": "Hospitality",
-        "accept": false,
-        "reason": "A charism or practice, not one of the three counsels."
-      },
-      {
-        "guess": "Stability",
-        "accept": false,
-        "reason": "A Benedictine vow in some traditions, not one of the three evangelical counsels."
-      },
-      {
-        "guess": "Enclosure",
-        "accept": false,
-        "reason": "A discipline, not one of the three evangelical counsels."
-      }
-    ]
-  },
-  {
     "id": "batch2-rosary-mysteries",
     "theme": "Rosary",
     "prompt": "Name one of the twenty traditional mysteries contemplated in the Rosary.",
@@ -7504,6 +6871,600 @@
         "guess": "Baptism of infants",
         "accept": false,
         "reason": "A sacramental practice, not a Rosary mystery."
+      }
+    ]
+  },
+  {
+    "id": "batch2-europe-patron-saints",
+    "theme": "Saints and patronage",
+    "prompt": "Name one of the five patron saints of Europe proclaimed by Pope John Paul II.",
+    "context": "Use the five co-patrons named in Spes Aedificandi.; count: 5.",
+    "hint": "The list includes two brothers who evangelized the Slavic peoples.",
+    "source": "Hand-authored closed key; authority: John Paul II, Apostolic Letter Spes Aedificandi (1999). Count: 5.",
+    "status": "draft",
+    "answerMode": "closed",
+    "answers": [
+      {
+        "answer": "Benedict of Nursia",
+        "tier": 1,
+        "source": "Spes Aedificandi 5",
+        "aliases": [
+          "Saint Benedict",
+          "St Benedict"
+        ]
+      },
+      {
+        "answer": "Cyril and Methodius",
+        "tier": 2,
+        "source": "Spes Aedificandi 5",
+        "aliases": [
+          "Saints Cyril and Methodius",
+          "Sts Cyril and Methodius"
+        ]
+      },
+      {
+        "answer": "Bridget of Sweden",
+        "tier": 3,
+        "source": "Spes Aedificandi 5",
+        "aliases": [
+          "Saint Bridget of Sweden",
+          "St Bridget"
+        ]
+      },
+      {
+        "answer": "Catherine of Siena",
+        "tier": 1,
+        "source": "Spes Aedificandi 5",
+        "aliases": [
+          "Saint Catherine of Siena",
+          "St Catherine"
+        ]
+      },
+      {
+        "answer": "Teresa Benedicta",
+        "tier": 4,
+        "source": "Spes Aedificandi 5",
+        "aliases": [
+          "Edith Stein",
+          "Teresa Benedicta of the Cross",
+          "Saint Teresa Benedicta"
+        ]
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Benedict of Nursia",
+        "accept": true,
+        "answer": "Benedict of Nursia"
+      },
+      {
+        "guess": "Cyril and Methodius",
+        "accept": true,
+        "answer": "Cyril and Methodius"
+      },
+      {
+        "guess": "Bridget of Sweden",
+        "accept": true,
+        "answer": "Bridget of Sweden"
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accept": true,
+        "answer": "Catherine of Siena"
+      },
+      {
+        "guess": "Edith Stein",
+        "accept": true,
+        "answer": "Teresa Benedicta"
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accept": false,
+        "reason": "A major saint, but not one of the five co-patrons named in Spes Aedificandi."
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accept": false,
+        "reason": "A Doctor of the Church, but not one of the five co-patrons of Europe."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accept": false,
+        "reason": "A patron saint of France, not one of the five co-patrons of Europe."
+      },
+      {
+        "guess": "Patrick",
+        "accept": false,
+        "reason": "A patron saint of Ireland, not one of the five co-patrons of Europe."
+      },
+      {
+        "guess": "Teresa of Avila",
+        "accept": false,
+        "reason": "A Doctor of the Church, but not one of the five co-patrons of Europe."
+      }
+    ]
+  },
+  {
+    "id": "batch2-carmelite-doctors",
+    "theme": "Saints and religious orders",
+    "prompt": "Name one of the three Doctors of the Church from the Carmelite tradition.",
+    "context": "Use the three Carmelite saints formally proclaimed Doctors of the Church.; count: 3.",
+    "hint": "Two share the same first name.",
+    "source": "Hand-authored closed key; authority: Vatican declarations of Teresa of Ávila (1970), John of the Cross (1990), and Thérèse of Lisieux (1997). Count: 3.",
+    "status": "draft",
+    "answerMode": "closed",
+    "answers": [
+      {
+        "answer": "Teresa of Avila",
+        "tier": 1,
+        "source": "Paul VI, Multiformis Sapientia (1970)",
+        "aliases": [
+          "Saint Teresa of Avila",
+          "St Teresa of Avila",
+          "Teresa of Jesus"
+        ]
+      },
+      {
+        "answer": "John of the Cross",
+        "tier": 2,
+        "source": "John Paul II, Magister in Fide (1990)",
+        "aliases": [
+          "Saint John of the Cross",
+          "St John of the Cross",
+          "Juan de la Cruz"
+        ]
+      },
+      {
+        "answer": "Therese of Lisieux",
+        "tier": 1,
+        "source": "John Paul II, Divini Amoris Scientia (1997)",
+        "aliases": [
+          "Saint Therese of Lisieux",
+          "St Therese of Lisieux",
+          "The Little Flower",
+          "Thérèse of Lisieux"
+        ]
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Teresa of Avila",
+        "accept": true,
+        "answer": "Teresa of Avila"
+      },
+      {
+        "guess": "John of the Cross",
+        "accept": true,
+        "answer": "John of the Cross"
+      },
+      {
+        "guess": "The Little Flower",
+        "accept": true,
+        "answer": "Therese of Lisieux"
+      },
+      {
+        "guess": "Teresa Benedicta",
+        "accept": false,
+        "reason": "A Doctor of the Church, but not from the Carmelite tradition."
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accept": false,
+        "reason": "A Doctor of the Church, but not a Carmelite."
+      },
+      {
+        "guess": "Hildegard of Bingen",
+        "accept": false,
+        "reason": "A Doctor of the Church, but not a Carmelite."
+      },
+      {
+        "guess": "Benedict of Nursia",
+        "accept": false,
+        "reason": "A monastic founder, not a Carmelite Doctor."
+      },
+      {
+        "guess": "John Henry Newman",
+        "accept": false,
+        "reason": "A Doctor of the Church, but not a Carmelite."
+      }
+    ]
+  },
+  {
+    "id": "batch2-july-doctors",
+    "theme": "Saints and feast days",
+    "prompt": "Name one of the three Doctors of the Church whose Roman-calendar feast falls in July.",
+    "context": "Use the Roman General Calendar dates for the three Doctors commemorated in July; count: 3.; count: 3.",
+    "hint": "Their memorials fall in the middle and final third of the month.",
+    "source": "Hand-authored closed key; authority: General Roman Calendar; Roman Martyrology. Count: 3.",
+    "status": "draft",
+    "answerMode": "closed",
+    "answers": [
+      {
+        "answer": "Bonaventure",
+        "tier": 1,
+        "source": "Roman General Calendar, July 15",
+        "aliases": [
+          "Saint Bonaventure",
+          "St Bonaventure"
+        ]
+      },
+      {
+        "answer": "Lawrence of Brindisi",
+        "tier": 3,
+        "source": "Roman General Calendar, July 21",
+        "aliases": [
+          "Saint Lawrence of Brindisi",
+          "St Lawrence of Brindisi"
+        ]
+      },
+      {
+        "answer": "Peter Chrysologus",
+        "tier": 4,
+        "source": "Roman General Calendar, July 30",
+        "aliases": [
+          "Saint Peter Chrysologus",
+          "St Peter Chrysologus"
+        ]
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Bonaventure",
+        "accept": true,
+        "answer": "Bonaventure"
+      },
+      {
+        "guess": "Lawrence of Brindisi",
+        "accept": true,
+        "answer": "Lawrence of Brindisi"
+      },
+      {
+        "guess": "Peter Chrysologus",
+        "accept": true,
+        "answer": "Peter Chrysologus"
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accept": false,
+        "reason": "His memorial is January 28."
+      },
+      {
+        "guess": "John of the Cross",
+        "accept": false,
+        "reason": "His memorial is December 14."
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accept": false,
+        "reason": "Her memorial is April 29."
+      },
+      {
+        "guess": "Therese of Lisieux",
+        "accept": false,
+        "reason": "Her memorial is October 1."
+      },
+      {
+        "guess": "Ambrose",
+        "accept": false,
+        "reason": "His memorial is December 7."
+      }
+    ]
+  },
+  {
+    "id": "batch2-early-popes",
+    "theme": "Popes",
+    "prompt": "Name one of the first four bishops of Rome after Saint Peter.",
+    "context": "Use the traditional succession list immediately following Peter; count: 4.; count: 4.",
+    "hint": "The third successor is associated with an early Roman letter to Corinth.",
+    "source": "Hand-authored closed key; authority: Irenaeus, Against Heresies 3.3.3; Eusebius, Ecclesiastical History 3.2, 4.1; Annuario Pontificio. Count: 4.",
+    "status": "draft",
+    "answerMode": "closed",
+    "answers": [
+      {
+        "answer": "Linus",
+        "tier": 2,
+        "source": "Irenaeus, Against Heresies 3.3.3"
+      },
+      {
+        "answer": "Anacletus",
+        "tier": 4,
+        "source": "Irenaeus, Against Heresies 3.3.3",
+        "aliases": [
+          "Cletus"
+        ]
+      },
+      {
+        "answer": "Clement I",
+        "tier": 1,
+        "source": "Irenaeus, Against Heresies 3.3.3",
+        "aliases": [
+          "Pope Clement I",
+          "St Clement of Rome"
+        ]
+      },
+      {
+        "answer": "Evaristus",
+        "tier": 5,
+        "source": "Eusebius, Ecclesiastical History 4.1",
+        "aliases": [
+          "Pope Evaristus"
+        ]
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Linus",
+        "accept": true,
+        "answer": "Linus"
+      },
+      {
+        "guess": "Cletus",
+        "accept": true,
+        "answer": "Anacletus"
+      },
+      {
+        "guess": "Clement of Rome",
+        "accept": true,
+        "answer": "Clement I"
+      },
+      {
+        "guess": "Sixtus I",
+        "accept": false,
+        "reason": "A later bishop of Rome, fifth in the traditional list after Peter."
+      },
+      {
+        "guess": "Pius I",
+        "accept": false,
+        "reason": "A later second-century pope."
+      },
+      {
+        "guess": "Victor I",
+        "accept": false,
+        "reason": "A later second-century pope."
+      },
+      {
+        "guess": "Alexander I",
+        "accept": false,
+        "reason": "A later pope, not among the first four successors."
+      },
+      {
+        "guess": "Telesphorus",
+        "accept": false,
+        "reason": "A later pope."
+      }
+    ]
+  },
+  {
+    "id": "batch2-sacramentals-types",
+    "theme": "Sacramentals",
+    "prompt": "Name one of the three broad categories of sacramentals described in the Catechism.",
+    "context": "Use the Catechism's three categories of sacramentals; count: 3.; count: 3.",
+    "hint": "One category includes blessings of persons, meals, and objects.",
+    "source": "Hand-authored closed key; authority: Catechism of the Catholic Church 1667–1673. Count: 3.",
+    "status": "draft",
+    "answerMode": "closed",
+    "answers": [
+      {
+        "answer": "Blessings",
+        "tier": 1,
+        "source": "CCC 1671–1672"
+      },
+      {
+        "answer": "Consecrations",
+        "tier": 2,
+        "source": "CCC 1672",
+        "aliases": [
+          "Dedications"
+        ]
+      },
+      {
+        "answer": "Exorcisms",
+        "tier": 2,
+        "source": "CCC 1673"
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Blessings",
+        "accept": true,
+        "answer": "Blessings"
+      },
+      {
+        "guess": "Consecrations",
+        "accept": true,
+        "answer": "Consecrations"
+      },
+      {
+        "guess": "Exorcisms",
+        "accept": true,
+        "answer": "Exorcisms"
+      },
+      {
+        "guess": "Sacraments",
+        "accept": false,
+        "reason": "These are the seven sacraments, not categories of sacramentals."
+      },
+      {
+        "guess": "Indulgences",
+        "accept": false,
+        "reason": "A remission of temporal punishment, not a category of sacramental."
+      },
+      {
+        "guess": "Relics",
+        "accept": false,
+        "reason": "A sacred object, not a category of sacramental."
+      },
+      {
+        "guess": "Rosaries",
+        "accept": false,
+        "reason": "A devotional object, not a category of sacramental."
+      },
+      {
+        "guess": "Holy orders",
+        "accept": false,
+        "reason": "A sacrament, not a sacramental category."
+      }
+    ]
+  },
+  {
+    "id": "batch2-early-christological-heresies",
+    "theme": "Heresies",
+    "prompt": "Name one of four Christological errors rejected by the first four ecumenical councils.",
+    "context": "Use the four errors addressed by Nicaea I, Constantinople I, Ephesus, and Chalcedon; count: 4.; count: 4.",
+    "hint": "They concern Christ's divinity, humanity, or unity of person.",
+    "source": "Hand-authored closed key; authority: Council of Nicaea I (325); Constantinople I (381); Ephesus (431); Chalcedon (451); CCC 465–467, 471. Count: 4.",
+    "status": "draft",
+    "answerMode": "closed",
+    "answers": [
+      {
+        "answer": "Arianism",
+        "tier": 1,
+        "source": "Nicaea I (325); CCC 465"
+      },
+      {
+        "answer": "Apollinarianism",
+        "tier": 4,
+        "source": "Constantinople I (381); CCC 471"
+      },
+      {
+        "answer": "Nestorianism",
+        "tier": 2,
+        "source": "Ephesus (431); CCC 466"
+      },
+      {
+        "answer": "Eutychianism",
+        "tier": 5,
+        "source": "Chalcedon (451); CCC 467"
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Arianism",
+        "accept": true,
+        "answer": "Arianism"
+      },
+      {
+        "guess": "Apollinarianism",
+        "accept": true,
+        "answer": "Apollinarianism"
+      },
+      {
+        "guess": "Nestorianism",
+        "accept": true,
+        "answer": "Nestorianism"
+      },
+      {
+        "guess": "Eutychianism",
+        "accept": true,
+        "answer": "Eutychianism"
+      },
+      {
+        "guess": "Pelagianism",
+        "accept": false,
+        "reason": "A heresy concerning grace and original sin, not one of these four Christological errors."
+      },
+      {
+        "guess": "Donatism",
+        "accept": false,
+        "reason": "A schismatic controversy, not one of the four Christological errors."
+      },
+      {
+        "guess": "Macedonianism",
+        "accept": false,
+        "reason": "A pneumatological heresy concerning the Holy Spirit."
+      },
+      {
+        "guess": "Iconoclasm",
+        "accept": false,
+        "reason": "A controversy over images, addressed by later councils."
+      },
+      {
+        "guess": "Montanism",
+        "accept": false,
+        "reason": "An early prophetic movement, not one of these Christological errors."
+      }
+    ]
+  },
+  {
+    "id": "batch2-twentieth-century-doctors",
+    "theme": "Saints and Church history",
+    "prompt": "Name one of the three women proclaimed Doctors of the Church during the twentieth century.",
+    "context": "Use the three women proclaimed Doctors in 1970 or 1997; count: 3.; count: 3.",
+    "hint": "Two were proclaimed together by Pope Paul VI.",
+    "source": "Hand-authored closed key; authority: Paul VI, proclamations of 1970; John Paul II, Divini Amoris Scientia (1997). Count: 3.",
+    "status": "draft",
+    "answerMode": "closed",
+    "answers": [
+      {
+        "answer": "Catherine of Siena",
+        "tier": 1,
+        "source": "Paul VI, 1970",
+        "aliases": [
+          "Saint Catherine of Siena",
+          "St Catherine of Siena"
+        ]
+      },
+      {
+        "answer": "Teresa of Avila",
+        "tier": 1,
+        "source": "Paul VI, 1970",
+        "aliases": [
+          "Saint Teresa of Avila",
+          "St Teresa of Avila",
+          "Teresa of Jesus"
+        ]
+      },
+      {
+        "answer": "Therese of Lisieux",
+        "tier": 2,
+        "source": "John Paul II, 1997",
+        "aliases": [
+          "Saint Therese of Lisieux",
+          "St Therese of Lisieux",
+          "The Little Flower"
+        ]
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Catherine of Siena",
+        "accept": true,
+        "answer": "Catherine of Siena"
+      },
+      {
+        "guess": "Teresa of Avila",
+        "accept": true,
+        "answer": "Teresa of Avila"
+      },
+      {
+        "guess": "The Little Flower",
+        "accept": true,
+        "answer": "Therese of Lisieux"
+      },
+      {
+        "guess": "Hildegard of Bingen",
+        "accept": false,
+        "reason": "Proclaimed Doctor in 2012, not during the twentieth century."
+      },
+      {
+        "guess": "John Henry Newman",
+        "accept": false,
+        "reason": "Proclaimed Doctor in 2025."
+      },
+      {
+        "guess": "Benedict of Nursia",
+        "accept": false,
+        "reason": "Not a Doctor of the Church."
+      },
+      {
+        "guess": "Edith Stein",
+        "accept": false,
+        "reason": "Not a Doctor of the Church."
+      },
+      {
+        "guess": "Mary MacKillop",
+        "accept": false,
+        "reason": "Not a Doctor of the Church."
       }
     ]
   }
