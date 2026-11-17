@@ -95,6 +95,7 @@ const KidsHome = lazy(() => import('./pages/KidsHome'));
 const KidModeStart = lazy(() => import('./pages/KidsHome').then((m) => ({ default: m.KidModeStart })));
 const CharadesPage = lazy(() => import('./pages/play/CharadesPage'));
 const PlayHome = lazy(() => import('./pages/play/PlayHome'));
+const DeepWatersPage = lazy(() => import('./pages/play/DeepWatersPage'));
 const QuartetsPage = lazy(() => import('./pages/play/QuartetsPage'));
 const CloisterPage = lazy(() => import('./pages/play/CloisterPage'));
 const VerbumPage = lazy(() => import('./pages/play/VerbumPage'));
@@ -441,6 +442,7 @@ export default function App() {
               <Route path="/history" element={<HistoryPage />} />
               <Route path="/your-year" element={<YearPage />} />
               <Route path="/play" element={<PlayHome />} />
+              <Route path="/play/deepwaters" element={<DeepWatersPage />} />
               <Route path="/play/charades" element={<CharadesPage />} />
               <Route path="/play/trivia" element={<TriviaPage />} />
               <Route path="/play/quartets" element={<QuartetsPage />} />
