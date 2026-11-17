@@ -756,6 +756,84 @@
    "sha256": "408e2fb5eddf9e6a9887c2f8b7ac86ad0200e3d6273a0db5a4c0139f647a644d",
    "answers": 148,
    "status": "unreviewed"
+  },
+  {
+   "id": "bible-trades",
+   "sha256": "cdaa46fb19eb578d667aedfb1165d5f83ab2d0536714f68c272ea52ccf182ae3",
+   "answers": 45,
+   "status": "unreviewed"
+  },
+  {
+   "id": "bible-foods",
+   "sha256": "c7dfb45ecb83bd4bef98300b97036ebd275ddd918a1245890344b02dbc4dabc7",
+   "answers": 46,
+   "status": "unreviewed"
+  },
+  {
+   "id": "bible-objects",
+   "sha256": "2b11bcfc7ae9c9341972efa6a5e4bb11305d18fa6406313d19810987287a8dfe",
+   "answers": 46,
+   "status": "unreviewed"
+  },
+  {
+   "id": "saint-founders",
+   "sha256": "5517f2a6de870e76adcb4fd50fe25e09b4b5a8d0365b11f0f4dec52ef66d8bbf",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "saint-patronages",
+   "sha256": "94349690097f286400f9451822cf91457d8b60e07b84625453e8caa531393cad",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "early-heresies",
+   "sha256": "f0c2c2b668df60906ca36578229cc62e16e868470898c842b6bb1d614e6cf521",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "liturgical-vestments",
+   "sha256": "552a5a4cdb4ac586b885dc06e9b7c2f1682a4044201f4abe2dcc4554d5409167",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "liturgical-books",
+   "sha256": "6e3f79409555eaddab1291c83bd9a02d959af416e8cd6f607624dc80fd783433",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "latin-prayers",
+   "sha256": "17084023eab392050a7e4faee72fbb05c35ac33d05660f0c8b9165af4ef5807f",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "church-architecture",
+   "sha256": "8c18579bb785dfa617a0708e53ade7cdd92f1528bce06b9807a189b09dd1f985",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "roman-basilicas",
+   "sha256": "598a03910e1d74f253e2aa25afdc3d2fbeb706d982699f1db5cb819493a5b5f0",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "church-historians",
+   "sha256": "7826c2add9f2777073ffac893cf71e6dc28917e41c7bf79511020b2545ebbc78",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "saint-missionaries",
+   "sha256": "2263dae94deb02908df69fa5c2b485c49b2f29d71036081851f95299fa8e74c5",
+   "answers": 35,
+   "status": "unreviewed"
   }
  ]
 }
