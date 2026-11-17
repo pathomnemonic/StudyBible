@@ -17,49 +17,67 @@ function ranked(names: string[], aliases: AliasMap = {}): DeepPrompt['answers'] 
 const checkedLongTailPrompts: CheckedPrompt[] = [
   {
     id: 'longtail-all-popes', theme: 'people',
-    prompt: 'Name a pope in the historical succession of the Bishops of Rome.',
-    context: 'The answer key follows the Holy See-based list of Supreme Pontiffs through Leo XIV; it includes disputed early successions where that list carries them.',
+    prompt: 'Name a pope who is not canonized or venerated as a saint.',
+    context: 'The list excludes popes already named in the saint-pope prompt and counts distinct persons, not repeated pontificates.',
     basis: 'Source list: Saecula, “All 267 Popes in Order”, following the Holy See list of Supreme Pontiffs: https://1765sanctumco.com/saecula/popes/ ; Leo XIV’s Vatican biography identifies him as the 267th Successor of Peter: https://www.vatican.va/content/leo-xiv/en/biography/documents/biografia_leone-xiv.html .',
     reviewFlags: ['The official ordinal count is 267 pontificates, not 266 distinct people: Benedict IX appears three times in the numbered sequence. This open answer key lists distinct papal persons, not repeated pontificates.', 'The Holy See’s list retains a small number of historically disputed early claimants (including Leo VIII, Benedict V and Sylvester III); they are included because the selected source follows the official list.'],
     answers: ranked([
-      'Peter','Gregory I','Leo I','John Paul II','Francis','Benedict XVI','John XXIII','Pius X','Paul VI','Pius IX','Pius XII','Leo XIII','Gregory VII','Urban II','Innocent III','Pius V','Gregory IX','Clement I','Sylvester I','Leo IX','Leo XIV',
-      'Linus','Anacletus','Alexander I','Sixtus I','Pius I','Callistus I','Fabian','Sixtus II','Damasus I','Gelasius I','Gregory II','Gregory III','Zachary','Adrian I','Leo III','Nicholas I','Sylvester II','Benedict IX','Victor II','Alexander II','Paschal II','Alexander III','Celestine V','Martin V','Pius II','Alexander VI','Julius II','Paul III','Clement VII','Pius IV','Clement V','Boniface VIII','Innocent IV',
-      'Anterus','John II','Benedict I','Gregory IV','Eutichianus','Caius','Anastasius I','Deusdedit','Alexander IV','Urban IV','Clement IV','Pius XI','Evaristus','Telesphorus','Hyginus','Anicetus','Soter','Eleutherius','Victor I','Zephyrinus','Urban I','Pontian','Cornelius','Lucius I','Stephen I','Dionysius','Felix I','Marcellinus','Marcellus I','Eusebius','Miltiades','Mark','Julius I','Liberius','Siricius','Innocent I','Zosimus','Boniface I','Celestine I','Sixtus III','Hilarius','Simplicius','Felix III','Anastasius II','Symmachus','Hormisdas','John I','Felix IV','Boniface II','Agapetus I','Silverius','Vigilius','Pelagius I','John III','Pelagius II',
-      'Sabinian','Boniface III','Boniface IV','Boniface V','Honorius I','Severinus','John IV','Theodore I','Martin I','Eugene I','Vitalian','Adeodatus II','Donus','Agatho','Leo II','Benedict II','John V','Conon','Sergius I','John VI','John VII','Sisinnius','Constantine','Stephen II','Paul I','Stephen III','Stephen IV','Paschal I','Eugene II','Valentine','Sergius II','Leo IV','Benedict III','Adrian II','John VIII','Marinus I','Adrian III','Stephen V','Formosus','Boniface VI','Stephen VI','Romanus','Theodore II','John IX','Benedict IV','Leo V','Sergius III','Anastasius III','Lando','John X','Leo VI','Stephen VII','John XI','Leo VII','Stephen VIII','Marinus II','Agapetus II','John XII','Leo VIII','Benedict V','John XIII','Benedict VI','Benedict VII','John XIV','John XV','Gregory V','John XVII','John XVIII','Sergius IV','Benedict VIII','John XIX','Sylvester III','Gregory VI','Clement II','Damasus II','Stephen IX','Nicholas II','Victor III','Gelasius II','Callixtus II','Honorius II','Innocent II','Celestine II','Lucius II','Eugene III','Anastasius IV','Adrian IV','Lucius III','Urban III','Gregory VIII','Clement III','Celestine III','Honorius III','Celestine IV','Gregory X','Innocent V','Adrian V','John XXI','Nicholas III','Martin IV','Honorius IV','Nicholas IV','Benedict XI','John XXII','Benedict XII','Clement VI','Innocent VI','Urban V','Gregory XI','Urban VI','Boniface IX','Innocent VII','Gregory XII','Eugene IV','Nicholas V','Callixtus III','Paul II','Sixtus IV','Innocent VIII','Pius III','Leo X','Adrian VI','Julius III','Marcellus II','Paul IV','Gregory XIII','Sixtus V','Urban VII','Gregory XIV','Innocent IX','Clement VIII','Leo XI','Paul V','Gregory XV','Urban VIII','Innocent X','Alexander VII','Clement IX','Clement X','Innocent XI','Alexander VIII','Innocent XII','Clement XI','Innocent XIII','Benedict XIII','Clement XII','Benedict XIV','Clement XIII','Clement XIV','Pius VI','Pius VII','Leo XII','Pius VIII','Gregory XVI','Benedict XV','John Paul I'
+      'Francis', 'Benedict XVI', 'Pius IX', 'Pius XII', 'Leo XIII'
+      'Urban II', 'Innocent III', 'Gregory IX', 'Leo XIV', 'Adrian I'
+      'Sylvester II', 'Benedict IX', 'Victor II', 'Alexander II', 'Paschal II'
+      'Alexander III', 'Martin V', 'Pius II', 'Alexander VI', 'Julius II'
+      'Paul III', 'Clement VII', 'Pius IV', 'Clement V', 'Boniface VIII'
+      'Innocent IV', 'Anterus', 'John II', 'Benedict I', 'Gregory IV'
+      'Eutichianus', 'Deusdedit', 'Alexander IV', 'Urban IV', 'Clement IV'
+      'Pius XI', 'Marcellinus', 'Liberius', 'Anastasius II', 'Felix IV'
+      'Boniface II', 'Vigilius', 'Pelagius I', 'John III', 'Pelagius II'
+      'Sabinian', 'Boniface III', 'Boniface IV', 'Boniface V', 'Honorius I'
+      'Severinus', 'John IV', 'Theodore I', 'Vitalian', 'Adeodatus II'
+      'Donus', 'John V', 'Conon', 'John VI', 'John VII'
+      'Sisinnius', 'Constantine', 'Stephen II', 'Stephen III', 'Stephen IV'
+      'Eugene II', 'Valentine', 'Sergius II', 'Benedict III', 'Adrian II'
+      'John VIII', 'Marinus I', 'Stephen V', 'Formosus', 'Boniface VI'
+      'Stephen VI', 'Romanus', 'Theodore II', 'John IX', 'Benedict IV'
+      'Leo V', 'Sergius III', 'Anastasius III', 'Lando', 'John X'
+      'Leo VI', 'Stephen VII', 'John XI', 'Leo VII', 'Stephen VIII'
+      'Marinus II', 'Agapetus II', 'John XII', 'Leo VIII', 'Benedict V'
+      'John XIII', 'Benedict VI', 'Benedict VII', 'John XIV', 'John XV'
+      'Gregory V', 'John XVII', 'John XVIII', 'Sergius IV', 'Benedict VIII'
+      'John XIX', 'Sylvester III', 'Gregory VI', 'Clement II', 'Damasus II'
+      'Stephen IX', 'Nicholas II', 'Victor III', 'Gelasius II', 'Callixtus II'
+      'Honorius II', 'Innocent II', 'Celestine II', 'Lucius II', 'Eugene III'
+      'Anastasius IV', 'Adrian IV', 'Lucius III', 'Urban III', 'Gregory VIII'
+      'Clement III', 'Celestine III', 'Honorius III', 'Celestine IV', 'Gregory X'
+      'Innocent V', 'Adrian V', 'John XXI', 'Nicholas III', 'Martin IV'
+      'Honorius IV', 'Nicholas IV', 'Benedict XI', 'John XXII', 'Benedict XII'
+      'Clement VI', 'Innocent VI', 'Urban V', 'Gregory XI', 'Urban VI'
+      'Boniface IX', 'Innocent VII', 'Gregory XII', 'Eugene IV', 'Nicholas V'
+      'Callixtus III', 'Paul II', 'Sixtus IV', 'Innocent VIII', 'Pius III'
+      'Leo X', 'Adrian VI', 'Julius III', 'Marcellus II', 'Paul IV'
+      'Gregory XIII', 'Sixtus V', 'Urban VII', 'Gregory XIV', 'Innocent IX'
+      'Clement VIII', 'Leo XI', 'Paul V', 'Gregory XV', 'Urban VIII'
+      'Innocent X', 'Alexander VII', 'Clement IX', 'Clement X', 'Innocent XI'
+      'Alexander VIII', 'Innocent XII', 'Clement XI', 'Innocent XIII', 'Benedict XIII'
+      'Clement XII', 'Benedict XIV', 'Clement XIII', 'Clement XIV', 'Pius VI'
+      'Pius VII', 'Leo XII', 'Pius VIII', 'Gregory XVI', 'Benedict XV'
+      'John Paul I'
     ], {
-      'Peter':'Saint Peter|Simon Peter',
-      'Anacletus':'Cletus|Anencletus',
-      'Callistus I':'Callixtus I',
-      'Pontian':'Pontianus',
-      'Soter':'Soterus',
-      'Eutichian':'Eutychian',
-      'Caius':'Gaius',
-      'Miltiades':'Melchiades',
-      'Deusdedit':'Adeodatus I',
-      'Adeodatus II':'Pope Adeodatus II',
-      'Zachary':'Zacharias',
-      'Stephen II':'Stephen III (alternate numbering)',
-      'Eutichianus':'Eutichian',
-      'Caius':'Gaius',
-      'Deusdedit':'Adeodatus I',
-      'Paschal I':'Paschalis I',
-      'Callixtus II':'Callistus II',
-      'John Paul II':'Saint John Paul II|John Paul the Great',
-      'John XXIII':'Saint John XXIII',
-      'Pius X':'Saint Pius X',
-      'Gregory I':'Gregory the Great',
-      'Leo I':'Leo the Great',
-      'Francis':'Pope Francis',
-      'Leo XIV':'Pope Leo XIV'
+      'Deusdedit': 'Adeodatus I',
+      'Adeodatus II': 'Pope Adeodatus II',
+      'Stephen II': 'Stephen III (alternate numbering)',
+      'Eutichianus': 'Eutichian',
+      'Callixtus II': 'Callistus II',
+      'Francis': 'Pope Francis',
+      'Leo XIV': 'Pope Leo XIV'
     }),
     commonGuesses: [
-      { guess: 'Peter', accepted: true }, { guess: 'John Paul II', accepted: true }, { guess: 'Gregory the Great', accepted: true },
-      { guess: 'Pope Francis', accepted: true }, { guess: 'Pius X', accepted: true },
-      { guess: 'Arius', accepted: false, reason: 'A theologian associated with a heresy, not a pope.' },
-      { guess: 'Saint Augustine', accepted: false, reason: 'A Church Father and bishop of Hippo, not Bishop of Rome.' },
-      { guess: 'Thomas Becket', accepted: false, reason: 'An archbishop of Canterbury, not a pope.' },
-      { guess: 'Benedict IX twice', accepted: false, reason: 'The answer key names a pope once, not separate pontificates.' },
-      { guess: 'Antipope Clement VII', accepted: false, reason: 'This refers to an antipope, not the listed pope Clement VII.' }
+      { guess: 'Urban II', accepted: true }, { guess: 'Innocent III', accepted: true }, { guess: 'Alexander VI', accepted: true },
+      { guess: 'Leo XIII', accepted: true }, { guess: 'Clement VII', accepted: true },
+      { guess: 'Peter', accepted: false, reason: 'Already covered by the saint-pope prompt.' },
+      { guess: 'Gregory the Great', accepted: false, reason: 'Already covered by the saint-pope prompt.' },
+      { guess: 'John Paul II', accepted: false, reason: 'Already covered by the saint-pope prompt.' },
+      { guess: 'Pius X', accepted: false, reason: 'Already covered by the saint-pope prompt.' },
+      { guess: 'John XXIII', accepted: false, reason: 'Already covered by the saint-pope prompt.' }
     ]
   },
   {
@@ -145,22 +163,30 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     basis: 'Source list: GCatholic, Saints and Blesseds of Italy, filtering the birthplace column to Italy: https://gcatholic.org/saints/data/country-IT.htm .',
     reviewFlags: ['For early saints whose birthplace is not explicitly recorded in the catalogue, verify the historical birthplace independently; the prompt requires birth in Italy, not merely death or veneration there.'],
     answers: ranked([
-      'Francis of Assisi','Catherine of Siena','Benedict of Nursia','Clare of Assisi','Padre Pio',
-      'Thomas Aquinas','Philip Neri','John Bosco','Pius X','Paul VI','John XXIII','Rita of Cascia',
-      'Gemma Galgani','Maria Goretti','Carlo Acutis','Pier Giorgio Frassati','Gianna Beretta Molla','Giuseppe Moscati','Luigi Gonzaga','Robert Bellarmine','Catherine of Bologna','Angela Merici','Frances of Rome','Camillus de Lellis',
-      'Bernardino of Siena','Lawrence of Brindisi','Alphonsus Liguori','Aloysius Gonzaga','Charles Borromeo','John Leonardi','Joseph Calasanz','Joseph of Cupertino','Gerard Majella','Leonard of Port Maurice','Paul of the Cross','Veronica Giuliani','Bonaventure of Potenza','Joseph Benedict Cottolengo','Luigi Orione','Gaspare del Bufalo','John of Capistrano','Pius V','Celestine V','Gregory X','Urban V','Pope Damasus I','Pope Marcellus I','Pope Eusebius','Pope Cornelius','Pope Fabian','Pope Sixtus II','Pope Pontian','Pope Martin I','Pope Agatho',
-      'Angela of Foligno','Margaret of Cortona','Umiliana de Cerchi','Juliana Falconieri','Francesca Romana','Catherine of Genoa','Giacomo Bianconi','Andrea Conti da Segni','Giovanna da Orvieto','Alberto degli Abati','Chiara della Croce da Montefalco'
+      'Francis of Assisi', 'Catherine of Siena', 'Benedict of Nursia', 'Clare of Assisi', 'Padre Pio'
+      'Thomas Aquinas', 'Philip Neri', 'John Bosco', 'John XXIII', 'Rita of Cascia'
+      'Gemma Galgani', 'Maria Goretti', 'Carlo Acutis', 'Pier Giorgio Frassati', 'Gianna Beretta Molla'
+      'Giuseppe Moscati', 'Luigi Gonzaga', 'Robert Bellarmine', 'Catherine of Bologna', 'Angela Merici'
+      'Frances of Rome', 'Camillus de Lellis', 'Bernardino of Siena', 'Lawrence of Brindisi', 'Alphonsus Liguori'
+      'Aloysius Gonzaga', 'Charles Borromeo', 'John Leonardi', 'Joseph Calasanz', 'Joseph of Cupertino'
+      'Gerard Majella', 'Leonard of Port Maurice', 'Paul of the Cross', 'Veronica Giuliani', 'Bonaventure of Potenza'
+      'Joseph Benedict Cottolengo', 'Luigi Orione', 'Gaspare del Bufalo', 'John of Capistrano', 'Pius V'
+      'Celestine V', 'Gregory X', 'Urban V', 'Pope Damasus I', 'Pope Marcellus I'
+      'Pope Eusebius', 'Pope Cornelius', 'Pope Fabian', 'Pope Sixtus II', 'Pope Pontian'
+      'Pope Martin I', 'Pope Agatho', 'Angela of Foligno', 'Margaret of Cortona', 'Umiliana de Cerchi'
+      'Juliana Falconieri', 'Francesca Romana', 'Catherine of Genoa', 'Giacomo Bianconi', 'Andrea Conti da Segni'
+      'Giovanna da Orvieto', 'Alberto degli Abati', 'Chiara della Croce da Montefalco'
     ], {
-      'Francis of Assisi':'Saint Francis|St Francis',
-      'Catherine of Siena':'Saint Catherine of Siena',
-      'Benedict of Nursia':'Saint Benedict|Benedict',
-      'Clare of Assisi':'Saint Clare',
-      'Padre Pio':'Pio of Pietrelcina|Saint Pio',
-      'Thomas Aquinas':'Aquinas|Saint Thomas Aquinas',
-      'John Bosco':'Don Bosco|Saint John Bosco',
-      'Philip Neri':'Saint Philip Neri',
-      'Gianna Beretta Molla':'Saint Gianna Molla',
-      'Carlo Acutis':'Saint Carlo Acutis'
+      'Francis of Assisi': 'Saint Francis|St Francis',
+      'Catherine of Siena': 'Saint Catherine of Siena',
+      'Benedict of Nursia': 'Saint Benedict|Benedict',
+      'Clare of Assisi': 'Saint Clare',
+      'Padre Pio': 'Pio of Pietrelcina|Saint Pio',
+      'Thomas Aquinas': 'Aquinas|Saint Thomas Aquinas',
+      'John Bosco': 'Don Bosco|Saint John Bosco',
+      'Philip Neri': 'Saint Philip Neri',
+      'Gianna Beretta Molla': 'Saint Gianna Molla',
+      'Carlo Acutis': 'Saint Carlo Acutis'
     }),
     commonGuesses: [
       { guess: 'Francis of Assisi', accepted: true }, { guess: 'Catherine of Siena', accepted: true },
@@ -366,21 +392,29 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     context: 'The answer key samples a real-world international directory of Catholic shrines and pilgrimage places across multiple continents.',
     basis: 'Source list: Catholic Tourist, Catholic Shrines directory, listing more than 200 places in dozens of countries: https://catholictourist.com/topics/catholic-shrines ; Catholic pilgrimage finder: https://catholicpilgrimagefinder.com/ .',
     answers: ranked([
-      'Lourdes','Fatima','Guadalupe','Santiago de Compostela','Knock',
-      'Czestochowa','Loreto','Aparecida','Walsingham','Montserrat','La Salette','Our Lady of Muxima',
-      'Banneux','Beauraing','Kibeho','Akita','Mariazell','Altötting','Einsiedeln','Saint Anne de Beaupré','Our Lady of Luján','Our Lady of Charity','Our Lady of Coromoto','Our Lady of Vailankanni',
-      'Manaoag Shrine','Peñafrancia Shrine','Antipolo Cathedral','Quiapo Church','Our Lady of Lebanon','Harissa Shrine','Our Lady of the Pillar','Our Lady of Meritxell','Our Lady of Good Counsel','Our Lady of Cobre','Our Lady of Chiquinquirá','Our Lady of Zapopan','Our Lady of Ocotlán','Our Lady of San Juan de los Lagos','Our Lady of Luján Basilica','Our Lady of Andacollo','Our Lady of the Valley','Our Lady of Charity of El Cobre','Our Lady of Mercy of El Quinche','Our Lady of Las Lajas','Our Lady of Suyapa','Our Lady of the Angels','Our Lady of La Vang','Our Lady of Sheshan','Our Lady of China','Our Lady of Madhu','Our Lady of Good Health','Shrine of St Joseph Montreal','National Shrine of St Frances Xavier Cabrini','Shrine of St Anthony Padua','Basilica of St Anthony Padua','Shrine of St Rita Cascia','Shrine of St Padre Pio','Shrine of St Michael the Archangel','Shrine of St James the Greater','Shrine of St Thérèse of Lisieux','Shrine of St John Vianney','Shrine of St Francis of Assisi','Shrine of St Charbel','Shrine of St Joseph of Cupertino'
+      'Lourdes', 'Fatima', 'Santiago de Compostela', 'Czestochowa', 'Loreto'
+      'Aparecida', 'Walsingham', 'Montserrat', 'Our Lady of Muxima', 'Akita'
+      'Mariazell', 'Altötting', 'Einsiedeln', 'Saint Anne de Beaupré', 'Our Lady of Luján'
+      'Our Lady of Charity', 'Our Lady of Coromoto', 'Our Lady of Vailankanni', 'Manaoag Shrine', 'Peñafrancia Shrine'
+      'Antipolo Cathedral', 'Quiapo Church', 'Our Lady of Lebanon', 'Harissa Shrine', 'Our Lady of the Pillar'
+      'Our Lady of Meritxell', 'Our Lady of Good Counsel', 'Our Lady of Cobre', 'Our Lady of Chiquinquirá', 'Our Lady of Zapopan'
+      'Our Lady of Ocotlán', 'Our Lady of San Juan de los Lagos', 'Our Lady of Luján Basilica', 'Our Lady of Andacollo', 'Our Lady of the Valley'
+      'Our Lady of Charity of El Cobre', 'Our Lady of Mercy of El Quinche', 'Our Lady of Las Lajas', 'Our Lady of Suyapa', 'Our Lady of the Angels'
+      'Our Lady of La Vang', 'Our Lady of Sheshan', 'Our Lady of China', 'Our Lady of Madhu', 'Our Lady of Good Health'
+      'Shrine of St Joseph Montreal', 'National Shrine of St Frances Xavier Cabrini', 'Shrine of St Anthony Padua', 'Basilica of St Anthony Padua', 'Shrine of St Rita Cascia'
+      'Shrine of St Padre Pio', 'Shrine of St Michael the Archangel', 'Shrine of St James the Greater', 'Shrine of St Thérèse of Lisieux', 'Shrine of St John Vianney'
+      'Shrine of St Francis of Assisi', 'Shrine of St Charbel', 'Shrine of St Joseph of Cupertino', 'Shrine of the Three Kings', 'Basilica of St Paul Outside the Walls'
     ], {
-      'Lourdes':'Our Lady of Lourdes',
-      'Fatima':'Our Lady of Fatima',
-      'Guadalupe':'Our Lady of Guadalupe',
-      'Czestochowa':'Our Lady of Częstochowa',
-      'Aparecida':'Our Lady of Aparecida',
-      'Knock':'Our Lady of Knock'
+      'Lourdes': 'Our Lady of Lourdes',
+      'Fatima': 'Our Lady of Fatima',
+      'Czestochowa': 'Our Lady of Częstochowa',
+      'Aparecida': 'Our Lady of Aparecida',
+      'Shrine of the Three Kings': 'Shrine of the Three Magi|Shrine of the Three Wise Men',
+      'Basilica of St Paul Outside the Walls': 'Basilica of Saint Paul Outside the Walls|San Paolo fuori le Mura'
     }),
     commonGuesses: [
       { guess: 'Lourdes', accepted: true }, { guess: 'Fatima', accepted: true },
-      { guess: 'Guadalupe', accepted: true }, { guess: 'Knock', accepted: true }, { guess: 'Santiago de Compostela', accepted: true },
+      { guess: 'Montserrat', accepted: true }, { guess: 'Walsingham', accepted: true }, { guess: 'Santiago de Compostela', accepted: true },
       { guess: 'Vatican Museums', accepted: false, reason: 'A museum complex, not a shrine or pilgrimage sanctuary.' },
       { guess: 'Mount Sinai', accepted: false, reason: 'A biblical holy mountain, not a Catholic shrine.' },
       { guess: 'Westminster Abbey', accepted: false, reason: 'An Anglican church, not a Catholic shrine.' },
@@ -395,21 +429,29 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     basis: 'Source lists: Catholic Answers Encyclopedia, “Patron Saints”; Catholic Online patronage A–Z: https://www.catholic.com/encyclopedia/patron-saints ; https://www.catholic.org/saints/patron.php .',
     reviewFlags: ['Occupational patronage can vary by country and guild. Confirm entries with a specific documented occupation before treating this list as reviewed.'],
     answers: ranked([
-      'Joseph','Luke','Cecilia','Francis of Assisi','Isidore the Farmer',
-      'Cosmas','Damian','Crispin','Crispinian','Eligius','Anne','Christopher',
-      'Andrew','Peter','Bartholomew','Mark','Catherine of Alexandria','Ivo of Kermartin','Raymond of Penyafort','Raymond Nonnatus','Hubert','Lydia','Cloud','Lawrence','Barbara',
-      'Agatha','Apollonia','Ambrose','Gregory the Great','David','Columba','Benedict','Blaise','John Bosco','John of God','Camillus de Lellis','Vincent de Paul','Martin of Tours','Nicholas of Myra','Eraclius','Honorius of Amiens','Notburga','Zita','Martha','Dunstan','Genesius','Julian the Hospitaller','Fiacre','Gerard Majella','Roch','Sebastian','Florian','Urban I','Vincent of Saragossa','Stephen','Thomas More','Thomas Aquinas','Albert the Great','Francis de Sales','John the Baptist',
-      'Catherine of Siena','Isidore of Seville','Joseph Calasanz','John Nepomucene','Dismas'
+      'Joseph', 'Luke', 'Cecilia', 'Francis of Assisi', 'Isidore the Farmer'
+      'Cosmas', 'Damian', 'Crispin', 'Crispinian', 'Eligius'
+      'Anne', 'Christopher', 'Andrew', 'Bartholomew', 'Mark'
+      'Catherine of Alexandria', 'Ivo of Kermartin', 'Raymond of Penyafort', 'Raymond Nonnatus', 'Hubert'
+      'Lydia', 'Cloud', 'Lawrence', 'Barbara', 'Agatha'
+      'Apollonia', 'Ambrose', 'Gregory the Great', 'David', 'Columba'
+      'Benedict', 'Blaise', 'John Bosco', 'John of God', 'Camillus de Lellis'
+      'Vincent de Paul', 'Martin of Tours', 'Nicholas of Myra', 'Eraclius', 'Honorius of Amiens'
+      'Notburga', 'Zita', 'Martha', 'Dunstan', 'Genesius'
+      'Julian the Hospitaller', 'Fiacre', 'Gerard Majella', 'Roch', 'Sebastian'
+      'Florian', 'Urban I', 'Vincent of Saragossa', 'Thomas More', 'Thomas Aquinas'
+      'Albert the Great', 'Francis de Sales', 'John the Baptist', 'Catherine of Siena', 'Isidore of Seville'
+      'Joseph Calasanz', 'John Nepomucene', 'Dismas'
     ], {
-      'Joseph':'Saint Joseph|Joseph the Worker',
-      'Luke':'Saint Luke the Evangelist',
-      'Cecilia':'Saint Cecilia',
-      'Isidore the Farmer':'Isidore the Laborer|Isidore the Husbandman',
-      'Cosmas':'Saint Cosmas',
-      'Damian':'Saint Damian',
-      'Eligius':'Eloi|Saint Eligius',
-      'Anne':'Saint Anne',
-      'Christopher':'Saint Christopher'
+      'Joseph': 'Saint Joseph|Joseph the Worker',
+      'Luke': 'Saint Luke the Evangelist',
+      'Cecilia': 'Saint Cecilia',
+      'Isidore the Farmer': 'Isidore the Laborer|Isidore the Husbandman',
+      'Cosmas': 'Saint Cosmas',
+      'Damian': 'Saint Damian',
+      'Eligius': 'Eloi|Saint Eligius',
+      'Anne': 'Saint Anne',
+      'Christopher': 'Saint Christopher'
     }),
     commonGuesses: [
       { guess: 'Joseph', accepted: true }, { guess: 'Cecilia', accepted: true },
@@ -428,17 +470,28 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     basis: 'Source lists: Catholic World Network, “Patron Saints—Health & Illness”; Catholic Online patronage index: https://www.catholicworldnetwork.com/patron-saint-of ; https://www.catholic.org/saints/patron.php .',
     reviewFlags: ['Health patronage is devotional and sometimes region-specific. Confirm each saint-condition association against the cited directory before treating this list as reviewed.'],
     answers: ranked([
-      'Lucy','Blaise','Agatha','Apollonia','Roch',
-      'Sebastian','Dymphna','John of God','Damien de Veuster','Lidwina of Schiedam','Vitus','Teresa of Ávila',
-      'Polycarp','Apollinaris','Genevieve','Benedict','Aloysius Gonzaga','Alphonsus Liguori','Bonaventure','Agatha of Catania','Scholastica','Francis de Sales','Maximilian Kolbe','Gerard Majella',
-      'Clare of Assisi','Timothy','Marianne Cope','John Neumann','Joachim','Anne','Raphael the Archangel','Cosmas','Damian','Pantaleon','Erasmus','Anthony the Abbot','Anthony of Padua','Peregrine Laziosi','Rita of Cascia','Bernadette Soubirous','John the Baptist','Martin de Porres','Elizabeth of Hungary','Camillus de Lellis','Vincent de Paul','Margaret of Cortona','Monica','Martha','Michael the Archangel','Christopher','Joseph','Francis of Assisi','Juliana Falconieri','Euphemia','Margaret of Antioch','Benedict Joseph Labre','Rose of Lima','Aloysius of Gonzaga','Notburga','Swithbert','Giles',
-      'Anthony of Egypt','Radegund','Fiacre','Aidan of Lindisfarne','Erhard of Regensburg'
+      'Lucy', 'Blaise', 'Roch', 'Dymphna', 'Damien de Veuster'
+      'Lidwina of Schiedam', 'Vitus', 'Teresa of Ávila', 'Polycarp', 'Apollinaris'
+      'Genevieve', 'Aloysius Gonzaga', 'Alphonsus Liguori', 'Bonaventure', 'Agatha of Catania'
+      'Scholastica', 'Maximilian Kolbe', 'Clare of Assisi', 'Timothy', 'Marianne Cope'
+      'John Neumann', 'Joachim', 'Raphael the Archangel', 'Pantaleon', 'Erasmus'
+      'Anthony the Abbot', 'Anthony of Padua', 'Peregrine Laziosi', 'Rita of Cascia', 'Bernadette Soubirous'
+      'John the Baptist', 'Martin de Porres', 'Elizabeth of Hungary', 'Camillus de Lellis', 'Vincent de Paul'
+      'Margaret of Cortona', 'Monica', 'Martha', 'Michael the Archangel', 'Christopher'
+      'Joseph', 'Francis of Assisi', 'Juliana Falconieri', 'Euphemia', 'Margaret of Antioch'
+      'Benedict Joseph Labre', 'Rose of Lima', 'Aloysius of Gonzaga', 'Notburga', 'Swithbert'
+      'Giles', 'Anthony of Egypt', 'Radegund', 'Fiacre', 'Aidan of Lindisfarne'
+      'Erhard of Regensburg', 'Catherine of Sweden', 'Ovidius', 'Denis of Paris', 'Quentin of Amiens'
     ], {
-      'Lucy':'Lucia of Syracuse|Saint Lucy',
-      'Blaise':'Saint Blaise',
-      'Dymphna':'Saint Dymphna',
-      'Roch':'Saint Roch|Rocco',
-      'Peregrine Laziosi':'Saint Peregrine'
+      'Lucy': 'Lucia of Syracuse|Saint Lucy',
+      'Blaise': 'Saint Blaise',
+      'Dymphna': 'Saint Dymphna',
+      'Roch': 'Saint Roch|Rocco',
+      'Peregrine Laziosi': 'Saint Peregrine',
+      'Catherine of Sweden': 'Saint Catherine of Sweden',
+      'Ovidius': 'Saint Ovidius',
+      'Denis of Paris': 'Saint Denis of Paris',
+      'Quentin of Amiens': 'Saint Quentin of Amiens'
     }),
     commonGuesses: [
       { guess: 'Lucy', accepted: true }, { guess: 'Blaise', accepted: true },
@@ -457,19 +510,26 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     basis: 'Source lists: CatholicSaints.info “Patron Saints of Countries” (124 country entries); Catholic Encyclopedia “Patron Saints”: https://catholicsaints.info/patron-saints-of-countries/ ; https://www.newadvent.org/cathen/11562a.htm .',
     reviewFlags: ['National patronages are not always exclusive or formally defined by one universal list; verify every saint-country pairing against the country entry and diocesan or episcopal source.'],
     answers: ranked([
-      'Patrick','James the Greater','George','Andrew','Stephen of Hungary',
-      'Denis of Paris','Michael the Archangel','Joseph','Anne','Our Lady of the Immaculate Conception','Thomas the Apostle','Bridget of Sweden',
-      'Olaf of Norway','David of Wales','Willibrord','Henry of Uppsala','Ansgar','Casimir','Adalbert of Prague','Stanislaus of Krakow','Florian','Anthony of Padua','Francis Borgia','Vincent of Saragossa','Rose of Lima',
-      'Our Lady of Guadalupe','Our Lady of Aparecida','Our Lady of Luján','Our Lady of Coromoto','Our Lady of Charity of El Cobre','Our Lady of Meritxell','Our Lady of La Vang','Our Lady of Lanka','Our Lady of Chiquinquirá','Our Lady of Suyapa','Our Lady of the Pillar','Our Lady of the Angels','Our Lady of the Snows','Our Lady of Help','Our Lady of Mount Carmel','Our Lady of the Rosary','Our Lady of Good Counsel','Our Lady of Częstochowa','Our Lady of Lebanon','Our Lady of the Gate of Dawn','Our Lady of Vailankanni','Our Lady of Muxima','Our Lady of China','Our Lady of Africa','Our Lady of Akita','Our Lady of Knock','Our Lady of Fatima','Our Lady of Lourdes','Our Lady of Walsingham','Our Lady of the Cape','Our Lady of Peace','Our Lady of the Assumption','Our Lady of Sorrows','Our Lady of the Rosary of Pompeii',
-      'Boris and Gleb','Catherine of Alexandria','Cyril and Methodius','John the Baptist','Benedict of Nursia','Adelaide of Burgundy','Elizabeth of Hungary','Teresia of Calcutta','Kateri Tekakwitha','John Vianney'
+      'Patrick', 'James the Greater', 'George', 'Andrew', 'Stephen of Hungary'
+      'Denis of Paris', 'Michael the Archangel', 'Joseph', 'Anne', 'Our Lady of the Immaculate Conception'
+      'Thomas the Apostle', 'Bridget of Sweden', 'Olaf of Norway', 'David of Wales', 'Willibrord'
+      'Henry of Uppsala', 'Ansgar', 'Casimir', 'Adalbert of Prague', 'Stanislaus of Krakow'
+      'Florian', 'Anthony of Padua', 'Francis Borgia', 'Vincent of Saragossa', 'Rose of Lima'
+      'Our Lady of Guadalupe', 'Our Lady of Aparecida', 'Our Lady of Lanka', 'Our Lady of the Angels', 'Our Lady of the Snows'
+      'Our Lady of Help', 'Our Lady of Mount Carmel', 'Our Lady of the Rosary', 'Our Lady of Good Counsel', 'Our Lady of Częstochowa'
+      'Our Lady of Lebanon', 'Our Lady of the Gate of Dawn', 'Our Lady of Vailankanni', 'Our Lady of Muxima', 'Our Lady of China'
+      'Our Lady of Africa', 'Our Lady of Akita', 'Our Lady of Knock', 'Our Lady of Fatima', 'Our Lady of Lourdes'
+      'Our Lady of Walsingham', 'Our Lady of the Cape', 'Our Lady of Peace', 'Our Lady of the Assumption', 'Our Lady of Sorrows'
+      'Our Lady of the Rosary of Pompeii', 'Boris and Gleb', 'Catherine of Alexandria', 'Cyril and Methodius', 'John the Baptist'
+      'Benedict of Nursia', 'Adelaide of Burgundy', 'Elizabeth of Hungary', 'Teresia of Calcutta', 'Kateri Tekakwitha'
+      'John Vianney'
     ], {
-      'Patrick':'Saint Patrick',
-      'James the Greater':'Saint James the Greater|James the Apostle',
-      'George':'Saint George',
-      'Andrew':'Saint Andrew',
-      'Our Lady of Guadalupe':'Virgin of Guadalupe',
-      'Our Lady of Aparecida':'Aparecida',
-      'Our Lady of Luján':'Our Lady of Lujan'
+      'Patrick': 'Saint Patrick',
+      'James the Greater': 'Saint James the Greater|James the Apostle',
+      'George': 'Saint George',
+      'Andrew': 'Saint Andrew',
+      'Our Lady of Guadalupe': 'Virgin of Guadalupe',
+      'Our Lady of Aparecida': 'Aparecida'
     }),
     commonGuesses: [
       { guess: 'Patrick', accepted: true }, { guess: 'George', accepted: true },
@@ -488,15 +548,23 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     basis: 'Source directories: GCatholic historical dioceses and titular sees; Catholic Hierarchy historical dioceses; standard ancient Church geography: https://gcatholic.org/dioceses/ ; https://www.catholic-hierarchy.org/ .',
     reviewFlags: ['Ancient see boundaries and foundation dates are sometimes disputed; the key uses place names attested as episcopal centres, not a claim about exact founding years.'],
     answers: ranked([
-      'Rome','Alexandria','Antioch','Jerusalem','Constantinople',
-      'Carthage','Ephesus','Corinth','Edessa','Nicaea','Smyrna','Thessalonica',
-      'Athens','Philippi','Laodicea','Pergamum','Sardis','Philadelphia','Thyatira','Caesarea Maritima','Caesarea Cappadocia','Nicomedia','Chalcedon','Tarsus',
-      'Seleucia-Ctesiphon','Nisibis','Bostra','Tyre','Sidon','Damascus','Emesa','Ptolemais','Scythopolis','Gaza','Ascalon','Joppa','Lydda','Diospolis','Ancyra','Gangra','Pessinus','Cyzicus','Synnada','Hierapolis','Iconium','Lystra','Derbe','Antioch Pisidia','Miletus','Magnesia','Tralles','Philadelphia in Lydia','Samosata','Melitene','Amida','Arbela','Ravenna','Milan','Aquileia','Lyon','Arles',
-      'Tours','Poitiers','Trier','Cologne','Reims','Toledo','Seville','Braga','Salona','Sirmium','Patras','Heraclea','Byzantium','Pella','Beroea'
+      'Alexandria', 'Constantinople', 'Carthage', 'Edessa', 'Nicaea'
+      'Caesarea Maritima', 'Caesarea Cappadocia', 'Nicomedia', 'Chalcedon', 'Tarsus'
+      'Seleucia-Ctesiphon', 'Nisibis', 'Bostra', 'Tyre', 'Sidon'
+      'Damascus', 'Emesa', 'Ptolemais', 'Scythopolis', 'Gaza'
+      'Ascalon', 'Joppa', 'Lydda', 'Diospolis', 'Ancyra'
+      'Gangra', 'Pessinus', 'Cyzicus', 'Synnada', 'Hierapolis'
+      'Iconium', 'Lystra', 'Derbe', 'Antioch Pisidia', 'Miletus'
+      'Magnesia', 'Tralles', 'Philadelphia in Lydia', 'Samosata', 'Melitene'
+      'Amida', 'Arbela', 'Ravenna', 'Milan', 'Aquileia'
+      'Lyon', 'Arles', 'Tours', 'Poitiers', 'Trier'
+      'Cologne', 'Reims', 'Toledo', 'Seville', 'Braga'
+      'Salona', 'Sirmium', 'Patras', 'Heraclea', 'Byzantium'
+      'Pella', 'Beroea'
     ]),
     commonGuesses: [
-      { guess: 'Alexandria', accepted: true }, { guess: 'Antioch', accepted: true },
-      { guess: 'Ephesus', accepted: true }, { guess: 'Carthage', accepted: true }, { guess: 'Edessa', accepted: true },
+      { guess: 'Alexandria', accepted: true }, { guess: 'Nicaea', accepted: true },
+      { guess: 'Nicomedia', accepted: true }, { guess: 'Carthage', accepted: true }, { guess: 'Edessa', accepted: true },
       { guess: 'Nazareth', accepted: false, reason: 'An important Gospel town, but not one of the episcopal sees selected in this key.' },
       { guess: 'Bethlehem', accepted: false, reason: 'A major biblical place, but not in this ancient-see answer key.' },
       { guess: 'Jericho', accepted: false, reason: 'An Old Testament and Gospel city, not included as an episcopal see here.' },
@@ -510,20 +578,31 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     context: 'The list draws on traditional Christian iconography in Scripture, liturgy, church art, and Catholic devotional imagery.',
     basis: 'Source references: Catholic Encyclopedia, “Symbolism”; Oxford Dictionary of Christian Art and Architecture; Catholic iconographic reference collections: https://www.newadvent.org/cathen/14373b.htm .',
     answers: ranked([
-      'Lamb','Fish','Dove','Anchor','Chi-Rho',
-      'Keys of Peter','Alpha and Omega','Pelican','Peacock','Phoenix','Lion','Eagle',
-      'Ox','Winged Man','Grapes','Wheat','Vine','Bread','Chalice','Olive Branch','Palm Branch','Lily','Rose','Shell',
-      'Crown of Thorns','Sacred Heart','Immaculate Heart','Flaming Heart','Rooster','Serpent','Apple','Pomegranate','Fountain','Well','Ship','Anchor Cross','Tau Cross','Maltese Cross','Jerusalem Cross','Cross Pattée','Cross Potent','INRI','Halo','Nimbus','Mandorla','Vesica Piscis','Hand of God','Eye of Providence','Triquetra','Trinity Knot','Book of the Gospels','Scroll','Book with Seven Seals','Sword','Censer','Incense','Rainbow','Ladder','Jacob’s Ladder','Burning Bush','Manna','Fountain of Life','Unicorn','Stag','Butterfly','Bee','Scales','Sword and Palm','Crown','Globus Cruciger','Shepherd’s Staff','Lamb with Banner','Five Wounds'
+      'Lamb', 'Fish', 'Dove', 'Anchor', 'Chi-Rho'
+      'Keys of Peter', 'Alpha and Omega', 'Pelican', 'Phoenix', 'Lion'
+      'Eagle', 'Ox', 'Winged Man', 'Grapes', 'Wheat'
+      'Vine', 'Bread', 'Chalice', 'Olive Branch', 'Palm Branch'
+      'Lily', 'Rose', 'Shell', 'Crown of Thorns', 'Sacred Heart'
+      'Immaculate Heart', 'Flaming Heart', 'Rooster', 'Serpent', 'Apple'
+      'Pomegranate', 'Fountain', 'Well', 'Ship', 'Anchor Cross'
+      'Tau Cross', 'Maltese Cross', 'Jerusalem Cross', 'Cross Pattée', 'Cross Potent'
+      'INRI', 'Halo', 'Nimbus', 'Mandorla', 'Vesica Piscis'
+      'Hand of God', 'Eye of Providence', 'Triquetra', 'Trinity Knot', 'Book of the Gospels'
+      'Scroll', 'Book with Seven Seals', 'Sword', 'Censer', 'Incense'
+      'Rainbow', 'Ladder', 'Jacob’s Ladder', 'Burning Bush', 'Manna'
+      'Fountain of Life', 'Unicorn', 'Stag', 'Butterfly', 'Bee'
+      'Scales', 'Sword and Palm', 'Crown', 'Globus Cruciger', 'Shepherd’s Staff'
+      'Lamb with Banner', 'Five Wounds'
     ], {
-      'Chi-Rho':'☧|Chrismon',
-      'Keys of Peter':'Keys|Keys of the Kingdom',
-      'Winged Man':'Man of Matthew|Angel of Matthew',
-      'Ox':'Ox of Luke',
-      'Eagle':'Eagle of John',
-      'Lion':'Lion of Mark',
-      'Lamb':'Agnus Dei',
-      'Fish':'Ichthys',
-      'Pelican':'Pelican in her Piety'
+      'Chi-Rho': '☧|Chrismon',
+      'Keys of Peter': 'Keys|Keys of the Kingdom',
+      'Winged Man': 'Man of Matthew|Angel of Matthew',
+      'Ox': 'Ox of Luke',
+      'Eagle': 'Eagle of John',
+      'Lion': 'Lion of Mark',
+      'Lamb': 'Agnus Dei',
+      'Fish': 'Ichthys',
+      'Pelican': 'Pelican in her Piety'
     }),
     commonGuesses: [
       { guess: 'Lamb', accepted: true }, { guess: 'Fish', accepted: true },
@@ -715,16 +794,25 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     basis: 'Source lists: Catholic Online Patron Saints A–Z; CatholicSaints.info Patronage Groups and city patronage listings: https://www.catholic.org/saints/patron.php ; https://catholicsaints.info/patronage-groups/ .',
     reviewFlags: ['Civic patronage varies by local tradition and date. Verify the city named for each patron before treating the list as reviewed.'],
     answers: ranked([
-      'Ambrose of Milan','Januarius of Naples','Petronius of Bologna','Mark the Evangelist','Nicholas of Myra',
-      'Agatha of Catania','Lucia of Syracuse','Fermin of Pamplona','Eulalia of Barcelona','Roch of Montpellier','Martin of Tours','John the Baptist',
-      'Dionysius of Paris','Genevieve of Paris','Isidore of Madrid','James the Greater','Our Lady of the Pillar','Our Lady of Guadalupe','Our Lady of Aparecida','Our Lady of Luján','Our Lady of Chiquinquirá','Our Lady of Coromoto','Our Lady of the Angels','Our Lady of Częstochowa',
-      'Catherine of Siena','Francis of Assisi','Anthony of Padua','George','Theodore','Demetrius of Thessaloniki','Spyridon of Trimythous','Andrew the Apostle','Peter the Apostle','Paul the Apostle','Athanasius of Alexandria','Cyril of Alexandria','Sabas the Sanctified','Basil the Great','John Chrysostom','Rita of Cascia','Zita of Lucca','Petronilla','Agnes of Rome','Cecilia of Rome','Lawrence of Rome','Sebastian','Florian','Barbara','Christopher','Urban of Langres','Felicity of Rome','Faustina Kowalska','Stanislaus of Krakow','Adalbert of Prague','Wenceslaus','Olaf of Norway','Eric of Sweden','Bridget of Sweden','Willibrord','Bavo of Ghent','Servatius of Maastricht','Remigius of Reims','Firmin of Amiens','Aignan of Orleans','Hilary of Poitiers','Martin of Braga','Fructuosus of Tarragona','Leander of Seville','Isidore of Seville','Cucuphas','Eulalia of Mérida','Vincent of Saragossa'
+      'Ambrose of Milan', 'Januarius of Naples', 'Petronius of Bologna', 'Mark the Evangelist', 'Nicholas of Myra'
+      'Agatha of Catania', 'Lucia of Syracuse', 'Fermin of Pamplona', 'Eulalia of Barcelona', 'Roch of Montpellier'
+      'Martin of Tours', 'John the Baptist', 'Dionysius of Paris', 'Genevieve of Paris', 'Isidore of Madrid'
+      'Our Lady of the Pillar', 'Our Lady of Guadalupe', 'Our Lady of Aparecida', 'Our Lady of Luján', 'Our Lady of Chiquinquirá'
+      'Our Lady of Coromoto', 'Our Lady of the Angels', 'Our Lady of Częstochowa', 'Catherine of Siena', 'Francis of Assisi'
+      'Anthony of Padua', 'Theodore', 'Demetrius of Thessaloniki', 'Spyridon of Trimythous', 'Andrew the Apostle'
+      'Peter the Apostle', 'Paul the Apostle', 'Athanasius of Alexandria', 'Cyril of Alexandria', 'Sabas the Sanctified'
+      'Basil the Great', 'John Chrysostom', 'Rita of Cascia', 'Zita of Lucca', 'Petronilla'
+      'Agnes of Rome', 'Cecilia of Rome', 'Lawrence of Rome', 'Sebastian', 'Barbara'
+      'Christopher', 'Urban of Langres', 'Felicity of Rome', 'Faustina Kowalska', 'Wenceslaus'
+      'Eric of Sweden', 'Willibrord', 'Bavo of Ghent', 'Servatius of Maastricht', 'Remigius of Reims'
+      'Firmin of Amiens', 'Aignan of Orleans', 'Martin of Braga', 'Fructuosus of Tarragona', 'Leander of Seville'
+      'Isidore of Seville', 'Cucuphas', 'Eulalia of Mérida', 'Vincent of Saragossa'
     ], {
-      'Januarius of Naples':'San Gennaro',
-      'Petronius of Bologna':'Saint Petronius',
-      'Isidore of Madrid':'Isidore the Farmer',
-      'Our Lady of the Pillar':'Our Lady of Zaragoza',
-      'Cucuphas':'Cucufas'
+      'Januarius of Naples': 'San Gennaro',
+      'Petronius of Bologna': 'Saint Petronius',
+      'Isidore of Madrid': 'Isidore the Farmer',
+      'Our Lady of the Pillar': 'Our Lady of Zaragoza',
+      'Cucuphas': 'Cucufas'
     }),
     commonGuesses: [
       { guess: 'Ambrose of Milan', accepted: true }, { guess: 'Januarius of Naples', accepted: true },
@@ -744,29 +832,39 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     reviewFlags: ['Group canonizations can involve dozens or hundreds of people; this open answer key is a sample, not the complete set of everyone canonized since 2000. Check names and canonical spellings against the Vatican record before marking reviewed.'],
     basis: 'Source list: Vatican News and the Dicastery for the Causes of Saints, canonizations during Pope Francis’s pontificate (2013–2025): https://www.vatican.va/news_services/liturgy/saints/index_saints_en.html ; https://www.vaticannews.va/en/pope/news/2025-04/pope-francis-canonizations-saints.html .',
     answers: ranked([
-      'John XXIII','John Paul II','Teresa of Calcutta','Paul VI','Oscar Romero',
-      'John Henry Newman','Charles de Foucauld','Titus Brandsma','Carlo Acutis','Pier Giorgio Frassati','Devasahayam Pillai','Joseph Vaz',
-      'Pedro Calungsod','Marianne Cope','Anna Schaffer','Jacques Berthieu','José de Anchieta','Louis Martin','Zélie Martin','Dulce Lopes Pontes','Bartolo Longo','Marguerite Bays','Junípero Serra','José Sánchez del Río',
-      'Cristóbal Magallanes','David Galván','Toribio Romo','Pedro de Jesús Maldonado','Rodrigo Aguilar Alemán','Julio Álvarez Mendoza','Luis Batiz Sainz','Mateo Correa Magallanes','Atilano Cruz Alvarado','Margarito Flores García','David Roldán Lara','Salvador Lara Puente','Agustín Caloca Cortés','José María Robles Hurtado','Miguel de la Mora','Andrés Solá Molist','José María Gran Cirera','Juan Alonso Fernández','Faustino Villanueva',
-      'Pedro Poveda','Álvaro del Portillo','Guadalupe Ortiz de Landázuri','Elizabeth of the Trinity','Maria Troncatti','Maria Guadalupe García Zavala','Maria Alfonsina Danil Ghattas','Vincenzo Grossi','Francesco Spinelli','Giovanni Battista Piamarta','Ludovico da Casoria','Nicola da Longobardi','Amato Ronconi','Giuseppina Vannini','Andrés Bessette','Mariam Thresia','María de la Purísima','Nazaria Ignacia','María del Carmen Sallés',
-      'Josemaría Escrivá','Padre Pio','Juan Diego','Pedro de San José Betancur','Daniele Comboni','Arnold Janssen','Joseph Freinademetz','Gianna Beretta Molla','Luigi Orione','Hannibal Maria Di Francia','Rafael Guízar y Valencia','Filippo Smaldone','Rosa Venerini','Theodore Guerin','George Preca','Charles of Mount Argus','Nuno de Santa Maria','Maria Bernarda Bütler','Alphonsa of the Immaculate Conception','Jeanne Jugan','Damien of Molokai','Mary MacKillop','Stanislaus Kazimierczyk','Guido Maria Conforti','Luigi Guanella','Bonifacia Rodríguez y Castro','Kateri Tekakwitha'
+      'John Paul II', 'Teresa of Calcutta', 'Oscar Romero', 'John Henry Newman', 'Charles de Foucauld'
+      'Titus Brandsma', 'Carlo Acutis', 'Pier Giorgio Frassati', 'Devasahayam Pillai', 'Joseph Vaz'
+      'Pedro Calungsod', 'Marianne Cope', 'Anna Schaffer', 'Jacques Berthieu', 'José de Anchieta'
+      'Louis Martin', 'Zélie Martin', 'Dulce Lopes Pontes', 'Bartolo Longo', 'Marguerite Bays'
+      'Junípero Serra', 'José Sánchez del Río', 'Cristóbal Magallanes', 'David Galván', 'Toribio Romo'
+      'Pedro de Jesús Maldonado', 'Rodrigo Aguilar Alemán', 'Julio Álvarez Mendoza', 'Luis Batiz Sainz', 'Mateo Correa Magallanes'
+      'Atilano Cruz Alvarado', 'Margarito Flores García', 'David Roldán Lara', 'Salvador Lara Puente', 'Agustín Caloca Cortés'
+      'José María Robles Hurtado', 'Miguel de la Mora', 'Andrés Solá Molist', 'José María Gran Cirera', 'Juan Alonso Fernández'
+      'Faustino Villanueva', 'Pedro Poveda', 'Álvaro del Portillo', 'Guadalupe Ortiz de Landázuri', 'Elizabeth of the Trinity'
+      'Maria Troncatti', 'Maria Guadalupe García Zavala', 'Maria Alfonsina Danil Ghattas', 'Vincenzo Grossi', 'Francesco Spinelli'
+      'Giovanni Battista Piamarta', 'Ludovico da Casoria', 'Nicola da Longobardi', 'Amato Ronconi', 'Giuseppina Vannini'
+      'Andrés Bessette', 'Mariam Thresia', 'María de la Purísima', 'Nazaria Ignacia', 'María del Carmen Sallés'
+      'Josemaría Escrivá', 'Padre Pio', 'Juan Diego', 'Pedro de San José Betancur', 'Daniele Comboni'
+      'Arnold Janssen', 'Joseph Freinademetz', 'Gianna Beretta Molla', 'Luigi Orione', 'Hannibal Maria Di Francia'
+      'Rafael Guízar y Valencia', 'Filippo Smaldone', 'Rosa Venerini', 'Theodore Guerin', 'George Preca'
+      'Charles of Mount Argus', 'Nuno de Santa Maria', 'Maria Bernarda Bütler', 'Alphonsa of the Immaculate Conception', 'Jeanne Jugan'
+      'Damien of Molokai', 'Mary MacKillop', 'Stanislaus Kazimierczyk', 'Guido Maria Conforti', 'Luigi Guanella'
+      'Bonifacia Rodríguez y Castro', 'Kateri Tekakwitha'
     ], {
-      'Teresa of Calcutta':'Mother Teresa|Saint Teresa of Calcutta',
-      'John Paul II':'Saint John Paul II',
-      'John XXIII':'Saint John XXIII',
-      'Paul VI':'Saint Paul VI',
-      'Oscar Romero':'Saint Óscar Romero',
-      'John Henry Newman':'Saint John Henry Newman',
-      'Charles de Foucauld':'Saint Charles de Foucauld',
-      'Carlo Acutis':'Saint Carlo Acutis',
-      'Pier Giorgio Frassati':'Saint Pier Giorgio Frassati',
-      'Pedro de San José Betancur':'Saint Pedro de San José Betancur|Peter of Saint Joseph Betancur',
-      'Josemaría Escrivá':'Josemaria Escriva|Saint Josemaria Escriva',
-      'Padre Pio':'Pio of Pietrelcina|Saint Pio',
-      'Juan Diego':'Saint Juan Diego',
-      'José Sánchez del Río':'Jose Sanchez del Rio|Saint José Sánchez del Río',
-      'Mariam Thresia':'Saint Mariam Thresia',
-      'Maria Troncatti':'Saint Maria Troncatti'
+      'Teresa of Calcutta': 'Mother Teresa|Saint Teresa of Calcutta',
+      'John Paul II': 'Saint John Paul II',
+      'Oscar Romero': 'Saint Óscar Romero',
+      'John Henry Newman': 'Saint John Henry Newman',
+      'Charles de Foucauld': 'Saint Charles de Foucauld',
+      'Carlo Acutis': 'Saint Carlo Acutis',
+      'Pier Giorgio Frassati': 'Saint Pier Giorgio Frassati',
+      'Pedro de San José Betancur': 'Saint Pedro de San José Betancur|Peter of Saint Joseph Betancur',
+      'Josemaría Escrivá': 'Josemaria Escriva|Saint Josemaria Escriva',
+      'Padre Pio': 'Pio of Pietrelcina|Saint Pio',
+      'Juan Diego': 'Saint Juan Diego',
+      'José Sánchez del Río': 'Jose Sanchez del Rio|Saint José Sánchez del Río',
+      'Mariam Thresia': 'Saint Mariam Thresia',
+      'Maria Troncatti': 'Saint Maria Troncatti'
     }),
     commonGuesses: [
       { guess: 'Teresa of Calcutta', accepted: true }, { guess: 'John Paul II', accepted: true },
