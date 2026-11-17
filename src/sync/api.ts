@@ -64,6 +64,13 @@ export interface WireChange {
   payload: any;
 }
 
+export type RefusalReason = 'shape' | 'too-large' | 'quota' | 'invalid';
+export interface RefusedChange {
+  table: string;
+  uid: string;
+  reason: RefusalReason;
+}
+
 export const api = {
   health: () => call<{ ok: boolean; registration: 'open' | 'closed' }>('GET', '/api/health'),
   me: () => call<{ user: AccountUser }>('GET', '/api/auth/me'),
@@ -83,7 +90,7 @@ export const api = {
   changePassword: (current: string, next: string) => call<{ ok: boolean }>('POST', '/api/auth/password', { current, next }),
   deleteAccount: (password: string) => call<{ ok: boolean }>('DELETE', '/api/account', { password }),
   exportAccount: () => call<any>('GET', '/api/account/export'),
-  sync: (cursor: number, changes: WireChange[]) => call<{ cursor: number; more: boolean; rejected: number; changes: WireChange[] }>('POST', '/api/sync', { protocol: 1, cursor, changes }),
+  sync: (cursor: number, changes: WireChange[]) => call<{ cursor: number; more: boolean; rejected: number; refused?: RefusedChange[]; changes: WireChange[] }>('POST', '/api/sync', { protocol: 1, cursor, changes }),
   sessions: () => call<{ sessions: DeviceSession[] }>('GET', '/api/auth/sessions'),
   revokeSession: (id: string) => call<{ ok: boolean }>('DELETE', `/api/auth/sessions/${id}`),
   revokeOthers: () => call<{ ok: boolean; revoked: number }>('POST', '/api/auth/sessions/revoke-others', {}),

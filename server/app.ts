@@ -549,6 +549,15 @@ export function createApp(cfg: Config): Server {
       const changes: any[] = Array.isArray(b.changes) ? b.changes : [];
       if (changes.length > MAX_CHANGES) throw new HttpError(413, `Send at most ${MAX_CHANGES} changes per request.`);
       let rejected = 0;
+      const refused: { table: string; uid: string; reason: 'shape' | 'too-large' | 'quota' | 'invalid' }[] = [];
+      const reject = (change: any, reason: 'shape' | 'too-large' | 'quota' | 'invalid') => {
+        rejected++;
+        refused.push({
+          table: typeof change?.table === 'string' ? change.table.slice(0, 200) : 'unknown',
+          uid: typeof change?.uid === 'string' ? change.uid.slice(0, 200) : 'unknown',
+          reason,
+        });
+      };
       const mine = new Set<string>();
       db.exec('BEGIN IMMEDIATE');
       try {
@@ -557,16 +566,20 @@ export function createApp(cfg: Config): Server {
         let added = 0;
         for (const c of changes) {
           if (!c || typeof c.table !== 'string' || !SYNC_TABLES.has(c.table) || typeof c.uid !== 'string' || c.uid.length > 200 || !Number.isFinite(c.updatedAt)) {
-            rejected++;
+            reject(c, 'invalid');
             continue;
           }
           if (!payloadOk(c.table, c.payload, !!c.deleted)) {
-            rejected++;
+            reject(c, 'shape');
             continue;
           }
           const payload = JSON.stringify(c.payload ?? {});
-          if (payload.length > MAX_PAYLOAD || used + payload.length > MAX_BYTES_PER_USER) {
-            rejected++;
+          if (payload.length > MAX_PAYLOAD) {
+            reject(c, 'too-large');
+            continue;
+          }
+          if (used + payload.length > MAX_BYTES_PER_USER) {
+            reject(c, 'quota');
             continue;
           }
           // A device with a clock set far ahead must not win every later conflict: cap client timestamps at server time plus a small allowance.
@@ -574,7 +587,7 @@ export function createApp(cfg: Config): Server {
           const ex = q.getRec.get(me.id, c.table, c.uid) as any;
           if (ex && ex.updated_at > stamp) continue; // server copy is newer: client will receive it below
           if (!ex && total + added >= MAX_RECORDS_PER_USER) {
-            rejected++;
+            reject(c, 'quota');
             continue;
           }
           const seq = (q.bump.get(me.id) as any).seq as number;
@@ -596,6 +609,7 @@ export function createApp(cfg: Config): Server {
         cursor: last,
         more,
         rejected,
+        refused,
         protocol: PROTOCOL,
         changes: rows.map((r) => ({ table: r.tbl, uid: r.uid, updatedAt: r.updated_at, deleted: !!r.deleted, payload: JSON.parse(r.payload) })),
       });
