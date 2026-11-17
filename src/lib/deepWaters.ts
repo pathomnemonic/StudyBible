@@ -15,6 +15,36 @@ export function findDeepAnswer(prompt: DeepPrompt, guess: string): DeepAnswer | 
   return prompt.answers.find((entry) => [entry.answer, ...(entry.aliases ?? [])].some((a) => normalizeDeepAnswer(a) === normalized)) ?? null;
 }
 
+export function deepEditDistance(a: string, b: string): number {
+  const row = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    let diagonal = row[0];
+    row[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const above = row[j];
+      row[j] = Math.min(row[j] + 1, row[j - 1] + 1, diagonal + (a[i - 1] === b[j - 1] ? 0 : 1));
+      diagonal = above;
+    }
+  }
+  return row[b.length];
+}
+
+/** Suggestions are shown as choices only; they are never silently accepted. */
+export function suggestDeepAnswers(prompt: DeepPrompt, guess: string, limit = 3): DeepAnswer[] {
+  const target = normalizeDeepAnswer(guess);
+  if (target.length < 4 || findDeepAnswer(prompt, guess)) return [];
+  const maxDistance = Math.max(1, Math.floor(target.length * 0.22));
+  const matches = new Map<string, { answer: DeepAnswer; distance: number }>();
+  for (const entry of prompt.answers) {
+    const distance = Math.min(...[entry.answer, ...(entry.aliases ?? [])].map((name) => deepEditDistance(target, normalizeDeepAnswer(name))));
+    if (distance <= maxDistance) {
+      const previous = matches.get(entry.answer);
+      if (!previous || distance < previous.distance) matches.set(entry.answer, { answer: entry, distance });
+    }
+  }
+  return [...matches.values()].sort((a, b) => a.distance - b.distance || a.answer.answer.localeCompare(b.answer.answer)).slice(0, limit).map((x) => x.answer);
+}
+
 /** Stable daily set; the prompt bank and order are the same for every visit on a given local day. */
 export function dailyDeepPrompts(day: number): DeepPrompt[] {
   // Deterministic rotating bag: globally consistent, no duplicates within a day,
