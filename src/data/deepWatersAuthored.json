@@ -5966,10 +5966,10 @@
   {
     "id": "batch2-marian-antiphons",
     "theme": "Marian devotion",
-    "prompt": "Name one of the four traditional seasonal Marian antiphons.",
-    "context": "Use the four antiphons traditionally assigned to the liturgical year; count: 4.",
+    "prompt": "Name one of three seasonal Marian antiphons other than Salve Regina.",
+    "context": "Use Alma Redemptoris Mater, Ave Regina Caelorum, and Regina Caeli; count: 3.",
     "hint": "Each is assigned to a season or part of the liturgical year.",
-    "source": "Hand-authored closed key; authority: Liturgy of the Hours; Roman antiphon tradition. Count: 4.",
+    "source": "Hand-authored closed key; authority: Liturgy of the Hours; Roman antiphon tradition. Count: 3.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
@@ -5985,11 +5985,6 @@
       },
       {
         "answer": "Regina Caeli",
-        "tier": 1,
-        "source": "Liturgy of the Hours; Roman antiphon tradition"
-      },
-      {
-        "answer": "Salve Regina",
         "tier": 1,
         "source": "Liturgy of the Hours; Roman antiphon tradition"
       }
@@ -6012,8 +6007,8 @@
       },
       {
         "guess": "Salve Regina",
-        "accept": true,
-        "answer": "Salve Regina"
+        "accept": false,
+        "reason": "The prompt explicitly excludes this antiphon because it is also keyed as Hail Holy Queen."
       },
       {
         "guess": "Magnificat",
