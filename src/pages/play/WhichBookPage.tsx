@@ -1,3 +1,4 @@
+import QuizPips from '../../components/QuizPips';
 import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useState } from 'react';
 import { useEditions } from '../../data/EditionsContext';
@@ -83,7 +84,7 @@ export default function WhichBookPage() {
       <GameHelp how={["Read the verse and name the book of the Bible it comes from.", "Pick your answer from the choices."]} />
       {!qs ? <p className="muted">Loading…</p> : !done && q ? (
         <>
-          <p className="muted small">Verse {i + 1} of {total}</p>
+          <QuizPips at={i} total={total} /><p className="muted small">Verse {i + 1} of {total}</p>
           <blockquote className="ws-quote">“{q.text}”</blockquote>
           <div className="ws-options" role="group" aria-label="Which book is it from?">
             {q.options.map((o) => (

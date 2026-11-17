@@ -25,7 +25,7 @@ await p.waitForTimeout(400);
 await p.click('button:has-text("Hint")');
 const hint = (await p.locator('.vb-msg').innerText()).replace('Try ', '').toLowerCase();
 await p.fill('input[aria-label="Next word"]', hint); await p.click('button:has-text("Add")');
-if ((await p.locator('.ch-list li').count()) !== 2) fail('hinted word not added');
+if ((await p.locator('.ch-list li:not(.target)').count()) !== 2) fail('hinted word not added');
 
 await p.goto(`${BASE}/#/play/crossword`); await p.waitForSelector('.cw-cell');
 await p.locator('.cw-cell').first().click();

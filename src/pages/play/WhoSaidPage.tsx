@@ -1,3 +1,4 @@
+import QuizPips from '../../components/QuizPips';
 import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -45,7 +46,7 @@ export default function WhoSaidPage() {
       <GameHelp how={["Read each quotation and pick which saint said it.", "Five quotations a round."]} />
       {!done && q ? (
         <>
-          <p className="muted small">Quote {i + 1} of {ROUNDS}</p>
+          <QuizPips at={i} total={ROUNDS} /><p className="muted small">Quote {i + 1} of {ROUNDS}</p>
           <blockquote className="ws-quote">“{q.text}”</blockquote>
           <div className="ws-options" role="group" aria-label="Who said it?">
             {q.options.map((o) => (

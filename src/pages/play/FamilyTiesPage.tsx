@@ -1,3 +1,4 @@
+import QuizPips from '../../components/QuizPips';
 import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -27,7 +28,7 @@ export default function FamilyTiesPage() {
       {persons && qs.length === 0 && <p className="muted">The genealogies are not on this device yet. <Link to="/downloads">Save them for offline use</Link>.</p>}
       {q && !done && (
         <section className="card" aria-label="Question">
-          <p className="muted small">Question {i + 1} of {qs.length}</p>
+          <QuizPips at={i} total={qs.length} /><p className="muted small">Question {i + 1} of {qs.length}</p>
           <h2 className="card-title">{q.text}</h2>
           <div className="ws-options" role="group" aria-label="Choices">
             {q.options.map((o, n) => <button key={o} className={`btn ws-opt${picked != null && n === q.answer ? ' right' : picked === n ? ' wrong' : ''}`} disabled={picked != null} onClick={() => choose(n)}>{o}</button>)}
