@@ -3915,11 +3915,6 @@
         "reason": "A well-known Marian prayer, but it is not included in this hand-curated answer key."
       },
       {
-        "guess": "Prayer of Saint Patrick",
-        "accept": false,
-        "reason": "A traditional prayer, but not included in this hand-curated answer key."
-      },
-      {
         "guess": "Confiteor",
         "accept": false,
         "reason": "A liturgical penitential text not included in this curated open answer key."
@@ -6943,10 +6938,13 @@
         ]
       },
       {
-        "answer": "John Baptist De La Salle",
+        "answer": "John De La Salle",
         "tier": 4,
         "source": "De La Salle Institute, history",
         "aliases": [
+          "Saint John Baptist de La Salle",
+          "St John Baptist de La Salle",
+          "John Baptist De La Salle",
           "Saint John Baptist de La Salle",
           "St John Baptist de La Salle"
         ]
@@ -6971,7 +6969,7 @@
       {
         "guess": "John Baptist de La Salle",
         "accept": true,
-        "answer": "John Baptist De La Salle"
+        "answer": "John De La Salle"
       },
       {
         "guess": "Benedict of Nursia",
