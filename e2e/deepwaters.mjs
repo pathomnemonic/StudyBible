@@ -71,9 +71,19 @@ try {
   const session = await p.evaluate(() => JSON.parse(localStorage.getItem('sb:deepwaters:session:v1')));
   const firstQuestion = await p.locator('.dw-card h2').innerText();
   await lockAnswer(p, answerFor(session, 0, firstQuestion));
-  await p.waitForFunction(() => localStorage.getItem('sb:deepwaters:session:v1')?.includes('"phase":"locked"'));
+  await p.waitForFunction(() => {
+    try {
+      const stored = JSON.parse(localStorage.getItem('sb:deepwaters:session:v1') || 'null');
+      return stored?.phase === 'locked' && stored.history?.length === stored.round + 1 && stored.deadlineAt === null;
+    } catch { return false; }
+  });
+  const persisted = await p.evaluate(() => JSON.parse(localStorage.getItem('sb:deepwaters:session:v1')));
   await p.reload();
-  await p.waitForSelector('.dw-reveal');
+  try {
+    await p.waitForSelector('.dw-reveal', { timeout: 7000 });
+  } catch {
+    throw new Error(`locked session did not restore; persisted=${JSON.stringify(persisted)}`);
+  }
   if (!(await p.locator('.dw-round-count').innerText()).includes('01')) throw new Error('locked round did not restore after reload');
 
   await p.getByRole('button', { name: 'Next round' }).click();
