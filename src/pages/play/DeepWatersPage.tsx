@@ -6,6 +6,7 @@ import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAM
 import { clearDeepSession, deepDiveStreak, loadDeepLogbook, loadDeepSession, recordDeepDive, saveDeepSession } from '../../lib/deepWatersSession';
 import { clearDeepMisses, deepMissesText, loadDeepMisses, recordDeepMiss } from '../../lib/deepWatersMisses';
 import { Art } from '../../arcade/art';
+import { blip, burst } from '../../arcade/fx';
 import { DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
@@ -125,6 +126,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
     const pearlBonus = pearlAnswer && normalizeDeepAnswer(found.answer) === normalizeDeepAnswer(pearlAnswer) ? PEARL_BONUS : 0;
     const points = basePoints + pearlBonus;
     const entry: RoundResult = { prompt: prompt.prompt, guess: trimmed, answer: found.answer, tier: found.tier, points, timedOut: false, pearlBonus };
+    if (pearlBonus > 0) { burst(); blip('win'); }
     setScore((s) => s + points); setResult(entry); setHistory((h) => [...h, entry]);
     setLocked(true); deadlineRef.current = 0; setFeedback('');
   };
@@ -193,7 +195,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
               {suggestions.map((item) => <button key={item.answer} type="button" onClick={() => { setGuess(item.answer); setFeedback(''); }}>{item.answer}</button>)}
             </div>}
             {!locked && <div className="dw-scoring-key" aria-label="Scoring guide">
-              <span>SCORING</span>{([1,2,3,4,5,6] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><b>{DEEP_POINTS[tier]}</b></i>)}<small>rarer answers score more</small>
+              <span>SCORING</span>{([1,2,3,4,5,6] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><Art n={TIER_ART[tier]} size={26} /><b>{DEEP_POINTS[tier]}</b></i>)}<small>rarer answers score more</small>
             </div>}
             {locked && result && (
               <div className={`dw-reveal ${result.points ? 'scored' : ''}`}>
@@ -202,7 +204,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
                   <div><strong>{result.points ? `+${result.points} points` : result.timedOut ? 'Time is up' : 'No score this round'}</strong><small>{result.points ? DEEP_TIER_NAMES[result.tier!] : 'Keep exploring the answer key'}</small></div>
                 </div>
                 {result.answer && <span className="dw-correct-answer">{result.answer}</span>}
-                {(result.pearlBonus ?? 0) > 0 && <strong className="dw-pearl-bonus">Pearl found · +{result.pearlBonus} bonus</strong>}
+                {(result.pearlBonus ?? 0) > 0 && <strong className="dw-pearl-bonus"><Art n="gem-stone" size={36} className="dw-pearl-gem" /> Pearl found · +{result.pearlBonus} bonus</strong>}
                 <p className="dw-context">{prompt.context}</p>
                 <button type="button" className="dw-hint-button" onClick={() => setShowAnswers((v) => !v)}>{showAnswers ? 'Hide answer key' : `Explore all ${accepted.length} accepted answers`}</button>
                 {showAnswers && <ul className="dw-answer-list">{shownAnswers.map((a) => <li key={a.answer}><span>{a.answer}</span><b>{DEEP_POINTS[a.tier]} pts</b></li>)}</ul>}

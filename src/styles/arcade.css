@@ -555,3 +555,12 @@ html[data-arcade] .charades-btns .btn { min-height: 62px; font-size: 1.3rem; }
   html[data-arcade] .tabs { border-top: 0; border-right: 3px solid #ffd23f; background: linear-gradient(90deg, #2f1a86, #1c0e5c); box-shadow: 8px 0 24px rgba(10, 4, 40, 0.5); }
   html[data-arcade] .brand { color: #fff; }
 }
+
+.dw-pearl-bonus { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-display); color: #fff; padding: 4px 14px 4px 8px; border-radius: 99px; background: linear-gradient(90deg, #7b5cff, #ff4fa3, #7b5cff); background-size: 200% 100%; animation: arc-shine 2.5s linear infinite; box-shadow: 0 3px 0 rgba(10, 4, 40, 0.5); }
+.dw-pearl-gem { animation: arc-bob 1.6s ease-in-out infinite; }
+
+html[data-arcade][data-game='deepwaters'] .dw-scoring-key { gap: 6px; flex-wrap: wrap; justify-content: center; }
+html[data-arcade][data-game='deepwaters'] .dw-scoring-key > span { width: 100%; text-align: center; }
+html[data-arcade][data-game='deepwaters'] .dw-scoring-key i { display: inline-flex; flex-direction: column; align-items: center; width: auto; height: auto; min-width: 44px; padding: 4px 6px 3px; border-radius: 14px; background: rgba(10, 4, 40, 0.4); box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.3); }
+html[data-arcade][data-game='deepwaters'] .dw-scoring-key i .arc-art { width: 26px; height: 26px; }
+html[data-arcade][data-game='deepwaters'] .dw-scoring-key i b { font-size: 0.78rem; }
