@@ -1,4 +1,8 @@
-import CURRICULUM_PROMPTS from './deepWatersCurriculum.generated.json';
+import CURRICULUM_PROMPTS_1 from './deepWatersCurriculum1.generated.json';
+import CURRICULUM_PROMPTS_2 from './deepWatersCurriculum2.generated.json';
+import CURRICULUM_PROMPTS_3 from './deepWatersCurriculum3.generated.json';
+import CURRICULUM_PROMPTS_4 from './deepWatersCurriculum4.generated.json';
+import CURRICULUM_PROMPTS_5 from './deepWatersCurriculum5.generated.json';
 import SCRIPTURE_PROMPTS_1 from './deepWatersScripture1.generated.json';
 import SCRIPTURE_PROMPTS_2 from './deepWatersScripture2.generated.json';
 import SCRIPTURE_PROMPTS_3 from './deepWatersScripture3.generated.json';
@@ -43,7 +47,11 @@ const CURATED_DEEP_WATERS: DeepPrompt[] = [
 
 export const DEEP_WATERS: DeepPrompt[] = [
   ...CURATED_DEEP_WATERS,
-  ...(CURRICULUM_PROMPTS as DeepPrompt[]),
+  ...(CURRICULUM_PROMPTS_1 as DeepPrompt[]),
+  ...(CURRICULUM_PROMPTS_2 as DeepPrompt[]),
+  ...(CURRICULUM_PROMPTS_3 as DeepPrompt[]),
+  ...(CURRICULUM_PROMPTS_4 as DeepPrompt[]),
+  ...(CURRICULUM_PROMPTS_5 as DeepPrompt[]),
   ...(SCRIPTURE_PROMPTS_1 as DeepPrompt[]),
   ...(SCRIPTURE_PROMPTS_2 as DeepPrompt[]),
   ...(SCRIPTURE_PROMPTS_3 as DeepPrompt[]),
