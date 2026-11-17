@@ -415,7 +415,7 @@
   {
     "id": "authored-resurrection-witnesses",
     "theme": "Gospels and Acts",
-    "prompt": "Which named people are described as witnesses of the risen Jesus in the New Testament?",
+    "prompt": "Which people or groups are described as encountering the risen Jesus in the New Testament?",
     "context": "Include individuals or clearly identified groups who encounter the risen Jesus; do not include people who only hear a report second-hand.",
     "hint": "Start with the appearance accounts in the four Gospels, then compare Paul's list in 1 Corinthians 15.",
     "source": "Matthew 28; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8.",
@@ -554,12 +554,16 @@
         "tier": 3
       },
       {
-        "answer": "Jerusalem",
+        "answer": "Cyprus",
         "tier": 1
       },
       {
-        "answer": "Cyprus",
-        "tier": 1
+        "answer": "Pamphylia",
+        "tier": 4
+      },
+      {
+        "answer": "Pisidia",
+        "tier": 4
       }
     ]
   },
@@ -796,7 +800,7 @@
   {
     "id": "authored-eastern-catholic-churches",
     "theme": "Catholic Church",
-    "prompt": "Which are the Catholic Churches sui iuris in communion with the Bishop of Rome?",
+    "prompt": "Name an Eastern Catholic Church that is sui iuris and in communion with the Bishop of Rome.",
     "context": "Name a Church, not merely a liturgical rite. The list follows the commonly recognized twenty-three Eastern Catholic Churches plus the Latin Church.",
     "hint": "Think of the distinct Byzantine, Alexandrian, Antiochian, Armenian, and East Syriac traditions.",
     "source": "Code of Canons of the Eastern Churches; Holy See, Eastern Catholic Churches.",
@@ -893,13 +897,21 @@
       {
         "answer": "Eritrean Catholic Church",
         "tier": 4
+      },
+      {
+        "answer": "Italo-Albanian Catholic Church",
+        "tier": 4
+      },
+      {
+        "answer": "Syriac Catholic Church",
+        "tier": 2
       }
     ]
   },
   {
     "id": "authored-doctors-of-church",
     "theme": "Catholic tradition",
-    "prompt": "Which people have been formally proclaimed Doctors of the Church?",
+    "prompt": "Name a person who has been formally proclaimed a Doctor of the Church.",
     "context": "The list includes Doctors from the Latin and Eastern traditions. Use the person's commonly accepted name.",
     "hint": "Some are bishops and theologians; others are mystics, religious founders, or early Christian writers.",
     "source": "Dicastery for the Causes of Saints / Holy See lists of Doctors of the Church.",
@@ -1019,10 +1031,6 @@
         "tier": 1
       },
       {
-        "answer": "Cyril of Alexandria",
-        "tier": 2
-      },
-      {
         "answer": "Cyril of Jerusalem",
         "tier": 3
       },
@@ -1043,8 +1051,8 @@
         "tier": 3
       },
       {
-        "answer": "Cyril of Alexandria",
-        "tier": 2
+        "answer": "Gregory of Narek",
+        "tier": 4
       }
     ]
   },
@@ -1259,10 +1267,6 @@
         ]
       },
       {
-        "answer": "Mary of Rome",
-        "tier": 4
-      },
-      {
         "answer": "Lydia",
         "tier": 1
       },
@@ -1290,22 +1294,19 @@
         "tier": 3
       },
       {
-        "answer": "Philip's four daughters",
-        "tier": 2,
-        "aliases": [
-          "The four daughters of Philip"
-        ]
+        "answer": "Mary the mother of Jesus",
+        "tier": 1
       },
       {
-        "answer": "Sister of Nereus",
-        "tier": 5
+        "answer": "Mary the mother of John Mark",
+        "tier": 2
       }
     ]
   },
   {
     "id": "authored-acts-cities",
     "theme": "Acts and geography",
-    "prompt": "Which cities are named as places where the apostolic mission took place in Acts?",
+    "prompt": "Which cities or regions are named as places where the apostolic mission took place in Acts?",
     "context": "Use cities explicitly named in Acts as destinations, preaching locations, or places where churches formed.",
     "hint": "Paul's journeys provide many examples, but include places associated with Peter and Philip as well.",
     "source": "Acts 2–28.",
@@ -1719,8 +1720,8 @@
         ]
       },
       {
-        "answer": "Luke",
-        "tier": 2
+        "answer": "Agabus",
+        "tier": 3
       }
     ]
   },
