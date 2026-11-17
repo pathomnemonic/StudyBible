@@ -32,6 +32,17 @@ describe('the games artwork', () => {
     const missing = [...names].filter((n) => !existsSync(`public/arcade/3d/${n}.webp`));
     expect(missing, 'icons named in the code but not in public/arcade/3d').toEqual([]);
   });
+  it('every pixel sprite the code or the stylesheets name is bundled', () => {
+    const names = new Set<string>();
+    for (const f of sources) {
+      const t = read(f);
+      for (const m of t.matchAll(/arcade\/pixel\/([a-z0-9-]+)\.png/g)) names.add(m[1]);
+    }
+    const scene = read('src/arcade/DiveScene.tsx');
+    for (const m of scene.slice(scene.indexOf('const CREATURES'), scene.indexOf('const base')).matchAll(/'([a-z0-9-]+)'/g)) names.add(m[1]);
+    expect(names.size).toBeGreaterThan(8);
+    expect([...names].filter((n) => !existsSync(`public/arcade/pixel/${n}.png`))).toEqual([]);
+  });
   it('every animated emoji the code names is bundled', () => {
     const codes = new Set<string>();
     for (const f of sources) for (const m of read(f).matchAll(/<Anim c="([0-9a-f]+)"/g)) codes.add(m[1]);

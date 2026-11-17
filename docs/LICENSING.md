@@ -38,6 +38,7 @@ Each edition's `attribution` string is displayed under every chapter; each study
 | Item | Where | Licence |
 | --- | --- | --- |
 | Fluent UI Emoji, 3D style (Microsoft) | `public/arcade/3d` (resized to 176 px WebP) | MIT, © Microsoft Corporation. The licence text is kept in `public/arcade/LICENSE-fluent-emoji.txt` |
+| Pixel sprites (22 small PNGs) | `public/arcade/pixel` | Made from the Fluent UI Emoji 3D images above (MIT): cropped, reduced to 32 px with a 20-colour palette. Same licence and notice |
 | Noto Emoji Animation (Google) | `public/arcade/anim` (resized to 144 px, frames thinned) | CC BY 4.0, © Google. Credit shown on the Games page. https://googlefonts.github.io/noto-emoji-animation/ |
-| Lilita One, Fredoka (fonts) | npm `@fontsource/lilita-one`, `@fontsource-variable/fredoka` | SIL Open Font License 1.1 |
+| Lilita One, Fredoka, Pixelify Sans (fonts) | npm `@fontsource/lilita-one`, `@fontsource-variable/fredoka`, `@fontsource/pixelify-sans` | SIL Open Font License 1.1 |
 Fetched from `raw.githubusercontent.com/microsoft/fluentui-emoji` and `fonts.gstatic.com/s/e/notoemoji` on 2026-11-17. Both are redistributable with attribution; the images were only resized and re-encoded.
