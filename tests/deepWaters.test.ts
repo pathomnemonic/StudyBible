@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { DEEP_WATERS } from '../src/data/deepWaters';
 import { GENERATED_DEEP_CANDIDATES } from '../src/lib/deepWatersBankGenerator';
-import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, findDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../src/lib/deepWaters';
+import { dailyDeepPrompts, deepWatersCoverageErrors, deepWatersCoverageReport, DEEP_ANSWER_TARGET, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, findDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../src/lib/deepWaters';
 
 describe('Deep Waters content and rules', () => {
   it('has enough Catholic prompts for a seven-round daily set', () => {
@@ -105,6 +105,17 @@ describe('Deep Waters content and rules', () => {
       expect(row.reviewStatus).toBe('needs-review');
       expect(row.tier).toBeNull();
     }
+  });
+
+  it('reports underfilled draft prompts and gates reviewed prompts below forty answers', () => {
+    const report = deepWatersCoverageReport();
+    expect(report).toHaveLength(DEEP_WATERS.length);
+    expect(report.every((row) => row.status === 'draft')).toBe(true);
+    expect(report.some((row) => !row.meetsTarget)).toBe(true);
+    const underfilled = { ...DEEP_WATERS[0], status: 'reviewed' as const, answers: DEEP_WATERS[0].answers.slice(0, DEEP_ANSWER_TARGET - 1) };
+    expect(deepWatersCoverageErrors([underfilled])).toHaveLength(1);
+    const ready = { ...DEEP_WATERS[0], status: 'reviewed' as const, answers: Array.from({ length: DEEP_ANSWER_TARGET }, (_, i) => ({ answer: `answer-${i}`, tier: 1 as const })) };
+    expect(deepWatersCoverageErrors([ready])).toEqual([]);
   });
 
   it('uses an explicit increasing editorial score ladder', () => {
