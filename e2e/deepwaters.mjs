@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 
 const BASE = process.env.BASE || 'http://localhost:4173';
 const generatedFiles = [
+  '../src/data/deepWatersAuthored.json',
   ...Array.from({ length: 5 }, (_, i) => `../src/data/deepWatersCurriculum${i + 1}.generated.json`),
   ...Array.from({ length: 4 }, (_, i) => `../src/data/deepWatersScripture${i + 1}b.generated.json`),
 ];
