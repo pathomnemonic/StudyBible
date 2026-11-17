@@ -108,7 +108,8 @@ export function loadDeepLogbook(): DeepLogEntry[] {
 
 export function recordDeepDive(entry: DeepLogEntry): DeepLogEntry[] {
   if (entry.practice) return loadDeepLogbook();
-  const previous = loadDeepLogbook().filter((x) => x.day !== entry.day);
+  const previous = loadDeepLogbook();
+  if (previous.some((x) => x.day === entry.day)) return previous;
   const next = [...previous, entry].sort((a, b) => a.day - b.day).slice(-400);
   try { localStorage.setItem(DEEP_LOGBOOK_KEY, JSON.stringify(next)); } catch { /* local storage may be unavailable */ }
   return next;
