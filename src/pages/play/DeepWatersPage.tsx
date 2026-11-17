@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import GameHelp from '../../components/GameHelp';
 import ShareButton from '../../components/ShareButton';
 import { dayIndex, isPractice, markDailyDone } from '../../lib/dailyGame';
-import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, findDeepAnswer, practiceDeepPrompts } from '../../lib/deepWaters';
+import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, findDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../../lib/deepWaters';
 import type { DeepAnswer, DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
@@ -70,6 +70,7 @@ export default function DeepWatersPage() {
   const share = `Deep Waters ${practice ? 'practice' : '#' + today}\n${score} points\n${history.map((r, i) => `${i + 1}. ${r.points ? '+' + r.points : '—'}`).join('\n')}`;
   const accepted = useMemo(() => [...prompt.answers].sort((a, b) => b.tier - a.tier || a.answer.localeCompare(b.answer)), [prompt]);
   const timerTone = seconds <= 7 ? 'urgent' : seconds <= 15 ? 'warm' : 'calm';
+  const suggestions = useMemo(() => guess.trim() && !locked ? suggestDeepAnswers(prompt, guess) : [], [prompt, guess, locked]);
 
   return (
     <div className="page deep-waters">
@@ -116,6 +117,10 @@ export default function DeepWatersPage() {
               </div>
             </form>
             <p className="dw-feedback" aria-live="polite">{feedback}</p>
+            {suggestions.length > 0 && <div className="dw-suggestions" aria-label="Possible spelling corrections">
+              <small>Did you mean? Choose a suggestion, then lock it in yourself.</small>
+              {suggestions.map((item) => <button key={item.answer} type="button" onClick={() => { setGuess(item.answer); setFeedback(''); }}>{item.answer}</button>)}
+            </div>}
             {!locked && <div className="dw-scoring-key" aria-label="Scoring guide">
               <span>SCORING</span>{([1,2,3,4,5] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><b>{DEEP_POINTS[tier]}</b></i>)}<small>rarer answers score more</small>
             </div>}
