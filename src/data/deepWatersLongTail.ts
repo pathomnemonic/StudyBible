@@ -172,7 +172,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Pope Martin I', 'Pope Agatho', 'Angela of Foligno', 'Margaret of Cortona', 'Umiliana de Cerchi',
       'Juliana Falconieri', 'Francesca Romana', 'Catherine of Genoa', 'Giacomo Bianconi', 'Andrea Conti da Segni',
       'Giovanna da Orvieto', 'Alberto degli Abati', 'Chiara della Croce da Montefalco',
-          'Peter Damian', 'Zita of Lucca', 'Catherine de' Ricci',
+          'Peter Damian', 'Zita of Lucca', 'Catherine de\' Ricci',
     ], {
       'Francis of Assisi': 'Saint Francis|St Francis',
       'Catherine of Siena': 'Saint Catherine of Siena',
@@ -187,7 +187,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     }),
     commonGuesses: [
       { guess: 'Peter Damian', accepted: true }, { guess: 'Zita of Lucca', accepted: true },
-      { guess: 'Catherine de' Ricci', accepted: true }, { guess: 'Angela of Foligno', accepted: true }, { guess: 'Carlo Acutis', accepted: true },
+      { guess: 'Catherine de\' Ricci', accepted: true }, { guess: 'Angela of Foligno', accepted: true }, { guess: 'Carlo Acutis', accepted: true },
       { guess: 'Anthony of Padua', accepted: false, reason: 'Born in Lisbon, Portugal; the prompt is limited to Italian birthplaces.' },
       { guess: 'Francis Xavier', accepted: false, reason: 'Born in the Kingdom of Navarre, not Italy.' },
       { guess: 'Teresa of Ávila', accepted: false, reason: 'Born in Spain, not Italy.' },
