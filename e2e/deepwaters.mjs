@@ -15,7 +15,7 @@ try {
   if (await p.locator('.dw-progress span').count() !== 7) throw new Error('seven round markers expected');
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
   const question = await p.locator('.dw-card h2').innerText();
-  const answer = question.includes('religious order') ? 'Society of Jesu'
+  const answer = question.includes('religious order') ? 'Jesuit'
     : question.includes('title or invocation') ? 'Theotokos'
     : question.includes('Church Father') ? 'Augustine'
     : question.includes('ecumenical council') ? 'Nicaea I'
@@ -28,14 +28,14 @@ try {
     : null;
   if (!answer) throw new Error(`unrecognized Deep Waters prompt in browser test: ${question}`);
   await p.fill('#dw-answer', answer);
-  if (answer === 'Society of Jesu') {
+  if (answer === 'Jesuit') {
     await p.getByRole('button', { name: 'Jesuits' }).waitFor({ state: 'visible' });
     await p.getByRole('button', { name: 'Jesuits' }).click();
     if (await p.locator('#dw-answer').inputValue() !== 'Jesuits') throw new Error('spelling suggestion did not populate input');
   }
   await p.getByRole('button', { name: /Lock it in/ }).click();
   await p.waitForSelector('.dw-reveal');
-  if (!(await p.locator('.dw-reveal').innerText()).includes(answer === 'Society of Jesu' ? 'Jesuits' : answer)) throw new Error('recognized answer not revealed');
+  if (!(await p.locator('.dw-reveal').innerText()).includes(answer === 'Jesuit' ? 'Jesuits' : answer)) throw new Error('recognized answer not revealed');
   await p.waitForFunction(() => localStorage.getItem('sb:deepwaters:session:v1')?.includes('"phase":"locked"'));
   await p.reload();
   await p.waitForSelector('.dw-reveal');
