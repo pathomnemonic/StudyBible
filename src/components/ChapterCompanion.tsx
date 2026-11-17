@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { isoToday } from '../lib/day';
 import { Link } from 'react-router-dom';
 import { providers, type StudyItem } from '../study/providers';
 import { getCccScripture } from '../data/ccc';
@@ -36,8 +37,10 @@ export default function ChapterCompanion({ book, anchorChapters, chapterRef }: {
       for (const [c1, v1, c2, v2, , q] of cites ?? []) if (c1 === c2 && anchorChapters.includes(c1) && q) for (let v = v1; v <= Math.min(v2, v1 + 5); v++) m.set(v, (m.get(v) ?? 0) + 1);
       setKeys([...m.entries()].map(([v, n]) => ({ v, n })).sort((a, b) => b.n - a.n).slice(0, 4).sort((a, b) => a.v - b.v));
     });
-    const today = new Date().toISOString().slice(0, 10);
-    Promise.all([2026, 2027].map((y) => getJson<{ days: Record<string, { t: string; r: Record<string, string> }> }>(`lectionary/${y}.json`, true).catch(() => null))).then((yrs) => {
+    // the reader's own date, not UTC (in the Americas the UTC date is already tomorrow by late afternoon, which dropped today's Mass)
+    const today = isoToday();
+    const year = Number(today.slice(0, 4));
+    Promise.all([year, year + 1].map((y) => getJson<{ days: Record<string, { t: string; r: Record<string, string> }> }>(`lectionary/${y}.json`, true).catch(() => null))).then((yrs) => {
       if (!live) return;
       const out: Mass[] = [];
       for (const y of yrs) for (const [date, d] of Object.entries(y?.days ?? {}).sort()) {

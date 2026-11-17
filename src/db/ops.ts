@@ -1,5 +1,5 @@
 import { BRAND } from '../lib/brand';
-import { AUTO_TABLES, KEYED_TABLES, db, newUid, syncFlags, type Bookmark, type Highlight, type HighlightColor, type Note, type Target } from './db';
+import { AUTO_TABLES, KEYED_TABLES, db, newUid, quietly, syncFlags, type Bookmark, type Highlight, type HighlightColor, type Note, type Target } from './db';
 import { parseRefId, refId, type Ref } from '../lib/refs';
 import { BOOKS } from '../lib/canon';
 import { isAppHashRoute, isHttpUrl } from '../lib/safeUrl';
@@ -96,12 +96,13 @@ export async function exportAll(snapshotAt = Date.now()): Promise<string> {
   // represents one consistent point in time (including deletes made while the device was offline).
   await db.transaction('r', [...TABLES.map((t) => (db as any)[t]), db.tombs], async () => {
     for (const t of TABLES) {
-      const rows = await (db as any)[t].toArray();
+      // the unsent marker is this device's own bookkeeping, not part of the reader's data
+      const rows = (await (db as any)[t].toArray()).map(({ _unsent: _u, ...row }: any) => row);
       out[t] = rows;
       (out.counts as Record<string, number>)[t] = rows.length;
     }
     const tombs = await db.tombs.toArray();
-    out.tombs = tombs.map(({ id: _id, ...row }) => row);
+    out.tombs = tombs.map(({ id: _id, _unsent: _u, ...row }) => row);
     (out.counts as Record<string, number>).tombs = tombs.length;
   });
   // reading and accessibility preferences live outside the database; include them so a restore feels the same
@@ -171,9 +172,11 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
   };
   // Restore without the change hooks: they would stamp every row as just edited and tombstone each row cleared by a replace
   // (and a tombstone for a restored row's uid would delete it again on the next sync). Rows keep their own timestamps.
-  syncFlags.applying = true;
-  try {
-    await db.transaction('rw', [...TABLES.map((t) => (db as any)[t]), db.tombs, db.trash], async () => {
+  // Only the writes of this transaction skip the hooks; anything the reader or the player writes meanwhile is stamped as usual.
+  // Every row and deletion the restore writes is marked unsent, so a signed-in device sends what was restored however old its dates are.
+  const unsentTombs = (data.tombs ?? []).map((t: any) => ({ tbl: t.tbl, uid: t.uid, updatedAt: t.updatedAt, _unsent: 1 }));
+  {
+    await quietly([...TABLES.map((t) => (db as any)[t]), db.tombs, db.trash], async () => {
       if (mode === 'replace') {
         // Trash belongs to the pre-restore dataset and is not part of an export; do not let an old
         // deleted record reappear in Undo after the user replaces all data from a backup.
@@ -198,6 +201,7 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
         if (mode === 'replace') await (db as any)[t].clear();
         for (const r of rows) {
           const rec = { ...r };
+          if (auto.has(t) || Object.prototype.hasOwnProperty.call(KEYED_TABLES, t)) rec._unsent = 1; else delete rec._unsent;
           if (t === 'notes' && mode === 'merge' && rec.folderId != null) { const to = folderIds.get(rec.folderId); if (to !== undefined) rec.folderId = to; else delete rec.folderId; }
           const oldId = rec.id;
           if (auto.has(t)) {
@@ -267,7 +271,7 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
         const allTombs = new Map(priorTombs);
         // The replacement is an explicit restore: when it brings back an identity with an older tombstone,
         // advance that record past the deletion so the server will accept the intentional resurrection.
-        for (const tomb of data.tombs ?? []) keepNewestTomb(allTombs, tomb);
+        for (const tomb of unsentTombs) keepNewestTomb(allTombs, tomb);
         const desired = new Map<string, { tbl: string; uid: string; updatedAt: number }>();
         for (const [key, tomb] of allTombs) {
           if (after.has(key)) {
@@ -278,8 +282,8 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
               : await table.where('uid').equals(tomb.uid).first();
             if (local && (local.updatedAt ?? 0) <= tomb.updatedAt) {
               const revivedAt = tomb.updatedAt < Number.MAX_SAFE_INTEGER ? tomb.updatedAt + 1 : Date.now();
-              if (keyed) await table.put({ ...local, updatedAt: revivedAt });
-              else await table.update(local.id, { updatedAt: revivedAt });
+              if (keyed) await table.put({ ...local, updatedAt: revivedAt, _unsent: 1 });
+              else await table.update(local.id, { updatedAt: revivedAt, _unsent: 1 });
             }
           } else {
             keepNewestTomb(desired, tomb);
@@ -292,11 +296,11 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
           const split = key.indexOf('|');
           keepNewestTomb(desired, { tbl: key.slice(0, split), uid: key.slice(split + 1), updatedAt: deletedAt });
         }
-        if (desired.size) await db.tombs.bulkAdd([...desired.values()] as any[]);
+        if (desired.size) await db.tombs.bulkAdd([...desired.values()].map((t) => ({ ...t, _unsent: 1 })) as any[]);
       } else {
         // A merged backup may carry deletions made while its source device was offline. Apply a tombstone
         // only when it is at least as new as the local row; a newer local edit must survive the merge.
-        for (const tomb of data.tombs ?? []) {
+        for (const tomb of unsentTombs) {
           const table = db.table(tomb.tbl);
           const keyed = Object.prototype.hasOwnProperty.call(KEYED_TABLES, tomb.tbl);
           const local: any = keyed
@@ -313,16 +317,14 @@ export async function importAll(json: string, mode: 'merge' | 'replace' = 'merge
           }
           if (local) await table.delete(keyed ? tomb.uid : local.id);
           if (existing) {
-            if (existing.updatedAt < tomb.updatedAt) await db.tombs.update(existing.id!, { updatedAt: tomb.updatedAt });
+            if (existing.updatedAt < tomb.updatedAt) await db.tombs.update(existing.id!, { updatedAt: tomb.updatedAt, _unsent: 1 });
           } else {
-            await db.tombs.add({ tbl: tomb.tbl, uid: tomb.uid, updatedAt: tomb.updatedAt });
+            await db.tombs.add({ tbl: tomb.tbl, uid: tomb.uid, updatedAt: tomb.updatedAt, _unsent: 1 });
           }
           n++;
         }
       }
     });
-  } finally {
-    syncFlags.applying = false;
   }
   if (options.notify !== false) syncFlags.onLocalChange();
   if (mode === 'replace' && data.settings && typeof data.settings === 'object') {
@@ -438,7 +440,8 @@ export async function exportCollections(ids?: number[]): Promise<string> {
     const bookmarks = (await db.bookmarks.toArray()).filter((b) => b.uid && want.bookmark.has(b.uid));
     out = { format: 'studybible-export', version: 2, appExport: 'collections', exportedAt: new Date().toISOString(), anchorScheme: 'clementine-vulgate', counts: { collections: cs.length, notes: notes.length, highlights: highlights.length, bookmarks: bookmarks.length }, collections: cs, notes, highlights, bookmarks };
   });
-  return JSON.stringify(out, null, 1);
+  // the unsent marker is this device's own bookkeeping, not part of the reader's data
+  return JSON.stringify(out, (k, v) => (k === '_unsent' ? undefined : v), 1);
 }
 
 /** Reads a collections file back. A collection already here (same uid) gains the items, ticks and tags it lacks, so nothing is duplicated or lost; the rest are added. */
@@ -491,18 +494,15 @@ export async function importCollections(json: string): Promise<{ added: number; 
     bookmarks: data.bookmarks ?? [],
   };
   const tables = [...TABLES.map((t) => (db as any)[t]), db.tombs, db.trash];
-  const wasApplying = syncFlags.applying;
   let records = 0, added = 0, merged = 0;
-  try {
-    await db.transaction('rw', tables, async () => {
+  {
+    await quietly(tables, async () => {
       records = await importAll(JSON.stringify(rest), 'merge', { notify: false });
-      // importAll restores the hook flag in its finally block; keep collection writes in restore mode too.
-      syncFlags.applying = true;
       for (const raw of data.collections) {
     if (!raw || typeof raw !== 'object' || typeof raw.name !== 'string' || !Array.isArray(raw.items)) continue;
     const { id: _id, ...rec } = raw;
     const ex = rec.uid ? await db.collections.where('uid').equals(rec.uid).first() : undefined;
-    if (!ex) { await db.collections.add({ ...rec, uid: rec.uid ?? newUid(), createdAt: rec.createdAt ?? Date.now(), updatedAt: rec.updatedAt ?? Date.now() }); added++; continue; }
+    if (!ex) { await db.collections.add({ ...rec, uid: rec.uid ?? newUid(), createdAt: rec.createdAt ?? Date.now(), updatedAt: rec.updatedAt ?? Date.now(), _unsent: 1 }); added++; continue; }
     const items = [...ex.items];
     for (const t of rec.items) if (!items.some((x) => sameValue(x, t))) items.push(t);
     const done = [...(ex.done ?? [])];
@@ -510,13 +510,11 @@ export async function importCollections(json: string): Promise<{ added: number; 
     const tags = [...(ex.tags ?? [])];
     for (const t of rec.tags ?? []) if (!tags.some((x) => x.toLowerCase() === String(t).toLowerCase())) tags.push(t);
     const newer = (rec.updatedAt ?? 0) > (ex.updatedAt ?? 0);
-    await db.collections.put({ ...ex, name: newer ? rec.name : ex.name, description: newer ? rec.description ?? ex.description : ex.description, items, done: done.length ? done : undefined, tags: tags.length ? tags : undefined, updatedAt: Math.max(ex.updatedAt ?? 0, rec.updatedAt ?? 0, Date.now()) });
+    await db.collections.put({ ...ex, name: newer ? rec.name : ex.name, description: newer ? rec.description ?? ex.description : ex.description, items, done: done.length ? done : undefined, tags: tags.length ? tags : undefined, updatedAt: Math.max(ex.updatedAt ?? 0, rec.updatedAt ?? 0, Date.now()), _unsent: 1 });
     merged++;
       }
     });
-  } finally {
-    syncFlags.applying = wasApplying;
   }
-  if (!wasApplying) syncFlags.onLocalChange();
+  syncFlags.onLocalChange();
   return { added, merged, records };
 }

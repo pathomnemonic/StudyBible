@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { getJson } from '../../data/loader';
 import { embedFor } from '../../lib/embed';
 import { db } from '../../db/db';

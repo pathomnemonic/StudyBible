@@ -4,7 +4,7 @@ import { deepTokens } from './deepWatersTokens';
 export { deepTokens };
 
 export const DEEP_ROUNDS = 7;
-export const DEEP_SECONDS = 25;
+export const DEEP_SECONDS = 30;
 export const DEEP_POINTS: Record<DeepAnswer['tier'], number> = { 1: 1, 2: 2, 3: 4, 4: 8, 5: 16 };
 export const DEEP_TIER_NAMES: Record<DeepAnswer['tier'], string> = {
   1: 'Common', 2: 'Less common', 3: 'Uncommon', 4: 'Rare', 5: 'Deep cut'
@@ -97,4 +97,48 @@ export function dailyDeepPrompts(day: number): DeepPrompt[] {
 /** A practice run: its own deal, chosen by `seed`, that never reproduces a daily set. */
 export function practiceDeepPrompts(seed: number): DeepPrompt[] {
   return dailySchedule(DEEP_WATERS, seed, 99173);
+}
+
+/* ---------- suggestions and hints ---------- */
+
+/** Edit distance between two strings (insertions, deletions, substitutions). */
+export function deepEditDistance(a: string, b: string): number {
+  const row = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    let diagonal = row[0];
+    row[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const above = row[j];
+      row[j] = Math.min(row[j] + 1, row[j - 1] + 1, diagonal + (a[i - 1] === b[j - 1] ? 0 : 1));
+      diagonal = above;
+    }
+  }
+  return row[b.length];
+}
+
+/**
+ * Answers a guess is close to, offered as choices the player taps and then locks in themselves; a suggestion is never accepted for them.
+ * Offered only when the guess itself did not match (a match, or an ambiguous guess, needs no suggestion).
+ */
+export function suggestDeepAnswers(prompt: DeepPrompt, guess: string, limit = 3): DeepAnswer[] {
+  const target = deepTokens(guess, prompt.ignore).join(' ');
+  if (target.length < 4 || matchDeepAnswer(prompt, guess).status !== 'none') return [];
+  const maxDistance = Math.max(1, Math.floor(target.length * 0.22));
+  const found = new Map<string, { answer: DeepAnswer; distance: number }>();
+  for (const entry of prompt.answers) {
+    const distance = Math.min(...[entry.answer, ...(entry.aliases ?? [])].map((name) => deepEditDistance(target, deepTokens(name, prompt.ignore).join(' '))));
+    if (distance <= maxDistance) {
+      const prev = found.get(entry.answer);
+      if (!prev || distance < prev.distance) found.set(entry.answer, { answer: entry, distance });
+    }
+  }
+  return [...found.values()].sort((a, b) => a.distance - b.distance || a.answer.answer.localeCompare(b.answer.answer)).slice(0, limit).map((x) => x.answer);
+}
+
+/** A nudge that does not give the answer away: how many answers there are, or the first letter and length of one middling answer. Deterministic per question. */
+export function deepHint(prompt: DeepPrompt): string {
+  const mid = [...prompt.answers].filter((a) => a.tier === 3).sort((a, b) => a.answer.localeCompare(b.answer));
+  const pick = (mid.length ? mid : prompt.answers)[0];
+  const clue = pick ? `One accepted answer begins with \u201c${pick.answer[0]}\u201d and has ${pick.answer.replace(/[^A-Za-z\u00C0-\u017F]/g, '').length} letters.` : '';
+  return prompt.closed ? `There are exactly ${prompt.closed} possible answers. ${clue}` : `Many answers are possible. ${clue}`;
 }

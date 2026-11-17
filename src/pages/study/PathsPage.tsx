@@ -1,7 +1,7 @@
 import LibraryTabs from '../../components/LibraryTabs';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { getJson } from '../../data/loader';
 import { db } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';

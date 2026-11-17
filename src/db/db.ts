@@ -4,6 +4,8 @@ import Dexie, { type Table } from 'dexie';
 export interface Syncable {
   uid?: string;
   updatedAt?: number;
+  /** 1: changed here and not yet accepted by the sync server; 0: as the server has it; absent: a row from before this marker existed (the engine falls back to comparing times). Never sent or exported. */
+  _unsent?: 0 | 1;
 }
 
 /**
@@ -260,6 +262,8 @@ export interface Tombstone {
   tbl: string;
   uid: string;
   updatedAt: number;
+  /** 1 while the sync server has not yet been told of this deletion */
+  _unsent?: 0 | 1;
 }
 
 export interface CacheRow {
@@ -275,9 +279,33 @@ export const AUTO_TABLES = ['notes', 'highlights', 'bookmarks', 'folders', 'coll
 /** Tables keyed by a natural id (their key *is* the sync uid). */
 export const KEYED_TABLES: Record<string, string> = { planProgress: 'planId', episodeProgress: 'episodeId', libraryProgress: 'workId', classes: 'id', classwork: 'id' };
 
-/** Set by the sync engine while it applies remote changes, so those writes are not re-stamped or tombstoned. */
+/**
+ * `onLocalChange` wakes the sync engine after a local edit. `applying` is only ever true for the length of one synchronous call
+ * (the sync engine applying another device's settings), so that the settings hook does not treat that as a change made here.
+ * It is NOT consulted by the database hooks: see `quietly()`.
+ */
 export const syncFlags = { applying: false, onLocalChange: (() => {}) as () => void };
 
+/**
+ * Restores and sync applies must write rows exactly as given: no new `updatedAt`, no tombstone, no copy in Recently deleted.
+ * That used to be a global switch held across many awaits, which also silenced whatever the reader (or the audio player) wrote
+ * in the meantime: a note created during a sync got no uid and never synced, an edit was not stamped, a deletion left no
+ * tombstone and no way to undo it. The switch now belongs to the transaction: only writes made inside a transaction started by
+ * `quietly()` (or inside one of its sub-transactions) skip the hooks. Everything else is stamped as usual, whenever it happens.
+ */
+const QUIET = '__sbQuiet';
+const isQuiet = (trans: any): boolean => { for (let t = trans; t; t = t.parent) if (t[QUIET]) return true; return false; };
+export function quietly<T>(tables: (Table<any, any> | string)[], fn: () => Promise<T> | T): Promise<T> {
+  return db.transaction('rw', tables as any, async (tx) => { (tx as any)[QUIET] = true; return fn(); });
+}
+/** Every table a restore or a sync apply may write. */
+export const quietTables = (): string[] => [...AUTO_TABLES, ...Object.keys(KEYED_TABLES), 'tombs', 'trash'];
+/** A row changed on this device that the sync server has not yet accepted (set by the hooks, cleared by the engine after a push). */
+export const UNSENT = '_unsent';
+/** A new edit time that is later than now AND later than whatever the row already carries, so an edit made here is never older than the version it replaces (a clock set back, or a row last written by a device whose clock runs ahead). */
+const laterThan = (prev: unknown, asked?: unknown) => Math.max(Date.now(), typeof prev === 'number' && Number.isFinite(prev) && prev < Number.MAX_SAFE_INTEGER ? prev + 1 : 0, typeof asked === 'number' && Number.isFinite(asked) ? asked : 0);
+/** run after the whole (outermost) transaction has committed; nothing is recorded for a write that was rolled back */
+const afterCommit = (trans: any, fn: () => void) => { let root = trans; while (root?.parent) root = root.parent; if (root?.on) root.on('complete', fn); else fn(); };
 class StudyBibleDB extends Dexie {
   cache!: Table<CacheRow, string>;
   media!: Table<MediaItem, number>;
@@ -350,16 +378,12 @@ class StudyBibleDB extends Dexie {
         // only tables that exist at this schema version (memory arrives in v5, and tx.table() throws for a table that is not there yet)
         const here = new Set(Array.from((tx as any).idbtrans.objectStoreNames as DOMStringList));
         // the change hooks would stamp every old row as edited just now, making it look newer than another device's copy
-        syncFlags.applying = true;
-        try {
-          for (const t of AUTO_TABLES.filter((n) => here.has(n))) {
-            await tx.table(t).toCollection().modify((r: any) => {
-              r.uid ??= newUid();
-              r.updatedAt ??= r.createdAt ?? Date.now();
-            });
-          }
-        } finally {
-          syncFlags.applying = false;
+        (tx as any)[QUIET] = true;
+        for (const t of AUTO_TABLES.filter((n) => here.has(n))) {
+          await tx.table(t).toCollection().modify((r: any) => {
+            r.uid ??= newUid();
+            r.updatedAt ??= r.createdAt ?? Date.now();
+          });
         }
       });
     this.version(5).stores({ memory: '++id, ref, due, uid' });
@@ -372,48 +396,51 @@ class StudyBibleDB extends Dexie {
   private installSyncHooks() {
     for (const name of AUTO_TABLES) {
       const t = this.table(name);
-      t.hook('creating', (_pk, obj: any) => {
-        if (syncFlags.applying) return;
+      t.hook('creating', (_pk, obj: any, trans) => {
+        if (isQuiet(trans)) return;
         obj.uid ??= newUid();
         obj.updatedAt = Date.now();
+        obj[UNSENT] = 1;
         queueMicrotask(() => syncFlags.onLocalChange());
       });
-      t.hook('updating', () => {
-        if (syncFlags.applying) return;
+      t.hook('updating', (mods: any, _pk, obj: any, trans) => {
+        if (isQuiet(trans)) return;
         queueMicrotask(() => syncFlags.onLocalChange());
-        return { updatedAt: Date.now() };
+        return { updatedAt: laterThan(obj?.updatedAt, mods?.updatedAt), [UNSENT]: 1 };
       });
-      t.hook('deleting', function (_pk, obj: any) {
-        if (syncFlags.applying || !obj?.uid) return;
+      t.hook('deleting', (_pk, obj: any, trans) => {
+        if (isQuiet(trans) || !obj?.uid) return;
         const uid = obj.uid as string;
-        // runs after the delete commits (a different table cannot be written inside this transaction)
-        this.onsuccess = () => {
+        const at = laterThan(obj.updatedAt);
+        // a different table cannot be written inside this transaction, and a rolled-back delete must leave no tombstone: record it once the delete has really committed
+        afterCommit(trans, () => {
           if ((TRASH_TABLES as readonly string[]).includes(name)) Dexie.ignoreTransaction(() => db.trash.add({ tbl: name, data: obj, deletedAt: Date.now() })).catch(() => {});
-          Dexie.ignoreTransaction(() => db.tombs.add({ tbl: name, uid, updatedAt: Date.now() })).then(() => syncFlags.onLocalChange()).catch(() => {});
-        };
+          Dexie.ignoreTransaction(() => db.tombs.add({ tbl: name, uid, updatedAt: at, [UNSENT]: 1 } as Tombstone)).then(() => syncFlags.onLocalChange()).catch(() => {});
+        });
       });
     }
     for (const [name, key] of Object.entries(KEYED_TABLES)) {
       const t = this.table(name);
-      t.hook('creating', (_pk, obj: any) => {
-        if (syncFlags.applying) return;
+      t.hook('creating', (_pk, obj: any, trans) => {
+        if (isQuiet(trans)) return;
         obj.uid = obj[key];
         obj.updatedAt = Date.now();
+        obj[UNSENT] = 1;
         queueMicrotask(() => syncFlags.onLocalChange());
       });
-      t.hook('updating', () => {
-        if (syncFlags.applying) return;
+      t.hook('updating', (mods: any, _pk, obj: any, trans) => {
+        if (isQuiet(trans)) return;
         queueMicrotask(() => syncFlags.onLocalChange());
-        return { updatedAt: Date.now() };
+        return { updatedAt: laterThan(obj?.updatedAt, mods?.updatedAt), [UNSENT]: 1 };
       });
-      t.hook('deleting', function (pk: any) {
-        if (syncFlags.applying) return;
-        this.onsuccess = () => {
-          Dexie.ignoreTransaction(() => db.tombs.add({ tbl: name, uid: String(pk), updatedAt: Date.now() })).then(() => syncFlags.onLocalChange()).catch(() => {});
-        };
+      t.hook('deleting', (pk: any, obj: any, trans) => {
+        if (isQuiet(trans)) return;
+        const at = laterThan(obj?.updatedAt);
+        afterCommit(trans, () => {
+          Dexie.ignoreTransaction(() => db.tombs.add({ tbl: name, uid: String(pk), updatedAt: at, [UNSENT]: 1 } as Tombstone)).then(() => syncFlags.onLocalChange()).catch(() => {});
+        });
       });
     }
   }
 }
-
 export const db = new StudyBibleDB();

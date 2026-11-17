@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import { useSync } from '../sync/state';
 import WeekCard from '../components/WeekCard';

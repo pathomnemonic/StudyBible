@@ -2,7 +2,7 @@ import NoteBacklinks from '../../components/NoteBacklinks';
 import SafetyCopies from '../../components/SafetyCopies';
 import { useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db, TRASH_DAYS, type Collection, type Note, type Target } from '../../db/db';
 import { collectionSummary, copyOfCollection, copyOfNote, collectionTags, hasTag, matchesCollection, matchesNote, sortCollections, sortNotes, type CollectionSort, type NoteSort } from '../../lib/collectionsView';
 import DataHealth from './DataHealth';

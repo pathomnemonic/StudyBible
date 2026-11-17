@@ -21,7 +21,10 @@ export default function DataHealth() {
     setFound(null);
     setRepairs([]);
     setRestorable([]);
-    const [notes, highlights, bookmarks, collections, userPlans, trash] = await Promise.all([db.notes.toArray(), db.highlights.toArray(), db.bookmarks.toArray(), db.collections.toArray(), db.userPlans.toArray(), db.trash.toArray()]);
+    // One read transaction over everything the check compares: a collection and the note it points at are seen as they were at
+    // the same instant, so a change landing between two separate reads (a sync, another tab) cannot be reported as a broken link.
+    const [notes, highlights, bookmarks, collections, userPlans, trash] = await db.transaction('r', [db.notes, db.highlights, db.bookmarks, db.collections, db.userPlans, db.trash], () =>
+      Promise.all([db.notes.toArray(), db.highlights.toArray(), db.bookmarks.toArray(), db.collections.toArray(), db.userPlans.toArray(), db.trash.toArray()]));
     const input = { notes, highlights, bookmarks, collections, userPlans } as never;
     const { editions } = await loadEditions();
     const anchor = editions.find((e) => e.id === 'vulgate');

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import { countsAsRead, markChapterFinished, minDwellMs, unmarkChapterToday } from '../lib/finished';
 

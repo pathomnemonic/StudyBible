@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { getLibraryIndex, type LibraryWorkMeta } from '../../data/content';
 import { allRecordedWorks, type Recording } from '../../data/librivox';

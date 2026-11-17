@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { usePlayer } from '../../data/PlayerContext';
 import { loadShow, lookupEpisode, type Show, type ShowData } from '../../data/podcasts';

@@ -8,11 +8,12 @@ await ctx.addInitScript(() => {
   localStorage.setItem('sb:tour', '1');
   localStorage.setItem('sb:setup', '2');
   localStorage.setItem('sb:audienceAsked', '1');
-  // Observe the actual store access made by Dexie's transaction, rather than
-  // inferring its scope from IDBDatabase.transaction arguments. This also covers
-  // dynamic tables passed to db.transaction() by restoreFromTrash().
-  // Arm from the real notes write transaction and fail the first notes read transaction
-  // after it commits. The database boundary catches every IndexedDB read strategy Dexie uses.
+  // The fault must hit the Data Health re-scan and nothing else. Other parts of the page hold live queries on the notes store
+  // and re-read it after the same write; a fault that lands on one of those is a different failure (and used to be the one this
+  // test produced: whichever read came first was aborted). The re-scan is the only reader that opens ONE read transaction over
+  // the notes, the collections, the reader's plans and Recently deleted together, so that is what identifies it.
+  // Arm from the real notes write, then abort the first such scan transaction after it.
+  const isHealthScan = (tx) => { const n = Array.from(tx.objectStoreNames ?? []); return tx.mode === 'readonly' && ['notes', 'collections', 'userPlans', 'trash'].every((s) => n.includes(s)); };
   const failNextNotesRead = (tx, state) => {
     if (!state?.enabled || state.readRequests > 0) return;
     if (!state.armed) {
@@ -42,7 +43,7 @@ await ctx.addInitScript(() => {
       if (state?.enabled && this.name === 'studybible') {
         state.databaseTransactions = (state.databaseTransactions ?? 0) + 1;
         const names = Array.from(tx.objectStoreNames ?? []);
-        if (tx.mode === 'readonly' && names.includes('notes')) {
+        if (isHealthScan(tx)) {
           state.notesReadTransactions = (state.notesReadTransactions ?? 0) + 1;
           failNextNotesRead(tx, state);
         }
@@ -70,7 +71,7 @@ await ctx.addInitScript(() => {
           if (state.enabled) { state.writes++; state.armed = true; }
         }, { once: true });
       } else if (state?.enabled && this.db?.name === 'studybible' &&
-          this.mode === 'readonly' && store.name === 'notes') {
+          isHealthScan(this) && store.name === 'notes') {
         state.notesReadStoreAccesses = (state.notesReadStoreAccesses ?? 0) + 1;
         failNextNotesRead(this, state);
       }
@@ -152,12 +153,12 @@ const restoreFixture = await p.evaluate(async () => {
   db.close(); return ids;
 });
 await p.getByRole('button', { name: 'Run the check' }).click();
-await p.getByRole('button', { name: 'Restore' }).waitFor();
+await p.getByLabel('Can be restored').getByRole('button', { name: 'Restore' }).waitFor();
 await p.evaluate(() => { window.__dataHealthRestoreFault = { enabled: true, armed: false, writes: 0, notesTransactions: 0, abortedReads: 0, abortFailures: 0 }; });
-await p.getByRole('button', { name: 'Restore' }).click();
+await p.getByLabel('Can be restored').getByRole('button', { name: 'Restore' }).click();
 await p.waitForFunction(() => window.__dataHealthRestoreFault?.writes > 0 && window.__dataHealthRestoreFault?.abortedReads > 0, null, { timeout: 5000 }).catch(async () => fail('the restore fault injector did not abort the follow-up notes read: ' + JSON.stringify(await p.evaluate(() => window.__dataHealthRestoreFault))));
 await p.getByRole('alert').filter({ hasText: 'Restore committed, but the check could not refresh' }).waitFor();
-if (await p.getByRole('button', { name: 'Restore' }).count()) fail('stale restore actions must be cleared after a committed restore with a failed refresh');
+if (await p.getByLabel('Can be restored').getByRole('button', { name: 'Restore' }).count()) fail('stale restore actions must be cleared after a committed restore with a failed refresh');
 if (await p.getByText('Nothing wrong found.').count()) fail('a stale check result must be cleared after a committed restore with a failed refresh');
 await p.evaluate(() => { window.__dataHealthRestoreFault.enabled = false; window.__dataHealthRestoreFault.armed = false; });
 const restoreState = await p.evaluate(async (ids) => {

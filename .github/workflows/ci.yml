@@ -106,6 +106,8 @@ jobs:
           STATIC_DIR=dist-accounts PORT=8799 COOKIE_SECURE=false REGISTRATION=open DB_PATH=/tmp/acct-e2e.sqlite npx tsx server/index.ts &
           for i in $(seq 1 30); do curl -sf http://127.0.0.1:8799/api/health >/dev/null && break; sleep 1; done
       - run: BASE=http://127.0.0.1:8799 node e2e/accounts.mjs
+      # two devices on one account: unsent markers, pull, deletion with tombstone and undo copy, in a real browser's IndexedDB
+      - run: BASE=http://127.0.0.1:8799 node e2e/sync-devices.mjs
   # full-width sweep: every route at phone, tablet, desktop and large-text sizes
   sweep-full:
     runs-on: ubuntu-24.04

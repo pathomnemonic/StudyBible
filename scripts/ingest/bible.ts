@@ -266,6 +266,40 @@ export function buildVersification(
     ['JOB', 40, 6, 24, 40, 1, 19],
     ['JOB', 41, 1, 9, 40, 20, 28],
     ['JOB', 41, 10, 34, 41, 1, 25],
+    // New Testament chapters where the Vulgate divides one verse differently. Each was checked by aligning the Douay text
+    // against WEB-C, the RSV-2CE and the NABRE verse by verse and reading both sides of every join (docs/CYCLE4_LOG.md, 6).
+    // A rule with unequal sides means "these verses together are that verse": it is reported as inexact, never guessed.
+    ['MAT', 17, 1, 13, 17, 1, 13], ['MAT', 17, 14, 15, 17, 14, 14], ['MAT', 17, 16, 27, 17, 15, 26],
+    ['MRK', 4, 1, 39, 4, 1, 39], ['MRK', 4, 40, 41, 4, 40, 40],
+    ['MRK', 8, 1, 38, 8, 1, 38], ['MRK', 9, 1, 1, 8, 39, 39], ['MRK', 9, 2, 50, 9, 1, 49],
+    ['JHN', 6, 1, 50, 6, 1, 50], ['JHN', 6, 51, 51, 6, 51, 52], ['JHN', 6, 52, 71, 6, 53, 72],
+    ['ACT', 7, 1, 54, 7, 1, 54], ['ACT', 7, 55, 56, 7, 55, 55], ['ACT', 7, 57, 60, 7, 56, 59],
+    ['ACT', 14, 1, 5, 14, 1, 5], ['ACT', 14, 6, 7, 14, 6, 6], ['ACT', 14, 8, 28, 14, 7, 27],
+    ['ACT', 19, 1, 39, 19, 1, 39], ['ACT', 19, 40, 41, 19, 40, 40],
+    ['2CO', 13, 1, 11, 13, 1, 11], ['2CO', 13, 12, 13, 13, 12, 12], ['2CO', 13, 14, 14, 13, 13, 13],
+    ['REV', 12, 1, 16, 12, 1, 16], ['REV', 12, 17, 17, 12, 17, 18],
+    // Old Testament chapters with one clean difference: a verse the Vulgate counts with the next chapter, or one verse it prints
+    // as two (or two as one). Same method; each join read in both texts. Judges 21 was placed by reading, against the aligner.
+    ['GEN', 50, 1, 21, 50, 1, 21], ['GEN', 50, 22, 23, 50, 22, 22], ['GEN', 50, 24, 26, 50, 23, 25],
+    ['LEV', 26, 1, 44, 26, 1, 44], ['LEV', 26, 45, 46, 26, 45, 45],
+    ['NUM', 11, 1, 33, 11, 1, 33], ['NUM', 11, 34, 35, 11, 34, 34],
+    ['NUM', 12, 1, 15, 12, 1, 15], ['NUM', 12, 16, 16, 13, 1, 1], ['NUM', 13, 1, 33, 13, 2, 34],
+    ['NUM', 20, 1, 27, 20, 1, 27], ['NUM', 20, 28, 28, 20, 28, 29], ['NUM', 20, 29, 29, 20, 30, 30],
+    ['NUM', 29, 1, 39, 29, 1, 39], ['NUM', 29, 40, 40, 30, 1, 1], ['NUM', 30, 1, 16, 30, 2, 17],
+    ['JOS', 4, 1, 22, 4, 1, 22], ['JOS', 4, 23, 23, 4, 23, 24], ['JOS', 4, 24, 24, 4, 25, 25],
+    ['JOS', 5, 1, 13, 5, 1, 13], ['JOS', 5, 14, 14, 5, 14, 15], ['JOS', 5, 15, 15, 5, 16, 16],
+    ['JDG', 5, 1, 30, 5, 1, 30], ['JDG', 5, 31, 31, 5, 31, 32],
+    ['JDG', 21, 1, 23, 21, 1, 23], ['JDG', 21, 24, 25, 21, 24, 24],
+    ['1SA', 20, 1, 41, 20, 1, 41], ['1SA', 20, 42, 42, 20, 42, 43],
+    ['1SA', 23, 1, 28, 23, 1, 28], ['1SA', 23, 29, 29, 24, 1, 1], ['1SA', 24, 1, 22, 24, 2, 23],
+    ['1KI', 22, 1, 42, 22, 1, 42], ['1KI', 22, 43, 43, 22, 43, 44], ['1KI', 22, 44, 53, 22, 45, 54],
+    ['1CH', 11, 1, 45, 11, 1, 45], ['1CH', 11, 46, 47, 11, 46, 46],
+    ['1CH', 20, 1, 6, 20, 1, 6], ['1CH', 20, 7, 8, 20, 7, 7],
+    ['ECC', 4, 1, 16, 4, 1, 16], ['ECC', 5, 1, 1, 4, 17, 17], ['ECC', 5, 2, 20, 5, 1, 19],
+    ['ECC', 6, 1, 11, 6, 1, 11], ['ECC', 6, 12, 12, 7, 1, 1], ['ECC', 7, 1, 29, 7, 2, 30],
+    ['HOS', 2, 1, 22, 2, 1, 22], ['HOS', 2, 23, 23, 2, 23, 24],
+    ['HOS', 13, 1, 15, 13, 1, 15], ['HOS', 13, 16, 16, 14, 1, 1], ['HOS', 14, 1, 9, 14, 2, 10],
+    ['JON', 1, 1, 16, 1, 1, 16], ['JON', 1, 17, 17, 2, 1, 1], ['JON', 2, 1, 10, 2, 2, 11],
   ];
   rules.push(...verifiedExtra);
   const verifiedChapters = new Set(verifiedExtra.map((r) => `${r[0]}.${r[1]}`));
@@ -323,7 +357,10 @@ export function buildVersification(
           'The numbering used by external English-tradition data (OpenBible cross-references, plans, lectionary lists, typed references): KJV/RSV-style. Same Psalm rules as `english`, plus the Daniel chapter 3/4 boundary. Not an edition: used only to convert references into the Vulgate anchor.',
         rules: [...rules, ...danielRules],
         unverifiedChapters: Object.fromEntries(Object.entries(unverified).filter(([b]) => b !== 'DAN')),
-        unalignedBooks: {},
+        // External English-numbered data cites Tobit, Judith, Esther, Sirach and Daniel in numberings the Vulgate does not share: they
+        // stay "compare by chapter", as the shipped file and its tests have it. (This line used to say `{}`, which the shipped file
+        // never reflected; a rebuild would have marked every Sirach cross-reference as exact.)
+        unalignedBooks: unaligned,
       },
     },
   };

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { isoToday } from '../lib/day';
 import { updateSettings, useSettings } from '../lib/store';
 import { enableReminders, scheduleReminder } from '../liturgy/reminders';
 
@@ -12,7 +13,7 @@ export default function ReminderAsk() {
   const [msg, setMsg] = useState('');
   useEffect(() => {
     try {
-      const today = new Date().toISOString().slice(0, 10);
+      const today = isoToday();
       const days: string[] = JSON.parse(read(DAYS) ?? '[]');
       if (!days.includes(today)) { days.push(today); localStorage.setItem(DAYS, JSON.stringify(days.slice(-5))); }
       setShow(days.length >= 2 && !read(DISMISS));

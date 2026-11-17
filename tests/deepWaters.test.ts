@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { DEEP_WATERS, type DeepPrompt } from '../src/data/deepWaters';
-import { dailyDeepPrompts, deepMissMessage, deepTokens, DEEP_POINTS, DEEP_ROUNDS, findDeepAnswer, matchDeepAnswer, practiceDeepPrompts } from '../src/lib/deepWaters';
+import { dailyDeepPrompts, deepHint, deepMissMessage, deepTokens, DEEP_POINTS, DEEP_ROUNDS, findDeepAnswer, matchDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../src/lib/deepWaters';
 
 const P = (id: string): DeepPrompt => DEEP_WATERS.find((p) => p.id === id)!;
 const says = (id: string, guess: string) => findDeepAnswer(P(id), guess)?.answer ?? null;
@@ -162,5 +162,33 @@ describe('Deep Waters matching', () => {
     expect(a.tier).toBe(1);
     expect(matchDeepAnswer(P('councils'), 'Council of Trent')).toMatchObject({ status: 'match', answer: { answer: 'Trent' }, exact: true });
     expect(matchDeepAnswer(P('councils'), 'Chalcedan')).toMatchObject({ status: 'match', answer: { answer: 'Chalcedon' }, exact: false });
+  });
+});
+
+describe('Deep Waters suggestions and hints', () => {
+  it('offers a close answer as a choice, never accepts it for the player', () => {
+    // "Joppe" is a five-letter word, too short for the matcher to forgive, so it is offered instead
+    expect(matchDeepAnswer(P('places'), 'Joppe').status).toBe('none');
+    expect(suggestDeepAnswers(P('places'), 'Joppe')[0]?.answer).toBe('Joppa');
+    expect(says('places', 'Joppe')).toBeNull();
+  });
+  it('offers a suggestion for a long answer with two slips, which the matcher does not forgive', () => {
+    expect(matchDeepAnswer(P('places'), 'Thesalonika').status).toBe('none');
+    expect(suggestDeepAnswers(P('places'), 'Thesalonika')[0]?.answer).toBe('Thessalonica');
+  });
+  it('offers nothing for a guess that already matches, is ambiguous, is too short, or is nowhere near', () => {
+    expect(suggestDeepAnswers(P('councils'), 'Nicaea')).toEqual([]);
+    expect(suggestDeepAnswers(P('councils'), 'Lateran')).toEqual([]);
+    expect(suggestDeepAnswers(P('places'), 'xyz')).toEqual([]);
+    expect(suggestDeepAnswers(P('places'), 'qqqqqqqqqq')).toEqual([]);
+  });
+  it('gives a hint that names the size of a closed set and never the answer itself', () => {
+    expect(deepHint(P('councils'))).toMatch(/exactly 21/);
+    expect(deepHint(P('orders'))).toMatch(/Many answers are possible/);
+    for (const p of DEEP_WATERS) {
+      const h = deepHint(p);
+      expect(h.length, p.id).toBeGreaterThan(20);
+      for (const a of p.answers.filter((x) => x.answer.length > 4)) expect(h.toLowerCase(), `${p.id} gives away ${a.answer}`).not.toContain(a.answer.toLowerCase());
+    }
   });
 });

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from './live';
 import { db } from '../db/db';
 import { useEditions } from '../data/EditionsContext';
 import { builtinPlans, type PlanDay, type PlanDef } from '../plans/builtin';

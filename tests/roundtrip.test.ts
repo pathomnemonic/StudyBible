@@ -12,8 +12,7 @@ const T = 1_700_000_000_000;
 async function seed() {
   const { db } = await import('../src/db/db');
   const { syncFlags } = await import('../src/db/db');
-  syncFlags.applying = true; // keep the timestamps exactly as written
-  try {
+  { const q = await import('../src/db/db'); await q.quietly(q.quietTables(), async () => {
     const f1 = await db.folders.add({ name: 'Lent', createdAt: T, updatedAt: T, uid: 'f-1' } as never);
     const f2 = await db.folders.add({ name: 'Ordinary', createdAt: T, updatedAt: T, uid: 'f-2' } as never);
     await db.notes.add({ title: 'Prayer', body: 'Lord, hear.\n\n**bold** “quotes” & <tags> 日本語 ✝', kind: 'prayer', targets: [{ type: 'passage', ref: 'PSA.50.1' }, { type: 'passage', ref: 'JHN.3.16-JHN.3.18' }], tags: ['prayer', 'lent'], folderId: f1, createdAt: T, updatedAt: T + 5, chapterKeys: ['PSA.50', 'JHN.3'], uid: 'n-1' } as never);
@@ -23,10 +22,10 @@ async function seed() {
     await db.bookmarks.add({ ref: 'GEN.1.1', kind: 'bookmark', label: 'start', createdAt: T, updatedAt: T, uid: 'b-1' } as never);
     await db.journal.add({ date: '2026-11-14', kind: 'journal', title: 'T', body: 'B', refs: ['JHN.1.1'], answered: true, createdAt: T, updatedAt: T + 1, uid: 'j-1' } as never);
     await db.userXrefs.add({ from: 'GEN.1.1', to: 'JHN.1.1', comment: 'In the beginning', createdAt: T, updatedAt: T, uid: 'x-1' } as never);
-  } finally { syncFlags.applying = false; }
+  }); }
   return db;
 }
-const tablesOf = async (db: any, names: string[]) => Object.fromEntries(await Promise.all(names.map(async (t) => [t, (await db[t].toArray()).map((r: any) => { const { id: _id, ...rest } = r; return rest; }).sort((a: any, b: any) => String(a.uid).localeCompare(String(b.uid)))])));
+const tablesOf = async (db: any, names: string[]) => Object.fromEntries(await Promise.all(names.map(async (t) => [t, (await db[t].toArray()).map((r: any) => { const { id: _id, _unsent: _u, ...rest } = r; return rest; }).sort((a: any, b: any) => String(a.uid).localeCompare(String(b.uid)))])));
 const NAMES = ['notes', 'folders', 'collections', 'highlights', 'bookmarks', 'journal', 'userXrefs'];
 
 describe('JSON backup round trip', () => {
@@ -40,9 +39,7 @@ describe('JSON backup round trip', () => {
     const json = await exportAll();
     // This is test setup, not user deletion. Clear rows without generating sync tombstones.
     const { syncFlags } = await import('../src/db/db');
-    syncFlags.applying = true;
-    try { await Promise.all(NAMES.map((t) => (db as any)[t].clear())); }
-    finally { syncFlags.applying = false; }
+    { const q = await import('../src/db/db'); await q.quietly(q.quietTables(), async () => { await Promise.all(NAMES.map((t) => (db as any)[t].clear())); }); }
     await importAll(json, 'replace');
     expect(await tablesOf(db, NAMES)).toEqual(before);
     expect((await db.notes.toArray()).map((n: any) => [n.uid, n.folderId])).toEqual(idsBefore);

@@ -3,7 +3,7 @@ import { Group, HubHeader, Tiles } from '../../components/Hub';
 import ContinueStrip from '../../components/ContinueStrip';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { getAuthors, getLibraryIndex, type LibraryWorkMeta } from '../../data/content';
 import { recordedWorkIds } from '../../data/librivox';

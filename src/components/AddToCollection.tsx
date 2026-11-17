@@ -1,7 +1,7 @@
 import { sameValue } from '../lib/canonical';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db, type Target } from '../db/db';
 import Modal from './Modal';
 import { targetKind } from '../lib/collections';

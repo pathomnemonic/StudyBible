@@ -5,7 +5,7 @@ import { useMemo, useState, useEffect } from 'react';
 import { Tip, StartHere } from '../../components/Hints';
 import RefLink from '../../components/RefLink';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { fmtDuration, useBiay } from '../../data/biay';
 import { rememberEpisode, resolveEpisode, usePlayer } from '../../data/PlayerContext';

@@ -1,6 +1,7 @@
 # What changed
 
 ## Deep Waters
+- A wrong-looking answer now gets "Did you mean?" choices (the player taps one and locks it in; nothing is accepted for them), and the hint says how many answers a closed question has plus the first letter and length of one. The page was redesigned (clock, scoring key) by a second contributor; the question bank, matching and daily schedule are the work above. The session engine (resume after a reload, pause, three-second preview, logbook, streak) is merged but not yet wired into the page.
 - The question bank grew from 15 to 84 questions (5,231 answers): 27 "a place in {book}", 16 saints questions from Butler's Lives, a person in the Bible, and 25 more written by hand (sacraments, virtues, parables, miracles, encyclicals, vestments, sacred music...). Daily sets are balanced so a day does not hold several questions of one kind, and a question does not return for at least 8 days.
 - New game: seven Catholic questions a day, a timer, and more points for a less obvious answer (Games, "Deep dives"). Answers do not need exact spelling, and a true answer that is not on the list is told "not on our list yet", never wrong. Rarity is the editors' judgement, not player data. The lists await human review (see `docs/DATA_SOURCES.md`).
 

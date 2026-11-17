@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { parseRefId } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';

@@ -113,7 +113,7 @@ describe('resolveRef: carrying a passage between numbering schemes', () => {
     expect(a).toMatchObject({ c1: 9, v1: 21, c2: 9, v2: 23 });
   });
   it('a chapter whose numbering is unverified is approximate, never exact, and says why', () => {
-    const r = go('John 6:53');
+    const r = go('Romans 14:10');
     expect(r.status).toBe('approximate');
     expect(r.reason).toMatch(/numbering/i);
     expect(r.anchor).toBeDefined();
@@ -178,7 +178,7 @@ describe('go further links use the same checks', () => {
     expect(r.broken).toEqual([]);
   });
   it('an unverified mapping keeps its link but carries a note; a same-tradition edition needs none', () => {
-    const l = lesson('John 6:53');
+    const l = lesson('Romans 14:10');
     expect(buildGoFurther(l, known, null, ctxFor('dra')).links[0].note).toMatch(/numbering/i);
     expect(buildGoFurther(l, known, null, ctxFor('webc')).links[0].note).toBeUndefined();
   });
@@ -206,18 +206,18 @@ describe('key verse for the memorize list', () => {
     expect(kv('1 Corinthians 15:3–4').status).toBe('exact');
   });
   it('an unverified mapping is approximate and NOT exact: the caller must not add it on its own', () => {
-    const k = kv('John 6:53');
+    const k = kv('Romans 14:10');
     expect(k.status).toBe('approximate');
-    if (k.status === 'approximate') { expect(k.exact).toBe(false); expect(k.reason).toBeTruthy(); expect(refId(k.original)).toBe('JHN.6.53'); }
+    if (k.status === 'approximate') { expect(k.exact).toBe(false); expect(k.reason).toBeTruthy(); expect(refId(k.original)).toBe('ROM.14.10'); }
   });
   it('turns known missing Vulgate verse endpoints into chapter-only explicit approximations', () => {
-    const mark = kv('Mark 4:41');
+    const mark = kv('Micah 5:15');
     expect(mark.status).toBe('approximate');
-    if (mark.status !== 'approximate') throw new Error('Mark 4:41 should be an explicit approximation');
+    if (mark.status !== 'approximate') throw new Error('Micah 5:15 should be an explicit approximation');
     expect(checkRefIn(ed('vulgate'), mark.ref)).toBeNull();
-    const acts = kv('Acts 7:60');
+    const acts = kv('Song of Solomon 6:13');
     expect(acts.status).toBe('approximate');
-    if (acts.status !== 'approximate') throw new Error('Acts 7:60 should be an explicit approximation');
+    if (acts.status !== 'approximate') throw new Error('Song of Solomon 6:13 should be an explicit approximation');
     expect(checkRefIn(ed('vulgate'), acts.ref)).toBeNull();
   });
   it('a verse past the end of its chapter is invalid: no card, with a reason', () => {

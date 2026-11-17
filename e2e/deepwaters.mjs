@@ -29,7 +29,7 @@ for (let round = 1; round <= 7; round++) {
   await p.waitForSelector('#dw-answer:not([disabled])');
   const question = await p.locator('.dw-card h2').innerText();
   const status = await p.locator('.dw-status').innerText();
-  if (!status.includes(`ROUND ${round}`)) fail(`expected round ${round}, got ${status}`);
+  if (!new RegExp('DIVE\\s*0?' + round + '\\b').test(status)) fail(`expected round ${round}, got ${status}`);
   // the answer box has the cursor at the start of every round
   if (!(await p.evaluate(() => document.activeElement?.id === 'dw-answer'))) fail(`round ${round}: the answer box should have focus`);
   if (!seenMiss) {
@@ -52,7 +52,7 @@ for (let round = 1; round <= 7; round++) {
 }
 await p.waitForSelector('.dw-results');
 const results = await p.locator('.dw-results').innerText();
-if (!/points/.test(results) || (await p.locator('.dw-results li').count()) !== 7) fail('the results should list seven rounds: ' + results.slice(0, 200));
+if (!/pts|points/.test(results) || (await p.locator('.dw-results li').count()) !== 7) fail('the results should list seven rounds: ' + results.slice(0, 200));
 if (errors.length) fail(errors.join('; '));
 await b.close();
 console.log('deep waters e2e ok');

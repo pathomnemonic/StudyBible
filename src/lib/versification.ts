@@ -38,6 +38,12 @@ export interface MapResult {
   exact: boolean;
   /** Human-readable caveat when exact is false. */
   note?: string;
+  /**
+   * The verse asked about is, by a verified rule, exactly the group v1..v2 on the other side (John 6:51 in modern Bibles is
+   * 6:51-52 in the Vulgate). A single verse cannot be named for it, so `exact` stays false, but a passage that starts or ends
+   * with this verse loses nothing when it takes the whole group.
+   */
+  whole?: boolean;
 }
 
 interface Index {
@@ -91,7 +97,7 @@ export function toAnchor(scheme: Scheme, book: string, c: number, v: number): Ma
         const nlen = r[3] - r[2];
         const note = caveat(idx, book, c);
         if (len === nlen) return { c: r[4], v1: r[5] + (v - r[2]), v2: r[5] + (v - r[2]), exact: !note, note };
-        return { c: r[4], v1: r[5], v2: r[6], exact: false, note: note ?? 'This verse corresponds to a group of verses in the other numbering.' };
+        return { c: r[4], v1: r[5], v2: r[6], exact: false, note: note ?? 'This verse corresponds to a group of verses in the other numbering.', whole: !note && r[2] === r[3] && r[2] !== 0 };
       }
     }
     return identity(c, v, false, 'Outside the verified mapping for this chapter.');
@@ -113,7 +119,7 @@ export function fromAnchor(scheme: Scheme, book: string, c: number, v: number): 
         const nlen = r[3] - r[2];
         const note = caveat(idx, book, r[1]);
         if (len === nlen) return { c: r[1], v1: r[2] + (v - r[5]), v2: r[2] + (v - r[5]), exact: !note, note };
-        return { c: r[1], v1: r[2], v2: r[3], exact: false, note: note ?? 'This verse corresponds to a group of verses in the other numbering.' };
+        return { c: r[1], v1: r[2], v2: r[3], exact: false, note: note ?? 'This verse corresponds to a group of verses in the other numbering.', whole: !note && r[5] === r[6] && r[2] !== 0 };
       }
     }
     // Never clamp an unmapped verse to a nearby one. Preserve its address and disclose that it cannot be placed.
@@ -198,7 +204,8 @@ export function convertRef(from: Scheme, to: Scheme, r: Ref): { ref: Ref; exact:
       c2: end ? end.c : endChapter,
       v2: end ? end.v2 : r.v1 === undefined ? undefined : start.v2,
     },
-    exact: start.exact && (end ? end.exact : true) && chapterRangeExact,
+    // a passage is carried exactly when each end is either one verse for one verse, or one verse for a whole verified group
+    exact: (start.exact || (!!start.whole && r.v1 !== undefined)) && (end ? end.exact || !!end.whole : true) && chapterRangeExact,
   };
 }
 

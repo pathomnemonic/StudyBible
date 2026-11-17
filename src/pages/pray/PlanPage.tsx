@@ -1,7 +1,7 @@
 import { getSettings, updateSettings } from '../../lib/store';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';
 import { builtinPlans, type PlanDef } from '../../plans/builtin';

@@ -205,9 +205,16 @@ const savedPosition = await p.evaluate(async (id) => {
 }, local.id);
 if (Math.abs((savedPosition ?? 0) - 40) > 2) fail('the local episode position should be saved before switching: ' + savedPosition);
 // 10. offline: an offline notice rather than a dead player
+// Step 9 leaves the page on the programmes tab, where there is no meditation list: the old version of this step waited 20 s
+// for a button that was not there, then only changed tab without pressing play, so nothing was ever started and no notice
+// could appear. Open the list while still online, then go offline, then press play on a track.
 mode = 'fail'; await p.locator('.player button[aria-label^="Stop and close"]').click();
+await p.waitForFunction(() => !document.querySelector('.player'));
+await p.goto(`${BASE}/#/listen?tab=meditate`);
+await p.waitForSelector('.med-list .icon-btn');
 await ctx.setOffline(true);
-await p.locator('.med-list .icon-btn').first().click().catch(async () => { await p.goto(`${BASE}/#/listen?tab=meditate`).catch(() => {}); });
+await p.locator('.med-list .icon-btn').first().click();
+await p.waitForSelector('.player', { timeout: 15000 }).catch(() => fail('pressing play offline must still open the player'));
 await p.waitForSelector('.player-msg', { timeout: 15000 }).catch(() => fail('offline must show a notice'));
 if (!/offline/i.test(await p.locator('.player-msg').innerText())) fail('the notice should say you are offline');
 await ctx.setOffline(false); mode = 'ok';

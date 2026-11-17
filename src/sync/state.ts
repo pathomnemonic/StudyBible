@@ -212,10 +212,10 @@ async function afterAuth(user: AccountUser, decide: (n: number) => Promise<AuthD
   const prev = lastUser();
   if (prev && prev !== user.id) {
     const n = await localDataCount();
-    if (n > 0 && (await decide(n)) === 'wipe') {
-      await wipeLocalUserData();
-      resetSyncState(user.id);
-    }
+    if (n > 0 && (await decide(n)) === 'wipe') await wipeLocalUserData();
+    // "Sent" on this device means sent to the account that was signed in before. For a different account nothing has been sent
+    // yet, whatever an earlier visit of that account left behind: start it from nothing so everything kept here goes up.
+    resetSyncState(user.id);
   }
   remember(user.id);
   touchSettings(user.id);

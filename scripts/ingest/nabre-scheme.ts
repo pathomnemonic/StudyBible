@@ -121,7 +121,10 @@ export function buildNabreScheme({ nabre, web, english, report }: NabreSchemeInp
       let res: { c: number; v1: number; v2: number; exact: boolean };
       if (j >= 0) {
         const a = toAnchor('english', book, E[j].c, E[j].v);
-        res = a;
+        // A verse that a verified rule maps to a pair of Vulgate verses is known, not doubtful: the verse itself is reported as
+        // inexact when it is looked up, and the rest of its chapter must not be marked unverified on its account.
+        const verifiedGroup = !a.exact && a.v1 !== a.v2 && !english.unverifiedChapters[book]?.includes(E[j].c);
+        res = verifiedGroup ? { ...a, exact: true } : a;
         lastGood = { c: a.c, v: a.v2 };
       } else if (lastGood && book !== 'PSA') {
         // no partner (a verse the English text does not divide the same way): sit with the verse before it, flagged

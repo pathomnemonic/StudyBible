@@ -1,7 +1,7 @@
 import GamesBar from '../components/GamesMenu';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import { getGrades, gradeLabel, type GradeMeta } from '../curriculum/model';
 import Fold from '../components/Fold';

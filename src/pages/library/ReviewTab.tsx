@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db, type Note } from '../../db/db';
 import AddToCollection from '../../components/AddToCollection';
 import { formatRef, parseRefId } from '../../lib/refs';

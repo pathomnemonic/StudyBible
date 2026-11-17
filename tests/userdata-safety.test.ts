@@ -109,14 +109,11 @@ describe('your writing survives', () => {
     const ops = await import('../src/db/ops');
     // These are already-persisted rows with historical timestamps; bypass write hooks so the fixture
     // tests the merge policy rather than the current test clock.
-    syncFlags.applying = true;
-    try {
+    { const q = await import('../src/db/db'); await q.quietly(q.quietTables(), async () => {
       await db.episodeProgress.put({ episodeId: 'episode-old', position: 90, completed: false, heard: 140, updatedAt: 50 } as never);
       await db.planProgress.put({ planId: 'plan-1', startedAt: 1, status: 'active', done: [0], offsetDays: 0, updatedAt: 50 } as never);
       await db.libraryProgress.put({ workId: 'work-1', section: '3', scroll: 60, status: 'reading', updatedAt: 50 } as never);
-    } finally {
-      syncFlags.applying = false;
-    }
+    }); }
     const backup = {
       format: 'studybible-export', version: 2,
       episodeProgress: [
@@ -137,13 +134,10 @@ describe('your writing survives', () => {
   it('merges source tombstones by timestamp without deleting a newer local edit', async () => {
     const { db, syncFlags } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
-    syncFlags.applying = true;
-    try {
+    { const q = await import('../src/db/db'); await q.quietly(q.quietTables(), async () => {
       await db.notes.add({ ...note('delete this'), uid: 'note-delete', updatedAt: 50 } as never);
       await db.episodeProgress.put({ episodeId: 'keep-newer', position: 80, completed: false, heard: 80, updatedAt: 200 } as never);
-    } finally {
-      syncFlags.applying = false;
-    }
+    }); }
     const backup = JSON.stringify({
       format: 'studybible-export', version: 2,
       tombs: [
@@ -161,8 +155,7 @@ describe('your writing survives', () => {
   it('uses the newest local or incoming tombstone when merging deletion history', async () => {
     const { db, syncFlags } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
-    syncFlags.applying = true;
-    try {
+    { const q = await import('../src/db/db'); await q.quietly(q.quietTables(), async () => {
       await db.notes.add({ ...note('stale note'), uid: 'stale-note', updatedAt: 250 } as never);
       await db.notes.add({ ...note('newer note'), uid: 'newer-note', updatedAt: 350 } as never);
       await db.episodeProgress.put({ episodeId: 'stale-episode', position: 20, completed: false, heard: 20, updatedAt: 250 } as never);
@@ -173,9 +166,7 @@ describe('your writing survives', () => {
         { tbl: 'episodeProgress', uid: 'stale-episode', updatedAt: 300 },
         { tbl: 'episodeProgress', uid: 'newer-episode', updatedAt: 300 },
       ] as never);
-    } finally {
-      syncFlags.applying = false;
-    }
+    }); }
     // The incoming delete is older than the existing local delete. The former must not decide
     // whether a local live row survives; the effective deletion time is 300 for both tables.
     const backup = JSON.stringify({

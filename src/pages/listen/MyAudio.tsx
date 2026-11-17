@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db, type UserAudio } from '../../db/db';
 import { rememberEpisode, usePlayer } from '../../data/PlayerContext';
 import { registerEpisodes } from '../../data/podcasts';

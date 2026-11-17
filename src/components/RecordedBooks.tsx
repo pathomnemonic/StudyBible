@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { Link } from 'react-router-dom';
 import { getLibraryIndex, type LibraryWorkMeta } from '../data/content';
 import { recordedWorkIds, recordingsForWork, type Recording } from '../data/librivox';

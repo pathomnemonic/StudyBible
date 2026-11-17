@@ -11,8 +11,8 @@ const english = pooledCounts(editions, 'english')!;
 const anchor = editions.find((e) => e.id === 'vulgate')!;
 
 describe('semantic Scripture reference validation', () => {
-  it('withholds the KJV John 6:51–58 conversion because its chapter is unverified', () => {
-    const ref: Ref = { book: 'JHN', c1: 6, v1: 51, c2: 6, v2: 58 };
+  it('withholds the KJV Romans 14:1–10 conversion because its chapter is unverified', () => {
+    const ref: Ref = { book: 'ROM', c1: 14, v1: 1, c2: 14, v2: 10 };
     expect(convertRef('kjv', 'vulgate', ref).exact).toBe(false);
     expect(resolveRef(english, anchor, ref, 'kjv', anchor).status).toBe('approximate');
   });
@@ -76,16 +76,16 @@ describe('semantic Scripture reference validation', () => {
   });
 
   it('downgrades a known one-verse source/anchor mismatch to a verified chapter-only anchor', () => {
-    expect(chapterAlignmentNote('kjv', 'MRK', 4)).toBeTruthy();
-    const r = resolveRef(english, english, { book: 'MRK', c1: 4, v1: 41, c2: 4, v2: 41 }, 'kjv', anchor);
+    expect(chapterAlignmentNote('kjv', 'MIC', 5)).toBeTruthy();
+    const r = resolveRef(english, english, { book: 'MIC', c1: 5, v1: 15, c2: 5, v2: 15 }, 'kjv', anchor);
     expect(r.status).toBe('approximate');
-    expect(r.anchor).toEqual({ book: 'MRK', c1: 4, c2: 4 });
+    expect(r.anchor).toEqual({ book: 'MIC', c1: 5, c2: 5 });
   });
 
   it('downgrades a known verse-count mismatch to a verified chapter-only anchor', () => {
-    const r = resolveRef(english, anchor, { book: 'MRK', c1: 4, v1: 41, c2: 4, v2: 41 }, 'kjv', anchor);
+    const r = resolveRef(english, anchor, { book: 'MIC', c1: 5, v1: 15, c2: 5, v2: 15 }, 'kjv', anchor);
     expect(r.status).toBe('approximate');
-    expect(r.anchor).toEqual({ book: 'MRK', c1: 4, c2: 4 });
+    expect(r.anchor).toEqual({ book: 'MIC', c1: 5, c2: 5 });
     expect(r.reason).toMatch(/only the chapter range can be verified/i);
   });
 
@@ -94,15 +94,15 @@ describe('semantic Scripture reference validation', () => {
       ...english,
       id: 'fixture-kjv',
       scheme: 'kjv',
-      verseCounts: { ...english.verseCounts, NUM: [...english.verseCounts.NUM] },
+      verseCounts: { ...english.verseCounts, WIS: [...english.verseCounts.WIS] },
     };
-    // Numbers 11–13 are flagged; the requested endpoints (10 and 14) are not.
-    // Make Numbers 14:2 a one-verse overrun in the target to exercise the interior scan.
-    target.verseCounts.NUM[13] = 1;
-    const ref: Ref = { book: 'NUM', c1: 10, v1: 1, c2: 14, v2: 2 };
+    // Wisdom 5 and 6 are flagged; the requested endpoints (chapters 4 and 7) are not. (Numbers 11–13 served here until they were verified.)
+    // Make Wisdom 7:2 a one-verse overrun in the target to exercise the interior scan.
+    target.verseCounts.WIS[6] = 1;
+    const ref: Ref = { book: 'WIS', c1: 4, v1: 1, c2: 7, v2: 2 };
     const result = resolveRef(anchor, target, ref, 'vulgate', anchor);
     expect(result.status).toBe('approximate');
-    expect(result.native).toEqual({ book: 'NUM', c1: 10, c2: 14 });
+    expect(result.native).toEqual({ book: 'WIS', c1: 4, c2: 7 });
     expect(result.reason).toMatch(/only the verified chapter range/i);
   });
 

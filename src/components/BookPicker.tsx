@@ -4,7 +4,7 @@ import Modal from './Modal';
 import { BOOKS, GROUPS, getBook } from '../lib/canon';
 import { psalmDualLabel } from '../lib/versification';
 import type { EditionRecord } from '../data/loader';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import { recentPassages } from '../lib/readerPosition';
 

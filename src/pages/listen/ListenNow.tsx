@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { fmtDuration } from '../../data/biay';
 import { resolveEpisode, rememberEpisode, usePlayer } from '../../data/PlayerContext';

@@ -79,7 +79,9 @@ describe('edition-to-index conversion', () => {
     expect(toIndexVerses('kjv', 'JHN', 3, 16)).toEqual([[3, 16]]);
     expect(toIndexVerses('vulgate', 'PSA', 22, 1)).toEqual([[23, 1]]);
     expect(toIndexChapters('vulgate', 'GEN', 1)).toEqual([1]);
-    expect(toIndexVerses('kjv', 'JHN', 6, 51)).toEqual([]);
+    expect(toIndexVerses('kjv', 'ROM', 14, 5)).toEqual([]);
+    // John 6 is verified since the fourth cycle: modern 6:51 is the Vulgate's 6:51 and 6:52 together, and 6:52 onward is one later
+    expect(toIndexVerses('kjv', 'JHN', 6, 51)).toEqual([[6, 51], [6, 52]]);
     expect(toIndexVerses('kjv', 'PSA', 2, 1)).toEqual([]);
     expect(toIndexChapters('kjv', 'TOB', 1)).toEqual([]);
     expect(toIndexChapters('kjv', 'PSA', 10)).toEqual([]);

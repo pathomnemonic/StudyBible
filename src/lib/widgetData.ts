@@ -1,4 +1,5 @@
 import { db } from '../db/db';
+import { isoToday } from './day';
 import { isDue } from './srs';
 import { parseRefs, formatRef } from './refs';
 import { convertRef } from './versification';
@@ -19,7 +20,8 @@ export interface WidgetData {
   plan: { name: string; done: number } | null;
 }
 const KEY = 'sb:widgetData';
-export const widgetDay = () => new Date().toISOString().slice(0, 10);
+/** the reader's own date: the widget's day must turn over at their midnight, not at midnight UTC */
+export const widgetDay = () => isoToday();
 export const readWidgetData = (): WidgetData | null => { try { const d = JSON.parse(localStorage.getItem(KEY) ?? 'null') as WidgetData | null; return d && d.date === widgetDay() ? d : null; } catch { return null; } };
 
 /** Everything a widget shows, in one small object. */

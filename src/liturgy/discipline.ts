@@ -6,10 +6,10 @@ const utc = (y: number, m: number, d: number) => new Date(Date.UTC(y, m - 1, d))
 const same = (a: Date, b: Date) => iso(a) === iso(b);
 const dow = (d: Date) => d.getUTCDay();
 
-interface Holy { name: string; date: (y: number) => Date; note?: string }
+interface Holy { name: string; date: (y: number) => Date; note?: string; /** kept on this date in only part of the country */ some?: boolean }
 const USA: Holy[] = [
   { name: 'Mary, Mother of God', date: (y) => utc(y, 1, 1), note: 'Not an obligation when it falls on a Saturday or Monday.' },
-  { name: 'The Ascension of the Lord', date: (y) => addDays(easter(y), 39), note: 'Thursday of the sixth week of Easter; moved to the following Sunday in many U.S. provinces.' },
+  { name: 'The Ascension of the Lord', date: (y) => addDays(easter(y), 39), some: true, note: 'Kept today, with the obligation, in the ecclesiastical provinces of Boston, Hartford, New York, Newark, Omaha and Philadelphia. Everywhere else in the United States it is celebrated on the coming Sunday, and today is an ordinary weekday.' },
   { name: 'The Assumption of Mary', date: (y) => utc(y, 8, 15), note: 'Not an obligation when it falls on a Saturday or Monday.' },
   { name: 'All Saints', date: (y) => utc(y, 11, 1), note: 'Not an obligation when it falls on a Saturday or Monday.' },
   { name: 'The Immaculate Conception', date: (y) => utc(y, 12, 8), note: 'If it falls on a Sunday it moves to Monday and the obligation does not apply.' },
@@ -51,13 +51,15 @@ export function dutiesOn(date: Date, variant: CalendarVariant): Duty[] {
   const day = liturgicalDay(date, variant);
   if (dow(date) === 0) out.push({ kind: 'mass', title: 'Sunday Mass', text: 'Catholics attend Mass on Sundays and holy days unless excused by serious reason, such as illness or caring for infants (CCC 2180–2183).' });
   const h = holyDayOn(date, variant);
-  if (h && dow(date) !== 0) out.push({ kind: 'mass', title: `Holy day of obligation: ${h.name}`, text: `Mass is required today. ${h.note ?? ''}`.trim() });
+  if (h && dow(date) !== 0) out.push(h.some ? { kind: 'mass', title: `Holy day of obligation in some places: ${h.name}`, text: h.note ?? '' } : { kind: 'mass', title: `Holy day of obligation: ${h.name}`, text: `Mass is required today. ${h.note ?? ''}`.trim() });
   if (same(date, addDays(E, -46))) out.push({ kind: 'fast', title: 'Ash Wednesday: fast and abstinence', text: 'Abstain from meat (age 14 and over) and fast (ages 18 to 59): one full meal and two smaller ones that together do not equal it, with nothing between meals except drink. Those who are ill or pregnant are not bound.' });
   else if (same(date, addDays(E, -2))) out.push({ kind: 'fast', title: 'Good Friday: fast and abstinence', text: 'Abstain from meat (age 14 and over) and fast (ages 18 to 59). The Church encourages the fast to continue until the Easter Vigil.' });
   else if (dow(date) === 5) {
     const lent = day.season === 'lent' && day.rank !== 'solemnity';
     if (lent) out.push({ kind: 'abstain', title: 'Friday of Lent: abstain from meat', text: 'Catholics aged 14 and over abstain from meat on every Friday of Lent (CCC 2043, canon 1251).' });
-    else if (day.season !== 'christmas' && day.rank !== 'solemnity' && !(day.season === 'easter' && E && iso(date) <= iso(addDays(E, 7)))) out.push({ kind: 'penance', title: 'Friday: a day of penance', text: variant === 'usa' ? 'In the United States, Catholics abstain from meat on Fridays or choose another penance, such as prayer, almsgiving or a fast (U.S. bishops, 1966; canon 1253).' : 'Every Friday is a day of penance in memory of the Passion. Abstaining from meat is the usual form, unless the bishops’ conference allows another (canons 1250–1253).' });
+    // Canon 1251 lifts Friday penance only when a solemnity falls on the Friday. The Friday in the Easter octave ranks as one; the
+    // days of the Christmas octave do not (only 25 December, 1 January and the Epiphany are solemnities), so they are ordinary Fridays.
+    else if (day.rank !== 'solemnity' && !(day.season === 'easter' && iso(date) <= iso(addDays(E, 7)))) out.push({ kind: 'penance', title: 'Friday: a day of penance', text: variant === 'usa' ? 'In the United States, Catholics abstain from meat on Fridays or choose another penance, such as prayer, almsgiving or a fast (U.S. bishops, 1966; canon 1253).' : 'Every Friday is a day of penance in memory of the Passion. Abstaining from meat is the usual form, unless the bishops’ conference allows another (canons 1250–1253).' });
   }
   return out;
 }

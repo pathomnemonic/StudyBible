@@ -2,7 +2,7 @@ import { logHistory } from '../../db/log';
 import SaveOffline from '../../components/SaveOffline';
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { fmtDuration, useBiay } from '../../data/biay';
 import { rememberEpisode, usePlayer } from '../../data/PlayerContext';

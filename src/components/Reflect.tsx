@@ -1,7 +1,7 @@
 import { beginSave } from '../lib/dirty';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import Icon from './Icon';
 

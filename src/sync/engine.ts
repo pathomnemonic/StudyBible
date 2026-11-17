@@ -1,4 +1,4 @@
-import { AUTO_TABLES, KEYED_TABLES, db, syncFlags } from '../db/db';
+import { AUTO_TABLES, KEYED_TABLES, db, quietly, quietTables, syncFlags } from '../db/db';
 import { DEFAULTS, getSettings, updateSettings } from '../lib/store';
 import { api, ApiError, type WireChange } from './api';
 import { hasContent, resolveConflict } from './merge';
@@ -6,9 +6,15 @@ import { hasContent, resolveConflict } from './merge';
 /**
  * Record-level, last-writer-wins sync.
  *
- * Every user-created row carries a `uid` (stable across devices) and `updatedAt`. Pushing sends rows newer than the last
- * successful push plus tombstones for deletions; pulling applies server rows newer than the stored cursor. A row only
- * overwrites a local row if its `updatedAt` is newer. Settings travel as one pseudo-record.
+ * Every user-created row carries a `uid` (stable across devices) and `updatedAt`. The database hooks mark each row changed on
+ * this device as unsent (`_unsent: 1`); pushing sends the unsent rows and tombstones, and a row is marked sent only once the
+ * server has taken the batch it travelled in and only if it has not changed again since. Pulling applies server rows newer than
+ * the stored cursor. A row only overwrites a local row if its `updatedAt` is newer. Settings travel as one pseudo-record.
+ *
+ * "Unsent" used to be inferred by comparing `updatedAt` with the time of the last push. That guess is wrong whenever two clocks
+ * disagree or a sync is cut short: a row that merely arrived from another device looked like a local edit (so the next change
+ * from that device produced a needless "other version kept" copy, or a deletion was undone), and an edit made after the clock
+ * was set back was never sent at all. The time comparison is kept only for rows written before the marker existed.
  */
 const SETTINGS_UID = 'settings';
 const SYNCED_SETTINGS = ['theme', 'fontSize', 'lineHeight', 'margin', 'fontFamily', 'defaultEdition', 'parallelEdition', 'showVerseNumbers', 'refNumbering', 'reminders', 'showStreaks', 'lectioMinutes', 'diocese'] as const;
@@ -34,49 +40,89 @@ function settingsPayload() {
   return Object.fromEntries(SYNCED_SETTINGS.map((k) => [k, s[k]]));
 }
 
+/** Has this row (or tombstone) a change the server has not accepted? Rows from before the marker existed fall back to the time of the last push. */
+export const isUnsent = (r: { _unsent?: 0 | 1; updatedAt?: number }, lastPush: number): boolean => r._unsent === 1 || (r._unsent === undefined && (r.updatedAt ?? 0) > lastPush);
+/** `since` 0 means this account has never been pushed to from here (first sign-in, or signed in again): everything goes. */
+const due = (r: any, since: number) => since === 0 || isUnsent(r, since);
+
 async function collect(userId: string, since: number): Promise<WireChange[]> {
   const out: WireChange[] = [];
   const folders = await db.folders.toArray();
   const folderUid = new Map(folders.map((f) => [f.id, f.uid]));
   for (const name of AUTO_TABLES) {
-    const rows = (await db.table(name).toArray()).filter((r: any) => r.uid && (r.updatedAt ?? 0) > since);
+    const rows = (await db.table(name).toArray()).filter((r: any) => r.uid && due(r, since));
     for (const r of rows as any[]) {
-      const { id, ...rest } = r;
+      const { id, _unsent, ...rest } = r;
       if (name === 'notes') {
         rest.folderUid = r.folderId ? folderUid.get(r.folderId) ?? null : null;
         delete rest.folderId;
       }
-      out.push({ table: name, uid: r.uid, updatedAt: r.updatedAt, payload: rest });
+      out.push({ table: name, uid: r.uid, updatedAt: r.updatedAt ?? 0, payload: rest });
     }
   }
   for (const name of Object.keys(KEYED_TABLES)) {
-    const rows = (await db.table(name).toArray()).filter((r: any) => (r.updatedAt ?? 0) > since);
-    for (const r of rows as any[]) out.push({ table: name, uid: String(r[KEYED_TABLES[name]]), updatedAt: r.updatedAt, payload: r });
+    const rows = (await db.table(name).toArray()).filter((r: any) => due(r, since));
+    for (const r of rows as any[]) { const { _unsent, ...rest } = r; out.push({ table: name, uid: String(r[KEYED_TABLES[name]]), updatedAt: r.updatedAt ?? 0, payload: rest }); }
   }
-  for (const t of await db.tombs.toArray()) if (t.updatedAt > since) out.push({ table: t.tbl, uid: t.uid, updatedAt: t.updatedAt, deleted: true, payload: {} });
+  for (const t of await db.tombs.toArray()) if (due(t, since)) out.push({ table: t.tbl, uid: t.uid, updatedAt: t.updatedAt, deleted: true, payload: {} });
   const sUpdated = Number(get(lk(userId, 'settingsUpdatedAt')) ?? 0);
   if (sUpdated > since) out.push({ table: 'settings', uid: SETTINGS_UID, updatedAt: sUpdated, payload: settingsPayload() });
   return out;
 }
 
+/**
+ * Rows written before the unsent marker existed get it once, from the only evidence there is (their time against the last push),
+ * so that from then on no decision rests on comparing clocks.
+ */
+async function stampLegacy(since: number): Promise<void> {
+  const names = [...AUTO_TABLES, ...Object.keys(KEYED_TABLES), 'tombs'];
+  await quietly(quietTables(), async () => {
+    for (const name of names) await db.table(name).filter((r: any) => r._unsent === undefined).modify((r: any) => { r._unsent = (r.updatedAt ?? 0) > since ? 1 : 0; });
+  });
+}
+
+/** The server took these: mark each one sent, unless it changed again while the request was in the air (then it stays unsent and goes next time). */
+async function markSent(batch: WireChange[]): Promise<void> {
+  if (!batch.length) return;
+  await quietly(quietTables(), async () => {
+    for (const c of batch) {
+      if (c.table === 'settings') continue;
+      if (c.deleted) {
+        await db.tombs.where('tbl').equals(c.table).and((t) => t.uid === c.uid && t.updatedAt === c.updatedAt).modify({ _unsent: 0 });
+        continue;
+      }
+      const keyed = !!KEYED_TABLES[c.table];
+      if (!keyed && !(AUTO_TABLES as readonly string[]).includes(c.table)) continue;
+      const t = db.table(c.table);
+      const row: any = keyed ? await t.get(c.uid) : await t.where('uid').equals(c.uid).first();
+      if (row && (row.updatedAt ?? 0) === c.updatedAt && row._unsent !== 0) await t.update(keyed ? c.uid : row.id, { _unsent: 0 });
+    }
+  });
+}
+
 async function rememberRemoteTombstone(table: string, uid: string, updatedAt: number): Promise<void> {
   const old = await db.tombs.where('tbl').equals(table).and((row) => row.uid === uid).first();
   if (old && old.updatedAt >= updatedAt) return;
-  if (old) await db.tombs.update(old.id!, { updatedAt });
-  else await db.tombs.add({ tbl: table, uid, updatedAt });
+  if (old) await db.tombs.update(old.id!, { updatedAt, _unsent: 0 });
+  else await db.tombs.add({ tbl: table, uid, updatedAt, _unsent: 0 });
 }
 
 export async function applyRemote(userId: string, changes: WireChange[]) {
+  if (!changes.length) return;
   const order = ['folders', ...AUTO_TABLES.filter((t) => t !== 'folders'), ...Object.keys(KEYED_TABLES), 'settings'];
   const sorted = [...changes].sort((a, b) => order.indexOf(a.table) - order.indexOf(b.table));
-  syncFlags.applying = true;
-  try {
+  const lastPush = Number(get(lk(userId, 'lastPush')) ?? 0);
+  // One transaction for the page: it is applied whole or not at all, and only the writes made inside it skip the change hooks.
+  // Whatever the reader writes while it runs waits its turn and is then stamped as a local edit, as it should be.
+  await quietly(quietTables(), async () => {
     for (const c of sorted) {
       if (c.table === 'settings') {
         if (c.updatedAt > Number(get(lk(userId, 'settingsUpdatedAt')) ?? 0) && !c.deleted) {
           const patch: any = {};
           for (const k of SYNCED_SETTINGS) if (k in (c.payload ?? {})) patch[k] = c.payload[k];
-          updateSettings({ ...DEFAULTS, ...getSettings(), ...patch });
+          // synchronous, so the flag cannot cover anyone else's change
+          syncFlags.applying = true;
+          try { updateSettings({ ...DEFAULTS, ...getSettings(), ...patch }); } finally { syncFlags.applying = false; }
           set(lk(userId, 'settingsUpdatedAt'), String(c.updatedAt));
         }
         continue;
@@ -91,7 +137,7 @@ export async function applyRemote(userId: string, changes: WireChange[]) {
           // though the source device never performed this delete itself.
           if (!newerLocal) await rememberRemoteTombstone(c.table, c.uid, c.updatedAt);
         } else if (!local || (local.updatedAt ?? 0) < c.updatedAt) {
-          await t.put({ ...c.payload, updatedAt: c.updatedAt });
+          await t.put({ ...c.payload, updatedAt: c.updatedAt, _unsent: 0 });
         }
         continue;
       }
@@ -101,9 +147,9 @@ export async function applyRemote(userId: string, changes: WireChange[]) {
       if (!local && c.table === 'saved' && c.payload?.key) local = await db.saved.where('key').equals(c.payload.key).first();
       if (c.deleted) {
         // another device deleted it, but this device edited it since the last sync: the writing is kept (and sent back as a live note) instead of being deleted silently
-        const unsynced = local && (local.updatedAt ?? 0) > Number(get(lk(userId, 'lastPush')) ?? 0);
+        const unsynced = local && isUnsent(local, lastPush);
         if (unsynced && (c.table === 'notes' || c.table === 'journal') && hasContent(local)) {
-          await t.update(local.id, { updatedAt: Math.max(Date.now(), c.updatedAt + 1) });
+          await t.update(local.id, { updatedAt: Math.max(Date.now(), c.updatedAt + 1), _unsent: 1 });
           continue;
         }
         const newerLocal = !!local && (local.updatedAt ?? 0) > c.updatedAt;
@@ -111,7 +157,7 @@ export async function applyRemote(userId: string, changes: WireChange[]) {
         if (!newerLocal) await rememberRemoteTombstone(c.table, c.uid, c.updatedAt);
         continue;
       }
-      const row: any = { ...c.payload, uid: c.uid, updatedAt: c.updatedAt };
+      const row: any = { ...c.payload, uid: c.uid, updatedAt: c.updatedAt, _unsent: 0 };
       if (c.table === 'notes') {
         const fu = row.folderUid;
         delete row.folderUid;
@@ -121,11 +167,11 @@ export async function applyRemote(userId: string, changes: WireChange[]) {
         if ((local.updatedAt ?? 0) >= c.updatedAt) continue;
         // two devices edited the same record before either synced: the newer one wins field by field (see merge.ts), and whatever of the
         // other device's edit cannot be joined is kept as a copy with a stable id, so no edit is lost and syncing again adds nothing
-        const unsynced = (local.updatedAt ?? 0) > Number(get(lk(userId, 'lastPush')) ?? 0);
-        if (unsynced && (c.table === 'notes' || c.table === 'journal')) {
+        if (isUnsent(local, lastPush) && (c.table === 'notes' || c.table === 'journal')) {
           const r = resolveConflict(c.table, local, row);
-          if (r.copy && !(await t.where('uid').equals(r.copy.uid).first())) await t.add(r.copy);
-          await t.put({ ...r.merged, id: local.id });
+          if (r.copy && !(await t.where('uid').equals(r.copy.uid).first())) await t.add({ ...r.copy, _unsent: 1 });
+          // joined tags or a kept pin make the result differ from what the server holds: it goes back as a newer version, so every device ends up with the same record
+          await t.put(r.joined ? { ...r.merged, id: local.id, updatedAt: c.updatedAt + 1, _unsent: 1 } : { ...r.merged, id: local.id });
         } else {
           await t.put({ ...row, id: local.id });
         }
@@ -137,9 +183,7 @@ export async function applyRemote(userId: string, changes: WireChange[]) {
         await t.add(row);
       }
     }
-  } finally {
-    syncFlags.applying = false;
-  }
+  });
 }
 
 /** How many local changes have not been sent yet (for the sync status line). */
@@ -151,6 +195,7 @@ export async function runSync(userId: string): Promise<{ pushed: number; pulled:
   const startedAt = Date.now();
   const since = Number(get(lk(userId, 'lastPush')) ?? 0);
   let cursor = Number(get(lk(userId, 'cursor')) ?? 0);
+  await stampLegacy(since);
   const local = await collect(userId, since);
   let pushed = 0;
   let pulled = 0;
@@ -167,23 +212,28 @@ export async function runSync(userId: string): Promise<{ pushed: number; pulled:
   if (!batches.length) batches.push([]);
   for (const batch of batches) {
     let res = await api.sync(cursor, batch);
-    rejected += res.rejected ?? 0;
-    pushed += batch.length - (res.rejected ?? 0);
+    const refused = res.rejected ?? 0;
+    rejected += refused;
+    pushed += batch.length - refused;
     pulled += res.changes.length;
     await applyRemote(userId, res.changes);
-    cursor = res.cursor;
+    // each page is applied whole, so the place reached can be kept at once: a sync cut short later carries on from here
+    cursor = res.cursor; set(lk(userId, 'cursor'), String(cursor));
     while (res.more) {
       res = await api.sync(cursor, []);
       pulled += res.changes.length;
       await applyRemote(userId, res.changes);
-      cursor = res.cursor;
+      cursor = res.cursor; set(lk(userId, 'cursor'), String(cursor));
     }
+    // Only now, with everything the server holds applied: a row the server passed over (it had a newer version) has by now been
+    // merged with that version and no longer carries the time it was pushed with, so it is not mistaken for sent.
+    // Which rows of a batch the server refused is not known, so a batch with a refusal stays unsent as a whole.
+    if (!refused) await markSent(batch);
   }
-  set(lk(userId, 'cursor'), String(cursor));
   // if the server refused anything, keep the old push time so those changes are sent again next time
   if (!rejected) set(lk(userId, 'lastPush'), String(startedAt));
   // tombstones older than this push have reached the server; keep recent ones for slow second devices
-  await db.tombs.where('id').above(-1).filter((t) => t.updatedAt < startedAt - 7 * 86400000).delete();
+  await db.tombs.where('id').above(-1).filter((t) => t._unsent !== 1 && t.updatedAt < startedAt - 7 * 86400000).delete();
   return { pushed, pulled, rejected };
 }
 
@@ -209,12 +259,9 @@ export async function localDataCount(): Promise<number> {
 }
 
 export async function wipeLocalUserData() {
-  syncFlags.applying = true; // no tombstones for a deliberate local wipe
-  try {
-    for (const t of [...AUTO_TABLES, ...Object.keys(KEYED_TABLES), 'tombs', 'trash', 'history', 'recentSearches']) await db.table(t).clear();
-  } finally {
-    syncFlags.applying = false;
-  }
+  // no tombstones for a deliberate local wipe
+  const tables = [...quietTables(), 'history', 'recentSearches'];
+  await quietly(tables, async () => { for (const t of tables) await db.table(t).clear(); });
 }
 
 export { ApiError };

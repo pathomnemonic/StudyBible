@@ -20,8 +20,8 @@ beforeEach(async () => {
 const remote = (over: any, at = 3000, table = 'notes', uid = 'n1') => ({ table, uid, updatedAt: at, payload: { ...base, ...over, updatedAt: at } as any });
 const notes = () => dbm.db.notes.toArray();
 /** put a row in exactly as written (the database stamps updatedAt on ordinary writes; sync applies remote rows without that) */
-const patchRow = async (uid: string, patch: any) => { dbm.syncFlags.applying = true; try { await dbm.db.notes.where('uid').equals(uid).modify(patch); } finally { dbm.syncFlags.applying = false; } };
-const seed = async (table: 'notes' | 'journal', row: any) => { dbm.syncFlags.applying = true; try { return await (dbm.db as any)[table].add(row); } finally { dbm.syncFlags.applying = false; } };
+const patchRow = async (uid: string, patch: any) => { await dbm.quietly(dbm.quietTables(), async () => { await dbm.db.notes.where('uid').equals(uid).modify(patch); }); };
+const seed = async (table: 'notes' | 'journal', row: any) => dbm.quietly(dbm.quietTables(), async () => (dbm.db as any)[table].add(row));
 
 describe('field-level merge (pure)', () => {
   it('joins tags and keeps a pin', () => {
@@ -201,7 +201,7 @@ describe('nested conflict identity (audit second pass, item 2)', () => {
     await seed('notes', { ...base, targets: [{ type: 'passage', ref: 'JHN.1.1' }], updatedAt: 2000 } as any);
     await eng.applyRemote('u', [remote({ targets: [{ type: 'passage', ref: 'JHN.1.2' }] }, 3000)]);
     // the same note is edited again here, then a second remote conflict arrives with a different remote value
-    await patchRow('n1', { targets: [{ type: 'passage', ref: 'JHN.1.3' }], updatedAt: 3500 });
+    await patchRow('n1', { targets: [{ type: 'passage', ref: 'JHN.1.3' }], updatedAt: 3500, _unsent: 1 });
     await eng.applyRemote('u', [remote({ targets: [{ type: 'passage', ref: 'JHN.1.4' }] }, 4000)]);
     const copies = (await notes()).filter((n) => (n.uid ?? '').includes('~conflict~'));
     expect(copies.length).toBe(2);

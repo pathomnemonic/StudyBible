@@ -1,7 +1,7 @@
 import { addRecentSearch, clearRecentSearches, useRecentSearches } from '../../lib/recent';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { useEditions } from '../../data/EditionsContext';
 import { useSettings } from '../../lib/store';

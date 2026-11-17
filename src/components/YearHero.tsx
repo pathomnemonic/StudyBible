@@ -1,7 +1,7 @@
 import SaveOffline from './SaveOffline';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import { useSettings } from '../lib/store';
 import { useEditions } from '../data/EditionsContext';

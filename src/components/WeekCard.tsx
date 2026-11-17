@@ -1,5 +1,5 @@
 import { countsAsRead } from '../lib/finished';
-import { useLiveQuery } from 'dexie-react-hooks';
+import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 
 /** A quiet look back at the last seven days. Nothing is shown until there is something to say. */
