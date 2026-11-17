@@ -35,7 +35,11 @@ describe('Deep Waters content and rules', () => {
       const current = dailyDeepPrompts(day);
       const ids = current.map((p) => p.id);
       expect(new Set(ids).size, `duplicate on day ${day}`).toBe(DEEP_ROUNDS);
-      for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1);
+      for (const id of ids) {
+        expect(yearIds.has(id), `prompt reused during 365-day year: ${id}`).toBe(false);
+        yearIds.add(id);
+        counts.set(id, (counts.get(id) ?? 0) + 1);
+      }
       if (day > 1) {
         const overlap = ids.filter((id) => previous.has(id)).length;
         expect(overlap).toBe(Math.max(0, DEEP_ROUNDS * 2 - DEEP_WATERS.length));
