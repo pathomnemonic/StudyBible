@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   createDeepSession, deepDiveStreak, editDistance, pauseDeepSession, recordDeepDive,
-  resumeDeepSession, tickDeepSession,
+  resumeDeepSession, tickDeepSession, saveDeepSession, loadDeepSession, clearDeepSession,
 } from '../src/lib/deepWatersSession';
 
 const memory = new Map<string, string>();
@@ -57,6 +57,23 @@ describe('Deep Waters daily engine', () => {
     const before = localStorage.getItem('sb:deepwaters:logbook:v1');
     recordDeepDive({ day: 100, score: 99, scoredRounds: 7, totalRounds: 7, pearlFound: true, practice: true });
     expect(localStorage.getItem('sb:deepwaters:logbook:v1')).toBe(before);
+  });
+
+  it('saves, restores and clears a valid in-progress dive', () => {
+    const session = createDeepSession({ day: 20, practice: false, practiceSeed: 1, promptIds: ['a','b','c','d','e','f','g'], now: 1000 });
+    const paused = pauseDeepSession(session, 2000);
+    saveDeepSession(paused);
+    expect(loadDeepSession(20)).toEqual(paused);
+    expect(loadDeepSession(21)).toBeNull();
+    clearDeepSession();
+    expect(loadDeepSession(20)).toBeNull();
+  });
+
+  it('replaces a same-day logbook entry rather than double-counting a completion', () => {
+    recordDeepDive({ day: 100, score: 10, scoredRounds: 2, totalRounds: 7, pearlFound: false, practice: false });
+    const entries = recordDeepDive({ day: 100, score: 20, scoredRounds: 4, totalRounds: 7, pearlFound: true, practice: false });
+    expect(entries).toHaveLength(1);
+    expect(entries[0].score).toBe(20);
   });
 
   it('calculates edit distance for explicit spelling suggestions', () => {
