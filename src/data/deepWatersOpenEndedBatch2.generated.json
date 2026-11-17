@@ -157,6 +157,14 @@
       {
         "answer": "Mount Abarim",
         "tier": 5
+      },
+      {
+        "answer": "Hill of Moreh",
+        "tier": 5
+      },
+      {
+        "answer": "Hill of Bashan",
+        "tier": 5
       }
     ],
     "status": "draft",
