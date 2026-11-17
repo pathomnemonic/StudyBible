@@ -1,7 +1,7 @@
 /** Curated Catholic knowledge prompts. Rarity is editorial game weighting, not population-survey data. */
 export type DeepTier = 1 | 2 | 3 | 4 | 5;
 export interface DeepAnswer { answer: string; tier: DeepTier; aliases?: string[] }
-export interface DeepPrompt { id: string; prompt: string; context: string; hint: string; answers: DeepAnswer[] }
+export interface DeepPrompt { id: string; prompt: string; context: string; hint: string; answers: DeepAnswer[]; status?: 'draft' | 'reviewed' }
 
 export const DEEP_WATERS: DeepPrompt[] = [
   { id: 'orders', prompt: 'Name a Catholic religious order or congregation.', context: 'Religious families have different charisms, histories and rules of life.', hint: 'Think of monastic, mendicant, teaching, and missionary communities.', answers: [
