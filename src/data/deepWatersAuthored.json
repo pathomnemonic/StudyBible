@@ -2,7 +2,7 @@
   {
     "id": "authored-pauline-coworkers",
     "theme": "Acts and Paul",
-    "prompt": "Which named people appear as Paul's co-workers, travel companions, messengers, or ministry partners in Acts and his letters?",
+    "prompt": "Name a person associated with Paul's missionary journeys, correspondence, or church communities.",
     "context": "Include people explicitly associated with Paul's journeys, churches, correspondence, or ministry. Do not include every person Paul merely greets.",
     "hint": "Look through Acts and the closing greetings of Romans, Colossians, and 2 Timothy.",
     "source": "Hand-authored answer key; sources: Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4.",
@@ -193,7 +193,7 @@
   {
     "id": "authored-luke-parables",
     "theme": "Gospels",
-    "prompt": "Which parables are found in Luke's Gospel and have no parallel in the other canonical Gospels?",
+    "prompt": "Name a parable told by Jesus in Luke's Gospel.",
     "context": "Use the commonly recognized Lukan-only parables; a parable's title may vary between translations.",
     "hint": "The Good Samaritan and the Prodigal Son are two familiar examples. Look especially at Luke 10–18.",
     "source": "Hand-authored answer key; sources: Luke 10:25–37; 12:13–21; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14.",
@@ -415,7 +415,7 @@
   {
     "id": "authored-resurrection-witnesses",
     "theme": "Gospels and Acts",
-    "prompt": "Which people or groups are described as encountering the risen Jesus in the New Testament?",
+    "prompt": "Name a person or group described as encountering the risen Jesus in the New Testament.",
     "context": "Include individuals or clearly identified groups who encounter the risen Jesus; do not include people who only hear a report second-hand.",
     "hint": "Start with the appearance accounts in the four Gospels, then compare Paul's list in 1 Corinthians 15.",
     "source": "Hand-authored answer key; sources: Matthew 28; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8.",
@@ -435,10 +435,10 @@
         ]
       },
       {
-        "answer": "John",
+        "answer": "The beloved disciple",
         "tier": 2,
         "aliases": [
-          "The beloved disciple"
+          "John (traditional identification)"
         ]
       },
       {
@@ -472,10 +472,6 @@
         "tier": 3
       },
       {
-        "answer": "The other Mary",
-        "tier": 3
-      },
-      {
         "answer": "The two disciples on the road to Emmaus",
         "tier": 2
       },
@@ -485,7 +481,10 @@
       },
       {
         "answer": "The Twelve",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "The Eleven"
+        ]
       },
       {
         "answer": "The five hundred brothers",
@@ -503,7 +502,7 @@
   {
     "id": "authored-pauls-first-journey",
     "theme": "Acts and geography",
-    "prompt": "Which places does Acts name along Paul's first missionary journey with Barnabas?",
+    "prompt": "Name a place or region along the route of Paul's first missionary journey with Barnabas.",
     "context": "Follow the outward and return route in Acts 13–14. Accept the ancient place-name used in the text.",
     "hint": "The route begins in Cyprus, crosses to southern Asia Minor, and returns to the sending church.",
     "source": "Hand-authored answer key; sources: Acts 13:1–14:28.",
@@ -570,7 +569,7 @@
   {
     "id": "authored-marian-litany",
     "theme": "Catholic prayer",
-    "prompt": "Which invocations are found in the Litany of Loreto?",
+    "prompt": "Name an invocation from the Litany of Loreto.",
     "context": "Accept the traditional invocations in the litany, not every devotional title ever used for Mary.",
     "hint": "Several invocations are symbolic titles such as 'Seat of Wisdom' and 'Ark of the Covenant'.",
     "source": "Hand-authored answer key; sources: Litany of Loreto, traditional form.",
@@ -1191,7 +1190,7 @@
   {
     "id": "authored-prophets-before-kings",
     "theme": "Hebrew Bible",
-    "prompt": "Which prophets confronted, corrected, or delivered warnings to Israelite or Judean rulers?",
+    "prompt": "Name a prophet who confronted, corrected, or warned an Israelite or Judean ruler.",
     "context": "Include prophets whose encounters with kings are narrated in Scripture; do not include every person called a prophet.",
     "hint": "Nathan rebuked David; Elijah confronted Ahab; Micaiah challenged Ahab's court prophets.",
     "source": "Hand-authored answer key; sources: 1 Samuel 15; 2 Samuel 12; 1 Kings 18–22; 2 Kings 1–9; Isaiah 7; Jeremiah 21–38.",
@@ -1263,7 +1262,7 @@
   {
     "id": "authored-women-in-acts",
     "theme": "Acts of the Apostles",
-    "prompt": "Which women are named in the Acts of the Apostles as disciples, hosts, patrons, prophets, or members of the early Christian community?",
+    "prompt": "Name a woman identified in the Acts of the Apostles as part of the early Christian community.",
     "context": "Include women explicitly named in Acts, not unnamed groups or women known only from other books.",
     "hint": "Lydia, Priscilla, Tabitha, and the daughters of Philip are useful starting points.",
     "source": "Hand-authored answer key; sources: Acts 1:14; 9:36–42; 12:12; 16:14–15; 18:2, 18, 26; 21:8–9.",
@@ -1321,7 +1320,7 @@
   {
     "id": "authored-acts-cities",
     "theme": "Acts and geography",
-    "prompt": "Which cities or regions are named as places where the apostolic mission took place in Acts?",
+    "prompt": "Name a city or region where the apostolic mission took place in Acts.",
     "context": "Use cities explicitly named in Acts as destinations, preaching locations, or places where churches formed.",
     "hint": "Paul's journeys provide many examples, but include places associated with Peter and Philip as well.",
     "source": "Hand-authored answer key; sources: Acts 2–28.",
@@ -1449,7 +1448,7 @@
   {
     "id": "authored-jesus-healings",
     "theme": "Gospels",
-    "prompt": "Which illnesses, disabilities, or physical conditions are specifically described as being healed by Jesus in the Gospels?",
+    "prompt": "Name an illness, disability, or physical affliction that Jesus healed in the Gospels.",
     "context": "Give the condition rather than the person's name. Include both individual healings and clearly described groups.",
     "hint": "The narratives mention blindness, paralysis, leprosy, hemorrhage, fever, and several less familiar conditions.",
     "source": "Hand-authored answer key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9.",
@@ -1536,7 +1535,7 @@
   {
     "id": "authored-johannine-titles",
     "theme": "New Testament",
-    "prompt": "Which titles or images for Jesus appear in the Gospel of John?",
+    "prompt": "Name a title or image applied to Jesus in the Gospel of John.",
     "context": "Use titles or metaphors explicitly applied to Jesus in John's Gospel, including those spoken by Jesus or by other characters.",
     "hint": "The opening chapter and the 'I am' discourses are especially rich sources.",
     "source": "Hand-authored answer key; sources: John 1; 4; 6; 8–15; 19–20.",
@@ -1637,7 +1636,7 @@
   {
     "id": "authored-acts-leaders",
     "theme": "Acts of the Apostles",
-    "prompt": "Which named leaders, teachers, or public figures play a substantial role in Acts?",
+    "prompt": "Name a leader, teacher, missionary, or public figure who plays a substantial role in Acts.",
     "context": "Include apostles, evangelists, missionaries, and civic or religious leaders whose actions shape the narrative.",
     "hint": "The book moves from Peter and the Jerusalem community to Paul and the mission across the Roman world.",
     "source": "Hand-authored answer key; sources: Acts 1–28.",
@@ -1812,7 +1811,7 @@
   {
     "id": "authored-catholic-prayers",
     "theme": "Catholic prayer",
-    "prompt": "Which named forms of Catholic prayer or devotional practice are distinct from the celebration of Mass?",
+    "prompt": "Name an established form of Catholic prayer or devotional practice distinct from the celebration of Mass.",
     "context": "Include established forms of prayer, not every spontaneous prayer or generic act of devotion.",
     "hint": "Consider the Liturgy of the Hours, the Rosary, Eucharistic adoration, and forms of meditation.",
     "source": "Hand-authored answer key; sources: Catechism of the Catholic Church 2626–2643; 2700–2724; Directory on Popular Piety.",
@@ -2053,7 +2052,7 @@
   {
     "id": "authored-pauline-women",
     "theme": "Pauline letters",
-    "prompt": "Which women are named or explicitly identified in Paul's letters as co-workers, hosts, patrons, or members of the churches?",
+    "prompt": "Name a woman named or explicitly identified in Paul's letters.",
     "context": "Include women named directly and women clearly identified by a family relationship in the Pauline letters.",
     "hint": "Romans 16 is the richest passage, but compare Philippians, Colossians, and 2 Timothy.",
     "source": "Hand-authored answer key; sources: Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19.",
@@ -2132,7 +2131,7 @@
   {
     "id": "authored-martyrs-acts",
     "theme": "Acts and early Church",
-    "prompt": "Which people are explicitly described in Acts as suffering or being killed because of their witness to the faith?",
+    "prompt": "Name a person or group persecuted because of their Christian witness in Acts.",
     "context": "Limit answers to people whose persecution or death is narrated in Acts; do not add later traditional martyrdom accounts.",
     "hint": "Stephen's death is central, but Acts also records persecution of the apostles and James.",
     "source": "Hand-authored answer key; sources: Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28.",
@@ -2184,7 +2183,7 @@
   {
     "id": "authored-revelation-images",
     "theme": "New Testament",
-    "prompt": "Which symbolic images or figures appear in the visions of the Book of Revelation?",
+    "prompt": "Name a symbolic image or figure in the visions of Revelation.",
     "context": "Name a distinct image in the book's visions; do not give generic theological concepts that are not represented in the text.",
     "hint": "The images include creatures, objects, numbers, and figures that recur across the visions.",
     "source": "Hand-authored answer key; sources: Revelation 1–22.",
@@ -2276,7 +2275,7 @@
   {
     "id": "authored-catholic-liturgical-seasons",
     "theme": "Catholic liturgy",
-    "prompt": "Which seasons or major observances structure the Roman Catholic liturgical year?",
+    "prompt": "Name a season or major observance in the Roman Catholic liturgical year.",
     "context": "Include the principal liturgical seasons and major observances, not individual saints' memorials.",
     "hint": "Think from Advent through Ordinary Time, including the Paschal Triduum and Easter season.",
     "source": "Hand-authored answer key; sources: General Norms for the Liturgical Year and the Calendar.",
