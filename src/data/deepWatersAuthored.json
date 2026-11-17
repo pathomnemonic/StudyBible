@@ -7066,6 +7066,16 @@
         "guess": "John Henry Newman",
         "accept": false,
         "reason": "A Doctor of the Church, but not a Carmelite."
+      },
+      {
+        "guess": "John of Avila",
+        "accept": false,
+        "reason": "A Doctor of the Church, but not a Carmelite."
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accept": false,
+        "reason": "A Doctor of the Church, but not from the Carmelite tradition."
       }
     ]
   },
@@ -7147,6 +7157,16 @@
         "guess": "Ambrose",
         "accept": false,
         "reason": "His memorial is December 7."
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accept": false,
+        "reason": "His Roman-calendar memorial is in January, not July."
+      },
+      {
+        "guess": "John of the Cross",
+        "accept": false,
+        "reason": "His Roman-calendar memorial is in December, not July."
       }
     ]
   },
@@ -7231,6 +7251,16 @@
         "guess": "Telesphorus",
         "accept": false,
         "reason": "A later pope."
+      },
+      {
+        "guess": "Sixtus I",
+        "accept": false,
+        "reason": "A later bishop of Rome, not among the first four successors after Peter."
+      },
+      {
+        "guess": "Anicetus",
+        "accept": false,
+        "reason": "A later second-century pope."
       }
     ]
   },
@@ -7303,6 +7333,16 @@
         "guess": "Holy orders",
         "accept": false,
         "reason": "A sacrament, not a sacramental category."
+      },
+      {
+        "guess": "Holy water",
+        "accept": false,
+        "reason": "A sacramental, not a broad category of sacramentals."
+      },
+      {
+        "guess": "Blessed medals",
+        "accept": false,
+        "reason": "A sacramental object, not a category."
       }
     ]
   },
@@ -7382,89 +7422,114 @@
         "guess": "Montanism",
         "accept": false,
         "reason": "An early prophetic movement, not one of these Christological errors."
+      },
+      {
+        "guess": "Docetism",
+        "accept": false,
+        "reason": "An early Christological error, but not one of the four selected in the first four councils."
       }
     ]
   },
   {
     "id": "batch2-twentieth-century-doctors",
-    "theme": "Saints and Church history",
-    "prompt": "Name one of the three women proclaimed Doctors of the Church during the twentieth century.",
-    "context": "Use the three women proclaimed Doctors in 1970 or 1997; count: 3.; count: 3.",
-    "hint": "Two were proclaimed together by Pope Paul VI.",
-    "source": "Hand-authored closed key; authority: Paul VI, proclamations of 1970; John Paul II, Divini Amoris Scientia (1997). Count: 3.",
+    "theme": "Popes and saints",
+    "prompt": "Name one of the four twentieth-century popes canonized as saints.",
+    "context": "Use popes of the twentieth century who were canonized saints; count: 4.",
+    "hint": "They include two popes canonized together in 2014.",
+    "source": "Hand-authored closed key; authority: Vatican canonization records for Pius X, John XXIII, John Paul II, and Paul VI. Count: 4.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
-        "answer": "Catherine of Siena",
-        "tier": 1,
-        "source": "Paul VI, 1970",
-        "aliases": [
-          "Saint Catherine of Siena",
-          "St Catherine of Siena"
-        ]
-      },
-      {
-        "answer": "Teresa of Avila",
-        "tier": 1,
-        "source": "Paul VI, 1970",
-        "aliases": [
-          "Saint Teresa of Avila",
-          "St Teresa of Avila",
-          "Teresa of Jesus"
-        ]
-      },
-      {
-        "answer": "Therese of Lisieux",
+        "answer": "Pius X",
         "tier": 2,
-        "source": "John Paul II, 1997",
+        "source": "Vatican, canonization of Pius X (1954)",
         "aliases": [
-          "Saint Therese of Lisieux",
-          "St Therese of Lisieux",
-          "The Little Flower"
+          "Saint Pius X",
+          "St Pius X"
+        ]
+      },
+      {
+        "answer": "John XXIII",
+        "tier": 1,
+        "source": "Vatican, canonization of John XXIII (2014)",
+        "aliases": [
+          "Saint John XXIII",
+          "St John XXIII",
+          "Angelo Roncalli"
+        ]
+      },
+      {
+        "answer": "John Paul II",
+        "tier": 1,
+        "source": "Vatican, canonization of John Paul II (2014)",
+        "aliases": [
+          "Saint John Paul II",
+          "St John Paul II",
+          "Karol Wojtyla"
+        ]
+      },
+      {
+        "answer": "Paul VI",
+        "tier": 2,
+        "source": "Vatican, canonization of Paul VI (2018)",
+        "aliases": [
+          "Saint Paul VI",
+          "St Paul VI",
+          "Giovanni Battista Montini"
         ]
       }
     ],
     "commonGuesses": [
       {
-        "guess": "Catherine of Siena",
+        "guess": "Pius X",
         "accept": true,
-        "answer": "Catherine of Siena"
+        "answer": "Pius X"
       },
       {
-        "guess": "Teresa of Avila",
+        "guess": "John XXIII",
         "accept": true,
-        "answer": "Teresa of Avila"
+        "answer": "John XXIII"
       },
       {
-        "guess": "The Little Flower",
+        "guess": "John Paul II",
         "accept": true,
-        "answer": "Therese of Lisieux"
+        "answer": "John Paul II"
       },
       {
-        "guess": "Hildegard of Bingen",
-        "accept": false,
-        "reason": "Proclaimed Doctor in 2012, not during the twentieth century."
+        "guess": "Paul VI",
+        "accept": true,
+        "answer": "Paul VI"
       },
       {
-        "guess": "John Henry Newman",
+        "guess": "Benedict XVI",
         "accept": false,
-        "reason": "Proclaimed Doctor in 2025."
+        "reason": "He was a twentieth-century pope but has not been canonized a saint."
       },
       {
-        "guess": "Benedict of Nursia",
+        "guess": "Francis",
         "accept": false,
-        "reason": "Not a Doctor of the Church."
+        "reason": "He was not a twentieth-century pope and is not canonized."
       },
       {
-        "guess": "Edith Stein",
+        "guess": "Leo XIII",
         "accept": false,
-        "reason": "Not a Doctor of the Church."
+        "reason": "He was pope before the twentieth century."
       },
       {
-        "guess": "Mary MacKillop",
+        "guess": "Pius XII",
         "accept": false,
-        "reason": "Not a Doctor of the Church."
+        "reason": "He has not been canonized."
+      },
+      {
+        "guess": "Pius XI",
+        "accept": false,
+        "reason": "He has not been canonized."
+      },
+      {
+        "guess": "John Paul I",
+        "accept": false,
+        "reason": "He has not been canonized."
       }
     ]
   }
