@@ -155,7 +155,10 @@ const memCount = (p) => p.evaluate(() => new Promise((res, rej) => { const r = i
     // while the passage is loading the card must say so and offer no reveal: it must not show the other card's words
     const reveal = p.locator('button', { hasText: /^(Reveal|Check)$/ });
     const loading = await p.locator('.card', { hasText: 'Loading…' }).count();
-    if (loading && !(await reveal.first().isDisabled())) fail(`${label}: Reveal must wait for the passage`);
+    // loading only ever goes from true to false, so a card that is still loading after the button was read was loading when it was read (a single early reading can race a slow machine)
+    const disabled = loading ? await reveal.first().isDisabled() : true;
+    const stillLoading = loading ? await p.locator('.card', { hasText: 'Loading…' }).count() : 0;
+    if (stillLoading && !disabled) fail(`${label}: Reveal must wait for the passage`);
     await p.waitForFunction(() => !/Loading…/.test(document.querySelector('.card')?.textContent ?? ''), null, { timeout: 15000 });
     await reveal.first().click();
     const body = await p.locator('.card').first().innerText();
