@@ -81,3 +81,5 @@
 
 .dw-streak { margin: .6rem 0; color: var(--muted, #71808a); font-size: .9rem; }
 .dw-pearl-bonus { display: block; margin: .55rem 0; color: #9a762b; font-weight: 700; }
+
+.dw-preview-countdown { margin: 1rem 0; text-align: center; color: var(--muted, #71808a); font-size: .92rem; letter-spacing: .04em; }
