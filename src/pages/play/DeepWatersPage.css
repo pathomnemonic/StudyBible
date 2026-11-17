@@ -83,3 +83,9 @@
 .dw-pearl-bonus { display: block; margin: .55rem 0; color: #9a762b; font-weight: 700; }
 
 .dw-preview-countdown { margin: 1rem 0; text-align: center; color: var(--muted, #71808a); font-size: .92rem; letter-spacing: .04em; }
+
+.dw-logbook { margin: 1.25rem 0; padding-top: 1rem; border-top: 1px solid rgba(120,140,150,.25); text-align: left; }
+.dw-logbook h3 { margin: 0 0 .6rem; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
+.dw-logbook ul { list-style: none; margin: 0; padding: 0; }
+.dw-logbook li { display: grid; grid-template-columns: 1fr auto; gap: .15rem .8rem; padding: .5rem 0; border-bottom: 1px solid rgba(120,140,150,.16); }
+.dw-logbook li small { grid-column: 1 / -1; color: var(--muted, #71808a); }
