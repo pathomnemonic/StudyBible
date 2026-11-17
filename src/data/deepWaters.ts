@@ -9,9 +9,9 @@ import SCRIPTURE_PROMPTS_2 from './deepWatersScripture2b.generated.json';
 import SCRIPTURE_PROMPTS_3 from './deepWatersScripture3b.generated.json';
 import SCRIPTURE_PROMPTS_4 from './deepWatersScripture4b.generated.json';
 /** Deep Waters combines authored category prompts, curriculum questions, and public-domain Scripture clozes. Tiers are editorial game weights. */
-export type DeepTier = 1 | 2 | 3 | 4 | 5;
-export interface DeepAnswer { answer: string; tier: DeepTier; aliases?: string[] }
-export interface DeepPrompt { id: string; prompt: string; context: string; hint: string; answers: DeepAnswer[]; status?: 'draft' | 'reviewed'; answerMode?: 'single' | 'many'; source?: string; theme?: string }
+export type DeepTier = 1 | 2 | 3 | 4 | 5 | 6;
+export interface DeepAnswer { answer: string; tier: DeepTier; aliases?: string[]; source?: string }
+export interface DeepPrompt { id: string; prompt: string; context: string; hint: string; answers: DeepAnswer[]; status?: 'draft' | 'reviewed'; answerMode?: 'single' | 'many' | 'open' | 'closed'; source?: string; theme?: string; commonGuesses?: Array<{ guess: string; accept: boolean; answer?: string; reason?: string }> }
 
 export const DEEP_WATERS: DeepPrompt[] = [
   ...(AUTHORED_DEEP_WATERS as DeepPrompt[]),
