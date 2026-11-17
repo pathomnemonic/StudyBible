@@ -1,11 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import { DEEP_WATERS } from '../src/data/deepWaters';
-import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, findDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts } from '../src/lib/deepWaters';
+import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, findDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts } from '../src/lib/deepWaters';
 
 describe('Deep Waters content and rules', () => {
   it('has enough Catholic prompts for a seven-round daily set', () => {
     expect(DEEP_WATERS.length).toBeGreaterThanOrEqual(10);
     expect(DEEP_ROUNDS).toBe(7);
+    expect(DEEP_SECONDS).toBe(30);
     expect(new Set(DEEP_WATERS.map((p) => p.id)).size).toBe(DEEP_WATERS.length);
     for (const p of DEEP_WATERS) {
       expect(p.prompt.trim().length, p.id).toBeGreaterThan(12);
