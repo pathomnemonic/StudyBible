@@ -65,7 +65,7 @@ for (const pool of pools) {
   }
   for(let n=1;n<=5;n++) add(pool,'words','with exactly ' + n + ' words',a=>a.trim().split(/\s+/).length===n);
 }
-const uniquePrompts = [...new Map(candidates.map((c)=>[c.prompt,c])).values()];
+const uniquePrompts = [...new Map<string, (typeof candidates)[number]>(candidates.map((c)=>[c.prompt,c] as const)).values()];
 const selected: typeof candidates = [];
 for (const poolKey of ['saint','place']) {
   const buckets = new Map<string,typeof candidates>();
