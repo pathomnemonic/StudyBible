@@ -125,7 +125,9 @@ const memCount = (p) => p.evaluate(() => new Promise((res, rej) => { const r = i
 // 7. an unverified numbering is not added automatically; the explicit choice is labelled
 {
   const { ctx, p } = await page('webc');
-  await p.goto(`${BASE}/#/study/curriculum/YA/YA-5-2`);
+  // this lesson's key verse is Micah 5:2, in a chapter whose numbering is still unverified (the lesson on John 6 used here before
+  // is now added without asking, correctly: John 6 was verified in the fourth cycle)
+  await p.goto(`${BASE}/#/study/curriculum/9/9-4-3`);
   await p.locator('button,[role=tab]', { hasText: /^Whole lesson$/ }).first().click();
   await p.locator('button', { hasText: /Mark done/ }).first().click();
   await p.waitForSelector('[aria-label="Review later"][data-state="approximate"]');
