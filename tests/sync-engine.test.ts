@@ -137,6 +137,61 @@ describe('sync engine against the real server', () => {
     expect(await pendingCount(uid)).toBeGreaterThan(0);
   }, 60000);
 
+  it('marks accepted rows sent and retries only the refused row on the next sync', async () => {
+    await freshDevice();
+    const { api } = await import('../src/sync/api');
+    const uid = ((await api.register('sync-partial@example.com', 'correct horse battery', 'P')) as any).user.id;
+    const { db } = await import('../src/db/db');
+    const { runSync } = await import('../src/sync/engine');
+    await db.notes.add({ kind: 'note', title: 'accepted one', body: 'one', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);
+    await db.notes.add({ kind: 'note', title: 'oversized', body: 'x'.repeat(300_000), tags: [], chapterKeys: [], targets: [], createdAt: 2, updatedAt: 2 } as any);
+    await db.notes.add({ kind: 'note', title: 'accepted two', body: 'two', tags: [], chapterKeys: [], targets: [], createdAt: 3, updatedAt: 3 } as any);
+
+    const first = await runSync(uid);
+    const rows = await db.notes.toArray();
+    const large = rows.find((r) => r.title === 'oversized')!;
+    expect(first.rejected).toBe(1);
+    expect(first.pushed).toBe(2);
+    expect(first.refused).toEqual([{ table: 'notes', uid: large.uid, reason: 'too-large' }]);
+    expect(rows.filter((r) => r.title.startsWith('accepted')).every((r) => r._unsent === 0)).toBe(true);
+    expect(large._unsent).toBe(1);
+
+    const sentBatches: string[][] = [];
+    const realSync = api.sync;
+    vi.spyOn(api, 'sync').mockImplementation(async (cursor: number, changes: any[]) => {
+      sentBatches.push(changes.map((c) => c.uid));
+      return realSync(cursor, changes);
+    });
+    try {
+      const second = await runSync(uid);
+      expect(sentBatches).toHaveLength(1);
+      expect(sentBatches[0]).toEqual([large.uid]);
+      expect(second.rejected).toBe(1);
+      expect((await db.notes.get(large.id!))!._unsent).toBe(1);
+    } finally {
+      vi.restoreAllMocks();
+    }
+  }, 60000);
+
+  it('keeps a whole batch unsent when an older server only reports the rejection count', async () => {
+    await freshDevice();
+    const { api } = await import('../src/sync/api');
+    const uid = ((await api.register('sync-old-server@example.com', 'correct horse battery', 'O')) as any).user.id;
+    const { db } = await import('../src/db/db');
+    const { runSync } = await import('../src/sync/engine');
+    await db.notes.add({ kind: 'note', title: 'one', body: 'one', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);
+    await db.notes.add({ kind: 'note', title: 'two', body: 'two', tags: [], chapterKeys: [], targets: [], createdAt: 2, updatedAt: 2 } as any);
+    vi.spyOn(api, 'sync').mockResolvedValue({ cursor: 0, more: false, rejected: 1, changes: [] } as any);
+    try {
+      const result = await runSync(uid);
+      expect(result.rejected).toBe(1);
+      expect(result.refused).toEqual([]);
+      expect((await db.notes.toArray()).every((r) => r._unsent === 1)).toBe(true);
+    } finally {
+      vi.restoreAllMocks();
+    }
+  }, 60000);
+
   it('a note edited here is kept when another device deleted it meanwhile', async () => {
     await freshDevice();
     const { api } = await import('../src/sync/api');

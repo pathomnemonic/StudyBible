@@ -1,8 +1,9 @@
-import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest';
 import type { AddressInfo } from 'node:net';
 import type { Server } from 'node:http';
 import { createApp } from '../server/app';
 import { openDb } from '../server/db';
+import { RateLimiter } from '../server/auth';
 
 let server: Server;
 let base = '';
@@ -141,6 +142,20 @@ describe('sync', () => {
     expect(r.body.changes).toEqual([]);
     expect((await new Client().call('POST', '/api/sync', { cursor: 0, changes: [] })).status).toBe(401);
   });
+  it('reports the exact refused record and reason while accepting its neighbours', async () => {
+    const c = new Client();
+    await c.call('POST', '/api/auth/register', { email: 'partial-sync@example.com', password: PW });
+    const r = await c.call('POST', '/api/sync', { cursor: 0, changes: [
+      { table: 'notes', uid: 'good-before', updatedAt: 1, payload: { body: 'fine before' } },
+      { table: 'notes', uid: 'too-big', updatedAt: 2, payload: { body: 'x'.repeat(300_000) } },
+      { table: 'notes', uid: 'good-after', updatedAt: 3, payload: { body: 'fine after' } },
+    ] });
+    expect(r.body.rejected).toBe(1);
+    expect(r.body.refused).toEqual([{ table: 'notes', uid: 'too-big', reason: 'too-large' }]);
+    expect(r.body.changes).toHaveLength(0);
+    const pull = await c.call('POST', '/api/sync', { cursor: 0, changes: [] });
+    expect(pull.body.changes.map((x: any) => x.uid).sort()).toEqual(['good-after', 'good-before']);
+  });
   it('refuses unknown tables and oversized payloads', async () => {
     const c = new Client();
     await c.call('POST', '/api/auth/register', { email: 'lim@example.com', password: PW });
@@ -150,6 +165,10 @@ describe('sync', () => {
       { table: 'notes', uid: 'ok', updatedAt: 1, payload: { body: 'fine' } },
     ] });
     expect(r.body.rejected).toBe(2);
+    expect(r.body.refused).toEqual([
+      { table: 'users', uid: 'x', reason: 'invalid' },
+      { table: 'notes', uid: 'big', reason: 'too-large' },
+    ]);
   });
   it('refuses records whose shape is wrong, and unsafe links', async () => {
     const c = new Client();
@@ -162,6 +181,11 @@ describe('sync', () => {
       { table: 'notes', uid: 'gone', updatedAt: 1, deleted: true, payload: {} },
     ] });
     expect(r.body.rejected).toBe(3);
+    expect(r.body.refused).toEqual([
+      { table: 'notes', uid: 'bad1', reason: 'shape' },
+      { table: 'notes', uid: 'bad2', reason: 'shape' },
+      { table: 'userLinks', uid: 'bad3', reason: 'shape' },
+    ]);
   });
   it('exports an account as JSON', async () => {
     const c = new Client();
@@ -170,6 +194,29 @@ describe('sync', () => {
     const ex = await c.call('GET', '/api/account/export');
     expect(ex.body.records[0].data.body).toBe('Lord, hear');
     expect(ex.headers.get('content-disposition')).toMatch(/attachment/);
+  });
+});
+
+describe('rate limiter memory bound', () => {
+  it('keeps 50,000 distinct keys within the 10,000-key bound', () => {
+    const limiter = new RateLimiter(100, 60_000);
+    for (let i = 0; i < 50_000; i++) expect(limiter.take(`key-${i}`)).toBe(true);
+    expect((limiter as any).hits.size).toBeLessThanOrEqual(10_000);
+  });
+
+  it('does not forget an active key at its limit when a capacity sweep runs', () => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-11-17T00:00:00Z'));
+    const limiter = new RateLimiter(2, 60_000);
+    expect(limiter.take('important')).toBe(true);
+    vi.advanceTimersByTime(1);
+    expect(limiter.take('important')).toBe(true);
+    for (let i = 0; i < 9_999; i++) limiter.take(`other-${i}`);
+    expect(limiter.take('important')).toBe(false); // refresh its LRU position without extending the window
+    vi.advanceTimersByTime(1);
+    expect(limiter.take('new-key')).toBe(true); // triggers the full sweep and trims the map
+    expect((limiter as any).hits.size).toBe(10_000);
+    expect(limiter.take('important')).toBe(false);
   });
 });
 

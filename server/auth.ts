@@ -41,17 +41,35 @@ export function passwordProblem(pw: unknown, email: string): string | null {
 /** Tiny in-memory sliding-window limiter (per process). */
 export class RateLimiter {
   private hits = new Map<string, number[]>();
+  private nextSweepAt = 0;
+  private readonly maxKeys = 10_000;
   constructor(private max: number, private windowMs: number) {}
   take(key: string): boolean {
     const now = Date.now();
     const arr = (this.hits.get(key) ?? []).filter((t) => now - t < this.windowMs);
-    if (arr.length >= this.max) {
-      this.hits.set(key, arr);
-      return false;
-    }
-    arr.push(now);
+    const allowed = arr.length < this.max;
+    if (allowed) arr.push(now);
+    // Move a touched key to the end: Map order is least- to most-recently used.
+    this.hits.delete(key);
     this.hits.set(key, arr);
-    return true;
+
+    if (this.hits.size > this.maxKeys) {
+      // The full stale-key scan is throttled; the ordinary path remains O(1).
+      if (now >= this.nextSweepAt) {
+        this.nextSweepAt = now + this.windowMs;
+        for (const [candidate, times] of this.hits) {
+          const newest = times.length ? Math.max(...times) : Number.NEGATIVE_INFINITY;
+          if (now - newest >= this.windowMs) this.hits.delete(candidate);
+        }
+      }
+      // Maintain the hard bound between full sweeps by evicting the least-recently-used key.
+      while (this.hits.size > this.maxKeys) {
+        const oldest = this.hits.keys().next().value;
+        if (oldest === undefined) break;
+        this.hits.delete(oldest);
+      }
+    }
+    return allowed;
   }
   reset(key: string) {
     this.hits.delete(key);
