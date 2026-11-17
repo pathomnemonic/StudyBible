@@ -242,6 +242,48 @@
    "status": "unreviewed"
   },
   {
+   "id": "seven-churches",
+   "sha256": "0887246fbf9124881e6e36f67ba948570cc6036eaa3a59eeaf6dbbc13a6be87f",
+   "answers": 7,
+   "status": "unreviewed"
+  },
+  {
+   "id": "marian-apparitions",
+   "sha256": "6ed3955170df3cdb0f63eef2cc4ffe380cf20c7642c79a3cf0f2d89cd0757bc8",
+   "answers": 14,
+   "status": "unreviewed"
+  },
+  {
+   "id": "bible-mountains",
+   "sha256": "d521b7f0c99046778edc8ee5efe43545b3de542f61effc0046470cbbeac667a1",
+   "answers": 17,
+   "status": "unreviewed"
+  },
+  {
+   "id": "bible-rivers",
+   "sha256": "dd3b56ac80600ba6e60757196a44101f05fc3cdfbfd1c4c5203aa6a3febd758d",
+   "answers": 17,
+   "status": "unreviewed"
+  },
+  {
+   "id": "bible-plants",
+   "sha256": "2aadc86204cf3817222d9abf3638855e47cf8140280ead6fbb3c640b959a59d1",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "bible-animals",
+   "sha256": "d10d9d1ca5f4a3d22e27232cf4e5c543262ed823db86ec282ff08118097e2cd4",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "bible-instruments",
+   "sha256": "343560a923e94a57eda57028729ba23a849fb49d9030173be55016e269b409ee",
+   "answers": 16,
+   "status": "unreviewed"
+  },
+  {
    "id": "places-1CH",
    "sha256": "87dcc32c32e1582529ec447976fb4eba841ad15a387261411d75e8b182b7ecd6",
    "answers": 163,

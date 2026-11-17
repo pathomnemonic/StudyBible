@@ -35,7 +35,7 @@ describe('Deep Waters content', () => {
 
   it('a prompt that names a whole set lists exactly that set', () => {
     const sizes = Object.fromEntries(DEEP_WATERS.filter((p) => p.closed).map((p) => [p.id, p.answers.length]));
-    expect(sizes).toEqual({ councils: 21, rites: 24, apostles: 13, doctors: 37, ntbooks: 27, otbooks: 46, mysteries: 20, sacraments: 7, virtues: 7, 'deadly-sins': 7, gifts: 7, fruits: 12, 'corporal-works': 7, 'spiritual-works': 7, plagues: 10, 'sons-of-jacob': 12, 'minor-prophets': 12, pius: 12, 'popes-20c': 9, 'holy-days': 6, 'liturgical-seasons': 5 });
+    expect(sizes).toEqual({ councils: 21, rites: 24, apostles: 13, doctors: 37, ntbooks: 27, otbooks: 46, mysteries: 20, sacraments: 7, virtues: 7, 'deadly-sins': 7, gifts: 7, fruits: 12, 'corporal-works': 7, 'spiritual-works': 7, plagues: 10, 'sons-of-jacob': 12, 'minor-prophets': 12, pius: 12, 'popes-20c': 9, 'holy-days': 6, 'liturgical-seasons': 5, 'seven-churches': 7 });
     for (const p of DEEP_WATERS.filter((x) => x.closed)) expect(p.answers.length, p.id).toBe(p.closed);
   });
 
@@ -211,5 +211,20 @@ describe('Deep Waters first-letter and role questions', () => {
     expect(matchDeepAnswer(find('people-J'), 'Peter').status).not.toBe('match');
     expect(matchDeepAnswer(find('roles-women'), 'Moses').status).not.toBe('match');
     expect(matchDeepAnswer(find('saints-letter-A'), 'Paul').status).not.toBe('match');
+  });
+});
+
+describe('Deep Waters Scripture lists', () => {
+  const find = (id: string) => DEEP_WATERS.find((p) => p.id === id)!;
+  const accept: [string, string[]][] = [
+    ['seven-churches', ['Ephesus', 'Laodicea', 'Smyrna']], ['bible-mountains', ['Sinai', 'Mount of Olives', 'Mount Carmel', 'Zion', 'Golgotha']],
+    ['bible-rivers', ['Jordan', 'River Jordan', 'Euphrates', 'Kidron']], ['bible-plants', ['Olive tree', 'Mustard seed', 'Fig tree', 'Cedar of Lebanon']],
+    ['bible-animals', ['Lion', 'Serpent', 'Ass', 'Leviathan']], ['bible-instruments', ['Harp', 'Shofar', 'Timbrel', 'Cymbals']], ['marian-apparitions', ['Lourdes', 'Fatima', 'Guadalupe', 'Our Lady of Knock']],
+  ];
+  for (const [id, names] of accept) it(`${id} accepts true answers`, () => { for (const n of names) expect(matchDeepAnswer(find(id), n).status, `${id}: ${n}`).toBe('match'); });
+  it('rejects what is not on the list', () => {
+    expect(matchDeepAnswer(find('seven-churches'), 'Corinth').status).not.toBe('match');
+    expect(matchDeepAnswer(find('bible-rivers'), 'Thames').status).not.toBe('match');
+    expect(matchDeepAnswer(find('bible-instruments'), 'Guitar').status).not.toBe('match');
   });
 });

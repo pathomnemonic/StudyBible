@@ -263,4 +263,71 @@ export const MORE_PROMPTS: DeepPrompt[] = [
       ['Robert Bellarmine', 4], ['Peter Canisius', 4], ['Francisco de Vitoria', 5, 'Vitoria'], ['Bartolome de las Casas', 5, 'Bartolomé de las Casas|Las Casas'], ['Erasmus', 4, 'Desiderius Erasmus'], ['Thomas Cajetan', 5, 'Cajetan'], ['Johann Adam Mohler', 5, 'Möhler|Mohler'], ['Matthias Scheeben', 5, 'Scheeben'], ['Anne Catherine Emmerich', 5, 'Anne Catherine Emmerick'], ['Josemaria Escriva', 3, 'Josemaría Escrivá|Escriva|Saint Josemaria|Escrivá'], ['Luigi Giussani', 5, 'Giussani'],
     ]),
   },
+  {
+    id: 'seven-churches', theme: 'scripture',
+    prompt: 'Name one of the seven churches addressed in the Book of Revelation.',
+    context: 'Revelation 2 and 3 give a letter to each of seven churches of Asia Minor.',
+    closed: 7,
+    answers: rows([['Ephesus', 1], ['Smyrna', 2], ['Pergamum', 3, 'Pergamos|Pergamon'], ['Thyatira', 3], ['Sardis', 3], ['Philadelphia', 2], ['Laodicea', 2, 'Laodicia']]),
+  },
+  {
+    id: 'marian-apparitions', theme: 'devotion',
+    prompt: 'Name a place where the Church has approved an apparition of the Virgin Mary.',
+    context: 'Only a few apparitions have been approved as worthy of belief. Belief in them is never required of Catholics. This list is long but not complete.',
+    answers: rows([
+      ['Lourdes', 1], ['Fatima', 1, 'Fátima|Our Lady of Fatima'], ['Guadalupe', 1, 'Our Lady of Guadalupe|Tepeyac'], ['La Salette', 3, 'La Salette-Fallavaux'], ['Knock', 3, 'Knock Shrine|Our Lady of Knock'],
+      ['Rue du Bac', 4, 'Paris|Miraculous Medal|Rue du Bac Paris'], ['Pontmain', 4], ['Banneux', 4, 'Banneux Notre-Dame'], ['Beauraing', 4], ['Kibeho', 4], ['Laus', 5, 'Notre-Dame du Laus'],
+      ['Siluva', 5, 'Šiluva'], ['Champion', 5, 'Champion Wisconsin|Our Lady of Good Help'], ['Gietrzwald', 5, 'Gietrzwałd'],
+    ]),
+  },
+  {
+    id: 'bible-mountains', theme: 'places', ignore: ['mount', 'mountain', 'mt', 'hill', 'the', 'of'],
+    prompt: 'Name a mountain or hill in the Bible.',
+    context: 'Scripture often sets great moments on high places. This list is long but not complete.',
+    answers: rows([
+      ['Sinai', 1, 'Mount Sinai'], ['Zion', 1, 'Mount Zion|Sion'], ['Olives', 1, 'Mount of Olives|Olivet'], ['Calvary', 1, 'Golgotha|Mount Calvary'], ['Ararat', 2, 'Mount Ararat'], ['Carmel', 2, 'Mount Carmel'], ['Tabor', 2, 'Mount Tabor'],
+      ['Moriah', 2, 'Mount Moriah'], ['Horeb', 3, 'Mount Horeb'], ['Nebo', 3, 'Mount Nebo'], ['Hermon', 3, 'Mount Hermon'], ['Gilboa', 3, 'Mount Gilboa'], ['Gerizim', 4, 'Mount Gerizim'], ['Ebal', 4, 'Mount Ebal'],
+      ['Pisgah', 4, 'Mount Pisgah'], ['Hor', 5, 'Mount Hor'], ['Seir', 5, 'Mount Seir'],
+    ]),
+  },
+  {
+    id: 'bible-rivers', theme: 'places', ignore: ['river', 'the', 'of'],
+    prompt: 'Name a river in the Bible.',
+    context: 'Rivers mark the borders and the stories of Scripture, from Eden to the Jordan. This list is long but not complete.',
+    answers: rows([
+      ['Jordan', 1, 'Jordan River'], ['Nile', 1, 'Nile River'], ['Euphrates', 2], ['Tigris', 3, 'Hiddekel'], ['Kidron', 3, 'Cedron|Kidron Valley|Brook Kidron'], ['Kishon', 4, 'Kishon River'], ['Jabbok', 4], ['Arnon', 4],
+      ['Chebar', 4, 'Kebar|Chebar Canal'], ['Pishon', 4, 'Pison'], ['Gihon', 4], ['Cherith', 4, 'Kerith|Brook Cherith'], ['Abana', 5, 'Amana'], ['Pharpar', 5], ['Ulai', 5], ['Ahava', 5], ['Zered', 5, 'Brook Zered'],
+    ]),
+  },
+  {
+    id: 'bible-plants', theme: 'scripture',
+    prompt: 'Name a tree, plant or crop in the Bible.',
+    context: 'Scripture is full of vines, grain and trees, used again and again as pictures of life and faith. This list is long but not complete.',
+    answers: rows([
+      ['Olive', 1, 'Olive tree|Olives'], ['Fig', 1, 'Fig tree|Figs'], ['Vine', 1, 'Grapevine|Grape|Grapes|Vineyard'], ['Wheat', 1, 'Grain|Corn'], ['Mustard', 1, 'Mustard seed|Mustard plant|Mustard tree'], ['Cedar', 2, 'Cedar of Lebanon|Cedars'],
+      ['Palm', 2, 'Palm tree|Date palm|Palms'], ['Lily', 2, 'Lilies|Lily of the field'], ['Thorn', 2, 'Thorns|Thorn bush|Thornbush|Thistle'], ['Barley', 3], ['Sycamore', 3, 'Sycamore tree|Sycamore fig'], ['Almond', 3, 'Almond tree'],
+      ['Pomegranate', 3, 'Pomegranates'], ['Oak', 3, 'Oak tree|Oaks'], ['Hyssop', 3], ['Myrrh', 3], ['Frankincense', 3], ['Reed', 3, 'Reeds|Papyrus'], ['Balm', 4, 'Balm of Gilead'], ['Cypress', 4], ['Fir', 4, 'Fir tree'],
+      ['Mandrake', 4, 'Mandrakes'], ['Acacia', 4, 'Shittim|Shittim wood'], ['Rose of Sharon', 4], ['Gourd', 4], ['Mint', 4], ['Flax', 4], ['Cummin', 5, 'Cumin'], ['Dill', 5, 'Anise'], ['Rue', 5], ['Terebinth', 5],
+    ]),
+  },
+  {
+    id: 'bible-animals', theme: 'scripture',
+    prompt: 'Name an animal mentioned in the Bible.',
+    context: 'From the serpent in Eden to the Lamb of Revelation, animals fill Scripture. This list is long but not complete.',
+    answers: rows([
+      ['Lion', 1, 'Lions'], ['Lamb', 1, 'Lambs'], ['Sheep', 1], ['Serpent', 1, 'Snake|Snakes|Serpents'], ['Dove', 1, 'Doves|Pigeon|Pigeons'], ['Donkey', 1, 'Ass|Donkeys|Colt'], ['Fish', 1, 'Fishes'], ['Camel', 2, 'Camels'], ['Raven', 2, 'Ravens'],
+      ['Ox', 2, 'Oxen|Bull|Bulls'], ['Goat', 2, 'Goats|Scapegoat'], ['Eagle', 2, 'Eagles'], ['Whale', 2, 'Great fish'], ['Horse', 2, 'Horses'], ['Dog', 2, 'Dogs'], ['Wolf', 2, 'Wolves'], ['Swine', 2, 'Pig|Pigs'], ['Calf', 2, 'Golden calf'],
+      ['Leopard', 3], ['Bear', 3, 'Bears'], ['Fox', 3, 'Foxes'], ['Sparrow', 3, 'Sparrows'], ['Locust', 3, 'Locusts'], ['Quail', 3], ['Ram', 3, 'Rams'], ['Frog', 3, 'Frogs'], ['Fly', 3, 'Flies'], ['Leviathan', 4], ['Hawk', 4], ['Owl', 4],
+      ['Scorpion', 4, 'Scorpions'], ['Viper', 4, 'Adder|Vipers'], ['Gnat', 4, 'Gnats|Lice'], ['Behemoth', 5], ['Jackal', 5, 'Jackals'], ['Ostrich', 5], ['Peacock', 5, 'Peacocks'], ['Stork', 5], ['Asp', 5],
+    ]),
+  },
+  {
+    id: 'bible-instruments', theme: 'art-music',
+    prompt: 'Name a musical instrument mentioned in the Bible.',
+    context: 'Psalms and histories alike call for music: strings, winds and percussion. This list is long but not complete.',
+    answers: rows([
+      ['Harp', 1, 'Harps'], ['Trumpet', 1, 'Trumpets'], ['Lyre', 2, 'Lyres'], ['Cymbals', 2, 'Cymbal'], ['Flute', 2, 'Pipe|Pipes|Flutes'], ['Tambourine', 2, 'Timbrel|Tabret|Tambourines'], ['Horn', 2, 'Shofar|Ram\'s horn|Rams horn'],
+      ['Bell', 3, 'Bells'], ['Psaltery', 4, 'Psalteries'], ['Lute', 4], ['Organ', 4], ['Sackbut', 5], ['Dulcimer', 5], ['Zither', 5], ['Castanets', 5, 'Sistrum'], ['Viol', 5],
+    ]),
+  },
 ];

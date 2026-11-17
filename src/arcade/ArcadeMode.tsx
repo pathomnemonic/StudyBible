@@ -27,7 +27,11 @@ export default function ArcadeMode() {
   useEffect(() => {
     if (!on) return;
     document.documentElement.dataset.arcade = '1';
-    return () => { delete document.documentElement.dataset.arcade; delete document.documentElement.dataset.game; };
+    // the phone's status bar takes the arcade colour while the games are open
+    const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    const before = meta?.content;
+    if (meta) meta.content = '#2b1a77';
+    return () => { if (meta && before !== undefined) meta.content = before; delete document.documentElement.dataset.arcade; delete document.documentElement.dataset.game; };
   }, [on]);
   useEffect(() => { if (on) document.documentElement.dataset.game = game; }, [on, game]);
   // the sound switch lives with the game's own How to play row when it has one (so it never sits on top of the play area); otherwise it floats in the corner
