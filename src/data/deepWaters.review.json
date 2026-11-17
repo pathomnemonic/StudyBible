@@ -1610,6 +1610,60 @@
    "status": "unreviewed"
   },
   {
+   "id": "ported-english-martyrs",
+   "sha256": "15102ab005837d438d2937b65b60d6ad9a904fb6c2a23ae43130966d94ea3b51",
+   "answers": 67,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-augustine-works",
+   "sha256": "e9cd6d77ce68bb3670b8daac8aba32dc0025301f5cf9aaee443f6debd9e9fe04",
+   "answers": 61,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-aquinas-works",
+   "sha256": "0aa21b7bf1a3e0a0739f2c1f6f104b9a5afad914ad1bf99c41bc668e10816363",
+   "answers": 60,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-fathers-works",
+   "sha256": "a7e81e943256b3c95d6d786ff10386a80d335cf5467b3df4cba475351ee520cf",
+   "answers": 68,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-patron-professions",
+   "sha256": "d0f0c5cb6f26ba661892c1ee615999d33a27e84c64861409a9c2d2b59dc29970",
+   "answers": 60,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-ancient-sees",
+   "sha256": "465fd7af5fbd4a4b2252747f48e93e4a44b9c44baed3cc84101b749f073d7f1b",
+   "answers": 70,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-late-medieval-theologians",
+   "sha256": "f7d7530e657b53d4772b6bde437d6ab4680adf3f87310e711e2195642e3b46e7",
+   "answers": 62,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-martyrdom-texts",
+   "sha256": "3247a6dcdb630e4a0d47c59c8cbf71f32d96619ad8eaeac6cca25db13f8f2a58",
+   "answers": 62,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-francis-canonizations",
+   "sha256": "8f07718e41a27b30742c27bcf871c281f49e4788bc2e4f758f260051ff154319",
+   "answers": 82,
+   "status": "unreviewed"
+  },
+  {
    "id": "derived:act-of-contrition",
    "sha256": "673415590fa3026213d49a2daff2fa930913901808960136fa166b529826e0e8",
    "answers": 25,
@@ -1653,8 +1707,8 @@
   },
   {
    "id": "derived:bible-places",
-   "sha256": "6e4c72b00ca1558c2fe8c7b30a76f8498bfff483284a5b19b43b608c3d373bb6",
-   "answers": 231,
+   "sha256": "86436f335277ed80a931f4a17f3dfa75b71a0514878e2874b37c5f8600f29d4d",
+   "answers": 233,
    "status": "unreviewed"
   },
   {
@@ -1875,8 +1929,8 @@
   },
   {
    "id": "derived:saints",
-   "sha256": "96454ea4aba1837f6012361342d06adad6c945d6254f310a59fc5197663e9d47",
-   "answers": 330,
+   "sha256": "bf06f794add7ea009bdd4c932cea33e4b40b403bb6a9c9971da53602db0769b9",
+   "answers": 333,
    "status": "unreviewed"
   },
   {

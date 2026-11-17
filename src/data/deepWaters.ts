@@ -39,6 +39,7 @@ import { LONG_LIST_PROMPTS } from './deepWatersLongLists';
 import GENERATED_PROMPTS from './deepWaters.generated.json';
 import REGION_PROMPTS from './deepWaters.regions.json';
 import { LONG_LIST_2_PROMPTS } from './deepWatersLongLists2';
+import { LONG_TAIL_PORTED } from './deepWatersLongTailPorted';
 import { materialize, type DerivedEntry } from '../lib/deepWatersDerive';
 import DERIVED_ENTRIES from './deepWaters.derived.json';
 import { buildPools } from './deepWatersPools';
@@ -281,14 +282,14 @@ const CORE_THEMES: Record<string, DeepTheme> = {
 const core: DeepPrompt[] = CORE_PROMPTS.map((p) => ({ ...p, theme: CORE_THEMES[p.id] ?? 'doctrine' }));
 
 /** the hand-written and generated questions, before the derived ones */
-export const BASE_PROMPTS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...LONG_LIST_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[]), ...(REGION_PROMPTS as DeepPrompt[]), ...LONG_LIST_2_PROMPTS];
+export const BASE_PROMPTS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...LONG_LIST_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[]), ...(REGION_PROMPTS as DeepPrompt[]), ...LONG_LIST_2_PROMPTS, ...LONG_TAIL_PORTED];
 
 /**
  * How many questions the bank holds: 370 days of seven. A question comes back no sooner than a whole cycle (370 days) minus four days, so no question is
  * ever repeated within a year, leap years included. The questions after the hand-written and generated ones are derived by rule (see
  * src/lib/deepWatersDerive.ts and src/data/deepWatersPools.ts) up to this size, with no theme holding more than a quarter of the bank.
  */
-export const BANK_SIZE = 375 * 7;
+export const BANK_SIZE = 377 * 7;
 const THEME_SHARE = 0.24;
 export const themeCaps = (() => {
   const held: Record<string, number> = {};
