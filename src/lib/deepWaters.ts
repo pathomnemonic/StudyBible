@@ -2,7 +2,7 @@ import { DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../data/deepWater
 import { seeded, shuffled } from './dailyGame';
 
 export const DEEP_ROUNDS = 7;
-export const DEEP_SECONDS = 25;
+export const DEEP_SECONDS = 30;
 export const DEEP_POINTS: Record<DeepAnswer['tier'], number> = { 1: 1, 2: 2, 3: 4, 4: 8, 5: 16 };
 export const DEEP_TIER_NAMES: Record<DeepAnswer['tier'], string> = {
   1: 'Common', 2: 'Less common', 3: 'Uncommon', 4: 'Rare', 5: 'Deep cut'
