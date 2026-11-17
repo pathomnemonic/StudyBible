@@ -19,6 +19,29 @@ describe('Deep Waters content and rules', () => {
     }
   });
 
+
+  it('uses a fully hand-authored open-ended bank with bounded categories and curated answer keys', () => {
+    const authored = DEEP_WATERS.filter((p) => p.id.startsWith('authored-'));
+    expect(authored).toHaveLength(25);
+    expect(new Set(authored.map((p) => p.theme)).size).toBeGreaterThanOrEqual(15);
+    for (const prompt of authored) {
+      expect(prompt.source, prompt.id).toMatch(/^Hand-authored answer key; sources:/);
+      expect(prompt.answerMode).toBe('many');
+      expect(prompt.context.trim().length).toBeGreaterThan(30);
+      expect(prompt.hint.trim().length).toBeGreaterThan(20);
+      expect(prompt.answers.length, prompt.id).toBeGreaterThanOrEqual(10);
+      const answerKeys = prompt.answers.map((a) => normalizeDeepAnswer(a.answer));
+      expect(new Set(answerKeys).size, prompt.id).toBe(answerKeys.length);
+      const accepted = new Map<string, string>();
+      for (const answer of prompt.answers) {
+        for (const value of [answer.answer, ...(answer.aliases ?? [])]) {
+          const key = normalizeDeepAnswer(value);
+          expect(accepted.has(key) ? accepted.get(key) : answer.answer, prompt.id + ': ' + value).toBe(answer.answer);
+          accepted.set(key, answer.answer);
+        }
+      }
+    }
+  });
   it('daily prompts are stable, unique and change with the seed', () => {
     const a = dailyDeepPrompts(20600), b = dailyDeepPrompts(20600), c = dailyDeepPrompts(20601);
     expect(a).toEqual(b);
@@ -69,17 +92,17 @@ describe('Deep Waters content and rules', () => {
   });
 
   it('matches normalized answers and aliases, but does not guess at partial strings', () => {
-    const orders = DEEP_WATERS.find((p) => p.id === 'orders')!;
-    expect(findDeepAnswer(orders, '  SOCIETY of JESUS ' )?.answer).toBe('Jesuits');
-    expect(findDeepAnswer(orders, 'Norbertines')?.answer).toBe('Premonstratensians');
-    expect(findDeepAnswer(orders, 'Jesuit')).toBeNull();
-    expect(findDeepAnswer(orders, '')).toBeNull();
+    const churches = DEEP_WATERS.find((p) => p.id === 'authored-eastern-catholic-churches')!;
+    expect(findDeepAnswer(churches, '  MELKITE CHURCH ' )?.answer).toBe('Melkite Greek Catholic Church');
+    expect(findDeepAnswer(churches, 'Syriac Catholic Church')?.answer).toBe('Syriac Catholic Church');
+    expect(findDeepAnswer(churches, 'Maron')).toBeNull();
+    expect(findDeepAnswer(churches, '')).toBeNull();
   });
 
   it('offers spelling suggestions without accepting them automatically', () => {
-    const councils = DEEP_WATERS.find((p) => p.id === 'councils')!;
+    const councils = DEEP_WATERS.find((p) => p.id === 'authored-ecumenical-councils-first-millennium')!;
     expect(suggestDeepAnswers(councils, 'Nicaea')).toHaveLength(0);
-    const places = DEEP_WATERS.find((p) => p.id === 'places')!;
+    const places = DEEP_WATERS.find((p) => p.id === 'authored-acts-cities')!;
     const suggestions = suggestDeepAnswers(places, 'Damascu');
     expect(suggestions[0]?.answer).toBe('Damascus');
     expect(findDeepAnswer(places, 'Damascu')).toBeNull();
@@ -89,23 +112,18 @@ describe('Deep Waters content and rules', () => {
   it('recognizes common valid answers from player review and labels the key as curated', () => {
     const byId = (id: string) => DEEP_WATERS.find((p) => p.id === id)!;
     const cases: Array<[string, string, string]> = [
-      ['scripture', 'Mary Magdalene', 'Mary Magdalene'],
-      ['scripture', 'Martha', 'Martha'],
-      ['scripture', 'Rachel', 'Rachel'],
-      ['scripture', 'Rebecca', 'Rebekah'],
-      ['scripture', 'Leah', 'Leah'],
-      ['councils', 'Lateran I', 'Lateran I'],
-      ['councils', 'Lateran V', 'Lateran V'],
-      ['councils', 'Vienne', 'Vienne'],
-      ['councils', 'Constantinople IV', 'Constantinople IV'],
-      ['places', 'Damascus', 'Damascus'],
-      ['places', 'Athens', 'Athens'],
-      ['places', 'Rome', 'Rome'],
-      ['places', 'Cana', 'Cana'],
-      ['fathers', 'Polycarp', 'Polycarp'],
-      ['fathers', 'Ignatius of Antioch', 'Ignatius of Antioch'],
-      ['marian', 'Our Lady of Perpetual Help', 'Our Lady of Perpetual Help'],
-      ['marian', 'Theotokos', 'Theotokos'],
+      ['authored-resurrection-witnesses', 'Mary Magdalene', 'Mary Magdalene'],
+      ['authored-resurrection-witnesses', 'Cephas', 'Peter'],
+      ['authored-pauline-letters', 'First Corinthians', '1 Corinthians'],
+      ['authored-pauline-letters', 'Second Timothy', '2 Timothy'],
+      ['authored-ecumenical-councils-first-millennium', 'Vatican II', 'Second Vatican Council'],
+      ['authored-ecumenical-councils-first-millennium', 'Lateran I', 'First Lateran Council'],
+      ['authored-acts-cities', 'Damascus', 'Damascus'],
+      ['authored-acts-cities', 'Athens', 'Athens'],
+      ['authored-acts-cities', 'Rome', 'Rome'],
+      ['authored-luke-parables', 'Good Samaritan', 'The Good Samaritan'],
+      ['authored-marian-litany', 'Seat of Wisdom', 'Seat of wisdom'],
+      ['authored-marian-litany', 'Morning Star', 'Morning star'],
     ];
     for (const [id, guess, expected] of cases) {
       expect(findDeepAnswer(byId(id), guess)?.answer, id + ': ' + guess).toBe(expected);
