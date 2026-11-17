@@ -69,6 +69,18 @@ describe('Deep Waters daily engine', () => {
     expect(loadDeepSession(20)).toBeNull();
   });
 
+  it('rejects malformed or internally inconsistent saved sessions', () => {
+    const session = createDeepSession({ day: 20, practice: false, practiceSeed: 1, promptIds: ['a','b','c','d','e','f','g'], now: 1000 });
+    saveDeepSession(session);
+    const valid = JSON.parse(localStorage.getItem('sb:deepwaters:session:v1')!);
+    localStorage.setItem('sb:deepwaters:session:v1', JSON.stringify({ ...valid, guess: 42 }));
+    expect(loadDeepSession(20)).toBeNull();
+    localStorage.setItem('sb:deepwaters:session:v1', JSON.stringify({ ...valid, history: [{ promptId: 'a' }] }));
+    expect(loadDeepSession(20)).toBeNull();
+    localStorage.setItem('sb:deepwaters:session:v1', JSON.stringify({ ...valid, remainingMs: -1 }));
+    expect(loadDeepSession(20)).toBeNull();
+  });
+
   it('preserves remaining time when a paused session is reloaded later', () => {
     const initial = createDeepSession({ day: 20, practice: false, practiceSeed: 1, promptIds: ['a','b','c','d','e','f','g'], now: 1000 });
     const paused = pauseDeepSession(initial, 2000);
