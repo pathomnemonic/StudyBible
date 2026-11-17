@@ -284,7 +284,10 @@
       {
         "answer": "The Lost Coin",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark.",
+        "aliases": [
+          "Lost Coin"
+        ]
       },
       {
         "answer": "The Prodigal Son",
@@ -4279,7 +4282,9 @@
         "aliases": [
           "James son of Zebedee",
           "Saint James son of Zebedee",
-          "St James son of Zebedee"
+          "St James son of Zebedee",
+          "Saint James",
+          "James the Greater"
         ]
       }
     ],
@@ -6565,7 +6570,7 @@
       {
         "guess": "Mode II",
         "accept": true,
-        "answer": "Mode I"
+        "answer": "Mode II"
       },
       {
         "guess": "Mode V",
@@ -6575,12 +6580,12 @@
       {
         "guess": "Mode VII",
         "accept": true,
-        "answer": "Mode V"
+        "answer": "Mode VII"
       },
       {
         "guess": "Mode VIII",
         "accept": true,
-        "answer": "Mode V"
+        "answer": "Mode VIII"
       },
       {
         "guess": "Mode IX",
@@ -7131,7 +7136,8 @@
         "source": "Irenaeus, Against Heresies 3.3.3",
         "aliases": [
           "Pope Clement I",
-          "St Clement of Rome"
+          "St Clement of Rome",
+          "Clement of Rome"
         ]
       },
       {
