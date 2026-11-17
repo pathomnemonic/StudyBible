@@ -4,14 +4,14 @@ import { readFileSync } from 'node:fs';
 const BASE = process.env.BASE || 'http://localhost:4173';
 const generatedFiles = [
   ...Array.from({ length: 5 }, (_, i) => `../src/data/deepWatersCurriculum${i + 1}.generated.json`),
-  ...Array.from({ length: 4 }, (_, i) => `../src/data/deepWatersScripture${i + 1}.generated.json`),
+  ...Array.from({ length: 4 }, (_, i) => `../src/data/deepWatersScripture${i + 1}b.generated.json`),
 ];
 const answersById = new Map();
 for (const path of generatedFiles) {
   const rows = JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
   for (const row of rows) answersById.set(row.id, row.answers[0]?.answer);
 }
-const normalize = (value) => value.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+const normalize = (value) => value.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]/g, '');
 const manualAnswer = (question) => {
   if (question.includes('religious order')) return 'Benedictines';
   if (question.includes('title or invocation')) return 'Our Lady of Guadalupe';
@@ -24,6 +24,30 @@ const manualAnswer = (question) => {
   if (question.includes('woman in the Bible')) return 'Eve';
   if (question.includes('New Testament')) return 'Jerusalem';
   return null;
+};
+const answerFor = (session, round, question) => {
+  const answer = answersById.get(session.promptIds[round]) || manualAnswer(question);
+  if (!answer) throw new Error(`no answer fixture for prompt ${session.promptIds[round]}: ${question}`);
+  return answer;
+};
+const lockAnswer = async (page, answer, testSuggestion = false) => {
+  const clean = answer.replace(/[^\\p{L}\\p{N}]+$/u, '');
+  const typo = testSuggestion && clean.length >= 5 ? clean.slice(0, -1) : null;
+  if (typo) {
+    await page.fill('#dw-answer', typo);
+    await page.locator('.dw-suggestions button').first().waitFor({ state: 'visible', timeout: 5000 });
+    const suggestion = page.locator('.dw-suggestions button').filter({ hasText: clean });
+    if (!(await suggestion.count())) throw new Error('spelling suggestion did not include the accepted answer');
+    await suggestion.first().click();
+    if (normalize(await page.locator('#dw-answer').inputValue()) !== normalize(answer)) throw new Error('spelling suggestion did not populate input');
+  } else {
+    await page.fill('#dw-answer', answer);
+  }
+  await page.getByRole('button', { name: /Lock it in/ }).click();
+  await page.waitForSelector('.dw-reveal', { timeout: 7000 });
+  if (normalize(await page.locator('.dw-correct-answer').innerText()) !== normalize(answer)) {
+    throw new Error(`answer not recognized; expected "${answer}", feedback: "${await page.locator('.dw-feedback').innerText()}"`);
+  }
 };
 
 const b = await chromium.launch();
@@ -45,31 +69,22 @@ try {
     try { return JSON.parse(raw || 'null')?.promptIds?.length === 7; } catch { return false; }
   });
   const session = await p.evaluate(() => JSON.parse(localStorage.getItem('sb:deepwaters:session:v1')));
-  const question = await p.locator('.dw-card h2').innerText();
-  const answer = answersById.get(session.promptIds[0]) || manualAnswer(question);
-  if (!answer) throw new Error(`no answer fixture for prompt ${session.promptIds[0]}: ${question}`);
-  const cleanAnswer = answer.replace(/[^\\p{L}\\p{N}]+$/u, '');
-  const typo = cleanAnswer.length >= 5 ? cleanAnswer.slice(0, -1) : null;
-  if (typo) {
-    await p.fill('#dw-answer', typo);
-    await p.locator('.dw-suggestions button').first().waitFor({ state: 'visible', timeout: 5000 });
-    const suggestion = p.locator('.dw-suggestions button').filter({ hasText: cleanAnswer });
-    if (!(await suggestion.count())) throw new Error('spelling suggestion did not include the accepted answer');
-    await suggestion.first().click();
-    if (normalize(await p.locator('#dw-answer').inputValue()) !== normalize(answer)) throw new Error('spelling suggestion did not populate input');
-  } else {
-    await p.fill('#dw-answer', answer);
-  }
-  await p.getByRole('button', { name: /Lock it in/ }).click();
-  await p.waitForSelector('.dw-reveal');
-  if (normalize(await p.locator('.dw-correct-answer').innerText()) !== normalize(answer)) throw new Error('recognized answer not revealed');
+  const firstQuestion = await p.locator('.dw-card h2').innerText();
+  await lockAnswer(p, answerFor(session, 0, firstQuestion));
   await p.waitForFunction(() => localStorage.getItem('sb:deepwaters:session:v1')?.includes('"phase":"locked"'));
   await p.reload();
   await p.waitForSelector('.dw-reveal');
   if (!(await p.locator('.dw-round-count').innerText()).includes('01')) throw new Error('locked round did not restore after reload');
+
   await p.getByRole('button', { name: 'Next round' }).click();
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
   if (!(await p.locator('.dw-round-count').innerText()).includes('02')) throw new Error('did not advance to round two');
+  const secondQuestion = await p.locator('.dw-card h2').innerText();
+  await lockAnswer(p, answerFor(session, 1, secondQuestion), true);
+
+  await p.getByRole('button', { name: 'Next round' }).click();
+  await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
+  if (!(await p.locator('.dw-round-count').innerText()).includes('03')) throw new Error('did not advance to round three');
   await p.fill('#dw-answer', 'Dama');
   const clock = p.locator('.dw-clock span');
   await p.evaluate(() => {
@@ -89,7 +104,7 @@ try {
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
   if (await p.locator('#dw-answer').inputValue() !== 'Dama') throw new Error('in-progress answer did not restore after reload');
   if (errors.length) throw new Error(errors.join('; '));
-  console.log('deep waters e2e ok: generated answer acceptance, spelling suggestion when eligible, locked and in-progress reload restore, next round, hidden-tab timer pause');
+  console.log('deep waters e2e ok: generated answer acceptance, spelling suggestion, locked and in-progress reload restore, next rounds, hidden-tab timer pause');
 } finally {
   await b.close();
 }
