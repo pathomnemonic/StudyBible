@@ -58,6 +58,7 @@ describe('Deep Waters content and rules', () => {
     expect(authored).toHaveLength(50);
     for (const prompt of authored) {
       expect(prompt.prompt.trim().split(/\s+/).length, prompt.id).toBeLessThanOrEqual(20);
+      expect((prompt.prompt.match(/[.!?](?:\s|$)/g) ?? []).length, prompt.id).toBe(1);
       expect((prompt.context.match(/[.!?](?:\s|$)/g) ?? []).length, prompt.id).toBeLessThanOrEqual(1);
       expect(prompt.prompt + ' ' + prompt.context + ' ' + prompt.hint, prompt.id).not.toMatch(/\b(above|below)\b/i);
       expect(prompt.commonGuesses, prompt.id).toHaveLength(10);
