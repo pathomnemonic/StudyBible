@@ -84,12 +84,14 @@ export default function CloisterPage() {
   return (
     <div className="page cloister">
       <div className="cl-top"><span>{daily ? 'Today’s board' : 'New board'}</span><strong>{total}</strong><span className={left <= 15 ? 'low' : ''}>{Math.floor(left / 60)}:{String(left % 60).padStart(2, '0')}</span></div>
+      <div className={`cl-time${left <= 15 ? ' low' : ''}`} aria-hidden="true"><i style={{ width: `${(left / TIMEX) * 100}%` }} /></div>
       <div className="cl-word" aria-live="polite">{phase === 'play' ? (word ? word.toUpperCase() : msg || 'Link letters') : `Time. ${found.length} words, ${total} points`}</div>
       <div ref={gridRef} className="cl-grid" role="group" aria-label="Letters"
         onPointerDown={(e) => { if (phase !== 'play') return; drag.current = true; const i = cellAt(e.clientX, e.clientY); if (i != null) setPath([i]); }}
         onPointerMove={(e) => { if (!drag.current) return; const i = cellAt(e.clientX, e.clientY); if (i != null) add(i); }}
         onPointerUp={() => { if (!drag.current) return; drag.current = false; if (path.length > 1) submit(); }}
         onPointerCancel={() => { drag.current = false; setPath([]); }}>
+        {path.length > 1 && <svg className="cl-trail" viewBox={`0 0 ${N} ${N}`} aria-hidden="true"><polyline points={path.map((i) => `${(i % N) + 0.5},${Math.floor(i / N) + 0.5}`).join(' ')} /></svg>}
         {board.map((c, i) => <button key={i} data-cell={i} className={`cl-cell${path.includes(i) ? ' on' : ''}${path[path.length - 1] === i ? ' last' : ''}`} onClick={() => { if (phase === 'play' && !drag.current) add(i); }} aria-label={`${c}, row ${Math.floor(i / N) + 1}, column ${(i % N) + 1}${path.includes(i) ? `, selected ${path.indexOf(i) + 1}` : ''}`} aria-pressed={path.includes(i)}>{c}</button>)}
       </div>
       {phase === 'play' && (

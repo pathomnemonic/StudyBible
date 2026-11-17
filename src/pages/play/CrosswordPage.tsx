@@ -93,6 +93,7 @@ export default function CrosswordPage() {
       <h1>Crossword</h1>
       <GameHelp how={["Select a square and type a letter. Select it again to switch between across and down.", "You can also pick a clue from the lists.", "Check marks wrong letters. Reveal letter fills the selected square.", "A new puzzle comes every week."]} />
       <p className="muted small">{weekly ? 'This week’s puzzle.' : 'A practice puzzle.'} Tap a square and type. Tap it again to switch between across and down.</p>
+      <div className="cw-bar2" aria-live="polite">{active ? <><b>{L.num(active)}{active.d === 'a' ? 'A' : 'D'}</b><span>{active.clue}</span></> : <span>Tap a square to begin.</span>}</div>
       <div className="cw-grid" style={{ gridTemplateColumns: `repeat(${p.cols}, 1fr)`, maxWidth: p.cols * 44 }} role="group" aria-label="Crossword grid">
         {Array.from({ length: p.rows * p.cols }, (_, i) => {
           const r = Math.floor(i / p.cols), c = i % p.cols, k = `${r},${c}`;
@@ -105,7 +106,8 @@ export default function CrosswordPage() {
           );
         })}
       </div>
-      <input ref={input} className="cw-input" aria-label="Type a letter" autoCapitalize="none" autoCorrect="off" spellCheck={false} value="" onChange={(e) => { const ch = e.target.value.slice(-1).toLowerCase(); if (/^[a-z]$/.test(ch)) type(ch); }} onKeyDown={(e) => { if (e.key === 'Backspace') { e.preventDefault(); back(); } }} />
+      <input ref={input} className="cw-input" inputMode="none" aria-label="Type a letter" autoCapitalize="none" autoCorrect="off" spellCheck={false} value="" onChange={(e) => { const ch = e.target.value.slice(-1).toLowerCase(); if (/^[a-z]$/.test(ch)) type(ch); }} onKeyDown={(e) => { if (e.key === 'Backspace') { e.preventDefault(); back(); } }} />
+      {!solved && <div className="cw-kb" role="group" aria-label="Letter keys">{['qwertyuiop', 'asdfghjkl', 'zxcvbnm'].map((row, ri) => <div key={row} className="cw-kbrow">{[...row].map((ch) => <button key={ch} type="button" className="cw-key" onClick={() => type(ch)} aria-label={ch}>{ch}</button>)}{ri === 2 && <button type="button" className="cw-key wide" onClick={back} aria-label="Delete letter">⌫</button>}</div>)}</div>}
       {solved ? (
         <div className="ws-end"><p className="ws-score">Solved</p><div className="row" style={{ justifyContent: 'center', gap: 8 }}><ShareButton text={shareText()} path="/play/crossword" label="Share my solve" className="btn" /><button className="btn ghost" onClick={() => { setIdx((x) => (x + 1) % CROSSWORDS.length); setFill({}); setSel(null); setChecked(false); }}>Another puzzle</button></div></div>
       ) : (
