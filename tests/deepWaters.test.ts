@@ -38,6 +38,32 @@ describe('Deep Waters content and rules', () => {
     expect(findDeepAnswer(orders, '')).toBeNull();
   });
 
+  it('recognizes common valid answers from player review and labels the key as curated', () => {
+    const byId = (id: string) => DEEP_WATERS.find((p) => p.id === id)!;
+    const cases: Array<[string, string, string]> = [
+      ['scripture', 'Mary Magdalene', 'Mary Magdalene'],
+      ['scripture', 'Martha', 'Martha'],
+      ['scripture', 'Rachel', 'Rachel'],
+      ['scripture', 'Rebecca', 'Rebekah'],
+      ['scripture', 'Leah', 'Leah'],
+      ['councils', 'Lateran I', 'Lateran I'],
+      ['councils', 'Lateran V', 'Lateran V'],
+      ['councils', 'Vienne', 'Vienne'],
+      ['councils', 'Constantinople IV', 'Constantinople IV'],
+      ['places', 'Damascus', 'Damascus'],
+      ['places', 'Athens', 'Athens'],
+      ['places', 'Rome', 'Rome'],
+      ['places', 'Cana', 'Cana'],
+      ['fathers', 'Polycarp', 'Polycarp'],
+      ['fathers', 'Ignatius of Antioch', 'Ignatius of Antioch'],
+      ['marian', 'Our Lady of Perpetual Help', 'Our Lady of Perpetual Help'],
+      ['marian', 'Theotokos', 'Theotokos'],
+    ];
+    for (const [id, guess, expected] of cases) {
+      expect(findDeepAnswer(byId(id), guess)?.answer, id + ': ' + guess).toBe(expected);
+    }
+  });
+
   it('uses an explicit increasing editorial score ladder', () => {
     expect([1, 2, 3, 4, 5].map((n) => DEEP_POINTS[n as 1 | 2 | 3 | 4 | 5])).toEqual([1, 2, 4, 8, 16]);
   });
