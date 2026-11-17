@@ -1,0 +1,1 @@
+import{j as i}from"./index-BVlq-9Oj.js";function a({label:t="Print",className:n="btn small ghost"}){return i.jsx("button",{className:`${n} no-print`,onClick:()=>window.print(),"aria-label":"Print this page or save it as a PDF",children:t})}export{a as P};

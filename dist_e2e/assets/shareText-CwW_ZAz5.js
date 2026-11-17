@@ -1,0 +1,5 @@
+const i={1:"🐟",2:"🐢",3:"🐬",4:"🐋",5:"🐙",6:"💎"},a={scripture:"📖",saints:"🕊️",history:"🏰",doctrine:"💡",liturgy:"🔔",prayer:"🙏"};function c(n){let e=2166136261;for(const r of n)for(let t=0;t<r.length;t++)e^=r.charCodeAt(t),e=Math.imul(e,16777619)>>>0;return e.toString(36).slice(0,4)}function o(n){const e=n.rounds.map(t=>t.tier?i[t.tier]??"🐟":"⬛").join(""),r=(n.score*10).toLocaleString("en-US");return[`Basilion ${n.practice?"practice":`#${n.day}`}  ${n.score} pts · ${r} m`,e+(n.pearl?" ✨":""),`🌊 ${n.zone}${n.practice?"":` · set ${n.bank}`}`].join(`
+`)}function l(n){const e=t=>n.cats.map(s=>t.includes(s)?a[s]??"👑":"⬛").join("");return[`Trivia Chrism 👑 ${n.winner===null?`${n.me.crowns.length}/${n.cats.length} crowns`:n.winner===n.me.name?"Won":"Lost"}`,`${e(n.me.crowns)}  ${n.me.right}✔ ${n.me.wrong}✘`,...n.vs?[`${e(n.vs.crowns)}  vs ${n.vs.name}`]:[]].join(`
+`)}function $(n){const e=[];for(let r=0;r<n.marks.length;r+=5)e.push(n.marks.slice(r,r+5).map(t=>t?"🟩":"⬛").join(""));return`Who Wants to Be a Saint? 🪜 ${n.level}  ${n.marks.filter(Boolean).length}/${n.marks.length}
+${e.join(`
+`)}`}export{c as b,l as c,o as d,$ as l};

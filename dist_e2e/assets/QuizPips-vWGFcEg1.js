@@ -1,0 +1,1 @@
+import{j as e}from"./index-BVlq-9Oj.js";function o({at:s,total:i}){return e.jsx("div",{className:"qpips","aria-hidden":"true",children:Array.from({length:i},(n,r)=>e.jsx("i",{className:r<s?"done":r===s?"now":""},r))})}export{o as Q};

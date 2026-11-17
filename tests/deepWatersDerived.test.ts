@@ -114,6 +114,14 @@ describe('the questions derived by rule', () => {
   });
 });
 
+describe('the closed lists of words', () => {
+  it('the Our Father is exactly its words (the game cannot accept "the", "of", "our", "and" or "a"), written out by hand', () => {
+    const expected = ['father', 'who', 'art', 'in', 'heaven', 'hallowed', 'be', 'thy', 'name', 'kingdom', 'come', 'will', 'done', 'on', 'earth', 'as', 'it', 'is', 'give', 'us', 'this', 'day', 'daily', 'bread', 'forgive', 'trespasses', 'we', 'those', 'trespass', 'against', 'lead', 'not', 'into', 'temptation', 'but', 'deliver', 'from', 'evil', 'amen'].sort();
+    expect(pools.get('our-father')!.answers.map((a) => a.answer).sort()).toEqual(expected);
+    expect(pools.get('glory-be')!.answers.map((a) => a.answer).sort()).toEqual(['amen', 'as', 'be', 'beginning', 'end', 'ever', 'father', 'glory', 'holy', 'in', 'is', 'it', 'now', 'shall', 'son', 'spirit', 'to', 'was', 'without', 'world'].sort());
+  });
+});
+
 describe('the questions about facts', () => {
   const answersOf = (kind: string, key: string, pool: string) => derived.find((p) => p.derived!.pool === pool && p.id.endsWith(`.${kind}.${key}`))?.answers.map((a) => a.answer).sort();
   it('popes by era and by name', () => {

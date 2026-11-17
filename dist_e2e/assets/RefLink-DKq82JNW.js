@@ -1,0 +1,1 @@
+import{h as u,f as c,A as d,j as e,L as l,q as m,l as x}from"./index-BVlq-9Oj.js";function h({id:s,refv:n,children:r}){const{get:a,editions:o}=u(),[i]=c(),t=n??(s?d(s):null);if(!t)return e.jsx(e.Fragment,{children:s});const f=a(i.defaultEdition)??o[0];return e.jsx(l,{to:x(f,t),children:r??m(t)})}export{h as R};

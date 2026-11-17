@@ -1,0 +1,1 @@
+import{p as a,i as o}from"./index-BVlq-9Oj.js";const f=s=>{const r=a(s);if(!r.ok)return[];const t=r.refs.map(e=>o("kjv","vulgate",e.ref));return t.every(e=>e.exact)?t.map(e=>e.ref):[]};export{f as t};

@@ -1,0 +1,1 @@
+import{j as a,aZ as r}from"./index-BVlq-9Oj.js";function t(){return a.jsxs("nav",{className:"library-tabs","aria-label":"Library",children:[a.jsx(r,{to:"/room",children:"Read"}),a.jsx(r,{to:"/study/church",children:"Church documents"}),a.jsx(r,{to:"/study/papal",children:"Papal writings"}),a.jsx(r,{to:"/study/paths",children:"Study paths"})]})}export{t as L};

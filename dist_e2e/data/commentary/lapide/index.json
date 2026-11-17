@@ -1,0 +1,1443 @@
+{
+ "source": "Cornelius a Lapide, The Great Commentary, English translation (Mossman and others; Cobb for 1-2 Corinthians and Galatians), John Grant, Edinburgh, 1908. Internet Archive OCR text.",
+ "numbering": "English/KJV numbering (the numbering of the printed Authorized Version text), equal to the app anchor for the New Testament",
+ "rights": "Printed 1908; public domain in the US (pre-1929). Internet Archive Public Domain Mark on every volume used.",
+ "volumes": [
+  {
+   "vol": 1,
+   "archiveId": "TheGreatCommentaryOfCorneliusALapideV1",
+   "url": "https://archive.org/details/TheGreatCommentaryOfCorneliusALapideV1",
+   "title": "S. Matthew's Gospel, chaps. I-IX",
+   "translator": "Thomas W. Mossman, B.A., assisted by various scholars",
+   "edition": "Sixth edition",
+   "imprint": "Edinburgh: John Grant, 1908",
+   "rights": "pre-1929 print; Internet Archive Public Domain Mark",
+   "sha256": "0814dbb7bbe2cb8b"
+  },
+  {
+   "vol": 2,
+   "archiveId": "TheGreatCommentaryOfCorneliusALapideV2",
+   "url": "https://archive.org/details/TheGreatCommentaryOfCorneliusALapideV2",
+   "title": "S. Matthew's Gospel, chaps. X-XXI",
+   "translator": "Thomas W. Mossman, B.A., assisted by various scholars",
+   "edition": "Fourth edition",
+   "imprint": "Edinburgh: John Grant, 1908",
+   "rights": "pre-1929 print; Internet Archive Public Domain Mark",
+   "sha256": "8f5265d47ad28165"
+  },
+  {
+   "vol": 3,
+   "archiveId": "TheGreatCommentaryOfCorneliusALapideV3",
+   "url": "https://archive.org/details/TheGreatCommentaryOfCorneliusALapideV3",
+   "title": "S. Matthew's Gospel, chaps. XXII-XXVIII; S. Mark's Gospel",
+   "translator": "Thomas W. Mossman, B.A., assisted by various scholars",
+   "edition": "Fifth edition",
+   "imprint": "Edinburgh: John Grant, 1908",
+   "rights": "pre-1929 print; Internet Archive Public Domain Mark",
+   "sha256": "b001cf78cf439034"
+  },
+  {
+   "vol": 4,
+   "archiveId": "TheGreatCommentaryOfCorneliusALapideV4",
+   "url": "https://archive.org/details/TheGreatCommentaryOfCorneliusALapideV4",
+   "title": "S. Luke's Gospel",
+   "translator": "Thomas W. Mossman, B.A., assisted by various scholars",
+   "edition": "Fourth edition",
+   "imprint": "Edinburgh: John Grant, 1908",
+   "rights": "pre-1929 print; Internet Archive Public Domain Mark",
+   "sha256": "4597e03c124485b4"
+  },
+  {
+   "vol": 5,
+   "archiveId": "TheGreatCommentaryOfCorneliusALapideV5",
+   "url": "https://archive.org/details/TheGreatCommentaryOfCorneliusALapideV5",
+   "title": "S. John's Gospel, chaps. I-XI",
+   "translator": "Thomas W. Mossman, B.A., assisted by various scholars",
+   "edition": "Third edition",
+   "imprint": "Edinburgh: John Grant, 1908",
+   "rights": "pre-1929 print; Internet Archive Public Domain Mark",
+   "sha256": "19cdd18b227bf0ce"
+  },
+  {
+   "vol": 6,
+   "archiveId": "TheGreatCommentaryOfCorneliusALapideV6",
+   "url": "https://archive.org/details/TheGreatCommentaryOfCorneliusALapideV6",
+   "title": "S. John's Gospel, chaps. XII-XXI; Epistles I, II and III of S. John",
+   "translator": "Thomas W. Mossman, B.A., assisted by various scholars",
+   "edition": "Fourth edition",
+   "imprint": "Edinburgh: John Grant, 1908",
+   "rights": "pre-1929 print; Internet Archive Public Domain Mark",
+   "sha256": "08700fc2c29813e4"
+  },
+  {
+   "vol": 7,
+   "archiveId": "TheGreatCommentaryOfCorneliusALapideV7",
+   "url": "https://archive.org/details/TheGreatCommentaryOfCorneliusALapideV7",
+   "title": "I Corinthians",
+   "translator": "W. F. Cobb, D.D. (translated and edited)",
+   "edition": "edition not stated on the title page",
+   "imprint": "Edinburgh: John Grant, 1908",
+   "rights": "pre-1929 print; Internet Archive Public Domain Mark",
+   "sha256": "c9d11cbfac73b649"
+  },
+  {
+   "vol": 8,
+   "archiveId": "TheGreatCommentaryOfCorneliusALapideV8",
+   "url": "https://archive.org/details/TheGreatCommentaryOfCorneliusALapideV8",
+   "title": "II Corinthians and Galatians",
+   "translator": "W. F. Cobb, D.D. (translated and edited)",
+   "edition": "edition not stated on the title page",
+   "imprint": "Edinburgh: John Grant, 1908",
+   "rights": "pre-1929 print; Internet Archive Public Domain Mark",
+   "sha256": "cf0d5c3ea3295046"
+  }
+ ],
+ "books": [
+  {
+   "book": "MAT",
+   "name": "Matthew",
+   "volumes": [
+    1,
+    2,
+    3
+   ],
+   "rows": 638,
+   "chapters": 28,
+   "verseLevel": 28,
+   "chapterLevel": [],
+   "versesCovered": 635,
+   "versesTotal": 1071,
+   "note": "Matthew 1-28: verse-level; 635 of 1071 verses carry a note of their own (59%)",
+   "perChapter": [
+    {
+     "c": 1,
+     "mode": "verse",
+     "rows": 11,
+     "markers": 3,
+     "lemmas": 8,
+     "versesCovered": 11,
+     "verses": 25
+    },
+    {
+     "c": 2,
+     "mode": "verse",
+     "rows": 13,
+     "markers": 1,
+     "lemmas": 12,
+     "versesCovered": 13,
+     "verses": 23
+    },
+    {
+     "c": 3,
+     "mode": "verse",
+     "rows": 14,
+     "markers": 0,
+     "lemmas": 13,
+     "versesCovered": 13,
+     "verses": 17
+    },
+    {
+     "c": 4,
+     "mode": "verse",
+     "rows": 20,
+     "markers": 3,
+     "lemmas": 16,
+     "versesCovered": 19,
+     "verses": 25
+    },
+    {
+     "c": 5,
+     "mode": "verse",
+     "rows": 36,
+     "markers": 9,
+     "lemmas": 26,
+     "versesCovered": 38,
+     "verses": 48
+    },
+    {
+     "c": 6,
+     "mode": "verse",
+     "rows": 27,
+     "markers": 5,
+     "lemmas": 21,
+     "versesCovered": 27,
+     "verses": 34
+    },
+    {
+     "c": 7,
+     "mode": "verse",
+     "rows": 25,
+     "markers": 4,
+     "lemmas": 20,
+     "versesCovered": 24,
+     "verses": 29
+    },
+    {
+     "c": 8,
+     "mode": "verse",
+     "rows": 7,
+     "markers": 1,
+     "lemmas": 6,
+     "versesCovered": 7,
+     "verses": 34
+    },
+    {
+     "c": 9,
+     "mode": "verse",
+     "rows": 31,
+     "markers": 1,
+     "lemmas": 29,
+     "versesCovered": 30,
+     "verses": 38
+    },
+    {
+     "c": 10,
+     "mode": "verse",
+     "rows": 26,
+     "markers": 0,
+     "lemmas": 26,
+     "versesCovered": 26,
+     "verses": 42
+    },
+    {
+     "c": 11,
+     "mode": "verse",
+     "rows": 21,
+     "markers": 0,
+     "lemmas": 20,
+     "versesCovered": 20,
+     "verses": 30
+    },
+    {
+     "c": 12,
+     "mode": "verse",
+     "rows": 32,
+     "markers": 0,
+     "lemmas": 31,
+     "versesCovered": 31,
+     "verses": 50
+    },
+    {
+     "c": 13,
+     "mode": "verse",
+     "rows": 30,
+     "markers": 0,
+     "lemmas": 29,
+     "versesCovered": 29,
+     "verses": 58
+    },
+    {
+     "c": 14,
+     "mode": "verse",
+     "rows": 11,
+     "markers": 0,
+     "lemmas": 10,
+     "versesCovered": 10,
+     "verses": 36
+    },
+    {
+     "c": 15,
+     "mode": "verse",
+     "rows": 12,
+     "markers": 0,
+     "lemmas": 11,
+     "versesCovered": 11,
+     "verses": 39
+    },
+    {
+     "c": 16,
+     "mode": "verse",
+     "rows": 15,
+     "markers": 0,
+     "lemmas": 15,
+     "versesCovered": 15,
+     "verses": 28
+    },
+    {
+     "c": 17,
+     "mode": "verse",
+     "rows": 10,
+     "markers": 0,
+     "lemmas": 10,
+     "versesCovered": 10,
+     "verses": 27
+    },
+    {
+     "c": 18,
+     "mode": "verse",
+     "rows": 18,
+     "markers": 0,
+     "lemmas": 17,
+     "versesCovered": 17,
+     "verses": 35
+    },
+    {
+     "c": 19,
+     "mode": "verse",
+     "rows": 15,
+     "markers": 5,
+     "lemmas": 10,
+     "versesCovered": 15,
+     "verses": 30
+    },
+    {
+     "c": 20,
+     "mode": "verse",
+     "rows": 24,
+     "markers": 0,
+     "lemmas": 24,
+     "versesCovered": 24,
+     "verses": 34
+    },
+    {
+     "c": 21,
+     "mode": "verse",
+     "rows": 16,
+     "markers": 0,
+     "lemmas": 16,
+     "versesCovered": 16,
+     "verses": 46
+    },
+    {
+     "c": 22,
+     "mode": "verse",
+     "rows": 25,
+     "markers": 11,
+     "lemmas": 14,
+     "versesCovered": 26,
+     "verses": 46
+    },
+    {
+     "c": 23,
+     "mode": "verse",
+     "rows": 25,
+     "markers": 14,
+     "lemmas": 11,
+     "versesCovered": 25,
+     "verses": 39
+    },
+    {
+     "c": 24,
+     "mode": "verse",
+     "rows": 23,
+     "markers": 22,
+     "lemmas": 0,
+     "versesCovered": 22,
+     "verses": 51
+    },
+    {
+     "c": 25,
+     "mode": "verse",
+     "rows": 23,
+     "markers": 22,
+     "lemmas": 0,
+     "versesCovered": 28,
+     "verses": 46
+    },
+    {
+     "c": 26,
+     "mode": "verse",
+     "rows": 51,
+     "markers": 50,
+     "lemmas": 0,
+     "versesCovered": 50,
+     "verses": 75
+    },
+    {
+     "c": 27,
+     "mode": "verse",
+     "rows": 58,
+     "markers": 57,
+     "lemmas": 0,
+     "versesCovered": 59,
+     "verses": 66
+    },
+    {
+     "c": 28,
+     "mode": "verse",
+     "rows": 19,
+     "markers": 5,
+     "lemmas": 14,
+     "versesCovered": 19,
+     "verses": 20
+    }
+   ]
+  },
+  {
+   "book": "MRK",
+   "name": "Mark",
+   "volumes": [
+    3
+   ],
+   "rows": 153,
+   "chapters": 16,
+   "verseLevel": 16,
+   "chapterLevel": [],
+   "versesCovered": 137,
+   "versesTotal": 678,
+   "note": "Mark 1-16: verse-level; 137 of 678 verses carry a note of their own (20%)",
+   "perChapter": [
+    {
+     "c": 1,
+     "mode": "verse",
+     "rows": 16,
+     "markers": 15,
+     "lemmas": 0,
+     "versesCovered": 15,
+     "verses": 45
+    },
+    {
+     "c": 2,
+     "mode": "verse",
+     "rows": 6,
+     "markers": 5,
+     "lemmas": 0,
+     "versesCovered": 5,
+     "verses": 28
+    },
+    {
+     "c": 3,
+     "mode": "verse",
+     "rows": 7,
+     "markers": 6,
+     "lemmas": 0,
+     "versesCovered": 6,
+     "verses": 35
+    },
+    {
+     "c": 4,
+     "mode": "verse",
+     "rows": 12,
+     "markers": 11,
+     "lemmas": 0,
+     "versesCovered": 11,
+     "verses": 41
+    },
+    {
+     "c": 5,
+     "mode": "verse",
+     "rows": 10,
+     "markers": 9,
+     "lemmas": 0,
+     "versesCovered": 9,
+     "verses": 43
+    },
+    {
+     "c": 6,
+     "mode": "verse",
+     "rows": 14,
+     "markers": 13,
+     "lemmas": 0,
+     "versesCovered": 13,
+     "verses": 56
+    },
+    {
+     "c": 7,
+     "mode": "verse",
+     "rows": 12,
+     "markers": 11,
+     "lemmas": 0,
+     "versesCovered": 11,
+     "verses": 37
+    },
+    {
+     "c": 8,
+     "mode": "verse",
+     "rows": 6,
+     "markers": 5,
+     "lemmas": 0,
+     "versesCovered": 5,
+     "verses": 38
+    },
+    {
+     "c": 9,
+     "mode": "verse",
+     "rows": 14,
+     "markers": 13,
+     "lemmas": 0,
+     "versesCovered": 13,
+     "verses": 50
+    },
+    {
+     "c": 10,
+     "mode": "verse",
+     "rows": 8,
+     "markers": 7,
+     "lemmas": 0,
+     "versesCovered": 7,
+     "verses": 52
+    },
+    {
+     "c": 11,
+     "mode": "verse",
+     "rows": 4,
+     "markers": 3,
+     "lemmas": 0,
+     "versesCovered": 3,
+     "verses": 33
+    },
+    {
+     "c": 12,
+     "mode": "verse",
+     "rows": 9,
+     "markers": 8,
+     "lemmas": 0,
+     "versesCovered": 8,
+     "verses": 44
+    },
+    {
+     "c": 13,
+     "mode": "verse",
+     "rows": 3,
+     "markers": 2,
+     "lemmas": 0,
+     "versesCovered": 2,
+     "verses": 37
+    },
+    {
+     "c": 14,
+     "mode": "verse",
+     "rows": 17,
+     "markers": 16,
+     "lemmas": 0,
+     "versesCovered": 16,
+     "verses": 72
+    },
+    {
+     "c": 15,
+     "mode": "verse",
+     "rows": 4,
+     "markers": 3,
+     "lemmas": 0,
+     "versesCovered": 3,
+     "verses": 47
+    },
+    {
+     "c": 16,
+     "mode": "verse",
+     "rows": 11,
+     "markers": 10,
+     "lemmas": 0,
+     "versesCovered": 10,
+     "verses": 20
+    }
+   ]
+  },
+  {
+   "book": "LUK",
+   "name": "Luke",
+   "volumes": [
+    4
+   ],
+   "rows": 508,
+   "chapters": 24,
+   "verseLevel": 23,
+   "chapterLevel": [
+    20
+   ],
+   "versesCovered": 509,
+   "versesTotal": 1151,
+   "note": "Luke 1-24: verse-level except chapter-level for 20; 509 of 1151 verses carry a note of their own (44%)",
+   "perChapter": [
+    {
+     "c": 1,
+     "mode": "verse",
+     "rows": 67,
+     "markers": 67,
+     "lemmas": 0,
+     "versesCovered": 67,
+     "verses": 80
+    },
+    {
+     "c": 2,
+     "mode": "verse",
+     "rows": 46,
+     "markers": 48,
+     "lemmas": 0,
+     "versesCovered": 46,
+     "verses": 52
+    },
+    {
+     "c": 3,
+     "mode": "verse",
+     "rows": 17,
+     "markers": 17,
+     "lemmas": 0,
+     "versesCovered": 17,
+     "verses": 38
+    },
+    {
+     "c": 4,
+     "mode": "verse",
+     "rows": 18,
+     "markers": 18,
+     "lemmas": 0,
+     "versesCovered": 19,
+     "verses": 44
+    },
+    {
+     "c": 5,
+     "mode": "verse",
+     "rows": 4,
+     "markers": 4,
+     "lemmas": 0,
+     "versesCovered": 4,
+     "verses": 39
+    },
+    {
+     "c": 6,
+     "mode": "verse",
+     "rows": 13,
+     "markers": 13,
+     "lemmas": 0,
+     "versesCovered": 13,
+     "verses": 49
+    },
+    {
+     "c": 7,
+     "mode": "verse",
+     "rows": 28,
+     "markers": 28,
+     "lemmas": 0,
+     "versesCovered": 28,
+     "verses": 50
+    },
+    {
+     "c": 8,
+     "mode": "verse",
+     "rows": 16,
+     "markers": 16,
+     "lemmas": 1,
+     "versesCovered": 16,
+     "verses": 56
+    },
+    {
+     "c": 9,
+     "mode": "verse",
+     "rows": 17,
+     "markers": 16,
+     "lemmas": 0,
+     "versesCovered": 16,
+     "verses": 62
+    },
+    {
+     "c": 10,
+     "mode": "verse",
+     "rows": 24,
+     "markers": 24,
+     "lemmas": 0,
+     "versesCovered": 24,
+     "verses": 42
+    },
+    {
+     "c": 11,
+     "mode": "verse",
+     "rows": 20,
+     "markers": 20,
+     "lemmas": 0,
+     "versesCovered": 20,
+     "verses": 54
+    },
+    {
+     "c": 12,
+     "mode": "verse",
+     "rows": 26,
+     "markers": 26,
+     "lemmas": 0,
+     "versesCovered": 26,
+     "verses": 59
+    },
+    {
+     "c": 13,
+     "mode": "verse",
+     "rows": 14,
+     "markers": 14,
+     "lemmas": 0,
+     "versesCovered": 14,
+     "verses": 35
+    },
+    {
+     "c": 14,
+     "mode": "verse",
+     "rows": 25,
+     "markers": 25,
+     "lemmas": 0,
+     "versesCovered": 25,
+     "verses": 35
+    },
+    {
+     "c": 15,
+     "mode": "verse",
+     "rows": 25,
+     "markers": 24,
+     "lemmas": 0,
+     "versesCovered": 24,
+     "verses": 32
+    },
+    {
+     "c": 16,
+     "mode": "verse",
+     "rows": 22,
+     "markers": 22,
+     "lemmas": 0,
+     "versesCovered": 23,
+     "verses": 31
+    },
+    {
+     "c": 17,
+     "mode": "verse",
+     "rows": 20,
+     "markers": 20,
+     "lemmas": 0,
+     "versesCovered": 21,
+     "verses": 37
+    },
+    {
+     "c": 18,
+     "mode": "verse",
+     "rows": 13,
+     "markers": 12,
+     "lemmas": 1,
+     "versesCovered": 14,
+     "verses": 43
+    },
+    {
+     "c": 19,
+     "mode": "verse",
+     "rows": 26,
+     "markers": 28,
+     "lemmas": 0,
+     "versesCovered": 26,
+     "verses": 48
+    },
+    {
+     "c": 20,
+     "mode": "chapter",
+     "rows": 1,
+     "markers": 1,
+     "lemmas": 0,
+     "versesCovered": 0,
+     "verses": 47
+    },
+    {
+     "c": 21,
+     "mode": "verse",
+     "rows": 7,
+     "markers": 7,
+     "lemmas": 0,
+     "versesCovered": 7,
+     "verses": 38
+    },
+    {
+     "c": 22,
+     "mode": "verse",
+     "rows": 14,
+     "markers": 13,
+     "lemmas": 1,
+     "versesCovered": 14,
+     "verses": 71
+    },
+    {
+     "c": 23,
+     "mode": "verse",
+     "rows": 6,
+     "markers": 5,
+     "lemmas": 1,
+     "versesCovered": 6,
+     "verses": 56
+    },
+    {
+     "c": 24,
+     "mode": "verse",
+     "rows": 39,
+     "markers": 39,
+     "lemmas": 0,
+     "versesCovered": 39,
+     "verses": 53
+    }
+   ]
+  },
+  {
+   "book": "JHN",
+   "name": "John",
+   "volumes": [
+    5,
+    6
+   ],
+   "rows": 644,
+   "chapters": 21,
+   "verseLevel": 21,
+   "chapterLevel": [],
+   "versesCovered": 646,
+   "versesTotal": 879,
+   "note": "John 1-21: verse-level; 646 of 879 verses carry a note of their own (73%)",
+   "perChapter": [
+    {
+     "c": 1,
+     "mode": "verse",
+     "rows": 35,
+     "markers": 34,
+     "lemmas": 0,
+     "versesCovered": 34,
+     "verses": 51
+    },
+    {
+     "c": 2,
+     "mode": "verse",
+     "rows": 18,
+     "markers": 17,
+     "lemmas": 0,
+     "versesCovered": 19,
+     "verses": 25
+    },
+    {
+     "c": 3,
+     "mode": "verse",
+     "rows": 26,
+     "markers": 26,
+     "lemmas": 0,
+     "versesCovered": 26,
+     "verses": 36
+    },
+    {
+     "c": 4,
+     "mode": "verse",
+     "rows": 35,
+     "markers": 35,
+     "lemmas": 0,
+     "versesCovered": 34,
+     "verses": 54
+    },
+    {
+     "c": 5,
+     "mode": "verse",
+     "rows": 36,
+     "markers": 36,
+     "lemmas": 0,
+     "versesCovered": 35,
+     "verses": 47
+    },
+    {
+     "c": 6,
+     "mode": "verse",
+     "rows": 31,
+     "markers": 32,
+     "lemmas": 0,
+     "versesCovered": 31,
+     "verses": 71
+    },
+    {
+     "c": 7,
+     "mode": "verse",
+     "rows": 48,
+     "markers": 47,
+     "lemmas": 0,
+     "versesCovered": 48,
+     "verses": 53
+    },
+    {
+     "c": 8,
+     "mode": "verse",
+     "rows": 55,
+     "markers": 55,
+     "lemmas": 0,
+     "versesCovered": 57,
+     "verses": 59
+    },
+    {
+     "c": 9,
+     "mode": "verse",
+     "rows": 26,
+     "markers": 26,
+     "lemmas": 0,
+     "versesCovered": 27,
+     "verses": 41
+    },
+    {
+     "c": 10,
+     "mode": "verse",
+     "rows": 36,
+     "markers": 37,
+     "lemmas": 0,
+     "versesCovered": 36,
+     "verses": 42
+    },
+    {
+     "c": 11,
+     "mode": "verse",
+     "rows": 44,
+     "markers": 45,
+     "lemmas": 0,
+     "versesCovered": 44,
+     "verses": 57
+    },
+    {
+     "c": 12,
+     "mode": "verse",
+     "rows": 42,
+     "markers": 42,
+     "lemmas": 0,
+     "versesCovered": 42,
+     "verses": 50
+    },
+    {
+     "c": 13,
+     "mode": "verse",
+     "rows": 28,
+     "markers": 28,
+     "lemmas": 0,
+     "versesCovered": 28,
+     "verses": 38
+    },
+    {
+     "c": 14,
+     "mode": "verse",
+     "rows": 23,
+     "markers": 22,
+     "lemmas": 0,
+     "versesCovered": 23,
+     "verses": 31
+    },
+    {
+     "c": 15,
+     "mode": "verse",
+     "rows": 21,
+     "markers": 22,
+     "lemmas": 0,
+     "versesCovered": 22,
+     "verses": 27
+    },
+    {
+     "c": 16,
+     "mode": "verse",
+     "rows": 28,
+     "markers": 27,
+     "lemmas": 0,
+     "versesCovered": 27,
+     "verses": 33
+    },
+    {
+     "c": 17,
+     "mode": "verse",
+     "rows": 24,
+     "markers": 24,
+     "lemmas": 0,
+     "versesCovered": 24,
+     "verses": 26
+    },
+    {
+     "c": 18,
+     "mode": "verse",
+     "rows": 15,
+     "markers": 14,
+     "lemmas": 1,
+     "versesCovered": 15,
+     "verses": 40
+    },
+    {
+     "c": 19,
+     "mode": "verse",
+     "rows": 25,
+     "markers": 25,
+     "lemmas": 0,
+     "versesCovered": 25,
+     "verses": 42
+    },
+    {
+     "c": 20,
+     "mode": "verse",
+     "rows": 29,
+     "markers": 29,
+     "lemmas": 0,
+     "versesCovered": 29,
+     "verses": 31
+    },
+    {
+     "c": 21,
+     "mode": "verse",
+     "rows": 19,
+     "markers": 19,
+     "lemmas": 0,
+     "versesCovered": 20,
+     "verses": 25
+    }
+   ]
+  },
+  {
+   "book": "1JN",
+   "name": "1 John",
+   "volumes": [
+    6
+   ],
+   "rows": 88,
+   "chapters": 5,
+   "verseLevel": 5,
+   "chapterLevel": [],
+   "versesCovered": 87,
+   "versesTotal": 105,
+   "note": "1 John 1-5: verse-level; 87 of 105 verses carry a note of their own (83%)",
+   "perChapter": [
+    {
+     "c": 1,
+     "mode": "verse",
+     "rows": 6,
+     "markers": 6,
+     "lemmas": 0,
+     "versesCovered": 6,
+     "verses": 10
+    },
+    {
+     "c": 2,
+     "mode": "verse",
+     "rows": 21,
+     "markers": 22,
+     "lemmas": 0,
+     "versesCovered": 21,
+     "verses": 29
+    },
+    {
+     "c": 3,
+     "mode": "verse",
+     "rows": 23,
+     "markers": 23,
+     "lemmas": 0,
+     "versesCovered": 23,
+     "verses": 24
+    },
+    {
+     "c": 4,
+     "mode": "verse",
+     "rows": 18,
+     "markers": 17,
+     "lemmas": 0,
+     "versesCovered": 17,
+     "verses": 21
+    },
+    {
+     "c": 5,
+     "mode": "verse",
+     "rows": 20,
+     "markers": 21,
+     "lemmas": 0,
+     "versesCovered": 20,
+     "verses": 21
+    }
+   ]
+  },
+  {
+   "book": "2JN",
+   "name": "2 John",
+   "volumes": [
+    6
+   ],
+   "rows": 11,
+   "chapters": 1,
+   "verseLevel": 1,
+   "chapterLevel": [],
+   "versesCovered": 10,
+   "versesTotal": 13,
+   "note": "2 John 1-1: verse-level; 10 of 13 verses carry a note of their own (77%)",
+   "perChapter": [
+    {
+     "c": 1,
+     "mode": "verse",
+     "rows": 11,
+     "markers": 10,
+     "lemmas": 0,
+     "versesCovered": 10,
+     "verses": 13
+    }
+   ]
+  },
+  {
+   "book": "3JN",
+   "name": "3 John",
+   "volumes": [
+    6
+   ],
+   "rows": 10,
+   "chapters": 1,
+   "verseLevel": 1,
+   "chapterLevel": [],
+   "versesCovered": 9,
+   "versesTotal": 14,
+   "note": "3 John 1-1: verse-level; 9 of 14 verses carry a note of their own (64%)",
+   "perChapter": [
+    {
+     "c": 1,
+     "mode": "verse",
+     "rows": 10,
+     "markers": 9,
+     "lemmas": 0,
+     "versesCovered": 9,
+     "verses": 14
+    }
+   ]
+  },
+  {
+   "book": "1CO",
+   "name": "1 Corinthians",
+   "volumes": [
+    7
+   ],
+   "rows": 364,
+   "chapters": 16,
+   "verseLevel": 16,
+   "chapterLevel": [],
+   "versesCovered": 363,
+   "versesTotal": 437,
+   "note": "1 Corinthians 1-16: verse-level; 363 of 437 verses carry a note of their own (83%)",
+   "perChapter": [
+    {
+     "c": 1,
+     "mode": "verse",
+     "rows": 24,
+     "markers": 23,
+     "lemmas": 0,
+     "versesCovered": 23,
+     "verses": 31
+    },
+    {
+     "c": 2,
+     "mode": "verse",
+     "rows": 15,
+     "markers": 14,
+     "lemmas": 0,
+     "versesCovered": 14,
+     "verses": 16
+    },
+    {
+     "c": 3,
+     "mode": "verse",
+     "rows": 17,
+     "markers": 16,
+     "lemmas": 0,
+     "versesCovered": 19,
+     "verses": 23
+    },
+    {
+     "c": 4,
+     "mode": "verse",
+     "rows": 18,
+     "markers": 17,
+     "lemmas": 0,
+     "versesCovered": 18,
+     "verses": 21
+    },
+    {
+     "c": 5,
+     "mode": "verse",
+     "rows": 12,
+     "markers": 11,
+     "lemmas": 0,
+     "versesCovered": 11,
+     "verses": 13
+    },
+    {
+     "c": 6,
+     "mode": "verse",
+     "rows": 17,
+     "markers": 16,
+     "lemmas": 0,
+     "versesCovered": 17,
+     "verses": 20
+    },
+    {
+     "c": 7,
+     "mode": "verse",
+     "rows": 36,
+     "markers": 35,
+     "lemmas": 0,
+     "versesCovered": 36,
+     "verses": 40
+    },
+    {
+     "c": 8,
+     "mode": "verse",
+     "rows": 11,
+     "markers": 10,
+     "lemmas": 0,
+     "versesCovered": 11,
+     "verses": 13
+    },
+    {
+     "c": 9,
+     "mode": "verse",
+     "rows": 26,
+     "markers": 25,
+     "lemmas": 0,
+     "versesCovered": 25,
+     "verses": 27
+    },
+    {
+     "c": 10,
+     "mode": "verse",
+     "rows": 30,
+     "markers": 29,
+     "lemmas": 0,
+     "versesCovered": 30,
+     "verses": 33
+    },
+    {
+     "c": 11,
+     "mode": "verse",
+     "rows": 29,
+     "markers": 28,
+     "lemmas": 0,
+     "versesCovered": 31,
+     "verses": 34
+    },
+    {
+     "c": 12,
+     "mode": "verse",
+     "rows": 23,
+     "markers": 22,
+     "lemmas": 0,
+     "versesCovered": 22,
+     "verses": 31
+    },
+    {
+     "c": 13,
+     "mode": "verse",
+     "rows": 11,
+     "markers": 10,
+     "lemmas": 0,
+     "versesCovered": 10,
+     "verses": 13
+    },
+    {
+     "c": 14,
+     "mode": "verse",
+     "rows": 34,
+     "markers": 33,
+     "lemmas": 0,
+     "versesCovered": 34,
+     "verses": 40
+    },
+    {
+     "c": 15,
+     "mode": "verse",
+     "rows": 50,
+     "markers": 49,
+     "lemmas": 0,
+     "versesCovered": 51,
+     "verses": 58
+    },
+    {
+     "c": 16,
+     "mode": "verse",
+     "rows": 11,
+     "markers": 11,
+     "lemmas": 0,
+     "versesCovered": 11,
+     "verses": 24
+    }
+   ]
+  },
+  {
+   "book": "2CO",
+   "name": "2 Corinthians",
+   "volumes": [
+    8
+   ],
+   "rows": 231,
+   "chapters": 13,
+   "verseLevel": 13,
+   "chapterLevel": [],
+   "versesCovered": 219,
+   "versesTotal": 256,
+   "note": "2 Corinthians 1-13: verse-level; 219 of 256 verses carry a note of their own (86%)",
+   "perChapter": [
+    {
+     "c": 1,
+     "mode": "verse",
+     "rows": 19,
+     "markers": 18,
+     "lemmas": 0,
+     "versesCovered": 18,
+     "verses": 24
+    },
+    {
+     "c": 2,
+     "mode": "verse",
+     "rows": 15,
+     "markers": 14,
+     "lemmas": 0,
+     "versesCovered": 15,
+     "verses": 17
+    },
+    {
+     "c": 3,
+     "mode": "verse",
+     "rows": 16,
+     "markers": 15,
+     "lemmas": 0,
+     "versesCovered": 15,
+     "verses": 18
+    },
+    {
+     "c": 4,
+     "mode": "verse",
+     "rows": 18,
+     "markers": 17,
+     "lemmas": 0,
+     "versesCovered": 17,
+     "verses": 18
+    },
+    {
+     "c": 5,
+     "mode": "verse",
+     "rows": 21,
+     "markers": 20,
+     "lemmas": 0,
+     "versesCovered": 20,
+     "verses": 21
+    },
+    {
+     "c": 6,
+     "mode": "verse",
+     "rows": 17,
+     "markers": 16,
+     "lemmas": 0,
+     "versesCovered": 16,
+     "verses": 17
+    },
+    {
+     "c": 7,
+     "mode": "verse",
+     "rows": 15,
+     "markers": 14,
+     "lemmas": 0,
+     "versesCovered": 14,
+     "verses": 16
+    },
+    {
+     "c": 8,
+     "mode": "verse",
+     "rows": 23,
+     "markers": 22,
+     "lemmas": 0,
+     "versesCovered": 22,
+     "verses": 24
+    },
+    {
+     "c": 9,
+     "mode": "verse",
+     "rows": 12,
+     "markers": 11,
+     "lemmas": 0,
+     "versesCovered": 11,
+     "verses": 15
+    },
+    {
+     "c": 10,
+     "mode": "verse",
+     "rows": 15,
+     "markers": 14,
+     "lemmas": 0,
+     "versesCovered": 14,
+     "verses": 18
+    },
+    {
+     "c": 11,
+     "mode": "verse",
+     "rows": 29,
+     "markers": 28,
+     "lemmas": 0,
+     "versesCovered": 28,
+     "verses": 33
+    },
+    {
+     "c": 12,
+     "mode": "verse",
+     "rows": 18,
+     "markers": 18,
+     "lemmas": 0,
+     "versesCovered": 17,
+     "verses": 21
+    },
+    {
+     "c": 13,
+     "mode": "verse",
+     "rows": 13,
+     "markers": 12,
+     "lemmas": 0,
+     "versesCovered": 12,
+     "verses": 14
+    }
+   ]
+  },
+  {
+   "book": "GAL",
+   "name": "Galatians",
+   "volumes": [
+    8
+   ],
+   "rows": 132,
+   "chapters": 6,
+   "verseLevel": 6,
+   "chapterLevel": [],
+   "versesCovered": 126,
+   "versesTotal": 149,
+   "note": "Galatians 1-6: verse-level; 126 of 149 verses carry a note of their own (85%)",
+   "perChapter": [
+    {
+     "c": 1,
+     "mode": "verse",
+     "rows": 17,
+     "markers": 16,
+     "lemmas": 0,
+     "versesCovered": 16,
+     "verses": 24
+    },
+    {
+     "c": 2,
+     "mode": "verse",
+     "rows": 20,
+     "markers": 19,
+     "lemmas": 0,
+     "versesCovered": 19,
+     "verses": 21
+    },
+    {
+     "c": 3,
+     "mode": "verse",
+     "rows": 29,
+     "markers": 28,
+     "lemmas": 0,
+     "versesCovered": 28,
+     "verses": 29
+    },
+    {
+     "c": 4,
+     "mode": "verse",
+     "rows": 25,
+     "markers": 24,
+     "lemmas": 0,
+     "versesCovered": 24,
+     "verses": 31
+    },
+    {
+     "c": 5,
+     "mode": "verse",
+     "rows": 24,
+     "markers": 23,
+     "lemmas": 0,
+     "versesCovered": 23,
+     "verses": 26
+    },
+    {
+     "c": 6,
+     "mode": "verse",
+     "rows": 17,
+     "markers": 16,
+     "lemmas": 0,
+     "versesCovered": 16,
+     "verses": 18
+    }
+   ]
+  }
+ ],
+ "notRead": "Book-level prefaces that precede Chapter I of a Gospel or Epistle (general preface, \"Canons\", introductions to Mark, Luke, John, 1-3 John) are not included; the printed Authorized Version text of each chapter is dropped (the app has its own Bible text).",
+ "method": "Chapter headings found in order; the printed verse text and running heads removed; `Ver. N.` blocks anchor commentary to verses, otherwise a paragraph opening with the words of a verse is placed at that verse; unplaced paragraphs stay with the block before. Hyphenation repaired by the printed spelling elsewhere in the volume."
+}

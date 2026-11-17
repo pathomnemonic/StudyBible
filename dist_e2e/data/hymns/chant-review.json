@@ -1,0 +1,334 @@
+{
+ "about": "Review records for the chant scores. A score whose GABC no longer hashes to gabcSha256 has changed since a person checked it.",
+ "entries": [
+  {
+   "hymnId": "veni-creator",
+   "source": "GregoBase",
+   "sourceUrl": "https://gregobase.selapa.net/chant.php?id=14258",
+   "gregobaseId": 14258,
+   "gabcSha256": "e8fc5cbda6576f161664299c86a94edb05ac478017445a527044cd2a278b61dd",
+   "provenance": {
+    "name": "Veni Creator Spiritus",
+    "book": "Liber Hymnarius, 1983, p. 90",
+    "transcriber": "",
+    "mode": "8",
+    "officePart": "Hymnus"
+   },
+   "textRepeats": 1,
+   "minOrdered": 0.91,
+   "minCoverage": 0.78,
+   "unsungInScore": [
+    "altissimi",
+    "charitas",
+    "paternae",
+    "dexterae",
+    "teque",
+    "deo",
+    "patri",
+    "sit",
+    "gloria",
+    "et",
+    "filio",
+    "qui",
+    "a",
+    "mortuis",
+    "surrexit",
+    "ac",
+    "paraclito",
+    "in",
+    "saeculorum",
+    "saecula"
+   ],
+   "sungNotInText": [
+    "altissimi",
+    "caritas",
+    "dextrae",
+    "dei",
+    "tu",
+    "te",
+    "amen"
+   ],
+   "explanation": "Ordered comparison with the hymn text: the score has 80 words, the text 93. Not in the score: the doxology stanza (Deo Patri sit gloria … in saeculorum saecula) and the words 'qui a mortuis surrexit'; the rest differ only in spelling (caritas/charitas, dextrae/dexterae) or are a different reading (dei/tu te). This is a partial score of the hymn, not a corrupt one. Not checked against the printed Liber Hymnarius.",
+   "reviewedOn": "2026-11-15",
+   "reviewMethod": "Ordered word-by-word comparison with hymns.json (scripts/chant/review.mjs). Not checked against the printed book named in the source header."
+  },
+  {
+   "hymnId": "dies-irae",
+   "source": "GregoBase",
+   "sourceUrl": "https://gregobase.selapa.net/chant.php?id=1198",
+   "gregobaseId": 1198,
+   "gabcSha256": "e67921e7a4a6ecd10ad0562b5c6b78b4943bd82131e697970aa9a5e74068e405",
+   "provenance": {
+    "name": "Dies irae",
+    "book": "Graduale Romanum, 1961, p. 96* & The Liber Usualis, 1961, p. 1810 & Chants of the Church, 1956, p. 63",
+    "transcriber": "Andrew Hinkley",
+    "mode": "1",
+    "officePart": "Sequentia"
+   },
+   "textRepeats": 1,
+   "minOrdered": 0.93,
+   "minCoverage": 0.97,
+   "unsungInScore": [
+    "ies",
+    "sybilla",
+    "quum",
+    "quum",
+    "tanquam",
+    "lacrymosa"
+   ],
+   "sungNotInText": [
+    "dies",
+    "sibylla",
+    "cum",
+    "cum",
+    "tamquam",
+    "lacrimosa",
+    "pie",
+    "iesu",
+    "domine",
+    "dona",
+    "eis",
+    "requiem",
+    "amen"
+   ],
+   "explanation": "Words differ from the hymn text only in spelling (sibylla/sybilla, cum/quum, tamquam/tanquam, lacrimosa/lacrymosa). The score also sings the closing 'Pie Iesu Domine, dona eis requiem. Amen', which the hymn text field does not contain.",
+   "reviewedOn": "2026-11-15",
+   "reviewMethod": "Ordered word-by-word comparison with hymns.json (scripts/chant/review.mjs). Not checked against the printed book named in the source header."
+  },
+  {
+   "hymnId": "vexilla-regis",
+   "source": "GregoBase",
+   "sourceUrl": "https://gregobase.selapa.net/chant.php?id=19728",
+   "gregobaseId": 19728,
+   "gabcSha256": "6a980cd260469a9cc3f072f570cedea4daa4144dae1536825cd39543929bc9d8",
+   "provenance": {
+    "name": "Vexilla Regis",
+    "book": "Antiphonale Romanum, 1912, p. sup16",
+    "transcriber": "iaquobus",
+    "mode": "1",
+    "officePart": "Hymnus"
+   },
+   "textRepeats": 1,
+   "minOrdered": 0.9,
+   "minCoverage": 0.92,
+   "unsungInScore": [
+    "pretium",
+    "saeculi",
+    "saeculi",
+    "tartaris",
+    "tempora",
+    "institiam",
+    "quas"
+   ],
+   "sungNotInText": [
+    "et",
+    "saecli",
+    "pretium",
+    "corporis",
+    "tartari",
+    "tempore",
+    "iustitiam",
+    "quos",
+    "amen"
+   ],
+   "explanation": "Differences are spelling and reading variants (saecli/saeculi, tartari/tartaris, tempore/tempora, iustitiam/institiam, quos/quas). The score's closing Amen is not in the hymn text.",
+   "reviewedOn": "2026-11-15",
+   "reviewMethod": "Ordered word-by-word comparison with hymns.json (scripts/chant/review.mjs). Not checked against the printed book named in the source header."
+  },
+  {
+   "hymnId": "pange-lingua",
+   "source": "GregoBase",
+   "sourceUrl": "https://gregobase.selapa.net/chant.php?id=8670",
+   "gregobaseId": 8670,
+   "gabcSha256": "4b0167262fc4358e4a9e22a4cb204662fddfd0504ee183ca9be64b3c692cab85",
+   "provenance": {
+    "name": "Pange lingua... Corporis",
+    "book": "Antiphonale Monasticum, 1934, p. 547",
+    "transcriber": "Dominique CROCHU",
+    "mode": "",
+    "officePart": "Hymnus"
+   },
+   "textRepeats": 1,
+   "minOrdered": 1,
+   "minCoverage": 1,
+   "unsungInScore": [],
+   "sungNotInText": [],
+   "explanation": "Sung words equal the hymn text word for word, in order.",
+   "reviewedOn": "2026-11-15",
+   "reviewMethod": "Ordered word-by-word comparison with hymns.json (scripts/chant/review.mjs). Not checked against the printed book named in the source header."
+  },
+  {
+   "hymnId": "tantum-ergo",
+   "source": "GregoBase",
+   "sourceUrl": "https://gregobase.selapa.net/chant.php?id=2176",
+   "gregobaseId": 2176,
+   "gabcSha256": "f1d7b0c4bd25ed78f4397160593eb108ea54b9f3747b2a31744df38086229dd4",
+   "provenance": {
+    "name": "Tantum ergo",
+    "book": "Graduale Romanum, 1961, p. 158* & The Liber Usualis, 1961, p. 954",
+    "transcriber": "Albert Bloomfield",
+    "mode": "3",
+    "officePart": "Hymnus"
+   },
+   "textRepeats": 1,
+   "minOrdered": 1,
+   "minCoverage": 1,
+   "unsungInScore": [],
+   "sungNotInText": [],
+   "explanation": "Sung words equal the hymn text word for word, in order.",
+   "reviewedOn": "2026-11-15",
+   "reviewMethod": "Ordered word-by-word comparison with hymns.json (scripts/chant/review.mjs). Not checked against the printed book named in the source header."
+  },
+  {
+   "hymnId": "o-salutaris",
+   "source": "GregoBase",
+   "sourceUrl": "https://gregobase.selapa.net/chant.php?id=17870",
+   "gregobaseId": 17870,
+   "gabcSha256": "e748b26a9e41aa3b95c205ff989d2520fd5c08b27ad424d355e578020fd908fe",
+   "provenance": {
+    "name": "O Salutaris Hostia",
+    "book": "",
+    "transcriber": "Nguyễn Thiện Tuấn Hoàng",
+    "mode": "6",
+    "officePart": "Hymnus"
+   },
+   "provenanceNote": "The GregoBase header names no printed book for this score.",
+   "textRepeats": 1,
+   "minOrdered": 0.89,
+   "minCoverage": 0.92,
+   "unsungInScore": [
+    "qui",
+    "coeli"
+   ],
+   "sungNotInText": [
+    "quae",
+    "caeli",
+    "amen"
+   ],
+   "explanation": "Differs from the hymn text at 'quae caeli' for 'qui coeli' (a different, common reading and spelling) and adds a closing Amen. The GregoBase header names no printed book.",
+   "reviewedOn": "2026-11-15",
+   "reviewMethod": "Ordered word-by-word comparison with hymns.json (scripts/chant/review.mjs). Not checked against the printed book named in the source header."
+  },
+  {
+   "hymnId": "adoro-te",
+   "source": "GregoBase",
+   "sourceUrl": "https://gregobase.selapa.net/chant.php?id=15688",
+   "gregobaseId": 15688,
+   "gabcSha256": "52ccdc6951749a3cb3c1850cfa14ccd43da1ced741c9055be89d143d8c992c74",
+   "provenance": {
+    "name": "Adoro te devote",
+    "book": "",
+    "transcriber": "Fr. Anastasius OCist",
+    "mode": "5",
+    "officePart": "Hymnus"
+   },
+   "provenanceNote": "The GregoBase header names no printed book for this score.",
+   "textRepeats": 1,
+   "minOrdered": 0.96,
+   "minCoverage": 0.91,
+   "unsungInScore": [
+    "adoro",
+    "te",
+    "deuote",
+    "saeculo",
+    "xiii",
+    "editio",
+    "incognita",
+    "fons",
+    "incognitus",
+    "subiicit",
+    "uerbo",
+    "paenitens",
+    "mundum"
+   ],
+   "sungNotInText": [
+    "subicit",
+    "uerbo",
+    "p",
+    "oenitens",
+    "mundum",
+    "amen"
+   ],
+   "explanation": "The score sings the hymn; most 'unsung' words come from the hymn text field itself, which includes editorial lines (saeculo xiii, editio incognita, fons incognitus) and a title phrase that are not sung (a data-hygiene issue in hymns.json, noted, not changed here). The rest are spelling (subicit/subiicit, poenitens). The GregoBase header names no printed book.",
+   "reviewedOn": "2026-11-15",
+   "reviewMethod": "Ordered word-by-word comparison with hymns.json (scripts/chant/review.mjs). Not checked against the printed book named in the source header."
+  },
+  {
+   "hymnId": "regina-caeli",
+   "source": "GregoBase",
+   "sourceUrl": "https://gregobase.selapa.net/chant.php?id=1976",
+   "gregobaseId": 1976,
+   "gabcSha256": "80ef6ccd2f9bb1d9f9149253998e39e257afbd8c2c8aa6d3ac88a655562d1308",
+   "provenance": {
+    "name": "Regina caeli",
+    "book": "The Liber Usualis, 1961, p. 275 & Liber antiphonarius, 1960, p. 67",
+    "transcriber": "Andrew Hinkley",
+    "mode": "6",
+    "officePart": "Antiphona"
+   },
+   "textRepeats": 1,
+   "minOrdered": 0.84,
+   "minCoverage": 0.88,
+   "unsungInScore": [
+    "coeli",
+    "alleluia"
+   ],
+   "sungNotInText": [
+    "caeli",
+    "alle",
+    "luia"
+   ],
+   "explanation": "Spelling only (caeli/coeli; the score splits 'alle luia').",
+   "reviewedOn": "2026-11-15",
+   "reviewMethod": "Ordered word-by-word comparison with hymns.json (scripts/chant/review.mjs). Not checked against the printed book named in the source header."
+  },
+  {
+   "hymnId": "salve-regina",
+   "source": "GregoBase",
+   "sourceUrl": "https://gregobase.selapa.net/chant.php?id=2715",
+   "gregobaseId": 2715,
+   "gabcSha256": "41a0bfc703ac62e7629683c86250d4d3e83ea0c991f93e2c75e69adf38b8add3",
+   "provenance": {
+    "name": "Salve Regina",
+    "book": "The Liber Usualis, 1961, p. 276 & Liber antiphonarius, 1960, p. 68",
+    "transcriber": "Andrew Hinkley",
+    "mode": "1",
+    "officePart": "Antiphona"
+   },
+   "textRepeats": 1,
+   "minOrdered": 0.98,
+   "minCoverage": 0.98,
+   "unsungInScore": [
+    "euae"
+   ],
+   "sungNotInText": [
+    "heuae"
+   ],
+   "explanation": "One word differs in spelling (Heuae/Euae).",
+   "reviewedOn": "2026-11-15",
+   "reviewMethod": "Ordered word-by-word comparison with hymns.json (scripts/chant/review.mjs). Not checked against the printed book named in the source header."
+  },
+  {
+   "hymnId": "te-deum",
+   "source": "GregoBase",
+   "sourceUrl": "https://gregobase.selapa.net/chant.php?id=16704",
+   "gregobaseId": 16704,
+   "gabcSha256": "ee5ceb1c820bfd551f3db27e5a2b64a79e257c4df69ae453b467c7ccc5d90f74",
+   "provenance": {
+    "name": "Te Deum",
+    "book": "Graduale Romanum, 1974, p. 841",
+    "transcriber": "carolus7",
+    "mode": "3",
+    "officePart": "Hymnus"
+   },
+   "textRepeats": 1,
+   "minOrdered": 1,
+   "minCoverage": 1,
+   "unsungInScore": [],
+   "sungNotInText": [],
+   "explanation": "Sung words equal the hymn text word for word, in order.",
+   "reviewedOn": "2026-11-15",
+   "reviewMethod": "Ordered word-by-word comparison with hymns.json (scripts/chant/review.mjs). Not checked against the printed book named in the source header."
+  }
+ ]
+}

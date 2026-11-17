@@ -1,0 +1,2158 @@
+{
+ "_about": "More Bible stories retold for children in three reading levels (4-6, 7-9, 10-12), and a few stories of the saints. Written for this app and read with kids_stories.json. Each story points to the passage it retells; saints' stories follow Butler's Lives of the Saints. Extra fields: prayer, vocab.",
+ "stories": [
+  {
+   "id": "abraham-lot",
+   "title": "Abraham Shares the Land",
+   "testament": "OT",
+   "refs": [
+    "Genesis 13:1-18"
+   ],
+   "emoji": "🏕️",
+   "text": {
+    "4-6": "Abraham and his nephew Lot had many sheep and cattle. There was not enough grass for all of them. Their helpers began to argue. Abraham said to Lot, 'Let us not fight. You choose first.' Lot chose the green valley. God spoke to Abraham and promised him a land and many, many children.",
+    "7-9": "Abraham and his nephew Lot had grown rich in sheep, goats and cattle. The land could not feed all their animals, and their herdsmen began to quarrel. Abraham did not want a fight in the family. He said to Lot, 'Look at all the land. You choose where you want to go, and I will go the other way.' Lot chose the green valley by the Jordan. Abraham stayed in Canaan. Then God told Abraham to look in every direction. All that land would belong to his family, and there would be as many people as grains of dust.",
+    "10-12": "Abraham is the older man, and the land is God's promise to him. Even so, he lets Lot choose first. He values peace in the family more than the best pasture. Lot looks only at what seems richest, and he moves toward the cities of the plain, which the text says were full of wicked people. Abraham seems to lose out. Then God speaks and promises him the whole land he can see, and descendants like the dust of the earth. The story shows a person who trusts God to provide, so he does not need to grab. He also builds an altar to the Lord there, as he does in other places."
+   },
+   "talk": [
+    "Why did Abraham let Lot choose first?",
+    "How do you settle an argument in your family?",
+    "What did God promise Abraham after Lot left?"
+   ],
+   "memory": "Genesis 13:8",
+   "prayer": "Lord, help me to share and to make peace. Amen.",
+   "hue": 95,
+   "vocab": [
+    {
+     "word": "herdsmen",
+     "means": "people who look after the animals"
+    }
+   ]
+  },
+  {
+   "id": "three-visitors",
+   "title": "Abraham and the Three Visitors",
+   "testament": "OT",
+   "refs": [
+    "Genesis 18:1-15"
+   ],
+   "emoji": "🌳",
+   "text": {
+    "4-6": "One hot day Abraham sat by his tent under the trees. Three visitors came. Abraham ran to meet them and bowed low. He asked Sarah to bake bread and he gave them a good meal. One of them said, 'Next year Sarah will have a son.' Sarah was old and she laughed. But God said, 'Is anything too hard for the Lord?'",
+    "7-9": "It was the hottest part of the day when Abraham saw three men standing near his tent. He ran to greet them, bowed to the ground and begged them to stay and rest. He had water brought for their feet, and Sarah baked fresh bread. Abraham chose a calf and set a meal before them with curds and milk. Then one visitor said that when he came back in a year, Sarah would have a son. Sarah, listening at the tent door, laughed to herself because she was so old. The Lord asked, 'Is anything too hard for the Lord?'",
+    "10-12": "The text says that the Lord appeared to Abraham, yet it shows three men. Many Christians have seen in this a sign of the Holy Trinity, and the famous icon of the three visitors at the table was painted for just that reason. What the story plainly shows is Abraham's warm welcome. He gives the best he has to strangers, and in doing so he receives God's promise. Sarah's laugh is the laugh of someone who has waited too long and does not dare to hope. God does not scold her harshly. He asks the question that the whole Bible keeps answering: is anything too hard for the Lord?"
+   },
+   "talk": [
+    "How did Abraham welcome his visitors?",
+    "Why did Sarah laugh?",
+    "What is hard for you that God might make possible?"
+   ],
+   "memory": "Genesis 18:14",
+   "prayer": "God our Father, thank you for the surprises you give. Help me to welcome people kindly. Amen.",
+   "hue": 85,
+   "vocab": [
+    {
+     "word": "curds",
+     "means": "thick soft milk, a little like yoghurt"
+    }
+   ]
+  },
+  {
+   "id": "hagar",
+   "title": "Hagar and the God Who Sees",
+   "testament": "OT",
+   "refs": [
+    "Genesis 16:7-14",
+    "Genesis 21:14-19"
+   ],
+   "emoji": "💧",
+   "text": {
+    "4-6": "Hagar was a servant in Abraham's family. Once she ran away into the desert, alone and afraid. An angel of the Lord found her by a spring. The angel told her that God had heard her. Hagar said, 'You are the God who sees me.' Years later, Hagar and her son Ishmael ran out of water. Hagar cried. God opened her eyes and she saw a well. They had water again.",
+    "7-9": "Hagar was a servant who was treated harshly, and she ran away into the desert. By a spring of water an angel of the Lord found her. He asked where she had come from and where she was going. He told her that God had heard how she was suffering, and he promised that she would have a son named Ishmael. Hagar gave God a name: 'You are the God who sees me.' Years later, she and Ishmael were sent away with only bread and water. The water ran out in the desert and she wept. God heard the boy crying, and he showed Hagar a well. God was with the boy as he grew up.",
+    "10-12": "Hagar has little power in this story. She is a servant, a foreigner, a woman with nowhere to go. Yet God goes to her in the wilderness and speaks to her by name. She is the only person in the Bible who gives God a name, 'El Roi', the God who sees. The story does not hide that some people in Abraham's household treated her badly. It is honest about it, and it says that God notices the ones the world overlooks. Ishmael is also promised that he will become a great nation. God's care reaches beyond a single family."
+   },
+   "talk": [
+    "What did Hagar learn about God at the spring?",
+    "When have you felt that nobody saw you?",
+    "Who might need you to notice them?"
+   ],
+   "memory": "Genesis 16:13",
+   "prayer": "God, you see me and you hear me. Help me to notice people who feel alone. Amen.",
+   "hue": 200
+  },
+  {
+   "id": "rebekah",
+   "title": "Rebekah at the Well",
+   "testament": "OT",
+   "refs": [
+    "Genesis 24:10-27",
+    "Genesis 24:58-67"
+   ],
+   "emoji": "🐪",
+   "text": {
+    "4-6": "Abraham sent his servant to find a wife for his son Isaac. The servant came to a well with ten camels. He prayed, 'Lord, help me.' A girl named Rebekah came to the well. She gave him a drink. Then she said, 'I will give your camels water too.' That was just the kindness he had prayed for. Rebekah went with him, and she became Isaac's wife.",
+    "7-9": "Abraham's servant travelled far to find a wife for Isaac. He stopped at a well outside the town with his ten camels and prayed that God would show him the right girl. He asked God for a sign: she would offer him water and also water his camels. Before he finished praying, Rebekah came with her jar. She gave him a drink, and then she hurried to draw water for all the camels. Her family agreed to let her go. When Isaac saw her coming at evening, he took her into his mother's tent. He loved her, and he was comforted after his mother's death.",
+    "10-12": "This story is full of prayer and of ordinary work. A camel can drink a great deal, so Rebekah's offer is no small thing. She hauls water for ten thirsty animals for a stranger, without being asked. The servant asks God for a sign, but he also watches carefully, and he thanks God out loud when he sees it. Rebekah's family asks her if she is willing, and she says yes. The story shows that God guides people through kindness and through plain choices. It also shows the start of the family line that leads to Jacob and, much later, to Jesus."
+   },
+   "talk": [
+    "What kindness did Rebekah show?",
+    "Why did the servant pray before he began?",
+    "How can a small kindness show who you are?"
+   ],
+   "memory": "Genesis 24:19",
+   "prayer": "Lord, show me the kind thing to do today, and help me to do it. Amen.",
+   "hue": 35,
+   "vocab": [
+    {
+     "word": "servant",
+     "means": "a person who works for someone else"
+    }
+   ]
+  },
+  {
+   "id": "jacob-esau-meet",
+   "title": "Jacob and Esau Make Peace",
+   "testament": "OT",
+   "refs": [
+    "Genesis 32:3-12",
+    "Genesis 33:1-11"
+   ],
+   "emoji": "🤗",
+   "text": {
+    "4-6": "Jacob had cheated his brother Esau long ago, and he ran away. Now he was coming home, and he was afraid. Esau was coming with four hundred men! Jacob bowed low. But Esau ran to him. He hugged Jacob and kissed him, and they both cried. Esau had forgiven him. Jacob said, 'Seeing your face is like seeing the face of God.'",
+    "7-9": "Many years after he fled from his brother, Jacob headed home with a large family and many animals. He heard that Esau was coming to meet him with four hundred men. Jacob was very frightened. He prayed to God, he sent gifts ahead, and he bowed down to the ground seven times as his brother came near. But Esau ran to meet him, threw his arms around him and kissed him. They wept together. Esau at first said he did not need the gifts. Jacob begged him to take them, and said that seeing Esau's kind face was like seeing the face of God.",
+    "10-12": "Jacob had a lot to be afraid of. He had taken Esau's blessing by tricking his old father, and Esau had wanted to hurt him. Jacob does what a person can do. He prays, he admits he is not worthy, and he tries to make things right with gifts. What he does not expect is that Esau has already let go of his anger. The welcome Esau gives is a picture of forgiveness that jumps ahead and runs to meet the person. Jesus tells a story with the same shape later, about a father and a son who comes home. Jacob's words about seeing God's face in his brother's forgiveness are worth remembering."
+   },
+   "talk": [
+    "Why was Jacob afraid?",
+    "What did Esau do when he saw Jacob?",
+    "Who do you need to say sorry to, or forgive?"
+   ],
+   "memory": "Genesis 33:4",
+   "prayer": "Lord, help me to forgive, and help me to say sorry. Amen.",
+   "hue": 15
+  },
+  {
+   "id": "water-rock",
+   "title": "Water from the Rock",
+   "testament": "OT",
+   "refs": [
+    "Exodus 17:1-7"
+   ],
+   "emoji": "🪨",
+   "text": {
+    "4-6": "The people of Israel were thirsty in the desert. There was no water. They grumbled at Moses. Moses asked God for help. God said, 'Take your staff and hit the rock.' Moses did, and water poured out of the rock. All the people and the animals had plenty to drink.",
+    "7-9": "God's people travelled through the desert, and when they came to a place called Rephidim there was no water. The people complained and said to Moses, 'Did you bring us out of Egypt to let us die of thirst?' Moses cried to the Lord, and he said that the people were nearly ready to throw stones at him. God told him to take his staff and some of the elders, and go to the rock at Horeb. Moses struck the rock, and water came out for the people to drink. The place was called Massah and Meribah, which means 'testing' and 'quarrelling'.",
+    "10-12": "The people have seen God rescue them from Egypt, and still they ask, 'Is the Lord among us or not?' Thirst is a real thing, and Moses does not scold God or run away. He takes the problem to the Lord. God answers with a gift that no one could expect, water from hard stone. Saint Paul later wrote that the rock was a sign of Christ, who gives living water to all who come to him. Jesus himself said, 'If anyone is thirsty, let him come to me and drink.' It is a story about trusting that God is with us even when the place feels dry."
+   },
+   "talk": [
+    "Why were the people so upset?",
+    "What did Moses do when he did not know what to do?",
+    "What do you do when you feel you have nothing?"
+   ],
+   "memory": "John 7:37",
+   "prayer": "Lord, thank you for water and for every good thing. Help me to trust you when I am worried. Amen.",
+   "hue": 200,
+   "vocab": [
+    {
+     "word": "staff",
+     "means": "a long walking stick"
+    }
+   ]
+  },
+  {
+   "id": "moses-hands",
+   "title": "Moses Holds Up His Hands",
+   "testament": "OT",
+   "refs": [
+    "Exodus 17:8-13"
+   ],
+   "emoji": "🙌",
+   "text": {
+    "4-6": "A fight began in the desert. Joshua led the men, and Moses went up the hill to pray. While Moses held up his hands, Israel did well. When his arms got tired and came down, the other side did better. So Aaron and Hur found a stone for Moses to sit on. They stood beside him and held up his arms. His hands stayed steady until the sun went down, and Israel won.",
+    "7-9": "After the people left Egypt, an enemy called Amalek attacked them in the desert. Moses told Joshua to choose men and fight. Moses himself climbed a hill with the staff of God in his hand. When Moses held up his hands, Israel was winning. When he let them down, Amalek began to win. His arms grew heavy. Aaron and Hur put a stone under him and sat him down. Then they stood on each side and held his hands up until sunset. In this way Joshua and his men won the battle.",
+    "10-12": "This is a short story about prayer and about friends. Moses cannot hold up his arms for hours alone. He needs Aaron and Hur, and they do not just tell him to try harder. They bring a stone and they hold him up. Christians have always seen this as a picture of prayer. Moses stands with raised hands, and the Church has taught that praying for each other is real help. The story is also honest that this was a battle in a hard time. Its lasting point is the one that helps people today: nobody has to carry a heavy load alone."
+   },
+   "talk": [
+    "Why did Moses need Aaron and Hur?",
+    "Who helps you when you are tired?",
+    "How can you hold someone up when they are tired?"
+   ],
+   "memory": "Exodus 17:12",
+   "prayer": "Lord, thank you for my friends and family. Help me to help others when they are tired. Amen.",
+   "hue": 25
+  },
+  {
+   "id": "golden-calf",
+   "title": "The Golden Calf",
+   "testament": "OT",
+   "refs": [
+    "Exodus 32:1-6",
+    "Exodus 32:15-20",
+    "Exodus 34:5-9"
+   ],
+   "emoji": "🐄",
+   "text": {
+    "4-6": "Moses was a long time on the mountain with God. The people got worried. They asked Aaron to make them a god they could see. Aaron made a calf out of gold, and they worshipped it. That made God sad. When Moses came down, he was very upset and broke the stone tablets. But God did not give up on his people. He told Moses his name: 'The Lord is merciful and kind. He is slow to anger, and full of love.'",
+    "7-9": "While Moses was away on Mount Sinai, the people waited and waited. They became afraid and asked Aaron to make a god that they could see. Aaron collected their gold earrings and made a golden calf, and they held a party in front of it. Moses came down the mountain carrying the two stone tablets. When he saw what the people were doing, he threw the tablets down and broke them. Later Moses went up again. The Lord passed by and called out his name: 'The Lord, the Lord, a merciful and gracious God, slow to anger, and abounding in loving kindness and truth.'",
+    "10-12": "The people had just promised to follow God, and then they broke the first commandment while Moses was still on the mountain. It was easier to trust something they could see than to wait for a God they could not. The story is honest about sin and about leaders who give in. But what comes next matters even more. Moses begs God to forgive, and God shows Moses his glory and says who he is. The words in Exodus 34 are quoted again and again in the Psalms and the prophets. God's first word about himself is mercy. That is good news for anyone who has failed."
+   },
+   "talk": [
+    "Why did the people make a golden calf?",
+    "What did God say about himself?",
+    "What helps you wait when you are worried?"
+   ],
+   "memory": "Exodus 34:6",
+   "prayer": "Lord, you are kind and full of love. Help me to trust you even when I cannot see you. Amen.",
+   "hue": 45,
+   "vocab": [
+    {
+     "word": "mercy",
+     "means": "kindness to someone who has done wrong"
+    }
+   ]
+  },
+  {
+   "id": "bronze-serpent",
+   "title": "The Bronze Snake",
+   "testament": "OT",
+   "refs": [
+    "Numbers 21:4-9"
+   ],
+   "emoji": "🐍",
+   "text": {
+    "4-6": "The people grumbled in the desert again. Snakes came into the camp, and many people were bitten. The people said, 'We were wrong. Please ask God to take the snakes away.' God told Moses to make a bronze snake and put it on a pole. 'Anyone who is bitten can look at it and live.' Those who looked at it got well.",
+    "7-9": "On their journey, the people became impatient and spoke against God and against Moses. They said they hated the food that God gave them. Then poisonous snakes came among them, and many were bitten. The people came to Moses and said, 'We have sinned. Pray that the Lord will take the snakes away.' Moses prayed. The Lord said, 'Make a snake of bronze and put it on a pole. When anyone is bitten, they can look at it and live.' Moses made it, and everyone who looked at the bronze snake lived.",
+    "10-12": "This story seems strange. A snake on a pole heals people who are bitten by snakes. The healing does not come from the metal. It comes from God, and from a person who believes enough to look. Jesus himself used this story in a conversation with Nicodemus: 'As Moses lifted up the serpent in the wilderness, even so must the Son of Man be lifted up.' Christians see in this a picture of Jesus on the cross, who heals the wounds of sin for those who look to him in trust. The Church puts the cross on the altar for this reason."
+   },
+   "talk": [
+    "What did the people have to do to be healed?",
+    "Why do you think God asked them to look?",
+    "What helps you look to God when you are in trouble?"
+   ],
+   "memory": "John 3:14-15",
+   "prayer": "Jesus, when I am hurt or scared, help me to look to you. Amen.",
+   "hue": 120
+  },
+  {
+   "id": "balaam",
+   "title": "Balaam and the Talking Donkey",
+   "testament": "OT",
+   "refs": [
+    "Numbers 22:21-35"
+   ],
+   "emoji": "🫏",
+   "text": {
+    "4-6": "Balaam was riding his donkey to do something God did not want. An angel with a sword stood in the road. The donkey saw the angel, but Balaam did not. The donkey stopped. Balaam was cross and hit her. Then God let the donkey speak! She asked, 'Why do you hit me?' Then God opened Balaam's eyes and he saw the angel. He bowed low and said sorry.",
+    "7-9": "A man named Balaam was riding to meet a king who wanted him to curse God's people. God was not pleased. An angel of the Lord stood in the road with a drawn sword. Balaam's donkey saw the angel and turned off the path. Balaam struck her. This happened three times. Then the Lord opened the donkey's mouth, and she said, 'What have I done to you, that you have beaten me these three times?' The Lord opened Balaam's eyes and he saw the angel. He bowed his head. The angel told him to go on, but to say only what God told him.",
+    "10-12": "This story has humour in it, and it also has a point. The donkey sees what the trained seer cannot. Balaam is angry at an animal that has saved his life. Many times in the Bible, the one who is expected to see clearly is blind, and someone small sees the truth. When Balaam's eyes are opened, he does not argue. He bows and admits he was wrong. Afterwards he can only bless Israel, not curse it. A person's words belong to God more than to the one who is paid to speak them."
+   },
+   "talk": [
+    "What did the donkey see that Balaam did not?",
+    "How did Balaam behave when he saw the angel?",
+    "Has an animal or a small child ever shown you something?"
+   ],
+   "memory": "Numbers 22:31",
+   "prayer": "Lord, open my eyes to see what you want me to see. Amen.",
+   "hue": 30,
+   "vocab": [
+    {
+     "word": "curse",
+     "means": "to ask for something bad to happen to someone"
+    }
+   ]
+  },
+  {
+   "id": "spies-caleb",
+   "title": "Twelve Spies in the Promised Land",
+   "testament": "OT",
+   "refs": [
+    "Numbers 13:1-3",
+    "Numbers 13:25-33",
+    "Numbers 14:6-9"
+   ],
+   "emoji": "🍇",
+   "text": {
+    "4-6": "Moses sent twelve men to look at the land God had promised. They came back with a huge bunch of grapes. Two men carried it on a pole! Ten spies said, 'The people are too big and strong. We cannot do it!' But Caleb and Joshua said, 'God is with us. Do not be afraid!'",
+    "7-9": "God had promised his people a good land, and Moses sent twelve spies, one from each tribe, to explore it. They were gone forty days. They came back with a cluster of grapes so heavy that two men had to carry it on a pole, and they also brought pomegranates and figs. They said the land flowed with milk and honey. But ten of them said the people there were giants and the cities were strong. Caleb said, 'Let us go up at once, for we are well able to do it.' Caleb and Joshua said, 'Do not rebel against the Lord, and do not be afraid.'",
+    "10-12": "The ten spies do not lie about what they saw. The land really is good, and the cities really are strong. The difference lies in what each group does with that. Ten see the walls and forget the promise. Two see the same walls and remember who sent them. Because the people listened to fear, they had to wait many years, and Caleb is remembered as a man who had 'a different spirit'. The Bible does not say that brave people are never afraid. It says that trust in God can be stronger than fear. Ask who is telling the story you are listening to."
+   },
+   "talk": [
+    "What did the ten spies say?",
+    "What was different about Caleb and Joshua?",
+    "What do you do when something looks too big?"
+   ],
+   "memory": "Joshua 1:9",
+   "prayer": "God, you are bigger than anything I am afraid of. Make me brave. Amen.",
+   "hue": 285,
+   "vocab": [
+    {
+     "word": "spies",
+     "means": "people sent to look at a place and report back"
+    }
+   ]
+  },
+  {
+   "id": "rahab",
+   "title": "Rahab Helps the Spies",
+   "testament": "OT",
+   "refs": [
+    "Joshua 2:1-21",
+    "Joshua 6:22-25"
+   ],
+   "emoji": "🧵",
+   "text": {
+    "4-6": "Joshua sent two spies to Jericho. A woman named Rahab hid them on her roof. She believed that the God of Israel was the true God. She asked them to keep her family safe. The spies said, 'Tie this red cord in your window. When we come back, your family will be safe.' When Jericho's walls fell, Rahab and her family were rescued.",
+    "7-9": "Before the people of Israel crossed into Canaan, Joshua secretly sent two men to look at the city of Jericho. They stayed at the house of a woman called Rahab. When the king's men came to look for them, she hid the spies under stalks of flax on her roof and told the soldiers they had left. Rahab told the spies that everyone in the city had heard about the God of Israel. She asked them to spare her family. They agreed, and told her to hang a scarlet cord from her window. When Jericho fell, Joshua kept the promise and saved Rahab and all her family.",
+    "10-12": "Rahab was not an Israelite, and the Bible does not make her sound like a model person. But she believed that the Lord is God 'in the heavens and on the earth', and she acted on that belief at great risk. Her loyalty is rewarded by the people she helped. The New Testament remembers her more than once. Matthew's list of Jesus's ancestors includes her name, and the letter of James praises her kindness. The red cord also reminds Christians of the blood of the Passover lambs. Anyone can belong to God's family if they trust him."
+   },
+   "talk": [
+    "Why was Rahab brave?",
+    "How did the spies keep their promise?",
+    "Who might feel like an outsider today, and how can you welcome them?"
+   ],
+   "memory": "Joshua 2:11",
+   "prayer": "Lord, thank you that everyone can belong to your family. Amen.",
+   "hue": 5
+  },
+  {
+   "id": "deborah",
+   "title": "Deborah the Judge",
+   "testament": "OT",
+   "refs": [
+    "Judges 4:4-16"
+   ],
+   "emoji": "🌴",
+   "text": {
+    "4-6": "Deborah was a wise woman. She sat under a palm tree, and people came to her to settle their quarrels. God told her that it was time to help Israel. She called Barak, a general. 'God says, go and fight!' Barak said, 'I will go if you come with me.' Deborah said, 'I will.' God helped them, and the people were free again.",
+    "7-9": "At a time when Israel was ruled by a harsh king, Deborah was a prophet and a judge. She sat under a palm tree in the hill country, and the people came to her for decisions. She sent for a man named Barak and told him that God wanted him to gather ten thousand men and go to meet the enemy army. Barak said he would only go if Deborah went with him. She agreed, and she said that the honour would not be his alone. When the battle began, Deborah said, 'Go! Is this not the day the Lord has given?' The Lord threw the enemy army into confusion.",
+    "10-12": "Deborah is one of the few women in the Bible to lead the whole nation, and the book of Judges describes her without any surprise. She was a prophet who heard God and a judge whom people trusted. Barak is brave enough to go to war, but he wants her beside him. She goes, and she gives God the credit. There is war in this story, and the Bible is honest about that. The point it makes is that when the people were in trouble, God sent them a leader who listened to him. Deborah's wisdom came from time spent in prayer, listening, and hearing the people."
+   },
+   "talk": [
+    "What did people come to Deborah for?",
+    "Why did Barak want Deborah to come?",
+    "Who do you go to when you need wise advice?"
+   ],
+   "memory": "Judges 4:14",
+   "prayer": "God, give me wisdom, and help me to listen. Amen.",
+   "hue": 100,
+   "vocab": [
+    {
+     "word": "judge",
+     "means": "a leader who helped God's people before there were kings"
+    }
+   ]
+  },
+  {
+   "id": "samson",
+   "title": "Samson, the Strong Man",
+   "testament": "OT",
+   "refs": [
+    "Judges 13:2-25",
+    "Judges 16:4-22"
+   ],
+   "emoji": "💪",
+   "text": {
+    "4-6": "An angel told Samson's mother that she would have a baby boy. 'He will be special to God. Never cut his hair.' Samson grew up very strong, and God was with him. But Samson did not always listen to God. At last he told his secret, and his hair was cut. His strength went away. Samson cried out to God for help, and God heard him. Samson helped to set his people free.",
+    "7-9": "Samson's parents had no children until an angel told his mother that she would have a son. He would be a Nazirite, set apart for God, and no razor would touch his head. Samson grew up with great strength, and the Spirit of the Lord stirred in him. But Samson was careless. He did not always do what was right, and he loved to show how clever he was. A woman named Delilah asked him again and again where his strength came from. At last he told her about his hair. It was cut while he slept, and he was captured. In prison Samson's hair began to grow, and he prayed to God.",
+    "10-12": "The Bible does not make Samson a perfect hero. He is strong but foolish, and he breaks the promises he was born to keep. The story is a warning about making a joke of a gift from God. His strength never came from his hair. It came from God, and the hair was a sign of the promise that he was set apart. When he lost it, he lost something deeper than hair. But at the very end he does what he should have done at the start. He prays. The book of Judges says that he died helping to free his people, who had been oppressed by the Philistines. God can use even broken people."
+   },
+   "talk": [
+    "Where did Samson's strength come from?",
+    "What did Samson do when he was in trouble at the end?",
+    "What gifts has God given you, and how can you use them well?"
+   ],
+   "memory": "Judges 16:28",
+   "prayer": "Lord, thank you for the gifts you gave me. Help me to use them well. Amen.",
+   "hue": 20,
+   "vocab": [
+    {
+     "word": "Nazirite",
+     "means": "a person set apart for God, who made special promises"
+    }
+   ]
+  },
+  {
+   "id": "samuel-anoints-david",
+   "title": "Samuel Chooses a King",
+   "testament": "OT",
+   "refs": [
+    "1 Samuel 16:1-13"
+   ],
+   "emoji": "🛢️",
+   "text": {
+    "4-6": "God sent Samuel to the house of Jesse to choose a new king. Jesse brought out his tall, strong sons. Samuel thought, 'It must be this one.' But God said, 'I do not look at what people see. I look at the heart.' Seven sons came, and none was chosen. 'Is there another?' Samuel asked. 'The youngest is out with the sheep.' David came in. God said, 'This is the one!'",
+    "7-9": "The Lord told Samuel to take a horn of oil and go to Bethlehem, to a man named Jesse, because one of his sons would be the next king. When Samuel saw the first son, Eliab, he thought, 'Surely this is the one.' But the Lord said, 'Do not look at his height. I have not chosen him. People look at the outside, but the Lord looks at the heart.' Seven sons passed in front of Samuel, and the Lord chose none of them. Samuel asked, 'Are these all your children?' Jesse said there was one more, the youngest, who was looking after the sheep. When David came in, the Lord said, 'Get up and anoint him, for this is the one.' Samuel poured the oil, and the Spirit of the Lord came on David.",
+    "10-12": "David's own father did not even think to call him. He was the youngest and he had the least important job. But God notices people the way no one else does. The story echoes through the Bible, because God often picks the person who seems least likely: Jacob, Moses, Gideon, Mary. Being anointed means being set aside for a task. It also means that God's Spirit comes to help. The word 'Messiah' means 'anointed one', and Christians believe Jesus, who was born in David's town of Bethlehem, is the king whom God has anointed over all."
+   },
+   "talk": [
+    "Why did God not choose the tallest son?",
+    "What does it mean that God looks at the heart?",
+    "What do you think David was doing when Samuel arrived?"
+   ],
+   "memory": "1 Samuel 16:7",
+   "prayer": "Lord, you see my heart. Help it to be kind and true. Amen.",
+   "hue": 50,
+   "vocab": [
+    {
+     "word": "anoint",
+     "means": "to pour oil on someone to show God has chosen them"
+    }
+   ]
+  },
+  {
+   "id": "david-jonathan",
+   "title": "David and Jonathan",
+   "testament": "OT",
+   "refs": [
+    "1 Samuel 18:1-4",
+    "1 Samuel 20:35-42"
+   ],
+   "emoji": "🏹",
+   "text": {
+    "4-6": "David and Jonathan became best friends. Jonathan was the king's son. He gave David his own robe and his bow, to show how much he loved him. When King Saul grew jealous and wanted to hurt David, Jonathan warned him. They hugged and cried, and they promised to stay friends always.",
+    "7-9": "After David defeated Goliath, he became very close to Jonathan, the son of King Saul. The Bible says that Jonathan loved David as his own soul. He made a promise to him, and gave him his robe, his armour, his sword and his bow. But King Saul became jealous of David's success and wanted to harm him. Jonathan found a way to warn David. He went out to the field and shot arrows, and the way he called to his boy told David whether it was safe to come back. When David had to leave, the two friends kissed one another and wept, and they promised to be faithful to each other.",
+    "10-12": "Jonathan is the king's son. By the rules of the time he would be the next king, and David stands in his way. Yet Jonathan chooses friendship over his own position, and he chooses David over his own father's anger. That is costly love. The promise they make is not just warm words. They look after each other's families. Later David keeps this promise and cares for Jonathan's son. Real friendship in the Bible is loyal, honest and brave. Jesus says, 'No one has greater love than this, to lay down his life for his friends.'"
+   },
+   "talk": [
+    "What did Jonathan give David?",
+    "How did Jonathan show David he was a true friend?",
+    "What makes a good friend?"
+   ],
+   "memory": "1 Samuel 18:1",
+   "prayer": "Lord, thank you for my friends. Help me to be a good friend. Amen.",
+   "hue": 210
+  },
+  {
+   "id": "david-spares-saul",
+   "title": "David Spares King Saul",
+   "testament": "OT",
+   "refs": [
+    "1 Samuel 24:1-22"
+   ],
+   "emoji": "✂️",
+   "text": {
+    "4-6": "King Saul chased David because he was jealous. One day Saul came into a cave where David and his men were hiding. David's men said, 'Now you can hurt him!' But David only cut off a corner of Saul's robe. Even that bothered David's heart. Then David called, 'Look, I could have hurt you, but I did not.' Saul cried and said, 'You are better than I am.'",
+    "7-9": "Saul was king, but God had chosen David to be king after him, and Saul hunted David in the wilderness. One day Saul went into a cave to rest, not knowing that David and his men were hiding in the back. David's men said, 'This is the day the Lord has given you!' David crept up and cut off a corner of Saul's robe. But even this made his conscience trouble him. He said, 'I will not harm the Lord's anointed.' When Saul left the cave, David called after him and held up the piece of cloth. He said, 'See, I could have harmed you, but I did not.' Saul wept and said, 'You are more righteous than I.'",
+    "10-12": "David has every excuse. Saul has tried to hurt him and his men tell him it is God's will. But David knows that he does not have to take God's plan into his own hands. He waits. He even feels bad for having cut the robe. Mercy and patience are strong here. The story also shows how wrongdoing often leaves a person ashamed once the truth is in front of them. Saul cries, because he sees himself clearly for a moment. Jesus teaches the same thing in the Sermon on the Mount: 'Love your enemies and pray for those who persecute you.'"
+   },
+   "talk": [
+    "Why did David not hurt Saul?",
+    "What did Saul say when David spoke to him?",
+    "How do you act when someone is unkind to you?"
+   ],
+   "memory": "1 Samuel 24:12",
+   "prayer": "Jesus, help me to be kind even when it is hard. Amen.",
+   "hue": 230,
+   "vocab": [
+    {
+     "word": "conscience",
+     "means": "the quiet voice inside that tells us right from wrong"
+    }
+   ]
+  },
+  {
+   "id": "mephibosheth",
+   "title": "David and Mephibosheth",
+   "testament": "OT",
+   "refs": [
+    "2 Samuel 9:1-13"
+   ],
+   "emoji": "🍽️",
+   "text": {
+    "4-6": "David was king. He asked, 'Is anyone left in Saul's family? I want to be kind to them for Jonathan's sake.' A man named Mephibosheth was found. He could not walk well. He was afraid when he came to the king. But David said, 'Do not be afraid. You will eat at my table every day.' And he did.",
+    "7-9": "After David became king, he remembered his promise to his friend Jonathan. He asked, 'Is there anyone left of the house of Saul, that I may show him kindness for Jonathan's sake?' A servant told him about Jonathan's son Mephibosheth, who was lame in both feet and lived far away. David sent for him. Mephibosheth came and bowed with his face on the ground, and he was afraid. David said, 'Do not be afraid. I will give you back all the land of your grandfather Saul, and you will always eat at my table.' So Mephibosheth lived in Jerusalem and ate at the king's table like one of the king's sons.",
+    "10-12": "In those days a new king often tried to wipe out the old king's family. David does the opposite. He goes looking for someone from the family of his enemy so that he can be kind. He does it because of a promise he made to Jonathan. The word used for his kindness is the same one used for God's own faithful love. Mephibosheth thinks of himself as a 'dead dog', but he ends up with a place at the king's table. Christians see in this a small picture of what God does for us, giving a place at his table to people who have done nothing to earn it."
+   },
+   "talk": [
+    "Why did David look for someone to be kind to?",
+    "How do you think Mephibosheth felt at the king's table?",
+    "Who could you invite to sit with you?"
+   ],
+   "memory": "2 Samuel 9:7",
+   "prayer": "Lord, thank you for giving everyone a place at your table. Amen.",
+   "hue": 150
+  },
+  {
+   "id": "temple-prayer",
+   "title": "Solomon Prays in the Temple",
+   "testament": "OT",
+   "refs": [
+    "1 Kings 8:22-30"
+   ],
+   "emoji": "🏛️",
+   "text": {
+    "4-6": "Solomon built a beautiful house for God in Jerusalem. On the great day, he stood in front of the people and lifted his hands. He prayed, 'Lord, the whole sky is too small to hold you. But please listen when we pray in this house.' The people knew that God was near them and heard them.",
+    "7-9": "King Solomon finished the Temple in Jerusalem, and the priests carried the ark of the covenant into it. Then Solomon stood before the altar with his hands spread out toward heaven. He thanked God for keeping his promises. He said, 'Will God really live on earth? The heavens, even the highest heaven, cannot hold you, so how can this house I have built?' Solomon asked God to hear the prayers of his people whenever they prayed toward the Temple. He asked God to listen from heaven and to forgive.",
+    "10-12": "The Temple was the most beautiful building the people had ever made, yet Solomon says it is too small for God. That is honest. He does not say that God lives in a box. He says that God has chosen to be near his people and to hear them. In this prayer, the Temple is a place where anyone can come, even a foreigner who has travelled far. Later, Christians would say that Jesus is the true Temple, and that the Church, with its people, is the house where God lives. Solomon's prayer is also a model for how to pray: thank God, say what you need, and ask him to listen."
+   },
+   "talk": [
+    "Why did Solomon say that the Temple was too small for God?",
+    "What did he ask God to do?",
+    "Where do you like to pray?"
+   ],
+   "memory": "1 Kings 8:27",
+   "prayer": "Lord, thank you that you listen when we pray. Amen.",
+   "hue": 55,
+   "vocab": [
+    {
+     "word": "Temple",
+     "means": "the holy house for God in Jerusalem"
+    }
+   ]
+  },
+  {
+   "id": "queen-sheba",
+   "title": "The Queen of Sheba",
+   "testament": "OT",
+   "refs": [
+    "1 Kings 10:1-13"
+   ],
+   "emoji": "👑",
+   "text": {
+    "4-6": "The Queen of Sheba heard how wise King Solomon was. She travelled a long way with camels and gifts. She asked him very hard questions, and he answered them all. She saw his house and his food and his servants. 'I did not believe it until I came,' she said. 'Not even half was told to me! Blessed be your God.'",
+    "7-9": "Far away in Sheba, a queen heard about the fame of Solomon and his wisdom. She came to Jerusalem with a great train of camels carrying spices, gold and jewels. She asked Solomon all that was on her mind, and he answered every question. Nothing was too hard for him to explain. When she saw his palace, his food, his servants, and the way he worshipped the Lord, it took her breath away. She said, 'The half was not told me. Your wisdom is greater than the report I heard.' She gave him gifts, and he gave her all that she asked for. Then she went home to her own land.",
+    "10-12": "The queen travelled for weeks to hear wisdom, and she did not leave disappointed. What impressed her most was not only the gold. It was Solomon's wisdom, and his God. Jesus later says that this queen 'came from the ends of the earth to hear the wisdom of Solomon, and see, something greater than Solomon is here.' She is an example of someone who looks for the truth with an open mind, and who is willing to change her mind when she sees it. She also shows that people from far away, from other nations, can recognise the work of the God of Israel."
+   },
+   "talk": [
+    "Why did the Queen of Sheba travel so far?",
+    "What surprised her?",
+    "What would you ask a very wise person?"
+   ],
+   "memory": "1 Kings 10:9",
+   "prayer": "Lord, give me a heart that wants to learn. Amen.",
+   "hue": 300,
+   "vocab": [
+    {
+     "word": "spices",
+     "means": "dried plants used for flavour or perfume"
+    }
+   ]
+  },
+  {
+   "id": "carmel",
+   "title": "Fire on Mount Carmel",
+   "testament": "OT",
+   "refs": [
+    "1 Kings 18:20-39"
+   ],
+   "emoji": "🔥",
+   "text": {
+    "4-6": "Many people in Israel had stopped worshipping God. They prayed to a false god called Baal. Elijah said to them, 'Choose! If the Lord is God, follow him.' Elijah built an altar and poured water over it, again and again. Then he prayed a short, simple prayer. Fire fell from heaven! The people fell on their faces and said, 'The Lord, he is God!'",
+    "7-9": "There had been no rain in Israel for years, and many of the people were praying to a false god named Baal. Elijah asked them to meet him on Mount Carmel. He said, 'How long will you waver between two opinions? If the Lord is God, follow him.' The prophets of Baal prayed from morning to noon and nothing happened. Then Elijah rebuilt the altar of the Lord with twelve stones, one for each tribe. He put the wood on it and poured water over everything three times, until it ran around the altar. Elijah prayed a simple prayer. Fire came down and burned up the offering, and the people fell down and said, 'The Lord, he is God!'",
+    "10-12": "Elijah stands alone against hundreds, and he does something odd. He makes the task harder by soaking everything with water, so that nobody can say it was a trick. The prayer he says is short and it does not shout. The prophets of Baal had spent hours on noise, but Elijah simply asks God to show that he is the true God. The question the story asks is still a good one: who do I trust? A false god is anything that takes the place of the Lord in our hearts. The story that follows in the Bible has rain returning to the dry land."
+   },
+   "talk": [
+    "What did Elijah ask the people to do?",
+    "Why did Elijah pour water on the altar?",
+    "What things can take God's place in our hearts?"
+   ],
+   "memory": "1 Kings 18:21",
+   "prayer": "Lord, you are the true God. Help me to follow you with all my heart. Amen.",
+   "hue": 15,
+   "vocab": [
+    {
+     "word": "altar",
+     "means": "a table or place where people offer gifts to God"
+    }
+   ]
+  },
+  {
+   "id": "elijah-chariot",
+   "title": "Elijah and the Whirlwind",
+   "testament": "OT",
+   "refs": [
+    "2 Kings 2:1-15"
+   ],
+   "emoji": "🌪️",
+   "text": {
+    "4-6": "Elijah's friend Elisha did not want to leave him. They walked together to the river Jordan. Elijah struck the water with his cloak and the river split in two. They walked across on dry ground. Then a chariot of fire came, and Elijah was taken up in a whirlwind. Elisha picked up Elijah's cloak. He struck the water and said, 'Where is the God of Elijah?' The river split for him too!",
+    "7-9": "The time had come for the Lord to take Elijah up to heaven. Elijah asked Elisha to stay behind, but Elisha said, 'As the Lord lives, I will not leave you.' They came to the Jordan, and Elijah rolled up his cloak and struck the water. It parted and the two crossed on dry ground. Elijah asked, 'What shall I do for you before I am taken?' Elisha said, 'Please give me a double share of your spirit.' Then a chariot and horses of fire came between them, and Elijah went up in a whirlwind. Elisha cried out, picked up the cloak that fell, and struck the river. It parted, and the prophets said, 'The spirit of Elijah rests on Elisha.'",
+    "10-12": "This is a story of friendship and of handing on a task. Elisha asks for a double share, which was what an oldest son received. He is asking to be Elijah's heir in the work of the prophet. The story is also about faith. Elisha does not have a magic cloak. He stands at the river and asks, 'Where is the Lord, the God of Elijah?' The answer shows that the Lord is still with the people, even though Elijah is gone. Years later the Gospels say that Elijah appeared with Jesus on the mountain. The Bible leaves the chariot of fire as a mystery."
+   },
+   "talk": [
+    "Why did Elisha stay with Elijah?",
+    "What did Elisha ask for?",
+    "Who has taught you something that you want to pass on?"
+   ],
+   "memory": "2 Kings 2:9",
+   "prayer": "Lord, thank you for the people who teach me about you. Amen.",
+   "hue": 260,
+   "vocab": [
+    {
+     "word": "cloak",
+     "means": "a loose coat worn over your clothes"
+    }
+   ]
+  },
+  {
+   "id": "widows-oil",
+   "title": "The Widow's Jars of Oil",
+   "testament": "OT",
+   "refs": [
+    "2 Kings 4:1-7"
+   ],
+   "emoji": "🏺",
+   "text": {
+    "4-6": "A poor woman told Elisha, 'My husband has died. I owe money, and I have only one small jar of oil.' Elisha said, 'Ask all your neighbours for empty jars. Then pour your oil into them.' She began to pour. The little jar kept pouring and pouring until every jar was full! She sold the oil and paid what she owed. There was enough for her family to live on.",
+    "7-9": "A woman whose husband had died came to Elisha in great trouble. She owed money, and the man she owed was going to take her two sons to work for him. Elisha asked what she had in her house. 'Nothing,' she said, 'but a small jar of oil.' He told her to borrow empty jars from all her neighbours, not just a few. Then she was to go inside, shut the door, and pour. She poured, and the oil kept coming until every jar was full. 'Bring me another jar,' she said to her son. 'There are no more,' he answered, and the oil stopped. Elisha told her to sell the oil and pay her debt.",
+    "10-12": "God does not work by giving the woman a bag of gold. He takes what she has, one small jar, and he makes it more. She has to do her part. She asks the neighbours and gathers the jars, and she pours. The oil stops only when she runs out of jars, so it stops because of her faith. It reminds us of the way Jesus later fed the five thousand with a few loaves and fish. In both stories, God uses what people have in their hands. A small amount offered in trust can become enough."
+   },
+   "talk": [
+    "What did the woman have at the start?",
+    "What did she have to do?",
+    "What small thing could you offer to God?"
+   ],
+   "memory": "2 Kings 4:2",
+   "prayer": "Lord, take what I have and use it. Amen.",
+   "hue": 40
+  },
+  {
+   "id": "shunammite",
+   "title": "The Woman Who Made a Little Room",
+   "testament": "OT",
+   "refs": [
+    "2 Kings 4:8-37"
+   ],
+   "emoji": "🛏️",
+   "text": {
+    "4-6": "A kind woman in Shunem saw Elisha pass by often. She said to her husband, 'Let us make a small room for him on the roof.' They put in a bed, a table, a chair and a lamp. Elisha was grateful. Later, God gave her a baby son. When the boy was older, he became ill and he died. She hurried to Elisha. He prayed, and the boy sneezed seven times and opened his eyes. His mother picked him up and thanked God.",
+    "7-9": "In the town of Shunem there lived a woman who kept offering Elisha a meal when he passed through. She and her husband built a little room on the roof with a bed, table, chair and lamp. Elisha wanted to thank her. He told her that she would have a son in a year's time, and so she did. When the boy was older, he went out to his father in the field and said, 'My head! My head!' He was carried home and died on his mother's lap. She laid him on Elisha's bed and set out at once to find the prophet. Elisha came, prayed to the Lord, and lay over the child. The child's body grew warm, he sneezed seven times, and he opened his eyes.",
+    "10-12": "The woman is called great and she is also kind. She notices that a stranger needs a place to rest, and she does something about it. Her gift comes back to her, but not as a payment. The story is told with great tenderness. The woman does not give up when her son dies. She says only, 'It is well,' and she goes straight to the man of God. Her hope is not in a plan of her own. It is in God. The story in the Gospel about Jesus raising the widow's son at Nain has the same shape, and the Church has long seen this one as a first picture of resurrection."
+   },
+   "talk": [
+    "What did the woman and her husband build?",
+    "What did she do when her son became ill?",
+    "How can you make a space for others in your home or heart?"
+   ],
+   "memory": "2 Kings 4:9-10",
+   "prayer": "Lord, help me to welcome others with kindness. Amen.",
+   "hue": 330
+  },
+  {
+   "id": "isaiah-call",
+   "title": "Isaiah Hears God Call",
+   "testament": "OT",
+   "refs": [
+    "Isaiah 6:1-8"
+   ],
+   "emoji": "🪽",
+   "text": {
+    "4-6": "Isaiah saw the Lord sitting on a high throne in the Temple. Angels with six wings called, 'Holy, holy, holy is the Lord!' The whole place shook and filled with smoke. Isaiah was afraid and said, 'I am not good enough!' An angel touched his lips with a glowing coal. 'You are forgiven,' he said. Then God asked, 'Who will go for us?' Isaiah said, 'Here I am. Send me!'",
+    "7-9": "In the year King Uzziah died, Isaiah saw a vision of the Lord sitting on a throne, and the hem of his robe filled the Temple. Angels called seraphim stood around him, each with six wings. They covered their faces and their feet, and called to one another, 'Holy, holy, holy is the Lord of hosts. The whole earth is full of his glory.' The doorposts shook and the house filled with smoke. Isaiah cried, 'Woe is me! I am a man of unclean lips.' One of the seraphim touched his mouth with a coal from the altar and said, 'Your sin is forgiven.' Then Isaiah heard the Lord say, 'Whom shall I send?' and he answered, 'Here am I. Send me.'",
+    "10-12": "Isaiah's first reaction to God is not 'How wonderful!' but 'I am not fit to be here.' When we see how great and good God is, we see our own smallness. But God does not leave Isaiah in fear. He takes away his guilt, and the coal is a sign of that forgiveness. Only then does God ask for a messenger, and Isaiah, now free, says yes. The words 'Holy, holy, holy' are sung at every Mass just before the Eucharistic Prayer. The story shows the order of things in the Christian life: God meets us, forgives us, and then sends us."
+   },
+   "talk": [
+    "What did Isaiah see?",
+    "Why was Isaiah afraid?",
+    "What do you think God might ask you to do?"
+   ],
+   "memory": "Isaiah 6:8",
+   "prayer": "Lord, here I am. Send me. Amen.",
+   "hue": 270,
+   "vocab": [
+    {
+     "word": "seraphim",
+     "means": "angels who stand near God and praise him"
+    }
+   ]
+  },
+  {
+   "id": "peaceable-kingdom",
+   "title": "The Peaceful Mountain",
+   "testament": "OT",
+   "refs": [
+    "Isaiah 11:1-9"
+   ],
+   "emoji": "🐑",
+   "text": {
+    "4-6": "The prophet Isaiah said that one day God would send a new king. He will be fair and kind to everyone. And there will be so much peace that the wolf will live with the lamb. The leopard will lie down with the young goat. The lion and the calf will be together, and a little child will lead them. Nobody will hurt or destroy on God's holy mountain.",
+    "7-9": "Isaiah looked ahead to a time when God would send a king from the family of Jesse, David's father. A shoot would grow from a stump. The Spirit of the Lord would rest on this king, a spirit of wisdom and strength, of knowing the Lord and fearing him. He would judge the poor fairly, and he would stand up for those who had no one else. And creation itself would be at peace. The wolf would live with the lamb, the leopard would lie down with the goat, and the calf and the lion would be together. A little child would lead them. They would not hurt or destroy on God's holy mountain, for the earth would be full of the knowledge of the Lord.",
+    "10-12": "Isaiah wrote this when his people were in danger and the royal family looked like a tree cut down to a stump. He promises that a new shoot will grow from the old root. Christians believe that Jesus is that shoot, the child of David's family, and that the Spirit rests on him. The picture of animals living in peace is poetry, but it is serious poetry. It says that God's plan is not only to save people one by one. It is to heal everything that has been hurt, and to make a world where nothing is afraid. The Church prays for that every Advent."
+   },
+   "talk": [
+    "Who will lead the animals?",
+    "What does this picture tell us about God's plan?",
+    "What can you do to make peace?"
+   ],
+   "memory": "Isaiah 11:9",
+   "prayer": "Lord Jesus, bring your peace to my home and to the whole world. Amen.",
+   "hue": 120,
+   "vocab": [
+    {
+     "word": "shoot",
+     "means": "a new young branch growing from a tree"
+    }
+   ]
+  },
+  {
+   "id": "potter",
+   "title": "The Potter and the Clay",
+   "testament": "OT",
+   "refs": [
+    "Jeremiah 18:1-6"
+   ],
+   "emoji": "🏺",
+   "text": {
+    "4-6": "God told Jeremiah to visit a potter's house. The potter was making a pot from clay on his wheel. The pot went wrong, so the potter did not throw the clay away. He squashed it and made it into a new pot, one that looked good to him. God said, 'You are like the clay in the potter's hand.'",
+    "7-9": "The Lord told the prophet Jeremiah to go down to the potter's house, and there he would hear God's words. Jeremiah watched the potter working at the wheel. A pot he was shaping was spoiled in his hands. The potter did not give up. He took the same clay and made it into another pot, as it seemed good to him. Then the word of the Lord came to Jeremiah: 'Can I not do with you, house of Israel, as this potter does? Like clay in the potter's hand, so are you in my hand.'",
+    "10-12": "The picture is simple, and a child can understand it. God is the potter, and we are the clay. The hard part is that the clay does not look finished. The pot is spoiled, and the potter begins again. God does not throw away a person who has made mistakes. That is good news for anyone who has done something wrong. But a good potter is also firm, and the clay has to stay soft enough to be shaped. The story does not say that God is angry with the clay. It says that God is working on it. Many people have used these words as a prayer: 'Shape me, Lord.'"
+   },
+   "talk": [
+    "What did the potter do when the pot was spoiled?",
+    "What does this show us about God?",
+    "What would you like God to make better in you?"
+   ],
+   "memory": "Isaiah 64:8",
+   "prayer": "Lord, you are the potter and I am the clay. Make me new. Amen.",
+   "hue": 25,
+   "vocab": [
+    {
+     "word": "potter",
+     "means": "a person who makes pots from clay"
+    }
+   ]
+  },
+  {
+   "id": "dry-bones",
+   "title": "The Valley of Dry Bones",
+   "testament": "OT",
+   "refs": [
+    "Ezekiel 37:1-14"
+   ],
+   "emoji": "🦴",
+   "text": {
+    "4-6": "The prophet Ezekiel saw a valley full of dry bones. God asked, 'Can these bones live?' Ezekiel said, 'Lord, only you know.' God told him to speak to the bones. As he spoke, the bones came together, and then flesh covered them. Then God's breath came into them, and they stood up! God said, 'I will put my Spirit in you, and you will live.'",
+    "7-9": "God's people had lost their land and many felt that all hope was gone. The Lord set the prophet Ezekiel in a valley, and it was full of very dry bones. 'Son of man,' he asked, 'can these bones live?' Ezekiel answered, 'Lord God, you know.' God told him to speak to the bones, and as he did there was a rattling sound. The bones came together, bone to bone. Sinews and flesh grew on them, and skin covered them, but there was no breath. Then God told Ezekiel to call for the breath. It came, and they stood up, a great army. God said, 'I will put my Spirit within you, and you shall live.'",
+    "10-12": "This is a vision for people who felt as dry as bones. Their city was gone and they said, 'Our hope is lost.' The word 'breath' and the word 'spirit' are the same in Hebrew, so the story is about God giving new life and his own Spirit. Christians hear in this story a promise for the resurrection of the body, and the story is read at the Easter Vigil. It is also a promise for anyone whose heart feels empty. Ezekiel does not make the bones live. He speaks what God tells him, and God does the rest."
+   },
+   "talk": [
+    "What did Ezekiel see in the valley?",
+    "What brought the bones to life?",
+    "When do you feel as if there is no hope? What helps?"
+   ],
+   "memory": "Ezekiel 37:14",
+   "prayer": "Holy Spirit, fill me with your life. Amen.",
+   "hue": 350,
+   "vocab": [
+    {
+     "word": "sinews",
+     "means": "the strong cords that join muscle to bone"
+    }
+   ]
+  },
+  {
+   "id": "furnace",
+   "title": "The Fiery Furnace",
+   "testament": "OT",
+   "refs": [
+    "Daniel 3:19-23",
+    "Daniel 3:91-97"
+   ],
+   "emoji": "🔥",
+   "text": {
+    "4-6": "King Nebuchadnezzar made a huge golden statue. He told everyone to bow to it. Three friends, Shadrach, Meshach and Abednego, would not. 'We will worship only God,' they said. The angry king had them thrown into a hot furnace. But the king looked and saw four men walking in the fire, and they were not hurt! He called out, 'Come out!' The fire had not even burned their hair.",
+    "7-9": "King Nebuchadnezzar set up a golden statue and ordered everyone to bow down when the music played. Three young men, Shadrach, Meshach and Abednego, would not worship anything but the Lord. The king was furious and told his soldiers to heat the furnace seven times hotter. The three friends were bound and thrown into the fire. Then the king jumped up in surprise. 'Did we not throw three men into the fire? I see four men walking about unharmed, and the fourth looks like a son of the gods!' He called them out. Their hair was not singed, and there was not even a smell of smoke on them. The king said, 'Blessed be the God of Shadrach, Meshach and Abednego.'",
+    "10-12": "The three friends give their answer before the fire: God can rescue them, but even if he does not, they will not worship the statue. This is courage without a guarantee. In the Catholic Bible, this chapter also has a long prayer from inside the furnace, and a song in which the three call on all creation to praise the Lord. Part of that song is still prayed in the Church's Morning Prayer. The story says that God is with his people in the fire, not only after it. Christians have seen the fourth figure as an angel, and also as a sign of Christ, who walks with us in every trouble."
+   },
+   "talk": [
+    "Why would the three friends not bow to the statue?",
+    "Who walked with them in the fire?",
+    "What does it mean to stand up for what you believe?"
+   ],
+   "memory": "Daniel 3:95",
+   "prayer": "Lord, be with me when I am afraid. Help me to be brave. Amen.",
+   "hue": 20,
+   "vocab": [
+    {
+     "word": "furnace",
+     "means": "a very hot oven used to melt metal"
+    }
+   ]
+  },
+  {
+   "id": "susanna",
+   "title": "Susanna and Daniel the Wise Boy",
+   "testament": "OT",
+   "refs": [
+    "Daniel 13:1-64"
+   ],
+   "emoji": "🌷",
+   "text": {
+    "4-6": "Susanna loved God and lived in Babylon. Two bad judges wanted her to do wrong. She said no. So they told lies about her, and she was brought before the people. Susanna prayed. God heard her. A young man named Daniel spoke up: 'Do not decide until you have asked the right questions.' He asked each judge the same question. Their answers did not match. Everyone saw that they had lied, and Susanna was safe.",
+    "7-9": "Susanna was a beautiful woman who feared the Lord, and she lived with her husband Joakim in Babylon. Two elders, who were also judges, watched her in her garden and wanted her to do wrong. She refused, even though she knew they might tell lies about her. They did. She was brought to the court, and people believed the two elders, because they were important men. Susanna cried out to God: 'You know that they have borne false witness against me.' As she was led away, God stirred up a young man named Daniel, who stood up and said, 'I am innocent of this woman's blood. Are you such fools to condemn her without finding out the truth?' He questioned the judges separately. Their stories did not agree, and Susanna was cleared.",
+    "10-12": "This story is found in the Catholic Old Testament, in Daniel chapter 13. Susanna chooses to do right even though she may lose her life. She says it is better to fall into the hands of men than to sin before the Lord. Daniel is only a youth, but he knows that a fair judgement needs honest questions. The two elders had the power to lie, and the story warns that powerful people can use their power to do harm. It also promises that God hears people who are falsely accused."
+   },
+   "talk": [
+    "Why did Susanna say no to the two judges?",
+    "How did Daniel find out the truth?",
+    "Why is it important to ask questions before deciding?"
+   ],
+   "memory": "Daniel 13:60",
+   "prayer": "God, you know the truth. Help me to always tell it, and to stand up for others. Amen.",
+   "hue": 320,
+   "vocab": [
+    {
+     "word": "elders",
+     "means": "older leaders who helped decide things in the town"
+    }
+   ]
+  },
+  {
+   "id": "bel",
+   "title": "Daniel and the Footprints",
+   "testament": "OT",
+   "refs": [
+    "Daniel 14:1-22"
+   ],
+   "emoji": "👣",
+   "text": {
+    "4-6": "Babylon had a big statue called Bel. The people left food in front of it each night. In the morning, the food was gone. The king thought Bel ate it. Daniel laughed and said, 'It is only clay and brass.' That night Daniel quietly sprinkled ashes on the floor. In the morning, there were footprints everywhere. They were the footprints of the priests' families, who crept in and ate the food. The king learned the truth.",
+    "7-9": "The people of Babylon honoured an idol called Bel, and each day plenty of flour, sheep and wine was set out for it. The king believed that Bel ate it all. But Daniel worshipped only the living God. He told the king, 'This idol is only clay on the inside and brass on the outside. It has never eaten or drunk anything.' The king angrily asked the priests of Bel to prove it. The food was set out, the room was locked, and the king put his seal on the door. But Daniel had scattered ashes on the floor while no one but the king was watching. In the morning the seal was whole, but the ashes were marked with footprints of men, women and children. The priests had a secret door beneath the table.",
+    "10-12": "This is a detective story, and Daniel is the detective. He does not shout at the king or break the idol at once. He sets up a fair test. He shows the truth with ashes and footprints. The point is that God is alive and idols are not. An idol is anything made to look powerful that has no real life. The story is found only in the Catholic Old Testament, as the first part of Daniel 14. The Bible does go on to tell what happened to the priests, but the lesson that matters most for us is Daniel's patient honesty, and his willingness to show the king the truth."
+   },
+   "talk": [
+    "How did Daniel find out the truth?",
+    "Why can an idol not eat?",
+    "What does it mean to look at the facts before deciding?"
+   ],
+   "memory": "Daniel 14:5",
+   "prayer": "Lord, help me to look for the truth. Amen.",
+   "hue": 75,
+   "vocab": [
+    {
+     "word": "idol",
+     "means": "a statue that people treat as a god"
+    }
+   ]
+  },
+  {
+   "id": "dragon-den",
+   "title": "Daniel and Habakkuk's Dinner",
+   "testament": "OT",
+   "refs": [
+    "Daniel 14:23-42"
+   ],
+   "emoji": "🍲",
+   "text": {
+    "4-6": "Daniel stood up for God again. Some angry men made the king put Daniel into a pit with seven lions. Far away, the prophet Habakkuk was carrying a bowl of stew to the field workers. An angel of the Lord said, 'Take your dinner to Daniel in the lions' den!' Habakkuk said, 'I do not know where it is.' The angel lifted him up and set him down by the den. Daniel ate. The lions did not hurt him. After seven days the king found Daniel sitting safe and well.",
+    "7-9": "Daniel refused to worship a great dragon the people of Babylon honoured. An angry crowd demanded that the king give Daniel to them. They threw him into a den with seven lions, and he stayed there six days. In Judea, the prophet Habakkuk had just made a stew and broken bread into a bowl to take to the reapers in the field. An angel of the Lord told him to take it to Daniel in Babylon. Habakkuk said, 'Lord, I have never seen Babylon, and I do not know the den.' The angel lifted him up and set him down right at the den. Habakkuk called, 'Daniel, take the dinner God has sent you!' Daniel said, 'You have remembered me, O God!' On the seventh day the king looked in the den, and saw Daniel sitting there.",
+    "10-12": "The Catholic Bible has a second story of Daniel in the lions' den, which is different from the one in chapter 6. This one adds a funny and touching detail: God sends dinner. Daniel's words, 'You have remembered me, O God, and you have not forsaken those who love you', are for anyone who feels forgotten. The angel takes Habakkuk, who is just carrying lunch, and uses him as a messenger. God often calls ordinary people to do small errands that matter very much. The king says, 'Great are you, O Lord, the God of Daniel.'"
+   },
+   "talk": [
+    "What did Habakkuk bring to Daniel?",
+    "How did Daniel feel when the dinner arrived?",
+    "Who could you take a meal to, or share something with?"
+   ],
+   "memory": "Daniel 14:38",
+   "prayer": "Lord, thank you for remembering me. Help me to remember others. Amen.",
+   "hue": 165,
+   "vocab": [
+    {
+     "word": "den",
+     "means": "a cave or pit where wild animals live"
+    }
+   ]
+  },
+  {
+   "id": "tobit-kind",
+   "title": "Tobit and the Sparrows",
+   "testament": "OT",
+   "refs": [
+    "Tobit 1:16-17",
+    "Tobit 2:1-10"
+   ],
+   "emoji": "🐦",
+   "text": {
+    "4-6": "Tobit was a kind man who lived far from home. He gave bread to the hungry and clothes to those without any. One day there was a feast, and Tobit said to his son, 'Go and find a poor person to eat with us.' Tobit helped people even when it was hard. One night he slept outside by a wall. Some sparrows were nesting there, and their droppings fell in his eyes. After that he could not see. But Tobit kept trusting God.",
+    "7-9": "Tobit lived in the city of Nineveh, far from his homeland. He kept God's law with care, and he did many acts of kindness: he gave his bread to the hungry and his clothes to those who had none. At the feast of Pentecost, he sat down to a good dinner and told his son Tobias to go and find a poor person from their people to share it. When Tobias came back with news of a man in need, Tobit left his dinner to help him. Later, after a long day, he slept by the wall of his courtyard. Warm droppings from sparrows nesting in the wall fell into his eyes, and white films covered them. The doctors could not cure him, and he became blind.",
+    "10-12": "The book of Tobit is a short and gentle story. It begins with a good man who suffers. Tobit does not complain that he has been unfairly treated, though his neighbours make fun of him. What makes him special is that he does the good that is in front of him. He shares a meal, he looks after people who have died and have no one to bury them, and he does not stop when it gets hard. This is called the 'works of mercy'. The book goes on to show an angel helping him, in the story of Tobit and Tobias. Tobit's trust is a real encouragement for people who are ill or old."
+   },
+   "talk": [
+    "What good things did Tobit do?",
+    "How did Tobit become blind?",
+    "How can you be kind when something goes wrong for you?"
+   ],
+   "memory": "Tobit 4:7",
+   "prayer": "Lord, help me to be kind to the poor, even when I am tired. Amen.",
+   "hue": 190,
+   "vocab": [
+    {
+     "word": "alms",
+     "means": "gifts of money or food for people in need"
+    }
+   ]
+  },
+  {
+   "id": "judith",
+   "title": "Judith Trusts in God",
+   "testament": "OT",
+   "refs": [
+    "Judith 8:9-17",
+    "Judith 9:1-14",
+    "Judith 13:6-20"
+   ],
+   "emoji": "🕯️",
+   "text": {
+    "4-6": "An enemy army surrounded the town of Bethulia and cut off the water. The people were so thirsty that they wanted to give up. Judith was a widow who loved God. She said, 'Do not give up! We must trust God.' She prayed for a long time. Then, with her maid, she went out to the enemy camp. God helped Judith to be wise and brave. The enemy army ran away, and the town was saved.",
+    "7-9": "The big army of Assyria sat around the town of Bethulia for over a month and held the springs. The people ran out of water. Their leaders promised to hand over the town in five days if God did not help them. Judith, a widow who was respected for her wisdom, told them, 'You must not test God. Let us wait for his help and trust him.' She put ashes on her head and prayed for a long time, asking God to give her courage. Then she dressed in her best clothes and went with her maid to the enemy camp. The general Holofernes was killed in the night. In the morning the enemy found their general dead and ran away.",
+    "10-12": "The book of Judith is in the Catholic Old Testament. It is a hard story, and the way it ends is violent. Judith kills the enemy general as he lies drunk. A grown-up may want to talk this over with you. What the book wants us to see is Judith's faith. She prays first, she tells the leaders that God cannot be put on a timetable, and she puts herself in danger for the sake of her people. The book gives the glory to God, and says that the Lord used the hand of a woman. Her story is read in the Church, and some of the words said about her are also used to honour Mary."
+   },
+   "talk": [
+    "What did Judith tell the leaders of Bethulia?",
+    "Why did she pray before she acted?",
+    "When have you needed to be brave?"
+   ],
+   "memory": "Judith 8:17",
+   "prayer": "God, make me brave and wise. Thank you for the people who stand up for others. Amen.",
+   "hue": 340,
+   "vocab": [
+    {
+     "word": "widow",
+     "means": "a woman whose husband has died"
+    }
+   ]
+  },
+  {
+   "id": "maccabee-temple",
+   "title": "Judas Maccabeus Cleans the Temple",
+   "testament": "OT",
+   "refs": [
+    "1 Maccabees 4:36-59"
+   ],
+   "emoji": "🕎",
+   "text": {
+    "4-6": "Enemies had taken over the Temple in Jerusalem. They made it dirty, and the lamps were out. A brave man named Judas Maccabeus and his brothers won it back. They cleaned the Temple. They built a new altar, made new vessels, and lit the lamps again. For eight days the people sang and celebrated. They kept this feast every year after that.",
+    "7-9": "Years after the Greek king had taken the Temple, Judas Maccabeus and his brothers defeated his army. When they came up to Jerusalem, they found the sanctuary empty. The altar was ruined, the gates were burned, and weeds grew in the courtyards. They tore their clothes and cried out to heaven. Judas chose priests to clean the Temple. They built a new altar of whole stones, made new vessels, brought in the lampstand and the table, and lit the lamps. On the twenty-fifth day of the month they offered a sacrifice with songs, harps and cymbals. The dedication was celebrated for eight days, and the people agreed to keep the feast each year.",
+    "10-12": "This story is in the first book of Maccabees, and it is the beginning of the Jewish festival of Hanukkah, the 'dedication'. In the Gospel of John, Jesus goes to the Temple at 'the feast of the Dedication'. The Maccabee brothers are praised in the Bible for standing up for their faith when they could easily have given in. The book is honest that the work was done at a heavy cost. What is celebrated at the end is not a battle but a clean house for God and a lit lamp. Even after difficult times, people can begin again by cleaning, repairing and praying."
+   },
+   "talk": [
+    "What did Judas do when he got to the Temple?",
+    "Why did the people celebrate for eight days?",
+    "What does it mean to make a home for God?"
+   ],
+   "memory": "1 Maccabees 4:56",
+   "prayer": "Lord, make my heart a clean place for you. Amen.",
+   "hue": 48,
+   "vocab": [
+    {
+     "word": "dedication",
+     "means": "giving a place or thing to God for his use"
+    }
+   ]
+  },
+  {
+   "id": "nehemiah-wall",
+   "title": "Nehemiah Builds the Wall",
+   "testament": "OT",
+   "refs": [
+    "Nehemiah 2:11-20",
+    "Nehemiah 4:6"
+   ],
+   "emoji": "🧱",
+   "text": {
+    "4-6": "Nehemiah heard that the walls of Jerusalem were broken down. He prayed and asked the king to let him go home to help. When he got to Jerusalem, he looked at the walls at night. Then he said to the people, 'Let us rebuild the wall!' Everyone said, 'Yes! Let us start!' Families worked side by side, each one on a part near their own house. The people worked with all their hearts.",
+    "7-9": "Nehemiah served the king of Persia far from home, but he cried when he heard that the walls of Jerusalem lay in ruins. He prayed, and then he asked the king for leave to go and rebuild. The king agreed. When he came to the city, Nehemiah rode around the walls by night to see how bad the damage was. Then he told the people, 'You see the trouble we are in. Come, let us rebuild the wall of Jerusalem.' They answered, 'Let us rise up and build.' Some people laughed at them. Nehemiah said, 'The God of heaven will give us success.' The wall rose until it was half its height all around, for the people had a mind to work.",
+    "10-12": "A broken wall was a sign that the city was open to every danger. Nehemiah's first move is to pray. His second is to look closely at the problem at night, without any fuss. His third is to share the work. Each family builds the part of the wall nearest to their own house, so that everyone has a share. Some mocked them, but Nehemiah stays calm. The story is a picture of how a community can rebuild itself, and Christians see in the Church a similar work of building and mending that never ends. 'The people had a mind to work' is a good motto for any shared job."
+   },
+   "talk": [
+    "What did Nehemiah do before he started?",
+    "Why was it good that each family built near its own house?",
+    "What job could your family do together?"
+   ],
+   "memory": "Nehemiah 4:6",
+   "prayer": "Lord, help me to do my part in the work that needs doing. Amen.",
+   "hue": 30,
+   "vocab": [
+    {
+     "word": "ruins",
+     "means": "the broken remains of a building"
+    }
+   ]
+  },
+  {
+   "id": "psalm8",
+   "title": "When I Look at the Sky",
+   "testament": "OT",
+   "refs": [
+    "Psalm 8:1-9"
+   ],
+   "emoji": "🌙",
+   "text": {
+    "4-6": "A psalm is a song. This psalm says, 'Lord, how wonderful is your name in all the earth! When I look at the sky, and see the moon and the stars you made, I wonder: who am I that you think about me? Yet you have made us special. You gave us the care of the animals and the birds and the fish. Lord, how wonderful is your name!'",
+    "7-9": "Psalm 8 is a song of praise that might have been sung at night. The singer looks up at the moon and the stars and feels how small a person is. 'What is man, that you think about him?' he asks. 'What is the son of man, that you care for him?' And yet God has made human beings only a little lower than the angels, and has crowned them with glory and honour. People are given the care of sheep and cattle, of birds and fish. The psalm begins and ends with the same words: 'Lord, our Lord, how majestic is your name in all the earth!'",
+    "10-12": "The psalm asks a question that people ask every time they look at the night sky: how can I matter in so large a world? The answer is not that we are great by ourselves. It is that God has chosen to care for us and to trust us with his creation. This is where Christian care for the earth comes from. Jesus quoted the psalm when children sang praise to him in the Temple. The letter to the Hebrews takes it as a sign of Jesus, who became a little lower than the angels so that he could save us. It is a good psalm to say outside under the stars."
+   },
+   "talk": [
+    "What does the singer feel when he looks at the stars?",
+    "What has God trusted us to look after?",
+    "What do you like to see in the sky?"
+   ],
+   "memory": "Psalm 8:1",
+   "prayer": "Lord, our Lord, how wonderful is your name! Amen.",
+   "hue": 235,
+   "vocab": [
+    {
+     "word": "psalm",
+     "means": "a song or prayer from the book of Psalms"
+    }
+   ]
+  },
+  {
+   "id": "zechariah-john",
+   "title": "A Baby Named John",
+   "testament": "NT",
+   "refs": [
+    "Luke 1:5-25",
+    "Luke 1:57-66"
+   ],
+   "emoji": "📝",
+   "text": {
+    "4-6": "Zechariah and Elizabeth were old and had no children. An angel told Zechariah, 'You will have a son, and you must call him John.' Zechariah could not believe it, so he could not speak. Months later the baby was born. Everyone said, 'Name him after his father.' Zechariah wrote, 'His name is John.' At once he could speak again, and he praised God.",
+    "7-9": "Zechariah was a priest, and he and Elizabeth had prayed for a child for years. While he was serving in the Temple, the angel Gabriel appeared and said, 'Your prayer is heard. Elizabeth will have a son, and you must name him John.' Zechariah said, 'How can I know this? We are old.' Because he did not believe, the angel said he would be silent until the baby was born. When John was eight days old, the neighbours wanted to name him Zechariah. Elizabeth said, 'No, he shall be called John.' Zechariah asked for a tablet and wrote, 'His name is John.' Immediately his mouth was opened and he began to praise God.",
+    "10-12": "Zechariah is a good man, and he still has trouble believing a great promise. The angel's answer is gentle but clear. His silence is not just a punishment. It gives him nine months to think. When the baby is named, he does not argue. The name John means 'God is gracious', and that is the message of the whole story. John will grow up to prepare people for Jesus. Zechariah's first words are a song of praise, which the Church sings every morning at Morning Prayer. God keeps his promises, even when people have given up hoping."
+   },
+   "talk": [
+    "Why could Zechariah not speak?",
+    "What did he write on the tablet?",
+    "What have you waited a long time for?"
+   ],
+   "memory": "Luke 1:13",
+   "prayer": "God, you keep your promises. Help me to wait with hope. Amen.",
+   "hue": 50,
+   "vocab": [
+    {
+     "word": "priest",
+     "means": "a person who serves God in the Temple"
+    }
+   ]
+  },
+  {
+   "id": "joseph-dream",
+   "title": "Joseph's Dream",
+   "testament": "NT",
+   "refs": [
+    "Matthew 1:18-25"
+   ],
+   "emoji": "💭",
+   "text": {
+    "4-6": "Mary was going to have a baby, and Joseph was worried. He did not want to hurt Mary. Then in a dream an angel said, 'Joseph, do not be afraid to take Mary as your wife. Her child is from the Holy Spirit. Name him Jesus. He will save his people.' Joseph woke up and did what the angel said. He took Mary home as his wife.",
+    "7-9": "Joseph was engaged to Mary, and he found out that she was going to have a baby. He was a good man, and he did not want to shame her. He was thinking about how to quietly end the engagement. But an angel of the Lord came to him in a dream and said, 'Joseph, son of David, do not be afraid to take Mary as your wife. The child in her is from the Holy Spirit. She will have a son, and you will name him Jesus, because he will save his people from their sins.' When Joseph woke up, he did as the angel had told him. He took Mary home as his wife.",
+    "10-12": "Joseph never says a word in the Gospels. What we know about him is what he does. He is told to do a hard thing, and he obeys, trusting God more than his own plan. By naming the child, he becomes his legal father and brings Jesus into the family of David, as the prophets had said. The name 'Jesus' means 'the Lord saves'. Another name given is 'Emmanuel', 'God with us'. The Church honours Joseph as a model of quiet strength, and he is the patron of fathers, workers and the whole Church."
+   },
+   "talk": [
+    "What was Joseph worried about?",
+    "What did the angel tell him?",
+    "How can you trust God when something is hard to understand?"
+   ],
+   "memory": "Matthew 1:21",
+   "prayer": "Saint Joseph, pray for us. Help us to listen to God and to do what is right. Amen.",
+   "hue": 230,
+   "vocab": [
+    {
+     "word": "engaged",
+     "means": "promised to marry someone"
+    }
+   ]
+  },
+  {
+   "id": "simeon-anna",
+   "title": "Simeon and Anna in the Temple",
+   "testament": "NT",
+   "refs": [
+    "Luke 2:22-38"
+   ],
+   "emoji": "🕊️",
+   "text": {
+    "4-6": "Mary and Joseph brought baby Jesus to the Temple. An old man named Simeon was there. God had promised he would see the Saviour before he died. Simeon took the baby in his arms and said, 'Now I have seen him!' An old woman named Anna was there, too. She prayed day and night in the Temple. She thanked God and told everyone about the child.",
+    "7-9": "Forty days after Jesus was born, Mary and Joseph brought him to the Temple in Jerusalem, as the law said. They also brought two young pigeons as an offering. A man called Simeon was waiting there. The Holy Spirit had told him that he would not die before he saw the Lord's Messiah. He took Jesus in his arms and praised God: 'Now you may let your servant go in peace, for my eyes have seen your salvation.' There was also an old prophetess named Anna, who never left the Temple but worshipped night and day with fasting and prayer. She came up at that moment, gave thanks to God, and told everyone who was waiting for the rescue of Jerusalem about the child.",
+    "10-12": "Simeon and Anna have waited all their lives, and they recognise Jesus when he is a baby, carried by poor parents who bring the offering of the poor. Simeon calls Jesus 'a light for revelation to the Gentiles and the glory of your people Israel'. His words are said by the Church at Night Prayer every evening. Simeon also tells Mary that a sword will pierce her own soul, which means that she will suffer too. Anna becomes one of the first people to spread the good news. The Church remembers this feast on 2 February, Candlemas, with candles."
+   },
+   "talk": [
+    "Who did Simeon and Anna meet?",
+    "How long do you think they had waited?",
+    "What do you wait for, and how do you wait?"
+   ],
+   "memory": "Luke 2:30-31",
+   "prayer": "Lord, may I see you in the people I meet. Amen.",
+   "hue": 55,
+   "vocab": [
+    {
+     "word": "Gentiles",
+     "means": "people who are not Jewish"
+    }
+   ]
+  },
+  {
+   "id": "flight-egypt",
+   "title": "The Journey to Egypt",
+   "testament": "NT",
+   "refs": [
+    "Matthew 2:13-23"
+   ],
+   "emoji": "🌙",
+   "text": {
+    "4-6": "After the wise men left, an angel spoke to Joseph in a dream. 'Get up! Take the child and his mother and go to Egypt. King Herod wants to hurt the child.' Joseph got up in the night. He took Mary and Jesus, and they went away to Egypt. They stayed there until it was safe. Then they went home, to a town called Nazareth.",
+    "7-9": "After the wise men had gone home, an angel of the Lord appeared to Joseph in a dream. 'Get up, take the child and his mother, and flee to Egypt. Stay there until I tell you, for Herod is going to search for the child to destroy him.' Joseph got up that night and took Mary and Jesus to Egypt, and they stayed until Herod died. Then the angel told Joseph in a dream that those who sought the child's life were dead. Joseph brought the family back, but when he heard that Herod's son was ruling in Judea, he was afraid. He took them to the town of Nazareth, in Galilee.",
+    "10-12": "Herod was a king who was afraid of losing his power, and he made terrible choices. The Holy Family became refugees. They had to leave home in the night, with only what they could carry, and live in a foreign land. The Church remembers that Jesus knows what it is like to be a child in danger, and this is why it calls on Christians to help refugees. Matthew sees in this story a repeat of the story of God's people, who also went to Egypt and came out. Jesus is the new Israel. Joseph, who again acts quickly on a dream, is a quiet hero."
+   },
+   "talk": [
+    "Why did Joseph and Mary leave in the night?",
+    "Where did they live while they were away?",
+    "How can we help families who have to leave their homes?"
+   ],
+   "memory": "Matthew 2:14",
+   "prayer": "Lord, watch over families who have lost their homes. Amen.",
+   "hue": 205,
+   "vocab": [
+    {
+     "word": "refugee",
+     "means": "a person who has to leave home to be safe"
+    }
+   ]
+  },
+  {
+   "id": "john-baptist",
+   "title": "John Tells People How to Get Ready",
+   "testament": "NT",
+   "refs": [
+    "Luke 3:1-14"
+   ],
+   "emoji": "🏞️",
+   "text": {
+    "4-6": "John lived in the desert and he preached by the river Jordan. 'Get ready!' he said. 'Someone great is coming.' The people asked, 'What should we do?' John said, 'If you have two coats, share one with someone who has none. If you have food, share it.' Tax collectors asked, 'What about us?' He said, 'Do not take more money than you should.' Soldiers asked, and John said, 'Do not be cruel. Be happy with your pay.'",
+    "7-9": "John, the son of Zechariah, went into the desert and began to preach near the river Jordan. He told people to turn back to God and be baptized so their sins could be forgiven. Large crowds came out to hear him. They asked, 'What should we do?' John answered, 'Whoever has two coats should share with the one who has none, and whoever has food should do the same.' Tax collectors came to be baptized and asked what to do. He said, 'Collect no more than you are told to.' Soldiers asked him too. He said, 'Do not extort money, do not accuse anyone falsely, and be satisfied with your pay.'",
+    "10-12": "John's message is simple and practical. He does not tell people to leave their jobs. He tells them to do them honestly, to share and to be fair. The ordinary things are where repentance begins. 'Repent' means to turn around. John is sometimes called the voice crying in the wilderness, because he prepares the way for Jesus. His answers are an easy way to check our own lives: are we sharing, are we fair, are we content? The Church reads this Gospel in Advent, as the time to get ready for Christmas."
+   },
+   "talk": [
+    "What did John tell the crowd to do?",
+    "What did John tell the tax collectors?",
+    "What can you share this week?"
+   ],
+   "memory": "Luke 3:11",
+   "prayer": "Lord, help me to share what I have. Amen.",
+   "hue": 190,
+   "vocab": [
+    {
+     "word": "repent",
+     "means": "to turn away from wrong and back to God"
+    }
+   ]
+  },
+  {
+   "id": "temptation",
+   "title": "Jesus in the Desert",
+   "testament": "NT",
+   "refs": [
+    "Matthew 4:1-11"
+   ],
+   "emoji": "🏜️",
+   "text": {
+    "4-6": "Jesus went into the desert to pray. He did not eat for forty days, so he was very hungry. The devil came and said, 'If you are the Son of God, turn these stones into bread!' Jesus said, 'People need more than bread. They need every word God says.' The devil tried two more times to trick Jesus. Each time Jesus answered with God's words. Then the devil went away, and angels came to help Jesus.",
+    "7-9": "After his baptism the Holy Spirit led Jesus into the desert. He fasted for forty days and forty nights, and he was very hungry. The tempter came and said, 'If you are the Son of God, tell these stones to become bread.' Jesus answered, 'It is written: Man shall not live by bread alone, but by every word that comes from the mouth of God.' Then the devil took him to the top of the Temple and said, 'Throw yourself down.' Jesus said, 'It is written: You shall not test the Lord your God.' The devil showed him all the kingdoms of the world and promised them if Jesus would bow down. Jesus said, 'Away with you, Satan! You shall worship the Lord your God and serve him only.' The devil left, and angels came and looked after him.",
+    "10-12": "Each time the devil tempts Jesus, he quotes something and offers an easy shortcut. Jesus is hungry, so it is bread. Jesus is the Son of God, so it is a show of power. Jesus is meant to rule, so it is a deal. Jesus says no each time, using the words of Scripture the way a person might use a shield. In the desert, ancient Israel failed tests that Jesus passes. The forty days of Lent are the Church's way of walking with him. The story also gives a quiet comfort: Jesus knows what temptation is like, and he is stronger than it."
+   },
+   "talk": [
+    "What did Jesus use to answer the devil?",
+    "Why do you think Jesus fasted?",
+    "How can you say no when something tempting comes?"
+   ],
+   "memory": "Matthew 4:4",
+   "prayer": "Jesus, when I am tempted, help me to remember what is true. Amen.",
+   "hue": 45,
+   "vocab": [
+    {
+     "word": "tempt",
+     "means": "to try to make someone do wrong"
+    }
+   ]
+  },
+  {
+   "id": "woman-well",
+   "title": "The Woman at the Well",
+   "testament": "NT",
+   "refs": [
+    "John 4:4-42"
+   ],
+   "emoji": "🫗",
+   "text": {
+    "4-6": "Jesus was tired and thirsty. He sat by a well at noon. A woman from Samaria came to get water. Jesus said, 'Please give me a drink.' They talked. Jesus told her about 'living water' that makes you never thirsty again. She ran back to town and said, 'Come and see a man who told me everything I ever did!' Many people came and believed.",
+    "7-9": "Jesus stopped at Jacob's well in Samaria around noon, while his disciples went to buy food. A Samaritan woman came to draw water. Jews and Samaritans did not usually speak to each other, but Jesus asked her, 'Give me a drink.' He said that if she knew who he was, she would ask him for living water. She said, 'Sir, give me this water.' Jesus talked with her kindly and honestly. He told her that God wants people to worship in spirit and truth. She said, 'I know the Messiah is coming.' Jesus said, 'I am he.' She left her water jar, ran into town, and told everyone, 'Come and see.' Many believed because of what she said.",
+    "10-12": "This is the longest conversation Jesus has with one person in the Gospels, and it is with someone most people would have ignored. She was a Samaritan, a woman, and she came to the well alone at noon. Jesus is not shocked by her past. He treats her as someone who can ask questions and understand. She forgets her jar because her thirst is now for something else. She becomes the first to tell her town about Jesus. The 'living water' stands for the Holy Spirit, and it is also a sign of baptism. The story is read in Lent, as a lesson in how Jesus meets each of us."
+   },
+   "talk": [
+    "Why was the woman surprised that Jesus spoke to her?",
+    "What did she do after she met Jesus?",
+    "What are you thirsty for?"
+   ],
+   "memory": "John 4:14",
+   "prayer": "Jesus, give me your living water. Amen.",
+   "hue": 200,
+   "vocab": [
+    {
+     "word": "Samaritan",
+     "means": "a person from Samaria; many Jews did not mix with them"
+    }
+   ]
+  },
+  {
+   "id": "matthew-call",
+   "title": "Jesus Calls Matthew",
+   "testament": "NT",
+   "refs": [
+    "Matthew 9:9-13"
+   ],
+   "emoji": "💰",
+   "text": {
+    "4-6": "Matthew was a tax collector. People did not like tax collectors, because they took people's money. One day Jesus walked by Matthew's table and said, 'Follow me.' Matthew stood up and followed Jesus at once! That night Matthew gave a dinner at his house, and Jesus ate with his friends. Some people said, 'Why does Jesus eat with such people?' Jesus said, 'Those who are well do not need a doctor. The sick do.'",
+    "7-9": "Matthew worked as a tax collector in Capernaum, and he collected money for the Roman government. Many people thought tax collectors were cheats. Jesus saw Matthew at his table and said, 'Follow me.' Matthew got up and followed him. Later Jesus was at dinner at Matthew's house, with many tax collectors and sinners. The Pharisees asked his disciples, 'Why does your teacher eat with tax collectors and sinners?' Jesus heard it and said, 'Those who are well have no need of a physician, but those who are sick. Go and learn what this means: I desire mercy, not sacrifice. I came to call sinners, not the righteous.'",
+    "10-12": "Jesus goes where no one else wants to go. He sits down at a table with people whom others shun. The call to Matthew is only two words, 'Follow me'. And Matthew does not hesitate; he leaves his table and the money. Jesus uses the picture of a doctor, because people who are sick need help. This does not mean that people who feel good about themselves do not need him. It means that those who know their need are ready for him. Matthew later wrote the Gospel that bears his name. The Church honours him as an apostle and an evangelist on 21 September."
+   },
+   "talk": [
+    "What did Matthew do when Jesus called him?",
+    "Why did Jesus eat with tax collectors?",
+    "Who might you invite to sit with you?"
+   ],
+   "memory": "Matthew 9:13",
+   "prayer": "Jesus, thank you for calling me by name. Amen.",
+   "hue": 50,
+   "vocab": [
+    {
+     "word": "tax collector",
+     "means": "a person who collected money for the government"
+    }
+   ]
+  },
+  {
+   "id": "centurion",
+   "title": "The Soldier Who Believed",
+   "testament": "NT",
+   "refs": [
+    "Matthew 8:5-13"
+   ],
+   "emoji": "🛡️",
+   "text": {
+    "4-6": "A Roman officer in Capernaum had a servant who was very ill. He loved his servant and asked Jesus for help. Jesus said, 'I will come and heal him.' The officer said, 'I am not good enough to have you in my house. Just say the word, and my servant will be well.' Jesus was amazed. He said, 'I have not seen such great faith.' The servant was healed that very hour.",
+    "7-9": "A centurion, a Roman officer in charge of one hundred soldiers, came to Jesus in Capernaum. 'Lord, my servant is lying at home, paralysed and in great pain.' Jesus said, 'I will come and heal him.' The centurion answered, 'Lord, I am not worthy to have you come under my roof. But only say the word, and my servant will be healed. I am under authority, and I give orders and people do what I say.' Jesus was amazed and said to those following him, 'I have not found such faith in anyone in Israel.' Then Jesus said to the centurion, 'Go. Let it be done for you as you have believed.' The servant was healed at that very moment.",
+    "10-12": "The centurion is a foreigner, and he is part of the army that rules Israel. Yet he cares for a servant, which was unusual at that time, and he shows more trust than many people who knew the Scriptures. He understands authority: when Jesus speaks, things happen. His words, 'Lord, I am not worthy that you should enter under my roof', are said by Catholics at every Mass before Communion. The humility of the centurion has become a prayer: 'but only say the word and I shall be healed.' Jesus says that people will come from east and west to the great feast, which means God's family is wide open."
+   },
+   "talk": [
+    "What did the officer believe about Jesus?",
+    "Why do you think Jesus was amazed?",
+    "Where do you hear the officer's words at Mass?"
+   ],
+   "memory": "Matthew 8:8",
+   "prayer": "Lord, I am not worthy, but only say the word and I shall be healed. Amen.",
+   "hue": 0,
+   "vocab": [
+    {
+     "word": "centurion",
+     "means": "a Roman army officer in charge of about a hundred soldiers"
+    }
+   ]
+  },
+  {
+   "id": "jairus",
+   "title": "Jairus's Daughter",
+   "testament": "NT",
+   "refs": [
+    "Mark 5:21-43"
+   ],
+   "emoji": "🧒",
+   "text": {
+    "4-6": "Jairus was an important man. His little girl was very ill. He begged Jesus, 'Please come!' On the way, a woman who had been ill for twelve years touched Jesus's cloak. She was healed. Then people came and said, 'Your daughter has died.' Jesus said, 'Do not be afraid. Just believe.' He took the girl's hand and said, 'Little girl, get up!' She stood up and walked. Jesus said, 'Give her something to eat.'",
+    "7-9": "Jairus, a leader of the synagogue, fell at Jesus's feet and said, 'My little daughter is dying. Please come and lay your hands on her.' Jesus went with him. In the crowd a woman who had been bleeding for twelve years touched his cloak, thinking, 'If I just touch his clothes, I will be well.' Jesus felt power go out of him and asked who had touched him. She told him the whole truth. He said, 'Daughter, your faith has made you well.' Then people from Jairus's house said his daughter had died. Jesus said, 'Do not be afraid. Only believe.' He took the girl by the hand and said, 'Talitha koum', which means, 'Little girl, get up.' She got up and walked. He told them to give her something to eat.",
+    "10-12": "Two stories are woven into one. Both end with a woman or girl called 'daughter', and the number twelve is in both: the girl is twelve, and the woman has been ill for twelve years. Jesus stops for the woman even though a child is dying, and he does not make Jairus feel that his need is less urgent. When he tells Jairus not to be afraid, he asks for faith in the worst moment. The Aramaic words are in the Gospel because the early Christians remembered how Jesus spoke. And he asks that they give her food. Jesus cares about the ordinary needs of a child who has just come back to life."
+   },
+   "talk": [
+    "What did the woman do when she touched Jesus's cloak?",
+    "What did Jesus say to Jairus?",
+    "Why do you think Jesus asked for food for the girl?"
+   ],
+   "memory": "Mark 5:36",
+   "prayer": "Jesus, you are kind to everyone who needs you. Help me to trust you. Amen.",
+   "hue": 335,
+   "vocab": [
+    {
+     "word": "synagogue",
+     "means": "a place where Jewish people meet to pray and read"
+    }
+   ]
+  },
+  {
+   "id": "widow-nain",
+   "title": "The Widow's Son at Nain",
+   "testament": "NT",
+   "refs": [
+    "Luke 7:11-17"
+   ],
+   "emoji": "🌅",
+   "text": {
+    "4-6": "Jesus came to a town called Nain. A funeral was coming out of the gate. A woman was crying because her only son had died. Jesus felt sorry for her. He said, 'Do not cry.' He touched the coffin and said, 'Young man, get up!' The young man sat up and began to talk. Jesus gave him back to his mother. The people said, 'God has visited his people!'",
+    "7-9": "As Jesus came near the town of Nain, a dead man was being carried out. He was the only son of a woman who was already a widow, and a large crowd from the town was with her. When the Lord saw her, his heart went out to her. He said, 'Do not weep.' Then he went up and touched the open coffin, and the bearers stood still. 'Young man,' he said, 'I tell you, get up!' The dead man sat up and began to speak, and Jesus gave him to his mother. Fear came on everyone, and they praised God and said, 'A great prophet has risen among us. God has visited his people.'",
+    "10-12": "Nobody asks Jesus to do anything in this story. He sees a woman who has lost her husband and now her son, and has no one left to look after her. That was a very dangerous place for a woman in that time. Jesus acts out of compassion, which means he suffers with her. He touches the coffin, which a Jew was not supposed to do, and he commands death to let go. The story echoes the earlier one about Elijah and the widow's son. The Gospel of Luke says 'the Lord' here, a word that hints at who Jesus really is. It is a gift for anyone who has lost someone."
+   },
+   "talk": [
+    "Why did Jesus feel sorry for the woman?",
+    "What did Jesus say to the young man?",
+    "How can you comfort a person who is sad?"
+   ],
+   "memory": "Luke 7:13",
+   "prayer": "Jesus, comfort everyone who is sad today. Amen.",
+   "hue": 270,
+   "vocab": [
+    {
+     "word": "coffin",
+     "means": "the box in which a person who has died is carried"
+    }
+   ]
+  },
+  {
+   "id": "deaf-man",
+   "title": "Jesus Opens a Man's Ears",
+   "testament": "NT",
+   "refs": [
+    "Mark 7:31-37"
+   ],
+   "emoji": "👂",
+   "text": {
+    "4-6": "Some friends brought a man who could not hear or talk well. They begged Jesus to help him. Jesus took the man aside, away from the crowd. He touched the man's ears and tongue. He looked up to heaven and said, 'Ephphatha!' That means, 'Be opened!' The man could hear and talk! The people were amazed. They said, 'He does everything well!'",
+    "7-9": "Some people brought to Jesus a man who was deaf and could hardly speak. They asked Jesus to lay his hand on him. Jesus took the man away from the crowd, privately. He put his fingers into the man's ears, and then touched his tongue. Looking up to heaven, he sighed and said, 'Ephphatha', which means, 'Be opened.' At once the man's ears were opened, his tongue was freed, and he spoke plainly. Jesus told the people not to tell anyone, but the more he told them, the more they spread the news. They were astonished and said, 'He has done all things well. He even makes the deaf hear and the mute speak.'",
+    "10-12": "Jesus takes the man away from the crowd, and he treats him gently. A man who cannot hear or speak would have felt very alone, and Jesus uses touch to say, 'I am with you.' The word 'Ephphatha' stayed in the Gospel in the language Jesus spoke. In the Baptism liturgy, the priest touches the ears and mouth of the baby and prays that he or she may listen to the word of God and speak the faith. That ritual comes straight from this story. The crowd's words, 'He has done all things well', echo the creation story where God sees that everything he made is good."
+   },
+   "talk": [
+    "How did Jesus help the man?",
+    "Why do you think Jesus took him away from the crowd?",
+    "What would you like to hear God say to you today?"
+   ],
+   "memory": "Mark 7:37",
+   "prayer": "Lord, open my ears to hear you and my mouth to praise you. Amen.",
+   "hue": 160,
+   "vocab": [
+    {
+     "word": "Ephphatha",
+     "means": "a word Jesus spoke in his own language, meaning 'Be opened'"
+    }
+   ]
+  },
+  {
+   "id": "born-blind",
+   "title": "The Man Who Was Born Blind",
+   "testament": "NT",
+   "refs": [
+    "John 9:1-38"
+   ],
+   "emoji": "👁️",
+   "text": {
+    "4-6": "A man had been blind from birth. Jesus made a little mud with his spit and put it on the man's eyes. 'Go and wash in the pool of Siloam,' he said. The man went, washed, and could see! His neighbours asked, 'Is this the same man?' He said, 'Yes. I was blind, and now I see.' Later Jesus found him and said, 'Do you believe?' The man said, 'Lord, I believe.'",
+    "7-9": "As Jesus walked along, he saw a man who had been blind from birth. His disciples asked whose fault it was. Jesus said, 'It was not that this man sinned, or his parents. This happened so that God's works might be shown in him.' Jesus put mud on the man's eyes and told him to wash in the Pool of Siloam. He went and washed and came back seeing. His neighbours could hardly believe it, and the leaders questioned him again and again. His parents were afraid to say much. The man said simply, 'One thing I do know. I was blind, and now I see.' Later Jesus found him and said, 'Do you believe in the Son of Man?' He answered, 'Lord, I believe,' and worshipped him.",
+    "10-12": "Everyone in this story has a lot to say except the man himself, who keeps to the plain truth. He does not know all the answers about who Jesus is. He knows what happened to him. As he is asked more questions, his belief grows from 'the man called Jesus' to 'a prophet' to 'Lord, I believe'. The leaders, who think they can see, are the ones who cannot. The Church reads this story in Lent and uses it for baptism, because baptism was called 'enlightenment'. The story also teaches that illness is not a punishment for someone's sin."
+   },
+   "talk": [
+    "What did the man say again and again when people asked him questions?",
+    "Who could not see in this story, even though they had good eyes?",
+    "What has Jesus helped you to see?"
+   ],
+   "memory": "John 9:25",
+   "prayer": "Jesus, light of the world, help me to see clearly. Amen.",
+   "hue": 215,
+   "vocab": [
+    {
+     "word": "Siloam",
+     "means": "a pool in Jerusalem; the name means 'sent'"
+    }
+   ]
+  },
+  {
+   "id": "transfiguration",
+   "title": "Jesus Shines Like the Sun",
+   "testament": "NT",
+   "refs": [
+    "Matthew 17:1-8"
+   ],
+   "emoji": "🌞",
+   "text": {
+    "4-6": "Jesus took Peter, James and John up a high mountain. Suddenly Jesus shone. His face was bright as the sun, and his clothes were white as light. Moses and Elijah were there, talking with him. A bright cloud came, and a voice said, 'This is my Son, whom I love. Listen to him!' The friends were scared. Jesus touched them and said, 'Get up. Do not be afraid.'",
+    "7-9": "Six days after Peter said that Jesus was the Messiah, Jesus led Peter, James and John up a high mountain by themselves. There he was changed in front of them. His face shone like the sun, and his clothes became as white as light. Moses and Elijah appeared and spoke with him. Peter said, 'Lord, it is good for us to be here. Let me make three shelters.' While he was speaking, a bright cloud covered them, and a voice from the cloud said, 'This is my beloved Son, with whom I am well pleased. Listen to him.' The disciples fell on their faces, terrified. Jesus came and touched them and said, 'Get up, and do not be afraid.' When they looked up, they saw only Jesus.",
+    "10-12": "Jesus knew that hard days were coming, and he gave three of his friends a glimpse of who he really was. Moses stands for the Law and Elijah for the prophets. Together, they show that the whole Old Testament points to Jesus. The voice from the cloud sounds like the voice at his baptism, and it adds one command: 'Listen to him.' Peter wants to stay on the mountain, but they have to go down, back to the road that leads to Jerusalem. The Church celebrates the Transfiguration on 6 August. It reminds us that God's glory is behind the ordinary face of Jesus."
+   },
+   "talk": [
+    "Who appeared with Jesus on the mountain?",
+    "What did the voice from the cloud say?",
+    "What does it mean to listen to Jesus?"
+   ],
+   "memory": "Matthew 17:5",
+   "prayer": "Jesus, help me to listen to you every day. Amen.",
+   "hue": 50,
+   "vocab": [
+    {
+     "word": "transfigured",
+     "means": "changed in a wonderful way"
+    }
+   ]
+  },
+  {
+   "id": "good-shepherd",
+   "title": "The Good Shepherd",
+   "testament": "NT",
+   "refs": [
+    "John 10:1-16"
+   ],
+   "emoji": "🐑",
+   "text": {
+    "4-6": "Jesus said, 'I am the Good Shepherd. A good shepherd knows his sheep by name. The sheep know his voice. They follow him because they trust him. A strange voice they would never follow. I know my sheep, and they know me. I love them so much that I will give my life for them.'",
+    "7-9": "Jesus told the people a story about sheep. A shepherd goes in by the door, and the sheep recognise his voice. He calls each one by name and leads them out. They will not follow a stranger, because they do not know his voice. Then Jesus said, 'I am the door of the sheep. Whoever enters by me will be saved.' He said, 'I am the good shepherd. The good shepherd lays down his life for the sheep. A hired hand, who is not a shepherd, runs away when he sees a wolf coming. But I know my sheep and my sheep know me, just as the Father knows me and I know the Father. And there are other sheep too, and they will hear my voice. There will be one flock, one shepherd.'",
+    "10-12": "Shepherds in Israel knew every sheep by name, and Jesus's hearers would have understood at once. He says two things about himself: he is the door, and he is the shepherd. A door protects and lets in. A shepherd knows and leads. The hired hand is the one who works for pay and cares more about himself. The good shepherd gives his life, which points ahead to the cross. When he says 'other sheep', he means that people from every nation will be gathered. The image of Jesus as the Good Shepherd was one of the earliest in Christian art, painted on the walls of the catacombs."
+   },
+   "talk": [
+    "How does the shepherd know his sheep?",
+    "What does the good shepherd do for his sheep?",
+    "How can you hear Jesus's voice?"
+   ],
+   "memory": "John 10:11",
+   "prayer": "Jesus, my shepherd, thank you for knowing me and loving me. Amen.",
+   "hue": 120,
+   "vocab": [
+    {
+     "word": "hired hand",
+     "means": "someone paid to look after sheep, who may run away from danger"
+    }
+   ]
+  },
+  {
+   "id": "rock-house",
+   "title": "The House on the Rock",
+   "testament": "NT",
+   "refs": [
+    "Matthew 7:24-29"
+   ],
+   "emoji": "🏠",
+   "text": {
+    "4-6": "Jesus told a story about two builders. One built his house on a rock. The rain fell, the floods came, and the wind blew. The house did not fall. The other built his house on sand. When the storm came, that house fell with a great crash. Jesus said, 'The wise one hears my words and does them.'",
+    "7-9": "At the end of the Sermon on the Mount, Jesus told this story. 'Everyone who hears these words of mine and does them is like a wise man who built his house on the rock. The rain came down, the floods rose, and the winds blew and beat against that house, but it did not fall, because it was founded on the rock. And everyone who hears these words of mine and does not do them is like a foolish man who built his house on the sand. The rain fell, the floods came, the winds blew, and that house fell, and great was its fall.' The crowds were amazed at his teaching.",
+    "10-12": "The two houses look the same until the storm hits. The difference is under the ground, where no one can see. The wise builder is not smarter or luckier. He hears Jesus and does what Jesus says. That is all. Jesus does not promise that there will be no storms. The same wind and water hit both houses. But a life built on his words can stand. A song about this story is one of the first that many children learn. It is a story for grown-ups too, because Jesus asked for action, not just good intentions."
+   },
+   "talk": [
+    "What is the difference between the two houses?",
+    "What does it mean to build on the rock?",
+    "What is one thing Jesus asked us to do that you can do today?"
+   ],
+   "memory": "Matthew 7:24",
+   "prayer": "Lord, help me to hear your words and to do them. Amen.",
+   "hue": 20,
+   "vocab": [
+    {
+     "word": "foundation",
+     "means": "the base a house is built on"
+    }
+   ]
+  },
+  {
+   "id": "lilies-birds",
+   "title": "Look at the Birds",
+   "testament": "NT",
+   "refs": [
+    "Matthew 6:25-34"
+   ],
+   "emoji": "🐦",
+   "text": {
+    "4-6": "Jesus said, 'Do not worry about what you will eat or wear. Look at the birds. They do not plant seeds or fill barns, but God feeds them. And you are worth more than birds! Look at the wild flowers. They do not work, but God makes them beautiful. So do not worry. Your Father knows what you need.'",
+    "7-9": "Jesus told the crowd, 'Do not worry about your life, about what you will eat or drink, or what you will wear. Is life not more than food, and the body more than clothes? Look at the birds in the sky. They do not sow or reap or store in barns, and yet your heavenly Father feeds them. Are you not worth much more than they? And why do you worry about clothes? See how the lilies of the field grow. They do not work or spin. Yet not even Solomon in all his glory was dressed like one of these. Seek first God's kingdom, and everything else will be given to you. Do not worry about tomorrow, for tomorrow will take care of itself.'",
+    "10-12": "Jesus is not saying that we should be careless. Birds work hard to find food, and flowers have to grow. He is saying that worry does not add a single hour to life, and that God cares. Being worried is natural, and Jesus takes it seriously. His answer is to look out of the window. The birds and flowers are a picture of how God looks after everything he made. The command to 'seek first his kingdom' puts God in the first place, and trusts that the rest will follow. 'Give us this day our daily bread' in the Our Father is the same trust, in a prayer."
+   },
+   "talk": [
+    "What did Jesus say about the birds?",
+    "What worries you?",
+    "What can you do when you feel worried?"
+   ],
+   "memory": "Matthew 6:26",
+   "prayer": "Father, you take care of me. Help me not to be afraid. Amen.",
+   "hue": 90,
+   "vocab": [
+    {
+     "word": "lilies",
+     "means": "wild flowers that grow in the fields"
+    }
+   ]
+  },
+  {
+   "id": "treasure-pearl",
+   "title": "The Hidden Treasure",
+   "testament": "NT",
+   "refs": [
+    "Matthew 13:44-46"
+   ],
+   "emoji": "💎",
+   "text": {
+    "4-6": "Jesus told two short stories. A man found treasure hidden in a field. He was so happy that he sold everything he had to buy that field. A trader found one beautiful pearl. It was more valuable than all his other pearls. He sold everything and bought it. Jesus said, 'God's kingdom is like this.'",
+    "7-9": "Jesus said, 'The kingdom of heaven is like treasure hidden in a field. A man found it and hid it again, and in his joy he went and sold all he had and bought that field.' Then he said, 'The kingdom of heaven is also like a merchant looking for fine pearls. When he found one of great price, he went away and sold everything he had and bought it.' The stories are short and they are very much alike. In both, someone finds something so good that nothing else compares, and gives everything for it. Both are done with joy.",
+    "10-12": "These stories do not say that God's kingdom is hard to get. They say it is wonderful. The man in the first story did not find it by looking, and the merchant in the second spent a lifetime searching. People find Jesus in different ways. What they have in common is that when they see how good he is, everything else seems small. The word 'joy' in the first story is important. Nobody has to be forced. In the Church, some people give up many things to follow Jesus, such as monks and sisters. But all of us can ask what is the treasure in our lives."
+   },
+   "talk": [
+    "What did the man in the first story do when he found the treasure?",
+    "Why did the merchant sell everything?",
+    "What is the most precious thing in your life?"
+   ],
+   "memory": "Matthew 13:44",
+   "prayer": "Jesus, you are my treasure. Help me to love you most of all. Amen.",
+   "hue": 340,
+   "vocab": [
+    {
+     "word": "merchant",
+     "means": "a person who buys and sells goods"
+    }
+   ]
+  },
+  {
+   "id": "friend-midnight",
+   "title": "The Friend at Midnight",
+   "testament": "NT",
+   "refs": [
+    "Luke 11:5-13"
+   ],
+   "emoji": "🚪",
+   "text": {
+    "4-6": "Jesus told a story. A man's friend arrived at midnight and he had no bread. So he knocked on his neighbour's door. 'Please lend me three loaves!' The neighbour said, 'Go away, I am in bed.' But the man kept knocking. At last the neighbour got up and gave him the bread. Jesus said, 'Keep asking. Keep knocking. Your Father in heaven loves to give good gifts.'",
+    "7-9": "After teaching his friends the Our Father, Jesus told them another story about prayer. 'Suppose one of you has a friend, and you go to him at midnight and say, Friend, lend me three loaves, because a friend of mine has just arrived and I have nothing to give him. And he answers from inside, Do not bother me. The door is locked and the children are in bed with me. I cannot get up. I tell you, even if he will not get up because you are his friend, he will get up and give you what you need because you are so bold.' Then Jesus said, 'Ask, and it will be given. Seek, and you will find. Knock, and it will be opened to you.'",
+    "10-12": "The neighbour in the story is grumpy, and God is not. The story says: if even a tired neighbour finally gives, how much more will your Father in heaven give? Jesus follows it with another picture. No father would give his child a snake when the child asks for a fish. The best gift God gives is the Holy Spirit. Persistence in prayer means not giving up, and it also means trusting that God is listening. We may not get what we ask for in the way we expect, but we are heard, and God gives what is good for us."
+   },
+   "talk": [
+    "Why did the man keep knocking?",
+    "What does Jesus say about God's gifts?",
+    "Is there something you keep praying about?"
+   ],
+   "memory": "Luke 11:9",
+   "prayer": "Father, thank you that you listen. Help me to keep praying. Amen.",
+   "hue": 245,
+   "vocab": [
+    {
+     "word": "persistent",
+     "means": "not giving up"
+    }
+   ]
+  },
+  {
+   "id": "pharisee-tax",
+   "title": "Two Men Who Prayed",
+   "testament": "NT",
+   "refs": [
+    "Luke 18:9-14"
+   ],
+   "emoji": "🙏",
+   "text": {
+    "4-6": "Two men went to the Temple to pray. One was a Pharisee. He stood tall and said, 'God, thank you that I am better than other people!' The other man was a tax collector. He stood far away and did not even look up. He said, 'God, be kind to me. I have done wrong.' Jesus said, 'The second man went home friends with God.'",
+    "7-9": "Jesus told this story to some people who were sure of their own goodness and looked down on others. 'Two men went up to the Temple to pray, one a Pharisee and the other a tax collector. The Pharisee stood by himself and prayed, God, I thank you that I am not like other people, greedy, dishonest, or like this tax collector. I fast twice a week. I give a tenth of all I get. But the tax collector stood far off. He would not even lift his eyes to heaven, but beat his breast and said, God, be merciful to me, a sinner. I tell you, this man went home justified rather than the other. Everyone who exalts himself will be humbled, and he who humbles himself will be exalted.'",
+    "10-12": "The Pharisee's prayer is not about God. It is about himself and how well he compares with other people. He does good things, and Jesus does not say the things are bad. He says that the Pharisee's heart is closed. The tax collector's prayer is short and honest. 'Lord, have mercy' is a prayer that many Christians have prayed over and over. It is the Jesus Prayer of the Eastern Churches, and it is the 'Lord, have mercy' of the Mass. God does not look for perfect people. He looks for people who are willing to be honest with him."
+   },
+   "talk": [
+    "How did the two men pray differently?",
+    "Which prayer did God like?",
+    "What do you say to God when you have done something wrong?"
+   ],
+   "memory": "Luke 18:13",
+   "prayer": "God, be merciful to me, a sinner. Amen.",
+   "hue": 30,
+   "vocab": [
+    {
+     "word": "Pharisee",
+     "means": "a member of a group of Jews who tried very carefully to keep the law"
+    }
+   ]
+  },
+  {
+   "id": "unforgiving-servant",
+   "title": "The Servant Who Would Not Forgive",
+   "testament": "NT",
+   "refs": [
+    "Matthew 18:21-35"
+   ],
+   "emoji": "⚖️",
+   "text": {
+    "4-6": "Peter asked Jesus, 'How many times must I forgive someone? Seven times?' Jesus said, 'Not seven, but seventy times seven!' Then he told a story. A king forgave a servant a huge debt. But that servant would not forgive a friend who owed him a little. The king said, 'I forgave you a lot. Should you not forgive a little?' Jesus said, 'Forgive from your heart.'",
+    "7-9": "Peter asked Jesus how often he had to forgive a brother, and he suggested seven times. Jesus answered, 'Seventy times seven.' Then he told the story of a king whose servant owed him a huge amount, ten thousand talents. The servant begged for time, and the king felt sorry for him and cancelled the whole debt. But as that servant left, he met a fellow servant who owed him a few coins. He grabbed him by the throat and had him put in prison. When the king heard, he called the first servant and said, 'I forgave you all that debt because you begged me. Should you not have shown mercy as I showed mercy to you?' Jesus said, 'So my heavenly Father will do to you, unless you forgive your brother from your heart.'",
+    "10-12": "Seventy times seven does not mean that we should count to 490 and stop. It means that forgiveness should not run out. The first debt is far too big to pay back. That is how much God forgives us. The second debt is small. The point of the story is that people who have been forgiven so much should be glad to forgive. We say the same in the Our Father: 'Forgive us our trespasses as we forgive those who trespass against us.' This does not mean we pretend that no one hurt us. It means we let go of the wish to pay them back."
+   },
+   "talk": [
+    "How much did the king forgive?",
+    "Why was the king upset?",
+    "Who do you need to forgive?"
+   ],
+   "memory": "Matthew 18:22",
+   "prayer": "Father, forgive me as I forgive others. Amen.",
+   "hue": 350,
+   "vocab": [
+    {
+     "word": "debt",
+     "means": "money or something else that you owe"
+    }
+   ]
+  },
+  {
+   "id": "ten-bridesmaids",
+   "title": "The Ten Girls and Their Lamps",
+   "testament": "NT",
+   "refs": [
+    "Matthew 25:1-13"
+   ],
+   "emoji": "🪔",
+   "text": {
+    "4-6": "Jesus told a story about ten girls waiting for a wedding. They each had a lamp. Five took extra oil with them. Five did not. The groom was late, and they all fell asleep. At midnight a shout came: 'He is coming!' The wise girls' lamps were ready. The others had no oil. They ran to buy some, but the door was shut when they came back. Jesus said, 'Be ready.'",
+    "7-9": "Jesus said the kingdom of heaven is like ten bridesmaids who took their lamps and went out to meet the bridegroom. Five of them were foolish and five were wise. The foolish ones took their lamps but no oil. The wise ones took flasks of oil with their lamps. The bridegroom was a long time coming, and they all became drowsy and slept. At midnight there was a shout: 'Here is the bridegroom! Come out to meet him!' The foolish asked the wise for oil, but the wise said there would not be enough for everyone. While the foolish ones were gone, the bridegroom came, and the door was shut. Jesus ended, 'Keep awake, for you know neither the day nor the hour.'",
+    "10-12": "This is a story of being ready, and it is often read in the last weeks of the Church's year. All ten fall asleep. The difference is not that the wise ones were awake and the others sleepy. It is that the wise ones prepared. The oil is often taken to mean a life of prayer and kindness, which cannot be borrowed at the last minute. The wedding feast is a picture of life with God. Jesus is not trying to frighten anyone. He wants us to live well each day, so that when he comes, we are glad to see him."
+   },
+   "talk": [
+    "What was different about the wise girls?",
+    "What do you think the oil stands for?",
+    "What can you do every day to be ready?"
+   ],
+   "memory": "Matthew 25:13",
+   "prayer": "Jesus, keep me ready for you. Amen.",
+   "hue": 40,
+   "vocab": [
+    {
+     "word": "bridegroom",
+     "means": "a man who is about to be married"
+    }
+   ]
+  },
+  {
+   "id": "breakfast-lake",
+   "title": "Breakfast by the Lake",
+   "testament": "NT",
+   "refs": [
+    "John 21:1-17"
+   ],
+   "emoji": "🐟",
+   "text": {
+    "4-6": "Peter and his friends fished all night and caught nothing. In the morning a man on the shore called, 'Throw your net on the right side!' They did, and the net was so full of fish they could not pull it in. John said, 'It is the Lord!' Peter jumped into the water and swam to shore. Jesus had a fire and bread and fish ready. He said, 'Come and eat.'",
+    "7-9": "After the resurrection, seven of the disciples went fishing on the Sea of Galilee, and they caught nothing all night. At dawn Jesus stood on the shore, though they did not recognise him. He called, 'Have you any fish?' When they said no, he told them to cast the net on the right side of the boat. It was so full that they could not haul it in. John said to Peter, 'It is the Lord!' Peter jumped into the sea. When they landed, there was a charcoal fire with fish and bread on it. They counted a hundred and fifty-three fish, and the net was not torn. Jesus said, 'Come and have breakfast.'",
+    "10-12": "Peter had said three times that he did not know Jesus. Now there is a charcoal fire again. Jesus asks Peter three times, 'Do you love me?' And three times Peter says yes. Each time Jesus gives him a job: 'Feed my lambs. Look after my sheep.' It is a gentle way of healing a wound. The story is full of small details: the count of the fish, the fire, the bread. These are things someone remembered because they were there. Jesus does not scold Peter. He makes breakfast, and he gives Peter the work of caring for the Church."
+   },
+   "talk": [
+    "What did the disciples find when they threw the net on the other side?",
+    "Why did Jesus ask Peter the same question three times?",
+    "What does it mean to feed Jesus's sheep?"
+   ],
+   "memory": "John 21:17",
+   "prayer": "Jesus, you know that I love you. Help me to follow you. Amen.",
+   "hue": 195
+  },
+  {
+   "id": "thomas",
+   "title": "Thomas Sees Jesus",
+   "testament": "NT",
+   "refs": [
+    "John 20:19-29"
+   ],
+   "emoji": "✋",
+   "text": {
+    "4-6": "On Easter evening the friends of Jesus were together in a room with the doors locked. Jesus came and said, 'Peace be with you!' But Thomas was not there. When they told him, he said, 'I will not believe until I see.' A week later, Jesus came again. 'Thomas, touch my hands,' he said. Thomas said, 'My Lord and my God!' Jesus said, 'Happy are those who believe without seeing.'",
+    "7-9": "On the evening of the first Easter, the disciples were hiding behind locked doors because they were afraid. Suddenly Jesus was standing among them. He said, 'Peace be with you.' He showed them his hands and his side, and they were filled with joy. Thomas was not there. When they told him, 'We have seen the Lord,' he said, 'Unless I see the marks of the nails in his hands, I will not believe.' A week later they were together again, and Thomas was with them. Jesus came and said, 'Peace be with you.' He said to Thomas, 'Put your finger here and see my hands.' Thomas answered, 'My Lord and my God!' Jesus said, 'Blessed are those who have not seen and yet believe.'",
+    "10-12": "Thomas is often called 'doubting Thomas', but he asks for what the others had already received. He wants to see Jesus. When he does, he says the strongest words of faith in the Gospel: 'My Lord and my God.' Nobody in the Gospel says this before. Jesus does not scold Thomas. He comes back for him. His last words are for the rest of us, who have not seen him with our eyes. The Church reads this Gospel on the Sunday after Easter, which is now called Divine Mercy Sunday. We believe through the witness of those who did see."
+   },
+   "talk": [
+    "Why did Thomas want to see Jesus's hands?",
+    "What did Thomas say when he saw Jesus?",
+    "What helps you to believe?"
+   ],
+   "memory": "John 20:28",
+   "prayer": "My Lord and my God! Amen.",
+   "hue": 240
+  },
+  {
+   "id": "ascension",
+   "title": "Jesus Goes Up to Heaven",
+   "testament": "NT",
+   "refs": [
+    "Acts 1:1-11"
+   ],
+   "emoji": "☁️",
+   "text": {
+    "4-6": "For forty days after Easter, Jesus was with his friends. Then he told them to wait in Jerusalem. 'You will receive power from the Holy Spirit. You will tell people about me all over the world.' As they watched, Jesus was lifted up, and a cloud hid him from sight. Two men in white said, 'Why do you stand looking at the sky? Jesus will come back in the same way.'",
+    "7-9": "After his resurrection, Jesus appeared to his disciples many times over forty days and spoke to them about the kingdom of God. He told them not to leave Jerusalem. 'Wait for the gift my Father promised. John baptised with water, but you will be baptised with the Holy Spirit in a few days.' They asked, 'Lord, will you now restore the kingdom to Israel?' Jesus said, 'It is not for you to know the times. But you will receive power when the Holy Spirit comes on you, and you will be my witnesses in Jerusalem, in all Judea and Samaria, and to the ends of the earth.' As they watched, he was lifted up, and a cloud took him out of their sight. Two men in white stood beside them and said, 'This Jesus will come back in the same way you saw him go.'",
+    "10-12": "The disciples keep looking at the sky, and the angels gently turn them around. The task is here on earth. Jesus goes to the Father, and his friends are to stay, wait, pray, and then go out. The words 'to the ends of the earth' are the outline of the book of Acts, as the good news spreads from Jerusalem to Rome. Jesus does not leave them alone. He promises the Holy Spirit. The Church celebrates the Ascension forty days after Easter. At every Mass, Catholics say, 'He ascended into heaven and is seated at the right hand of the Father.'"
+   },
+   "talk": [
+    "What did Jesus tell his friends to wait for?",
+    "Why did the two men ask the disciples why they were looking at the sky?",
+    "How can you be a witness for Jesus?"
+   ],
+   "memory": "Acts 1:8",
+   "prayer": "Jesus, thank you that you are with the Father and with us. Amen.",
+   "hue": 210,
+   "vocab": [
+    {
+     "word": "witness",
+     "means": "a person who tells what they have seen and heard"
+    }
+   ]
+  },
+  {
+   "id": "vine",
+   "title": "The Vine and the Branches",
+   "testament": "NT",
+   "refs": [
+    "John 15:1-12"
+   ],
+   "emoji": "🍇",
+   "text": {
+    "4-6": "Jesus said, 'I am the vine and you are the branches. A branch cannot grow grapes on its own. It must stay joined to the vine. If you stay close to me, you will bear much fruit. Love one another, as I have loved you.'",
+    "7-9": "At the Last Supper, Jesus said to his friends, 'I am the true vine, and my Father is the gardener. Every branch in me that bears no fruit he takes away, and every branch that does bear fruit he prunes, so that it will bear more fruit. Remain in me, as I remain in you. No branch can bear fruit by itself, it must stay in the vine. Neither can you unless you remain in me. I am the vine, you are the branches. If you remain in me and I in you, you will bear much fruit, for without me you can do nothing.' Then he said, 'This is my commandment, that you love one another as I have loved you.'",
+    "10-12": "The vine was an image often used for Israel in the Old Testament. Jesus now says that he is the true vine. A branch is useful only when it stays attached to the vine. It has no life of its own. This is a picture of prayer, the sacraments and a life joined to Jesus. 'Pruning' sounds painful, but it helps the plant grow. The fruit is love, and Jesus is clear about what that means. It is staying with him and loving the people he loves, even when it costs something. At Mass, the wine is a sign of this vine."
+   },
+   "talk": [
+    "What does the branch need?",
+    "What is the fruit that Jesus talks about?",
+    "How can you stay close to Jesus?"
+   ],
+   "memory": "John 15:5",
+   "prayer": "Jesus, help me to stay close to you. Amen.",
+   "hue": 285,
+   "vocab": [
+    {
+     "word": "prune",
+     "means": "to cut back a plant so it grows better"
+    }
+   ]
+  },
+  {
+   "id": "love-chapter",
+   "title": "The Song of Love",
+   "testament": "NT",
+   "refs": [
+    "1 Corinthians 13:1-13"
+   ],
+   "emoji": "❤️",
+   "text": {
+    "4-6": "Saint Paul wrote a letter about love. He said that love is patient and kind. Love is not jealous or proud. Love does not give up. Even if I could do wonderful things, but have no love, I am like a noisy gong. Faith, hope and love will last forever. The greatest of these is love.",
+    "7-9": "Saint Paul wrote to the Christians in Corinth about what matters most. 'If I speak with the tongues of men and of angels, but have no love, I am only a noisy gong or a clanging cymbal. If I give all I have to the poor, but have no love, it gains me nothing. Love is patient. Love is kind. Love is not jealous, it does not brag, it is not proud. It does not insist on its own way. It is not irritable, it does not keep a record of wrongs. It is not glad about injustice but is glad about the truth. Love bears all things, believes all things, hopes all things, endures all things. Love never fails.' He ended: 'Now faith, hope and love remain, these three. The greatest of these is love.'",
+    "10-12": "The Corinthian Church had many gifts and many quarrels. Paul reminds them that gifts without love are noise. He then describes love by what it does, not by what it feels. This is why the passage is read at so many weddings. It is not only for husbands and wives. It describes how God loves us, and how we are asked to love one another. The line 'It does not keep a record of wrongs' can be hard to practise. And Paul says that when we see God face to face, faith and hope will be fulfilled, but love will remain forever."
+   },
+   "talk": [
+    "What does Paul say love is like?",
+    "Which part of love is hardest for you?",
+    "How can you show love this week?"
+   ],
+   "memory": "1 Corinthians 13:13",
+   "prayer": "God, you are love. Teach me to love like you. Amen.",
+   "hue": 355,
+   "vocab": [
+    {
+     "word": "gong",
+     "means": "a large metal disc that makes a loud sound when struck"
+    }
+   ]
+  },
+  {
+   "id": "lame-man",
+   "title": "Peter and the Man at the Gate",
+   "testament": "NT",
+   "refs": [
+    "Acts 3:1-10"
+   ],
+   "emoji": "🚶",
+   "text": {
+    "4-6": "Peter and John went to the Temple to pray. A man who could not walk sat by the gate, begging. He asked them for money. Peter said, 'I have no silver or gold. But I will give you what I have. In the name of Jesus, stand up and walk!' Peter took his hand and helped him up. The man jumped, walked and praised God!",
+    "7-9": "At three in the afternoon, Peter and John were going up to the Temple to pray. At the gate called Beautiful sat a man who had been lame since birth. Every day he was carried there to beg. He asked Peter and John for money. Peter looked straight at him and said, 'Look at us.' The man looked, expecting a gift. Peter said, 'I have no silver or gold, but what I have I give you. In the name of Jesus Christ of Nazareth, walk.' He took the man by the right hand and raised him up. At once his feet and ankles were made strong. He leaped up, stood, walked, and went into the Temple with them, walking and jumping and praising God.",
+    "10-12": "The man asks for a small coin, and he gets far more. Peter first looks at him, which beggars are not used to. Then he gives him what he really has, which is the name of Jesus. The healing is not Peter's own power. He says so plainly in the verses that follow. What is most striking is the man's response. He does not run off. He goes into the Temple praising God, and everyone who knew him as a beggar sees him walk. The Church has always taken from this story that the best gift we can give is Jesus himself, along with whatever help we can offer."
+   },
+   "talk": [
+    "What did the man ask for?",
+    "What did Peter give him?",
+    "What can you give to someone, other than money?"
+   ],
+   "memory": "Acts 3:6",
+   "prayer": "Jesus, help me to look at people and to share what I have. Amen.",
+   "hue": 30
+  },
+  {
+   "id": "first-community",
+   "title": "The First Christians Share",
+   "testament": "NT",
+   "refs": [
+    "Acts 2:42-47",
+    "Acts 4:32-35"
+   ],
+   "emoji": "🍞",
+   "text": {
+    "4-6": "After Pentecost, many people believed in Jesus. They met together to pray and to hear the apostles. They broke bread together. They shared everything they had. If someone was in need, others gave to help. They were happy, and they praised God. Every day, more people joined them.",
+    "7-9": "After Pentecost, the believers spent time listening to the apostles, sharing meals, breaking bread and praying together. Many wonders were done by the apostles. All who believed were together and had everything in common. They sold their property and goods and gave the money to anyone who had need. Day by day they went to the Temple together and broke bread in their homes, eating with glad and generous hearts, praising God. The Bible says there were no needy persons among them, because those who owned land or houses sold them and brought the money to the apostles to be shared. And the Lord added to their number day by day.",
+    "10-12": "This is a picture of what the early Church looked like. Four things are named: teaching, fellowship, the breaking of bread (the Eucharist) and prayer. The sharing is not forced; people give gladly because they love their neighbours. The people who joined were attracted by what they saw, not by a speech. Not every group of Christians has lived exactly this way, and the Acts of the Apostles also tells of problems. But it is a standard for all later Christians. Religious communities such as monasteries try to live it closely. Everyone can see how a parish can help the needy in practical ways."
+   },
+   "talk": [
+    "What four things did the first Christians do together?",
+    "How did they treat people who needed help?",
+    "How does your family or parish share?"
+   ],
+   "memory": "Acts 2:42",
+   "prayer": "Lord, make us a family that shares and prays together. Amen.",
+   "hue": 40,
+   "vocab": [
+    {
+     "word": "fellowship",
+     "means": "friendship and sharing among people who believe the same thing"
+    }
+   ]
+  },
+  {
+   "id": "tabitha",
+   "title": "Tabitha Gets Up",
+   "testament": "NT",
+   "refs": [
+    "Acts 9:36-43"
+   ],
+   "emoji": "🧵",
+   "text": {
+    "4-6": "In the town of Joppa there lived a kind woman called Tabitha. She made clothes for the poor. One day she became ill and died. Her friends were very sad. They sent for Peter. When Peter came, the widows showed him the coats and clothes she had made. Peter prayed and said, 'Tabitha, get up!' She opened her eyes. Peter helped her up, and her friends were so happy.",
+    "7-9": "In Joppa there was a disciple named Tabitha, which in Greek is Dorcas. She was always doing good and helping the poor. At that time she became ill and died, and her body was washed and laid in an upstairs room. The disciples had heard that Peter was nearby, so they sent two men to ask him to come at once. Peter went with them. The room was full of widows, crying and showing him the tunics and other clothes Tabitha had made while she was with them. Peter sent them all out of the room, knelt down and prayed. Then he turned to the body and said, 'Tabitha, get up.' She opened her eyes, saw Peter, and sat up. He gave her his hand and helped her up, and he called the believers and widows and showed her to them alive.",
+    "10-12": "Tabitha is the only woman in the New Testament who is called a 'disciple' by that word. Her work was practical. She sewed. The widows do not say what a good person she was. They show Peter the clothes. Her life is remembered by what she did for others. Peter's actions are much like Jesus's in the story of Jairus's daughter: he sends the crowd away, and he speaks to her by name. The story is not mostly about Peter's power. It is about a community that loved a woman and asked God to give her back. Many people in the town came to believe."
+   },
+   "talk": [
+    "What did Tabitha do for people?",
+    "What did the widows show Peter?",
+    "What useful thing can you make or do for someone?"
+   ],
+   "memory": "Acts 9:36",
+   "prayer": "Lord, thank you for people who help in quiet ways. Help me to do the same. Amen.",
+   "hue": 335,
+   "vocab": [
+    {
+     "word": "widow",
+     "means": "a woman whose husband has died"
+    }
+   ]
+  },
+  {
+   "id": "cornelius",
+   "title": "Peter and Cornelius",
+   "testament": "NT",
+   "refs": [
+    "Acts 10:1-48"
+   ],
+   "emoji": "🏡",
+   "text": {
+    "4-6": "Cornelius was a Roman soldier who prayed to God and gave to the poor. An angel told him, 'Send for Peter.' Meanwhile, God showed Peter a vision of a big sheet full of animals. A voice said, 'Do not call anything unclean that God has made clean.' Then men from Cornelius came to Peter's door. Peter went with them. He told them about Jesus. While he was speaking, the Holy Spirit came on them all! Peter said, 'God has no favourites.'",
+    "7-9": "Cornelius was a Roman officer in Caesarea. He was a good man who prayed and gave generously, though he was not Jewish. One afternoon an angel told him to send for a man named Peter. The next day, while Peter was praying on a rooftop in Joppa, he saw a vision of a large sheet coming down from heaven filled with all kinds of animals. A voice said, 'Get up, Peter. Kill and eat.' Peter said no, because some of the animals were forbidden by the law. The voice said, 'What God has made clean, you must not call unclean.' This happened three times. At that moment the men from Cornelius arrived. Peter went to the house, and said, 'God has shown me that I should not call anyone unclean.' As Peter spoke about Jesus, the Holy Spirit fell on all who were listening, and they were baptised.",
+    "10-12": "This is one of the turning points in Acts. Until now almost all the followers of Jesus were Jewish. Peter, a Jew who followed the old food laws, would not normally enter the home of a Gentile. God had to teach him. The vision was not really about food. It was about people. Peter says, 'I truly understand that God shows no partiality.' When the Holy Spirit comes on the household of Cornelius just as at Pentecost, no one can say that they are not part of the Church. The story helps explain why the Church is open to every nation. It was a hard lesson for the early Christians, and Peter takes his time to learn it."
+   },
+   "talk": [
+    "What did God teach Peter through the vision?",
+    "What happened to Cornelius and his family?",
+    "Who might feel left out at your school or church, and how can you include them?"
+   ],
+   "memory": "Acts 10:34",
+   "prayer": "Lord, thank you that everyone belongs to you. Help me to welcome everyone. Amen.",
+   "hue": 180,
+   "vocab": [
+    {
+     "word": "Gentile",
+     "means": "a person who is not Jewish"
+    }
+   ]
+  },
+  {
+   "id": "peter-prison",
+   "title": "Peter Escapes from Prison",
+   "testament": "NT",
+   "refs": [
+    "Acts 12:3-17"
+   ],
+   "emoji": "⛓️",
+   "text": {
+    "4-6": "King Herod put Peter in prison. The church prayed hard for him. In the night, an angel woke Peter. 'Get up quickly!' The chains fell off his hands. The angel led him past the guards, and the big iron gate opened by itself! Peter went to the house where his friends were praying. A girl called Rhoda heard his voice. She was so happy she forgot to open the door! She ran to tell everyone. At last they let Peter in, and they were amazed.",
+    "7-9": "Herod arrested Peter and put him in prison, with four squads of soldiers to guard him. The church prayed to God for him earnestly. The night before the trial, Peter was sleeping between two soldiers, bound with two chains. Suddenly an angel stood beside him and a light shone in the cell. The angel hit Peter on the side and said, 'Get up quickly.' The chains fell off. 'Put on your belt and sandals and follow me.' Peter thought he was dreaming. They passed the guards, and the iron gate opened by itself. Then the angel left. Peter went to the house of Mary, the mother of John Mark, where many were praying. When the servant girl Rhoda heard his voice, she was so happy that she ran to tell the others instead of opening the gate. 'You are out of your mind,' they said. Peter kept knocking, and when they opened, they were amazed.",
+    "10-12": "This story has some humour. The church was praying for Peter all night, and when he is at the door they cannot believe it. Rhoda is so glad that she forgets to open it. It is honest about how people pray: they do pray, and they also doubt. Peter, in a prison cell, is so calm that he is asleep. The angel has to nudge him. He tells them to 'tell this to James and the brothers' and goes to another place. The story shows that prayer is real and that God cares for his messengers. It is also a reminder that not every prisoner is freed in this way, and the Church prays for those who are in prison for their faith."
+   },
+   "talk": [
+    "What did the church do while Peter was in prison?",
+    "What happened when Rhoda heard Peter's voice?",
+    "Who would you like to pray for?"
+   ],
+   "memory": "Acts 12:5",
+   "prayer": "Lord, thank you for hearing our prayers. Please look after people who are in prison or in danger. Amen.",
+   "hue": 235,
+   "vocab": [
+    {
+     "word": "angel",
+     "means": "a messenger sent by God"
+    }
+   ]
+  },
+  {
+   "id": "lydia",
+   "title": "Lydia Opens Her Home",
+   "testament": "NT",
+   "refs": [
+    "Acts 16:11-15"
+   ],
+   "emoji": "🧣",
+   "text": {
+    "4-6": "Paul went to the city of Philippi. On the Sabbath he went to the river, where some women were praying. One of them was Lydia. She sold purple cloth. The Lord opened her heart to what Paul said about Jesus. She and her family were baptised. Then she said to Paul and his friends, 'If you think I belong to the Lord, please come and stay at my house.' And they did.",
+    "7-9": "Paul and his companions sailed to Macedonia and came to Philippi, a Roman city. On the Sabbath they went outside the gate by the river, where they expected to find a place of prayer. They sat down and spoke to the women who had gathered. One of them was a woman called Lydia, a seller of purple cloth from the city of Thyatira. She worshipped God. The Lord opened her heart to listen to what Paul was saying. She and her household were baptised, and she invited them: 'If you have judged me to be faithful to the Lord, come and stay at my house.' And she persuaded them.",
+    "10-12": "Lydia is the first person in Europe in Acts to become a Christian, and it begins with women praying by a river. She is a businesswoman who sells expensive purple cloth, and she has a household. The Bible says that 'the Lord opened her heart', and that she then acted: she was baptised and offered her home. The house of Lydia later became a meeting place for the Church in Philippi. When Paul wrote to the Philippians, he said he thanked God for their partnership in the Gospel from the first day. Welcoming people into a home is one of the simplest and most lasting ways of serving God."
+   },
+   "talk": [
+    "Where did Paul find Lydia?",
+    "What did Lydia do after she was baptised?",
+    "How can your family welcome visitors?"
+   ],
+   "memory": "Acts 16:14",
+   "prayer": "Lord, open my heart, and help me to open my home to others. Amen.",
+   "hue": 285,
+   "vocab": [
+    {
+     "word": "Philippi",
+     "means": "a city in Greece where Paul first preached in Europe"
+    }
+   ]
+  },
+  {
+   "id": "eutychus",
+   "title": "The Boy Who Fell Asleep",
+   "testament": "NT",
+   "refs": [
+    "Acts 20:7-12"
+   ],
+   "emoji": "🪟",
+   "text": {
+    "4-6": "Paul was visiting friends. He talked for a very long time, until midnight. A young man named Eutychus sat in a window. He was so sleepy that he fell asleep and fell out of the window! Everyone ran down. Paul hugged him and said, 'Do not worry. He is alive!' They took him home, and they were very glad. Paul kept on talking until morning.",
+    "7-9": "On the first day of the week the Christians in Troas met to break bread. Paul talked with them, and since he was leaving the next day, he went on speaking until midnight. There were many lamps in the upstairs room. A young man named Eutychus was sitting in the window. As Paul talked on and on, Eutychus sank into a deep sleep and fell from the third storey to the ground. He was picked up dead. But Paul went down, threw himself on him, put his arms around him and said, 'Do not be alarmed. His life is in him.' Then Paul went back upstairs, broke bread and ate, and talked until dawn. They took the young man away alive, and they were greatly comforted.",
+    "10-12": "This is one of the most down-to-earth stories in the Bible. It tells us that the early Christians met on Sunday, 'the first day of the week', to break bread. It also tells us they sat in a hot, crowded room with lots of lamps, and a young person fell asleep during a long talk. The story is gentle with Eutychus. Nobody blames him. Paul runs down and embraces him, as Elijah and Elisha had done for children in the Old Testament. Afterwards the community goes back upstairs and shares the Eucharist together. The Bible does not mind showing ordinary life in the Church."
+   },
+   "talk": [
+    "Why did Eutychus fall?",
+    "How did Paul act?",
+    "What would you do if a friend were hurt?"
+   ],
+   "memory": "Acts 20:10",
+   "prayer": "Lord, thank you for watching over us when we are weak or tired. Amen.",
+   "hue": 50
+  },
+  {
+   "id": "shipwreck",
+   "title": "Paul in the Storm",
+   "testament": "NT",
+   "refs": [
+    "Acts 27:13-44"
+   ],
+   "emoji": "⛵",
+   "text": {
+    "4-6": "Paul was on a ship going to Rome. A huge storm hit the ship. For many days nobody could see the sun or stars. The sailors were afraid. But an angel told Paul, 'Do not be afraid. God will save everyone on this ship.' Paul told the people, 'Eat some food. Be brave.' He thanked God for the bread. At last the ship ran aground near an island. Everyone got safely to land.",
+    "7-9": "Paul was a prisoner on a ship bound for Rome, with 275 other people on board. A fierce wind struck, and for many days they could see neither sun nor stars. They threw cargo overboard, and finally gave up all hope. Paul stood up and said, 'An angel of the God to whom I belong stood by me last night and said, Do not be afraid, Paul. You must stand before Caesar. God has given you the lives of all who sail with you.' After two weeks, Paul urged everyone to eat. He took bread, gave thanks to God in front of them all, broke it and began to eat. They were encouraged, and ate too. When day came, the ship ran aground and broke apart, but everyone made it to land, some swimming and some on pieces of the ship.",
+    "10-12": "Paul is in chains, and yet he is the calm one on the ship. His calm comes from prayer and from what the angel has told him. He does not tell everyone that nothing will go wrong. He tells them that God will keep them all alive, and then he acts sensibly: he asks them to eat. The words he uses, taking bread, giving thanks and breaking it, sound very like the Last Supper. Luke, who wrote Acts, was on the ship, and tells it like an eyewitness, with many details. The story shows that God's promises and our ordinary work belong together."
+   },
+   "talk": [
+    "How did Paul help the people on the ship?",
+    "Why did Paul ask everyone to eat?",
+    "What helps you stay calm when you are afraid?"
+   ],
+   "memory": "Acts 27:25",
+   "prayer": "Lord, be with me in every storm. Amen.",
+   "hue": 205,
+   "vocab": [
+    {
+     "word": "aground",
+     "means": "stuck on the bottom, when a ship hits land or sand"
+    }
+   ]
+  },
+  {
+   "id": "barnabas",
+   "title": "Barnabas, the Encourager",
+   "testament": "NT",
+   "refs": [
+    "Acts 4:36-37",
+    "Acts 9:26-28",
+    "Acts 11:22-26"
+   ],
+   "emoji": "🤝",
+   "text": {
+    "4-6": "A man named Joseph had a nickname: Barnabas. It means 'son of encouragement'. He sold a field and gave the money to the apostles. When Paul came to Jerusalem, everyone was afraid of him. Barnabas said, 'I will be his friend.' He brought Paul to the apostles and told them Paul was a new person. Later Barnabas went to Antioch, and he was very glad to see God's love there. He encouraged everyone.",
+    "7-9": "The apostles gave Joseph, a Levite from Cyprus, the name Barnabas, which means 'son of encouragement'. He sold a field he owned and laid the money at the apostles' feet. After Saul, who later became Paul, was converted, he went to Jerusalem and tried to join the disciples. But they were all afraid of him, since he had been a persecutor. Barnabas took him and brought him to the apostles, and told them how Saul had seen the Lord on the road and had spoken boldly in Damascus. Later the Church sent Barnabas to Antioch. When he came and saw the grace of God, he was glad, and he encouraged all of them to remain faithful. He then went to find Saul, and brought him to Antioch. There the disciples were first called Christians.",
+    "10-12": "Barnabas shows what a friend can do. He believes in Paul when no one else will, and he uses his own good name to say that Paul can be trusted. Without Barnabas, Paul might never have joined the Church in Jerusalem. Barnabas is generous with money, and generous with trust. He goes to Antioch and does not boss anyone. He sees good and encourages it. Then he invites Paul to work with him. Some of the best things in the Church begin with someone who simply says, 'Give this person a chance.' The Church remembers Barnabas as an apostle on 11 June."
+   },
+   "talk": [
+    "What does Barnabas mean?",
+    "How did Barnabas help Paul?",
+    "Who can you encourage today?"
+   ],
+   "memory": "Acts 11:23",
+   "prayer": "Lord, make me an encourager. Amen.",
+   "hue": 100,
+   "vocab": [
+    {
+     "word": "encourage",
+     "means": "to give someone courage or hope"
+    }
+   ]
+  },
+  {
+   "id": "nicholas",
+   "title": "Nicholas and the Secret Gifts",
+   "testament": "saint",
+   "refs": [
+    "Matthew 6:1-4"
+   ],
+   "emoji": "🎁",
+   "text": {
+    "4-6": "Nicholas lived a long time ago, in a town called Myra. He loved God and he loved poor people. It is told that three sisters were very poor. They had no money for their future. At night, Nicholas put gold through their window. He did it three nights in a row. He did not want anyone to know it was him. Nicholas became a bishop, and children still remember him.",
+    "7-9": "Nicholas was born in the town of Patara, in the land of Lycia, which is now part of Turkey. He became a monk, and he was chosen as archbishop of Myra, a very important bishop. Saint Nicholas was known for helping those who were in need. The old Lives of the Saints tell how three young women were so poor that they were in danger of coming to harm. Nicholas heard about it. On three nights in a row, he secretly passed gold through their window, enough to give each sister something to live on. All three were able to marry. Many years after he died, his body was taken to the city of Bari in Italy, and many people visit him there. He has long been remembered as a friend of children.",
+    "10-12": "We do not have much that is certain about Nicholas. Butler, in his Lives of the Saints, says that all accounts agree he was from Patara and that he became bishop of Myra, and that the story of the three sisters is one of the things 'related' about him. This is how an old story is told: with care, and without claiming more than we know. What the story shows is a way of giving that Jesus teaches in the Sermon on the Mount: 'When you give to the needy, do not let your left hand know what your right hand is doing.' The Santa Claus of our own time grew from the memory of this kind bishop. His feast day is 6 December."
+   },
+   "talk": [
+    "Why did Nicholas give the gold in secret?",
+    "What do you think the sisters felt when they found the gold?",
+    "What is a kind thing you could do without telling anyone?"
+   ],
+   "memory": "Matthew 6:3",
+   "prayer": "Saint Nicholas, friend of children, pray for us. Teach us to give quietly and gladly. Amen.",
+   "hue": 0,
+   "vocab": [
+    {
+     "word": "bishop",
+     "means": "a leader who looks after the Church in a region"
+    }
+   ]
+  },
+  {
+   "id": "martin-cloak",
+   "title": "Martin Shares His Cloak",
+   "testament": "saint",
+   "refs": [
+    "Matthew 25:34-40"
+   ],
+   "emoji": "🧥",
+   "text": {
+    "4-6": "Martin was a young soldier. One cold winter day he was riding in the city of Amiens. A poor man stood by the gate, shivering. He had almost no clothes. Many people walked past. Martin had no money with him. So he took his sword and cut his cloak in two. He gave half to the poor man. That night Martin dreamed of Jesus wearing the half-cloak. Martin was baptised soon after.",
+    "7-9": "Martin became a soldier in the Roman army. Even before he was baptised, he was known as a kind and patient young man. One day in the middle of a hard winter, he was marching with other soldiers. At the gate of the city of Amiens, he met a poor man who was almost naked and shaking with cold. The man begged from everyone who passed, but nobody helped. Martin had nothing with him but his weapons and his cloak. So he drew his sword and cut the cloak in two. He gave one half to the beggar and wrapped himself in the other. Soon afterwards, Martin had a dream in which Jesus was wearing the half of the cloak. He was baptised, and later became bishop of Tours.",
+    "10-12": "The story is told by Sulpicius Severus, who knew Martin, and it is repeated in Butler's Lives of the Saints. In the dream, Jesus says to the angels around him, 'Martin, who is still only a catechumen, has clothed me with this garment.' A catechumen is someone who is getting ready for baptism. Jesus has said something like this in the Gospel: 'Whatever you did for one of the least of these, you did for me.' Martin was baptised in his eighteenth year. He shared what he had without making a fuss, and he gave half, not the whole, because it was half his. His feast is 11 November."
+   },
+   "talk": [
+    "Why did Martin give half of his cloak?",
+    "Who did Martin see in his dream?",
+    "What could you share with someone who has less?"
+   ],
+   "memory": "Matthew 25:40",
+   "prayer": "Saint Martin, pray for us. Help us to see Jesus in those who need our help. Amen.",
+   "hue": 25,
+   "vocab": [
+    {
+     "word": "catechumen",
+     "means": "a person preparing to be baptised"
+    }
+   ]
+  },
+  {
+   "id": "francis-leper",
+   "title": "Francis and the Man with Sores",
+   "testament": "saint",
+   "refs": [
+    "Matthew 10:7-10"
+   ],
+   "emoji": "🕊️",
+   "text": {
+    "4-6": "Francis lived in Assisi in Italy. His father was a rich merchant, and Francis liked fine things. But God was calling him. One day Francis was riding and met a man with leprosy, a very bad skin disease. Francis was afraid. Then he got off his horse, gave the man money, and gave him a kiss. After that Francis loved to help sick and poor people. He gave up his money and lived simply.",
+    "7-9": "Francis was born in Assisi, and his father was a rich cloth merchant. As a young man Francis was cheerful and generous, and he never turned away a poor person who asked for help. One day, riding on the plain near Assisi, he met a man with leprosy. At first Francis drew back in horror. Then he got down from his horse, gave the man an alms and kissed his sores with great tenderness. After that he often visited hospitals for lepers and served the sick. He heard a priest read the words of Jesus: do not take gold or silver or a bag for your journey. Francis took them as they were written. He gave away what he had and lived with very little. Other men joined him, and they became the Franciscans.",
+    "10-12": "All of this comes from the old Life of Saint Francis summarised in Butler's Lives of the Saints. Butler says that Francis was moved by the story of the poor Christ in the stable at Bethlehem, and that he loved the feast of Christmas more than almost any other. He rebuilt a broken little church, San Damiano, with his own hands, carrying stones. Poverty for him was not sadness. It was a way of being free and of living like Jesus. At the end of the account, Butler adds that Francis thought of himself as very small. Saint Francis is remembered on 4 October,."
+   },
+   "talk": [
+    "What did Francis do when he met the man with leprosy?",
+    "Why did Francis give away what he owned?",
+    "What do you have that you could give away?"
+   ],
+   "memory": "Matthew 10:8",
+   "prayer": "Saint Francis, pray for us. Help me to love people who are poor or sick. Amen.",
+   "hue": 45,
+   "vocab": [
+    {
+     "word": "leprosy",
+     "means": "a skin disease that, long ago, made people afraid to go near"
+    }
+   ]
+  },
+  {
+   "id": "patrick",
+   "title": "Patrick Comes Back to Ireland",
+   "testament": "saint",
+   "refs": [
+    "Matthew 28:18-20"
+   ],
+   "emoji": "🍀",
+   "text": {
+    "4-6": "When Patrick was sixteen, robbers took him from his home. They carried him over the sea to Ireland, where he became a servant and looked after animals. He was cold and hungry. But Patrick prayed many times each day and each night. One night he had a dream telling him how to escape. He got home safely. Years later, he went back to Ireland to tell people about Jesus.",
+    "7-9": "Patrick was born in Britain to a Christian family. In his sixteenth year, he was carried off by raiders and taken to Ireland as a slave. There he had to look after cattle on the mountains and in the forests, in hunger and cold, in snow, rain and ice. He wrote later that his faith grew stronger there. He prayed often in the day and many times in the night. After some time a dream told him to go home, and that a ship was ready. He escaped and returned to his family. But he felt that God was calling him back to Ireland. He became a bishop and, for about forty years, travelled across the island, preaching and baptising thousands.",
+    "10-12": "The details here are taken from Butler's Lives of the Saints, which draws on Patrick's own writing, his 'Confession'. Patrick says he was not a learned man, and he took nothing from the many he baptised. He goes back to the land where he was a slave. That is a brave thing to do. He felt that God was calling him back to the people who had held him. The way in which Patrick teaches us is the way of the last words of Jesus in Matthew: 'Go and make disciples of all nations.' Saint Patrick's feast is 17 March. We do not know the exact dates of his life, and many stories about him, such as the shamrock, are not in the earliest sources."
+   },
+   "talk": [
+    "What happened to Patrick when he was sixteen?",
+    "Why did he go back to Ireland?",
+    "How can you forgive someone who has hurt you?"
+   ],
+   "memory": "Matthew 28:19",
+   "prayer": "Saint Patrick, pray for us. Help us to share our faith with kindness. Amen.",
+   "hue": 135,
+   "vocab": [
+    {
+     "word": "bishop",
+     "means": "a leader who looks after the Church in a region"
+    }
+   ]
+  },
+  {
+   "id": "elizabeth-hungary",
+   "title": "Elizabeth Feeds the Hungry",
+   "testament": "saint",
+   "refs": [
+    "Isaiah 58:7"
+   ],
+   "emoji": "🥖",
+   "text": {
+    "4-6": "Elizabeth was a princess in Hungary and Germany who loved Jesus. She prayed every day. She also used her money to help poor people. She gave them bread and clothes and built a hospital for the sick. She even looked after sick children and orphans. When she was a widow, she was treated unkindly, but she kept being kind. She spent her last years helping those in need.",
+    "7-9": "Elizabeth was born in Hungary and was married as a young girl to Lewis, the ruler of Thuringia in Germany. Even as a young woman, she liked to pray. She seemed to know no better use of money than to give it to the poor. She spun coarse wool to make clothes for them. She built a hospital at the foot of the castle rock and cared for sick people there herself. She fed nine hundred people at her gate every day. After her husband died on his way to a Crusade, she was turned out of the castle. She went to live in poverty. A priest took her in, and she spent her last years in poverty, caring for those who were sick.",
+    "10-12": "This account is based on Butler's Lives of the Saints. It says that Elizabeth's husband, who loved her, defended her when the servants complained about her giving. He said that her kindness to the poor would bring God's blessing on them all. The prophet Isaiah says that real worship means sharing your bread with the hungry, giving shelter to the poor and clothing the naked. Elizabeth did that, and she chose to do it herself, with her own hands, instead of sending others. The Church remembers her on 17 November. Many hospitals and charities carry her name."
+   },
+   "talk": [
+    "What did Elizabeth do for people in need?",
+    "Why do you think she did the work herself?",
+    "What can your family do to help people who are hungry?"
+   ],
+   "memory": "Isaiah 58:7",
+   "prayer": "Saint Elizabeth, pray for us. Help us to share our food and our time. Amen.",
+   "hue": 15,
+   "vocab": [
+    {
+     "word": "hospital",
+     "means": "a place where sick people are looked after"
+    }
+   ]
+  },
+  {
+   "id": "clare",
+   "title": "Clare Chooses a Simple Life",
+   "testament": "saint",
+   "refs": [
+    "Matthew 6:19-21"
+   ],
+   "emoji": "🕯️",
+   "text": {
+    "4-6": "Clare was born in Assisi. Her family was rich. When she heard Francis preach, she wanted to give her life to God. Francis cut her hair and gave her a plain dress. She went to live at San Damiano. She and her sisters lived simply and prayed a lot. Clare gave her money to the poor. Many other women joined her. They were known as the Poor Clares.",
+    "7-9": "Clare was born in 1193 in Assisi, to a noble and wealthy family. She had heard Francis preach, and she asked to speak with him. She wanted to give her life to God. On Palm Sunday, she left her home in secret, and Francis cut off her hair and gave her a rough habit tied with a cord. Her family was upset and tried to bring her back, but she showed them her cut hair and said that Christ had called her. She went to live at the little church of San Damiano. Other women joined her, and she became their leader. When her father died, her large share of the family wealth came to her, and she gave it all to the poor.",
+    "10-12": "This summary comes from Butler's Lives of the Saints. Butler says that Clare loved to be 'the servant of servants'. She washed the feet of the other sisters, served at table and looked after the sick. She spent many hours in prayer, and even when she was ill in bed she spun fine linen for church altars. Jesus said, 'Where your treasure is, there will your heart be also.' Clare's treasure was God, and her life shows what that can mean. Her feast is 11 August. Her sisters, the Poor Clares, are still in many countries today."
+   },
+   "talk": [
+    "What did Clare give to the poor?",
+    "What did Clare want most?",
+    "What do you treasure most?"
+   ],
+   "memory": "Matthew 6:21",
+   "prayer": "Saint Clare, pray for us. Help me to love God more than things. Amen.",
+   "hue": 55,
+   "vocab": [
+    {
+     "word": "habit",
+     "means": "the simple clothes worn by monks and sisters"
+    }
+   ]
+  }
+ ]
+}

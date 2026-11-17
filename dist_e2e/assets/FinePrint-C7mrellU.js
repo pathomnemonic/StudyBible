@@ -1,0 +1,1 @@
+import{j as s}from"./index-BVlq-9Oj.js";function i({title:n="Sources and notes",children:r}){return s.jsxs("details",{className:"fineprint",children:[s.jsx("summary",{children:n}),s.jsx("p",{children:r})]})}export{i as F};

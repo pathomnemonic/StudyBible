@@ -1,0 +1,32 @@
+{
+ "work": "Catena Aurea (Golden Chain)",
+ "author": "St. Thomas Aquinas (compiler); quoting the Fathers of the Church",
+ "translation": "English translation of 1841–45 (published by J.G.F. and J. Rivington, London 1842), by John Henry Newman and colleagues",
+ "module": "CrossWire SWORD module “Catena” v1.0.1 — Public Domain; compiled from public-domain sources, checked against scans of the original publication, converted to OSIS by Tom Lemmens (github.com/lemtom/catena)",
+ "rights": "public-domain",
+ "url": "https://crosswire.org/sword/modules/ModInfo.jsp?modName=Catena",
+ "retrieved": "2026-11-09",
+ "note": "Verse links are those of the Catena itself: each patristic excerpt appears beneath the verse(s) of the Gospel it was set to comment on.",
+ "volumes": [
+  {
+   "book": "MAT",
+   "groups": 283,
+   "items": 3825
+  },
+  {
+   "book": "MRK",
+   "groups": 108,
+   "items": 1296
+  },
+  {
+   "book": "LUK",
+   "groups": 244,
+   "items": 3518
+  },
+  {
+   "book": "JHN",
+   "groups": 186,
+   "items": 2699
+  }
+ ]
+}

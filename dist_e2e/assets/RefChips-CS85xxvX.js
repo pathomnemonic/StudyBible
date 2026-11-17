@@ -1,0 +1,1 @@
+import{da as i,j as s,s as n}from"./index-BVlq-9Oj.js";import{R as m}from"./RefLink-DKq82JNW.js";function p({text:e}){const a=i(e);return s.jsx(s.Fragment,{children:a.map((r,t)=>s.jsx("span",{className:"chip",style:{marginRight:4},children:s.jsx(m,{refv:r})},n(r)+t))})}export{p as R};
