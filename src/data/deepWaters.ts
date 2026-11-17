@@ -6,7 +6,7 @@
  *    the Church, the books of the Bible...). `tests/deepWaters.test.ts` checks each count, so an answer that is true cannot be missing.
  *  - open: the set has no end (religious orders, Marian titles, saints, devotions). The list is large but cannot be complete, so the game says
  *    "not on our list" for an unlisted answer, never "wrong".
- * Rarity (`tier`, 1 common to 5 deep cut) is the editors' judgement of how often a person would think of it. It is not survey data.
+ * Rarity (`tier`, 1 common to 6 deep cut) is the editors' judgement of how often a person would think of it. It is not survey data.
  * Names are spelled as a Catholic reference would; spelling variants and common alternatives go in `aliases` (see src/lib/deepWaters.ts for what
  * matching already ignores: case, accents, "Saint"/"St.", "of", "the", plurals, Roman numerals against digits, one typo in a long word).
  */
@@ -18,7 +18,7 @@ export interface DeepPrompt {
   id: string;
   /** what the question is about (for balancing a daily set) */
   theme: DeepTheme;
-  /** where the answers come from, when they were generated from the app's own data rather than written by hand */
+  /** named source or app data file supporting the accepted answers */
   source?: string;
   /** editorial workflow marker; prompts remain unreviewed until a person checks every answer */
   status?: 'draft';
