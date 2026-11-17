@@ -44,8 +44,23 @@ export default function DeepWatersPage() {
 
   useEffect(() => {
     if (done || locked) return;
-    const timer = window.setInterval(() => setSeconds((n) => Math.max(0, n - 1)), 1000);
-    return () => window.clearInterval(timer);
+    const update = () => {
+      if (document.visibilityState === 'hidden') return;
+      setSeconds(Math.max(0, Math.ceil((deadlineRef.current - Date.now()) / 1000)));
+    };
+    const onVisibility = () => {
+      if (document.visibilityState === 'hidden') {
+        remainingRef.current = Math.max(0, deadlineRef.current - Date.now());
+        setSeconds(Math.ceil(remainingRef.current / 1000));
+      } else {
+        deadlineRef.current = Date.now() + remainingRef.current;
+        update();
+      }
+    };
+    const timer = window.setInterval(update, 200);
+    document.addEventListener('visibilitychange', onVisibility);
+    update();
+    return () => { window.clearInterval(timer); document.removeEventListener('visibilitychange', onVisibility); };
   }, [done, locked, round]);
 
   useEffect(() => {
