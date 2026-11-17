@@ -202,7 +202,10 @@
     "answers": [
       {
         "answer": "The Good Samaritan",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Good Samaritan"
+        ]
       },
       {
         "answer": "The Rich Fool",
