@@ -38,7 +38,7 @@ export default function DeepWatersPage() {
   const [showAnswers, setShowAnswers] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const prompt: DeepPrompt = prompts[round];
-  const deadlineRef = useRef<number>(snapshot?.deadlineAt ?? Date.now() + restoredRemaining);
+  const deadlineRef = useRef<number>(snapshot?.paused ? Date.now() + restoredRemaining : snapshot?.deadlineAt ?? Date.now() + restoredRemaining);
   const remainingRef = useRef<number>(restoredRemaining);
   const [logbook, setLogbook] = useState(loadDeepLogbook());
   const [isPaused, setIsPaused] = useState(Boolean(snapshot?.paused && document.visibilityState === 'hidden'));
@@ -95,7 +95,7 @@ export default function DeepWatersPage() {
       round, phase: done ? 'done' : locked ? 'locked' : preview ? 'preview' : 'playing', score,
       history: history.map((entry, index) => ({ promptId: prompts[index]?.id ?? '', prompt: entry.prompt, guess: entry.guess, answer: entry.answer, tier: entry.tier, points: entry.points, timedOut: entry.timedOut, pearlBonus: entry.pearlBonus })),
       guess, deadlineAt: done || locked ? null : deadlineRef.current,
-      remainingMs: document.visibilityState === 'hidden' ? remainingRef.current : seconds * 1000,
+      remainingMs: isPaused ? remainingRef.current : Math.max(0, deadlineRef.current - Date.now()),
       paused: isPaused, pearlAnswer,
       pearlFound,
     });
