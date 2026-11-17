@@ -2,7 +2,7 @@
 
 ## Size and schedule
 
-This batch contributes **2,416 distinct prompts**. Together with the 139 retained curated prompts, the bank contains **2,555 distinct prompts**, exactly 365 seven-question daily sets. The four-answer Evangelist-symbol question was removed rather than exempted from the minimum answer requirement.
+This batch contributes **2,416 distinct prompts**. Together with the 139 existing prompts, the bank contains **2,555 distinct prompts**, exactly 365 seven-question daily sets. The four-answer Evangelist-symbol question was removed rather than exempted from the minimum answer requirement.
 
 ## Question style
 

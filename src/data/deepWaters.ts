@@ -273,5 +273,5 @@ const CORE_THEMES: Record<string, DeepTheme> = {
 };
 const core: DeepPrompt[] = CORE_PROMPTS.map((p) => ({ ...p, theme: CORE_THEMES[p.id] ?? 'doctrine' }));
 
-/** Every prompt: the first fifteen written by hand, the second group written by hand, and the groups generated from the app's own data (see scripts/deepwaters). */
+/** Every prompt: the core and hand-curated groups, the app-data generated group, and the Krillion-style constraint group (see scripts/deepwaters and deepWatersKrillion.ts). */
 export const DEEP_WATERS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...MORE2_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[]), ...KRILLION_PROMPTS];

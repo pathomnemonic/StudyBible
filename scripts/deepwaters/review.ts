@@ -1,4 +1,4 @@
-// Records, for every Deep Waters question, a hash of what a person has to check (its text, whether it names a closed set, and every answer with its tier),
+// Records hashes for the non-Krillion Deep Waters prompts that are tracked for manual review.
 // and whether a person has checked it. A question whose content changes loses its review.
 //   npx tsx scripts/deepwaters/review.ts            fail if src/data/deepWaters.review.json no longer matches the questions
 //   npx tsx scripts/deepwaters/review.ts --write    rewrite it (new and changed questions become "unreviewed"; unchanged reviewed ones stay reviewed)
@@ -24,7 +24,7 @@ const text = JSON.stringify({ about: 'Review records for the Deep Waters questio
 
 if (process.argv.includes('--report')) {
   const answers = REVIEWABLE_PROMPTS.reduce((n, p) => n + p.answers.length, 0);
-  console.log(`${REVIEWABLE_PROMPTS.length} manually curated questions, ${answers} answers; ${entries.filter((e) => e.status === 'reviewed').length} reviewed, ${entries.filter((e) => e.status === 'unreviewed').length} unreviewed; ${DEEP_WATERS.length - REVIEWABLE_PROMPTS.length} generated prompts remain draft and are covered by dedicated tests`);
+  console.log(`${REVIEWABLE_PROMPTS.length} existing review-registry questions, ${answers} answers; ${entries.filter((e) => e.status === 'reviewed').length} reviewed, ${entries.filter((e) => e.status === 'unreviewed').length} unreviewed; ${DEEP_WATERS.length - REVIEWABLE_PROMPTS.length} generated prompts remain draft and are covered by dedicated tests`);
   const themes: Record<string, number> = {};
   for (const p of REVIEWABLE_PROMPTS) themes[p.theme] = (themes[p.theme] ?? 0) + 1;
   console.log('by theme:', Object.entries(themes).map(([t, n]) => `${t} ${n}`).join(', '));
