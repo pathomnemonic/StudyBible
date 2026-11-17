@@ -369,8 +369,8 @@
   },
   {
    "id": "longtail-all-popes",
-   "sha256": "f4380f4fb05b4a055b23f88637d1d670788b704d77fb0d54ea727b092c3f6e79",
-   "answers": 265,
+   "sha256": "6c57b9f0cdbb9159856c179b10683a2bb7d78c736ef8ee9a9a325aeff2066a6a",
+   "answers": 191,
    "status": "unreviewed"
   },
   {
@@ -387,8 +387,8 @@
   },
   {
    "id": "longtail-italian-saints",
-   "sha256": "f177f6fca314bcdc44df1526ca0f075f0689943a1b1d7b47512e2b7c18059b3b",
-   "answers": 65,
+   "sha256": "1f252ef8de32d08160a17c5794e7bfb6dc33ada662634d3e4291b351c82b4abd",
+   "answers": 63,
    "status": "unreviewed"
   },
   {
@@ -429,38 +429,38 @@
   },
   {
    "id": "longtail-catholic-shrines",
-   "sha256": "1391563b2ed45d1102bb74eb6b51187083fa9db4d3bc71b349d79081ff7b1690",
-   "answers": 64,
+   "sha256": "013e3dcde6fcdf6785618d209e875a3c7aa07debc9b811c02062dca6d11247be",
+   "answers": 60,
    "status": "unreviewed"
   },
   {
    "id": "longtail-patron-professions",
-   "sha256": "429364c738b823fb7efdc5d0aabda8638d3928a51e1a5a6883b2950bfdcfb42b",
-   "answers": 65,
+   "sha256": "2cc2029c5183f1dd5edf925df6bb69edf0efb2e41f66ad91c6f005059c1fbbc5",
+   "answers": 63,
    "status": "unreviewed"
   },
   {
    "id": "longtail-patron-illnesses",
-   "sha256": "83fe137aedc546cfbfd7f6ec5cf183f1269fba3e12a62d109a764500ce3895b8",
-   "answers": 66,
+   "sha256": "7af995cd09a5b89c6a3e287f8fc3f75be06bf8c4dac292009323f7c87992905d",
+   "answers": 60,
    "status": "unreviewed"
   },
   {
    "id": "longtail-patron-countries",
-   "sha256": "16b301c4038dfab470ab9b35c6bf6626b94859c2aee4e828b63eb2ebc272c715",
-   "answers": 69,
+   "sha256": "c9f5864d0f69203ec0efeeabf8996daccac3d8a58a978b1ee6b107574a8f1c66",
+   "answers": 61,
    "status": "unreviewed"
   },
   {
    "id": "longtail-ancient-sees",
-   "sha256": "312a75e36c0d24c3348277b9bd36d10c789ee3d7f0f9795d466d2bc580c2bde0",
-   "answers": 76,
+   "sha256": "b5f0355940ef597302f28079d870b85c44fb777311b4eb693114dcbffca84d51",
+   "answers": 62,
    "status": "unreviewed"
   },
   {
    "id": "longtail-catholic-symbols",
-   "sha256": "6031aa2664346a2f17ac9ab3efeadd0fb2c8e8c236c3f7c5d5a2b356061d59fc",
-   "answers": 73,
+   "sha256": "abee54672ce6aadb2afd1b7a3222383c5e4f2e7511479587ba2e1272f9d5e159",
+   "answers": 72,
    "status": "unreviewed"
   },
   {
@@ -507,14 +507,14 @@
   },
   {
    "id": "longtail-city-patrons",
-   "sha256": "8623b7a339db9a3539500ff912af24a30e75628ed67d6032949cbab0cf9a8894",
-   "answers": 72,
+   "sha256": "eb04ac18b3c11fd8e2329ca2a5fbb99013cd5421baa3e03be2d3d597fbfebb49",
+   "answers": 64,
    "status": "unreviewed"
   },
   {
    "id": "longtail-francis-canonizations",
-   "sha256": "6ee5c103ce573065694addb5286ce814dd0999504766fb29a263e461a15b0f12",
-   "answers": 89,
+   "sha256": "b4aa07823d1089b0fecd5bb2ddfd77965d957465d1e2bfb9805323c29e39ab2f",
+   "answers": 87,
    "status": "unreviewed"
   },
   {
