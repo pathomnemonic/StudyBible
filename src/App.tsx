@@ -94,6 +94,7 @@ const BibleProgressPage = lazy(() => import('./pages/BibleProgressPage'));
 const KidsHome = lazy(() => import('./pages/KidsHome'));
 const KidModeStart = lazy(() => import('./pages/KidsHome').then((m) => ({ default: m.KidModeStart })));
 const CharadesPage = lazy(() => import('./pages/play/CharadesPage'));
+const ArcadeMode = lazy(() => import('./arcade/ArcadeMode'));
 const PlayHome = lazy(() => import('./pages/play/PlayHome'));
 const DeepWatersPage = lazy(() => import('./pages/play/DeepWatersPage'));
 const QuartetsPage = lazy(() => import('./pages/play/QuartetsPage'));
@@ -346,6 +347,7 @@ export default function App() {
         <PlayerProvider>
         <Shell>
           <PassportWatcher />
+          {loc.pathname.startsWith('/play') && <Suspense fallback={null}><ArcadeMode /></Suspense>}
           <MediaHost />
           <Suspense fallback={<div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>}>
             <ErrorBoundary resetKey={loc.pathname}><Settle><Routes>

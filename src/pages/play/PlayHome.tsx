@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { currentStreak, dailyDone, dayIndex, loadPlays, playTotals, seeded } from '../../lib/dailyGame';
 import { useSettings } from '../../lib/store';
+import { levelOf } from '../../lib/arcadeLevel';
 
 interface Game { to: string; title: string; blurb: string; icon: string; color: string; time: string; who: string; daily?: string; isNew?: boolean }
 interface Group { id: string; title: string; sub: string; games: Game[] }
@@ -55,6 +56,7 @@ export default function PlayHome() {
   const plays = loadPlays();
   const featured = useMemo(() => (todo.length ? todo[Math.floor(seeded(dayIndex() + 3)() * todo.length)] : ALL.find((g) => g.isNew)!), [todo.length]); // eslint-disable-line react-hooks/exhaustive-deps
   const surprise = () => { const pool = todo.length ? todo : ALL; nav(pool[Math.floor(Math.random() * pool.length)].to); };
+  const lv = levelOf(totals.games, totals.days, streak);
   const played = Object.keys(plays.games ?? {}).length;
   const TIPS = ['A fresh puzzle lands every day. Come back tomorrow!', 'Not sure? Tap Surprise me and let the dice decide.', 'Friends can join a quiz with just six digits.', 'Three right answers in a category wins a crown.', 'Every game here works without an account.', cfg.hideStreaks ? 'Your finished games are kept right here on your device.' : 'Streaks are kept right here on your device.'];
   const [tip, setTip] = useState(0);
@@ -68,6 +70,15 @@ export default function PlayHome() {
         <h1 className="gp-title" aria-label="Games">{letters.map((l, i) => <span key={i} aria-hidden="true" style={{ ['--h' as string]: hues[i], ['--i' as string]: i }}>{l}</span>)}</h1>
         <Link className="streak-chip gp-streak" to="/play/trophies">{cfg.hideStreaks ? `🏅 ${totals.games} game${totals.games === 1 ? '' : 's'} finished · trophies` : `🔥 ${streak} day streak · trophies`}</Link>
       </header>
+      <section className="gp-hud" aria-label="Your level">
+        <span className="gp-lv" aria-hidden="true">{lv.level}</span>
+        <div className="gp-lv-main">
+          <strong>Level {lv.level}</strong>
+          <div className="gp-xp" role="progressbar" aria-label={`Level ${lv.level}, ${lv.into} of ${lv.need} to the next`} aria-valuemin={0} aria-valuemax={lv.need} aria-valuenow={lv.into}><i style={{ width: `${Math.round((lv.into / lv.need) * 100)}%` }} /></div>
+          <small>{lv.into} / {lv.need} XP to level {lv.level + 1}</small>
+        </div>
+        <div className="gp-stars" aria-label={`${dailies.length - todo.length} of ${dailies.length} daily puzzles done today`}><b>{dailies.length - todo.length}<small>/{dailies.length}</small></b><span>⭐ today</span></div>
+      </section>
       <div className="gp-mascot" role="note"><span className="gp-bot" aria-hidden="true">🤖</span><p key={tip}>{TIPS[tip]}</p></div>
       <section className="pf-hero gp-hero" style={{ ['--c' as string]: featured.color }} aria-label="Play this next">
         <i className="gp-bulbs" aria-hidden="true" />

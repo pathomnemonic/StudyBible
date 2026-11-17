@@ -163,7 +163,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
               <span>{seconds}</span><small>SEC</small>
             </div>
           </div>
-          <div className="dw-progress" aria-label={`Round ${round + 1} of ${DEEP_ROUNDS}`}>
+          <div className="dw-progress" role="group" aria-label={`Round ${round + 1} of ${DEEP_ROUNDS}`}>
             {Array.from({ length: DEEP_ROUNDS }, (_, i) => <span key={i} className={i < round ? 'past' : i === round ? 'current' : ''}><i /></span>)}
           </div>
           <section className="dw-card">

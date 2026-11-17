@@ -51,11 +51,11 @@ await p.waitForTimeout(200);
 
 await p.goto(`${BASE}/#/play`); await p.waitForSelector('.pf-tile');
 if ((await p.locator('.pf-tile').count()) < 10) fail('games missing from the list');
-await p.goto(`${BASE}/#/learn`); await p.waitForSelector('.games-bar summary');
-if (await p.locator('.games-bar .chip').first().isVisible()) fail('games bar should start folded');
-await p.click('.games-bar summary');
-if ((await p.locator('.games-bar .chip').count()) < 10) fail('games list incomplete');
-await p.click('.games-bar .chip:has-text("Verbum")');
+// Learn has one Games tile that goes straight to the games page
+await p.goto(`${BASE}/#/learn`); await p.waitForSelector('.games-bar-link');
+await p.click('.games-bar-link');
+await p.waitForSelector('.pf-tile');
+await p.click('.pf-tile:has-text("Verbum")');
 await p.waitForSelector('.vb-grid');
 if (errs.length) fail(errs.join('; '));
 console.log('ok games2');
