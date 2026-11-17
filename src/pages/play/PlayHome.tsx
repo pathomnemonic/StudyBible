@@ -4,6 +4,7 @@ import { currentStreak, dailyDone, dayIndex, loadPlays, playTotals, seeded } fro
 import { useSettings } from '../../lib/store';
 import { levelOf } from '../../lib/arcadeLevel';
 import { Anim, Art, GAME_ART } from '../../arcade/art';
+import { blip, burst } from '../../arcade/fx';
 
 interface Game { to: string; title: string; blurb: string; icon: string; color: string; time: string; who: string; daily?: string; isNew?: boolean }
 interface Group { id: string; title: string; sub: string; games: Game[] }
@@ -58,6 +59,16 @@ export default function PlayHome() {
   const featured = useMemo(() => (todo.length ? todo[Math.floor(seeded(dayIndex() + 3)() * todo.length)] : ALL.find((g) => g.isNew)!), [todo.length]); // eslint-disable-line react-hooks/exhaustive-deps
   const surprise = () => { const pool = todo.length ? todo : ALL; nav(pool[Math.floor(Math.random() * pool.length)].to); };
   const lv = levelOf(totals.games, totals.days, streak);
+  // reaching a new level since the last visit to this page is celebrated once (the first visit only records the level)
+  const [levelUp, setLevelUp] = useState<number | null>(null);
+  useEffect(() => {
+    try {
+      const key = 'sb:arcade:level';
+      const seen = parseInt(localStorage.getItem(key) ?? '0', 10);
+      localStorage.setItem(key, String(lv.level));
+      if (seen > 0 && lv.level > seen) { setLevelUp(lv.level); burst(); blip('win'); window.setTimeout(() => setLevelUp(null), 3000); }
+    } catch { /* private mode: no celebration */ }
+  }, [lv.level]);
   const played = Object.keys(plays.games ?? {}).length;
   const TIPS = ['A fresh puzzle lands every day. Come back tomorrow!', 'Not sure? Tap Surprise me and let the dice decide.', 'Friends can join a quiz with just six digits.', 'Three right answers in a category wins a crown.', 'Every game here works without an account.', cfg.hideStreaks ? 'Your finished games are kept right here on your device.' : 'Streaks are kept right here on your device.'];
   const [tip, setTip] = useState(0);
@@ -71,6 +82,7 @@ export default function PlayHome() {
         <h1 className="gp-title" aria-label="Games">{letters.map((l, i) => <span key={i} aria-hidden="true" style={{ ['--h' as string]: hues[i], ['--i' as string]: i }}>{l}</span>)}</h1>
         <Link className="streak-chip gp-streak" to="/play/trophies">{cfg.hideStreaks ? <><Art n="sports-medal" size={22} /> {totals.games} game{totals.games === 1 ? '' : 's'} finished · trophies</> : <><Anim c="1f525" size={24} /> {streak} day streak · trophies</>}</Link>
       </header>
+      {levelUp !== null && <div className="arc-win arc-levelup" role="status"><Anim c="2728" size={96} /><strong>Level {levelUp}!</strong></div>}
       <section className="gp-hud" aria-label="Your level">
         <span className="gp-lv" aria-hidden="true"><Art n="star" size={56} className="gp-lv-star" /><b>{lv.level}</b></span>
         <div className="gp-lv-main">
