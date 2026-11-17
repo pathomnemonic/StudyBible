@@ -49,6 +49,18 @@ describe('Deep Waters content and rules', () => {
     expect(dailyDeepPrompts(123)).not.toEqual(practiceDeepPrompts(123));
   });
 
+  it('accepts every curated answer and alias and rejects a non-answer for every prompt', () => {
+    for (const prompt of DEEP_WATERS) {
+      for (const entry of prompt.answers) {
+        expect(findDeepAnswer(prompt, entry.answer)?.answer, prompt.id + ': ' + entry.answer).toBe(entry.answer);
+        for (const alias of entry.aliases ?? []) {
+          expect(findDeepAnswer(prompt, alias)?.answer, prompt.id + ' alias: ' + alias).toBe(entry.answer);
+        }
+      }
+      expect(findDeepAnswer(prompt, '__not_a_real_catholic_answer_74291__'), prompt.id).toBeNull();
+    }
+  });
+
   it('matches normalized answers and aliases, but does not guess at partial strings', () => {
     const orders = DEEP_WATERS.find((p) => p.id === 'orders')!;
     expect(findDeepAnswer(orders, '  SOCIETY of JESUS ' )?.answer).toBe('Jesuits');
