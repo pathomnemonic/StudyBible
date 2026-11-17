@@ -27,7 +27,7 @@ describe('Deep Waters content and rules', () => {
     const byId = (id: string) => authored.find((p) => p.id === id)!;
     expect(byId('authored-eastern-catholic-churches').answers).toHaveLength(23);
     expect(byId('authored-doctors-of-church').answers).toHaveLength(38);
-    expect(byId('authored-ecumenical-councils-first-millennium').answers).toHaveLength(21);
+    expect(byId('authored-ecumenical-councils').answers).toHaveLength(21);
     expect(byId('authored-works-of-mercy').answers).toHaveLength(14);
     expect(byId('authored-judges-of-israel').answers).toHaveLength(12);
     expect(byId('authored-pauline-letters').answers).toHaveLength(13);
@@ -109,7 +109,7 @@ describe('Deep Waters content and rules', () => {
   });
 
   it('offers spelling suggestions without accepting them automatically', () => {
-    const councils = DEEP_WATERS.find((p) => p.id === 'authored-ecumenical-councils-first-millennium')!;
+    const councils = DEEP_WATERS.find((p) => p.id === 'authored-ecumenical-councils')!;
     expect(suggestDeepAnswers(councils, 'Nicaea')).toHaveLength(0);
     const places = DEEP_WATERS.find((p) => p.id === 'authored-acts-cities')!;
     const suggestions = suggestDeepAnswers(places, 'Damascu');
@@ -125,8 +125,8 @@ describe('Deep Waters content and rules', () => {
       ['authored-resurrection-witnesses', 'Cephas', 'Peter'],
       ['authored-pauline-letters', 'First Corinthians', '1 Corinthians'],
       ['authored-pauline-letters', 'Second Timothy', '2 Timothy'],
-      ['authored-ecumenical-councils-first-millennium', 'Vatican II', 'Second Vatican Council'],
-      ['authored-ecumenical-councils-first-millennium', 'Lateran I', 'First Lateran Council'],
+      ['authored-ecumenical-councils', 'Vatican II', 'Second Vatican Council'],
+      ['authored-ecumenical-councils', 'Lateran I', 'First Lateran Council'],
       ['authored-acts-cities', 'Damascus', 'Damascus'],
       ['authored-acts-cities', 'Athens', 'Athens'],
       ['authored-acts-cities', 'Rome', 'Rome'],
