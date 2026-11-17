@@ -62,12 +62,13 @@ for (const poolKey of ['saint','place']) {
     buckets.get(c.kind)!.push(c);
   }
   const kinds=[...buckets.keys()]; let cursor=0;
-  while(selected.filter((x)=>x.pool.key===poolKey).length<1000 && kinds.some((k)=>buckets.get(k)!.length)) {
+  const target = poolKey === 'saint' ? 1000 : 1003;
+  while(selected.filter((x)=>x.pool.key===poolKey).length<target && kinds.some((k)=>buckets.get(k)!.length)) {
     const kind=kinds[cursor++%kinds.length], bucket=buckets.get(kind)!;
     if(bucket.length) selected.push(bucket.shift()!);
   }
 }
-if(selected.length!==2000) throw new Error('Expected 2,000 complete prompts, generated ' + selected.length);
+if(selected.length!==2003) throw new Error('Expected 2,003 complete prompts, generated ' + selected.length);
 const prompts: DeepPrompt[] = selected.map((c,index)=>{
   const ordered=[...c.answers].sort((a,b)=>a.tier-b.tier||a.answer.localeCompare(b.answer));
   const canonical = new Set(ordered.map((a)=>key(a.answer)));

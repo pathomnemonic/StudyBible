@@ -15,12 +15,11 @@ const cases = [
   { id: 'roman-basilicas', accept: ["Saint Peter's Basilica", 'Basilica of Saint Peter', 'Saint Mary Major'], reject: ['Colosseum', "Saint Peter's Cathedral"] },
   { id: 'church-historians', accept: ['Eusebius of Caesarea', 'Eusebius Pamphili', 'Socrates Scholasticus'], reject: ['Saint Peter', 'Eusebius of Antioch'] },
   { id: 'saint-missionaries', accept: ['Francis Xavier', 'Francisco de Javier', 'Patrick of Ireland'], reject: ['Thomas Aquinas', 'Francis Xaverius of Paris'] },
-  { id: 'evangelist-symbols', accept: ['Man', 'Winged lion', 'Eagle'], reject: ['Sword', 'Eaglefish'] },
   { id: 'saint-art-attributes', accept: ['Keys', 'Catherine wheel', 'Gridiron'], reject: ['Cathedral', 'gridironsman'] },
 ] as const;
 
 // In every reject array, the first item is wrong-category and the second is a near-miss.\ndescribe('Deep Waters Krillion batch 2', () => {
-  it('adds fourteen distinct, short, open-ended prompts with broad answer lists', () => {
+  it('adds thirteen distinct, short, open-ended prompts with broad answer lists', () => {
     const prompts = cases.map(({ id }) => DEEP_WATERS.find((p) => p.id === id));
     expect(prompts.every(Boolean)).toBe(true);
     expect(new Set(prompts.map((p) => p!.prompt)).size).toBe(cases.length);

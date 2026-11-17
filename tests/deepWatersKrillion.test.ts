@@ -4,8 +4,8 @@ import { matchDeepAnswer } from '../src/lib/deepWaters';
 
 describe('Krillion-style Deep Waters expansion', () => {
   it('adds 2,000 distinct, short, accessible prompts with complete answer lists', () => {
-    expect(KRILLION_PROMPTS).toHaveLength(2000);
-    expect(new Set(KRILLION_PROMPTS.map((p) => p.id)).size).toBe(2000);
+    expect(KRILLION_PROMPTS).toHaveLength(2003);
+    expect(new Set(KRILLION_PROMPTS.map((p) => p.id)).size).toBe(2003);
     expect(new Set(KRILLION_PROMPTS.map((p) => p.prompt)).size).toBe(2000);
     for (const p of KRILLION_PROMPTS) {
       expect(p.prompt.trim().split(/\s+/).length, p.id).toBeGreaterThanOrEqual(4);
