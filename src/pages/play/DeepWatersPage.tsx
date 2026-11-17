@@ -142,14 +142,14 @@ export default function DeepWatersPage() {
         <h1>Deep <em>Waters</em></h1>
         <p>Seven rounds. One answer each. Find a recognized answer in our curated key.</p>
       </header>
-      <GameHelp how={[
+      <GameHelp initialPractice={practice} how={[
         'Each round begins with a three-second preview, then gives you 30 seconds to enter one answer from the curated key.',
         'Higher-difficulty questions and deeper-cut answers earn more points: 1, 2, 4, 8 or 16. Tiers are editorial game weights, not player-survey statistics.',
         'Use the optional hint if you get stuck. Tiers are editorial game weights, not population statistics.',
         'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
         'One hidden pearl is worth a 5-point bonus. It is selected from the deepest accepted answers in today’s set.',
         'The daily set is shared by everyone using the same local calendar date. Practice runs do not count.'
-      ]} onPractice={(on) => { setPracticeMode(on); reset(on); }} />
+      ]} onPractice={(on) => { if (on !== practice) { setPracticeMode(on); reset(on); } }} />
       {!done ? (
         <>
           <div className="dw-status">
