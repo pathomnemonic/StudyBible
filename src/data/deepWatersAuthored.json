@@ -808,10 +808,6 @@
     "answerMode": "many",
     "answers": [
       {
-        "answer": "Latin Church",
-        "tier": 1
-      },
-      {
         "answer": "Albanian Greek Catholic Church",
         "tier": 5
       },
@@ -1053,6 +1049,21 @@
       {
         "answer": "Gregory of Narek",
         "tier": 4
+      },
+      {
+        "answer": "Bede",
+        "tier": 2,
+        "aliases": [
+          "The Venerable Bede"
+        ]
+      },
+      {
+        "answer": "John Henry Newman",
+        "tier": 1,
+        "aliases": [
+          "Saint John Henry Newman",
+          "St. John Henry Newman"
+        ]
       }
     ]
   },
