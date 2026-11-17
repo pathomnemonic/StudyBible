@@ -69,6 +69,15 @@ describe('Deep Waters daily engine', () => {
     expect(loadDeepSession(20)).toBeNull();
   });
 
+  it('preserves remaining time when a paused session is reloaded later', () => {
+    const initial = createDeepSession({ day: 20, practice: false, practiceSeed: 1, promptIds: ['a','b','c','d','e','f','g'], now: 1000 });
+    const paused = pauseDeepSession(initial, 2000);
+    saveDeepSession(paused);
+    const restored = loadDeepSession(20)!;
+    expect(restored.remainingMs).toBe(2000);
+    expect(resumeDeepSession(restored, 100000).deadlineAt).toBe(102000);
+  });
+
   it('replaces a same-day logbook entry rather than double-counting a completion', () => {
     recordDeepDive({ day: 100, score: 10, scoredRounds: 2, totalRounds: 7, pearlFound: false, practice: false });
     const entries = recordDeepDive({ day: 100, score: 20, scoredRounds: 4, totalRounds: 7, pearlFound: true, practice: false });
