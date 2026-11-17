@@ -588,13 +588,18 @@
       {
         "answer": "Romans",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition.",
+        "aliases": [
+          "Rom"
+        ]
       },
       {
         "answer": "1 Corinthians",
         "tier": 1,
         "aliases": [
-          "First Corinthians"
+          "First Corinthians",
+          "1 Cor",
+          "I Corinthians"
         ],
         "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
@@ -602,35 +607,51 @@
         "answer": "2 Corinthians",
         "tier": 1,
         "aliases": [
-          "Second Corinthians"
+          "Second Corinthians",
+          "2 Cor",
+          "II Corinthians"
         ],
         "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "Galatians",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition.",
+        "aliases": [
+          "Gal"
+        ]
       },
       {
         "answer": "Ephesians",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition.",
+        "aliases": [
+          "Eph"
+        ]
       },
       {
         "answer": "Philippians",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition.",
+        "aliases": [
+          "Phil"
+        ]
       },
       {
         "answer": "Colossians",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition.",
+        "aliases": [
+          "Col"
+        ]
       },
       {
         "answer": "1 Thessalonians",
         "tier": 2,
         "aliases": [
-          "First Thessalonians"
+          "First Thessalonians",
+          "1 Thess",
+          "I Thessalonians"
         ],
         "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
@@ -638,7 +659,9 @@
         "answer": "2 Thessalonians",
         "tier": 2,
         "aliases": [
-          "Second Thessalonians"
+          "Second Thessalonians",
+          "2 Thess",
+          "II Thessalonians"
         ],
         "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
@@ -646,7 +669,9 @@
         "answer": "1 Timothy",
         "tier": 2,
         "aliases": [
-          "First Timothy"
+          "First Timothy",
+          "1 Tim",
+          "I Timothy"
         ],
         "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
@@ -654,19 +679,28 @@
         "answer": "2 Timothy",
         "tier": 2,
         "aliases": [
-          "Second Timothy"
+          "Second Timothy",
+          "2 Tim",
+          "II Timothy"
         ],
         "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "Titus",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition.",
+        "aliases": [
+          "Tit"
+        ]
       },
       {
         "answer": "Philemon",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition.",
+        "aliases": [
+          "Phlm",
+          "Philem"
+        ]
       }
     ],
     "commonGuesses": [
@@ -990,27 +1024,32 @@
       {
         "answer": "Holy Mary",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Holy Mother of God",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Holy Virgin of virgins",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother of Christ",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother of the Church",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother of Mercy",
@@ -1023,7 +1062,8 @@
       {
         "answer": "Mother of divine grace",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother of Hope",
@@ -1036,152 +1076,186 @@
       {
         "answer": "Mother most pure",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother most chaste",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother inviolate",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother undefiled",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother most amiable",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother most admirable",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother of good counsel",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother of our Creator",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mother of our Saviour",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": [
+          "Mother of our Savior"
+        ]
       },
       {
         "answer": "Virgin most prudent",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Virgin most venerable",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Virgin most renowned",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Virgin most powerful",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Virgin most merciful",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Virgin most faithful",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mirror of justice",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Seat of wisdom",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Cause of our joy",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Spiritual vessel",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Vessel of honour",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": [
+          "Vessel of honor"
+        ]
       },
       {
         "answer": "Singular vessel of devotion",
         "tier": 4,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Mystical rose",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Tower of David",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Tower of ivory",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "House of gold",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Ark of the covenant",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Gate of heaven",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Morning star",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Health of the sick",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Refuge of sinners",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Solace of Migrants",
@@ -1194,52 +1268,68 @@
       {
         "answer": "Comfort of the afflicted",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": [
+          "Comforter of the afflicted"
+        ]
       },
       {
         "answer": "Help of Christians",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Queen of Angels",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": [
+          "Queen of angels"
+        ]
       },
       {
         "answer": "Queen of Patriarchs",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Queen of Prophets",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Queen of Apostles",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Queen of Martyrs",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Queen of Confessors",
         "tier": 3,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Queen of Virgins",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Queen of all Saints",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": [
+          "Queen of All Saints"
+        ]
       },
       {
         "answer": "Queen Immaculately Conceived",
@@ -1252,7 +1342,8 @@
       {
         "answer": "Queen assumed into heaven",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Queen of Holy Rosary",
@@ -1265,12 +1356,14 @@
       {
         "answer": "Queen of families",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       },
       {
         "answer": "Queen of peace",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
       }
     ],
     "commonGuesses": [
@@ -1485,17 +1578,20 @@
       {
         "answer": "Albanian Greek Catholic Church",
         "tier": 5,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Belarusian Greek Catholic Church",
         "tier": 5,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Bulgarian Greek Catholic Church",
         "tier": 4,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Croatian Serbian Church",
@@ -1509,90 +1605,122 @@
       {
         "answer": "Greek Byzantine Catholic Church",
         "tier": 4,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Hungarian Greek Catholic Church",
         "tier": 3,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Macedonian Greek Catholic Church",
         "tier": 5,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Melkite Greek Catholic Church",
         "tier": 2,
         "aliases": [
-          "Melkite Church"
+          "Melkite Church",
+          "Melkite Catholic Church"
         ],
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Romanian Greek Catholic Church",
         "tier": 3,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Russian Greek Catholic Church",
         "tier": 5,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Ruthenian Byzantine Catholic Church",
         "tier": 3,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": [
+          "Ruthenian Catholic Church"
+        ]
       },
       {
         "answer": "Slovak Greek Catholic Church",
         "tier": 3,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Ukrainian Greek Catholic Church",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": [
+          "UGCC",
+          "Ukrainian Catholic Church"
+        ]
       },
       {
         "answer": "Armenian Catholic Church",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Chaldean Catholic Church",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": [
+          "Chaldean Church"
+        ]
       },
       {
         "answer": "Syro-Malabar Church",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": [
+          "Syro Malabar",
+          "Syro-Malabar Catholic Church"
+        ]
       },
       {
         "answer": "Syro-Malankara Church",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": [
+          "Syro Malankara",
+          "Syro-Malankara Catholic Church"
+        ]
       },
       {
         "answer": "Maronite Church",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": [
+          "Maronite Catholic Church"
+        ]
       },
       {
         "answer": "Coptic Catholic Church",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Ethiopian Catholic Church",
         "tier": 3,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Eritrean Catholic Church",
         "tier": 4,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       },
       {
         "answer": "Italo-Albanian Catholic Church",
@@ -1605,7 +1733,8 @@
       {
         "answer": "Syriac Catholic Church",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
+        "aliases": []
       }
     ],
     "commonGuesses": [
@@ -1676,7 +1805,10 @@
         "tier": 1,
         "aliases": [
           "Ambrose",
-          "Saint Ambrose"
+          "Saint Ambrose",
+          "Saint Ambrose of Milan",
+          "St Ambrose of Milan",
+          "St. Ambrose of Milan"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1685,7 +1817,10 @@
         "tier": 1,
         "aliases": [
           "Augustine",
-          "Saint Augustine"
+          "Saint Augustine",
+          "Saint Augustine of Hippo",
+          "St Augustine of Hippo",
+          "St. Augustine of Hippo"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1693,7 +1828,9 @@
         "answer": "Jerome",
         "tier": 1,
         "aliases": [
-          "Saint Jerome"
+          "Saint Jerome",
+          "St Jerome",
+          "St. Jerome"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1702,7 +1839,10 @@
         "tier": 1,
         "aliases": [
           "Gregory I",
-          "Pope Gregory I"
+          "Pope Gregory I",
+          "Saint Gregory the Great",
+          "St Gregory the Great",
+          "St. Gregory the Great"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1711,7 +1851,8 @@
         "tier": 1,
         "aliases": [
           "Saint Thomas Aquinas",
-          "St. Thomas Aquinas"
+          "St. Thomas Aquinas",
+          "St Thomas Aquinas"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1719,7 +1860,9 @@
         "answer": "Bonaventure",
         "tier": 2,
         "aliases": [
-          "Saint Bonaventure"
+          "Saint Bonaventure",
+          "St Bonaventure",
+          "St. Bonaventure"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1728,7 +1871,10 @@
         "tier": 2,
         "aliases": [
           "Anselm",
-          "Saint Anselm"
+          "Saint Anselm",
+          "Saint Anselm of Canterbury",
+          "St Anselm of Canterbury",
+          "St. Anselm of Canterbury"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1737,7 +1883,10 @@
         "tier": 2,
         "aliases": [
           "Isidore",
-          "Saint Isidore"
+          "Saint Isidore",
+          "Saint Isidore of Seville",
+          "St Isidore of Seville",
+          "St. Isidore of Seville"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1745,7 +1894,9 @@
         "answer": "Peter Chrysologus",
         "tier": 3,
         "aliases": [
-          "Saint Peter Chrysologus"
+          "Saint Peter Chrysologus",
+          "St Peter Chrysologus",
+          "St. Peter Chrysologus"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1754,7 +1905,10 @@
         "tier": 2,
         "aliases": [
           "Leo I",
-          "Pope Leo I"
+          "Pope Leo I",
+          "Saint Leo the Great",
+          "St Leo the Great",
+          "St. Leo the Great"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1762,7 +1916,9 @@
         "answer": "Peter Damian",
         "tier": 3,
         "aliases": [
-          "Saint Peter Damian"
+          "Saint Peter Damian",
+          "St Peter Damian",
+          "St. Peter Damian"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1770,7 +1926,9 @@
         "answer": "Bernard of Clairvaux",
         "tier": 2,
         "aliases": [
-          "Saint Bernard of Clairvaux"
+          "Saint Bernard of Clairvaux",
+          "St Bernard of Clairvaux",
+          "St. Bernard of Clairvaux"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1778,7 +1936,9 @@
         "answer": "Hildegard of Bingen",
         "tier": 2,
         "aliases": [
-          "Saint Hildegard of Bingen"
+          "Saint Hildegard of Bingen",
+          "St Hildegard of Bingen",
+          "St. Hildegard of Bingen"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1787,7 +1947,9 @@
         "tier": 2,
         "aliases": [
           "Albertus Magnus",
-          "Saint Albert the Great"
+          "Saint Albert the Great",
+          "St Albert the Great",
+          "St. Albert the Great"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1795,7 +1957,9 @@
         "answer": "Anthony of Padua",
         "tier": 1,
         "aliases": [
-          "Saint Anthony of Padua"
+          "Saint Anthony of Padua",
+          "St Anthony of Padua",
+          "St. Anthony of Padua"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1803,7 +1967,9 @@
         "answer": "Francis de Sales",
         "tier": 1,
         "aliases": [
-          "Saint Francis de Sales"
+          "Saint Francis de Sales",
+          "St Francis de Sales",
+          "St. Francis de Sales"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1811,7 +1977,9 @@
         "answer": "John of the Cross",
         "tier": 2,
         "aliases": [
-          "Saint John of the Cross"
+          "Saint John of the Cross",
+          "St John of the Cross",
+          "St. John of the Cross"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1820,7 +1988,9 @@
         "tier": 1,
         "aliases": [
           "Teresa of Jesus",
-          "Saint Teresa of Ávila"
+          "Saint Teresa of Ávila",
+          "St Teresa of Ávila",
+          "St. Teresa of Ávila"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1828,7 +1998,9 @@
         "answer": "Catherine of Siena",
         "tier": 1,
         "aliases": [
-          "Saint Catherine of Siena"
+          "Saint Catherine of Siena",
+          "St Catherine of Siena",
+          "St. Catherine of Siena"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1836,7 +2008,9 @@
         "answer": "Thérèse of Lisieux",
         "tier": 1,
         "aliases": [
-          "Saint Thérèse of Lisieux"
+          "Saint Thérèse of Lisieux",
+          "St Thérèse of Lisieux",
+          "St. Thérèse of Lisieux"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1844,7 +2018,9 @@
         "answer": "John of Ávila",
         "tier": 3,
         "aliases": [
-          "Saint John of Ávila"
+          "Saint John of Ávila",
+          "St John of Ávila",
+          "St. John of Ávila"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1852,7 +2028,9 @@
         "answer": "Lawrence of Brindisi",
         "tier": 4,
         "aliases": [
-          "Saint Lawrence of Brindisi"
+          "Saint Lawrence of Brindisi",
+          "St Lawrence of Brindisi",
+          "St. Lawrence of Brindisi"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1860,7 +2038,9 @@
         "answer": "Robert Bellarmine",
         "tier": 3,
         "aliases": [
-          "Saint Robert Bellarmine"
+          "Saint Robert Bellarmine",
+          "St Robert Bellarmine",
+          "St. Robert Bellarmine"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1869,7 +2049,9 @@
         "tier": 2,
         "aliases": [
           "Alphonsus Maria de Liguori",
-          "Saint Alphonsus Liguori"
+          "Saint Alphonsus Liguori",
+          "St Alphonsus Liguori",
+          "St. Alphonsus Liguori"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1878,7 +2060,10 @@
         "tier": 1,
         "aliases": [
           "Athanasius",
-          "Saint Athanasius"
+          "Saint Athanasius",
+          "Saint Athanasius of Alexandria",
+          "St Athanasius of Alexandria",
+          "St. Athanasius of Alexandria"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1887,7 +2072,9 @@
         "tier": 1,
         "aliases": [
           "Basil of Caesarea",
-          "Saint Basil the Great"
+          "Saint Basil the Great",
+          "St Basil the Great",
+          "St. Basil the Great"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1896,7 +2083,9 @@
         "tier": 2,
         "aliases": [
           "Gregory Nazianzen",
-          "Saint Gregory of Nazianzus"
+          "Saint Gregory of Nazianzus",
+          "St Gregory of Nazianzus",
+          "St. Gregory of Nazianzus"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1904,7 +2093,9 @@
         "answer": "John Chrysostom",
         "tier": 1,
         "aliases": [
-          "Saint John Chrysostom"
+          "Saint John Chrysostom",
+          "St John Chrysostom",
+          "St. John Chrysostom"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1912,7 +2103,9 @@
         "answer": "Cyril of Jerusalem",
         "tier": 3,
         "aliases": [
-          "Saint Cyril of Jerusalem"
+          "Saint Cyril of Jerusalem",
+          "St Cyril of Jerusalem",
+          "St. Cyril of Jerusalem"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1921,7 +2114,9 @@
         "tier": 3,
         "aliases": [
           "Ephrem",
-          "Saint Ephrem the Syrian"
+          "Saint Ephrem the Syrian",
+          "St Ephrem the Syrian",
+          "St. Ephrem the Syrian"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1930,7 +2125,9 @@
         "tier": 2,
         "aliases": [
           "John Damascene",
-          "Saint John of Damascus"
+          "Saint John of Damascus",
+          "St John of Damascus",
+          "St. John of Damascus"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1939,7 +2136,10 @@
         "tier": 2,
         "aliases": [
           "Irenaeus of Lyon",
-          "Saint Irenaeus"
+          "Saint Irenaeus",
+          "Saint Irenaeus of Lyons",
+          "St Irenaeus of Lyons",
+          "St. Irenaeus of Lyons"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1947,7 +2147,9 @@
         "answer": "Hilary of Poitiers",
         "tier": 3,
         "aliases": [
-          "Saint Hilary of Poitiers"
+          "Saint Hilary of Poitiers",
+          "St Hilary of Poitiers",
+          "St. Hilary of Poitiers"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1955,7 +2157,9 @@
         "answer": "Gregory of Narek",
         "tier": 4,
         "aliases": [
-          "Saint Gregory of Narek"
+          "Saint Gregory of Narek",
+          "St Gregory of Narek",
+          "St. Gregory of Narek"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1964,7 +2168,9 @@
         "tier": 2,
         "aliases": [
           "The Venerable Bede",
-          "Saint Bede"
+          "Saint Bede",
+          "St Bede",
+          "St. Bede"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1974,7 +2180,9 @@
         "aliases": [
           "Newman",
           "Saint John Henry Newman",
-          "Cardinal Newman"
+          "Cardinal Newman",
+          "St John Henry Newman",
+          "St. John Henry Newman"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1982,7 +2190,9 @@
         "answer": "Cyril of Alexandria",
         "tier": 2,
         "aliases": [
-          "Saint Cyril of Alexandria"
+          "Saint Cyril of Alexandria",
+          "St Cyril of Alexandria",
+          "St. Cyril of Alexandria"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
@@ -1990,7 +2200,9 @@
         "answer": "Peter Canisius",
         "tier": 3,
         "aliases": [
-          "Saint Peter Canisius"
+          "Saint Peter Canisius",
+          "St Peter Canisius",
+          "St. Peter Canisius"
         ],
         "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       }
@@ -2062,118 +2274,215 @@
         "answer": "Stephen",
         "tier": 1,
         "aliases": [
-          "Stephen the Protomartyr"
+          "Stephen the Protomartyr",
+          "Saint Stephen",
+          "St Stephen",
+          "St. Stephen"
         ],
         "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "James son of Zebedee",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint James son of Zebedee",
+          "St James son of Zebedee",
+          "St. James son of Zebedee"
+        ]
       },
       {
         "answer": "Ignatius of Antioch",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Ignatius of Antioch",
+          "St Ignatius of Antioch",
+          "St. Ignatius of Antioch"
+        ]
       },
       {
         "answer": "Polycarp of Smyrna",
         "tier": 1,
         "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
         "aliases": [
-          "Polycarp"
+          "Polycarp",
+          "Saint Polycarp of Smyrna",
+          "St Polycarp of Smyrna",
+          "St. Polycarp of Smyrna"
         ]
       },
       {
         "answer": "Justin Martyr",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Justin Martyr",
+          "St Justin Martyr",
+          "St. Justin Martyr"
+        ]
       },
       {
         "answer": "Perpetua",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Perpetua",
+          "St Perpetua",
+          "St. Perpetua"
+        ]
       },
       {
         "answer": "Felicity",
         "tier": 1,
         "aliases": [
-          "Felicitas"
+          "Felicitas",
+          "Saint Felicity",
+          "St Felicity",
+          "St. Felicity"
         ],
         "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Pionius",
         "tier": 4,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Pionius",
+          "St Pionius",
+          "St. Pionius"
+        ]
       },
       {
         "answer": "Blandina",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Blandina",
+          "St Blandina",
+          "St. Blandina"
+        ]
       },
       {
         "answer": "Potinus",
         "tier": 4,
         "aliases": [
-          "Pothinus"
+          "Pothinus",
+          "Saint Potinus",
+          "St Potinus",
+          "St. Potinus"
         ],
         "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Speratus",
         "tier": 4,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Speratus",
+          "St Speratus",
+          "St. Speratus"
+        ]
       },
       {
         "answer": "Cyprian of Carthage",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Cyprian of Carthage",
+          "St Cyprian of Carthage",
+          "St. Cyprian of Carthage"
+        ]
       },
       {
         "answer": "Lawrence of Rome",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Lawrence of Rome",
+          "St Lawrence of Rome",
+          "St. Lawrence of Rome"
+        ]
       },
       {
         "answer": "Agnes of Rome",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Agnes of Rome",
+          "St Agnes of Rome",
+          "St. Agnes of Rome"
+        ]
       },
       {
         "answer": "Cecilia of Rome",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Cecilia of Rome",
+          "St Cecilia of Rome",
+          "St. Cecilia of Rome"
+        ]
       },
       {
         "answer": "Sixtus II",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Sixtus II",
+          "St Sixtus II",
+          "St. Sixtus II"
+        ]
       },
       {
         "answer": "Fructuosus of Tarragona",
         "tier": 4,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Fructuosus of Tarragona",
+          "St Fructuosus of Tarragona",
+          "St. Fructuosus of Tarragona"
+        ]
       },
       {
         "answer": "Eulalia of Mérida",
         "tier": 3,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Eulalia of Mérida",
+          "St Eulalia of Mérida",
+          "St. Eulalia of Mérida"
+        ]
       },
       {
         "answer": "Quirinus of Neuss",
         "tier": 5,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Quirinus of Neuss",
+          "St Quirinus of Neuss",
+          "St. Quirinus of Neuss"
+        ]
       },
       {
         "answer": "Pancras of Rome",
         "tier": 3,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Pancras of Rome",
+          "St Pancras of Rome",
+          "St. Pancras of Rome"
+        ]
       },
       {
         "answer": "Crispina of Thagura",
         "tier": 5,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Saint Crispina of Thagura",
+          "St Crispina of Thagura",
+          "St. Crispina of Thagura"
+        ]
       }
     ],
     "commonGuesses": [
