@@ -78,3 +78,6 @@
 .dw-suggestions small { flex-basis: 100%; color: var(--muted, #71808a); font-size: 0.78rem; }
 .dw-suggestions button { border: 1px solid rgba(95, 165, 176, .5); border-radius: 999px; padding: .45rem .8rem; background: rgba(55, 125, 140, .12); color: inherit; cursor: pointer; }
 .dw-suggestions button:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+
+.dw-streak { margin: .6rem 0; color: var(--muted, #71808a); font-size: .9rem; }
+.dw-pearl-bonus { display: block; margin: .55rem 0; color: #9a762b; font-weight: 700; }
