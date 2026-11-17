@@ -8,8 +8,8 @@ const here = () => (typeof window === 'undefined' ? '' : window.location.hash.sp
  * normally but nothing it finishes is counted: no streak day, best score, daily mark, trophy or sticker.
  * `onPractice` lets a game with its own practice state (Verbum) follow the switch.
  */
-export default function GameHelp({ how, onPractice }: { how: string[]; onPractice?: (on: boolean) => void }) {
-  const [on, setOn] = useState(isPractice); // a game that changes screens (start, play, done) keeps the switch
+export default function GameHelp({ how, onPractice, initialPractice }: { how: string[]; onPractice?: (on: boolean) => void; initialPractice?: boolean }) {
+  const [on, setOn] = useState(initialPractice ?? isPractice); // a game that changes screens (start, play, done) keeps the switch
   const id = useId();
   useEffect(() => { setPractice(on); onPractice?.(on); }, [on]); // eslint-disable-line react-hooks/exhaustive-deps
   // leaving the game for another page switches Practice off; moving between the game's own screens does not
