@@ -1,0 +1,1902 @@
+[
+  {
+    "id": "open-mountains-001",
+    "theme": "Scripture",
+    "prompt": "Name a mountain, hill, or high place named in the Bible.",
+    "context": "Includes mountains, hills, and elevated sites explicitly named in biblical narratives.",
+    "hint": "Think of the Exodus, the prophets, Jerusalem, and the places associated with Jesus.",
+    "answers": [
+      {
+        "answer": "Mount Sinai",
+        "tier": 1
+      },
+      {
+        "answer": "Mount Horeb",
+        "tier": 1
+      },
+      {
+        "answer": "Mount Zion",
+        "tier": 1
+      },
+      {
+        "answer": "Mount Moriah",
+        "tier": 1
+      },
+      {
+        "answer": "Mount Carmel",
+        "tier": 1
+      },
+      {
+        "answer": "Mount Tabor",
+        "tier": 1
+      },
+      {
+        "answer": "Mount of Olives",
+        "tier": 1
+      },
+      {
+        "answer": "Mount Ararat",
+        "tier": 1
+      },
+      {
+        "answer": "Mount Nebo",
+        "tier": 2
+      },
+      {
+        "answer": "Mount Gerizim",
+        "tier": 2
+      },
+      {
+        "answer": "Mount Ebal",
+        "tier": 2
+      },
+      {
+        "answer": "Mount Gilboa",
+        "tier": 2
+      },
+      {
+        "answer": "Mount Hermon",
+        "tier": 2
+      },
+      {
+        "answer": "Mount Seir",
+        "tier": 2
+      },
+      {
+        "answer": "Mount Paran",
+        "tier": 2
+      },
+      {
+        "answer": "Mount Hor",
+        "tier": 2
+      },
+      {
+        "answer": "Mount Pisgah",
+        "tier": 2
+      },
+      {
+        "answer": "Mount Bashan",
+        "tier": 2
+      },
+      {
+        "answer": "Mount Gilead",
+        "tier": 3
+      },
+      {
+        "answer": "Mount Ephraim",
+        "tier": 3
+      },
+      {
+        "answer": "Mount Naphtali",
+        "tier": 3
+      },
+      {
+        "answer": "Mount of Olives",
+        "tier": 3
+      },
+      {
+        "answer": "Mount Sion",
+        "tier": 3
+      },
+      {
+        "answer": "Mount Perazim",
+        "tier": 3
+      },
+      {
+        "answer": "Mount Baal-hermon",
+        "tier": 3
+      },
+      {
+        "answer": "Mount Amana",
+        "tier": 3
+      },
+      {
+        "answer": "Mount Senir",
+        "tier": 3
+      },
+      {
+        "answer": "Mount Shenir",
+        "tier": 3
+      },
+      {
+        "answer": "Mount Lebanon",
+        "tier": 4
+      },
+      {
+        "answer": "Mount Jarmuth",
+        "tier": 4
+      },
+      {
+        "answer": "Mount Halak",
+        "tier": 4
+      },
+      {
+        "answer": "Mount Zemaraim",
+        "tier": 4
+      },
+      {
+        "answer": "Mount Gaash",
+        "tier": 4
+      },
+      {
+        "answer": "Mount Hachilah",
+        "tier": 4
+      },
+      {
+        "answer": "Mount Shaphan",
+        "tier": 4
+      },
+      {
+        "answer": "Mount Zalmon",
+        "tier": 4
+      },
+      {
+        "answer": "Mount Samaria",
+        "tier": 5
+      },
+      {
+        "answer": "Mount Bethel",
+        "tier": 5
+      },
+      {
+        "answer": "Mount Abarim",
+        "tier": 5
+      },
+      {
+        "answer": "Mount Ebal",
+        "tier": 5
+      },
+      {
+        "answer": "Mount Nebo",
+        "tier": 5
+      },
+      {
+        "answer": "Mount Gilboa",
+        "tier": 5
+      },
+      {
+        "answer": "Mount Carmel",
+        "tier": 5
+      },
+      {
+        "answer": "Mount Tabor",
+        "tier": 5
+      },
+      {
+        "answer": "Mount Zion",
+        "tier": 5
+      },
+      {
+        "answer": "Mount Moriah",
+        "tier": 5
+      }
+    ],
+    "status": "draft",
+    "answerMode": "many",
+    "source": "Editorially authored; answer-level source review pending."
+  },
+  {
+    "id": "open-waters-001",
+    "theme": "Scripture",
+    "prompt": "Name a river, stream, brook, or other body of water named in the Bible.",
+    "context": "Includes rivers, streams, seas, pools, and named springs or brooks.",
+    "hint": "Look beyond the Jordan and the Sea of Galilee to the geography of the Old Testament.",
+    "answers": [
+      {
+        "answer": "Jordan River",
+        "tier": 1
+      },
+      {
+        "answer": "Nile",
+        "tier": 1
+      },
+      {
+        "answer": "Euphrates",
+        "tier": 1
+      },
+      {
+        "answer": "Tigris",
+        "tier": 1
+      },
+      {
+        "answer": "Pishon",
+        "tier": 1
+      },
+      {
+        "answer": "Gihon",
+        "tier": 1
+      },
+      {
+        "answer": "Hiddekel",
+        "tier": 1
+      },
+      {
+        "answer": "Jabbok",
+        "tier": 1
+      },
+      {
+        "answer": "Arnon",
+        "tier": 2
+      },
+      {
+        "answer": "Kishon",
+        "tier": 2
+      },
+      {
+        "answer": "Brook Cherith",
+        "tier": 2
+      },
+      {
+        "answer": "Brook Kidron",
+        "tier": 2
+      },
+      {
+        "answer": "Brook Besor",
+        "tier": 2
+      },
+      {
+        "answer": "Brook Zered",
+        "tier": 2
+      },
+      {
+        "answer": "River Chebar",
+        "tier": 2
+      },
+      {
+        "answer": "River Ulai",
+        "tier": 2
+      },
+      {
+        "answer": "River Ahava",
+        "tier": 2
+      },
+      {
+        "answer": "River Gozan",
+        "tier": 2
+      },
+      {
+        "answer": "River Abana",
+        "tier": 3
+      },
+      {
+        "answer": "Pharpar",
+        "tier": 3
+      },
+      {
+        "answer": "Pool of Siloam",
+        "tier": 3
+      },
+      {
+        "answer": "Pool of Bethesda",
+        "tier": 3
+      },
+      {
+        "answer": "Pool of Probatica",
+        "tier": 3
+      },
+      {
+        "answer": "Sea of Galilee",
+        "tier": 3
+      },
+      {
+        "answer": "Dead Sea",
+        "tier": 3
+      },
+      {
+        "answer": "Salt Sea",
+        "tier": 3
+      },
+      {
+        "answer": "Sea of Tiberias",
+        "tier": 3
+      },
+      {
+        "answer": "Red Sea",
+        "tier": 3
+      },
+      {
+        "answer": "Great Sea",
+        "tier": 4
+      },
+      {
+        "answer": "Mediterranean Sea",
+        "tier": 4
+      },
+      {
+        "answer": "Waters of Merom",
+        "tier": 4
+      },
+      {
+        "answer": "Waters of Shiloah",
+        "tier": 4
+      },
+      {
+        "answer": "Spring of Gihon",
+        "tier": 4
+      },
+      {
+        "answer": "En-rogel",
+        "tier": 4
+      },
+      {
+        "answer": "Waters of Nimrim",
+        "tier": 4
+      },
+      {
+        "answer": "River of Egypt",
+        "tier": 4
+      },
+      {
+        "answer": "Brook of Egypt",
+        "tier": 5
+      },
+      {
+        "answer": "River Euphrates",
+        "tier": 5
+      },
+      {
+        "answer": "River Jordan",
+        "tier": 5
+      },
+      {
+        "answer": "Sea of Chinnereth",
+        "tier": 5
+      },
+      {
+        "answer": "Lake of Gennesaret",
+        "tier": 5
+      },
+      {
+        "answer": "Pool of Hesbon",
+        "tier": 5
+      },
+      {
+        "answer": "Waters of Megiddo",
+        "tier": 5
+      },
+      {
+        "answer": "Brook of the Willows",
+        "tier": 5
+      }
+    ],
+    "status": "draft",
+    "answerMode": "many",
+    "source": "Editorially authored; answer-level source review pending."
+  },
+  {
+    "id": "open-animals-001",
+    "theme": "Scripture",
+    "prompt": "Name an animal explicitly mentioned in the Bible.",
+    "context": "Includes wild animals, livestock, birds, reptiles, and creatures in biblical imagery.",
+    "hint": "Think of animals in the Law, the prophets, the Gospels, and biblical parables.",
+    "answers": [
+      {
+        "answer": "Lion",
+        "tier": 1
+      },
+      {
+        "answer": "Lamb",
+        "tier": 1
+      },
+      {
+        "answer": "Sheep",
+        "tier": 1
+      },
+      {
+        "answer": "Goat",
+        "tier": 1
+      },
+      {
+        "answer": "Ram",
+        "tier": 1
+      },
+      {
+        "answer": "Ox",
+        "tier": 1
+      },
+      {
+        "answer": "Bull",
+        "tier": 1
+      },
+      {
+        "answer": "Cow",
+        "tier": 1
+      },
+      {
+        "answer": "Calf",
+        "tier": 2
+      },
+      {
+        "answer": "Donkey",
+        "tier": 2
+      },
+      {
+        "answer": "Wild donkey",
+        "tier": 2
+      },
+      {
+        "answer": "Horse",
+        "tier": 2
+      },
+      {
+        "answer": "Mule",
+        "tier": 2
+      },
+      {
+        "answer": "Camel",
+        "tier": 2
+      },
+      {
+        "answer": "Dog",
+        "tier": 2
+      },
+      {
+        "answer": "Fox",
+        "tier": 2
+      },
+      {
+        "answer": "Wolf",
+        "tier": 2
+      },
+      {
+        "answer": "Bear",
+        "tier": 2
+      },
+      {
+        "answer": "Leopard",
+        "tier": 3
+      },
+      {
+        "answer": "Deer",
+        "tier": 3
+      },
+      {
+        "answer": "Gazelle",
+        "tier": 3
+      },
+      {
+        "answer": "Roe deer",
+        "tier": 3
+      },
+      {
+        "answer": "Boar",
+        "tier": 3
+      },
+      {
+        "answer": "Pig",
+        "tier": 3
+      },
+      {
+        "answer": "Serpent",
+        "tier": 3
+      },
+      {
+        "answer": "Viper",
+        "tier": 3
+      },
+      {
+        "answer": "Lizard",
+        "tier": 3
+      },
+      {
+        "answer": "Frog",
+        "tier": 3
+      },
+      {
+        "answer": "Locust",
+        "tier": 4
+      },
+      {
+        "answer": "Bee",
+        "tier": 4
+      },
+      {
+        "answer": "Ant",
+        "tier": 4
+      },
+      {
+        "answer": "Eagle",
+        "tier": 4
+      },
+      {
+        "answer": "Dove",
+        "tier": 4
+      },
+      {
+        "answer": "Raven",
+        "tier": 4
+      },
+      {
+        "answer": "Owl",
+        "tier": 4
+      },
+      {
+        "answer": "Sparrow",
+        "tier": 4
+      },
+      {
+        "answer": "Swallow",
+        "tier": 5
+      },
+      {
+        "answer": "Stork",
+        "tier": 5
+      },
+      {
+        "answer": "Peacock",
+        "tier": 5
+      },
+      {
+        "answer": "Ostrich",
+        "tier": 5
+      },
+      {
+        "answer": "Pelican",
+        "tier": 5
+      },
+      {
+        "answer": "Quail",
+        "tier": 5
+      },
+      {
+        "answer": "Fish",
+        "tier": 5
+      },
+      {
+        "answer": "Whale",
+        "tier": 5
+      },
+      {
+        "answer": "Dragon",
+        "tier": 5
+      },
+      {
+        "answer": "Leviathan",
+        "tier": 5
+      }
+    ],
+    "status": "draft",
+    "answerMode": "many",
+    "source": "Editorially authored; answer-level source review pending."
+  },
+  {
+    "id": "open-miracles-001",
+    "theme": "New Testament",
+    "prompt": "Name a distinct miracle performed by Jesus in the Gospels.",
+    "context": "Use a specific event rather than a general ability; the answer bank includes healing, nature, and provision miracles.",
+    "hint": "Think of named individuals, unusual settings, and miracles involving food, water, or weather.",
+    "answers": [
+      {
+        "answer": "Water changed into wine at Cana",
+        "tier": 1
+      },
+      {
+        "answer": "Healing the royal official's son",
+        "tier": 1
+      },
+      {
+        "answer": "Healing the man at the pool of Bethesda",
+        "tier": 1
+      },
+      {
+        "answer": "Healing the man with a withered hand",
+        "tier": 1
+      },
+      {
+        "answer": "Healing the paralytic lowered through the roof",
+        "tier": 1
+      },
+      {
+        "answer": "Healing the centurion's servant",
+        "tier": 1
+      },
+      {
+        "answer": "Healing Peter's mother-in-law",
+        "tier": 1
+      },
+      {
+        "answer": "Healing the woman with the flow of blood",
+        "tier": 1
+      },
+      {
+        "answer": "Raising Jairus's daughter",
+        "tier": 2
+      },
+      {
+        "answer": "Raising the widow's son at Nain",
+        "tier": 2
+      },
+      {
+        "answer": "Raising Lazarus",
+        "tier": 2
+      },
+      {
+        "answer": "Healing two blind men",
+        "tier": 2
+      },
+      {
+        "answer": "Healing blind Bartimaeus",
+        "tier": 2
+      },
+      {
+        "answer": "Healing the man born blind",
+        "tier": 2
+      },
+      {
+        "answer": "Healing the ten lepers",
+        "tier": 2
+      },
+      {
+        "answer": "Cleansing a leper",
+        "tier": 2
+      },
+      {
+        "answer": "Healing the deaf man with a speech impediment",
+        "tier": 2
+      },
+      {
+        "answer": "Healing the demoniac in the synagogue at Capernaum",
+        "tier": 2
+      },
+      {
+        "answer": "Healing the Gerasene demoniac",
+        "tier": 3
+      },
+      {
+        "answer": "Healing the Canaanite woman's daughter",
+        "tier": 3
+      },
+      {
+        "answer": "Healing the epileptic boy",
+        "tier": 3
+      },
+      {
+        "answer": "Healing Malchus's ear",
+        "tier": 3
+      },
+      {
+        "answer": "Feeding the five thousand",
+        "tier": 3
+      },
+      {
+        "answer": "Feeding the four thousand",
+        "tier": 3
+      },
+      {
+        "answer": "Walking on the water",
+        "tier": 3
+      },
+      {
+        "answer": "Calming the storm",
+        "tier": 3
+      },
+      {
+        "answer": "The miraculous catch of fish at the beginning of his ministry",
+        "tier": 3
+      },
+      {
+        "answer": "The coin in the fish's mouth",
+        "tier": 3
+      },
+      {
+        "answer": "The withering of the fig tree",
+        "tier": 4
+      },
+      {
+        "answer": "The miraculous catch of fish after the Resurrection",
+        "tier": 4
+      },
+      {
+        "answer": "Delivering Mary Magdalene from seven demons",
+        "tier": 4
+      },
+      {
+        "answer": "Healing the bent woman",
+        "tier": 4
+      },
+      {
+        "answer": "Healing the man with dropsy",
+        "tier": 4
+      },
+      {
+        "answer": "Healing the blind man at Bethsaida",
+        "tier": 4
+      },
+      {
+        "answer": "Exorcising the mute demoniac",
+        "tier": 4
+      },
+      {
+        "answer": "Exorcising the blind and mute demoniac",
+        "tier": 4
+      },
+      {
+        "answer": "The Transfiguration",
+        "tier": 5
+      }
+    ],
+    "status": "draft",
+    "answerMode": "many",
+    "source": "Editorially authored; answer-level source review pending."
+  },
+  {
+    "id": "open-genesis_people-001",
+    "theme": "Scripture",
+    "prompt": "Name a person who appears in the Book of Genesis.",
+    "context": "Include named people from the primeval history, patriarchal narratives, and Joseph cycle.",
+    "hint": "Think beyond the patriarchs to siblings, rulers, servants, and members of extended families.",
+    "answers": [
+      {
+        "answer": "Adam",
+        "tier": 1
+      },
+      {
+        "answer": "Eve",
+        "tier": 1
+      },
+      {
+        "answer": "Cain",
+        "tier": 1
+      },
+      {
+        "answer": "Abel",
+        "tier": 1
+      },
+      {
+        "answer": "Seth",
+        "tier": 1
+      },
+      {
+        "answer": "Enosh",
+        "tier": 1
+      },
+      {
+        "answer": "Enoch",
+        "tier": 1
+      },
+      {
+        "answer": "Methuselah",
+        "tier": 1
+      },
+      {
+        "answer": "Lamech",
+        "tier": 2
+      },
+      {
+        "answer": "Noah",
+        "tier": 2
+      },
+      {
+        "answer": "Shem",
+        "tier": 2
+      },
+      {
+        "answer": "Ham",
+        "tier": 2
+      },
+      {
+        "answer": "Japheth",
+        "tier": 2
+      },
+      {
+        "answer": "Nimrod",
+        "tier": 2
+      },
+      {
+        "answer": "Terah",
+        "tier": 2
+      },
+      {
+        "answer": "Abram",
+        "tier": 2
+      },
+      {
+        "answer": "Sarah",
+        "tier": 2
+      },
+      {
+        "answer": "Hagar",
+        "tier": 2
+      },
+      {
+        "answer": "Lot",
+        "tier": 3
+      },
+      {
+        "answer": "Melchizedek",
+        "tier": 3
+      },
+      {
+        "answer": "Abimelech",
+        "tier": 3
+      },
+      {
+        "answer": "Isaac",
+        "tier": 3
+      },
+      {
+        "answer": "Rebekah",
+        "tier": 3
+      },
+      {
+        "answer": "Ishmael",
+        "tier": 3
+      },
+      {
+        "answer": "Esau",
+        "tier": 3
+      },
+      {
+        "answer": "Jacob",
+        "tier": 3
+      },
+      {
+        "answer": "Leah",
+        "tier": 3
+      },
+      {
+        "answer": "Rachel",
+        "tier": 3
+      },
+      {
+        "answer": "Bilhah",
+        "tier": 4
+      },
+      {
+        "answer": "Zilpah",
+        "tier": 4
+      },
+      {
+        "answer": "Dinah",
+        "tier": 4
+      },
+      {
+        "answer": "Joseph",
+        "tier": 4
+      },
+      {
+        "answer": "Benjamin",
+        "tier": 4
+      },
+      {
+        "answer": "Judah",
+        "tier": 4
+      },
+      {
+        "answer": "Tamar",
+        "tier": 4
+      },
+      {
+        "answer": "Reuben",
+        "tier": 4
+      },
+      {
+        "answer": "Simeon",
+        "tier": 5
+      },
+      {
+        "answer": "Levi",
+        "tier": 5
+      },
+      {
+        "answer": "Potiphar",
+        "tier": 5
+      },
+      {
+        "answer": "Asenath",
+        "tier": 5
+      },
+      {
+        "answer": "Ephraim",
+        "tier": 5
+      },
+      {
+        "answer": "Manasseh",
+        "tier": 5
+      },
+      {
+        "answer": "Pharaoh of Joseph",
+        "tier": 5
+      },
+      {
+        "answer": "Eliezer of Damascus",
+        "tier": 5
+      }
+    ],
+    "status": "draft",
+    "answerMode": "many",
+    "source": "Editorially authored; answer-level source review pending."
+  },
+  {
+    "id": "open-nt_people-001",
+    "theme": "New Testament",
+    "prompt": "Name a person named in the New Testament who is not Jesus.",
+    "context": "Includes followers, opponents, officials, family members, and people encountered in the Acts of the Apostles.",
+    "hint": "Think beyond the Twelve to named people in the Gospels and the Pauline letters.",
+    "answers": [
+      {
+        "answer": "Mary",
+        "tier": 1
+      },
+      {
+        "answer": "Joseph",
+        "tier": 1
+      },
+      {
+        "answer": "John the Baptist",
+        "tier": 1
+      },
+      {
+        "answer": "Herod Antipas",
+        "tier": 1
+      },
+      {
+        "answer": "Pontius Pilate",
+        "tier": 1
+      },
+      {
+        "answer": "Caiaphas",
+        "tier": 1
+      },
+      {
+        "answer": "Annas",
+        "tier": 1
+      },
+      {
+        "answer": "Barabbas",
+        "tier": 1
+      },
+      {
+        "answer": "Simon of Cyrene",
+        "tier": 2
+      },
+      {
+        "answer": "Joseph of Arimathea",
+        "tier": 2
+      },
+      {
+        "answer": "Nicodemus",
+        "tier": 2
+      },
+      {
+        "answer": "Zacchaeus",
+        "tier": 2
+      },
+      {
+        "answer": "Jairus",
+        "tier": 2
+      },
+      {
+        "answer": "Bartimaeus",
+        "tier": 2
+      },
+      {
+        "answer": "Lazarus",
+        "tier": 2
+      },
+      {
+        "answer": "Martha",
+        "tier": 2
+      },
+      {
+        "answer": "Mary of Bethany",
+        "tier": 2
+      },
+      {
+        "answer": "Mary Magdalene",
+        "tier": 2
+      },
+      {
+        "answer": "Joanna",
+        "tier": 3
+      },
+      {
+        "answer": "Susanna",
+        "tier": 3
+      },
+      {
+        "answer": "Salome",
+        "tier": 3
+      },
+      {
+        "answer": "Cleopas",
+        "tier": 3
+      },
+      {
+        "answer": "Malchus",
+        "tier": 3
+      },
+      {
+        "answer": "Simon the Pharisee",
+        "tier": 3
+      },
+      {
+        "answer": "Gamaliel",
+        "tier": 3
+      },
+      {
+        "answer": "Stephen",
+        "tier": 3
+      },
+      {
+        "answer": "Philip the Evangelist",
+        "tier": 3
+      },
+      {
+        "answer": "Cornelius",
+        "tier": 3
+      },
+      {
+        "answer": "Sergius Paulus",
+        "tier": 4
+      },
+      {
+        "answer": "Gallio",
+        "tier": 4
+      },
+      {
+        "answer": "Felix",
+        "tier": 4
+      },
+      {
+        "answer": "Festus",
+        "tier": 4
+      },
+      {
+        "answer": "Agrippa II",
+        "tier": 4
+      },
+      {
+        "answer": "Bernice",
+        "tier": 4
+      },
+      {
+        "answer": "Drusilla",
+        "tier": 4
+      },
+      {
+        "answer": "Eutychus",
+        "tier": 4
+      },
+      {
+        "answer": "Onesimus",
+        "tier": 5
+      },
+      {
+        "answer": "Philemon",
+        "tier": 5
+      },
+      {
+        "answer": "Tychicus",
+        "tier": 5
+      },
+      {
+        "answer": "Epaphras",
+        "tier": 5
+      },
+      {
+        "answer": "Epaproditus",
+        "tier": 5
+      },
+      {
+        "answer": "Crispus",
+        "tier": 5
+      },
+      {
+        "answer": "Erastus",
+        "tier": 5
+      },
+      {
+        "answer": "Gaius",
+        "tier": 5
+      },
+      {
+        "answer": "Sosthenes",
+        "tier": 5
+      },
+      {
+        "answer": "Dionysius the Areopagite",
+        "tier": 5
+      }
+    ],
+    "status": "draft",
+    "answerMode": "many",
+    "source": "Editorially authored; answer-level source review pending."
+  },
+  {
+    "id": "open-saints-001",
+    "theme": "Catholic Church",
+    "prompt": "Name a canonized saint from the first millennium of Christianity.",
+    "context": "Include saints from the early Church through the tenth century, East and West.",
+    "hint": "Think of martyrs, bishops, monastics, missionaries, and theologians.",
+    "answers": [
+      {
+        "answer": "Peter",
+        "tier": 1
+      },
+      {
+        "answer": "Paul",
+        "tier": 1
+      },
+      {
+        "answer": "Stephen",
+        "tier": 1
+      },
+      {
+        "answer": "Ignatius of Antioch",
+        "tier": 1
+      },
+      {
+        "answer": "Polycarp",
+        "tier": 1
+      },
+      {
+        "answer": "Justin Martyr",
+        "tier": 1
+      },
+      {
+        "answer": "Irenaeus",
+        "tier": 1
+      },
+      {
+        "answer": "Perpetua",
+        "tier": 1
+      },
+      {
+        "answer": "Felicity",
+        "tier": 2
+      },
+      {
+        "answer": "Lawrence",
+        "tier": 2
+      },
+      {
+        "answer": "Agnes",
+        "tier": 2
+      },
+      {
+        "answer": "Cecilia",
+        "tier": 2
+      },
+      {
+        "answer": "Lucy",
+        "tier": 2
+      },
+      {
+        "answer": "Sebastian",
+        "tier": 2
+      },
+      {
+        "answer": "Cyprian of Carthage",
+        "tier": 2
+      },
+      {
+        "answer": "Athanasius",
+        "tier": 2
+      },
+      {
+        "answer": "Basil the Great",
+        "tier": 2
+      },
+      {
+        "answer": "Gregory of Nazianzus",
+        "tier": 2
+      },
+      {
+        "answer": "Gregory of Nyssa",
+        "tier": 3
+      },
+      {
+        "answer": "John Chrysostom",
+        "tier": 3
+      },
+      {
+        "answer": "Ambrose",
+        "tier": 3
+      },
+      {
+        "answer": "Jerome",
+        "tier": 3
+      },
+      {
+        "answer": "Augustine",
+        "tier": 3
+      },
+      {
+        "answer": "Monica",
+        "tier": 3
+      },
+      {
+        "answer": "Martin of Tours",
+        "tier": 3
+      },
+      {
+        "answer": "Patrick",
+        "tier": 3
+      },
+      {
+        "answer": "Brigid of Kildare",
+        "tier": 3
+      },
+      {
+        "answer": "Benedict of Nursia",
+        "tier": 3
+      },
+      {
+        "answer": "Scholastica",
+        "tier": 4
+      },
+      {
+        "answer": "Leo the Great",
+        "tier": 4
+      },
+      {
+        "answer": "Gregory the Great",
+        "tier": 4
+      },
+      {
+        "answer": "Isidore of Seville",
+        "tier": 4
+      },
+      {
+        "answer": "Bede",
+        "tier": 4
+      },
+      {
+        "answer": "Boniface",
+        "tier": 4
+      },
+      {
+        "answer": "Cyril of Jerusalem",
+        "tier": 4
+      },
+      {
+        "answer": "Cyril of Alexandria",
+        "tier": 4
+      },
+      {
+        "answer": "Methodius",
+        "tier": 5
+      },
+      {
+        "answer": "John of Damascus",
+        "tier": 5
+      },
+      {
+        "answer": "Maximus the Confessor",
+        "tier": 5
+      },
+      {
+        "answer": "Ephrem the Syrian",
+        "tier": 5
+      },
+      {
+        "answer": "Aelred of Rievaulx",
+        "tier": 5
+      },
+      {
+        "answer": "Ansgar",
+        "tier": 5
+      },
+      {
+        "answer": "Adalbert of Prague",
+        "tier": 5
+      },
+      {
+        "answer": "Wenceslaus",
+        "tier": 5
+      },
+      {
+        "answer": "Olga of Kyiv",
+        "tier": 5
+      },
+      {
+        "answer": "Vladimir of Kyiv",
+        "tier": 5
+      }
+    ],
+    "status": "draft",
+    "answerMode": "many",
+    "source": "Editorially authored; answer-level source review pending."
+  },
+  {
+    "id": "open-vessels-001",
+    "theme": "Catholic liturgy",
+    "prompt": "Name an object or vessel used in Catholic liturgy.",
+    "context": "Includes vessels, books, vesture accessories, and furnishings used in the celebration of the sacraments and Divine Worship.",
+    "hint": "Think of what is on the altar, carried in procession, or used by the priest and ministers.",
+    "answers": [
+      {
+        "answer": "Chalice",
+        "tier": 1
+      },
+      {
+        "answer": "Paten",
+        "tier": 1
+      },
+      {
+        "answer": "Ciborium",
+        "tier": 1
+      },
+      {
+        "answer": "Monstrance",
+        "tier": 1
+      },
+      {
+        "answer": "Pyx",
+        "tier": 1
+      },
+      {
+        "answer": "Lunette",
+        "tier": 1
+      },
+      {
+        "answer": "Cruets",
+        "tier": 1
+      },
+      {
+        "answer": "Aspergillum",
+        "tier": 1
+      },
+      {
+        "answer": "Aspersorium",
+        "tier": 2
+      },
+      {
+        "answer": "Thurible",
+        "tier": 2
+      },
+      {
+        "answer": "Incense boat",
+        "tier": 2
+      },
+      {
+        "answer": "Processional cross",
+        "tier": 2
+      },
+      {
+        "answer": "Altar cross",
+        "tier": 2
+      },
+      {
+        "answer": "Candlestick",
+        "tier": 2
+      },
+      {
+        "answer": "Paschal candle",
+        "tier": 2
+      },
+      {
+        "answer": "Sanctuary lamp",
+        "tier": 2
+      },
+      {
+        "answer": "Altar stone",
+        "tier": 2
+      },
+      {
+        "answer": "Corporal",
+        "tier": 2
+      },
+      {
+        "answer": "Purificator",
+        "tier": 3
+      },
+      {
+        "answer": "Pall",
+        "tier": 3
+      },
+      {
+        "answer": "Burse",
+        "tier": 3
+      },
+      {
+        "answer": "Veil",
+        "tier": 3
+      },
+      {
+        "answer": "Lavabo bowl",
+        "tier": 3
+      },
+      {
+        "answer": "Lavabo towel",
+        "tier": 3
+      },
+      {
+        "answer": "Ambo",
+        "tier": 3
+      },
+      {
+        "answer": "Lectionary",
+        "tier": 3
+      },
+      {
+        "answer": "Book of the Gospels",
+        "tier": 3
+      },
+      {
+        "answer": "Roman Missal",
+        "tier": 3
+      },
+      {
+        "answer": "Ritual book",
+        "tier": 4
+      },
+      {
+        "answer": "Baptismal font",
+        "tier": 4
+      },
+      {
+        "answer": "Holy water stoup",
+        "tier": 4
+      },
+      {
+        "answer": "Oil stock",
+        "tier": 4
+      },
+      {
+        "answer": "Chrismarium",
+        "tier": 4
+      },
+      {
+        "answer": "Ostensorium",
+        "tier": 4
+      },
+      {
+        "answer": "Tabernacle",
+        "tier": 4
+      },
+      {
+        "answer": "Credence table",
+        "tier": 4
+      },
+      {
+        "answer": "Communion paten",
+        "tier": 5
+      },
+      {
+        "answer": "Communion cup",
+        "tier": 5
+      },
+      {
+        "answer": "Bells",
+        "tier": 5
+      },
+      {
+        "answer": "Sanctuary bell",
+        "tier": 5
+      },
+      {
+        "answer": "Liturgical fan",
+        "tier": 5
+      },
+      {
+        "answer": "Processional canopy",
+        "tier": 5
+      },
+      {
+        "answer": "Book of the Chair",
+        "tier": 5
+      },
+      {
+        "answer": "Book of Blessings",
+        "tier": 5
+      },
+      {
+        "answer": "Aspersory",
+        "tier": 5
+      }
+    ],
+    "status": "draft",
+    "answerMode": "many",
+    "source": "Editorially authored; answer-level source review pending."
+  },
+  {
+    "id": "open-mary_titles-001",
+    "theme": "Catholic prayer",
+    "prompt": "Name a title or invocation of the Blessed Virgin Mary.",
+    "context": "Includes titles from the Litany of Loreto, Scripture, approved apparitions, and established Catholic devotion.",
+    "hint": "Think of Marian dogmas, biblical images, and titles associated with particular shrines.",
+    "answers": [
+      {
+        "answer": "Mother of God",
+        "tier": 1
+      },
+      {
+        "answer": "Queen of Heaven",
+        "tier": 1
+      },
+      {
+        "answer": "Immaculate Conception",
+        "tier": 1
+      },
+      {
+        "answer": "Our Lady of the Assumption",
+        "tier": 1
+      },
+      {
+        "answer": "Our Lady of Sorrows",
+        "tier": 1
+      },
+      {
+        "answer": "Our Lady of Guadalupe",
+        "tier": 1
+      },
+      {
+        "answer": "Our Lady of Lourdes",
+        "tier": 1
+      },
+      {
+        "answer": "Our Lady of Fatima",
+        "tier": 1
+      },
+      {
+        "answer": "Our Lady of Mount Carmel",
+        "tier": 2
+      },
+      {
+        "answer": "Our Lady of Perpetual Help",
+        "tier": 2
+      },
+      {
+        "answer": "Our Lady of the Rosary",
+        "tier": 2
+      },
+      {
+        "answer": "Our Lady of Knock",
+        "tier": 2
+      },
+      {
+        "answer": "Our Lady of La Salette",
+        "tier": 2
+      },
+      {
+        "answer": "Our Lady of Czestochowa",
+        "tier": 2
+      },
+      {
+        "answer": "Our Lady of Loreto",
+        "tier": 2
+      },
+      {
+        "answer": "Our Lady of Akita",
+        "tier": 2
+      },
+      {
+        "answer": "Our Lady of Good Counsel",
+        "tier": 2
+      },
+      {
+        "answer": "Our Lady of the Miraculous Medal",
+        "tier": 2
+      },
+      {
+        "answer": "Our Lady of the Snows",
+        "tier": 3
+      },
+      {
+        "answer": "Our Lady of the Pillar",
+        "tier": 3
+      },
+      {
+        "answer": "Our Lady of Walsingham",
+        "tier": 3
+      },
+      {
+        "answer": "Our Lady of the Annunciation",
+        "tier": 3
+      },
+      {
+        "answer": "Our Lady of the Visitation",
+        "tier": 3
+      },
+      {
+        "answer": "Our Lady of the Nativity",
+        "tier": 3
+      },
+      {
+        "answer": "Our Lady of the Holy Name",
+        "tier": 3
+      },
+      {
+        "answer": "Our Lady of the Sacred Heart",
+        "tier": 3
+      },
+      {
+        "answer": "Star of the Sea",
+        "tier": 3
+      },
+      {
+        "answer": "Mystical Rose",
+        "tier": 3
+      },
+      {
+        "answer": "Tower of David",
+        "tier": 4
+      },
+      {
+        "answer": "Tower of Ivory",
+        "tier": 4
+      },
+      {
+        "answer": "House of Gold",
+        "tier": 4
+      },
+      {
+        "answer": "Ark of the Covenant",
+        "tier": 4
+      },
+      {
+        "answer": "Seat of Wisdom",
+        "tier": 4
+      },
+      {
+        "answer": "Mirror of Justice",
+        "tier": 4
+      },
+      {
+        "answer": "Health of the Sick",
+        "tier": 4
+      },
+      {
+        "answer": "Refuge of Sinners",
+        "tier": 4
+      },
+      {
+        "answer": "Comforter of the Afflicted",
+        "tier": 5
+      },
+      {
+        "answer": "Help of Christians",
+        "tier": 5
+      },
+      {
+        "answer": "Queen of Angels",
+        "tier": 5
+      },
+      {
+        "answer": "Queen of Apostles",
+        "tier": 5
+      },
+      {
+        "answer": "Queen of Martyrs",
+        "tier": 5
+      },
+      {
+        "answer": "Queen of Confessors",
+        "tier": 5
+      },
+      {
+        "answer": "Queen of Virgins",
+        "tier": 5
+      },
+      {
+        "answer": "Queen of Peace",
+        "tier": 5
+      },
+      {
+        "answer": "Morning Star",
+        "tier": 5
+      }
+    ],
+    "status": "draft",
+    "answerMode": "many",
+    "source": "Editorially authored; answer-level source review pending."
+  },
+  {
+    "id": "open-christ_titles-001",
+    "theme": "Scripture",
+    "prompt": "Name a biblical title, name, or image used for Jesus Christ.",
+    "context": "Includes titles and metaphors from the Old and New Testaments, especially the Gospels and apostolic writings.",
+    "hint": "Think of messianic titles, Johannine images, and names from the creeds and liturgy.",
+    "answers": [
+      {
+        "answer": "Messiah",
+        "tier": 1
+      },
+      {
+        "answer": "Christ",
+        "tier": 1
+      },
+      {
+        "answer": "Son of God",
+        "tier": 1
+      },
+      {
+        "answer": "Son of Man",
+        "tier": 1
+      },
+      {
+        "answer": "Son of David",
+        "tier": 1
+      },
+      {
+        "answer": "Lamb of God",
+        "tier": 1
+      },
+      {
+        "answer": "Good Shepherd",
+        "tier": 1
+      },
+      {
+        "answer": "Light of the World",
+        "tier": 1
+      },
+      {
+        "answer": "Bread of Life",
+        "tier": 2
+      },
+      {
+        "answer": "Living Bread",
+        "tier": 2
+      },
+      {
+        "answer": "True Vine",
+        "tier": 2
+      },
+      {
+        "answer": "Door of the Sheep",
+        "tier": 2
+      },
+      {
+        "answer": "Way",
+        "tier": 2
+      },
+      {
+        "answer": "Truth",
+        "tier": 2
+      },
+      {
+        "answer": "Life",
+        "tier": 2
+      },
+      {
+        "answer": "Resurrection and the Life",
+        "tier": 2
+      },
+      {
+        "answer": "Word of God",
+        "tier": 2
+      },
+      {
+        "answer": "Logos",
+        "tier": 2
+      },
+      {
+        "answer": "Emmanuel",
+        "tier": 3
+      },
+      {
+        "answer": "Prince of Peace",
+        "tier": 3
+      },
+      {
+        "answer": "Wonderful Counselor",
+        "tier": 3
+      },
+      {
+        "answer": "Mighty God",
+        "tier": 3
+      },
+      {
+        "answer": "Everlasting Father",
+        "tier": 3
+      },
+      {
+        "answer": "King of Kings",
+        "tier": 3
+      },
+      {
+        "answer": "Lord of Lords",
+        "tier": 3
+      },
+      {
+        "answer": "Alpha and Omega",
+        "tier": 3
+      },
+      {
+        "answer": "First and Last",
+        "tier": 3
+      },
+      {
+        "answer": "Beginning and End",
+        "tier": 3
+      },
+      {
+        "answer": "Savior",
+        "tier": 4
+      },
+      {
+        "answer": "Redeemer",
+        "tier": 4
+      },
+      {
+        "answer": "Mediator",
+        "tier": 4
+      },
+      {
+        "answer": "High Priest",
+        "tier": 4
+      },
+      {
+        "answer": "Apostle and High Priest",
+        "tier": 4
+      },
+      {
+        "answer": "Cornerstone",
+        "tier": 4
+      },
+      {
+        "answer": "Living Stone",
+        "tier": 4
+      },
+      {
+        "answer": "Bridegroom",
+        "tier": 4
+      },
+      {
+        "answer": "Holy One of God",
+        "tier": 5
+      },
+      {
+        "answer": "Image of the Invisible God",
+        "tier": 5
+      },
+      {
+        "answer": "Radiance of God's glory",
+        "tier": 5
+      },
+      {
+        "answer": "Morning Star",
+        "tier": 5
+      },
+      {
+        "answer": "Root of Jesse",
+        "tier": 5
+      },
+      {
+        "answer": "Root of David",
+        "tier": 5
+      },
+      {
+        "answer": "Lion of the tribe of Judah",
+        "tier": 5
+      },
+      {
+        "answer": "Second Adam",
+        "tier": 5
+      },
+      {
+        "answer": "Last Adam",
+        "tier": 5
+      },
+      {
+        "answer": "Righteous Branch",
+        "tier": 5
+      }
+    ],
+    "status": "draft",
+    "answerMode": "many",
+    "source": "Editorially authored; answer-level source review pending."
+  }
+]
