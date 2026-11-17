@@ -42,6 +42,9 @@ export default function DeepWatersPage() {
   const [logbook, setLogbook] = useState(loadDeepLogbook());
   const [isPaused, setIsPaused] = useState(snapshot?.paused ?? false);
   const streak = deepDiveStreak(logbook, today);
+  const pearlPool = prompts.flatMap((p) => p.answers.filter((a) => a.tier === 5).map((a) => a.answer));
+  const pearlAnswer = !practice && pearlPool.length ? pearlPool[Math.abs(today * 31) % pearlPool.length] : null;
+  const pearlFound = history.some((item) => (item.pearlBonus ?? 0) > 0);
 
   useEffect(() => {
     if (done || locked) return;
@@ -85,11 +88,11 @@ export default function DeepWatersPage() {
     saveDeepSession({
       version: 1, day: today, practice, practiceSeed, promptIds: prompts.map((p) => p.id),
       round, phase: done ? 'done' : locked ? 'locked' : 'playing', score,
-      history: history.map((entry, index) => ({ promptId: prompts[index]?.id ?? '', prompt: entry.prompt, guess: entry.guess, answer: entry.answer, tier: entry.tier, points: entry.points, timedOut: entry.timedOut })),
+      history: history.map((entry, index) => ({ promptId: prompts[index]?.id ?? '', prompt: entry.prompt, guess: entry.guess, answer: entry.answer, tier: entry.tier, points: entry.points, timedOut: entry.timedOut, pearlBonus: entry.pearlBonus })),
       guess, deadlineAt: done || locked ? null : deadlineRef.current,
       remainingMs: document.visibilityState === 'hidden' ? remainingRef.current : seconds * 1000,
-      paused: isPaused, pearlAnswer: null,
-      pearlFound: history.some((r) => (r.pearlBonus ?? 0) > 0),
+      paused: isPaused, pearlAnswer,
+      pearlFound,
     });
   }, [today, practice, practiceSeed, prompts, round, done, locked, score, history, guess, seconds, isPaused]);
 
@@ -107,8 +110,10 @@ export default function DeepWatersPage() {
     if (!trimmed) { setFeedback('Type an answer before locking it in.'); return; }
     const found = findDeepAnswer(prompt, trimmed);
     if (!found) { setFeedback('Not on our list. Your answer may still be valid; try another listed possibility while time remains.'); return; }
-    const points = DEEP_POINTS[found.tier];
-    const entry: RoundResult = { prompt: prompt.prompt, guess: trimmed, answer: found.answer, tier: found.tier, points, timedOut: false };
+    const basePoints = DEEP_POINTS[found.tier];
+    const pearlBonus = pearlAnswer && normalizeDeepAnswer(found.answer) === normalizeDeepAnswer(pearlAnswer) ? 5 : 0;
+    const points = basePoints + pearlBonus;
+    const entry: RoundResult = { prompt: prompt.prompt, guess: trimmed, answer: found.answer, tier: found.tier, points, timedOut: false, pearlBonus };
     setScore((s) => s + points); setResult(entry); setHistory((h) => [...h, entry]);
     setLocked(true); deadlineRef.current = 0; setFeedback('');
   };
@@ -137,6 +142,7 @@ export default function DeepWatersPage() {
         'A recognized answer earns more points when it is a deeper cut: 1, 2, 4, 8 or 16 points.',
         'Use the optional hint if you get stuck. Rarity is curated for the game, not calculated from player surveys.',
         'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
+        'One hidden pearl is worth a 5-point bonus. It is selected from the deepest accepted answers in today’s set.',
         'The daily set is shared by everyone using the same local calendar date. Practice runs do not count.'
       ]} onPractice={(on) => { setPracticeMode(on); reset(on); }} />
       {!done ? (
@@ -183,6 +189,7 @@ export default function DeepWatersPage() {
                   <div><strong>{result.points ? `+${result.points} points` : result.timedOut ? 'Time is up' : 'No score this round'}</strong><small>{result.points ? DEEP_TIER_NAMES[result.tier!] : 'Keep exploring the answer key'}</small></div>
                 </div>
                 {result.answer && <span className="dw-correct-answer">{result.answer}</span>}
+                {(result.pearlBonus ?? 0) > 0 && <strong className="dw-pearl-bonus">Pearl found · +{result.pearlBonus} bonus</strong>}
                 <p>{prompt.context}</p>
                 <button type="button" className="dw-hint-button" onClick={() => setShowAnswers((v) => !v)}>{showAnswers ? 'Hide answer key' : `Explore all ${accepted.length} accepted answers`}</button>
                 {showAnswers && <ul className="dw-answer-list">{accepted.map((a) => <li key={a.answer}><span>{a.answer}</span><b>{DEEP_POINTS[a.tier]} pts</b></li>)}</ul>}
@@ -197,6 +204,8 @@ export default function DeepWatersPage() {
           <p className="dw-kicker">DIVE COMPLETE</p>
           <h2>{score}<small> pts</small></h2>
           <p>{score >= 48 ? 'You know your way around the deep end.' : score >= 24 ? 'A strong dive. There is more beneath the surface.' : 'The deep end rewards curiosity. Try another dive.'}</p>
+          {!practice && <p className="dw-streak">Current streak: <strong>{streak}</strong> day{streak === 1 ? '' : 's'} · {logbook.length} logged dives</p>}
+          {pearlFound && <p className="dw-pearl-bonus">You found the pearl of the day.</p>}
           <div className="dw-result-stats"><span><b>{history.filter((r) => r.points > 0).length}</b><small>ROUNDS SCORED</small></span><span><b>{Math.max(...history.map((r) => r.points), 0)}</b><small>BEST ROUND</small></span><span><b>{history.filter((r) => r.timedOut).length}</b><small>TIMEOUTS</small></span></div>
           <ol>{history.map((r, i) => <li key={i}><span>{r.prompt}</span><b>{r.points ? `+${r.points}` : '—'}</b><small>{r.answer ?? (r.timedOut ? 'Time expired' : 'No recognized answer')}</small></li>)}</ol>
           <div className="dw-actions"><ShareButton text={share} path="/play/deepwaters" label="Share result" className="btn" /><button className="dw-submit" onClick={() => reset(practice)}>Dive again ↗</button></div>
