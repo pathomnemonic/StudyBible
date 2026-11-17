@@ -1,12 +1,13 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import GameHelp from '../../components/GameHelp';
 import ShareButton from '../../components/ShareButton';
 import { dayIndex, isPractice, markDailyDone } from '../../lib/dailyGame';
-import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, findDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../../lib/deepWaters';
+import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, findDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../../lib/deepWaters';
+import { clearDeepSession, deepDiveStreak, loadDeepLogbook, loadDeepSession, recordDeepDive, saveDeepSession } from '../../lib/deepWatersSession';
 import type { DeepAnswer, DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
-interface RoundResult { prompt: string; guess: string; answer: string | null; tier: DeepAnswer['tier'] | null; points: number; timedOut: boolean }
+interface RoundResult { prompt: string; guess: string; answer: string | null; tier: DeepAnswer['tier'] | null; points: number; timedOut: boolean; pearlBonus?: number }
 const newPracticeSeed = () => Math.floor(Math.random() * 1_000_000);
 
 export default function DeepWatersPage() {
