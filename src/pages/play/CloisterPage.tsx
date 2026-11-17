@@ -69,7 +69,7 @@ export default function CloisterPage() {
   if (phase === 'start') {
     return (
       <div className="page cloister">
-        <h1>Cloister</h1>
+        <h1>Scriggle</h1>
         <GameHelp how={["Link neighbouring letters, in any direction, to spell words of three letters or more.", "Longer words score more. Words of the faith score a bonus.", "You have three minutes (doubled if Longer time is on in Settings).", "Press letters in turn, or drag across them; press Add word to confirm."]} />
         <p className="muted">Link neighbouring letters to spell words, in any direction. Words of the faith (saint, psalm, altar…) earn a bonus. Three minutes.</p>
         <div className="row" style={{ gap: 8, flexWrap: 'wrap' }}>
@@ -107,7 +107,7 @@ export default function CloisterPage() {
           <h2 className="eyebrow-h">Words you missed</h2>
           <div className="cl-found">{[...possible].filter((w) => !found.includes(w)).sort((a, b) => score(b) - score(a)).slice(0, 24).map((w) => <span key={w} className={`chip${THEMED.has(w) ? ' sel' : ''}`}>{w}</span>)}</div>
           <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginTop: 10 }}>
-            <ShareButton text={`Cloister ${daily ? '#' + seed : 'practice'} 🔤 ${total} points\n${found.length} of ${possible.size} words · ${found.filter((w) => THEMED.has(w)).length} of the faith ✝️\n${'🟨'.repeat(Math.min(10, Math.round((found.length / Math.max(1, possible.size)) * 10)))}${'⬜'.repeat(10 - Math.min(10, Math.round((found.length / Math.max(1, possible.size)) * 10)))}`} path="/play/cloister" />
+            <ShareButton text={`Scriggle ${daily ? '#' + seed : 'practice'} 🔤 ${total} points\n${found.length} of ${possible.size} words · ${found.filter((w) => THEMED.has(w)).length} of the faith ✝️\n${'🟨'.repeat(Math.min(10, Math.round((found.length / Math.max(1, possible.size)) * 10)))}${'⬜'.repeat(10 - Math.min(10, Math.round((found.length / Math.max(1, possible.size)) * 10)))}`} path="/play/cloister" />
             <button className="btn" onClick={() => begin(false)}>A new board</button>
             <button className="btn" onClick={() => setPhase('start')}>Back</button>
           </div>

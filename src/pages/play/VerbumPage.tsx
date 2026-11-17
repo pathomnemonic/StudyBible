@@ -81,14 +81,14 @@ export default function VerbumPage() {
   const press = (k: string) => { if (over) return; if (k === '⏎') submit(); else if (k === '⌫') setCur((c) => c.slice(0, -1)); else setCur((c) => (c.length < LEN ? c + k : c)); };
   const shareText = () => {
     const sq = { hit: '🟨', near: '🟪', miss: '⬛' } as const;
-    return `Verbum ${practice ? 'practice' : '#' + today} ${won ? guesses.length : 'X'}/${ROWS}\n` + guesses.map((g) => mark(g, answer).map((m) => sq[m]).join('')).join('\n');
+    return `Creedle ${practice ? 'practice' : '#' + today} ${won ? guesses.length : 'X'}/${ROWS}\n` + guesses.map((g) => mark(g, answer).map((m) => sq[m]).join('')).join('\n');
   };
   const again = () => { const pool = ANSWERS.filter((w) => w !== answer); setPractice(pool[Math.floor(Math.random() * pool.length)]); setPGuesses([]); setCur(''); setMsg(''); };
 
   const rows = Array.from({ length: ROWS }, (_, r) => (r < guesses.length ? guesses[r] : r === guesses.length && !over ? cur : ''));
   return (
     <div className="page verbum">
-      <h1>Verbum</h1>
+      <h1>Creedle</h1>
       <GameHelp how={["Guess the five-letter word in six tries.", "Gold means the right letter in the right place; pale means the letter is in the word elsewhere; dark means it is not in the word. Each letter also says this out loud.", "Type on the keyboard or tap the letters, then Enter.", "One word a day. Practice mode gives you a different word that does not count."]} onPractice={(on) => { if (on) again(); else { setPractice(null); setPGuesses([]); setCur(''); setMsg(''); } }} />
       <p className="muted small">{practice ? 'Practice word' : 'The word of the day'}: five letters from the faith, six tries. Gold is the right place, pink is in the word elsewhere.</p>
       <div className="vb-grid" role="grid" aria-label="Guesses">

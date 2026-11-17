@@ -12,37 +12,37 @@ const G = (to: string, title: string, blurb: string, icon: string, color: string
 
 const GROUPS: Group[] = [
   { id: 'deep', title: 'Deep dives', sub: 'One answer. A little time. The less obvious, the better.', games: [
-    G('/play/deepwaters', 'Deep Waters', 'Seven Catholic prompts. Find a valid answer others might overlook.', '🌊', '#287d91', '4 min', 'Solo', { daily: 'deepwaters', isNew: true }),
+    G('/play/deepwaters', 'Basilion', 'Seven Catholic prompts. Find a valid answer others might overlook.', '🌊', '#287d91', '4 min', 'Solo', { daily: 'deepwaters', isNew: true }),
   ] },
   { id: 'quick', title: 'Quick hits', sub: 'Two minutes or less. A new one every day.', games: [
-    G('/play/verbum', 'Verbum', 'Guess the five-letter word of the faith in six tries.', '🟨', '#d4a017', '3 min', 'Solo', { daily: 'verbum' }),
+    G('/play/verbum', 'Creedle', 'Guess the five-letter word of the faith in six tries.', '🟨', '#d4a017', '3 min', 'Solo', { daily: 'verbum' }),
     G('/play/whichbook', 'Which Book?', 'Name the book of the Bible a verse comes from.', '📖', '#4a7bd0', '2 min', 'Solo', { daily: 'whichbook' }),
     G('/play/whosaid', 'Who Said It?', 'Five quotations from the saints: who said each?', '💬', '#c0507a', '2 min', 'Solo', { daily: 'whosaid' }),
-    G('/play/saintguess', 'Saint Guess', 'Name the saint from clues that get easier.', '🕊️', '#2f8f6b', '2 min', 'Solo', { daily: 'saintguess' }),
+    G('/play/saintguess', 'Saintdle', 'Name the saint from clues that get easier.', '🕊️', '#2f8f6b', '2 min', 'Solo', { daily: 'saintguess' }),
   ] },
   { id: 'brain', title: 'Brain teasers', sub: 'Slow down, think, and feel clever.', games: [
-    G('/play/quartets', 'Quartets', 'Sixteen tiles, four hidden sets.', '🔶', '#e8812b', '5 min', 'Solo', { daily: 'quartets' }),
-    G('/play/chain', 'Chain of Grace', 'Change one letter at a time to turn one word into another.', '🔗', '#5a8f9a', '4 min', 'Solo', { daily: 'chain' }),
+    G('/play/quartets', 'Communions', 'Sixteen tiles, four hidden sets.', '🔶', '#e8812b', '5 min', 'Solo', { daily: 'quartets' }),
+    G('/play/chain', 'Jacob’s Ladder', 'Change one letter at a time to turn one word into another.', '🔗', '#5a8f9a', '4 min', 'Solo', { daily: 'chain' }),
     G('/play/crossword', 'Crossword', 'A small crossword of the faith, new each week.', '✏️', '#8a5ac2', '10 min', 'Solo'),
     G('/play/wordsearch', 'Wordsearch', 'A weekly theme. Find the hidden words.', '🔍', '#4a9b8e', '6 min', 'Solo'),
-    G('/play/cloister', 'Cloister', 'Link letters into words. Words of the faith score extra.', '🔤', '#b9772e', '5 min', 'Solo'),
+    G('/play/cloister', 'Scriggle', 'Link letters into words. Words of the faith score extra.', '🔤', '#b9772e', '5 min', 'Solo'),
     G('/play/termmatch', 'Match the term', 'Pair five Catholic words with their meanings.', '🔗', '#8a5ac2', '2 min', 'Solo'),
     G('/play/familyties', 'Family ties', 'Who was the father or mother? From the genealogies of Scripture.', '🌳', '#5a8f5a', '3 min', 'Solo'),
     G('/play/whoami', 'Who Am I?', 'A person from the Bible, from five clues.', '🧔', '#6b7fd7', '3 min', 'Solo', { daily: 'whoami' }),
   ] },
   { id: 'explore', title: 'Explore and discover', sub: 'Maps, art and the stories behind them.', games: [
-    G('/play/pilgrim', 'Pin the Place', 'Tap the map to place a city or mountain from Scripture.', '📍', '#c05050', '3 min', 'Solo', { daily: 'pilgrim' }),
+    G('/play/pilgrim', 'Holyguessr', 'Tap the map to place a city or mountain from Scripture.', '📍', '#c05050', '3 min', 'Solo', { daily: 'pilgrim' }),
     G('/play/artdetective', 'Art Detective', 'Name the Bible scene from an engraving.', '🖼️', '#a0522d', '3 min', 'Solo', { daily: 'artdetective' }),
     G('/play/prophet', 'The Prophet', 'Guess the year, the number or the count. Closer scores more.', '🔮', '#7a5ac2', '4 min', 'Solo'),
-    G('/play/doctrineladder', 'Doctrine ladder', 'Three levels of questions on what the Church teaches.', '🪜', '#4a7bd0', '6 min', 'Solo'),
+    G('/play/doctrineladder', 'Who Wants to Be a Saint?', 'Three levels of questions on what the Church teaches.', '🪜', '#4a7bd0', '6 min', 'Solo'),
   ] },
   { id: 'together', title: 'Play together', sub: 'One phone, a family, a classroom, a crowd.', games: [
-    G('/play/trivia', 'Crown Quest', 'Spin the wheel, win six crowns. Play a friend, the Bot, or alone.', '👑', '#8a5ac2', '10 min', '1 to 4', { isNew: true }),
+    G('/play/trivia', 'Trivia Chrism', 'Spin the wheel, win six crowns. Play a friend, the Bot, or alone.', '👑', '#8a5ac2', '10 min', '1 to 4', { isNew: true }),
     G('/play/online', 'Play online with a code', 'Open a room, share six digits, and friends join from their own phones. No account.', '🌐', '#2f8f6b', '15 min', '2 to 50', { isNew: true }),
     G('/play/quiznight', 'Quiz night', 'Pass the phone around the family, or host a room.', '🎉', '#e8812b', '15 min', '2 or more'),
     G('/play/leaderboard', 'Weekly leaderboard', 'A Monday to Sunday board for your group, by code. Opt in, nickname only.', '🏅', '#b58a1f', '1 min', 'A group'),
-    G('/play/coop', 'Verbum together', 'Solve today’s word with family or friends, one shared board.', '🤝', '#2f8a5b', '5 min', '2 or more'),
-    G('/play/charades', 'Charades', 'Phone on your forehead: guess saints, stories and more.', '🎭', '#c0507a', '5 min', '2 or more'),
+    G('/play/coop', 'Creedle together', 'Solve today’s word with family or friends, one shared board.', '🤝', '#2f8a5b', '5 min', '2 or more'),
+    G('/play/charades', 'Whom Do You Say?', 'Phone on your forehead: guess saints, stories and more.', '🎭', '#c0507a', '5 min', '2 or more'),
   ] },
 ];
 const ALL = GROUPS.flatMap((g) => g.games);
@@ -104,7 +104,7 @@ export default function PlayHome() {
           <Art n="whale" size={110} className="gp-dive-whale" />
           <span className="gp-dive-text">
             <small>{dailyDone('deepwaters') ? 'Dive complete' : 'Daily dive'}</small>
-            <strong>Deep Waters</strong>
+            <strong>Basilion</strong>
             <em>{dailyDone('deepwaters') ? `Today: ${dailyDone('deepwaters')}. Practise or come back tomorrow.` : 'Seven questions. Go deeper than everyone else.'}</em>
           </span>
           <span className="gp-dive-go" aria-hidden="true">▶</span>
@@ -114,7 +114,7 @@ export default function PlayHome() {
           <Art n="crown" size={104} className="gp-dive-whale" />
           <span className="gp-dive-text">
             <small>Up to 4 players, or the Bot</small>
-            <strong>Crown Quest</strong>
+            <strong>Trivia Chrism</strong>
             <em>Spin the wheel, win six crowns, spend your coins on power-ups.</em>
           </span>
           <span className="gp-dive-go" aria-hidden="true">▶</span>

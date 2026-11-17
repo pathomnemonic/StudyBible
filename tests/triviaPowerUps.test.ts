@@ -7,7 +7,7 @@ beforeEach(() => {
   (globalThis as unknown as { localStorage: Storage }).localStorage = { getItem: (k: string) => mem.get(k) ?? null, setItem: (k: string, v: string) => void mem.set(k, v), removeItem: (k: string) => void mem.delete(k), clear: () => mem.clear(), key: () => null, length: 0 } as Storage;
 });
 
-describe('Crown Quest power-ups', () => {
+describe('Trivia Chrism power-ups', () => {
   it('a Bomb removes exactly two wrong answers and never the right one', () => {
     for (let a = 0; a < 4; a++) for (const r of [0, 0.3, 0.7, 0.99]) {
       const t = bombTargets(4, a, () => r);

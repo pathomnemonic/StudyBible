@@ -54,11 +54,11 @@ export default function ChainPage() {
   };
   const hint = () => { if (!best) return; const at = best.indexOf(last); const nxt = at >= 0 ? best[at + 1] : best[1]; setHints((h) => h + 1); setMsg(`Try ${nxt?.toUpperCase()}`); };
   const another = () => { setDaily(false); setN((x) => (x + 1 + Math.floor(Math.random() * (LADDERS.length - 1))) % LADDERS.length); };
-  const shareText = () => `Chain of Grace ${daily ? '#' + dayIndex() : 'practice'} 🔗 ${steps} step${steps === 1 ? '' : 's'} (best ${par})${hints ? ` · ${hints} hint${hints > 1 ? 's' : ''}` : ''}\n${chain.map((_, i) => (i === 0 ? '⬜' : i <= par ? '🟨' : '🟫')).join('')}`;
+  const shareText = () => `Jacob’s Ladder ${daily ? '#' + dayIndex() : 'practice'} 🪜 ${steps} step${steps === 1 ? '' : 's'} (best ${par})${hints ? ` · ${hints} hint${hints > 1 ? 's' : ''}` : ''}\n${chain.map((_, i) => (i === 0 ? '⬜' : i <= par ? '🟨' : '🟫')).join('')}`;
 
   return (
     <div className="page chain">
-      <h1>Chain of Grace</h1>
+      <h1>Jacob’s Ladder</h1>
       <GameHelp how={["Change one letter at a time to turn the first word into the last.", "Every step has to be a real word.", "The page tells you the shortest number of steps when it is known; fewer steps is better."]} />
       <p className="muted small">Turn <strong>{from.toUpperCase()}</strong> into <strong>{to.toUpperCase()}</strong>, changing one letter at a time. Every step must be a word.{par ? ` It can be done in ${par}.` : ''}</p>
       <ol className="ch-list" aria-label="Your chain">{chain.map((w, i) => <li key={w} className={w === to ? 'goal' : ''}>{[...w].map((c, k) => <span key={k} className={i > 0 && c !== chain[i - 1][k] ? 'chg' : ''}>{c}</span>)}</li>)}{chain[chain.length - 1] !== to && <li className="target" aria-hidden="true">{[...to].map((c, k) => <span key={k}>{c}</span>)}</li>}</ol>

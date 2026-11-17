@@ -23,7 +23,7 @@ describe('confirmation name saints', () => {
 });
 
 import { clueFor, redact } from '../src/pages/play/SaintGuessPage';
-describe('Saint Guess clues', () => {
+describe('Saintdle clues', () => {
   it('never give the name away before the last clue', () => {
     for (const s of NAME_SAINTS) {
       const key = s.name.replace(/\(.*?\)/g, ' ').split(/\s+/).filter((w) => w.length > 3 && !/^(of|the|and|great)$/i.test(w));

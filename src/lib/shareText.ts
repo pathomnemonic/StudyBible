@@ -16,7 +16,7 @@ export function deepWatersShare(o: { day: number; practice: boolean; score: numb
   const row = o.rounds.map((r) => (r.tier ? TIER_EMOJI[r.tier] ?? '🐟' : '⬛')).join('');
   const metres = (o.score * 10).toLocaleString('en-US');
   return [
-    `Deep Waters ${o.practice ? 'practice' : `#${o.day}`}  ${o.score} pts · ${metres} m`,
+    `Basilion ${o.practice ? 'practice' : `#${o.day}`}  ${o.score} pts · ${metres} m`,
     row + (o.pearl ? ' ✨' : ''),
     `🌊 ${o.zone}${o.practice ? '' : ` · set ${o.bank}`}`,
   ].join('\n');
@@ -26,7 +26,7 @@ export function crownQuestShare(o: { winner: string | null; me: { name: string; 
   const row = (crowns: string[]) => o.cats.map((c) => (crowns.includes(c) ? CAT_EMOJI[c] ?? '👑' : '⬛')).join('');
   const verdict = o.winner === null ? `${o.me.crowns.length}/${o.cats.length} crowns` : o.winner === o.me.name ? 'Won' : 'Lost';
   return [
-    `Crown Quest 👑 ${verdict}`,
+    `Trivia Chrism 👑 ${verdict}`,
     `${row(o.me.crowns)}  ${o.me.right}✔ ${o.me.wrong}✘`,
     ...(o.vs ? [`${row(o.vs.crowns)}  vs ${o.vs.name}`] : []),
   ].join('\n');
@@ -35,5 +35,5 @@ export function crownQuestShare(o: { winner: string | null; me: { name: string; 
 export function ladderShare(o: { level: string; marks: boolean[] }): string {
   const rows: string[] = [];
   for (let i = 0; i < o.marks.length; i += 5) rows.push(o.marks.slice(i, i + 5).map((m) => (m ? '🟩' : '⬛')).join(''));
-  return `Doctrine ladder 🪜 ${o.level}  ${o.marks.filter(Boolean).length}/${o.marks.length}\n${rows.join('\n')}`;
+  return `Who Wants to Be a Saint? 🪜 ${o.level}  ${o.marks.filter(Boolean).length}/${o.marks.length}\n${rows.join('\n')}`;
 }

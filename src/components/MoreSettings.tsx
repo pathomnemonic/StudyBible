@@ -44,7 +44,7 @@ export default function MoreSettings() {
       <Fold id="settings:Lessons and games" title="Lessons and games" hint="How lessons open, pictures, game timers" open={false}>
         <Choice label="Lessons open" value={s.lessonView} options={[['path', 'Step by step (default)'], ['whole', 'As one whole page']]} onPick={(v) => set({ lessonView: v })} />
         <Toggle label="Pictures in lessons" note="Public-domain paintings and engravings. Turn off to save data." on={s.lessonPictures} onChange={(v) => set({ lessonPictures: v })} />
-        <Toggle label="Longer time in timed games" note="Doubles the clock in games like Cloister and Charades." on={s.longerTimers} onChange={(v) => set({ longerTimers: v })} />
+        <Toggle label="Longer time in timed games" note="Doubles the clock in games like Scriggle and Whom Do You Say?." on={s.longerTimers} onChange={(v) => set({ longerTimers: v })} />
         <Toggle label="Days in a row on reading plans" note="Show a days-in-a-row count on a reading plan. Off by default." on={s.showStreaks} onChange={(v) => set({ showStreaks: v })} />
         <Toggle label="Hide streaks everywhere" note="No streak counters and no streak messages in games, lessons or reading stats. Progress shows as totals and completed instead." on={s.hideStreaks} onChange={(v) => set({ hideStreaks: v })} />
       </Fold>

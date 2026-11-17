@@ -38,9 +38,9 @@ export const KIND_ICON: Record<Kind, string> = {
 
 /** The games that have their own page, with the name shown on the stamp. */
 export const GAMES: Record<string, string> = {
-  trivia: 'Trivia', verbum: 'Verbum', quartets: 'Quartets', whosaid: 'Who said it?', whichbook: 'Which book?', chain: 'Chain', pilgrim: 'Pilgrim',
-  crossword: 'Crossword', cloister: 'Cloister', prophet: 'Prophet', charades: 'Charades', wordsearch: 'Word search', saintguess: 'Guess the saint',
-  whoami: 'Who am I?', artdetective: 'Art detective', doctrineladder: 'Doctrine ladder', quiznight: 'Quiz night', online: 'Online play',
+  trivia: 'Trivia', verbum: 'Creedle', quartets: 'Communions', whosaid: 'Who said it?', whichbook: 'Which book?', chain: 'Chain', pilgrim: 'Pilgrim',
+  crossword: 'Crossword', cloister: 'Scriggle', prophet: 'Prophet', charades: 'Whom Do You Say?', wordsearch: 'Word search', saintguess: 'Saintdle',
+  whoami: 'Who am I?', artdetective: 'Art detective', doctrineladder: 'Who Wants to Be a Saint?', quiznight: 'Quiz night', online: 'Online play',
 };
 
 export const HUB_ROOTS: Record<string, { id: string; label: string }> = {

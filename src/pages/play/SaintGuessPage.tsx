@@ -27,7 +27,7 @@ export const clueFor = (s: NameSaint, n: number): string => {
 };
 const TRIES = 5;
 
-/** Guess the saint from clues that get easier. The same saint for everyone each day. */
+/** Saintdle from clues that get easier. The same saint for everyone each day. */
 export default function SaintGuessPage() {
   const [seed, setSeed] = useState(dayIndex());
   const [daily, setDaily] = useState(true);
@@ -45,10 +45,10 @@ export default function SaintGuessPage() {
   };
   const skip = () => { if (shown >= TRIES) { setWon(false); if (daily) markDailyDone('saintguess', 'missed'); } else setShown((n) => n + 1); };
   const again = () => { setDaily(false); setSeed(Math.floor(Math.random() * 1e6)); setShown(1); setWrong([]); setWon(null); setText(''); };
-  const share = `Saint Guess ${daily ? '#' + dayIndex() : 'practice'} 🕊️ ${won ? shown : 'X'}/${TRIES}\n${Array.from({ length: TRIES }, (_, i) => (won && i === shown - 1 ? '🟨' : i < (won ? shown - 1 : shown) ? '⬛' : '⬜')).join('')}`;
+  const share = `Saintdle ${daily ? '#' + dayIndex() : 'practice'} 🕊️ ${won ? shown : 'X'}/${TRIES}\n${Array.from({ length: TRIES }, (_, i) => (won && i === shown - 1 ? '🟨' : i < (won ? shown - 1 : shown) ? '⬛' : '⬜')).join('')}`;
   return (
     <div className="page saintguess">
-      <h1>Saint Guess</h1>
+      <h1>Saintdle</h1>
       <GameHelp how={["You get one clue at a time, and a limited number of tries.", "Pick the saint you think it is. Another clue shows the next hint."]} />
       <p className="muted small">Who is it? One clue at a time: {TRIES} tries.</p>
       <div className="sg-pips" aria-hidden="true">{Array.from({ length: TRIES }, (_, i) => <i key={i} className={i < shown ? 'on' : ''} />)}<span>Clue {Math.min(shown, TRIES)} of {TRIES}</span></div>

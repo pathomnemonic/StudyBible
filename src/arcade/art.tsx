@@ -19,9 +19,9 @@ export function Anim({ c, size = 64, className = '', label }: { c: string; size?
 
 /** Which 3D icon stands for which game. */
 export const GAME_ART: Record<string, string> = {
-  '/play/deepwaters': 'whale', '/play/verbum': 'game-die', '/play/whichbook': 'open-book', '/play/whosaid': 'speech-balloon', '/play/saintguess': 'dove',
-  '/play/quartets': 'puzzle-piece', '/play/chain': 'link', '/play/crossword': 'memo', '/play/wordsearch': 'magnifying-glass-tilted-left', '/play/cloister': 'scroll',
+  '/play/deepwaters': 'whale', '/play/verbum': 'scroll', '/play/whichbook': 'open-book', '/play/whosaid': 'speech-balloon', '/play/saintguess': 'dove',
+  '/play/quartets': 'link', '/play/chain': 'ladder', '/play/crossword': 'memo', '/play/wordsearch': 'magnifying-glass-tilted-left', '/play/cloister': 'pen',
   '/play/termmatch': 'light-bulb', '/play/familyties': 'evergreen-tree', '/play/whoami': 'old-man', '/play/pilgrim': 'round-pushpin', '/play/artdetective': 'framed-picture',
-  '/play/prophet': 'crystal-ball', '/play/doctrineladder': 'ladder', '/play/trivia': 'crown', '/play/online': 'world-map', '/play/quiznight': 'party-popper',
+  '/play/prophet': 'crystal-ball', '/play/doctrineladder': 'glowing-star', '/play/trivia': 'crown', '/play/online': 'world-map', '/play/quiznight': 'party-popper',
   '/play/leaderboard': 'sports-medal', '/play/coop': 'handshake', '/play/charades': 'performing-arts', '/play/trophies': 'trophy',
 };

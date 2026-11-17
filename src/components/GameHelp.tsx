@@ -6,7 +6,7 @@ const here = () => (typeof window === 'undefined' ? '' : window.location.hash.sp
 /**
  * A short "How to play" fold with a visible label, and a Practice switch. While Practice is on, the game still plays
  * normally but nothing it finishes is counted: no streak day, best score, daily mark, trophy or sticker.
- * `onPractice` lets a game with its own practice state (Verbum) follow the switch.
+ * `onPractice` lets a game with its own practice state (Creedle) follow the switch.
  */
 export default function GameHelp({ how, onPractice }: { how: string[]; onPractice?: (on: boolean) => void }) {
   const [on, setOn] = useState(isPractice); // a game that changes screens (start, play, done) keeps the switch

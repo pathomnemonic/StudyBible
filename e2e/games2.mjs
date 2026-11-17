@@ -1,4 +1,4 @@
-// Who Said It, Which Book, Chain of Grace, Crossword, Pin the Place: each loads and can be played a little.
+// Who Said It, Which Book, Jacob’s Ladder, Crossword, Holyguessr: each loads and can be played a little.
 import { chromium } from 'playwright';
 const BASE = process.env.BASE || 'http://localhost:4173';
 const b = await chromium.launch();
@@ -55,7 +55,7 @@ if ((await p.locator('.pf-tile').count()) < 10) fail('games missing from the lis
 await p.goto(`${BASE}/#/learn`); await p.waitForSelector('.games-bar-link');
 await p.click('.games-bar-link');
 await p.waitForSelector('.pf-tile');
-await p.click('.pf-tile:has-text("Verbum")');
+await p.click('.pf-tile:has-text("Creedle")');
 await p.waitForSelector('.vb-grid');
 if (errs.length) fail(errs.join('; '));
 console.log('ok games2');

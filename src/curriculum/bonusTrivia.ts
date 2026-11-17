@@ -2,7 +2,7 @@ import { cccListSafe, type LessonSpec } from './model';
 import type { BankQuestion } from '../live/bank';
 import type { TQ } from '../lib/trivia';
 
-/** Pull a few extra questions from the Crown Quest (trivia) bank that fit a lesson, by simple word overlap. Nothing is invented: every question is one already in the bank. */
+/** Pull a few extra questions from the Trivia Chrism (trivia) bank that fit a lesson, by simple word overlap. Nothing is invented: every question is one already in the bank. */
 const STOP = new Set('the and for with that this from what who how when where which does into your about their they them have been were also each must will shall made make jesus lord'.split(' '));
 export const words = (s: string): string[] => [...new Set(s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').split(/[^a-z]+/).filter((w) => w.length >= 4 && !STOP.has(w)).map((w) => w.replace(/(ing|ed|es|s)$/, '')))].filter((w) => w.length >= 3);
 

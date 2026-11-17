@@ -1,5 +1,5 @@
 /**
- * Crown Quest's coins and power-ups, as in a spin-the-wheel quiz show: coins are earned by answering, and spent on a help during a question.
+ * Trivia Chrism's coins and power-ups, as in a spin-the-wheel quiz show: coins are earned by answering, and spent on a help during a question.
  * The coins are play money. They are kept on this device, can never be bought, and are worth nothing outside the game.
  */
 export type PowerUp = 'bomb' | 'second' | 'swap' | 'time' | 'life';

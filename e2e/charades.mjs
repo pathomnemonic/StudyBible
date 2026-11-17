@@ -1,4 +1,4 @@
-// Charades: pick a deck, play with buttons and with a tilt, and see the results.
+// Whom Do You Say?: pick a deck, play with buttons and with a tilt, and see the results.
 import { chromium } from 'playwright';
 const BASE = process.env.BASE || 'http://localhost:4173';
 const b = await chromium.launch();

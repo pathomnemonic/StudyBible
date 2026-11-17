@@ -5,7 +5,7 @@ import { dailyDeepPrompts, deepHint, deepMissMessage, deepTokens, DEEP_POINTS, D
 const P = (id: string): DeepPrompt => DEEP_WATERS.find((p) => p.id === id)!;
 const says = (id: string, guess: string) => findDeepAnswer(P(id), guess)?.answer ?? null;
 
-describe('Deep Waters content', () => {
+describe('Basilion content', () => {
   it('has enough prompts for a seven-round daily set, each with a clear question and context', () => {
     expect(DEEP_ROUNDS).toBe(7);
     expect(DEEP_WATERS.length).toBeGreaterThanOrEqual(70);
@@ -66,7 +66,7 @@ describe('Deep Waters content', () => {
   });
 });
 
-describe('Deep Waters accepts the true answers a reasonable player gives', () => {
+describe('Basilion accepts the true answers a reasonable player gives', () => {
   // Every one of these was rejected by the first version of the game, which listed 12 to 23 answers per question.
   const TRUE: Record<string, string[]> = {
     women: ['Mary Magdalene', 'Martha', 'Elizabeth', 'Rachel', 'Rebecca', 'Leah', 'Hagar', 'Naomi', 'Bathsheba', 'Anna', 'Salome', 'Mary of Bethany', 'Rebekah', 'Jezebel', 'Delilah'],
@@ -93,7 +93,7 @@ describe('Deep Waters accepts the true answers a reasonable player gives', () =>
   }
 });
 
-describe('Deep Waters matching', () => {
+describe('Basilion matching', () => {
   it('ignores case, accents, punctuation, "Saint"/"St.", little words and word order', () => {
     expect(says('orders', '  SOCIETY of JESUS ')).toBe('Jesuits');
     expect(says('doctors', 'thérèse   of LISIEUX!')).toBe('Therese of Lisieux');
@@ -165,7 +165,7 @@ describe('Deep Waters matching', () => {
   });
 });
 
-describe('Deep Waters suggestions and hints', () => {
+describe('Basilion suggestions and hints', () => {
   it('offers a close answer as a choice, never accepts it for the player', () => {
     // "Joppe" is a five-letter word, too short for the matcher to forgive, so it is offered instead
     expect(matchDeepAnswer(P('places'), 'Joppe').status).toBe('none');
@@ -193,7 +193,7 @@ describe('Deep Waters suggestions and hints', () => {
   });
 });
 
-describe('Deep Waters first-letter and role questions', () => {
+describe('Basilion first-letter and role questions', () => {
   const find = (id: string) => DEEP_WATERS.find((p) => p.id === id)!;
   const accept: [string, string[]][] = [
     ['people-A', ['Abraham', 'Aaron', 'Andrew', 'Adam']], ['people-J', ['Jacob', 'Joseph', 'John', 'Joshua']], ['people-M', ['Moses', 'Matthew', 'Miriam']],
@@ -214,7 +214,7 @@ describe('Deep Waters first-letter and role questions', () => {
   });
 });
 
-describe('Deep Waters Scripture lists', () => {
+describe('Basilion Scripture lists', () => {
   const find = (id: string) => DEEP_WATERS.find((p) => p.id === id)!;
   const accept: [string, string[]][] = [
     ['seven-churches', ['Ephesus', 'Laodicea', 'Smyrna']], ['bible-mountains', ['Sinai', 'Mount of Olives', 'Mount Carmel', 'Zion', 'Golgotha']],

@@ -1,4 +1,4 @@
-/** Rules and helpers for the trivia game "Crown Quest": spin the wheel, answer in a category, earn a crown for each, first to six wins. */
+/** Rules and helpers for the trivia game "Trivia Chrism": spin the wheel, answer in a category, earn a crown for each, first to six wins. */
 export interface TQ { id: string; d: 1 | 2 | 3; q: string; o: string[]; a: number; why: string; src: { kind: string; label: string; ref?: string; ccc?: number; butler?: string; work?: string; section?: string; quote?: string } }
 export const CATS = [
   { id: 'scripture', name: 'Scripture', icon: '📖', color: '#4a7bd0' },

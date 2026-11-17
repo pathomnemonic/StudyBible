@@ -4,7 +4,7 @@ import { GENERATED_DEEP_CANDIDATES } from '../src/lib/deepWatersBankGenerator';
 // the candidate bank was built with this plain normalisation (letters and digits only), so it is checked with the same one
 const normalizeDeepAnswer = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase().replace(/[^a-z0-9]/g, '');
 
-describe('Deep Waters candidate bank', () => {
+describe('Basilion candidate bank', () => {
   it('generates a provenance-backed candidate bank without inventing rarity tiers', () => {
     expect(GENERATED_DEEP_CANDIDATES.length).toBeGreaterThan(100);
     const keys = GENERATED_DEEP_CANDIDATES.map((row) => row.category + ':' + normalizeDeepAnswer(row.answer));

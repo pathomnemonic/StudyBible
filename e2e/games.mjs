@@ -1,4 +1,4 @@
-// The games: Quartets can be solved, Cloister finds words, The Prophet scores a guess, and all of them open from the Games page.
+// The games: Communions can be solved, Scriggle finds words, The Prophet scores a guess, and all of them open from the Games page.
 import { chromium } from 'playwright';
 const BASE = process.env.BASE || 'http://localhost:4173';
 const b = await chromium.launch();
@@ -9,7 +9,7 @@ const p = await ctx.newPage();
 const errs = []; p.on('pageerror', (e) => errs.push(e.message));
 await p.goto(`${BASE}/#/play`); await p.waitForSelector('.pf-tile');
 if ((await p.locator('.pf-tile').count()) < 10) fail('ten games expected');
-// Quartets: solve puzzle q1 by clicking the right tiles
+// Communions: solve puzzle q1 by clicking the right tiles
 await p.goto(`${BASE}/#/play/quartets?p=q1`); await p.waitForSelector('.q-tile');
 if ((await p.locator('.q-tile').count()) !== 16) fail('sixteen tiles');
 const sets = [['Frogs', 'Locusts', 'Darkness', 'Boils'], ['Joy', 'Peace', 'Patience', 'Kindness'], ['Wisdom', 'Fortitude', 'Piety', 'Counsel'], ['Pride', 'Envy', 'Sloth', 'Gluttony']];
@@ -20,7 +20,7 @@ if (!/One away/.test(await p.locator('.q-msg').innerText())) fail('three of four
 for (const s of sets) { for (const t of s) await p.click(`.q-tile:text-is("${t}")`); await p.click('button:has-text("Submit")'); await p.waitForTimeout(150); }
 await p.waitForSelector('button:has-text("Share my result")');
 if ((await p.locator('.q-row').count()) !== 4) fail('four solved rows');
-// Cloister: the board loads and the solver finds words
+// Scriggle: the board loads and the solver finds words
 await p.goto(`${BASE}/#/play/cloister`); await p.waitForSelector('button:has-text("Today’s board"):not([disabled])', { timeout: 15000 });
 await p.click('button:has-text("Today’s board")'); await p.waitForSelector('.cl-cell');
 if ((await p.locator('.cl-cell').count()) !== 25) fail('25 letters');

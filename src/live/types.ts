@@ -12,7 +12,7 @@ export interface LiveQuestion {
   /** 0 no points, 1 standard, 2 double */
   points: 0 | 1 | 2;
   why?: string;
-  /** Crown Quest: the category this question belongs to */
+  /** Trivia Chrism: the category this question belongs to */
   cat?: string;
   /** Who Am I?: clues from hard to easy, shown one at a time (the accepted names are in `correct`) */
   clues?: string[];
@@ -67,7 +67,7 @@ export interface LiveView {
   poll?: { counts: number[]; total: number; mine?: number };
   /** race and build: each student's own stream of questions, with the class's progress */
   run?: { deadline: number; goal: number; classSteps: number; classGoal: number; track: { id: string; name: string; steps: number; answered: number; finished: boolean; streak: number }[]; mine?: { question?: { type: QType; q: string; options?: string[]; points: number }; steps: number; streak: number; feedback?: { ok: boolean; why?: string; correct: (number | string)[]; q: string; options?: string[]; n: number } } };
-  /** Crown Quest: every player's crown rack, and this player's own turn */
+  /** Trivia Chrism: every player's crown rack, and this player's own turn */
   crowns?: { deadline: number; goal: number; need: number; cats: string[]; track: CrownTrack[]; mine?: CrownMine };
   /** when an exam ends, on the server's clock */
   examDeadline?: number;

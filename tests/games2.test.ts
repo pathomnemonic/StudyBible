@@ -7,7 +7,7 @@ import { layout } from '../src/pages/play/CrosswordPage';
 
 const words = new Set<string>((JSON.parse(readFileSync('public/data/play/words.json', 'utf8')).words as string[]).filter((w) => w.length >= 3 && w.length <= 5));
 
-describe('Chain of Grace', () => {
+describe('Jacob’s Ladder', () => {
   it('has plenty of puzzles', () => { expect(LADDERS.length).toBeGreaterThanOrEqual(60); });
   it('every ladder can be solved in three to seven steps', () => {
     for (const [a, b] of LADDERS) {

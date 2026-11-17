@@ -1,6 +1,6 @@
 // Online quiz night end to end, no account and no Study Bible server: the host opens a room from /play/online,
 // three players join by six-digit code on their own devices, they answer every question, and everyone sees the result.
-// Covers Quiz night (with a player closing and reopening their page mid-question), Crown Quest race, Who Am I?, the QR code, and a host going away and coming back.
+// Covers Quiz night (with a player closing and reopening their page mid-question), Trivia Chrism race, Who Am I?, the QR code, and a host going away and coming back.
 // Usage: npm run build && node e2e/online.mjs   (starts its own preview server and a local relay standing in for the public ones)
 //        BASE=http://127.0.0.1:5208 node e2e/online.mjs   (use a running dev server instead)
 import { chromium } from 'playwright';
@@ -80,12 +80,12 @@ try {
     if (!(await players[0].locator('.live-top').innerText()).includes('Ann')) problems.push('quiz: rejoined player lost the name');
   }
 
-  // ---- Crown Quest race
+  // ---- Trivia Chrism race
   {
-    const { host, code } = await openRoom('Crown Quest race');
+    const { host, code } = await openRoom('Trivia Chrism race');
     const a = await joinAs(code, 'Ann'), b = await joinAs(code, 'Ben');
     await host.waitForSelector('.live-players li:has-text("Ben")', { timeout: 10000 });
-    await host.getByRole('button', { name: 'Start the Crown Quest race' }).click();
+    await host.getByRole('button', { name: 'Start the Trivia Chrism race' }).click();
     await host.waitForSelector('.lv-crownboard li', { timeout: 10000 });
     const turn = async (p) => {
       await p.getByRole('button', { name: /Spin the wheel/ }).click({ timeout: 15000 });

@@ -10,7 +10,7 @@ const TIMES = [{ s: 12, label: 'Quick' }, { s: 20, label: 'Normal' }, { s: 35, l
 type Game = 'quiz' | 'crowns' | 'whoami';
 const GAMES: { id: Game; label: string; blurb: string }[] = [
   { id: 'quiz', label: 'Quiz night', blurb: 'The host sets the pace: one question at a time, faster answers score more.' },
-  { id: 'crowns', label: 'Crown Quest race', blurb: 'Everyone plays at their own pace. Spin for a category; three right answers earn its crown; first to every crown wins.' },
+  { id: 'crowns', label: 'Trivia Chrism race', blurb: 'Everyone plays at their own pace. Spin for a category; three right answers earn its crown; first to every crown wins.' },
   { id: 'whoami', label: 'Who Am I?', blurb: 'A person from the Bible, with clues from hard to easy. The earlier you name them, the more you score.' },
 ];
 /** rooms this device started and has not finished, so a sleeping or reloaded host can pick one up again */
@@ -58,7 +58,7 @@ export default function OnlineQuizPage() {
         const per = Math.floor(120 / cats.length);
         const questions: LiveQuestion[] = cats.flatMap((id) => [...(bank![id] ?? [])].sort(() => Math.random() - 0.5).slice(0, per).map((q): LiveQuestion => ({ type: 'mc', q: q.q, options: q.o, correct: [q.a], time: 20, points: 1, why: q.why, cat: id })));
         const settings: LiveSettings = { ...DEFAULT_SETTINGS, mode: 'crowns', runMinutes: minutes, rosterOnly: false, shuffleQuestions: false, shuffleOptions: true, lateJoin: true, showNames: true };
-        const c = await createHost({ title: 'Cathology Crown Quest race', slides: [], questions }, settings, []);
+        const c = await createHost({ title: 'Cathology Trivia Chrism race', slides: [], questions }, settings, []);
         nav(`/host/${c.code}`);
         return;
       }

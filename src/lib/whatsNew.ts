@@ -34,7 +34,7 @@ export const NEW_ITEMS: NewItem[] = [
 
   { id: 'learn.trivia', area: 'Games', date: '2026-11-08', line: 'A wheel of six categories; three right answers win a crown. Play a friend, Brother Bot or alone.' },
   { id: 'learn.online', area: 'Games', date: '2026-11-08', line: 'Open a quiz room and share a six-digit code. Friends join from their own phones, with no account.' },
-  { id: 'learn.coop', area: 'Games', date: '2026-11-08', line: 'Solve today’s Verbum together with a code, and see every guess.' },
+  { id: 'learn.coop', area: 'Games', date: '2026-11-08', line: 'Solve today’s Creedle together with a code, and see every guess.' },
   { id: 'learn.leaderboard', area: 'Games', date: '2026-11-08', line: 'A friendly weekly board for a parish, class or family, by group code.' },
 
   { id: 'teach.dashboard', area: 'Teach', date: '2026-11-08', line: 'Lessons taught, average scores, the questions most missed and which lessons to teach again.' },

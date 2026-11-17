@@ -1,4 +1,4 @@
-// Co-op Verbum and the weekly leaderboard, end to end with no account and no server of ours: two browser contexts talk through a local relay.
+// Co-op Creedle and the weekly leaderboard, end to end with no account and no server of ours: two browser contexts talk through a local relay.
 // Usage: COOP_BASE=http://127.0.0.1:5209 node e2e/coop.mjs   (or without COOP_BASE, after `npm run build`: starts its own preview server)
 // Set COOP_SHOTS=dir to save screenshots at 390 and 1280 wide.
 import { chromium } from 'playwright';

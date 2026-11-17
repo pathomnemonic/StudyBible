@@ -24,7 +24,7 @@ export default function QuartetsPage() {
   if (!picked) {
     return (
       <div className="page quartets">
-        <h1>Quartets</h1>
+        <h1>Communions</h1>
         <GameHelp how={["Sixteen tiles hide four sets of four.", "Select four tiles that belong together and press Submit.", "Four mistakes end the puzzle. Watch for tiles that could fit two sets."]} />
         <p className="muted">Sixteen tiles hide four sets of four. Find the sets. Watch for tiles that fit two of them.</p>
         <button className="btn primary big" onClick={() => setSp({ p: today.id })}>Today’s puzzle{done[today.id] ? (done[today.id].won ? ' ✓' : ' (tried)') : ''}</button>
@@ -59,7 +59,7 @@ function Board({ q, daily, onDone, back }: { q: Quartet; daily: boolean; onDone:
   };
   const reveal = () => { const rest = q.groups.filter((g) => !solved.includes(g)); setSolved((s) => [...s, ...rest]); };
   useEffect(() => { if (mistakes >= 4 && solved.length < 4) reveal(); }, [mistakes]); // eslint-disable-line react-hooks/exhaustive-deps
-  const shareText = `Quartets 🔶 ${q.title}\n${solved.length === 4 && mistakes < 4 ? 'Solved' : 'Not this time'}, ${mistakes} mistake${mistakes === 1 ? '' : 's'}\n${log.map((l) => LEVEL_EMOJI[l].repeat(4)).join('\n')}`;
+  const shareText = `Communions 🔶 ${q.title}\n${solved.length === 4 && mistakes < 4 ? 'Solved' : 'Not this time'}, ${mistakes} mistake${mistakes === 1 ? '' : 's'}\n${log.map((l) => LEVEL_EMOJI[l].repeat(4)).join('\n')}`;
   const byLevel = [...solved].sort((a, b) => a.level - b.level);
   const lost = mistakes >= 4;
   return (

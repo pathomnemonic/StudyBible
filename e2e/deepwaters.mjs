@@ -1,4 +1,4 @@
-// Deep Waters in a real browser: the game is on the Games home, a true answer the first version rejected now scores, an answer that is not on the list is
+// Basilion in a real browser: the game is on the Games home, a true answer the first version rejected now scores, an answer that is not on the list is
 // called "not on our list" (never wrong), a whole seven-round run reaches the results, and keyboard focus follows the game (answer box, then Next).
 import { chromium } from 'playwright';
 const BASE = process.env.BASE || 'http://localhost:4173';
@@ -13,7 +13,7 @@ p.on('pageerror', (e) => errors.push(e.message));
 
 await p.goto(`${BASE}/#/play`);
 await p.waitForSelector('.pf-tile');
-if (!(await p.locator('.pf-tile:has-text("Deep Waters")').count())) fail('Deep Waters missing from Games home');
+if (!(await p.locator('.pf-tile:has-text("Basilion")').count())) fail('Basilion missing from Games home');
 
 // a true answer for every question the game can ask, read from the game's own data
 import { execSync } from 'node:child_process';

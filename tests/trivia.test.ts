@@ -3,7 +3,7 @@ import { CATS, NEED, SLICE, WHEEL, bestPick, botRight, hasWon, newPlayer, nextQu
 
 const seeded = (s: number) => () => { s = (s * 1664525 + 1013904223) % 4294967296; return s / 4294967296; };
 const mk = (id: string, d: 1 | 2 | 3): TQ => ({ id, d, q: 'Q ' + id, o: ['a', 'b', 'c', 'd'], a: 2, why: 'because', src: { kind: 'catechism', label: 'x' } });
-describe('Crown Quest rules', () => {
+describe('Trivia Chrism rules', () => {
   it('has a wheel with every category and a free pick', () => { expect(WHEEL).toHaveLength(CATS.length + 1); expect(WHEEL.at(-1)).toBe('pick'); expect(SLICE * WHEEL.length).toBeCloseTo(360); expect(NEED).toBe(3); });
   it('stops each slice under the pointer', () => {
     for (let k = 0; k < WHEEL.length; k++) {

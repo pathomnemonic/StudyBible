@@ -1,4 +1,4 @@
-// Verbum: type guesses, reject a non-word, finish the game and get a share button.
+// Creedle: type guesses, reject a non-word, finish the game and get a share button.
 import { chromium } from 'playwright';
 const BASE = process.env.BASE || 'http://localhost:4173';
 const b = await chromium.launch();

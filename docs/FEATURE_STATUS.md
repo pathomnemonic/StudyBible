@@ -404,7 +404,7 @@ Generated from `src/featureStatus.ts` (`npm run docs:status`). The same table is
 |---|---|---|
 | How to play and Practice mode | **Working** | Every game has a labelled How to play fold and a Practice switch; Practice counts nothing: no streak day, daily mark, best score, trophy or sticker. |
 | Hide streaks setting | **Working** | Settings → Lessons and games → Hide streaks everywhere (off by default) hides streak counters, streak trophies and their toasts and shows totals instead. Live-room screens still show streaks. |
-| Keyboard and non-pointer play | **Partial** | Wordsearch, Crossword, Pin the Place (latitude and longitude, or a map-centre pin) and Cloister can be played without a pointer; live-room screens and some quiz games were not audited in depth. |
+| Keyboard and non-pointer play | **Partial** | Wordsearch, Crossword, Holyguessr (latitude and longitude, or a map-centre pin) and Scriggle can be played without a pointer; live-room screens and some quiz games were not audited in depth. |
 | Deterministic game logic | **Working** | Boards and scoring are pure functions in src/lib/gameLogic.ts, and seeded runs are tested. |
 
 ## Teach

@@ -7,8 +7,8 @@ const TILES: { to: string; title: string; icon: string; tone: string }[] = [
   { to: '/study/kids', title: 'Bible stories', icon: '📖', tone: 'k1' },
   { to: '/pray/prayers?tag=basic', title: 'Prayers', icon: '🙏', tone: 'k2' },
   { to: '/pray/devotions/rosary', title: 'The Rosary', icon: '📿', tone: 'k3' },
-  { to: '/play/charades', title: 'Charades', icon: '🎭', tone: 'k4' },
-  { to: '/play/quartets', title: 'Quartets', icon: '🔶', tone: 'k5' },
+  { to: '/play/charades', title: 'Whom Do You Say?', icon: '🎭', tone: 'k4' },
+  { to: '/play/quartets', title: 'Communions', icon: '🔶', tone: 'k5' },
   { to: '/pray/sleep', title: 'Bedtime psalm', icon: '🌙', tone: 'k6' },
   { to: '/kids/stickers', title: 'My stickers', icon: '⭐', tone: 'k1' },
 ];

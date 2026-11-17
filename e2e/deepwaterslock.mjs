@@ -1,4 +1,4 @@
-// A daily Deep Waters dive cannot be reset or replayed: leaving the page, reloading, or switching to practice keeps the dive where it was, the clock keeps running
+// A daily Basilion dive cannot be reset or replayed: leaving the page, reloading, or switching to practice keeps the dive where it was, the clock keeps running
 // while away, and once the dive is finished the daily one cannot be played again (only a practice dive).
 import { chromium } from 'playwright';
 import { execSync } from 'node:child_process';

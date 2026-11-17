@@ -331,22 +331,22 @@ html[data-arcade] .gp-bot { display: inline-grid; place-items: center; width: 64
 /* ---------- each game's emblem beside its title ---------- */
 html[data-arcade] .page h1:not(.gp-title)::before { content: ''; display: inline-block; width: 56px; height: 56px; margin: -8px 10px -8px 0; vertical-align: middle; background: var(--emblem, none) center / contain no-repeat; filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.35)); animation: arc-bob 3s ease-in-out infinite; }
 html[data-game='deepwaters'] { --emblem: url(/arcade/3d/whale.webp); }
-html[data-game='verbum'] { --emblem: url(/arcade/3d/game-die.webp); }
+html[data-game='verbum'] { --emblem: url(/arcade/3d/scroll.webp); }
 html[data-game='whichbook'] { --emblem: url(/arcade/3d/open-book.webp); }
 html[data-game='whosaid'] { --emblem: url(/arcade/3d/speech-balloon.webp); }
 html[data-game='saintguess'] { --emblem: url(/arcade/3d/dove.webp); }
-html[data-game='quartets'] { --emblem: url(/arcade/3d/puzzle-piece.webp); }
-html[data-game='chain'] { --emblem: url(/arcade/3d/link.webp); }
+html[data-game='quartets'] { --emblem: url(/arcade/3d/link.webp); }
+html[data-game='chain'] { --emblem: url(/arcade/3d/ladder.webp); }
 html[data-game='crossword'] { --emblem: url(/arcade/3d/memo.webp); }
 html[data-game='wordsearch'] { --emblem: url(/arcade/3d/magnifying-glass-tilted-left.webp); }
-html[data-game='cloister'] { --emblem: url(/arcade/3d/scroll.webp); }
+html[data-game='cloister'] { --emblem: url(/arcade/3d/pen.webp); }
 html[data-game='termmatch'] { --emblem: url(/arcade/3d/light-bulb.webp); }
 html[data-game='familyties'] { --emblem: url(/arcade/3d/evergreen-tree.webp); }
 html[data-game='whoami'] { --emblem: url(/arcade/3d/old-man.webp); }
 html[data-game='pilgrim'] { --emblem: url(/arcade/3d/round-pushpin.webp); }
 html[data-game='artdetective'] { --emblem: url(/arcade/3d/framed-picture.webp); }
 html[data-game='prophet'] { --emblem: url(/arcade/3d/crystal-ball.webp); }
-html[data-game='doctrineladder'] { --emblem: url(/arcade/3d/ladder.webp); }
+html[data-game='doctrineladder'] { --emblem: url(/arcade/3d/glowing-star.webp); }
 html[data-game='trivia'] { --emblem: url(/arcade/3d/crown.webp); }
 html[data-game='online'] { --emblem: url(/arcade/3d/world-map.webp); }
 html[data-game='quiznight'] { --emblem: url(/arcade/3d/party-popper.webp); }
@@ -693,3 +693,6 @@ html[data-game='quartets'] .quartets ul.list .muted { color: #5a4a9a; }
 @media (max-width: 520px) {
   html[data-arcade] .pf-blurb { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-size: .78rem; line-height: 1.25; margin: 2px 0 6px; }
 }
+.dl-summit { order: -99; position: relative; z-index: 1; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--font-display); font-size: 1.2rem; color: #ffe27a; text-shadow: 0 0 14px #ffd23f; }
+.dl-summit img { animation: arc-bob 3s ease-in-out infinite; filter: drop-shadow(0 0 10px #ffd23f); }
+@media (prefers-reduced-motion: reduce) { .dl-summit img { animation: none; } }

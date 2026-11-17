@@ -247,7 +247,7 @@ describe('poll slides', () => {
   });
 });
 
-describe('Crown Quest race', () => {
+describe('Trivia Chrism race', () => {
   const cats = ['scripture', 'saints'];
   const qs = cats.flatMap((c) => Array.from({ length: 5 }, (_, i) => ({ type: 'mc', q: `${c} question ${i}`, options: ['w', 'x', 'y', 'z'], correct: [i % 4], time: 20, cat: c })));
   const mk = () => { const k = clock(); const r = new LiveRoom('800001', sanitizeContent({ title: 'Crowns', questions: qs }), sanitizeSettings({ mode: 'crowns', runMinutes: 5, shuffleOptions: false }), k.now); return { k, r }; };

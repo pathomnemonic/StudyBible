@@ -37,10 +37,10 @@ export default function DoctrineLadderPage() {
   if (!level) {
     return (
       <div className="page">
-        <h1>Doctrine ladder</h1>
+        <h1>Who Wants to Be a Saint?</h1>
         <GameHelp how={["Three levels of questions on what the Church teaches.", "Score enough right at one level to climb to the next."]} />
-        <p className="lede">Three levels of questions on what the Church teaches. Score {PASS} of {N} to climb to the next.</p>
-        <ol className="dl-ladder" aria-label="Levels">{LADDER.map((l, idx) => { const open = unlocked(idx), got = best[l.id] ?? 0; return (
+        <p className="lede">Climb toward sainthood: three levels of questions on what the Church teaches. Score {PASS} of {N} to climb to the next.</p>
+        <ol className="dl-ladder" aria-label="Levels"><li className="dl-summit" style={{ order: -99 }} aria-hidden="true"><img src={`${import.meta.env.BASE_URL}arcade/3d/glowing-star.webp`} alt="" width="44" height="44" /><b>Sainthood</b></li>{LADDER.map((l, idx) => { const open = unlocked(idx), got = best[l.id] ?? 0; return (
           <li key={l.id} className={`dl-rung${open ? '' : ' locked'}${got >= PASS ? ' done' : ''}`} style={{ order: -idx }}><button className="dl-step" disabled={!open} onClick={() => start(l)}><img className="dl-ico" src={`${import.meta.env.BASE_URL}arcade/3d/${open ? ['seedling', 'books', 'crown'][idx] ?? 'star' : 'locked'}.webp`} alt="" width="52" height="52" /><span className="dl-txt"><strong>{l.title}</strong><em>{open ? l.blurb : `Score ${PASS} on the level before to unlock.`}</em><span className="dl-stars" aria-label={`Best ${got} of ${N}`}>{Array.from({ length: 5 }, (_, s) => <i key={s} className={got >= PASS + Math.round((s * (N - PASS)) / 4) && got >= PASS ? 'on' : ''}>★</i>)}<small>{got ? `best ${got}/${N}` : ''}</small></span></span></button></li>
         ); })}</ol>
       </div>

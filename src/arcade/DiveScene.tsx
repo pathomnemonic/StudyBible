@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 /**
- * The pixel ocean behind Deep Waters: a column of water that gets darker the deeper you are, drawn at a very low resolution and scaled up so the pixels stay hard.
+ * The pixel ocean behind Basilion: a column of water that gets darker the deeper you are, drawn at a very low resolution and scaled up so the pixels stay hard.
  * The camera follows `depth` (metres). Light rays and waves at the top, marine snow and creatures in the middle, sand and rocks at the trench floor (7,000 m).
  * Nothing here is needed to play: it is a picture. Under reduced motion it draws once per depth change and does not animate.
  */

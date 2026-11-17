@@ -81,7 +81,7 @@ function Crowns({ p, active, avatar }: { p: Player; active: boolean; avatar: str
   );
 }
 
-/** Crown Quest: a trivia game with a wheel. Answer right in a category three times to win its crown; first to all six wins. */
+/** Trivia Chrism: a trivia game with a wheel. Answer right in a category three times to win its crown; first to all six wins. */
 export default function TriviaPage() {
   const [bank, setBank] = useState<Record<string, TQ[]> | null>(null);
   const [phase, setPhase] = useState<Phase>('setup');
@@ -232,7 +232,7 @@ export default function TriviaPage() {
     return (
       <div className="page trivia cq">
         <p className="small no-print"><Link to="/play">← Games</Link></p>
-        <h1>Crown Quest</h1>
+        <h1>Trivia Chrism</h1>
         <GameHelp how={["Spin the wheel to land on a category and answer a question.", "Three right answers in a category win its crown. First to all six crowns wins.", "Play against the Bot, pass the phone, or play alone."]} />
         <p className="lede">Spin the wheel, answer in a category, and win its crown with three right answers. Collect all six crowns first.</p>
         <div className="tv-cats" aria-label="The six categories">{CATS.map((c) => <span key={c.id} className="tv-cat-chip" style={{ ['--c' as string]: LOOK[c.id].c, ['--d' as string]: LOOK[c.id].dark }}><Art n={LOOK[c.id].art} size={34} /> <b>{c.name}</b></span>)}</div>
@@ -275,7 +275,7 @@ export default function TriviaPage() {
 
   return (
     <div className="page trivia cq">
-      <h1 className="sr-only">Crown Quest</h1>
+      <h1 className="sr-only">Trivia Chrism</h1>
       <div className="tv-board">{players.map((p, i) => <Crowns key={p.name + i} p={p} active={i === turn} avatar={AVATARS[i % AVATARS.length]} />)}</div>
       <div className="tv-wallet-row">
         <span className="tv-coinchip" aria-label={`${purse[turn] ?? 0} coins`}><Art n="coin" size={22} /> <b>{purse[turn] ?? 0}</b></span>

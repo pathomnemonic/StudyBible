@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { ANSWERS } from '../src/data/verbum';
 import { mark } from '../src/pages/play/VerbumPage';
 
-describe('Verbum', () => {
+describe('Creedle', () => {
   it('answers are five distinct letters-only words', () => {
     expect(new Set(ANSWERS).size).toBe(ANSWERS.length);
     for (const w of ANSWERS) expect(w).toMatch(/^[a-z]{5}$/);

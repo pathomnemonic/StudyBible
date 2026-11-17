@@ -12,7 +12,7 @@ vi.stubGlobal('localStorage', {
   clear: () => memory.clear(),
 });
 
-describe('Deep Waters daily engine', () => {
+describe('Basilion daily engine', () => {
   afterEach(() => { vi.restoreAllMocks(); memory.clear(); });
 
   it('starts with a three-second preview before the answer clock', () => {

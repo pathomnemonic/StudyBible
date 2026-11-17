@@ -17,7 +17,7 @@ const KEYS = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
 const NAME = 'sb:coop:name';
 const getName = () => { try { return localStorage.getItem(NAME) ?? ''; } catch { return ''; } };
 
-/** Today's Verbum, solved together: share a six-digit code, and every guess anyone makes appears for everyone. */
+/** Today's Creedle, solved together: share a six-digit code, and every guess anyone makes appears for everyone. */
 export default function CoopDailyPage() {
   const [sp, setSp] = useSearchParams();
   const code = (sp.get('room') ?? '').replace(/\D/g, '').slice(0, 6);
@@ -34,7 +34,7 @@ export default function CoopDailyPage() {
   if (/^\d{6}$/.test(code) && !nameProblem(name)) return <Room key={code} code={code} name={cleanName(name)} leave={() => setSp({})} />;
   return (
     <div className="page cp">
-      <h1>Solve Verbum together</h1>
+      <h1>Solve Creedle together</h1>
       <p className="muted">Today’s word, one shared board. Everyone in the room can type guesses, and every guess shows for everyone, with the colour of the person who made it. Six tries between you, as in the solo game.</p>
       <div className="card cp-card">
         <label className="field">Your name (a nickname is fine)
@@ -115,7 +115,7 @@ function Room({ code, name, leave }: { code: string; name: string; leave: () => 
   if (fail) return <div className="page cp"><h1>Together</h1><p className="cp-err">{fail}</p><button className="btn" onClick={leave}>Back</button></div>;
   return (
     <div className="page cp">
-      <h1>Verbum together</h1>
+      <h1>Creedle together</h1>
       <div className="cp-top">
         <div>Room <b className="cp-code" aria-label="Room code">{code}</b></div>
         <button className="btn small" onClick={() => { void copyText(link).then(() => { setCopied(true); setTimeout(() => setCopied(false), 2000); }); }}>{copied ? 'Link copied' : 'Copy invite link'}</button>
@@ -157,7 +157,7 @@ function Room({ code, name, leave }: { code: string; name: string; leave: () => 
           ))}
         </div>
       )}
-      <p className="muted small" style={{ textAlign: 'center' }}>Guesses are sealed with a key made from the code. Anyone who knows the code can join. Solving together counts as today’s Verbum.</p>
+      <p className="muted small" style={{ textAlign: 'center' }}>Guesses are sealed with a key made from the code. Anyone who knows the code can join. Solving together counts as today’s Creedle.</p>
     </div>
   );
 }

@@ -44,7 +44,7 @@ function CrownBoard({ v, me }: { v: LiveView; me?: string }) {
 }
 const mmss = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 
-/** The player's side of Crown Quest: spin, answer in the category, three right answers earn its crown. */
+/** The player's side of Trivia Chrism: spin, answer in the category, three right answers earn its crown. */
 function CrownsPlay({ v, link, now }: { v: LiveView; link: PlayerLink; now: () => number }) {
   const c = v.crowns!, mine = c.mine;
   const left = useCountdown(c.deadline, now);
@@ -79,7 +79,7 @@ function CrownsHost({ v, now, onEnd }: { v: LiveView; now: () => number; onEnd: 
   return (
     <div className="live-center" style={{ maxWidth: 900 }}>
       <div className="live-clock" role="timer">⏳ {mmss(left)}</div>
-      <h2 style={{ margin: '4px 0' }}>Crown Quest: first to {v.crowns!.goal} crowns</h2>
+      <h2 style={{ margin: '4px 0' }}>Trivia Chrism: first to {v.crowns!.goal} crowns</h2>
       <p className="muted small">Three right answers in a category earn its crown.</p>
       <CrownBoard v={v} />
       <button className="btn" onClick={() => confirm('End the game now?') && onEnd()}>End now</button>
@@ -324,7 +324,7 @@ export function HostPage() {
           <div className="row" style={{ justifyContent: 'center', gap: 8, flexWrap: 'wrap', margin: '0 0 8px' }}><button type="button" className="btn" onClick={() => { const done = () => { setCopied(true); setTimeout(() => setCopied(false), 2000); }; try { void navigator.clipboard.writeText(joinUrl).then(done, done); } catch { done(); } }}>{copied ? 'Link copied ✓' : 'Copy link'}</button><ShareButton text={`Join my game on Cathology with the code ${v.code}`} path={`/join/${v.code}`} label="Share the invitation" className="btn" /></div>
           <div className="live-code" aria-label={`Game code ${v.code.split('').join(' ')}`}>{v.code}</div>
           <div className="row" style={{ gap: 8, justifyContent: 'center', flexWrap: 'wrap', margin: '12px 0' }}>
-            <button className="btn primary big" onClick={() => act('start')} disabled={!v.slideCount && !v.qCount}>{v.settings.mode === 'exam' ? `Start the exam (${v.settings.examMinutes} min)` : v.settings.mode === 'race' ? 'Start the race' : v.settings.mode === 'crowns' ? 'Start the Crown Quest race' : v.settings.mode === 'whoami' ? 'Start Who Am I?' : v.settings.mode === 'build' ? 'Start building' : v.slideCount ? 'Start the lesson' : 'Start the game'}</button>
+            <button className="btn primary big" onClick={() => act('start')} disabled={!v.slideCount && !v.qCount}>{v.settings.mode === 'exam' ? `Start the exam (${v.settings.examMinutes} min)` : v.settings.mode === 'race' ? 'Start the race' : v.settings.mode === 'crowns' ? 'Start the Trivia Chrism race' : v.settings.mode === 'whoami' ? 'Start Who Am I?' : v.settings.mode === 'build' ? 'Start building' : v.slideCount ? 'Start the lesson' : 'Start the game'}</button>
             {v.slideCount > 0 && v.qCount > 0 && v.settings.mode === 'game' && <button className="btn" onClick={() => act('quiz')}>Skip to the quiz</button>}
             <button className="btn" aria-pressed={v.locked} onClick={() => act('lock', !v.locked)}>{v.locked ? '🔒 Locked' : '🔓 Lock the room'}</button>
           </div>

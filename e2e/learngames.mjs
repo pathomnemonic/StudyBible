@@ -19,7 +19,7 @@ for (const g of ['verbum', 'quartets', 'cloister', 'crossword', 'wordsearch', 'p
   if (!(await p.getByLabel(/Practice mode/).count())) fail(`${g}: no Practice switch`);
 }
 
-// 2. practice counts nothing: finish Wordsearch with Show all? that never counts; use Quartets with practice on
+// 2. practice counts nothing: finish Wordsearch with Show all? that never counts; use Communions with practice on
 await go('/play/quartets?p=q1'); await p.waitForSelector('.q-tile');
 await p.getByLabel(/Practice mode/).check();
 const sets = [['Frogs', 'Locusts', 'Darkness', 'Boils'], ['Joy', 'Peace', 'Patience', 'Kindness'], ['Wisdom', 'Fortitude', 'Piety', 'Counsel'], ['Pride', 'Envy', 'Sloth', 'Gluttony']];
@@ -42,7 +42,7 @@ await go('/play/wordsearch'); await p.waitForSelector('.ws-cell');
 await p.focus('.ws-cell[tabindex="0"]'); await p.keyboard.press('Enter'); await p.keyboard.press('ArrowRight'); await p.keyboard.press('ArrowRight'); await p.keyboard.press('Enter');
 if (!/Found|Not a word/.test(await p.locator('.vb-msg[role=status]').first().innerText())) fail('keyboard selection gave no result message');
 
-// 4. Pin the Place has a way to place a pin without a pointer
+// 4. Holyguessr has a way to place a pin without a pointer
 await go('/play/pilgrim'); await p.waitForSelector('.pg-map', { timeout: 20000 });
 await p.getByRole('button', { name: /Place pin at the map centre/ }).click();
 if (!/Pin placed at/.test(await p.locator('[role=status]').filter({ hasText: /Pin|pin/ }).first().innerText())) fail('no pin message');

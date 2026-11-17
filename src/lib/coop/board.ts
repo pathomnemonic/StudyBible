@@ -8,7 +8,7 @@ export const weekStart = (week: number) => week * 7 - 3; // the Monday
 export const inWeek = (day: number, week: number) => weekOf(day) === week;
 export const dayLabel = (day: number) => new Date(day * 864e5).toLocaleDateString(undefined, { weekday: 'short', timeZone: 'UTC' });
 
-/** Points for one result: Verbum scores by guesses used; everything else is a flat three for finishing. */
+/** Points for one result: Creedle scores by guesses used; everything else is a flat three for finishing. */
 export function pointsFor(game: string, result: string): number {
   if (game === 'verbum') {
     const m = /^(\d)\/(\d)/.exec(result);

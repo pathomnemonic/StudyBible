@@ -46,7 +46,7 @@ export function matchPlaced(letters: string, placed: Placed[]): Placed | null {
   return placed.find((p) => p.word === letters || p.word === [...letters].reverse().join('')) ?? null;
 }
 
-/* ---------- Cloister ---------- */
+/* ---------- Scriggle ---------- */
 export const CLOISTER_N = 5;
 const DICE = 'EEEEEEEEEEEEAAAAAAAAAIIIIIIIIOOOOOOOONNNNNRRRRRRTTTTTTLLLLSSSSUUUUDDDDGGGBBCCMMPPFFHHVVWWYYKJXZ';
 const lcg = (seed: number) => { let s = seed * 2654435761 % 4294967296; return () => { s = (s * 1664525 + 1013904223) % 4294967296; return s / 4294967296; }; };
@@ -71,7 +71,7 @@ export function solveBoard(board: string[], words: Set<string>, prefixes: Set<st
   return found;
 }
 
-/* ---------- Pin the Place ---------- */
+/* ---------- Holyguessr ---------- */
 /** Great-circle distance in km between two [lat, lon] points (the same sphere radius Leaflet uses). */
 export function distanceKm(a: [number, number], b: [number, number]): number {
   const R = 6371000, rad = Math.PI / 180;
@@ -86,7 +86,7 @@ export const pinPoints = (km: number) => Math.round(100 * Math.pow(0.5, km / 120
 /** 100 for the exact answer, halving every `scale` away. */
 export const prophetPoints = (guess: number, answer: number, scale: number) => Math.round(100 * Math.pow(0.5, Math.abs(guess - answer) / scale));
 
-/* ---------- Quartets ---------- */
+/* ---------- Communions ---------- */
 /** A stable shuffle for the daily puzzle, so everyone sees the same board. */
 export function seededShuffle<T>(a: T[], seed: number): T[] {
   const b = [...a]; let s = seed * 9301 + 49297;

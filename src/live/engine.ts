@@ -48,7 +48,7 @@ export function sanitizeSettings(raw: any): LiveSettings {
 
 interface Player { id: string; token: string; name: string; score: number; streak: number; team?: number; joinedAt: number; lastSeen: number; answer?: { value: (number | string)[]; at: number }; last?: { correct: boolean; points: number; bonus: number } | null; log: { q: number; correct: boolean; points: number; answered: boolean }[]; exam: ((number | string)[] | null)[]; out?: boolean; queue: number[]; qi: number; steps: number; ran: number; guesses?: number; cr?: CrownState; finishedAt?: number; feedback?: { ok: boolean; why?: string; correct: (number | string)[]; q: string; options?: string[]; n: number }; submitted?: boolean; examResult?: { percent: number; correct: number; total: number } }
 
-/** Crown Quest: one player's crowns, progress and where they are in a turn. */
+/** Trivia Chrism: one player's crowns, progress and where they are in a turn. */
 interface CrownState { crowns: string[]; progress: Record<string, number>; cat: string | null; landed: string | null; pick: boolean; qi: number; used: number[]; right: number; wrong: number; feedback?: { ok: boolean; why?: string; correct: (number | string)[]; q: string; options?: string[]; n: number; crowned?: string } }
 export const CROWN_NEED = 3;
 
@@ -256,7 +256,7 @@ export class LiveRoom {
     this.touch();
     return true;
   }
-  // ---- Crown Quest: spin, answer in the category, three right answers earn its crown, first to all of them wins
+  // ---- Trivia Chrism: spin, answer in the category, three right answers earn its crown, first to all of them wins
   /** the categories in this room, in the order they first appear */
   crownCats(): string[] { return [...new Set(this.content.questions.map((q) => q.cat).filter((c): c is string => !!c))]; }
   private cr(p: Player): CrownState { return (p.cr ??= { crowns: [], progress: {}, cat: null, landed: null, pick: false, qi: -1, used: [], right: 0, wrong: 0 }); }
@@ -269,7 +269,7 @@ export class LiveRoom {
     c.qi = fresh[randomInt(fresh.length)]; c.used.push(c.qi); c.cat = cat; c.pick = false;
     return true;
   }
-  /** One move in a Crown Quest turn: spin the wheel, choose a category when the wheel says so, or answer the question. */
+  /** One move in a Trivia Chrism turn: spin the wheel, choose a category when the wheel says so, or answer the question. */
   private crownAct(p: Player, value: unknown): boolean {
     const c = this.cr(p), cats = this.crownCats();
     if (!cats.length) return false;

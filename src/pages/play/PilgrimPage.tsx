@@ -84,13 +84,13 @@ export default function PilgrimPage() {
   const next = () => { setGuess(null); setLast(null); setHint(false); setPinMsg(''); setI((n) => n + 1); map.current?.setView([33, 35], 4, { animate: false }); };
   useEffect(() => { if (done && daily) markDailyDone('pilgrim', `${score}/${ROUNDS * 100}`, score >= 400); }, [done]); // eslint-disable-line
   const again = () => { setDaily(false); setSeed(Math.floor(Math.random() * 1e6)); setI(0); setScore(0); setLog([]); setGuess(null); setLast(null); };
-  const shareText = () => `Pin the Place ${daily ? '#' + dayIndex() : 'practice'} 📍 ${score}/${ROUNDS * 100}\n${log.map((p) => (p >= 80 ? '🟩' : p >= 50 ? '🟨' : p >= 20 ? '🟧' : '🟥')).join('')}`;
+  const shareText = () => `Holyguessr ${daily ? '#' + dayIndex() : 'practice'} 📍 ${score}/${ROUNDS * 100}\n${log.map((p) => (p >= 80 ? '🟩' : p >= 50 ? '🟨' : p >= 20 ? '🟧' : '🟥')).join('')}`;
   const first = q?.v?.[0] ? parseRefId(q.v[0]) : null;
 
-  if (!pool) return <div className="page"><h1>Pin the Place</h1><p className="muted">Loading…</p></div>;
+  if (!pool) return <div className="page"><h1>Holyguessr</h1><p className="muted">Loading…</p></div>;
   return (
     <div className="page pilgrim">
-      <h1>Pin the Place</h1>
+      <h1>Holyguessr</h1>
       <GameHelp how={["Read the place name, then put a pin where you think it is on the map.", "With a mouse or touch, tap the map. Without one, type a latitude and longitude, or move the map with the arrow keys and press Place pin at the map centre.", "Lock in your guess to see how far away you were. Closer scores more, up to 100.", "Five places a round."]} />
       {done ? (
         <div className="ws-end"><p className="ws-score">{score} of {ROUNDS * 100}</p><p className="muted">{score > 350 ? 'You could lead the pilgrimage.' : 'Every map you open helps.'}</p><div className="row" style={{ justifyContent: 'center', gap: 8 }}><ShareButton text={shareText()} path="/play/pilgrim" label="Share result" className="btn" /><button className="btn ghost" onClick={again}>Play another five</button></div></div>

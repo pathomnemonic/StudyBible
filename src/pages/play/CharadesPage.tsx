@@ -108,7 +108,7 @@ export default function CharadesPage() {
   if (phase === 'pick') {
     return (
       <div className="page charades">
-        <h1>Charades</h1>
+        <h1>Whom Do You Say?</h1>
         <GameHelp how={["Pick a deck and a time, then press Start.", "Hold the phone to your forehead. Friends act out or describe the word.", "Tilt down when you get it, up to pass. If down and up feel backwards, use the flip option.", "The Got it and Pass buttons on screen do the same, so tilting is optional."]} />
         <p className="muted">Hold the phone to your forehead. Your friends act out or describe the word. Tilt down when you get it, up to pass. After each word, put the phone back on your forehead and hold still for the next one. Pick a deck, then press Start.</p>
         <div className="charades-decks" role="radiogroup" aria-label="Deck">
@@ -153,7 +153,7 @@ export default function CharadesPage() {
       {right.length > 0 && <><h2 className="eyebrow-h">Got it</h2><ul className="list">{right.map((w, i) => <li key={i}>✓ {w}</li>)}</ul></>}
       {passed.length > 0 && <><h2 className="eyebrow-h">Passed</h2><ul className="list">{passed.map((w, i) => <li key={i} className="muted">{w}</li>)}</ul></>}
       <div className="row" style={{ gap: 8, flexWrap: 'wrap', marginTop: 10 }}>
-        <ShareButton text={`Charades 🎭 ${deck.name}: ${right.length} right, ${passed.length} passed in ${secs}s\n${'🟨'.repeat(Math.min(right.length, 20))}${'⬛'.repeat(Math.min(passed.length, 10))}`} path="/play/charades" />
+        <ShareButton text={`Whom Do You Say? 🎭 ${deck.name}: ${right.length} right, ${passed.length} passed in ${secs}s\n${'🟨'.repeat(Math.min(right.length, 20))}${'⬛'.repeat(Math.min(passed.length, 10))}`} path="/play/charades" />
         <button className="btn" onClick={() => void start()}>Play again</button>
         <button className="btn" onClick={() => setPhase('pick')}>Choose another deck</button>
         <Link className="btn ghost" to="/learn">Done</Link>
