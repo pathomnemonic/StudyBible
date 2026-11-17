@@ -57,15 +57,15 @@ describe('Deep Waters content and rules', () => {
     expect(secondBatch).toHaveLength(25);
     expect(authored).toHaveLength(50);
     for (const prompt of authored) {
-      expect(prompt.prompt.trim().split(/\\s+/).length, prompt.id).toBeLessThanOrEqual(20);
-      expect((prompt.context.match(/[.!?](?:\\s|$)/g) ?? []).length, prompt.id).toBeLessThanOrEqual(1);
-      expect(prompt.prompt + ' ' + prompt.context + ' ' + prompt.hint, prompt.id).not.toMatch(/\\b(above|below)\\b/i);
+      expect(prompt.prompt.trim().split(/\s+/).length, prompt.id).toBeLessThanOrEqual(20);
+      expect((prompt.context.match(/[.!?](?:\s|$)/g) ?? []).length, prompt.id).toBeLessThanOrEqual(1);
+      expect(prompt.prompt + ' ' + prompt.context + ' ' + prompt.hint, prompt.id).not.toMatch(/\b(above|below)\b/i);
       expect(prompt.commonGuesses, prompt.id).toHaveLength(10);
       expect(prompt.answers.length, prompt.id).toBeGreaterThan(0);
       const answerKeys = prompt.answers.map((a) => normalizeDeepAnswer(a.answer));
       expect(new Set(answerKeys).size, prompt.id).toBe(answerKeys.length);
       for (const answer of prompt.answers) {
-        expect(answer.answer.trim().split(/\\s+/).length, prompt.id + ': ' + answer.answer).toBeLessThanOrEqual(4);
+        expect(answer.answer.trim().split(/\s+/).length, prompt.id + ': ' + answer.answer).toBeLessThanOrEqual(4);
         expect(answer.source, prompt.id + ': ' + answer.answer).toBeTruthy();
         expect([1, 2, 3, 4, 5, 6]).toContain(answer.tier);
       }
@@ -115,15 +115,15 @@ describe('Deep Waters content and rules', () => {
     expect(secondBatch).toHaveLength(25);
     expect(authored).toHaveLength(50);
     for (const prompt of authored) {
-      expect(prompt.prompt.trim().split(/\\s+/).length, prompt.id).toBeLessThanOrEqual(20);
-      expect((prompt.context.match(/[.!?](?:\\s|$)/g) ?? []).length, prompt.id).toBeLessThanOrEqual(1);
-      expect(prompt.prompt + ' ' + prompt.context + ' ' + prompt.hint, prompt.id).not.toMatch(/\\b(above|below)\\b/i);
+      expect(prompt.prompt.trim().split(/\s+/).length, prompt.id).toBeLessThanOrEqual(20);
+      expect((prompt.context.match(/[.!?](?:\s|$)/g) ?? []).length, prompt.id).toBeLessThanOrEqual(1);
+      expect(prompt.prompt + ' ' + prompt.context + ' ' + prompt.hint, prompt.id).not.toMatch(/\b(above|below)\b/i);
       expect(prompt.commonGuesses, prompt.id).toHaveLength(10);
       expect(prompt.answers.length, prompt.id).toBeGreaterThan(0);
       const answerKeys = prompt.answers.map((a) => normalizeDeepAnswer(a.answer));
       expect(new Set(answerKeys).size, prompt.id).toBe(answerKeys.length);
       for (const answer of prompt.answers) {
-        expect(answer.answer.trim().split(/\\s+/).length, prompt.id + ': ' + answer.answer).toBeLessThanOrEqual(4);
+        expect(answer.answer.trim().split(/\s+/).length, prompt.id + ': ' + answer.answer).toBeLessThanOrEqual(4);
         expect(answer.source, prompt.id + ': ' + answer.answer).toBeTruthy();
         expect([1, 2, 3, 4, 5, 6]).toContain(answer.tier);
       }
