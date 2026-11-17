@@ -822,8 +822,7 @@
         "answer": "Greek Catholic Church of Croatia and Serbia",
         "tier": 5,
         "aliases": [
-          "Croatian and Serbian Greek Catholic Church",
-          "Church of Krizevci"
+          "Croatian and Serbian Greek Catholic Church"
         ]
       },
       {
@@ -899,7 +898,10 @@
       },
       {
         "answer": "Italo-Albanian Catholic Church",
-        "tier": 4
+        "tier": 4,
+        "aliases": [
+          "Italo-Albanian Byzantine Catholic Church"
+        ]
       },
       {
         "answer": "Syriac Catholic Church",
@@ -919,162 +921,288 @@
     "answers": [
       {
         "answer": "Ambrose of Milan",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Ambrose",
+          "Saint Ambrose"
+        ]
       },
       {
         "answer": "Augustine of Hippo",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Augustine",
+          "Saint Augustine"
+        ]
       },
       {
         "answer": "Jerome",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Saint Jerome"
+        ]
       },
       {
         "answer": "Gregory the Great",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Gregory I",
+          "Pope Gregory I"
+        ]
       },
       {
         "answer": "Thomas Aquinas",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Saint Thomas Aquinas",
+          "St. Thomas Aquinas"
+        ]
       },
       {
         "answer": "Bonaventure",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Saint Bonaventure"
+        ]
       },
       {
         "answer": "Anselm of Canterbury",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Anselm",
+          "Saint Anselm"
+        ]
       },
       {
         "answer": "Isidore of Seville",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Isidore",
+          "Saint Isidore"
+        ]
       },
       {
         "answer": "Peter Chrysologus",
-        "tier": 3
+        "tier": 3,
+        "aliases": [
+          "Saint Peter Chrysologus"
+        ]
       },
       {
         "answer": "Leo the Great",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Leo I",
+          "Pope Leo I"
+        ]
       },
       {
         "answer": "Peter Damian",
-        "tier": 3
+        "tier": 3,
+        "aliases": [
+          "Saint Peter Damian"
+        ]
       },
       {
         "answer": "Bernard of Clairvaux",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Saint Bernard of Clairvaux"
+        ]
       },
       {
         "answer": "Hildegard of Bingen",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Saint Hildegard of Bingen"
+        ]
       },
       {
         "answer": "Albert the Great",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Albertus Magnus",
+          "Saint Albert the Great"
+        ]
       },
       {
         "answer": "Anthony of Padua",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Saint Anthony of Padua"
+        ]
       },
       {
         "answer": "Francis de Sales",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Saint Francis de Sales"
+        ]
       },
       {
         "answer": "John of the Cross",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Saint John of the Cross"
+        ]
       },
       {
         "answer": "Teresa of Ávila",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Teresa of Jesus",
+          "Saint Teresa of Ávila"
+        ]
       },
       {
         "answer": "Catherine of Siena",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Saint Catherine of Siena"
+        ]
       },
       {
         "answer": "Thérèse of Lisieux",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Saint Thérèse of Lisieux"
+        ]
       },
       {
         "answer": "John of Ávila",
-        "tier": 3
+        "tier": 3,
+        "aliases": [
+          "Saint John of Ávila"
+        ]
       },
       {
         "answer": "Lawrence of Brindisi",
-        "tier": 4
+        "tier": 4,
+        "aliases": [
+          "Saint Lawrence of Brindisi"
+        ]
       },
       {
         "answer": "Robert Bellarmine",
-        "tier": 3
+        "tier": 3,
+        "aliases": [
+          "Saint Robert Bellarmine"
+        ]
       },
       {
         "answer": "Alphonsus Liguori",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Alphonsus Maria de Liguori",
+          "Saint Alphonsus Liguori"
+        ]
       },
       {
         "answer": "Athanasius of Alexandria",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Athanasius",
+          "Saint Athanasius"
+        ]
       },
       {
         "answer": "Basil the Great",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Basil of Caesarea",
+          "Saint Basil the Great"
+        ]
       },
       {
         "answer": "Gregory of Nazianzus",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Gregory Nazianzen",
+          "Saint Gregory of Nazianzus"
+        ]
       },
       {
         "answer": "John Chrysostom",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Saint John Chrysostom"
+        ]
       },
       {
         "answer": "Cyril of Jerusalem",
-        "tier": 3
+        "tier": 3,
+        "aliases": [
+          "Saint Cyril of Jerusalem"
+        ]
       },
       {
         "answer": "Ephrem the Syrian",
-        "tier": 3
+        "tier": 3,
+        "aliases": [
+          "Ephrem",
+          "Saint Ephrem the Syrian"
+        ]
       },
       {
         "answer": "John of Damascus",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "John Damascene",
+          "Saint John of Damascus"
+        ]
       },
       {
         "answer": "Irenaeus of Lyons",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Irenaeus of Lyon",
+          "Saint Irenaeus"
+        ]
       },
       {
         "answer": "Hilary of Poitiers",
-        "tier": 3
+        "tier": 3,
+        "aliases": [
+          "Saint Hilary of Poitiers"
+        ]
       },
       {
         "answer": "Gregory of Narek",
-        "tier": 4
+        "tier": 4,
+        "aliases": [
+          "Saint Gregory of Narek"
+        ]
       },
       {
         "answer": "Bede",
         "tier": 2,
         "aliases": [
-          "The Venerable Bede"
+          "The Venerable Bede",
+          "Saint Bede"
         ]
       },
       {
         "answer": "John Henry Newman",
         "tier": 1,
         "aliases": [
+          "Newman",
           "Saint John Henry Newman",
-          "St. John Henry Newman"
+          "Cardinal Newman"
         ]
       },
       {
         "answer": "Cyril of Alexandria",
-        "tier": 2
+        "tier": 2,
+        "aliases": [
+          "Saint Cyril of Alexandria"
+        ]
       },
       {
         "answer": "Peter Canisius",
-        "tier": 3
+        "tier": 3,
+        "aliases": [
+          "Saint Peter Canisius"
+        ]
       }
     ]
   },
@@ -1508,7 +1636,7 @@
         ]
       },
       {
-        "answer": "Demon-related seizures",
+        "answer": "Seizures associated with an unclean spirit",
         "tier": 3
       },
       {
@@ -1521,10 +1649,6 @@
       {
         "answer": "Lameness",
         "tier": 2
-      },
-      {
-        "answer": "Skin disease",
-        "tier": 3
       },
       {
         "answer": "Demonic possession",
