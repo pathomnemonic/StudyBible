@@ -15,7 +15,7 @@ const normalize = (value) => value.normalize('NFD').replace(/[\\u0300-\\u036f]/g
 const manualAnswer = (question) => {
   if (question.includes('religious order')) return 'Benedictines';
   if (question.includes('title or invocation')) return 'Our Lady of Guadalupe';
-  if (question.includes('Church Father')) return 'Augustine';
+  if (question.includes('Church Father')) return 'Augustine of Hippo';
   if (question.includes('ecumenical council')) return 'Nicaea I';
   if (question.includes('Catholic Old Testament')) return 'Tobit';
   if (question.includes('prayer or devotion')) return 'Rosary';
