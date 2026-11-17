@@ -1,6 +1,6 @@
 import { AUTO_TABLES, KEYED_TABLES, db, quietly, quietTables, syncFlags } from '../db/db';
 import { DEFAULTS, getSettings, updateSettings } from '../lib/store';
-import { api, ApiError, type WireChange } from './api';
+import { api, ApiError, type RefusedChange, type WireChange } from './api';
 import { hasContent, resolveConflict } from './merge';
 
 /**
@@ -43,7 +43,9 @@ function settingsPayload() {
 /** Has this row (or tombstone) a change the server has not accepted? Rows from before the marker existed fall back to the time of the last push. */
 export const isUnsent = (r: { _unsent?: 0 | 1; updatedAt?: number }, lastPush: number): boolean => r._unsent === 1 || (r._unsent === undefined && (r.updatedAt ?? 0) > lastPush);
 /** `since` 0 means this account has never been pushed to from here (first sign-in, or signed in again): everything goes. */
-const due = (r: any, since: number) => since === 0 || isUnsent(r, since);
+// Explicit sent/unsent markers override the initial-sign-in fallback. This matters when a
+// first sync partially succeeds: accepted rows stay sent even though lastPush remains zero.
+const due = (r: any, since: number) => r._unsent === undefined ? since === 0 || isUnsent(r, since) : r._unsent === 1;
 
 async function collect(userId: string, since: number): Promise<WireChange[]> {
   const out: WireChange[] = [];
@@ -191,7 +193,7 @@ export async function pendingCount(userId: string): Promise<number> {
   return (await collect(userId, Number(get(lk(userId, 'lastPush')) ?? 0))).length;
 }
 
-export async function runSync(userId: string): Promise<{ pushed: number; pulled: number; rejected: number }> {
+export async function runSync(userId: string): Promise<{ pushed: number; pulled: number; rejected: number; refused: RefusedChange[] }> {
   const startedAt = Date.now();
   const since = Number(get(lk(userId, 'lastPush')) ?? 0);
   let cursor = Number(get(lk(userId, 'cursor')) ?? 0);
@@ -200,6 +202,7 @@ export async function runSync(userId: string): Promise<{ pushed: number; pulled:
   let pushed = 0;
   let pulled = 0;
   let rejected = 0;
+  const refusedChanges: RefusedChange[] = [];
   // batches are cut by size, not just count: the server refuses bodies over 6 MB and a note may be 256 KB
   const MAX_BYTES = 2_000_000, MAX_COUNT = 400;
   const batches: (typeof local)[] = [];
@@ -212,9 +215,14 @@ export async function runSync(userId: string): Promise<{ pushed: number; pulled:
   if (!batches.length) batches.push([]);
   for (const batch of batches) {
     let res = await api.sync(cursor, batch);
-    const refused = res.rejected ?? 0;
-    rejected += refused;
-    pushed += batch.length - refused;
+    const rejectedCount = res.rejected ?? 0;
+    rejected += rejectedCount;
+    const batchRefused = Array.isArray(res.refused) ? res.refused : undefined;
+    const accepted = batchRefused
+      ? batch.filter((change) => !batchRefused.some((item) => item.table === change.table && item.uid === change.uid))
+      : rejectedCount === 0 ? batch : [];
+    if (batchRefused) refusedChanges.push(...batchRefused);
+    pushed += accepted.length;
     pulled += res.changes.length;
     await applyRemote(userId, res.changes);
     // each page is applied whole, so the place reached can be kept at once: a sync cut short later carries on from here
@@ -225,16 +233,16 @@ export async function runSync(userId: string): Promise<{ pushed: number; pulled:
       await applyRemote(userId, res.changes);
       cursor = res.cursor; set(lk(userId, 'cursor'), String(cursor));
     }
-    // Only now, with everything the server holds applied: a row the server passed over (it had a newer version) has by now been
-    // merged with that version and no longer carries the time it was pushed with, so it is not mistaken for sent.
-    // Which rows of a batch the server refused is not known, so a batch with a refusal stays unsent as a whole.
-    if (!refused) await markSent(batch);
+    // Only mark records the server accepted. An older server returns only a count, not identities;
+    // in that case leave the whole batch unsent when any change was rejected.
+    // markSent checks timestamps, so an edit made while the request was in flight remains unsent.
+    await markSent(accepted);
   }
   // if the server refused anything, keep the old push time so those changes are sent again next time
   if (!rejected) set(lk(userId, 'lastPush'), String(startedAt));
   // tombstones older than this push have reached the server; keep recent ones for slow second devices
   await db.tombs.where('id').above(-1).filter((t) => t._unsent !== 1 && t.updatedAt < startedAt - 7 * 86400000).delete();
-  return { pushed, pulled, rejected };
+  return { pushed, pulled, rejected, refused: refusedChanges };
 }
 
 /** Mark settings as changed locally so the next sync carries them. */

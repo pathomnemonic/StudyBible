@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react';
 import { api, ApiError, type AccountUser } from './api';
-import { syncFlags } from '../db/db';
+import { db, syncFlags } from '../db/db';
 import { getSettings, settingsChangeHooks } from '../lib/store';
 import { accountsEnabled, applyPreviewSwitch } from '../lib/accountsFlag';
 import { localDataCount, resetSyncState, runSync, touchSettings, wipeLocalUserData } from './engine';
@@ -73,8 +73,28 @@ export async function syncNow(): Promise<void> {
   emit({ status: 'syncing', error: null });
   try {
     const r = await runSync(user.id);
-    if (r.rejected) emit({ status: 'error', lastSyncAt: Date.now(), error: `${r.rejected} change${r.rejected === 1 ? ' was' : 's were'} not accepted by the server and will be retried. Your data is still on this device.` });
-    else emit({ status: 'idle', lastSyncAt: Date.now() });
+    if (r.rejected) {
+      const first = r.refused[0];
+      let detail = '';
+      if (first) {
+        let record = `${first.table} (${first.uid})`;
+        if (first.table === 'notes') {
+          try {
+            const note = await db.notes.where('uid').equals(first.uid).first();
+            const title = note?.title?.replace(/\\s+/g, ' ').trim().slice(0, 80);
+            record = title ? `note "${title}"` : `note (${first.uid})`;
+          } catch { record = `note (${first.uid})`; }
+        }
+        const reasons = {
+          shape: 'does not match the expected data shape',
+          'too-large': 'is too large for the server',
+          quota: 'exceeds the account storage limit',
+          invalid: 'is not a valid sync record',
+        } as const;
+        detail = ` First refused: ${record} ${reasons[first.reason]}.`;
+      }
+      emit({ status: 'error', lastSyncAt: Date.now(), error: `${r.rejected} change${r.rejected === 1 ? ' was' : 's were'} not accepted by the server and will be retried.${detail} Your data is still on this device.` });
+    } else emit({ status: 'idle', lastSyncAt: Date.now() });
   } catch (e: any) {
     if (e instanceof ApiError && e.status === 401) {
       epoch++;
