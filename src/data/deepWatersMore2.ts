@@ -16,7 +16,6 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
       ['carpenter', 1, 'builder'],
       ['tentmaker', 1],
       ['tax collector', 2, 'publican'],
-      ['fisher', 2],
       ['soldier', 2],
       ['centurion', 2],
       ['king', 2],
@@ -65,6 +64,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'The list includes foods, staple crops, seasonings and prepared dishes named in Scripture.',
     source: 'Douay-Rheims Bible; Catholic Bible app Scripture text.',
     answers: rows([
+      ['Bread', 1],
       ['fish', 1],
       ['lamb', 1],
       ['manna', 1],
@@ -118,6 +118,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Includes ritual objects, household items, tools and objects central to named biblical episodes.',
     source: 'Douay-Rheims Bible; Catholic Bible app Scripture text.',
     answers: rows([
+      ['Ark of the Covenant', 1, 'Ark of the Testimony'],
       ['staff of Moses', 1],
       ['stone tablets', 1],
       ['golden calf', 1],
@@ -171,6 +172,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Founders are saints whose communities became established Catholic religious institutes; historical titles and attributions vary.',
     source: 'Catholic Encyclopedia (1913, public domain); Vatican biographies of saints; Order histories.',
     answers: rows([
+      ['Benedict of Nursia', 1, 'Saint Benedict'],
       ['Francis of Assisi', 1, 'Saint Francis'],
       ['Dominic de Guzman', 1, 'Saint Dominic'],
       ['Ignatius of Loyola', 1, 'Saint Ignatius'],
@@ -216,6 +218,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Includes widely established patronages and traditional devotions; local customs may differ.',
     source: 'Catholic Encyclopedia (1913, public domain); Butler\'s Lives of the Saints; Catholic devotional reference works.',
     answers: rows([
+      ['Saint Christopher', 1, 'Christopher of Lycia'],
       ['Saint Joseph', 1, 'Joseph of Nazareth'],
       ['Saint Luke', 1, 'Luke the Evangelist'],
       ['Saint Cecilia', 1, 'Cecilia of Rome'],
@@ -261,6 +264,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Titles are given in their familiar Latin or English form; this is a representative, not exhaustive, list.',
     source: 'Vatican.va, papal encyclicals; public-domain Acta Apostolicae Sedis where applicable.',
     answers: rows([
+      ['Rerum Novarum', 1, 'On New Things'],
       ['Quadragesimo Anno', 1],
       ['Mater et Magistra', 1],
       ['Pacem in Terris', 1],
@@ -303,6 +307,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Includes movements debated or condemned in the early Church; some labels cover diverse groups and periods.',
     source: 'Catholic Encyclopedia (1913, public domain); documents of the first seven ecumenical councils; Oxford Dictionary of the Christian Church for cross-checking.',
     answers: rows([
+      ['Arianism', 1, 'Arian heresy'],
       ['Gnosticism', 1, 'Gnostic heresy'],
       ['Docetism', 1, 'Docetic heresy'],
       ['Marcionism', 1],
@@ -342,6 +347,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Includes garments and insignia used in Latin and Eastern Catholic liturgies; usage varies by rite and office.',
     source: 'General Instruction of the Roman Missal; Ceremonial of Bishops; Catholic Encyclopedia (1913, public domain).',
     answers: rows([
+      ['Alb', 1],
       ['chasuble', 1, 'casula'],
       ['stole', 1, 'orarium'],
       ['dalmatic', 1, 'dalmatica'],
@@ -381,6 +387,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Includes official liturgical books and books used to provide readings, prayers or chant.',
     source: 'Vatican.va liturgical books; General Instruction of the Roman Missal; Catholic Encyclopedia (1913, public domain).',
     answers: rows([
+      ['Roman Missal', 1, 'Missale Romanum'],
       ['Lectionary', 1, 'Book of Readings'],
       ['Book of the Gospels', 1],
       ['Liturgy of the Hours', 1],
@@ -421,6 +428,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Includes traditional prayers and devotional texts, not every Latin phrase used in the Mass.',
     source: 'Roman Missal; Liturgy of the Hours; Raccolta (public domain); Vatican.va liturgical texts.',
     answers: rows([
+      ['Pater Noster', 1, 'Our Father'],
       ['Ave Maria', 1, 'Hail Mary'],
       ['Gloria Patri', 1],
       ['Salve Regina', 1, 'Hail Holy Queen'],
@@ -463,6 +471,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Includes architectural elements found in churches and basilicas across Catholic traditions.',
     source: 'Catholic Encyclopedia (1913, public domain); authoritative architectural glossaries; Vatican basilica descriptions.',
     answers: rows([
+      ['Nave', 1],
       ['apse', 1, 'sanctuary apse'],
       ['transept', 1],
       ['narthex', 1, 'vestibule'],
@@ -513,6 +522,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Includes the major basilicas and historically important basilicas within Rome; some names have multiple common forms.',
     source: 'Holy See, basilicas and papal basilicas; Rome\'s official tourism and basilica websites.',
     answers: rows([
+      ['Saint Peter\'s Basilica', 1, 'Basilica of Saint Peter'],
       ['Archbasilica of Saint John Lateran', 1],
       ['Saint Mary Major', 1, 'Basilica of Saint Mary Major'],
       ['Saint Paul Outside the Walls', 1, 'Basilica of Saint Paul Outside the Walls'],
@@ -551,6 +561,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Includes historians and chroniclers whose works are important sources for Christian history.',
     source: 'Catholic Encyclopedia (1913, public domain); public-domain primary texts and standard scholarly reference works.',
     answers: rows([
+      ['Eusebius of Caesarea', 1, 'Eusebius Pamphili'],
       ['Socrates Scholasticus', 1],
       ['Sozomen', 1],
       ['Theodoret of Cyrus', 1],
@@ -589,6 +600,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Includes saints remembered for evangelization beyond their place of origin or for founding missionary communities.',
     source: 'Vatican.va saint biographies; Catholic Encyclopedia (1913, public domain); Butler\'s Lives of the Saints.',
     answers: rows([
+      ['Francis Xavier', 1, 'Francis de Xavier'],
       ['Patrick of Ireland', 1, 'Saint Patrick'],
       ['Boniface', 1],
       ['Cyril', 1],
