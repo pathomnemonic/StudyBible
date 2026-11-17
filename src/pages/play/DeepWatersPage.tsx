@@ -12,8 +12,8 @@ const newPracticeSeed = () => Math.floor(Math.random() * 1_000_000);
 
 export default function DeepWatersPage() {
   const today = dayIndex();
-  const [practice, setPracticeMode] = useState(isPractice());
   const [snapshot] = useState(() => loadDeepSession(today));
+  const [practice, setPracticeMode] = useState(() => isPractice() || Boolean(snapshot?.practice));
   const [practiceSeed, setPracticeSeed] = useState(snapshot?.practiceSeed ?? newPracticeSeed);
   const canResume = Boolean(snapshot && snapshot.practice === practice && snapshot.practiceSeed === practiceSeed);
   const prompts = useMemo(() => {
@@ -215,7 +215,7 @@ export default function DeepWatersPage() {
           {!practice && logbook.length > 0 && <div className="dw-logbook"><h3>Recent dives</h3><ul>{logbook.slice(-5).reverse().map((entry) => <li key={entry.day}><span>{entry.completedAt ? new Date(entry.completedAt).toLocaleDateString() : `Day ${entry.day}`}</span><strong>{entry.score} pts</strong><small>{entry.scoredRounds}/{entry.totalRounds} rounds scored{entry.pearlFound ? ' · pearl found' : ''}</small></li>)}</ul></div>}
           <div className="dw-result-stats"><span><b>{history.filter((r) => r.points > 0).length}</b><small>ROUNDS SCORED</small></span><span><b>{Math.max(...history.map((r) => r.points), 0)}</b><small>BEST ROUND</small></span><span><b>{history.filter((r) => r.timedOut).length}</b><small>TIMEOUTS</small></span></div>
           <ol>{history.map((r, i) => <li key={i}><span>{r.prompt}</span><b>{r.points ? `+${r.points}` : '—'}</b><small>{r.answer ?? (r.timedOut ? 'Time expired' : 'No recognized answer')}</small></li>)}</ol>
-          <div className="dw-actions"><ShareButton text={share} path="/play/deepwaters" label="Share result" className="btn" /><button className="dw-submit" onClick={() => reset(practice)}>Dive again ↗</button></div>
+          <div className="dw-actions"><ShareButton text={share} path="/play/deepwaters" label="Share result" className="btn" /><button className="dw-submit" onClick={() => { if (!practice) setPracticeMode(true); reset(true); }}>Dive again ↗</button></div>
         </section>
       )}
       <p className="dw-foot">{practice ? 'PRACTICE RUN · NOT COUNTED' : 'DAILY DIVE · ONE COUNTED FINISH PER DAY'}</p>
