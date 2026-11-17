@@ -28,7 +28,7 @@ describe('Deep Waters Krillion batch 2', () => {
     for (const p of prompts) {
       expect(p!.prompt.split(/\s+/).length, p!.id).toBeGreaterThanOrEqual(4);
       expect(p!.prompt.split(/\s+/).length, p!.id).toBeLessThanOrEqual(14);
-      expect(/^(Name|Give)\\b/.test(p!.prompt), p!.id).toBe(true);
+      expect(/^(Name|Give)\b/.test(p!.prompt), p!.id).toBe(true);
       if (p!.closed) expect(p!.answers.length, p!.id).toBe(p!.closed);\n      else expect(p!.answers.length, p!.id).toBeGreaterThanOrEqual(25);
       expect(new Set(p!.answers.map((a) => a.answer.toLowerCase())).size, p!.id).toBe(p!.answers.length);
       if (!p!.closed) expect(new Set(p!.answers.map((a) => a.tier)).size, p!.id).toBe(6);
