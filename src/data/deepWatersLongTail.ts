@@ -423,7 +423,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     id: 'longtail-patron-professions', theme: 'saints',
     prompt: 'Name a saint traditionally invoked as patron of an occupation or profession.',
     context: 'Patronage traditions vary by region and guild; the source catalogues document the associations rather than imposing one universal list.',
-    basis: 'Source lists: Catholic Answers Encyclopedia, “Patron Saints”; Catholic Online patronage A–Z: https://www.catholic.com/encyclopedia/patron-saints ; https://www.catholic.org/saints/patron.php .',
+    basis: 'Source lists: Catholic Answers Encyclopedia, “Patron Saints”; Catholic Online patronage A–Z: https://www.catholic.com/encyclopedia/patron-saints ; https://www.catholic.org/saints/patron.php ; https://www.smalldevotions.com/pages/list-of-patron-saints-by-occupation ; https://files.ecatholic.com/34606/documents/2023/5/Selecting%20Confirmation%20Name.pdf .',
     reviewFlags: ['Occupational patronage can vary by country and guild. Confirm entries with a specific documented occupation before treating this list as reviewed.'],
     answers: ranked([
       'Cosmas', 'Damian', 'Crispin', 'Crispinian', 'Eligius',
@@ -461,7 +461,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     id: 'longtail-patron-illnesses', theme: 'saints',
     prompt: 'Name a saint traditionally invoked for an illness, disability, or medical condition.',
     context: 'The list records popular patronage traditions; it does not imply that intercession replaces medical care or that patronage is exclusive.',
-    basis: 'Source lists: Catholic World Network, “Patron Saints—Health & Illness”; Catholic Online patronage index: https://www.catholicworldnetwork.com/patron-saint-of ; https://www.catholic.org/saints/patron.php .',
+    basis: 'Source lists: Catholic World Network, “Patron Saints—Health & Illness”; Catholic Online patronage index: https://www.catholicworldnetwork.com/patron-saint-of ; https://www.catholic.org/saints/patron.php ; https://www.catholicdoors.com/misc/medical.htm .',
     reviewFlags: ['Health patronage is devotional and sometimes region-specific. Confirm each saint-condition association against the cited directory before treating this list as reviewed.'],
     answers: ranked([
       'Blaise', 'Roch', 'Dymphna', 'Damien de Veuster',
@@ -516,8 +516,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Benedict of Nursia', 'Adelaide of Burgundy', 'Elizabeth of Hungary', 'Teresia of Calcutta', 'Kateri Tekakwitha',
       'John Vianney',
           'Peter Claver', 'John Nepomucene', 'Wenceslaus', 'Hedwig of Silesia',
-          'Margaret of Scotland', 'Ninian of Whithorn', 'Louis IX', 'Mary MacKillop',
-          'Jose de Anchieta', 'Turibius of Mogrovejo',
+          'Margaret of Scotland', 'Lawrence Ruiz', 'Josaphat', 'Sharbel Makhluf', 'Andrew Dung-Lac', 'Turibius of Mogrovejo',
     ], {
       'Patrick': 'Saint Patrick',
       'James the Greater': 'Saint James the Greater|James the Apostle',
@@ -527,7 +526,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Our Lady of Aparecida': 'Aparecida'
     }),
     commonGuesses: [
-      { guess: 'Margaret of Scotland', accepted: true }, { guess: 'Ninian of Whithorn', accepted: true },
+      { guess: 'Margaret of Scotland', accepted: true }, { guess: 'Lawrence Ruiz', accepted: true },
       { guess: 'Peter Claver', accepted: true }, { guess: 'John Nepomucene', accepted: true }, { guess: 'Wenceslaus', accepted: true },
       { guess: 'Christopher', accepted: false, reason: 'A patron of travellers, not a country patron in the cited country directory.' },
       { guess: 'Francis of Assisi', accepted: false, reason: 'Not a country patron in the selected source list.' },
