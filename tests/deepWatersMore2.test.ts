@@ -18,7 +18,8 @@ const cases = [
   { id: 'saint-art-attributes', accept: ['Keys', 'Catherine wheel', 'Gridiron'], reject: ['Cathedral', 'gridironsman'] },
 ] as const;
 
-// In every reject array, the first item is wrong-category and the second is a near-miss.\ndescribe('Deep Waters Krillion batch 2', () => {
+// In every reject array, the first item is wrong-category and the second is a near-miss.
+describe('Deep Waters Krillion batch 2', () => {
   it('adds thirteen distinct, short, open-ended prompts with broad answer lists', () => {
     const prompts = cases.map(({ id }) => DEEP_WATERS.find((p) => p.id === id));
     expect(prompts.every(Boolean)).toBe(true);
