@@ -21,6 +21,7 @@ export default function ArcadeMode() {
   const on = inArcade(pathname);
   const [sound, setSoundState] = useState(soundOn);
   const [win, setWin] = useState<number | null>(null);
+  const [curtain, setCurtain] = useState(true);
   const [slot, setSlot] = useState<HTMLElement | null>(null);
   const game = pathname.split('/')[2] ?? 'home';
   useEffect(() => {
@@ -44,6 +45,7 @@ export default function ArcadeMode() {
     find();
     return () => { obs.disconnect(); made?.remove(); setSlot(null); };
   }, [on, pathname]);
+  useEffect(() => { const t = window.setTimeout(() => setCurtain(false), 1100); return () => window.clearTimeout(t); }, []);
   useEffect(() => { if (win === null) return; const t = window.setTimeout(() => setWin(null), 2400); return () => window.clearTimeout(t); }, [win]);
   useEffect(() => {
     if (!on) return;
@@ -77,6 +79,7 @@ export default function ArcadeMode() {
   );
   return (
     <>
+      {curtain && <div className="arc-curtain" aria-hidden="true"><Art n="joystick" size={96} /></div>}
       {game === 'deepwaters' && (
         <div className="arc-sea" aria-hidden="true">
           <i className="sea-rays" />

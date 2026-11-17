@@ -47,7 +47,7 @@
 }
 
 html[data-arcade] body {
-  background: linear-gradient(180deg, #3b1394 0%, #230c66 38%, #14073f 100%) fixed;
+  background: linear-gradient(180deg, var(--bg1, #3b1394) 0%, var(--bg2, #230c66) 38%, var(--bg3, #14073f) 100%) fixed;
   color: var(--text);
   font-weight: 500;
   font-size: 16px;
@@ -58,8 +58,8 @@ html[data-arcade] .main, html[data-arcade] main { background: transparent; }
 /* ---------- the moving backdrop ---------- */
 .arc-bg { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .arc-blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.55; animation: arc-float 18s ease-in-out infinite; }
-.arc-blob.b1 { width: 340px; height: 340px; left: -90px; top: -60px; background: #ff4fa3; }
-.arc-blob.b2 { width: 380px; height: 380px; right: -140px; top: 34%; background: #2ee6d6; opacity: 0.32; animation-delay: -6s; }
+.arc-blob.b1 { width: 340px; height: 340px; left: -90px; top: -60px; background: var(--blob1, #ff4fa3); }
+.arc-blob.b2 { width: 380px; height: 380px; right: -140px; top: 34%; background: var(--blob2, #2ee6d6); opacity: 0.32; animation-delay: -6s; }
 .arc-blob.b3 { width: 320px; height: 320px; left: 10%; bottom: -120px; background: #ffb02e; opacity: 0.3; animation-delay: -11s; }
 .arc-shape { position: absolute; left: var(--x); top: 108%; width: var(--s); height: var(--s); opacity: 0.5; animation: arc-rise var(--t) linear infinite; animation-delay: calc(var(--d) * -1); }
 .arc-shape.s0 { border-radius: 50%; border: 3px solid #ffd23f; }
@@ -464,3 +464,51 @@ html[data-arcade] .pf-hero-ico::before { content: ''; position: absolute; inset:
 }
 html[data-arcade] .pf-ico.gp-blob { box-shadow: none; align-self: flex-start; }
 html[data-arcade] .gp-mascot .gp-bot { box-shadow: 0 4px 0 rgba(10, 4, 40, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3); }
+
+/* ---------- Crown Quest answers ---------- */
+html[data-arcade] .tv-opt { border: 0; color: #fff; min-height: 54px; box-shadow: 0 5px 0 rgba(10, 4, 40, 0.55); text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25); }
+html[data-arcade] .tv-opts li:nth-child(4n+1) .tv-opt { background: linear-gradient(180deg, #ff6b8b, #e0345f); box-shadow: 0 5px 0 #8f1636; }
+html[data-arcade] .tv-opts li:nth-child(4n+2) .tv-opt { background: linear-gradient(180deg, #4cc7ff, #1f83e0); box-shadow: 0 5px 0 #0f4f94; }
+html[data-arcade] .tv-opts li:nth-child(4n+3) .tv-opt { background: linear-gradient(180deg, #ffd23f, #f09a0b); color: #2a1700; text-shadow: none; box-shadow: 0 5px 0 #a8620a; }
+html[data-arcade] .tv-opts li:nth-child(4n+4) .tv-opt { background: linear-gradient(180deg, #5ee08a, #1fa85a); box-shadow: 0 5px 0 #0f6a35; }
+html[data-arcade] .tv-opt.right, html[data-arcade] .tv-opt.good, html[data-arcade] .tv-opt.ok { outline: 4px solid #fff; animation: arc-pop 0.5s both; }
+html[data-arcade] .tv-opt.wrong, html[data-arcade] .tv-opt.bad { filter: grayscale(0.7) brightness(0.7); animation: arc-shake 0.45s both; }
+html[data-arcade] .linklike { text-decoration: none; }
+html[data-arcade] .tv-opt.dim { opacity: 0.45; }
+
+/* ---------- every game has its own colour of night ---------- */
+html[data-game='verbum'] { --bg1: #5a1f9e; --bg2: #3a1070; --bg3: #1b0646; --blob1: #ffb02e; --blob2: #ff4fa3; }
+html[data-game='whichbook'] { --bg1: #1f4fc9; --bg2: #1a2f8a; --bg3: #0b1448; --blob1: #4cc7ff; --blob2: #7b5cff; }
+html[data-game='whosaid'] { --bg1: #b0237a; --bg2: #6e1a8f; --bg3: #260a4f; --blob1: #ff8fd0; --blob2: #ffd23f; }
+html[data-game='saintguess'] { --bg1: #12907a; --bg2: #0f5f7a; --bg3: #0a2147; --blob1: #8bea3a; --blob2: #2ee6d6; }
+html[data-game='quartets'] { --bg1: #c25a12; --bg2: #7a2a6e; --bg3: #2a0e4f; --blob1: #ffd23f; --blob2: #ff4fa3; }
+html[data-game='chain'] { --bg1: #0f8aa8; --bg2: #1a4f9e; --bg3: #0b1f5c; --blob1: #7df3ff; --blob2: #ffd23f; }
+html[data-game='crossword'] { --bg1: #6a3bd1; --bg2: #3d1d96; --bg3: #150a4a; --blob1: #ffd23f; --blob2: #2ee6d6; }
+html[data-game='wordsearch'] { --bg1: #0f8f8f; --bg2: #145a8f; --bg3: #0a1f4f; --blob1: #8bea3a; --blob2: #ffd23f; }
+html[data-game='cloister'] { --bg1: #a8601a; --bg2: #6a2f5a; --bg3: #25103f; --blob1: #ffd23f; --blob2: #ff8a2b; }
+html[data-game='termmatch'] { --bg1: #7a3bd1; --bg2: #4a1fa0; --bg3: #170a4a; --blob1: #ff8fd0; --blob2: #7df3ff; }
+html[data-game='familyties'] { --bg1: #2f9e4f; --bg2: #17676a; --bg3: #0a2a4a; --blob1: #8bea3a; --blob2: #ffd23f; }
+html[data-game='whoami'] { --bg1: #4a4fd1; --bg2: #2f2a9a; --bg3: #10094a; --blob1: #ff8fd0; --blob2: #2ee6d6; }
+html[data-game='pilgrim'] { --bg1: #1a9ad6; --bg2: #1565b0; --bg3: #0a2a6a; --blob1: #ffd23f; --blob2: #7df3ff; }
+html[data-game='artdetective'] { --bg1: #9a4a2a; --bg2: #5a2a5a; --bg3: #1f0f3f; --blob1: #ffd23f; --blob2: #ff8a2b; }
+html[data-game='prophet'] { --bg1: #2a1a8f; --bg2: #150f5f; --bg3: #07062a; --blob1: #7b5cff; --blob2: #ff4fa3; }
+html[data-game='doctrineladder'] { --bg1: #2a5fd1; --bg2: #1a3a9a; --bg3: #0a1250; --blob1: #ffd23f; --blob2: #2ee6d6; }
+html[data-game='trivia'] { --bg1: #c0237a; --bg2: #6a1a9a; --bg3: #220a4f; --blob1: #ffd23f; --blob2: #2ee6d6; }
+html[data-game='charades'] { --bg1: #d12a8a; --bg2: #8a1f9e; --bg3: #2a0a55; --blob1: #ffd23f; --blob2: #2ee6d6; }
+html[data-game='coop'] { --bg1: #2f9e6a; --bg2: #16665f; --bg3: #0a2a4a; --blob1: #ffd23f; --blob2: #ff8fd0; }
+html[data-game='online'] { --bg1: #0f9a9a; --bg2: #14658f; --bg3: #0a2060; --blob1: #ffd23f; --blob2: #ff4fa3; }
+html[data-game='quiznight'] { --bg1: #d1701a; --bg2: #8f2a6a; --bg3: #2a0a4f; --blob1: #ffd23f; --blob2: #2ee6d6; }
+html[data-game='leaderboard'] { --bg1: #b8861a; --bg2: #7a3a6a; --bg3: #25104f; --blob1: #ffe27a; --blob2: #ff4fa3; }
+html[data-game='trophies'] { --bg1: #b8861a; --bg2: #7a3a6a; --bg3: #25104f; --blob1: #ffe27a; --blob2: #ffffff; }
+
+/* Prophet: a starfield around the crystal ball */
+html[data-game='prophet'] body { background-image: radial-gradient(2px 2px at 20% 30%, #fff, transparent), radial-gradient(2px 2px at 70% 20%, #fff, transparent), radial-gradient(1.5px 1.5px at 40% 70%, #fff, transparent), radial-gradient(2px 2px at 85% 60%, #fff, transparent), radial-gradient(1.5px 1.5px at 10% 85%, #fff, transparent), linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 38%, var(--bg3) 100%); background-attachment: fixed; }
+/* Crown Quest and Charades: stage spotlights */
+html[data-game='trivia'] .arc-bg::before, html[data-game='charades'] .arc-bg::before, html[data-game='quiznight'] .arc-bg::before { content: ''; position: absolute; left: -30%; right: -30%; top: -10%; height: 80%; background: repeating-conic-gradient(from 195deg at 50% -8%, rgba(255, 255, 255, 0.14) 0deg 5deg, transparent 5deg 18deg); mask-image: linear-gradient(180deg, #000, transparent 90%); -webkit-mask-image: linear-gradient(180deg, #000, transparent 90%); animation: sea-sway 8s ease-in-out infinite alternate; transform-origin: 50% 0; }
+
+/* ---------- walking into the arcade ---------- */
+.arc-curtain { position: fixed; inset: 0; z-index: 9500; display: grid; place-items: center; pointer-events: none; background: radial-gradient(circle at 50% 50%, #5b21b6, #1a0b4d 70%); animation: arc-curtain 1.05s cubic-bezier(0.7, 0, 0.3, 1) both; }
+.arc-curtain .arc-art { animation: arc-pop 0.5s both; filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.4)); }
+@keyframes arc-curtain { 0%, 35% { clip-path: circle(150% at 50% 50%); opacity: 1; } 100% { clip-path: circle(0% at 50% 50%); opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .arc-curtain { display: none; } }
+:root[data-motion='none'] .arc-curtain { display: none; }
