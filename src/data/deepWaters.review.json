@@ -368,6 +368,90 @@
    "status": "unreviewed"
   },
   {
+   "id": "authored-latin-worship",
+   "sha256": "12b0a4b876446d6431a5bf0533b3e60d9b19f8ec70ab525e732f8ddeff1ef255",
+   "answers": 105,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-heresies",
+   "sha256": "28ee312a5d3455f8c704ed0923d73e45c98bdd5fa437f9a7c8eb19f710ec592f",
+   "answers": 63,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-catholic-classics",
+   "sha256": "041fe48ec9e88f59a1582269c6514ee72411f1296e5e1cb35393ae4a75a4a1e1",
+   "answers": 76,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-calendar-saints",
+   "sha256": "7cb921625de8082ae3841d5f097e5fae4805846a4e2547b424558fef2768625d",
+   "answers": 184,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-shrines",
+   "sha256": "21e7ea5f7e1e115d02d65e8d83febe66c1d72e1684b8f583b03d65523006ddae",
+   "answers": 100,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-biblical-peoples",
+   "sha256": "4fc990ffa845a5d169edccbe1e5b21d6fe7bd9c0fc19e92db7714b8a09e5af43",
+   "answers": 70,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-foreign-rulers",
+   "sha256": "5f953d58fdcacf387cb68ec65059f87d1318f9c76f83d25a198c770726844aae",
+   "answers": 70,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-theology-terms",
+   "sha256": "73355a6caec864b7e4f76b01ae3b156fbdc170e241d4d108d13a590639c00cd6",
+   "answers": 115,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-life-of-jesus",
+   "sha256": "aa4c4d58ebd6bac7416313df79078699b8ea59bc4e84966af78fd2e34c6553f6",
+   "answers": 71,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-foods",
+   "sha256": "4971d3e318145ee3a836b937814c9bc28cbd0b7f3e036a11c34d4d24b373c443",
+   "answers": 60,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-occupations",
+   "sha256": "6a0b3c44db019bf0133f141179601a36fcb1373c5b4c405489f4ebf821698dde",
+   "answers": 73,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-papal-names",
+   "sha256": "b8a8cf81c164c92ab9d1f471197b16c8b808c9866d568885c9c55952eabd3a0f",
+   "answers": 82,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-titles-of-jesus",
+   "sha256": "6ba12709ec913b8a85ecf0f292a630d151a469a4cd84725862c82775dbad2d2c",
+   "answers": 74,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-christian-symbols",
+   "sha256": "154f501724432b3d25bdddb9e6aa5c58a2be30422590b4a7dbd92ee662558ca2",
+   "answers": 83,
+   "status": "unreviewed"
+  },
+  {
    "id": "places-1CH",
    "sha256": "87dcc32c32e1582529ec447976fb4eba841ad15a387261411d75e8b182b7ecd6",
    "answers": 163,
