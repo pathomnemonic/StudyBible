@@ -4,6 +4,7 @@ type Guess = { guess: string; accepted: boolean; reason?: string };
 type CheckedPrompt = DeepPrompt & { commonGuesses: Guess[]; reviewFlags?: string[] };
 type AliasMap = Record<string, string>;
 
+// Names are hand-ordered by familiarity (recognisable first, specialist answers last), never alphabetically.
 function ranked(names: string[], aliases: AliasMap = {}): DeepPrompt['answers'] {
   const cuts = [0.08, 0.20, 0.40, 0.65, 0.90].map((p) => Math.round(names.length * p));
   return names.map((answer, i) => {
@@ -142,12 +143,13 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     prompt: 'Name a Catholic saint or blessed born in Italy.',
     context: 'The source catalogue records saints and blesseds by birthplace and death place; this answer key selects Italian-born figures.',
     basis: 'Source list: GCatholic, Saints and Blesseds of Italy, filtering the birthplace column to Italy: https://gcatholic.org/saints/data/country-IT.htm .',
+    reviewFlags: ['For early saints whose birthplace is not explicitly recorded in the catalogue, verify the historical birthplace independently; the prompt requires birth in Italy, not merely death or veneration there.'],
     answers: ranked([
       'Francis of Assisi','Catherine of Siena','Benedict of Nursia','Clare of Assisi','Padre Pio',
       'Thomas Aquinas','Philip Neri','John Bosco','Pius X','Paul VI','John XXIII','Rita of Cascia',
       'Gemma Galgani','Maria Goretti','Carlo Acutis','Pier Giorgio Frassati','Gianna Beretta Molla','Giuseppe Moscati','Luigi Gonzaga','Robert Bellarmine','Catherine of Bologna','Angela Merici','Frances of Rome','Camillus de Lellis',
       'Bernardino of Siena','Lawrence of Brindisi','Alphonsus Liguori','Aloysius Gonzaga','Charles Borromeo','John Leonardi','Joseph Calasanz','Joseph of Cupertino','Gerard Majella','Leonard of Port Maurice','Paul of the Cross','Veronica Giuliani','Bonaventure of Potenza','Joseph Benedict Cottolengo','Luigi Orione','Gaspare del Bufalo','John of Capistrano','Pius V','Celestine V','Gregory X','Urban V','Pope Damasus I','Pope Marcellus I','Pope Eusebius','Pope Cornelius','Pope Fabian','Pope Sixtus II','Pope Pontian','Pope Martin I','Pope Agatho',
-      'Angela of Foligno','Margaret of Cortona','Umiliana de Cerchi','Juliana Falconieri','Francesca Romana','Catherine of Genoa'
+      'Angela of Foligno','Margaret of Cortona','Umiliana de Cerchi','Juliana Falconieri','Francesca Romana','Catherine of Genoa','Giacomo Bianconi','Andrea Conti da Segni','Giovanna da Orvieto','Alberto degli Abati','Chiara della Croce da Montefalco'
     ], {
       'Francis of Assisi':'Saint Francis|St Francis',
       'Catherine of Siena':'Saint Catherine of Siena',
@@ -210,7 +212,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Andrew Kim Tae-gon','Paul Chong Ha-sang','Peter Yi Ho-yong','Protase Chong Kuk-bo','Agatha Kim A-gi',
       'Anna Pak A-gi','Agatha Yi So-sa','Magdalene Kim Ob-i','Augustine Yi Kwang-hon','Barbara Han A-gi','Lucy Pak Hui-sun','Damian Nam Myong-hyog',
       'Peter Kwon Tug-in','Joseph Chang Song-jib','Barbara Kim','Barbara Yi','Rose Kim','Martha Kim Song-im','Teresa Yi Mae-im','Anna Kim Chang-keum','John Baptist Yi Kwang-nyol','Magdalene Yi Yong-hui','Lucy Kim','Mary Won Kwi-im',
-      'Paul Chong Hasang','Mary Park Kun-a-gi','Barbara Kwon Hui','John Pak Hu-jae','Barbara Yi Chong-hui','Mary Yi Yon-hui','Agnes Kim Hyo-ju','Francis Choe Kyong-hwan','Laurent Imbert','Peter Maubant','Jacob Chastan','Augustine Yu Chin-gil','Magdalene Ho Kye-im','Sebastian Nam Yi-gwan','Juliet Kim','Agatha Chon Kyong-hyob','Charles Cho Shin-chol','Ignatius Kim Che-jun','Magdalene Pak Pong-son','Perpetua Hong Kum-ju','Columba Kim Hyo-im','Catherine Yi','Magdalene Cho','Peter Yu Tae-chol','Cecilia Yu So-sa','Peter Choe Chang-hub','Barbara Cho Chung-i','Magdalene Han Yong-i','Benedicta Hyon Kyong-nyon','Elisabeth Chong Chong-hye','Barbara Ko Sun-i','Magdalene Yi Yong-deog','Teresa Kim','Agatha Yi','Stephen Min Kuk-ka','Andrew Chong Kwang-yong',
+      'Mary Park Kun-a-gi','Barbara Kwon Hui','John Pak Hu-jae','Barbara Yi Chong-hui','Mary Yi Yon-hui','Agnes Kim Hyo-ju','Francis Choe Kyong-hwan','Laurent Imbert','Peter Maubant','Jacob Chastan','Augustine Yu Chin-gil','Magdalene Ho Kye-im','Sebastian Nam Yi-gwan','Juliet Kim','Agatha Chon Kyong-hyob','Charles Cho Shin-chol','Ignatius Kim Che-jun','Magdalene Pak Pong-son','Perpetua Hong Kum-ju','Columba Kim Hyo-im','Catherine Yi','Magdalene Cho','Peter Yu Tae-chol','Cecilia Yu So-sa','Peter Choe Chang-hub','Barbara Cho Chung-i','Magdalene Han Yong-i','Benedicta Hyon Kyong-nyon','Elisabeth Chong Chong-hye','Barbara Ko Sun-i','Magdalene Yi Yong-deog','Teresa Kim','Agatha Yi','Stephen Min Kuk-ka','Andrew Chong Kwang-yong',
       'Paul Ho-hyop','Augustine Pak Chong-won','Peter Hong Pyong-ju','Magdalene Son So-byeog','Agatha Yi Kyong-i','Maria Yi In-dog','Agatha Kwon Chin-i','Paul Hong Yong-ju','John Yi Munu','Barbara Choe Yong-i','Anthony Kim Song-u','Charles Hyon Song-mun','Peter Nam Kyong-mun','Lawrence Han I-hyong','Susanna U Surim','Joseph Im Chi-baeg','Teresa Kim Imi','Agatha Yi Kannan','Catherine Chong Choryom','Simon Berneux','Peter Aumaitre','Peter Dorie','Louis Beaulieu','Justin de Bretenières','Anthony Daveluy','Luke Hwang Sok-tu','Joseph Chang Chu-gi','John Yi Yun-il'
     ], {
       'Andrew Kim Tae-gon':'Saint Andrew Kim Taegon|Andrew Kim Taegon',
@@ -307,7 +309,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Summa Theologiae','Summa Contra Gentiles','Catena Aurea','Compendium of Theology','On Being and Essence',
       'On the Principles of Nature','Commentary on the Sentences','Disputed Questions on Truth','Disputed Questions on Power','Disputed Questions on Evil','On the Unity of the Intellect','On the Eternity of the World',
       'On the Separate Substances','On the Spiritual Creatures','On the Soul','On the Virtues','On Charity','On the Spiritual Life','On Kingship','On the Reasons of the Faith','On the Articles of Faith',
-      'On the Mixture of Elements','On the Hidden Operations of Nature','On the Sorts','On the Motion of the Heart','On the Judgments of the Stars','On the Perfection of the Spiritual Life','On the Perfection of the Christian Life','On the Purchase and Sale of Time','On the Form of Absolution','On the Boethian De Trinitate','On Boethius De Hebdomadibus','Commentary on the Divine Names','Commentary on the Book of Causes','Commentary on Aristotle’s Physics','Commentary on Aristotle’s Metaphysics','Commentary on Aristotle’s Ethics','Commentary on Aristotle’s Politics','Commentary on Aristotle’s De Anima','Commentary on Aristotle’s De Interpretatione','Commentary on the Posterior Analytics','Commentary on the Categories','Commentary on the Meteorology','Commentary on On Generation and Corruption','Commentary on De Caelo','Commentary on Job','Commentary on Isaiah','Commentary on Jeremiah','Commentary on Matthew','Commentary on John','Commentary on Romans','Commentary on First Corinthians','Commentary on the Pauline Epistles','Commentary on the Psalms','The Office of Corpus Christi','Pange Lingua','Adoro Te Devote','Lauda Sion','Tantum Ergo','O Salutaris Hostia','Exposition of the Hail Mary','Exposition of the Apostles’ Creed','De Regno','Contra Impugnantes Dei Cultum','De Rationibus Fidei','De Unitate Intellectus contra Averroistas','De Ente et Essentia'
+      'On the Mixture of Elements','On the Hidden Operations of Nature','On the Sorts','On the Motion of the Heart','On the Judgments of the Stars','On the Perfection of the Spiritual Life','On the Perfection of the Christian Life','On the Purchase and Sale of Time','On the Form of Absolution','On the Boethian De Trinitate','On Boethius De Hebdomadibus','Commentary on the Divine Names','Commentary on the Book of Causes','Commentary on Aristotle’s Physics','Commentary on Aristotle’s Metaphysics','Commentary on Aristotle’s Ethics','Commentary on Aristotle’s Politics','Commentary on Aristotle’s De Anima','Commentary on Aristotle’s De Interpretatione','Commentary on the Posterior Analytics','Commentary on the Categories','Commentary on the Meteorology','Commentary on On Generation and Corruption','Commentary on De Caelo','Commentary on Job','Commentary on Isaiah','Commentary on Jeremiah','Commentary on Matthew','Commentary on John','Commentary on Romans','Commentary on First Corinthians','Commentary on the Pauline Epistles','Commentary on the Psalms','The Office of Corpus Christi','Pange Lingua','Adoro Te Devote','Lauda Sion','Tantum Ergo','O Salutaris Hostia','Exposition of the Hail Mary','Exposition of the Apostles’ Creed','Contra Impugnantes Dei Cultum','De Rationibus Fidei','De Unitate Intellectus contra Averroistas','De Veritate'
     ], {
       'Summa Theologiae':'Summa Theologica',
       'Summa Contra Gentiles':'Summa contra Gentiles',
@@ -391,6 +393,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     prompt: 'Name a saint traditionally invoked as patron of an occupation or profession.',
     context: 'Patronage traditions vary by region and guild; the source catalogues document the associations rather than imposing one universal list.',
     basis: 'Source lists: Catholic Answers Encyclopedia, “Patron Saints”; Catholic Online patronage A–Z: https://www.catholic.com/encyclopedia/patron-saints ; https://www.catholic.org/saints/patron.php .',
+    reviewFlags: ['Occupational patronage can vary by country and guild. Confirm entries with a specific documented occupation before treating this list as reviewed.'],
     answers: ranked([
       'Joseph','Luke','Cecilia','Francis of Assisi','Isidore the Farmer',
       'Cosmas','Damian','Crispin','Crispinian','Eloi','Anne','Christopher',
@@ -404,7 +407,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Isidore the Farmer':'Isidore the Laborer|Isidore the Husbandman',
       'Cosmas':'Saint Cosmas',
       'Damian':'Saint Damian',
-      'Eloi':'Eligius',
+      'Eligius':'Eloi|Saint Eligius',
       'Anne':'Saint Anne',
       'Christopher':'Saint Christopher'
     }),
@@ -423,6 +426,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     prompt: 'Name a saint traditionally invoked for an illness, disability, or medical condition.',
     context: 'The list records popular patronage traditions; it does not imply that intercession replaces medical care or that patronage is exclusive.',
     basis: 'Source lists: Catholic World Network, “Patron Saints—Health & Illness”; Catholic Online patronage index: https://www.catholicworldnetwork.com/patron-saint-of ; https://www.catholic.org/saints/patron.php .',
+    reviewFlags: ['Health patronage is devotional and sometimes region-specific. Confirm each saint-condition association against the cited directory before treating this list as reviewed.'],
     answers: ranked([
       'Lucy','Blaise','Agatha','Apollonia','Roch',
       'Sebastian','Dymphna','John of God','Damien de Veuster','Lidwina of Schiedam','Vitus','Teresa of Ávila',
@@ -439,8 +443,8 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     commonGuesses: [
       { guess: 'Lucy', accepted: true }, { guess: 'Blaise', accepted: true },
       { guess: 'Dymphna', accepted: true }, { guess: 'Roch', accepted: true }, { guess: 'Peregrine Laziosi', accepted: true },
-      { guess: 'Francis of Assisi', accepted: false, reason: 'A patron of animals and ecology, not a condition-specific entry in this key.' },
-      { guess: 'Anthony of Padua', accepted: false, reason: 'A patron for lost articles and several local causes, not a listed illness entry.' },
+      { guess: 'Francis of Assisi', accepted: true },
+      { guess: 'Anthony of Padua', accepted: true },
       { guess: 'Joan of Arc', accepted: false, reason: 'Not included in the cited health-patron catalogues.' },
       { guess: 'John Paul II', accepted: false, reason: 'Not a health-patron entry in the cited lists.' },
       { guess: 'Thomas Aquinas', accepted: false, reason: 'Not a condition-specific patron in the cited catalogue.' }
@@ -451,6 +455,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     prompt: 'Name a saint or Marian title traditionally named patron of a country.',
     context: 'Country patronages can be multiple, historical, or locally qualified; the source directory is a catalogue rather than a universal decree.',
     basis: 'Source lists: CatholicSaints.info “Patron Saints of Countries” (124 country entries); Catholic Encyclopedia “Patron Saints”: https://catholicsaints.info/patron-saints-of-countries/ ; https://www.newadvent.org/cathen/11562a.htm .',
+    reviewFlags: ['National patronages are not always exclusive or formally defined by one universal list; verify every saint-country pairing against the country entry and diocesan or episcopal source.'],
     answers: ranked([
       'Patrick','James the Greater','George','Andrew','Stephen of Hungary',
       'Denis of Paris','Michael the Archangel','Joseph','Anne','Our Lady of the Immaculate Conception','Thomas the Apostle','Bridget of Sweden',
@@ -506,12 +511,12 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     basis: 'Source references: Catholic Encyclopedia, “Symbolism”; Oxford Dictionary of Christian Art and Architecture; Catholic iconographic reference collections: https://www.newadvent.org/cathen/14373b.htm .',
     answers: ranked([
       'Lamb','Fish','Dove','Anchor','Chi-Rho',
-      'Keys','Alpha and Omega','Pelican','Peacock','Phoenix','Lion','Eagle',
+      'Keys of Peter','Alpha and Omega','Pelican','Peacock','Phoenix','Lion','Eagle',
       'Ox','Winged Man','Grapes','Wheat','Vine','Bread','Chalice','Olive Branch','Palm Branch','Lily','Rose','Shell',
       'Crown of Thorns','Sacred Heart','Immaculate Heart','Flaming Heart','Rooster','Serpent','Apple','Pomegranate','Fountain','Well','Ship','Anchor Cross','Tau Cross','Maltese Cross','Jerusalem Cross','Cross Pattée','Cross Potent','INRI','Halo','Nimbus','Mandorla','Vesica Piscis','Hand of God','Eye of Providence','Triquetra','Trinity Knot','Book of the Gospels','Scroll','Book with Seven Seals','Sword','Keys of Peter','Censer','Incense','Rainbow','Ladder','Jacob’s Ladder','Burning Bush','Manna','Fountain of Life','Unicorn','Stag','Butterfly','Bee','Scales','Sword and Palm','Crown','Globus Cruciger','Shepherd’s Staff','Lamb with Banner','Five Wounds'
     ], {
       'Chi-Rho':'☧|Chrismon',
-      'Keys':'Keys of the Kingdom|Keys of Peter',
+      'Keys of Peter':'Keys|Keys of the Kingdom',
       'Winged Man':'Man of Matthew|Angel of Matthew',
       'Ox':'Ox of Luke',
       'Eagle':'Eagle of John',
@@ -708,6 +713,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     prompt: 'Name a saint traditionally named patron of a city or town.',
     context: 'The answer key samples Catholic patronage directories and local civic patron traditions, which may vary between dioceses and historical periods.',
     basis: 'Source lists: Catholic Online Patron Saints A–Z; CatholicSaints.info Patronage Groups and city patronage listings: https://www.catholic.org/saints/patron.php ; https://catholicsaints.info/patronage-groups/ .',
+    reviewFlags: ['Civic patronage varies by local tradition and date. Verify the city named for each patron before treating the list as reviewed.'],
     answers: ranked([
       'Ambrose of Milan','Januarius of Naples','Petronius of Bologna','Mark the Evangelist','Nicholas of Myra',
       'Agatha of Catania','Lucia of Syracuse','Fermin of Pamplona','Eulalia of Barcelona','Roch of Montpellier','Martin of Tours','John the Baptist',
@@ -723,7 +729,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     commonGuesses: [
       { guess: 'Ambrose of Milan', accepted: true }, { guess: 'Januarius of Naples', accepted: true },
       { guess: 'Mark the Evangelist', accepted: true }, { guess: 'Genevieve of Paris', accepted: true }, { guess: 'Isidore of Madrid', accepted: true },
-      { guess: 'Christopher', accepted: false, reason: 'A patron of travellers, but not a city patron in this selected list.' },
+      { guess: 'Christopher', accepted: true },
       { guess: 'Joan of Arc', accepted: false, reason: 'A national heroine, not a listed civic patron.' },
       { guess: 'Francis Xavier', accepted: false, reason: 'A missionary patron, not a city patron in this source selection.' },
       { guess: 'Therese of Lisieux', accepted: false, reason: 'Not a civic patron in the cited list.' },
@@ -791,6 +797,13 @@ for (const p of checkedLongTailPrompts) {
     canonical.add(key);
   }
   const accepted = new Set(p.answers.flatMap(a => [a.answer, ...(a.aliases ?? [])]).map(normalizeGuess));
+  const seenForms = new Map<string, string>();
+  for (const a of p.answers) for (const form of [a.answer, ...(a.aliases ?? [])]) {
+    const key = normalizeGuess(form); const prior = seenForms.get(key);
+    if (prior && prior !== a.answer) throw new Error(`${p.id}: alias collision between ${prior} and ${a.answer} via ${form}`);
+    seenForms.set(key, a.answer);
+  }
+  if (/\\b(above|below)\\b/i.test(`${p.prompt} ${p.context}`)) throw new Error(`${p.id}: directional language is not allowed in player-facing text`);
   for (const g of p.commonGuesses) {
     if (!g.guess.trim()) throw new Error(`${p.id}: empty common guess`);
     if (g.accepted && !accepted.has(normalizeGuess(g.guess))) throw new Error(`${p.id}: accepted common guess not in key: ${g.guess}`);
