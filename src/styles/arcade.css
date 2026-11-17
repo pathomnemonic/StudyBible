@@ -679,3 +679,17 @@ html[data-game='quartets'] .quartets ul.list li { border: 0; padding: 0; backgro
 html[data-game='quartets'] .quartets ul.list li:nth-child(4n+1) { border-top: 8px solid #ff4fa3; } html[data-game='quartets'] .quartets ul.list li:nth-child(4n+2) { border-top: 8px solid #2ee6d6; } html[data-game='quartets'] .quartets ul.list li:nth-child(4n+3) { border-top: 8px solid #ffd23f; } html[data-game='quartets'] .quartets ul.list li:nth-child(4n) { border-top: 8px solid #7b5cff; }
 html[data-game='quartets'] .quartets ul.list .linklike { background: none; box-shadow: none; color: #2a1a66; font-family: var(--font-display); font-size: 1.05rem; text-align: left; padding: 0; }
 html[data-game='quartets'] .quartets ul.list .muted { color: #5a4a9a; }
+
+/* Featured shelf on the games front door */
+.gp-featured .gp-dive { margin-top: 12px; }
+.gp-dive.gp-crown { background: radial-gradient(circle at 80% 0%, rgba(255, 255, 255, 0.4), transparent 45%), linear-gradient(180deg, #a35cff 0%, #6a2fd1 50%, #2f1480 100%); box-shadow: 0 7px 0 #1c0a55, 0 16px 30px rgba(10, 4, 40, 0.45); }
+.gp-dive.gp-crown:active { box-shadow: 0 2px 0 #1c0a55; }
+.gp-dive.gp-crown .gp-dive-text em { color: #f1e6ff; }
+.gp-feat-tiles { margin-top: 14px; }
+.gp-feat-tiles .pf-badge.gp-burst { white-space: nowrap; font-size: .7rem; padding: 4px 9px; border-radius: 999px; }
+.gp-feat-tiles .pf-badge.gp-burst { clip-path: none; width: auto; height: auto; min-width: 0; aspect-ratio: auto; right: 8px; top: 8px; background: #e0306f; color: #fff; border-radius: 999px; box-shadow: 0 3px 0 #8e1747; }
+
+/* The one-line descriptions on the game tiles make people want to click: keep them on phones too, small and clamped */
+@media (max-width: 520px) {
+  html[data-arcade] .pf-blurb { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; font-size: .78rem; line-height: 1.25; margin: 2px 0 6px; }
+}

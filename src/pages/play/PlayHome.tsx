@@ -46,6 +46,9 @@ const GROUPS: Group[] = [
   ] },
 ];
 const ALL = GROUPS.flatMap((g) => g.games);
+/** The games we are proudest of: two big banners, then two more tiles. */
+const BANNERS = ['/play/deepwaters', '/play/trivia'];
+const FEATURED_TILES = ['/play/cloister', '/play/verbum'];
 
 /** A lively front door for the games: a "play this next" banner, a Surprise me button, and colorful tiles grouped by mood. */
 export default function PlayHome() {
@@ -56,7 +59,8 @@ export default function PlayHome() {
   const streak = currentStreak();
   const totals = playTotals();
   const plays = loadPlays();
-  const featured = useMemo(() => (todo.length ? todo[Math.floor(seeded(dayIndex() + 3)() * todo.length)] : ALL.find((g) => g.isNew)!), [todo.length]); // eslint-disable-line react-hooks/exhaustive-deps
+  const heroPool = todo.filter((g) => !BANNERS.includes(g.to));
+  const featured = useMemo(() => (heroPool.length ? heroPool[Math.floor(seeded(dayIndex() + 3)() * heroPool.length)] : ALL.find((g) => g.to === '/play/cloister')!), [todo.length]); // eslint-disable-line react-hooks/exhaustive-deps
   const surprise = () => { const pool = todo.length ? todo : ALL; nav(pool[Math.floor(Math.random() * pool.length)].to); };
   const lv = levelOf(totals.games, totals.days, streak);
   // reaching a new level since the last visit to this page is celebrated once (the first visit only records the level)
@@ -93,6 +97,42 @@ export default function PlayHome() {
         <div className="gp-stars" aria-label={`${dailies.length - todo.length} of ${dailies.length} daily puzzles done today`}><b>{dailies.length - todo.length}<small>/{dailies.length}</small></b><span>⭐ today</span></div>
       </section>
       <div className="gp-mascot" role="note"><span className="gp-bot" aria-hidden="true"><Anim c="1f60e" size={54} /></span><p key={tip}>{TIPS[tip]}</p></div>
+      <section className="gp-featured" aria-labelledby="pf-featured">
+        <h2 id="pf-featured" className="gp-banner"><span>Featured</span></h2>
+        <Link to="/play/deepwaters" className="gp-dive">
+          <span className="gp-dive-bubbles" aria-hidden="true"><i /><i /><i /><i /><i /></span>
+          <Art n="whale" size={110} className="gp-dive-whale" />
+          <span className="gp-dive-text">
+            <small>{dailyDone('deepwaters') ? 'Dive complete' : 'Daily dive'}</small>
+            <strong>Deep Waters</strong>
+            <em>{dailyDone('deepwaters') ? `Today: ${dailyDone('deepwaters')}. Practise or come back tomorrow.` : 'Seven questions. Go deeper than everyone else.'}</em>
+          </span>
+          <span className="gp-dive-go" aria-hidden="true">▶</span>
+        </Link>
+        <Link to="/play/trivia" className="gp-dive gp-crown">
+          <span className="gp-dive-bubbles" aria-hidden="true"><i /><i /><i /><i /><i /></span>
+          <Art n="crown" size={104} className="gp-dive-whale" />
+          <span className="gp-dive-text">
+            <small>Up to 4 players, or the Bot</small>
+            <strong>Crown Quest</strong>
+            <em>Spin the wheel, win six crowns, spend your coins on power-ups.</em>
+          </span>
+          <span className="gp-dive-go" aria-hidden="true">▶</span>
+        </Link>
+        <ul className="pf-grid gp-feat-tiles">
+          {FEATURED_TILES.map((to, i) => { const g = ALL.find((x) => x.to === to)!; const r = g.daily ? dailyDone(g.daily) : null; return (
+            <li key={g.to} style={{ ['--i' as string]: i }}>
+              <Link className="pf-tile" to={g.to} style={{ ['--c' as string]: g.color }}>
+                <span className="pf-ico gp-blob" aria-hidden="true">{GAME_ART[g.to] ? <Art n={GAME_ART[g.to]} size={76} /> : g.icon}</span>
+                <span className="pf-badge gp-burst">★ Top pick</span>
+                {r && <span className="pf-badge done gp-star">⭐ {r}</span>}
+                <strong className="pf-title">{g.title}</strong>
+                <span className="pf-blurb">{g.blurb}</span>
+                <span className="pf-meta"><span>⏱ {g.time}</span><span>👤 {g.who}</span><span className="pf-play">Play ▶</span></span>
+              </Link>
+            </li>); })}
+        </ul>
+      </section>
       <section className="pf-hero gp-hero" style={{ ['--c' as string]: featured.color }} aria-label="Play this next">
         <i className="gp-bulbs" aria-hidden="true" />
         <span className="pf-hero-ico" aria-hidden="true">{GAME_ART[featured.to] ? <Art n={GAME_ART[featured.to]} size={120} /> : featured.icon}</span>
@@ -103,16 +143,6 @@ export default function PlayHome() {
           <p className="pf-hero-actions"><Link className="btn primary big" to={featured.to}>Let’s go →</Link> <button className="btn big gp-dice" onClick={surprise}><span aria-hidden="true">🎲</span> Surprise me</button></p>
         </div>
       </section>
-      <Link to="/play/deepwaters" className="gp-dive">
-        <span className="gp-dive-bubbles" aria-hidden="true"><i /><i /><i /><i /><i /></span>
-        <Art n="whale" size={110} className="gp-dive-whale" />
-        <span className="gp-dive-text">
-          <small>{dailyDone('deepwaters') ? 'Dive complete' : 'Daily dive'}</small>
-          <strong>Deep Waters</strong>
-          <em>{dailyDone('deepwaters') ? `Today: ${dailyDone('deepwaters')}. Practise or come back tomorrow.` : 'Seven questions. Go deeper than everyone else.'}</em>
-        </span>
-        <span className="gp-dive-go" aria-hidden="true">▶</span>
-      </Link>
       {GROUPS.map((grp) => (
         <section key={grp.id} className="pf-group" aria-labelledby={`pf-${grp.id}`}>
           <h2 id={`pf-${grp.id}`} className="gp-banner"><span>{grp.title}</span></h2>
