@@ -138,13 +138,13 @@ export default function DeepWatersPage() {
     <div className="page deep-waters">
       <div className="dw-atmosphere" aria-hidden="true"><i /><i /><i /><i /><i /></div>
       <header className="dw-head">
-        <p className="dw-kicker"><span className="dw-orbit" /> A Catholic rare-answer challenge</p>
+        <p className="dw-kicker"><span className="dw-orbit" /> A Catholic knowledge challenge</p>
         <h1>Deep <em>Waters</em></h1>
         <p>Seven rounds. One answer each. Find a recognized answer in our curated key.</p>
       </header>
       <GameHelp how={[
         'Each round begins with a three-second preview, then gives you 30 seconds to enter one answer from the curated key.',
-        'A recognized answer earns more points when it is a deeper cut: 1, 2, 4, 8 or 16 points.',
+        'Higher-difficulty questions and deeper-cut answers earn more points: 1, 2, 4, 8 or 16. Tiers are editorial game weights, not player-survey statistics.',
         'Use the optional hint if you get stuck. Rarity is curated for the game, not calculated from player surveys.',
         'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
         'One hidden pearl is worth a 5-point bonus. It is selected from the deepest accepted answers in today’s set.',
@@ -186,7 +186,7 @@ export default function DeepWatersPage() {
               {suggestions.map((item) => <button key={item.answer} type="button" onClick={() => { setGuess(item.answer); setFeedback(''); }}>{item.answer}</button>)}
             </div>}
             {!locked && !preview && <div className="dw-scoring-key" aria-label="Scoring guide">
-              <span>SCORING</span>{([1,2,3,4,5] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><b>{DEEP_POINTS[tier]}</b></i>)}<small>rarer answers score more</small>
+              <span>SCORING</span>{([1,2,3,4,5] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><b>{DEEP_POINTS[tier]}</b></i>)}<small>higher tiers score more</small>
             </div>}
             {locked && result && (
               <div className={`dw-reveal ${result.points ? 'scored' : ''}`}>
