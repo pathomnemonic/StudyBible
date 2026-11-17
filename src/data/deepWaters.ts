@@ -20,6 +20,8 @@ export interface DeepPrompt {
   theme: DeepTheme;
   /** where the answers come from, when they were generated from the app's own data rather than written by hand */
   source?: string;
+  /** editorial workflow marker; prompts remain unreviewed until a person checks every answer */
+  status?: 'draft';
   prompt: string;
   context: string;
   answers: DeepAnswer[];
