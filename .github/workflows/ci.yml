@@ -22,6 +22,7 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run typecheck
+      - run: npm run verify:deep-waters
       - name: Regenerate exact-reference indexes and their offline manifest
         run: |
           npx tsx scripts/launch/make-lesson-links.ts
