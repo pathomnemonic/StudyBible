@@ -279,7 +279,10 @@
       {
         "answer": "The Great Banquet",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark.",
+        "aliases": [
+          "The Banquet"
+        ]
       },
       {
         "answer": "The Lost Coin",
@@ -302,7 +305,8 @@
         "answer": "The Shrewd Manager",
         "tier": 3,
         "aliases": [
-          "The Unjust Steward"
+          "The Unjust Steward",
+          "The Dishonest Steward"
         ],
         "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
@@ -317,7 +321,10 @@
       {
         "answer": "The Persistent Widow",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark.",
+        "aliases": [
+          "The Unjust Judge"
+        ]
       },
       {
         "answer": "Pharisee and Tax Collector",
@@ -1024,7 +1031,8 @@
         "tier": 2,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
-          "Mother of mercy"
+          "Mother of mercy",
+          "Mater Misericordiae"
         ]
       },
       {
@@ -1038,7 +1046,8 @@
         "tier": 2,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
-          "Mother of hope"
+          "Mother of hope",
+          "Mater Spei"
         ]
       },
       {
@@ -1230,7 +1239,8 @@
         "tier": 3,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
-          "Solacium migrantium"
+          "Solacium migrantium",
+          "Solacium Migrantium"
         ]
       },
       {
@@ -2838,7 +2848,10 @@
       {
         "answer": "Thessalonica",
         "tier": 2,
-        "source": "Acts 17:1"
+        "source": "Acts 17:1",
+        "aliases": [
+          "Thessaloniki"
+        ]
       },
       {
         "answer": "Berea",
@@ -2858,7 +2871,10 @@
       {
         "answer": "Cenchreae",
         "tier": 3,
-        "source": "Acts 18:18"
+        "source": "Acts 18:18",
+        "aliases": [
+          "Cenchrea"
+        ]
       },
       {
         "answer": "Ephesus",
@@ -6828,7 +6844,9 @@
         "source": "John Paul II, Egregiae Virtutis (1980)",
         "aliases": [
           "Saints Cyril and Methodius",
-          "Sts Cyril and Methodius"
+          "Sts Cyril and Methodius",
+          "Saint Cyril and Methodius",
+          "St Cyril and Methodius"
         ]
       },
       {
@@ -6837,7 +6855,8 @@
         "source": "John Paul II, Spes Aedificandi (1999)",
         "aliases": [
           "Saint Bridget of Sweden",
-          "St Bridget"
+          "St Bridget",
+          "St Bridget of Sweden"
         ]
       },
       {
@@ -6856,7 +6875,9 @@
         "aliases": [
           "Edith Stein",
           "Teresa Benedicta of the Cross",
-          "Saint Teresa Benedicta"
+          "Saint Teresa Benedicta",
+          "St Teresa Benedicta",
+          "Saint Teresa Benedicta of the Cross"
         ]
       }
     ],
@@ -6926,7 +6947,11 @@
       {
         "answer": "Francis of Assisi",
         "tier": 1,
-        "source": "Franciscan Order, history"
+        "source": "Franciscan Order, history",
+        "aliases": [
+          "Saint Francis of Assisi",
+          "St Francis of Assisi"
+        ]
       },
       {
         "answer": "Dominic",
@@ -7120,14 +7145,22 @@
       {
         "answer": "Linus",
         "tier": 2,
-        "source": "Irenaeus, Against Heresies 3.3.3"
+        "source": "Irenaeus, Against Heresies 3.3.3",
+        "aliases": [
+          "Pope Linus",
+          "Saint Linus",
+          "St Linus"
+        ]
       },
       {
         "answer": "Anacletus",
         "tier": 4,
         "source": "Irenaeus, Against Heresies 3.3.3",
         "aliases": [
-          "Cletus"
+          "Cletus",
+          "Pope Anacletus",
+          "Saint Anacletus",
+          "St Anacletus"
         ]
       },
       {
@@ -7145,7 +7178,9 @@
         "tier": 5,
         "source": "Eusebius, Ecclesiastical History 4.1",
         "aliases": [
-          "Pope Evaristus"
+          "Pope Evaristus",
+          "Saint Evaristus",
+          "St Evaristus"
         ]
       }
     ],
