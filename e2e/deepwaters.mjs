@@ -88,6 +88,8 @@ try {
       hash: location.hash,
       card: document.querySelector('.dw-card')?.innerText || null,
       reveal: Boolean(document.querySelector('.dw-reveal')),
+      resumeState: document.querySelector('.deep-waters')?.getAttribute('data-resume-state') || null,
+      resumeDay: document.querySelector('.deep-waters')?.getAttribute('data-resume-day') || null,
     }));
     throw new Error(`locked session did not restore; before=${JSON.stringify(persisted)}; after=${JSON.stringify(afterReload)}`);
   }
