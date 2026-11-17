@@ -195,7 +195,7 @@
   },
   {
    "id": "encyclicals",
-   "sha256": "e795d4358877227c01738d4503ed7d6644bc03baf987dfc6eeae8d55cda4e354",
+   "sha256": "43a74946654131fa3d92168f99a116df95b3d15002371299d8849ff09853765d",
    "answers": 53,
    "status": "unreviewed"
   },
@@ -794,12 +794,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "liturgical-vestments",
-   "sha256": "552a5a4cdb4ac586b885dc06e9b7c2f1682a4044201f4abe2dcc4554d5409167",
-   "answers": 34,
-   "status": "unreviewed"
-  },
-  {
    "id": "liturgical-books",
    "sha256": "6e3f79409555eaddab1291c83bd9a02d959af416e8cd6f607624dc80fd783433",
    "answers": 33,
@@ -809,12 +803,6 @@
    "id": "latin-prayers",
    "sha256": "17084023eab392050a7e4faee72fbb05c35ac33d05660f0c8b9165af4ef5807f",
    "answers": 35,
-   "status": "unreviewed"
-  },
-  {
-   "id": "church-architecture",
-   "sha256": "8c18579bb785dfa617a0708e53ade7cdd92f1528bce06b9807a189b09dd1f985",
-   "answers": 38,
    "status": "unreviewed"
   },
   {
@@ -833,6 +821,24 @@
    "id": "saint-missionaries",
    "sha256": "2263dae94deb02908df69fa5c2b485c49b2f29d71036081851f95299fa8e74c5",
    "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "papal-encyclicals",
+   "sha256": "5ecabfbe3768b2d82196222b4ee8d006056cff13be43d1a8b5e30eda74fd2be3",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "evangelist-symbols",
+   "sha256": "4b1178d62d818604da5f6bca6735cbac334e702dcd4ffab327c234398c53b1f1",
+   "answers": 4,
+   "status": "unreviewed"
+  },
+  {
+   "id": "saint-art-attributes",
+   "sha256": "e94aed1727d3904df2fc0c4d6624044ace791a2f8d031edea2ccd82f14a5aa71",
+   "answers": 30,
    "status": "unreviewed"
   }
  ]
