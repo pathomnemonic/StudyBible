@@ -2,11 +2,25 @@ import { DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../data/deepWater
 import { seeded, shuffled } from './dailyGame';
 
 export const DEEP_ROUNDS = 7;
+export const DEEP_ANSWER_TARGET = 40;
 export const DEEP_SECONDS = 30;
 export const DEEP_POINTS: Record<DeepAnswer['tier'], number> = { 1: 1, 2: 2, 3: 4, 4: 8, 5: 16 };
 export const DEEP_TIER_NAMES: Record<DeepAnswer['tier'], string> = {
   1: 'Common', 2: 'Less common', 3: 'Uncommon', 4: 'Rare', 5: 'Deep cut'
 };
+export interface DeepCoverageRow { promptId: string; answerCount: number; target: number; status: 'draft' | 'reviewed'; meetsTarget: boolean }
+export function deepWatersCoverageReport(prompts: DeepPrompt[] = DEEP_WATERS): DeepCoverageRow[] {
+  return prompts.map((prompt) => ({
+    promptId: prompt.id, answerCount: prompt.answers.length, target: DEEP_ANSWER_TARGET,
+    status: prompt.status ?? 'draft', meetsTarget: prompt.answers.length >= DEEP_ANSWER_TARGET,
+  }));
+}
+export function deepWatersCoverageErrors(prompts: DeepPrompt[] = DEEP_WATERS): string[] {
+  return deepWatersCoverageReport(prompts)
+    .filter((row) => row.status === 'reviewed' && !row.meetsTarget)
+    .map((row) => `${row.promptId} has ${row.answerCount} answers; reviewed prompts require ${row.target}`);
+}
+
 export const normalizeDeepAnswer = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]/g, '');
 
 export function findDeepAnswer(prompt: DeepPrompt, guess: string): DeepAnswer | null {
