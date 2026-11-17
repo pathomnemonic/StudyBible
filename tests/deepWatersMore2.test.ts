@@ -19,7 +19,7 @@ const cases = [
   { id: 'saint-art-attributes', accept: ['Keys', 'Catherine wheel', 'Gridiron'], reject: ['Cathedral', 'gridironsman'] },
 ] as const;
 
-describe('Deep Waters Krillion batch 2', () => {
+// In every reject array, the first item is wrong-category and the second is a near-miss.\ndescribe('Deep Waters Krillion batch 2', () => {
   it('adds fourteen distinct, short, open-ended prompts with broad answer lists', () => {
     const prompts = cases.map(({ id }) => DEEP_WATERS.find((p) => p.id === id));
     expect(prompts.every(Boolean)).toBe(true);
@@ -44,7 +44,7 @@ describe('Deep Waters Krillion batch 2', () => {
   for (const c of cases) {
     it(`${c.id}: accepts valid answers and aliases, rejects wrong-category and near-miss inputs`, () => {
       const prompt = DEEP_WATERS.find((p) => p.id === c.id)!;
-      expect(c.accept.every((guess) => findDeepAnswer(prompt, guess) !== null), c.id).toBe(true);
+      expect(c.accept.every((guess) => findDeepAnswer(prompt, guess) !== null), c.id).toBe(true);\n      expect(c.accept.some((guess) => prompt.answers.some((a) => a.aliases?.includes(guess))), c.id).toBe(true);
       expect(c.reject.every((guess) => findDeepAnswer(prompt, guess) === null), c.id).toBe(true);
       expect(prompt.answers.some((a) => (a.aliases?.length ?? 0) > 0), c.id).toBe(true);
     });
