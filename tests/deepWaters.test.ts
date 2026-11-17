@@ -110,7 +110,8 @@ describe('Deep Waters content and rules', () => {
 
   it('offers spelling suggestions without accepting them automatically', () => {
     const councils = DEEP_WATERS.find((p) => p.id === 'authored-ecumenical-councils')!;
-    expect(suggestDeepAnswers(councils, 'Nicaea')).toHaveLength(0);
+    expect(suggestDeepAnswers(councils, 'Nicaea')[0]?.answer).toBe('First Council of Nicaea');
+    expect(findDeepAnswer(councils, 'Nicaea')).toBeNull();
     const places = DEEP_WATERS.find((p) => p.id === 'authored-acts-cities')!;
     const suggestions = suggestDeepAnswers(places, 'Damascu');
     expect(suggestions[0]?.answer).toBe('Damascus');
