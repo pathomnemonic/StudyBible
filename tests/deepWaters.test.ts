@@ -229,9 +229,9 @@ describe('Deep Waters content and rules', () => {
     expect(suggestDeepAnswers(councils, 'Nicaea')[0]?.answer).toBe('First Council of Nicaea');
     expect(findDeepAnswer(councils, 'Nicaea')).toBeNull();
     const places = DEEP_WATERS.find((p) => p.id === 'authored-acts-cities')!;
-    const suggestions = suggestDeepAnswers(places, 'Damascu');
-    expect(suggestions[0]?.answer).toBe('Damascus');
-    expect(findDeepAnswer(places, 'Damascu')).toBeNull();
+    const suggestions = suggestDeepAnswers(places, 'Philipp');
+    expect(suggestions[0]?.answer).toBe('Philippi');
+    expect(findDeepAnswer(places, 'Philipp')).toBeNull();
     expect(suggestDeepAnswers(places, 'xyz')).toEqual([]);
   });
 
@@ -244,9 +244,9 @@ describe('Deep Waters content and rules', () => {
       ['authored-pauline-letters', 'Second Timothy', '2 Timothy'],
       ['authored-ecumenical-councils', 'Vatican II', 'Second Vatican Council'],
       ['authored-ecumenical-councils', 'Lateran I', 'First Lateran Council'],
-      ['authored-acts-cities', 'Damascus', 'Damascus'],
+      ['authored-acts-cities', 'Philippi', 'Philippi'],
       ['authored-acts-cities', 'Athens', 'Athens'],
-      ['authored-acts-cities', 'Rome', 'Rome'],
+      ['authored-acts-cities', 'Corinth', 'Corinth'],
       ['authored-luke-parables', 'Good Samaritan', 'The Good Samaritan'],
       ['authored-marian-litany', 'Seat of Wisdom', 'Seat of wisdom'],
       ['authored-marian-litany', 'Morning Star', 'Morning star'],
