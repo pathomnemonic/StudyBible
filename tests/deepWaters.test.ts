@@ -221,7 +221,7 @@ describe('Deep Waters content and rules', () => {
     const report = deepWatersCoverageReport();
     expect(report).toHaveLength(DEEP_WATERS.length);
     expect(report.every((row) => row.status === 'draft')).toBe(true);
-    expect(report.some((row) => !row.meetsTarget)).toBe(true);
+    expect(report.every((row) => row.meetsTarget)).toBe(true);
     expect(report.filter((row) => row.target === 1)).toHaveLength(2555);
     expect(deepWatersCoverageErrors()).toEqual([]);
     const underfilled = { ...DEEP_WATERS[0], answerMode: 'many' as const, status: 'reviewed' as const, answers: DEEP_WATERS[0].answers.slice(0, DEEP_ANSWER_TARGET - 1) };
