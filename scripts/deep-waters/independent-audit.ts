@@ -10,6 +10,24 @@ const scripture = generated.filter((prompt) => prompt.source?.startsWith('Douay-
 assert.equal(curriculum.length, 2105, 'curriculum prompt count');
 assert.equal(scripture.length, 450, 'Scripture cloze prompt count');
 assert.equal(generated.length, 2555, 'single-answer generated prompt count');
+const authored = DEEP_WATERS.filter((prompt) => prompt.id.startsWith('authored-'));
+assert.equal(authored.length, 25, 'hand-authored open-ended prompt count');
+assert.ok(new Set(authored.map((prompt) => prompt.theme)).size >= 15, 'hand-authored bank must span distinct themes');
+for (const prompt of authored) {
+  assert.equal(prompt.answerMode, 'many', `authored prompt must be open-ended: ${prompt.id}`);
+  assert.ok(prompt.source?.startsWith('Hand-authored answer key; sources:'), `missing authored provenance: ${prompt.id}`);
+  assert.ok(prompt.context.trim().length > 30, `insufficient scope context: ${prompt.id}`);
+  assert.ok(prompt.answers.length >= 10, `underfilled authored answer key: ${prompt.id}`);
+  const accepted = new Map<string, string>();
+  for (const answer of prompt.answers) {
+    for (const value of [answer.answer, ...(answer.aliases ?? [])]) {
+      const key = normalize(value);
+      assert.ok(!accepted.has(key) || accepted.get(key) === answer.answer, `answer/alias collision in ${prompt.id}: ${value}`);
+      accepted.set(key, answer.answer);
+    }
+  }
+}
+
 assert.ok(DEEP_WATERS.length >= 365 * DEEP_ROUNDS, 'bank must cover 365 complete daily dives');
 
 const ids = DEEP_WATERS.map((prompt) => prompt.id);
