@@ -18,7 +18,7 @@ const sha = (s: string) => createHash('sha256').update(s).digest('hex');
 const inputs: { path: string; sha256: string }[] = [];
 const track = (p: string) => { const t = read(p); inputs.push({ path: p, sha256: sha(t) }); return t; };
 
-interface Override { prompt: string; answer: string; tier: 1 | 2 | 3 | 4 | 5; reason: string }
+interface Override { prompt: string; answer: string; tier: 1 | 2 | 3 | 4 | 5 | 6; reason: string }
 const overrides: Override[] = existsSync(ROOT + 'scripts/deepwaters/overrides.json') ? JSON.parse(track('scripts/deepwaters/overrides.json')) : [];
 
 const SMALL = new Set(['of', 'the', 'de', 'di', 'da', 'del', 'van', 'von', 'and', 'in', 'le', 'la']);

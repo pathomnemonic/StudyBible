@@ -383,7 +383,7 @@
   },
   {
    "path": "scripts/deepwaters/overrides.json",
-   "sha256": "022fc85fcb33f13cb59d3d3294e88f1fb536ebedfa464a5ce27e8c2fd6ad5e42"
+   "sha256": "d339307fae75615c43fcbc12de3c2f112ab16292803b2b9b0c199db477f722af"
   },
   {
    "path": "src/data/confirmationSaints.ts (names, feasts)",

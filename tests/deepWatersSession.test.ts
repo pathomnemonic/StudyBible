@@ -22,7 +22,7 @@ describe('Deep Waters daily engine', () => {
     expect(tickDeepSession(session, 3999).phase).toBe('preview');
     const playing = tickDeepSession(session, 4000);
     expect(playing.phase).toBe('playing');
-    expect(playing.deadlineAt).toBe(34000);
+    expect(playing.deadlineAt).toBe(29000);
   });
 
   it('pauses using remaining time and resumes against a new deadline', () => {
@@ -30,17 +30,17 @@ describe('Deep Waters daily engine', () => {
     const playing = tickDeepSession(initial, 4000);
     const paused = pauseDeepSession(playing, 9000);
     expect(paused.paused).toBe(true);
-    expect(paused.remainingMs).toBe(25000);
+    expect(paused.remainingMs).toBe(20000);
     expect(paused.deadlineAt).toBeNull();
     expect(tickDeepSession(paused, 900000)).toEqual(paused);
     const resumed = resumeDeepSession(paused, 1000000);
-    expect(resumed.deadlineAt).toBe(1025000);
+    expect(resumed.deadlineAt).toBe(1020000);
   });
 
   it('locks a round when its deadline expires', () => {
     const initial = createDeepSession({ day: 20, practice: false, practiceSeed: 1, promptIds: ['a','b','c','d','e','f','g'], now: 1000 });
     const playing = tickDeepSession(initial, 4000);
-    const expired = tickDeepSession(playing, 34000);
+    const expired = tickDeepSession(playing, 29000);
     expect(expired.phase).toBe('locked');
     expect(expired.history[0].timedOut).toBe(true);
     expect(expired.history[0].promptId).toBe('a');

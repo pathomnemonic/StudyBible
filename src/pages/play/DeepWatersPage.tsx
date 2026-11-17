@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import GameHelp from '../../components/GameHelp';
 import ShareButton from '../../components/ShareButton';
-import { dayIndex, isPractice, markDailyDone } from '../../lib/dailyGame';
+import { dayIndex, isPractice, markDailyDone, setPractice } from '../../lib/dailyGame';
 import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, deepHint, deepMissMessage, matchDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../../lib/deepWaters';
 import { clearDeepSession, deepDiveStreak, loadDeepLogbook, loadDeepSession, recordDeepDive, saveDeepSession } from '../../lib/deepWatersSession';
 import { clearDeepMisses, deepMissesText, loadDeepMisses, recordDeepMiss } from '../../lib/deepWatersMisses';
@@ -9,12 +9,18 @@ import { DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../../data/deepWa
 import './DeepWatersPage.css';
 
 interface RoundResult { prompt: string; guess: string; answer: string | null; tier: DeepAnswer['tier'] | null; points: number; timedOut: boolean; pearlBonus?: number }
+const PEARL_BONUS = 50; // our own addition: the original's pearl bonus, if it has one, is not documented
 const newPracticeSeed = () => Math.floor(Math.random() * 1_000_000);
 
 export default function DeepWatersPage() {
-  const today = dayIndex();
   const [practice, setPracticeMode] = useState(isPractice());
-  const [snapshot] = useState(() => loadDeepSession(today));
+  // each mode is its own dive: switching remounts it, and it loads that mode's own saved state
+  return <DeepDive key={practice ? 'practice' : 'daily'} practice={practice} onPractice={(on) => setPracticeMode((cur) => (cur === on ? cur : on))} />;
+}
+
+function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on: boolean) => void }) {
+  const today = dayIndex();
+  const [snapshot] = useState(() => loadDeepSession(today, practice));
   const [practiceSeed, setPracticeSeed] = useState(snapshot?.practiceSeed ?? newPracticeSeed);
   const canResume = Boolean(snapshot && snapshot.practice === practice && snapshot.practiceSeed === practiceSeed);
   const prompts = useMemo(() => {
@@ -25,7 +31,7 @@ export default function DeepWatersPage() {
     }
     return practice ? practiceDeepPrompts(practiceSeed) : dailyDeepPrompts(today);
   }, [practice, practiceSeed, today, canResume, snapshot]);
-  const restoredRemaining = snapshot?.paused ? snapshot.remainingMs : snapshot?.deadlineAt ? Math.max(0, snapshot.deadlineAt - Date.now()) : DEEP_SECONDS * 1000;
+  const restoredRemaining = snapshot?.deadlineAt ? Math.max(0, snapshot.deadlineAt - Date.now()) : DEEP_SECONDS * 1000;
   const [round, setRound] = useState(canResume ? snapshot!.round : 0);
   const [seconds, setSeconds] = useState(canResume ? Math.ceil(restoredRemaining / 1000) : DEEP_SECONDS);
   const [guess, setGuess] = useState(canResume ? snapshot!.guess : '');
@@ -48,33 +54,20 @@ export default function DeepWatersPage() {
   const deadlineRef = useRef<number>(snapshot?.deadlineAt ?? Date.now() + restoredRemaining);
   const remainingRef = useRef<number>(restoredRemaining);
   const [logbook, setLogbook] = useState(loadDeepLogbook());
-  const [isPaused, setIsPaused] = useState(snapshot?.paused ?? false);
+  const restoredDone = useRef(canResume && snapshot!.phase === 'done');
   const streak = deepDiveStreak(logbook, today);
-  const pearlPool = prompts.flatMap((p) => p.answers.filter((a) => a.tier === 5).map((a) => a.answer));
+  const pearlPool = prompts.flatMap((p) => p.answers.filter((a) => a.tier >= 5).map((a) => a.answer));
   const pearlAnswer = !practice && pearlPool.length ? pearlPool[Math.abs(today * 31) % pearlPool.length] : null;
   const pearlFound = history.some((item) => (item.pearlBonus ?? 0) > 0);
 
   useEffect(() => {
     if (done || locked) return;
-    const update = () => {
-      if (document.visibilityState === 'hidden') return;
-      setSeconds(Math.max(0, Math.ceil((deadlineRef.current - Date.now()) / 1000)));
-    };
-    const onVisibility = () => {
-      if (document.visibilityState === 'hidden') {
-        remainingRef.current = Math.max(0, deadlineRef.current - Date.now());
-        setSeconds(Math.ceil(remainingRef.current / 1000));
-        setIsPaused(true);
-      } else {
-        deadlineRef.current = Date.now() + remainingRef.current;
-        setIsPaused(false);
-        update();
-      }
-    };
+    // the clock runs against a fixed deadline: leaving the page, switching tabs or reloading does not stop it, so a question cannot be looked up elsewhere or reset
+    const update = () => setSeconds(Math.max(0, Math.ceil((deadlineRef.current - Date.now()) / 1000)));
     const timer = window.setInterval(update, 200);
-    document.addEventListener('visibilitychange', onVisibility);
+    document.addEventListener('visibilitychange', update);
     update();
-    return () => { window.clearInterval(timer); document.removeEventListener('visibilitychange', onVisibility); };
+    return () => { window.clearInterval(timer); document.removeEventListener('visibilitychange', update); };
   }, [done, locked, round]);
 
   useEffect(() => {
@@ -85,8 +78,8 @@ export default function DeepWatersPage() {
   }, [seconds, locked, done, prompt]);
 
   useEffect(() => {
-    if (done && !practice) {
-      markDailyDone('deepwaters', `${score} pts`, score >= 32);
+    if (done && !practice && !restoredDone.current) {
+      markDailyDone('deepwaters', `${score} pts`, score >= 200);
       const entries = recordDeepDive({ day: today, score, scoredRounds: history.filter((r) => r.points > 0).length, totalRounds: DEEP_ROUNDS, pearlFound: history.some((r) => (r.pearlBonus ?? 0) > 0), practice: false });
       setLogbook(entries);
     }
@@ -98,15 +91,17 @@ export default function DeepWatersPage() {
       round, phase: done ? 'done' : locked ? 'locked' : 'playing', score,
       history: history.map((entry, index) => ({ promptId: prompts[index]?.id ?? '', prompt: entry.prompt, guess: entry.guess, answer: entry.answer, tier: entry.tier, points: entry.points, timedOut: entry.timedOut, pearlBonus: entry.pearlBonus })),
       guess, deadlineAt: done || locked ? null : deadlineRef.current,
-      remainingMs: document.visibilityState === 'hidden' ? remainingRef.current : seconds * 1000,
-      paused: isPaused, pearlAnswer,
+      remainingMs: seconds * 1000,
+      paused: false, pearlAnswer,
       pearlFound,
     });
-  }, [today, practice, practiceSeed, prompts, round, done, locked, score, history, guess, seconds, isPaused]);
+  }, [today, practice, practiceSeed, prompts, round, done, locked, score, history, guess, seconds]);
 
-  const reset = (nextPractice = practice) => {
-    clearDeepSession();
-    if (nextPractice) setPracticeSeed(newPracticeSeed());
+  // only a practice dive can be restarted; a daily dive is final once begun
+  const reset = () => {
+    if (!practice) return;
+    clearDeepSession(true);
+    setPracticeSeed(newPracticeSeed());
     deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000;
     setRound(0); setSeconds(DEEP_SECONDS); setGuess(''); setLocked(false); setFeedback('');
     setResult(null); setHistory([]); setScore(0); setDone(false); setShowAnswers(false); setShowHint(false); setShowAllAnswers(false);
@@ -123,7 +118,7 @@ export default function DeepWatersPage() {
     }
     const found = match.answer;
     const basePoints = DEEP_POINTS[found.tier];
-    const pearlBonus = pearlAnswer && normalizeDeepAnswer(found.answer) === normalizeDeepAnswer(pearlAnswer) ? 5 : 0;
+    const pearlBonus = pearlAnswer && normalizeDeepAnswer(found.answer) === normalizeDeepAnswer(pearlAnswer) ? PEARL_BONUS : 0;
     const points = basePoints + pearlBonus;
     const entry: RoundResult = { prompt: prompt.prompt, guess: trimmed, answer: found.answer, tier: found.tier, points, timedOut: false, pearlBonus };
     setScore((s) => s + points); setResult(entry); setHistory((h) => [...h, entry]);
@@ -149,16 +144,16 @@ export default function DeepWatersPage() {
       <header className="dw-head">
         <p className="dw-kicker"><span className="dw-orbit" /> A Catholic rare-answer challenge</p>
         <h1>Deep <em>Waters</em></h1>
-        <p>Seven rounds. One answer each. Find a recognized answer in our curated key.</p>
+        <p>Seven questions. Twenty-five seconds each. Go beyond the obvious.</p>
       </header>
       <GameHelp how={[
-        'Each round gives you a Catholic or biblical category. Enter one answer from the curated key before the 30-second timer runs out.',
-        'A recognized answer earns more points when it is a deeper cut: 1, 2, 4, 8 or 16 points.',
+        'Each round gives you a Catholic or biblical category. Enter one answer from the curated key before the 25-second timer runs out.',
+        'A recognized answer earns more points when it is a deeper cut: 10, 15, 30, 60, 85 or 100 points, so a full dive can reach 700.',
         'Use the optional hint if you get stuck. Rarity is curated for the game, not calculated from player surveys.',
         'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
-        'One hidden pearl is worth a 5-point bonus. It is selected from the deepest accepted answers in today’s set.',
+        'One hidden pearl is worth a 50-point bonus (our own addition). It is selected from the deepest accepted answers in today’s set.',
         'The daily set is shared by everyone using the same local calendar date. Practice runs do not count.'
-      ]} onPractice={(on) => { setPracticeMode(on); reset(on); }} />
+      ]} onPractice={onPractice} />
       {!done ? (
         <>
           <div className="dw-status">
@@ -174,7 +169,6 @@ export default function DeepWatersPage() {
           <section className="dw-card">
             <div className="dw-card-top"><span className="dw-round-label">THE QUESTION</span><span className="dw-daily-tag">{practice ? 'PRACTICE DIVE' : 'TODAY’S DIVE'}</span></div>
             <h2>{prompt.prompt}</h2>
-            <p className="dw-context">{prompt.context}</p>
             {!locked && <div className="dw-hint-wrap">
               <button className="dw-hint-button" type="button" onClick={() => setShowHint((v) => !v)} aria-expanded={showHint}>
                 <span aria-hidden="true">✧</span> {showHint ? 'Hide hint' : 'Need a nudge? Reveal a hint'}
@@ -194,7 +188,7 @@ export default function DeepWatersPage() {
               {suggestions.map((item) => <button key={item.answer} type="button" onClick={() => { setGuess(item.answer); setFeedback(''); }}>{item.answer}</button>)}
             </div>}
             {!locked && <div className="dw-scoring-key" aria-label="Scoring guide">
-              <span>SCORING</span>{([1,2,3,4,5] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><b>{DEEP_POINTS[tier]}</b></i>)}<small>rarer answers score more</small>
+              <span>SCORING</span>{([1,2,3,4,5,6] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><b>{DEEP_POINTS[tier]}</b></i>)}<small>rarer answers score more</small>
             </div>}
             {locked && result && (
               <div className={`dw-reveal ${result.points ? 'scored' : ''}`}>
@@ -204,7 +198,7 @@ export default function DeepWatersPage() {
                 </div>
                 {result.answer && <span className="dw-correct-answer">{result.answer}</span>}
                 {(result.pearlBonus ?? 0) > 0 && <strong className="dw-pearl-bonus">Pearl found · +{result.pearlBonus} bonus</strong>}
-                <p>{prompt.context}</p>
+                <p className="dw-context">{prompt.context}</p>
                 <button type="button" className="dw-hint-button" onClick={() => setShowAnswers((v) => !v)}>{showAnswers ? 'Hide answer key' : `Explore all ${accepted.length} accepted answers`}</button>
                 {showAnswers && <ul className="dw-answer-list">{shownAnswers.map((a) => <li key={a.answer}><span>{a.answer}</span><b>{DEEP_POINTS[a.tier]} pts</b></li>)}</ul>}
                 {showAnswers && shownAnswers.length < accepted.length && <button type="button" className="dw-hint-button" onClick={() => setShowAllAnswers(true)}>…and {accepted.length - shownAnswers.length} more. Show all</button>}
@@ -218,7 +212,7 @@ export default function DeepWatersPage() {
         <section className="dw-card dw-results">
           <p className="dw-kicker">DIVE COMPLETE</p>
           <h2>{score}<small> pts</small></h2>
-          <p>{score >= 48 ? 'You know your way around the deep end.' : score >= 24 ? 'A strong dive. There is more beneath the surface.' : 'The deep end rewards curiosity. Try another dive.'}</p>
+          <p>{score >= 450 ? 'You know your way around the deep end.' : score >= 200 ? 'A strong dive. There is more beneath the surface.' : 'The deep end rewards curiosity. Try another dive.'}</p>
           {!practice && <p className="dw-streak">Current streak: <strong>{streak}</strong> day{streak === 1 ? '' : 's'} · {logbook.length} logged dives</p>}
           {pearlFound && <p className="dw-pearl-bonus">You found the pearl of the day.</p>}
           <div className="dw-result-stats"><span><b>{history.filter((r) => r.points > 0).length}</b><small>ROUNDS SCORED</small></span><span><b>{Math.max(...history.map((r) => r.points), 0)}</b><small>BEST ROUND</small></span><span><b>{history.filter((r) => r.timedOut).length}</b><small>TIMEOUTS</small></span></div>
@@ -228,7 +222,9 @@ export default function DeepWatersPage() {
             <button type="button" className="dw-hint-button" onClick={() => { void navigator.clipboard?.writeText(deepMissesText(misses)).then(() => setCopied(true)).catch(() => setCopied(false)); }}>{copied ? 'Copied' : 'Copy the list to send us'}</button>
             <button type="button" className="dw-hint-button" onClick={() => { clearDeepMisses(); setMisses([]); setCopied(false); }}>Clear</button>
           </div>}
-          <div className="dw-actions"><ShareButton text={share} path="/play/deepwaters" label="Share result" className="btn" /><button className="dw-submit" onClick={() => reset(practice)}>Dive again ↗</button></div>
+          <div className="dw-actions"><ShareButton text={share} path="/play/deepwaters" label="Share result" className="btn" />{practice
+            ? <button className="dw-submit" onClick={reset}>Dive again ↗</button>
+            : <button className="dw-submit" onClick={() => { setPractice(true); onPractice(true); }}>Practice dive ↗</button>}</div>
         </section>
       )}
       <p className="dw-foot">{practice ? 'PRACTICE RUN · NOT COUNTED' : 'DAILY DIVE · ONE COUNTED FINISH PER DAY'}</p>

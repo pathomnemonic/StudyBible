@@ -3,6 +3,8 @@ import type { DeepAnswer } from '../data/deepWaters';
 export const DEEP_PREVIEW_MS = 3_000;
 export const DEEP_LOGBOOK_KEY = 'sb:deepwaters:logbook:v1';
 export const DEEP_SESSION_KEY = 'sb:deepwaters:session:v1';
+/** A daily dive and a practice dive are saved separately, so switching to practice never discards (or lets anyone redo) the daily one. */
+export const deepSessionKey = (practice: boolean) => `${DEEP_SESSION_KEY}:${practice ? 'practice' : 'daily'}`;
 
 export type DeepPhase = 'preview' | 'playing' | 'locked' | 'done';
 export interface DeepRoundRecord {
@@ -68,7 +70,7 @@ export function resumeDeepSession(session: DeepSession, now = Date.now()): DeepS
 export function tickDeepSession(session: DeepSession, now = Date.now()): DeepSession {
   if (session.paused || session.deadlineAt === null || now < session.deadlineAt) return session;
   if (session.phase === 'preview') {
-    return { ...session, phase: 'playing', deadlineAt: now + 30_000, remainingMs: 30_000 };
+    return { ...session, phase: 'playing', deadlineAt: now + 25_000, remainingMs: 25_000 };
   }
   if (session.phase !== 'playing') return session;
   const missed: DeepRoundRecord = {
@@ -79,20 +81,22 @@ export function tickDeepSession(session: DeepSession, now = Date.now()): DeepSes
 }
 
 export function saveDeepSession(session: DeepSession): void {
-  try { localStorage.setItem(DEEP_SESSION_KEY, JSON.stringify(session)); } catch { /* local storage may be unavailable */ }
+  try { localStorage.setItem(deepSessionKey(session.practice), JSON.stringify(session)); } catch { /* local storage may be unavailable */ }
 }
 
-export function loadDeepSession(day: number): DeepSession | null {
+export function loadDeepSession(day: number, practice = false): DeepSession | null {
   try {
-    const value = JSON.parse(localStorage.getItem(DEEP_SESSION_KEY) ?? 'null') as DeepSession | null;
-    if (!value || value.version !== 1 || value.day !== day || !Array.isArray(value.promptIds) || value.promptIds.length !== 7) return null;
+    const value = JSON.parse(localStorage.getItem(deepSessionKey(practice)) ?? 'null') as DeepSession | null;
+    if (!value || value.version !== 1 || value.day !== day || value.practice !== practice || !Array.isArray(value.promptIds) || value.promptIds.length !== 7) return null;
     if (!['preview', 'playing', 'locked', 'done'].includes(value.phase)) return null;
     return value;
   } catch { return null; }
 }
 
-export function clearDeepSession(): void {
-  try { localStorage.removeItem(DEEP_SESSION_KEY); } catch { /* local storage may be unavailable */ }
+/** Only a practice dive can be cleared (restarted). A daily dive is kept for the day, finished or not. */
+export function clearDeepSession(practice = true): void {
+  if (!practice) return;
+  try { localStorage.removeItem(deepSessionKey(true)); } catch { /* local storage may be unavailable */ }
 }
 
 export function loadDeepLogbook(): DeepLogEntry[] {

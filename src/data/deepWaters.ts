@@ -10,7 +10,7 @@
  * Names are spelled as a Catholic reference would; spelling variants and common alternatives go in `aliases` (see src/lib/deepWaters.ts for what
  * matching already ignores: case, accents, "Saint"/"St.", "of", "the", plurals, Roman numerals against digits, one typo in a long word).
  */
-export type DeepTier = 1 | 2 | 3 | 4 | 5;
+export type DeepTier = 1 | 2 | 3 | 4 | 5 | 6;
 export interface DeepAnswer { answer: string; tier: DeepTier; aliases?: string[] }
 /** What a question is about. A daily set aims for one question per theme before it repeats one. */
 export type DeepTheme = 'scripture' | 'saints' | 'church-history' | 'liturgy' | 'doctrine' | 'devotion' | 'places' | 'art-music' | 'people';

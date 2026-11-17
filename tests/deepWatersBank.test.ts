@@ -15,14 +15,15 @@ describe('rarity from familiarity scores', () => {
     const t = tiersByFamiliarity(scores);
     for (let i = 1; i < t.length; i++) expect(t[i], `position ${i}`).toBeGreaterThanOrEqual(t[i - 1]);
   });
-  it('cuts a spread of distinct scores into the five bands in the stated proportions', () => {
+  it('cuts a spread of distinct scores into the six bands in the stated proportions', () => {
     const t = tiersByFamiliarity(Array.from({ length: 1000 }, (_, i) => 1000 - i));
     const share = (n: number) => t.filter((x) => x === n).length / 1000;
     expect(share(1)).toBeCloseTo(TIER_CUTS[0], 1);
     expect(share(2)).toBeCloseTo(TIER_CUTS[1] - TIER_CUTS[0], 1);
     expect(share(3)).toBeCloseTo(TIER_CUTS[2] - TIER_CUTS[1], 1);
     expect(share(4)).toBeCloseTo(TIER_CUTS[3] - TIER_CUTS[2], 1);
-    expect(share(5)).toBeCloseTo(1 - TIER_CUTS[3], 1);
+    expect(share(5)).toBeCloseTo(TIER_CUTS[4] - TIER_CUTS[3], 1);
+    expect(share(6)).toBeCloseTo(1 - TIER_CUTS[4], 1);
   });
   it('equal scores always share a tier, whatever their order in the input', () => {
     const a = tiersByFamiliarity([5, 5, 5, 1, 1, 1, 1, 1, 1, 1]);
@@ -33,7 +34,7 @@ describe('rarity from familiarity scores', () => {
   });
   it('a large group of equally obscure answers is deep cuts, not middling', () => {
     const t = tiersByFamiliarity([...Array.from({ length: 10 }, (_, i) => 100 - i), ...Array.from({ length: 190 }, () => 1)]);
-    expect(t.slice(10).every((x) => x === 5)).toBe(true);
+    expect(t.slice(10).every((x) => x === 6)).toBe(true);
   });
   it('handles no answers and one answer', () => { expect(tiersByFamiliarity([])).toEqual([]); expect(tiersByFamiliarity([3])).toEqual([1]); });
   it('counts whole words only', () => {
@@ -70,7 +71,7 @@ describe('the generated questions', () => {
     const flat: string[] = [];
     for (const p of DEEP_WATERS.filter((x) => x.source && x.answers.length >= 20)) {
       const tiers = new Set(p.answers.map((a) => a.tier));
-      if (!tiers.has(1) || !tiers.has(5)) flat.push(`${p.id}: tiers ${[...tiers].sort().join('')}`);
+      if (!tiers.has(1) || ![...tiers].some((t) => t >= 5)) flat.push(`${p.id}: tiers ${[...tiers].sort().join('')}`);
     }
     expect(flat).toEqual([]);
   });
@@ -78,7 +79,7 @@ describe('the generated questions', () => {
     expect(tierOf('places-ACT', 'Jerusalem')).toBe(1);
     expect(tierOf('places-ACT', 'Damascus')).toBeLessThanOrEqual(2);
     expect(tierOf('places-ACT', 'Ephesus')).toBeLessThanOrEqual(3);
-    expect(tierOf('places-ACT', 'Fair Havens')).toBe(5);
+    expect(tierOf('places-ACT', 'Fair Havens')).toBeGreaterThanOrEqual(5);
     
     expect(tierOf('places-LUK', 'Emmaus')).toBeLessThanOrEqual(2); // a manual override: one verse, but one of the best-known scenes
     expect(tierOf('places-JOS', 'Jericho')).toBeLessThanOrEqual(2);

@@ -14,7 +14,7 @@ describe('Deep Waters content', () => {
       expect(p.prompt.trim().length, p.id).toBeGreaterThan(12);
       expect(p.context.trim().length, p.id).toBeGreaterThan(20);
       expect(p.answers.length, p.id).toBeGreaterThanOrEqual(p.closed ?? 12);
-      for (const a of p.answers) expect([1, 2, 3, 4, 5], `${p.id} ${a.answer}`).toContain(a.tier);
+      for (const a of p.answers) expect([1, 2, 3, 4, 5, 6], `${p.id} ${a.answer}`).toContain(a.tier);
     }
   });
 
@@ -62,7 +62,7 @@ describe('Deep Waters content', () => {
   });
 
   it('uses an explicit increasing editorial score ladder', () => {
-    expect([1, 2, 3, 4, 5].map((n) => DEEP_POINTS[n as 1 | 2 | 3 | 4 | 5])).toEqual([1, 2, 4, 8, 16]);
+    expect([1, 2, 3, 4, 5, 6].map((n) => DEEP_POINTS[n as 1 | 2 | 3 | 4 | 5 | 6])).toEqual([10, 15, 30, 60, 85, 100]);
   });
 });
 
