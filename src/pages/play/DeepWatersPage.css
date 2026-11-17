@@ -15,7 +15,7 @@
 .dw-round-count b{font-size:1.35rem;letter-spacing:0;color:var(--ink);margin-left:.3rem}.dw-round-count i{font-style:normal;opacity:.65}
 .dw-score{display:flex;align-items:baseline;gap:.35rem;padding:.4rem .85rem;border:1px solid var(--line);border-radius:99px;background:color-mix(in srgb,var(--panel,white) 85%,transparent)}
 .dw-score b{font-size:1.05rem;font-variant-numeric:tabular-nums;color:var(--ink)}.dw-score small{font-size:.58rem;letter-spacing:.12em;color:var(--muted);font-weight:800}
-.dw-clock{justify-self:end;width:54px;height:54px;border-radius:50%;display:grid;place-content:center;text-align:center;position:relative;background:conic-gradient(var(--clock-color,var(--accent,#658e83)) calc(var(--timer-ratio)*1turn),var(--line) 0);font-variant-numeric:tabular-nums}
+.dw-clock{justify-self:end;width:54px;height:54px;border-radius:50%;display:grid;place-content:center;text-align:center;position:relative;background:conic-gradient(var(--clock-color,var(--accent,#658e83)) var(--timer-angle),var(--line) 0);font-variant-numeric:tabular-nums}
 .dw-clock:before{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--panel,var(--surface,#fff))}
 .dw-clock span,.dw-clock small{position:relative;z-index:1}.dw-clock span{font-size:1.12rem;font-weight:850;line-height:1.1;color:var(--ink)}.dw-clock small{font-size:.5rem;letter-spacing:.12em;color:var(--muted);font-weight:800}
 .dw-clock.warm{--clock-color:#c18b42}.dw-clock.urgent{--clock-color:#c44e46;animation:dw-pulse .8s ease-in-out infinite alternate}
