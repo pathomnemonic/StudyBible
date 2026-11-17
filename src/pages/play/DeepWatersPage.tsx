@@ -24,9 +24,10 @@ export default function DeepWatersPage() {
     }
     return practice ? practiceDeepPrompts(practiceSeed) : dailyDeepPrompts(today);
   }, [practice, practiceSeed, today, canResume, snapshot]);
-  const restoredRemaining = snapshot?.paused ? snapshot.remainingMs : snapshot?.deadlineAt ? Math.max(0, snapshot.deadlineAt - Date.now()) : DEEP_SECONDS * 1000;
+  const restoredRemaining = snapshot?.paused ? snapshot.remainingMs : snapshot?.deadlineAt ? Math.max(0, snapshot.deadlineAt - Date.now()) : 3_000;
+  const [preview, setPreview] = useState(!canResume || snapshot!.phase === 'preview');
   const [round, setRound] = useState(canResume ? snapshot!.round : 0);
-  const [seconds, setSeconds] = useState(canResume ? Math.ceil(restoredRemaining / 1000) : DEEP_SECONDS);
+  const [seconds, setSeconds] = useState(canResume ? Math.ceil(restoredRemaining / 1000) : 3);
   const [guess, setGuess] = useState(canResume ? snapshot!.guess : '');
   const [locked, setLocked] = useState(canResume && snapshot!.phase === 'locked');
   const [feedback, setFeedback] = useState('');
@@ -71,10 +72,14 @@ export default function DeepWatersPage() {
 
   useEffect(() => {
     if (seconds !== 0 || locked || done || !prompt) return;
+    if (preview) {
+      setPreview(false); deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000; setSeconds(DEEP_SECONDS);
+      return;
+    }
     const missed: RoundResult = { prompt: prompt.prompt, guess: '', answer: null, tier: null, points: 0, timedOut: true };
     deadlineRef.current = 0;
     setLocked(true); setResult(missed); setHistory((h) => [...h, missed]);
-  }, [seconds, locked, done, prompt]);
+  }, [seconds, locked, done, prompt, preview]);
 
   useEffect(() => {
     if (done && !practice) {
@@ -87,7 +92,7 @@ export default function DeepWatersPage() {
   useEffect(() => {
     saveDeepSession({
       version: 1, day: today, practice, practiceSeed, promptIds: prompts.map((p) => p.id),
-      round, phase: done ? 'done' : locked ? 'locked' : 'playing', score,
+      round, phase: done ? 'done' : locked ? 'locked' : preview ? 'preview' : 'playing', score,
       history: history.map((entry, index) => ({ promptId: prompts[index]?.id ?? '', prompt: entry.prompt, guess: entry.guess, answer: entry.answer, tier: entry.tier, points: entry.points, timedOut: entry.timedOut, pearlBonus: entry.pearlBonus })),
       guess, deadlineAt: done || locked ? null : deadlineRef.current,
       remainingMs: document.visibilityState === 'hidden' ? remainingRef.current : seconds * 1000,
@@ -99,8 +104,8 @@ export default function DeepWatersPage() {
   const reset = (nextPractice = practice) => {
     clearDeepSession();
     if (nextPractice) setPracticeSeed(newPracticeSeed());
-    deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000;
-    setRound(0); setSeconds(DEEP_SECONDS); setGuess(''); setLocked(false); setFeedback('');
+    setPreview(true); deadlineRef.current = Date.now() + 3_000; remainingRef.current = 3_000;
+    setRound(0); setSeconds(3); setGuess(''); setLocked(false); setFeedback('');
     setResult(null); setHistory([]); setScore(0); setDone(false); setShowAnswers(false); setShowHint(false);
   };
 
@@ -120,13 +125,13 @@ export default function DeepWatersPage() {
 
   const advance = () => {
     if (round + 1 >= DEEP_ROUNDS) { setDone(true); return; }
-    setRound((n) => n + 1); deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000; setSeconds(DEEP_SECONDS); setGuess(''); setLocked(false);
+    setRound((n) => n + 1); setPreview(true); deadlineRef.current = Date.now() + 3_000; remainingRef.current = 3_000; setSeconds(3); setGuess(''); setLocked(false);
     setFeedback(''); setResult(null); setShowAnswers(false); setShowHint(false);
   };
 
   const share = `Deep Waters ${practice ? 'practice' : '#' + today}\n${score} points\n${history.map((r, i) => `${i + 1}. ${r.points ? '+' + r.points : '—'}`).join('\n')}`;
   const accepted = useMemo(() => [...prompt.answers].sort((a, b) => b.tier - a.tier || a.answer.localeCompare(b.answer)), [prompt]);
-  const timerTone = seconds <= 7 ? 'urgent' : seconds <= 15 ? 'warm' : 'calm';
+  const timerTone = !preview && seconds <= 7 ? 'urgent' : !preview && seconds <= 15 ? 'warm' : 'calm';
   const suggestions = useMemo(() => guess.trim() && !locked ? suggestDeepAnswers(prompt, guess) : [], [prompt, guess, locked]);
 
   return (
@@ -138,7 +143,7 @@ export default function DeepWatersPage() {
         <p>Seven rounds. One answer each. Find a recognized answer in our curated key.</p>
       </header>
       <GameHelp how={[
-        'Each round gives you a Catholic or biblical category. Enter one answer from the curated key before the 30-second timer runs out.',
+        'Each round begins with a three-second preview, then gives you 30 seconds to enter one answer from the curated key.',
         'A recognized answer earns more points when it is a deeper cut: 1, 2, 4, 8 or 16 points.',
         'Use the optional hint if you get stuck. Rarity is curated for the game, not calculated from player surveys.',
         'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
@@ -150,7 +155,7 @@ export default function DeepWatersPage() {
           <div className="dw-status">
             <span className="dw-round-count">DIVE <b>{String(round + 1).padStart(2, '0')}</b><i> / 07</i></span>
             <span className="dw-score"><b>{score}</b><small>POINTS</small></span>
-            <div className={`dw-clock ${timerTone}`} role="timer" aria-label={`${seconds} seconds remaining`} style={{ ['--timer-angle' as string]: `${(seconds / DEEP_SECONDS) * 360}deg` }}>
+            <div className={`dw-clock ${timerTone}`} role="timer" aria-label={`${seconds} seconds remaining`} style={{ ['--timer-angle' as string]: `${(seconds / (preview ? 3 : DEEP_SECONDS)) * 360}deg` }}>
               <span>{seconds}</span><small>SEC</small>
             </div>
           </div>
@@ -161,25 +166,26 @@ export default function DeepWatersPage() {
             <div className="dw-card-top"><span className="dw-round-label">THE QUESTION</span><span className="dw-daily-tag">{practice ? 'PRACTICE DIVE' : 'TODAY’S DIVE'}</span></div>
             <h2>{prompt.prompt}</h2>
             <p className="dw-context">{prompt.context}</p>
-            {!locked && <div className="dw-hint-wrap">
+            {preview && <p className="dw-preview-countdown">Get ready. Your answer clock starts next.</p>}
+            {!locked && !preview && <div className="dw-hint-wrap">
               <button className="dw-hint-button" type="button" onClick={() => setShowHint((v) => !v)} aria-expanded={showHint}>
                 <span aria-hidden="true">✧</span> {showHint ? 'Hide hint' : 'Need a nudge? Reveal a hint'}
               </button>
               {showHint && <p className="dw-hint">{prompt.hint}</p>}
             </div>}
-            <form onSubmit={(e) => { e.preventDefault(); submit(); }}>
+            {!preview && <form onSubmit={(e) => { e.preventDefault(); submit(); }}>
               <label className="dw-answer-label" htmlFor="dw-answer">YOUR ANSWER</label>
               <div className="dw-entry">
                 <input id="dw-answer" value={guess} onChange={(e) => { setGuess(e.target.value); setFeedback(''); }} disabled={locked} autoComplete="off" autoCapitalize="words" placeholder="Type a name, place, prayer…" />
                 {!locked && <button className="dw-submit" type="submit">Lock it in <span aria-hidden="true">↗</span></button>}
               </div>
-            </form>
+            </form>}
             <p className="dw-feedback" aria-live="polite">{feedback}</p>
-            {suggestions.length > 0 && <div className="dw-suggestions" aria-label="Possible spelling corrections">
+            {!preview && suggestions.length > 0 && <div className="dw-suggestions" aria-label="Possible spelling corrections">
               <small>Did you mean? Choose a suggestion, then lock it in yourself.</small>
               {suggestions.map((item) => <button key={item.answer} type="button" onClick={() => { setGuess(item.answer); setFeedback(''); }}>{item.answer}</button>)}
             </div>}
-            {!locked && <div className="dw-scoring-key" aria-label="Scoring guide">
+            {!locked && !preview && <div className="dw-scoring-key" aria-label="Scoring guide">
               <span>SCORING</span>{([1,2,3,4,5] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><b>{DEEP_POINTS[tier]}</b></i>)}<small>rarer answers score more</small>
             </div>}
             {locked && result && (
