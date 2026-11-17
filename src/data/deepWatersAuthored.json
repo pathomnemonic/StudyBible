@@ -1356,19 +1356,19 @@
         "answer": "Holy Mother of God"
       },
       {
-        "guess": "Holy Virgin of virgins",
+        "guess": "Mother of Mercy",
         "accept": true,
-        "answer": "Holy Virgin of virgins"
+        "answer": "Mother of Mercy"
       },
       {
-        "guess": "Mother of Christ",
+        "guess": "Mother of Hope",
         "accept": true,
-        "answer": "Mother of Christ"
+        "answer": "Mother of Hope"
       },
       {
-        "guess": "Mother of the Church",
+        "guess": "Solace of Migrants",
         "accept": true,
-        "answer": "Mother of the Church"
+        "answer": "Solace of Migrants"
       },
       {
         "guess": "Mother of Perpetual Help",
@@ -2623,21 +2623,6 @@
     ],
     "commonGuesses": [
       {
-        "guess": "Elijah",
-        "accept": true,
-        "answer": "Elijah"
-      },
-      {
-        "guess": "Elisha",
-        "accept": true,
-        "answer": "Elisha"
-      },
-      {
-        "guess": "Nathan",
-        "accept": true,
-        "answer": "Nathan"
-      },
-      {
         "guess": "Daniel",
         "accept": true,
         "answer": "Daniel"
@@ -2648,14 +2633,24 @@
         "answer": "Zechariah son Jehoiada"
       },
       {
+        "guess": "Man of God from Judah",
+        "accept": true,
+        "answer": "Judah's Man of God"
+      },
+      {
+        "guess": "Nathan",
+        "accept": true,
+        "answer": "Nathan"
+      },
+      {
+        "guess": "Elijah",
+        "accept": true,
+        "answer": "Elijah"
+      },
+      {
         "guess": "Huldah",
         "accept": false,
         "reason": "She advised the king's delegation, not the king himself, and is excluded by this scope."
-      },
-      {
-        "guess": "Isaiah",
-        "accept": true,
-        "answer": "Isaiah"
       },
       {
         "guess": "Moses",
@@ -2671,6 +2666,11 @@
         "guess": "Jonah",
         "accept": false,
         "reason": "The text records his mission to Nineveh, not a direct royal message in this set."
+      },
+      {
+        "guess": "Isaiah of Jerusalem",
+        "accept": false,
+        "reason": "The canonical answer is Isaiah; this longer form is not an accepted alias."
       }
     ]
   },
@@ -4736,7 +4736,8 @@
         "tier": 5,
         "source": "Revelation 8:10–11",
         "aliases": [
-          "Third trumpet: Wormwood"
+          "Third trumpet: Wormwood",
+          "Wormwood"
         ]
       },
       {
@@ -4797,14 +4798,14 @@
         "answer": "Woman Clothed with Sun"
       },
       {
-        "guess": "The beast from the sea",
-        "accept": true,
-        "answer": "Beast from Sea"
-      },
-      {
         "guess": "The seven trumpets",
         "accept": true,
         "answer": "Seven Trumpets"
+      },
+      {
+        "guess": "Wormwood",
+        "accept": true,
+        "answer": "Third Trumpet Wormwood"
       },
       {
         "guess": "Purgatory",
