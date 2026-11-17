@@ -11,7 +11,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     context: 'Occupations and trades appear in biblical narratives, laws, parables and apostolic descriptions.',
     source: 'Douay-Rheims Bible; Catholic Bible app Scripture text.',
     answers: rows([
-      ['fisherman', 1, 'fisher'],
+      ['fisherman', 1],
       ['farmer', 1, 'husbandman'],
       ['carpenter', 1, 'builder'],
       ['tentmaker', 1],
@@ -40,7 +40,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
       ['keeper of an inn', 4],
       ['midwife', 4],
       ['nurse', 4],
-      ['physician', 4, 'doctor'],
+      ['physician', 4],
       ['doctor', 5],
       ['magician', 5],
       ['astrologer', 5],
