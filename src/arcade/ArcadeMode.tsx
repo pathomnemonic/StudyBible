@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import '@fontsource/lilita-one';
 import '@fontsource-variable/fredoka';
 import '../styles/arcade.css';
-import { blip, burst, ring, setSound, soundOn } from './fx';
+import { blip, burst, countUp, ring, setSound, soundOn } from './fx';
 import { Anim, Art } from './art';
 
 const WINS: [string, string][] = [['1f389', 'Nice work!'], ['1f3c6', 'Well played!'], ['1f973', 'Brilliant!'], ['1f929', 'You did it!']];
@@ -56,7 +56,7 @@ export default function ArcadeMode() {
       for (const m of muts) m.addedNodes.forEach((n) => {
         if (!(n instanceof HTMLElement)) return;
         const el = n.matches(finish) ? n : n.querySelector(finish);
-        if (el && !seen.has(el)) { seen.add(el); burst(); blip('win'); setWin(Math.floor(Math.random() * WINS.length)); }
+        if (el && !seen.has(el)) { seen.add(el); burst(); blip('win'); setWin(Math.floor(Math.random() * WINS.length)); el.querySelectorAll<HTMLElement>('.ws-score, h2').forEach((n) => { if (n.childNodes.length && n.firstChild?.nodeType === 3) countUp(n); }); }
       });
       // right and wrong answers: a sound when a choice turns green or red
       for (const m of muts) if (m.type === 'attributes' && m.target instanceof HTMLElement) {

@@ -61,3 +61,22 @@ export function blip(kind: Blip) {
     else { [523, 659, 784, 1047].forEach((f, i) => tone(f, i * 0.1, 0.22)); }
   } catch { /* no audio available */ }
 }
+
+/** Counts the number in an element's first text node up from zero, then puts that text back exactly (other child elements are never touched). Not under reduced motion. */
+export function countUp(el: HTMLElement, ms = 900) {
+  if (reduced()) return;
+  const node = el.firstChild;
+  if (!node || node.nodeType !== 3) return;
+  const original = node.textContent ?? '';
+  if (!/^\d+$/.test(original.trim())) return;
+  const target = parseInt(original, 10);
+  if (target < 2 || target > 100000) return;
+  const start = performance.now();
+  const step = (now: number) => {
+    const t = Math.min(1, (now - start) / ms);
+    if (!node.isConnected) return;
+    node.textContent = t < 1 ? String(Math.round(target * (1 - Math.pow(1 - t, 3)))) : original;
+    if (t < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
