@@ -1010,7 +1010,7 @@
       },
       {
         "answer": "Holy Virgin of virgins",
-        "tier": 2,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
@@ -1028,7 +1028,7 @@
       },
       {
         "answer": "Mother of Mercy",
-        "tier": 2,
+        "tier": 3,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
           "Mother of mercy",
@@ -1043,7 +1043,7 @@
       },
       {
         "answer": "Mother of Hope",
-        "tier": 2,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
           "Mother of hope",
@@ -1064,43 +1064,43 @@
       },
       {
         "answer": "Mother inviolate",
-        "tier": 3,
+        "tier": 6,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Mother undefiled",
-        "tier": 3,
+        "tier": 6,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Mother most amiable",
-        "tier": 3,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Mother most admirable",
-        "tier": 3,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Mother of good counsel",
-        "tier": 2,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Mother of our Creator",
-        "tier": 3,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Mother of our Saviour",
-        "tier": 3,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
           "Mother of our Savior"
@@ -1108,43 +1108,43 @@
       },
       {
         "answer": "Virgin most prudent",
-        "tier": 2,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Virgin most venerable",
-        "tier": 2,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Virgin most renowned",
-        "tier": 3,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Virgin most powerful",
-        "tier": 2,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Virgin most merciful",
-        "tier": 2,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Virgin most faithful",
-        "tier": 2,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Mirror of justice",
-        "tier": 3,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
@@ -1156,19 +1156,19 @@
       },
       {
         "answer": "Cause of our joy",
-        "tier": 3,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Spiritual vessel",
-        "tier": 3,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Vessel of honour",
-        "tier": 3,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
           "Vessel of honor"
@@ -1176,7 +1176,7 @@
       },
       {
         "answer": "Singular vessel of devotion",
-        "tier": 4,
+        "tier": 6,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
@@ -1188,25 +1188,25 @@
       },
       {
         "answer": "Tower of David",
-        "tier": 2,
+        "tier": 3,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Tower of ivory",
-        "tier": 3,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "House of gold",
-        "tier": 3,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Ark of the covenant",
-        "tier": 2,
+        "tier": 3,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
@@ -1218,25 +1218,25 @@
       },
       {
         "answer": "Morning star",
-        "tier": 1,
+        "tier": 2,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Health of the sick",
-        "tier": 1,
+        "tier": 2,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Refuge of sinners",
-        "tier": 1,
+        "tier": 2,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Solace of Migrants",
-        "tier": 3,
+        "tier": 6,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
           "Solacium migrantium",
@@ -1245,7 +1245,7 @@
       },
       {
         "answer": "Comfort of the afflicted",
-        "tier": 1,
+        "tier": 3,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
           "Comforter of the afflicted"
@@ -1253,13 +1253,13 @@
       },
       {
         "answer": "Help of Christians",
-        "tier": 1,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Queen of Angels",
-        "tier": 1,
+        "tier": 3,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
           "Queen of angels"
@@ -1267,43 +1267,43 @@
       },
       {
         "answer": "Queen of Patriarchs",
-        "tier": 3,
+        "tier": 6,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Queen of Prophets",
-        "tier": 2,
+        "tier": 4,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Queen of Apostles",
-        "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
-        "aliases": []
-      },
-      {
-        "answer": "Queen of Martyrs",
-        "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
-        "aliases": []
-      },
-      {
-        "answer": "Queen of Confessors",
         "tier": 3,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
+        "answer": "Queen of Martyrs",
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
+      },
+      {
+        "answer": "Queen of Confessors",
+        "tier": 6,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": []
+      },
+      {
         "answer": "Queen of Virgins",
-        "tier": 2,
+        "tier": 6,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Queen of all Saints",
-        "tier": 1,
+        "tier": 3,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
           "Queen of All Saints"
@@ -1311,7 +1311,7 @@
       },
       {
         "answer": "Queen Immaculately Conceived",
-        "tier": 2,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
           "Queen conceived without original sin"
@@ -1319,13 +1319,13 @@
       },
       {
         "answer": "Queen assumed into heaven",
-        "tier": 2,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Queen of Holy Rosary",
-        "tier": 1,
+        "tier": 3,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": [
           "Queen of the most holy Rosary"
@@ -1333,13 +1333,13 @@
       },
       {
         "answer": "Queen of families",
-        "tier": 1,
+        "tier": 5,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       },
       {
         "answer": "Queen of peace",
-        "tier": 1,
+        "tier": 3,
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
         "aliases": []
       }
@@ -1555,7 +1555,7 @@
     "answers": [
       {
         "answer": "Albanian Greek Catholic Church",
-        "tier": 5,
+        "tier": 6,
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
         "aliases": []
       },
@@ -1573,7 +1573,7 @@
       },
       {
         "answer": "Croatian Serbian Church",
-        "tier": 5,
+        "tier": 4,
         "aliases": [
           "Croatian and Serbian Greek Catholic Church",
           "Greek Catholic Church of Croatia and Serbia"
@@ -1588,7 +1588,7 @@
       },
       {
         "answer": "Hungarian Greek Catholic Church",
-        "tier": 3,
+        "tier": 4,
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
         "aliases": []
       },
@@ -1600,7 +1600,7 @@
       },
       {
         "answer": "Melkite Greek Catholic Church",
-        "tier": 2,
+        "tier": 1,
         "aliases": [
           "Melkite Church",
           "Melkite Catholic Church"
@@ -1609,7 +1609,7 @@
       },
       {
         "answer": "Romanian Greek Catholic Church",
-        "tier": 3,
+        "tier": 2,
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
         "aliases": []
       },
@@ -1621,7 +1621,7 @@
       },
       {
         "answer": "Ruthenian Byzantine Catholic Church",
-        "tier": 3,
+        "tier": 2,
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
         "aliases": [
           "Ruthenian Catholic Church"
@@ -1629,7 +1629,7 @@
       },
       {
         "answer": "Slovak Greek Catholic Church",
-        "tier": 3,
+        "tier": 2,
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
         "aliases": []
       },
@@ -1644,13 +1644,13 @@
       },
       {
         "answer": "Armenian Catholic Church",
-        "tier": 2,
+        "tier": 3,
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
         "aliases": []
       },
       {
         "answer": "Chaldean Catholic Church",
-        "tier": 2,
+        "tier": 1,
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
         "aliases": [
           "Chaldean Church"
@@ -1696,13 +1696,13 @@
       },
       {
         "answer": "Eritrean Catholic Church",
-        "tier": 4,
+        "tier": 3,
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
         "aliases": []
       },
       {
         "answer": "Italo-Albanian Catholic Church",
-        "tier": 4,
+        "tier": 3,
         "aliases": [
           "Italo-Albanian Byzantine Catholic Church"
         ],
@@ -1814,7 +1814,7 @@
       },
       {
         "answer": "Gregory the Great",
-        "tier": 1,
+        "tier": 2,
         "aliases": [
           "Gregory I",
           "Pope Gregory I",
@@ -1846,7 +1846,7 @@
       },
       {
         "answer": "Anselm of Canterbury",
-        "tier": 2,
+        "tier": 4,
         "aliases": [
           "Anselm",
           "Saint Anselm",
@@ -1858,7 +1858,7 @@
       },
       {
         "answer": "Isidore of Seville",
-        "tier": 2,
+        "tier": 4,
         "aliases": [
           "Isidore",
           "Saint Isidore",
@@ -1870,7 +1870,7 @@
       },
       {
         "answer": "Peter Chrysologus",
-        "tier": 3,
+        "tier": 5,
         "aliases": [
           "Saint Peter Chrysologus",
           "St Peter Chrysologus",
@@ -1880,7 +1880,7 @@
       },
       {
         "answer": "Leo the Great",
-        "tier": 2,
+        "tier": 3,
         "aliases": [
           "Leo I",
           "Pope Leo I",
@@ -1892,7 +1892,7 @@
       },
       {
         "answer": "Peter Damian",
-        "tier": 3,
+        "tier": 5,
         "aliases": [
           "Saint Peter Damian",
           "St Peter Damian",
@@ -1912,7 +1912,7 @@
       },
       {
         "answer": "Hildegard of Bingen",
-        "tier": 2,
+        "tier": 3,
         "aliases": [
           "Saint Hildegard of Bingen",
           "St Hildegard of Bingen",
@@ -1922,7 +1922,7 @@
       },
       {
         "answer": "Albert the Great",
-        "tier": 2,
+        "tier": 3,
         "aliases": [
           "Albertus Magnus",
           "Saint Albert the Great",
@@ -1933,7 +1933,7 @@
       },
       {
         "answer": "Anthony of Padua",
-        "tier": 1,
+        "tier": 2,
         "aliases": [
           "Saint Anthony of Padua",
           "St Anthony of Padua",
@@ -1994,7 +1994,7 @@
       },
       {
         "answer": "John of Ávila",
-        "tier": 3,
+        "tier": 4,
         "aliases": [
           "Saint John of Ávila",
           "St John of Ávila",
@@ -2014,7 +2014,7 @@
       },
       {
         "answer": "Robert Bellarmine",
-        "tier": 3,
+        "tier": 4,
         "aliases": [
           "Saint Robert Bellarmine",
           "St Robert Bellarmine",
@@ -2024,7 +2024,7 @@
       },
       {
         "answer": "Alphonsus Liguori",
-        "tier": 2,
+        "tier": 3,
         "aliases": [
           "Alphonsus Maria de Liguori",
           "Saint Alphonsus Liguori",
@@ -2035,7 +2035,7 @@
       },
       {
         "answer": "Athanasius of Alexandria",
-        "tier": 1,
+        "tier": 2,
         "aliases": [
           "Athanasius",
           "Saint Athanasius",
@@ -2047,7 +2047,7 @@
       },
       {
         "answer": "Basil the Great",
-        "tier": 1,
+        "tier": 2,
         "aliases": [
           "Basil of Caesarea",
           "Saint Basil the Great",
@@ -2058,7 +2058,7 @@
       },
       {
         "answer": "Gregory of Nazianzus",
-        "tier": 2,
+        "tier": 5,
         "aliases": [
           "Gregory Nazianzen",
           "Saint Gregory of Nazianzus",
@@ -2069,7 +2069,7 @@
       },
       {
         "answer": "John Chrysostom",
-        "tier": 1,
+        "tier": 2,
         "aliases": [
           "Saint John Chrysostom",
           "St John Chrysostom",
@@ -2079,7 +2079,7 @@
       },
       {
         "answer": "Cyril of Jerusalem",
-        "tier": 3,
+        "tier": 5,
         "aliases": [
           "Saint Cyril of Jerusalem",
           "St Cyril of Jerusalem",
@@ -2089,7 +2089,7 @@
       },
       {
         "answer": "Ephrem the Syrian",
-        "tier": 3,
+        "tier": 4,
         "aliases": [
           "Ephrem",
           "Saint Ephrem the Syrian",
@@ -2100,7 +2100,7 @@
       },
       {
         "answer": "John of Damascus",
-        "tier": 2,
+        "tier": 4,
         "aliases": [
           "John Damascene",
           "Saint John of Damascus",
@@ -2111,7 +2111,7 @@
       },
       {
         "answer": "Irenaeus of Lyons",
-        "tier": 2,
+        "tier": 3,
         "aliases": [
           "Irenaeus of Lyon",
           "Saint Irenaeus",
@@ -2123,7 +2123,7 @@
       },
       {
         "answer": "Hilary of Poitiers",
-        "tier": 3,
+        "tier": 4,
         "aliases": [
           "Saint Hilary of Poitiers",
           "St Hilary of Poitiers",
@@ -2133,7 +2133,7 @@
       },
       {
         "answer": "Gregory of Narek",
-        "tier": 4,
+        "tier": 6,
         "aliases": [
           "Saint Gregory of Narek",
           "St Gregory of Narek",
@@ -2143,7 +2143,7 @@
       },
       {
         "answer": "Bede",
-        "tier": 2,
+        "tier": 3,
         "aliases": [
           "The Venerable Bede",
           "Saint Bede",
@@ -2154,7 +2154,7 @@
       },
       {
         "answer": "John Henry Newman",
-        "tier": 1,
+        "tier": 3,
         "aliases": [
           "Newman",
           "Saint John Henry Newman",
@@ -2166,7 +2166,7 @@
       },
       {
         "answer": "Cyril of Alexandria",
-        "tier": 2,
+        "tier": 3,
         "aliases": [
           "Saint Cyril of Alexandria",
           "St Cyril of Alexandria",
@@ -2176,7 +2176,7 @@
       },
       {
         "answer": "Peter Canisius",
-        "tier": 3,
+        "tier": 5,
         "aliases": [
           "Saint Peter Canisius",
           "St Peter Canisius",
@@ -3988,7 +3988,7 @@
       },
       {
         "answer": "Council of Chalcedon",
-        "tier": 2,
+        "tier": 1,
         "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
@@ -4025,7 +4025,7 @@
       },
       {
         "answer": "First Lateran Council",
-        "tier": 4,
+        "tier": 3,
         "aliases": [
           "Lateran I"
         ],
@@ -4057,7 +4057,7 @@
       },
       {
         "answer": "Fifth Lateran Council",
-        "tier": 5,
+        "tier": 6,
         "aliases": [
           "Lateran V"
         ],
@@ -4081,12 +4081,12 @@
       },
       {
         "answer": "Council of Vienne",
-        "tier": 4,
+        "tier": 5,
         "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Council of Constance",
-        "tier": 3,
+        "tier": 5,
         "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
@@ -6650,7 +6650,7 @@
       },
       {
         "answer": "Visitation",
-        "tier": 1,
+        "tier": 2,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary",
         "aliases": [
           "The Visitation"
@@ -6666,7 +6666,7 @@
       },
       {
         "answer": "Presentation",
-        "tier": 2,
+        "tier": 3,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary",
         "aliases": [
           "Presentation in the Temple"
@@ -6674,7 +6674,7 @@
       },
       {
         "answer": "Finding in the Temple",
-        "tier": 2,
+        "tier": 5,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary",
         "aliases": [
           "Finding of Jesus in the Temple"
@@ -6682,22 +6682,22 @@
       },
       {
         "answer": "Agony in the Garden",
-        "tier": 1,
+        "tier": 2,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary"
       },
       {
         "answer": "Scourging at the Pillar",
-        "tier": 1,
+        "tier": 2,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary"
       },
       {
         "answer": "Crowning with Thorns",
-        "tier": 1,
+        "tier": 3,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary"
       },
       {
         "answer": "Carrying of the Cross",
-        "tier": 1,
+        "tier": 2,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary"
       },
       {
@@ -6717,7 +6717,7 @@
       },
       {
         "answer": "Descent of Spirit",
-        "tier": 1,
+        "tier": 5,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary",
         "aliases": [
           "Pentecost",
@@ -6726,12 +6726,12 @@
       },
       {
         "answer": "Assumption",
-        "tier": 1,
+        "tier": 2,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary"
       },
       {
         "answer": "Coronation of Mary",
-        "tier": 2,
+        "tier": 4,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary",
         "aliases": [
           "Coronation of the Blessed Virgin"
@@ -6739,27 +6739,27 @@
       },
       {
         "answer": "Baptism in the Jordan",
-        "tier": 1,
+        "tier": 4,
         "source": "John Paul II, Rosarium Virginis Mariae 21–26"
       },
       {
         "answer": "Wedding at Cana",
-        "tier": 1,
+        "tier": 4,
         "source": "John Paul II, Rosarium Virginis Mariae 21–26"
       },
       {
         "answer": "Proclamation of the Kingdom",
-        "tier": 2,
+        "tier": 6,
         "source": "John Paul II, Rosarium Virginis Mariae 21–26"
       },
       {
         "answer": "Transfiguration",
-        "tier": 1,
+        "tier": 3,
         "source": "John Paul II, Rosarium Virginis Mariae 21–26"
       },
       {
         "answer": "Institution of Eucharist",
-        "tier": 1,
+        "tier": 3,
         "source": "John Paul II, Rosarium Virginis Mariae 21–26",
         "aliases": [
           "Institution of the Eucharist"
