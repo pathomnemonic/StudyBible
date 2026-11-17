@@ -759,85 +759,85 @@
   },
   {
    "id": "bible-trades",
-   "sha256": "926ffba462822af0bc83e20682ab98d33603698fd79181e3ab2b5ecf2d07d1ed",
+   "sha256": "36865100fa6fc7ea8f80246a25fd04152d11246d0bf14ad40af7c85a861395e6",
    "answers": 39,
    "status": "unreviewed"
   },
   {
    "id": "bible-foods",
-   "sha256": "524195595d649bc5e3a6aab14bae2bc0830dea46ffd43f14384227fc36712081",
+   "sha256": "f759becf52038e586e038f96de27313ee25aa36d4ae67675529724a15b909f76",
    "answers": 46,
    "status": "unreviewed"
   },
   {
    "id": "bible-objects",
-   "sha256": "18191a2c354640c96018caef0e5762e60e14e78a46d7df121e7b56c765382540",
+   "sha256": "7cd3630c93abedd737943b1226c7569edffdaa7958c9bee6f6971717631ff0c7",
    "answers": 46,
    "status": "unreviewed"
   },
   {
    "id": "saint-founders",
-   "sha256": "7365fbe41c056c1ec79b5a9481e0aa0014f40aa641318eb0c6ec4c7bcd4b83ff",
+   "sha256": "e19901ab48698a50b711207fa3fa83d7cf7c0632f95f0a8a4315239445e503f2",
    "answers": 38,
    "status": "unreviewed"
   },
   {
    "id": "saint-patronages",
-   "sha256": "0c35175350714129b544d5668f7ea11fc171cf1484a1b33e485a35c0f0aa6de6",
+   "sha256": "705c043b53a3076b910ee686a48e15fe05f66f1a6953267f10db53c90a0bc037",
    "answers": 38,
    "status": "unreviewed"
   },
   {
    "id": "early-heresies",
-   "sha256": "4587557399e79788aaa6d9a5efea390d29d07b00cff1b494dedd0a847058abff",
+   "sha256": "5b973f5d5b9f87eb26a86233ca6f1bb60117f3cc0f2b142a3aaad55e819af985",
    "answers": 32,
    "status": "unreviewed"
   },
   {
    "id": "liturgical-books",
-   "sha256": "5d3d5f6ac654ab3333bdc9b9a86589a4040e7e222fe1c190272984c726011b97",
+   "sha256": "9648f8a8af917bc8c7f5c12efc747d9f0ea8aa023681ed6cf01ccaaffce3d262",
    "answers": 29,
    "status": "unreviewed"
   },
   {
    "id": "latin-prayers",
-   "sha256": "aa4fee05856ebce1d003a440a55b462a486db285c8ba3944e147fb57f403cf5e",
+   "sha256": "e5904f2f29884d883685e567927a9026b2081836f02bc30e634141b4e1abf1cf",
    "answers": 35,
    "status": "unreviewed"
   },
   {
    "id": "roman-basilicas",
-   "sha256": "498fdbe6ae1a3a18cb60dfb38bc1be63856c0b185896c49923dd8d34274e2949",
+   "sha256": "d38205b6d0ba03f8d92eceed8becdc223069632a5a99cabb27e9bb622a1aea01",
    "answers": 37,
    "status": "unreviewed"
   },
   {
    "id": "church-historians",
-   "sha256": "662a01cd0eb5588e2c4ea2615f3a308c1af556077c7f4127d26ef0ec94312568",
+   "sha256": "7f4547fc7ceb560b33e36c812af0c38bff399578a0ab4a95e91707f0aa22fb56",
    "answers": 29,
    "status": "unreviewed"
   },
   {
    "id": "saint-missionaries",
-   "sha256": "0850c3dbc0a7a8104e135d12b408b0d2f4e1d393d322d70c214b3350a08d18ed",
+   "sha256": "fcd92f57212c058e02ca9a5759ac0d30f1d5947c632ad4c550d8408a5632d511",
    "answers": 32,
    "status": "unreviewed"
   },
   {
    "id": "papal-encyclicals",
-   "sha256": "fba89d39a4c85da3217124ca5109e2fe7222458eecf5661d22ad57970ab053ae",
+   "sha256": "c401090da5668b3470c286c18b8935e4393be3be8eacae731ccb4698c2054360",
    "answers": 35,
    "status": "unreviewed"
   },
   {
    "id": "evangelist-symbols",
-   "sha256": "7faf000bdb4a5a48699949f1342563b7d25dc28e301c1342918bb86bc5004bd5",
+   "sha256": "291bd971c98debc438157cc728bc72b7517fd70047e4392f973a45a4cee97570",
    "answers": 4,
    "status": "unreviewed"
   },
   {
    "id": "saint-art-attributes",
-   "sha256": "2f922ac86dca3d960b8bf3770326aa85bddf641976899921b0d3f3715ea0964a",
+   "sha256": "da78c9bef31099685a22b115ee915a10926ca6d1ab704ddae93ef837701769ba",
    "answers": 30,
    "status": "unreviewed"
   }
