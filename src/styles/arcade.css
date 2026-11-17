@@ -567,3 +567,37 @@ html[data-arcade][data-game='deepwaters'] .dw-scoring-key i b { font-size: 0.78r
 
 /* a glow that breathes without moving the element (so it can always be clicked, by people and by tests) */
 @keyframes arc-glow { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.18) drop-shadow(0 0 14px rgba(255, 210, 63, 0.8)); } }
+
+/* The Prophet: a number line that shows your guess against the answer */
+html[data-game='prophet'] .prophet-q { background: rgba(255,255,255,.1); border: 2px solid rgba(255,255,255,.25); border-radius: 18px; padding: 16px; text-align: center; backdrop-filter: blur(4px); }
+html[data-game='prophet'] .rowform input { font-family: var(--font-display); font-size: 1.6rem; text-align: center; border-radius: 16px; border: 3px solid #ffd23f; background: #fff; color: #2a1a8f; }
+.pr-track { position: relative; height: 84px; margin: 18px 6px 8px; }
+.pr-line { position: absolute; left: 0; right: 0; top: 44px; height: 8px; border-radius: 6px; background: linear-gradient(90deg, #7b5cff, #ff4fa3); box-shadow: 0 0 14px #ff4fa3aa; }
+.pr-gap { position: absolute; top: 40px; height: 16px; border-radius: 8px; background: repeating-linear-gradient(45deg, #ffd23f 0 6px, #ffb300 6px 12px); opacity: .9; transition: width .7s cubic-bezier(.2,.9,.3,1.2); }
+.pr-pin { position: absolute; top: 14px; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; transition: left .5s; }
+.pr-pin b { font-family: var(--font-display); background: #fff; color: #2a1a8f; padding: 2px 9px; border-radius: 10px; font-size: .95rem; }
+.pr-pin::after { content: ''; width: 4px; height: 26px; background: #fff; margin-top: 2px; border-radius: 2px; }
+.pr-pin.ans b { background: #ffd23f; }
+.pr-pin.ans::after { background: #ffd23f; box-shadow: 0 0 12px #ffd23f; }
+.pr-pin.ans { animation: pr-drop .6s cubic-bezier(.2,1.4,.4,1) both; }
+@keyframes pr-drop { from { top: -30px; opacity: 0; } to { top: 14px; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .pr-pin.ans { animation: none; } .pr-gap, .pr-pin { transition: none; } }
+
+/* Doctrine ladder: the levels are rungs, highest at the top */
+.dl-ladder { list-style: none; margin: 14px 0; padding: 0 22px; display: flex; flex-direction: column; gap: 14px; position: relative; }
+.dl-ladder::before, .dl-ladder::after { content: ''; position: absolute; top: 0; bottom: 0; width: 10px; border-radius: 6px; background: linear-gradient(90deg, #c68a4a, #8a5a2b); box-shadow: 0 0 0 2px #4a2e12; z-index: 0; }
+.dl-ladder::before { left: 4px; } .dl-ladder::after { right: 4px; }
+.dl-rung { position: relative; z-index: 1; }
+.dl-step { width: 100%; display: flex; align-items: center; gap: 12px; text-align: left; padding: 12px 14px; border-radius: 18px; border: 3px solid #fff; background: linear-gradient(180deg, #ffd23f, #ff9f1c); color: #3a2000; box-shadow: 0 6px 0 #a35a00, 0 10px 18px #0006; cursor: pointer; font: inherit; }
+.dl-step:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 3px 0 #a35a00; }
+.dl-rung.locked .dl-step { background: linear-gradient(180deg, #7b86a8, #4f5a7d); color: #e8ecff; box-shadow: 0 6px 0 #2a3350; border-color: #ffffff88; cursor: not-allowed; }
+.dl-rung.locked .dl-ico { filter: grayscale(.6); }
+.dl-rung.done .dl-step { background: linear-gradient(180deg, #7dff9a, #22c55e); box-shadow: 0 6px 0 #0f7a36, 0 10px 18px #0006; color: #053a17; }
+.dl-ico { flex: none; filter: drop-shadow(0 3px 3px #0005); }
+.dl-txt { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.dl-txt strong { font-family: var(--font-display); font-size: 1.15rem; }
+.dl-txt em { font-style: normal; font-size: .85rem; opacity: .85; }
+.dl-stars { display: flex; align-items: center; gap: 2px; margin-top: 2px; }
+.dl-stars i { font-style: normal; color: #0003; font-size: 1.1rem; }
+.dl-stars i.on { color: #fff; text-shadow: 0 0 6px #fff9; }
+.dl-stars small { margin-left: 8px; font-size: .75rem; font-weight: 700; }

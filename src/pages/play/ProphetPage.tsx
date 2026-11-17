@@ -85,6 +85,18 @@ export default function ProphetPage() {
         <input id="pg" type="number" inputMode="numeric" value={guess} onChange={(e) => setGuess(e.target.value)} placeholder={q!.year ? 'A year' : `A number of ${q!.unit}`} disabled={!!shown} autoFocus />
         <button className="btn primary" type="submit" disabled={!!shown || guess === ''}>Guess</button>
       </form>
+      {guess !== '' && !Number.isNaN(+guess) && (() => {
+        const g = +guess, a = q!.answer, lo = Math.min(g, a), hi = Math.max(g, a), pad = Math.max((hi - lo) * 0.35, Math.abs(a) * 0.05, 1);
+        const min = lo - pad, span = hi + pad - min, at = (v: number) => `${Math.max(2, Math.min(98, ((v - min) / span) * 100))}%`;
+        return (
+          <div className={`pr-track${shown ? ' revealed' : ''}`} aria-hidden="true">
+            <i className="pr-line" />
+            {shown && <i className="pr-gap" style={{ left: at(Math.min(g, a)), width: `calc(${at(Math.max(g, a))} - ${at(Math.min(g, a))})` }} />}
+            <span className="pr-pin you" style={{ left: at(g) }}><b>{g}</b></span>
+            {shown && <span className="pr-pin ans" style={{ left: at(a) }}><b>{a}</b></span>}
+          </div>
+        );
+      })()}
       {shown && (
         <section className="card prophet-answer" role="status">
           <strong>{q!.answer} {q!.year ? q!.unit : q!.unit}</strong>

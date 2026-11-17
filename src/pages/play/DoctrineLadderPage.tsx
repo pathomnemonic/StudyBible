@@ -40,9 +40,9 @@ export default function DoctrineLadderPage() {
         <h1>Doctrine ladder</h1>
         <GameHelp how={["Three levels of questions on what the Church teaches.", "Score enough right at one level to climb to the next."]} />
         <p className="lede">Three levels of questions on what the Church teaches. Score {PASS} of {N} to climb to the next.</p>
-        <ul className="play-list">{LADDER.map((l, idx) => (
-          <li key={l.id}><button className="play-card" disabled={!unlocked(idx)} onClick={() => start(l)} style={{ width: '100%', textAlign: 'left' }}><span className="play-ico" aria-hidden="true">{unlocked(idx) ? ['🪜', '📘', '🎓'][idx] : '🔒'}</span><span><strong>{l.title}{best[l.id] ? ` ✓ best ${best[l.id]}/${N}` : ''}</strong><em>{unlocked(idx) ? l.blurb : `Score ${PASS} on the level before to unlock.`}</em></span></button></li>
-        ))}</ul>
+        <ol className="dl-ladder" aria-label="Levels">{LADDER.map((l, idx) => { const open = unlocked(idx), got = best[l.id] ?? 0; return (
+          <li key={l.id} className={`dl-rung${open ? '' : ' locked'}${got >= PASS ? ' done' : ''}`} style={{ order: -idx }}><button className="dl-step" disabled={!open} onClick={() => start(l)}><img className="dl-ico" src={`${import.meta.env.BASE_URL}arcade/3d/${open ? ['seedling', 'books', 'crown'][idx] ?? 'star' : 'locked'}.webp`} alt="" width="52" height="52" /><span className="dl-txt"><strong>{l.title}</strong><em>{open ? l.blurb : `Score ${PASS} on the level before to unlock.`}</em><span className="dl-stars" aria-label={`Best ${got} of ${N}`}>{Array.from({ length: 5 }, (_, s) => <i key={s} className={got >= PASS + Math.round((s * (N - PASS)) / 4) && got >= PASS ? 'on' : ''}>★</i>)}<small>{got ? `best ${got}/${N}` : ''}</small></span></span></button></li>
+        ); })}</ol>
       </div>
     );
   }
