@@ -4157,9 +4157,9 @@
     "id": "authored-pauline-women",
     "theme": "Pauline letters",
     "prompt": "Name a woman identified in a Pauline letter outside Romans.",
-    "context": "Include women named or clearly identified in the other Pauline letters, excluding Romans 16; count: 6.",
+    "context": "Include women named or clearly identified in Pauline letters other than Romans; count: 7.",
     "hint": "Romans 16 is the richest passage, but compare Philippians, Colossians, and 2 Timothy.",
-    "source": "Hand-authored closed key; sources: 1 Corinthians 1:11; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19.",
+    "source": "Hand-authored closed key; sources: 1 Corinthians 1:11; Philippians 4:2–3; Colossians 4:15; Philemon 1:2; 2 Timothy 1:5. Count: 7.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
@@ -4192,6 +4192,11 @@
         "answer": "Eunice",
         "tier": 2,
         "source": "2 Timothy 1:5"
+      },
+      {
+        "answer": "Nympha",
+        "tier": 4,
+        "source": "Colossians 4:15"
       }
     ],
     "commonGuesses": [
@@ -4221,6 +4226,11 @@
         "answer": "Lois"
       },
       {
+        "guess": "Nympha",
+        "accept": true,
+        "answer": "Nympha"
+      },
+      {
         "guess": "Phoebe",
         "accept": false,
         "reason": "Named in Romans 16, which this prompt excludes."
@@ -4239,11 +4249,6 @@
         "guess": "Lydia",
         "accept": false,
         "reason": "Named in Acts, not in a Pauline letter."
-      },
-      {
-        "guess": "Mary Magdalene",
-        "accept": false,
-        "reason": "A Gospel figure, not identified in a non-Romans Pauline letter."
       }
     ]
   },
@@ -7358,7 +7363,7 @@
     ]
   },
   {
-    "id": "batch2-twentieth-century-doctors",
+    "id": "batch2-twentieth-century-popes",
     "theme": "Popes and saints",
     "prompt": "Name one of the four twentieth-century popes canonized as saints.",
     "context": "Use popes of the twentieth century who were canonized saints; count: 4.",
