@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { DEEP_WATERS } from '../src/data/deepWaters';
+import { GENERATED_DEEP_CANDIDATES } from '../src/lib/deepWatersBankGenerator';
 import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, findDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts } from '../src/lib/deepWaters';
 
 describe('Deep Waters content and rules', () => {
@@ -79,6 +80,20 @@ describe('Deep Waters content and rules', () => {
     ];
     for (const [id, guess, expected] of cases) {
       expect(findDeepAnswer(byId(id), guess)?.answer, id + ': ' + guess).toBe(expected);
+    }
+  });
+
+  it('generates a provenance-backed candidate bank without inventing rarity tiers', () => {
+    expect(GENERATED_DEEP_CANDIDATES.length).toBeGreaterThan(100);
+    const keys = GENERATED_DEEP_CANDIDATES.map((row) => row.category + ':' + normalizeDeepAnswer(row.answer));
+    expect(new Set(keys).size).toBe(keys.length);
+    for (const row of GENERATED_DEEP_CANDIDATES) {
+      expect(row.answer.trim().length).toBeGreaterThan(1);
+      expect(row.source.trim().length).toBeGreaterThan(0);
+      expect(row.sourceId.trim().length).toBeGreaterThan(0);
+      expect(row.evidence.trim().length).toBeGreaterThan(0);
+      expect(row.reviewStatus).toBe('needs-review');
+      expect(row.tier).toBeNull();
     }
   });
 
