@@ -93,13 +93,13 @@ export default function CrosswordPage() {
       <h1>Crossword</h1>
       <GameHelp how={["Select a square and type a letter. Select it again to switch between across and down.", "You can also pick a clue from the lists.", "Check marks wrong letters. Reveal letter fills the selected square.", "A new puzzle comes every week."]} />
       <p className="muted small">{weekly ? 'This week’s puzzle.' : 'A practice puzzle.'} Tap a square and type. Tap it again to switch between across and down.</p>
-      <div className="cw-grid" style={{ gridTemplateColumns: `repeat(${p.cols}, 1fr)`, maxWidth: p.cols * 44 }} role="grid" aria-label="Crossword grid">
+      <div className="cw-grid" style={{ gridTemplateColumns: `repeat(${p.cols}, 1fr)`, maxWidth: p.cols * 44 }} role="group" aria-label="Crossword grid">
         {Array.from({ length: p.rows * p.cols }, (_, i) => {
           const r = Math.floor(i / p.cols), c = i % p.cols, k = `${r},${c}`;
           if (!L.cells.has(k)) return <span key={k} className="cw-block" />;
           const bad = checked && fill[k] && fill[k] !== L.cells.get(k);
           return (
-            <button key={k} role="gridcell" className={`cw-cell${sel === k ? ' sel' : activeCells.has(k) ? ' act' : ''}${bad ? ' bad' : ''}`} data-k={k} onClick={() => tap(k)} onFocus={(e) => { if (e.currentTarget.matches(':focus-visible')) setSel(k); }} onKeyDown={(e) => cellKey(e, r, c, k)} aria-label={`Row ${r + 1}, column ${c + 1}${L.start.has(k) ? `, clue ${L.start.get(k)}` : ''}${fill[k] ? `, ${fill[k]}` : ', empty'}${bad ? ', wrong' : ''}`}>
+            <button key={k} className={`cw-cell${sel === k ? ' sel' : activeCells.has(k) ? ' act' : ''}${bad ? ' bad' : ''}`} data-k={k} onClick={() => tap(k)} onFocus={(e) => { if (e.currentTarget.matches(':focus-visible')) setSel(k); }} onKeyDown={(e) => cellKey(e, r, c, k)} aria-label={`Row ${r + 1}, column ${c + 1}${L.start.has(k) ? `, clue ${L.start.get(k)}` : ''}${fill[k] ? `, ${fill[k]}` : ', empty'}${bad ? ', wrong' : ''}`}>
               {L.start.has(k) && <i>{L.start.get(k)}</i>}{fill[k] ?? ''}
             </button>
           );

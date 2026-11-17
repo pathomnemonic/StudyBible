@@ -41,7 +41,7 @@ export default function WordsearchPage() {
       <h1>Wordsearch: {theme.title}</h1>
       <GameHelp how={["Find every word in the list; they run in any of eight directions.", "With a mouse or touch, drag across the letters. With a keyboard, move with the arrow keys, press Enter on the first letter, then Enter on the last letter.", "A new theme comes every week."]} />
       <p className="muted small">{weekly ? 'This week’s puzzle.' : 'A practice puzzle.'} Drag across the letters of a word, in any direction. {found.size} of {placed.length} found.</p>
-      <div className="ws-grid" style={{ gridTemplateColumns: `repeat(${SIZE}, 1fr)` }} role="grid" aria-label="Wordsearch grid"
+      <div className="ws-grid" style={{ gridTemplateColumns: `repeat(${SIZE}, 1fr)` }} role="group" aria-label="Wordsearch grid"
         onPointerDown={(e) => { const c = cellAt(e.clientX, e.clientY); if (!c) return; (e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId); start.current = c; setSel([c]); }}
         onPointerMove={(e) => { if (!start.current) return; const c = cellAt(e.clientX, e.clientY); if (c) setSel(lineBetween(start.current, c)); }}
         onPointerUp={() => finish()} onPointerCancel={() => { start.current = null; setSel([]); }}>
@@ -61,7 +61,7 @@ export default function WordsearchPage() {
               else { const cells = lineBetween(kbStart.current, [r, c]); kbStart.current = null; finish(cells); }
             } else if (e.key === 'Escape') { kbStart.current = null; setSel([]); setMsg('Cancelled'); }
           };
-          return <span key={k} data-rc={k} role="gridcell" tabIndex={cur[0] === r && cur[1] === c ? 0 : -1} onKeyDown={onKey} onFocus={() => setCur([r, c])}
+          return <span key={k} data-rc={k} role="button" tabIndex={cur[0] === r && cur[1] === c ? 0 : -1} onKeyDown={onKey} onFocus={() => setCur([r, c])}
             aria-label={`${ch}, row ${r + 1}, column ${c + 1}${inFound.has(k) ? ', in a found word' : selSet.has(k) ? ', selected' : ''}`}
             className={`ws-cell${inFound.has(k) ? ' found' : selSet.has(k) ? ' pick' : ''}`}>{ch}</span>;
         }))}

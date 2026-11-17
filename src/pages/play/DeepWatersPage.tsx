@@ -12,6 +12,7 @@ import './DeepWatersPage.css';
 interface RoundResult { prompt: string; guess: string; answer: string | null; tier: DeepAnswer['tier'] | null; points: number; timedOut: boolean; pearlBonus?: number }
 /** the creature that stands for each depth */
 const TIER_ART: Record<number, string> = { 1: 'fish', 2: 'turtle', 3: 'dolphin', 4: 'whale', 5: 'octopus', 6: 'gem-stone' };
+const TIER_EMOJI: Record<number, string> = { 1: '🐟', 2: '🐢', 3: '🐬', 4: '🐋', 5: '🐙', 6: '💎' };
 const PEARL_BONUS = 50; // our own addition: the original's pearl bonus, if it has one, is not documented
 const newPracticeSeed = () => Math.floor(Math.random() * 1_000_000);
 
@@ -134,7 +135,8 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
     setFeedback(''); setResult(null); setShowAnswers(false); setShowHint(false); setShowAllAnswers(false);
   };
 
-  const share = `Deep Waters ${practice ? 'practice' : '#' + today}\n${score} points\n${history.map((r, i) => `${i + 1}. ${r.points ? '+' + r.points : '—'}`).join('\n')}`;
+  // the result as a row of creatures (one per question, deeper is rarer) so it can be shared without giving the answers away
+  const share = `Deep Waters ${practice ? 'practice' : '#' + today}\n${score} points · ${(score * 10).toLocaleString()} m down\n${history.map((r) => (r.tier ? TIER_EMOJI[r.tier] : '⬛')).join('')}`;
   const accepted = useMemo(() => [...prompt.answers].sort((a, b) => b.tier - a.tier || a.answer.localeCompare(b.answer)), [prompt]);
   const SHOWN_MAX = 15;
   const shownAnswers = prompt.closed || showAllAnswers ? accepted : accepted.slice(0, SHOWN_MAX);
