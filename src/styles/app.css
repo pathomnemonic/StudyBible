@@ -6472,3 +6472,11 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .wk .ln { border-bottom: 1px solid #999; height: 26px; }
 .wk ol, .wk ul { margin: 4px 0 4px 20px; padding: 0; }
 .wk .k { font: 12px sans-serif; color: #555; }
+
+/* the door to the games, on Learn: it already looks like the arcade behind it */
+.games-bar-link { border: 0; color: #fff; background: radial-gradient(circle at 85% 0%, rgba(255, 255, 255, 0.35), transparent 45%), linear-gradient(135deg, #ff4fa3, #7b5cff); box-shadow: 0 4px 0 #3a1a9a, 0 10px 18px rgba(40, 10, 120, 0.3); }
+.games-bar-link:active { transform: translateY(3px); box-shadow: 0 1px 0 #3a1a9a; }
+.games-bar-link .gb-ico { display: inline-flex; transform: rotate(-8deg); filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.35)); }
+.games-bar-link .gb-text strong { font-size: 1.1rem; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25); }
+.games-bar-link .gb-text small { opacity: 0.95; }
+.games-bar-link .games-menu-n { background: #ffd23f; color: #2a1700; font-weight: 700; }
