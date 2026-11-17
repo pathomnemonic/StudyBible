@@ -140,7 +140,8 @@ if (!/Marian passages \(copy\)/i.test(await p.locator('.page').innerText())) fai
 await p.locator('a', { hasText: /^Marian passages$/ }).first().click(); await p.waitForSelector('.cp-list');
 const originalCollectionUrl = p.url();
 const beforePassageCount = await p.locator('.cp-list li').count();
-await p.locator('input[placeholder="John 6:51-58"]').fill('John 6:51-58');
+// Romans 14 is still unverified (John 6, used here before, was verified in the fourth cycle and is now added, correctly)
+await p.locator('input[placeholder="John 6:51-58"]').fill('Romans 14:1-10');
 await p.locator('.cp-add label').filter({ hasText: 'A passage or range' }).getByRole('button', { name: 'Add' }).click();
 await p.getByText(/cannot be added automatically/i).waitFor();
 if (await p.locator('.cp-list li').count() !== beforePassageCount) fail('an unverified English/KJV passage must not be added to an anchor-numbered collection');
