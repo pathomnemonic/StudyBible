@@ -428,14 +428,14 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     answers: ranked([
       'Cosmas', 'Damian', 'Crispin', 'Crispinian', 'Eligius',
       'Catherine of Alexandria', 'Ivo of Kermartin', 'Raymond of Penyafort', 'Raymond Nonnatus', 'Hubert',
-      'Lydia', 'Barbara', 'Apollonia', 'Blaise', 'Nicholas of Myra', 'Eraclius', 'Notburga', 'Zita', 'Julian the Hospitaller', 'Fiacre', 'Gerard Majella', 'Roch', 'Sebastian',
+      'Lydia', 'Barbara', 'Apollonia', 'Blaise', 'Nicholas of Myra', 'Eraclius', 'Notburga', 'Zita', 'Julian the Hospitaller', 'Fiacre', 'Gerard Majella', 'Roch', 
       'Florian', 'Urban I', 'Vincent of Saragossa', 'Thomas More', 'Thomas Aquinas',
       'Albert the Great', 'Francis de Sales', 'John the Baptist', 'Catherine of Siena', 'Isidore of Seville',
       'Joseph Calasanz', 'John Nepomucene', 'Dismas',
           'Homobonus', 'John Berchmans', 'John Baptist de La Salle', 'Erasmus of Formiae', 'Brendan of Clonfert', 'John Gualbert', 'Amand', 'Arnulf of Metz', 'Cassian of Imola', 'Anastasius the Fuller', 'Joseph of Arimathea', 'Peter Gonzalez', 'Medard', 'Walstan',
           'Botolph', 'Phocas the Gardener', 'Honorius of Amiens', 'Bona of Pisa', 'Adjutor', 'Cuthbert', 'Eustace',
           'Dominic Savio', 'Theobald of Provins',
-          'Foillan',
+          'Foillan', 'Benno of Meissen',
     ], {
       'Joseph': 'Saint Joseph|Joseph the Worker',
       'Luke': 'Saint Luke the Evangelist',
