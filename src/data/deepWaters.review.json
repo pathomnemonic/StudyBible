@@ -369,14 +369,14 @@
   },
   {
    "id": "longtail-all-popes",
-   "sha256": "abfce68fc87beb4d258b6acafc42fd4ea73591bf728f1d2b5485e9a6c8a79f10",
-   "answers": 179,
+   "sha256": "762b25756eb637738cb41a6af107642b67a838774e5b1c6ee36873b0335c6b68",
+   "answers": 182,
    "status": "unreviewed"
   },
   {
    "id": "longtail-latin-worship",
-   "sha256": "e0052559d413be9ddfb7d468f311d49da66ad6044c4099fda16d71c88e85dfad",
-   "answers": 78,
+   "sha256": "8d2f7773dff69b6b289de961c408dde4f495968270fb2c71760e6f5bf122647a",
+   "answers": 63,
    "status": "unreviewed"
   },
   {
