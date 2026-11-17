@@ -37,7 +37,7 @@ describe('Deep Waters Krillion batch 2', () => {
       expect(p!.answers.some((a) => a.tier >= 5), p!.id).toBe(true);
       expect(p!.status, p!.id).toBe('draft');
       expect(p!.source?.trim(), p!.id).toBeTruthy();
-      expect(p!.answers.every((a) => a.answer.split(/\\s+/).length <= 4), p!.id).toBe(true);
+      expect(p!.answers.every((a) => a.answer.split(/\s+/).length <= 4), p!.id).toBe(true);
     }
   });
 
