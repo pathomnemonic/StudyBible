@@ -43,7 +43,8 @@ export default function DeepWatersPage() {
   const [logbook, setLogbook] = useState(loadDeepLogbook());
   const [isPaused, setIsPaused] = useState(Boolean(canResume && snapshot?.paused && document.visibilityState === 'hidden'));
   const streak = deepDiveStreak(logbook, today);
-  const pearlPool = prompts.flatMap((p) => p.answers.filter((a) => a.tier === 6).map((a) => a.answer));
+  const tierSixPearls = prompts.flatMap((p) => p.answers.filter((a) => a.tier === 6).map((a) => a.answer));
+  const pearlPool = tierSixPearls.length ? tierSixPearls : prompts.flatMap((p) => p.answers.filter((a) => a.tier === 5).map((a) => a.answer));
   const pearlAnswer = !practice && pearlPool.length ? pearlPool[Math.abs(today * 31) % pearlPool.length] : null;
   const pearlFound = history.some((item) => (item.pearlBonus ?? 0) > 0);
 
