@@ -80,7 +80,7 @@ export default function VerbumPage() {
   }, [guesses, answer]);
   const press = (k: string) => { if (over) return; if (k === '⏎') submit(); else if (k === '⌫') setCur((c) => c.slice(0, -1)); else setCur((c) => (c.length < LEN ? c + k : c)); };
   const shareText = () => {
-    const sq = { hit: '🟨', near: '⬜', miss: '⬛' } as const;
+    const sq = { hit: '🟨', near: '🟪', miss: '⬛' } as const;
     return `Verbum ${practice ? 'practice' : '#' + today} ${won ? guesses.length : 'X'}/${ROWS}\n` + guesses.map((g) => mark(g, answer).map((m) => sq[m]).join('')).join('\n');
   };
   const again = () => { const pool = ANSWERS.filter((w) => w !== answer); setPractice(pool[Math.floor(Math.random() * pool.length)]); setPGuesses([]); setCur(''); setMsg(''); };

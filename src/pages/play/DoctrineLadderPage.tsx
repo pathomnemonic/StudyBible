@@ -1,6 +1,7 @@
 import GameHelp from '../../components/GameHelp';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { ladderShare } from '../../lib/shareText';
 import ShareButton from '../../components/ShareButton';
 import { LADDER, type LadderLevel } from '../../data/doctrineLadder';
 import { isPractice, recordPlay } from '../../lib/dailyGame';
@@ -19,8 +20,9 @@ export default function DoctrineLadderPage() {
   const [i, setI] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
   const [score, setScore] = useState(0);
+  const [marks, setMarks] = useState<boolean[]>([]);
   const unlocked = (idx: number) => idx === 0 || (best[LADDER[idx - 1].id] ?? 0) >= PASS;
-  const start = (l: LadderLevel) => { setLevel(l); setRound((r) => r + 1); setI(0); setPicked(null); setScore(0); };
+  const start = (l: LadderLevel) => { setLevel(l); setRound((r) => r + 1); setI(0); setPicked(null); setScore(0); setMarks([]); };
   const q = deck[i];
   const finished = !!level && i >= deck.length && deck.length > 0;
   const finish = () => {
@@ -29,7 +31,7 @@ export default function DoctrineLadderPage() {
     if (!isPractice()) setBest(next); try { if (!isPractice()) localStorage.setItem(KEY, JSON.stringify(next)); } catch { /* private mode */ }
     recordPlay('doctrineladder', { perfect: score === N });
   };
-  const choose = (o: string) => { if (picked || !q) return; setPicked(o); if (o === q.a[0]) setScore((s) => s + 1); };
+  const choose = (o: string) => { if (picked || !q) return; setPicked(o); setMarks((m) => [...m, o === q.a[0]]); if (o === q.a[0]) setScore((s) => s + 1); };
   const advance = () => { if (i + 1 >= deck.length) { setI(i + 1); finish(); } else { setI(i + 1); setPicked(null); } };
 
   if (!level) {
@@ -59,7 +61,7 @@ export default function DoctrineLadderPage() {
           <p className="ws-score">{score} of {deck.length}</p>
           <p className="muted">{score >= PASS ? (LADDER.indexOf(level) < LADDER.length - 1 ? 'Well done: the next level is open.' : 'You have reached the top of the ladder.') : `Score ${PASS} to climb. Try again.`}</p>
           <div className="row" style={{ justifyContent: 'center', gap: 8 }}>
-            <ShareButton text={`Doctrine ladder 🪜 ${level.title}: ${score}/${deck.length}`} path="/play/doctrineladder" label="Share result" className="btn" />
+            <ShareButton text={ladderShare({ level: level.title, marks })} path="/play/doctrineladder" label="Share result" className="btn" />
             <button className="btn ghost" onClick={() => start(level)}>Try again</button>
             <button className="btn ghost" onClick={() => setLevel(null)}>Levels</button>
           </div>

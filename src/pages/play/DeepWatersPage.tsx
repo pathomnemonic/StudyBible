@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import GameHelp from '../../components/GameHelp';
+import { bankSignature, deepWatersShare } from '../../lib/shareText';
 import ShareButton from '../../components/ShareButton';
 import { dayIndex, isPractice, markDailyDone, setPractice } from '../../lib/dailyGame';
 import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, deepHint, deepMissMessage, matchDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../../lib/deepWaters';
@@ -17,7 +18,6 @@ import './DeepWatersPage.css';
 interface RoundResult { prompt: string; guess: string; answer: string | null; tier: DeepAnswer['tier'] | null; points: number; timedOut: boolean; pearlBonus?: number }
 /** the creature that stands for each depth */
 const TIER_ART: Record<number, string> = { 1: 'fish', 2: 'turtle', 3: 'dolphin', 4: 'whale', 5: 'octopus', 6: 'gem-stone' };
-const TIER_EMOJI: Record<number, string> = { 1: '🐟', 2: '🐢', 3: '🐬', 4: '🐋', 5: '🐙', 6: '💎' };
 /** a title for a finished dive, by points (our own names) */
 const rankOf = (pts: number) => (pts >= 600 ? 'Pearl of the deep' : pts >= 450 ? 'Trench explorer' : pts >= 300 ? 'Deep diver' : pts >= 150 ? 'Scuba diver' : 'Snorkeler');
 const PEARL_BONUS = 50; // our own addition: the original's pearl bonus, if it has one, is not documented
@@ -149,7 +149,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
   };
 
   // the result as a row of creatures (one per question, deeper is rarer) so it can be shared without giving the answers away
-  const share = `Deep Waters ${practice ? 'practice' : '#' + today}\n${score} points · ${(score * 10).toLocaleString()} m down\n${history.map((r) => (r.tier ? TIER_EMOJI[r.tier] : '⬛')).join('')}`;
+  const share = deepWatersShare({ day: today, practice, score, rounds: history, zone: zoneAt(score * 10).name, pearl: pearlFound, bank: bankSignature(DEEP_WATERS.map((p) => p.id)) });
   const accepted = useMemo(() => [...prompt.answers].sort((a, b) => b.tier - a.tier || a.answer.localeCompare(b.answer)), [prompt]);
   const SHOWN_MAX = 15;
   const shownAnswers = prompt.closed || showAllAnswers ? accepted : accepted.slice(0, SHOWN_MAX);

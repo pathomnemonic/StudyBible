@@ -8,6 +8,8 @@ import { dayIndex, isPractice, recordPlay } from '../../lib/dailyGame';
 import { POWER_UPS, COINS, bombTargets, canUse, claimDaily, costOf, loadWallet, saveWallet, type PowerUp } from '../../lib/triviaPowerUps';
 import { Anim, Art, art3d } from '../../arcade/art';
 import { blip, burst } from '../../arcade/fx';
+import ShareButton from '../../components/ShareButton';
+import { crownQuestShare } from '../../lib/shareText';
 import '../../styles/crownquest.css';
 
 type Mode = 'solo' | 'pass' | 'bot';
@@ -266,7 +268,7 @@ export default function TriviaPage() {
         <div className="tv-board">{players.map((p, i) => <Crowns key={p.name + i} p={p} active={false} avatar={AVATARS[i % AVATARS.length]} />)}</div>
         <p className="muted small">{players.map((p) => `${p.name}: ${p.right} right, ${p.wrong} wrong`).join(' · ')}</p>
         {won && <p className="tv-confetti" aria-hidden="true">🎉 👑 🎉</p>}
-        <p><button className="btn primary" onClick={start}>Play again</button> <button className="btn" onClick={() => setPhase('setup')}>Change settings</button> <Link className="btn ghost" to="/play">All games</Link></p>
+        <p><ShareButton text={crownQuestShare({ winner: winner?.name ?? null, me: players[0], vs: players[1] ?? null, cats: CATS.map((c) => c.id) })} path="/play/trivia" label="Share result" className="btn" /> <button className="btn primary" onClick={start}>Play again</button> <button className="btn" onClick={() => setPhase('setup')}>Change settings</button> <Link className="btn ghost" to="/play">All games</Link></p>
       </div>
     );
   }
