@@ -398,7 +398,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Joseph','Luke','Cecilia','Francis of Assisi','Isidore the Farmer',
       'Cosmas','Damian','Crispin','Crispinian','Eligius','Anne','Christopher',
       'Andrew','Peter','Bartholomew','Mark','Catherine of Alexandria','Ivo of Kermartin','Raymond of Penyafort','Raymond Nonnatus','Hubert','Lydia','Cloud','Lawrence','Barbara',
-      'Agatha','Apollonia','Ambrose','Gregory the Great','David','Columba','Benedict','Blaise','John Bosco','John of God','Camillus de Lellis','Vincent de Paul','Martin of Tours','Nicholas of Myra','Eraclius','Honorius of Amiens','Notburga','Zita','Martha','Dunstan','Eligius','Genesius','Julian the Hospitaller','Fiacre','Gerard Majella','Roch','Sebastian','Florian','Urban I','Vincent of Saragossa','Stephen','Thomas More','Thomas Aquinas','Albert the Great','Francis de Sales','John the Baptist',
+      'Agatha','Apollonia','Ambrose','Gregory the Great','David','Columba','Benedict','Blaise','John Bosco','John of God','Camillus de Lellis','Vincent de Paul','Martin of Tours','Nicholas of Myra','Eraclius','Honorius of Amiens','Notburga','Zita','Martha','Dunstan','Genesius','Julian the Hospitaller','Fiacre','Gerard Majella','Roch','Sebastian','Florian','Urban I','Vincent of Saragossa','Stephen','Thomas More','Thomas Aquinas','Albert the Great','Francis de Sales','John the Baptist',
       'Catherine of Siena','Isidore of Seville','Joseph Calasanz','John Nepomucene','Dismas'
     ], {
       'Joseph':'Saint Joseph|Joseph the Worker',
@@ -513,7 +513,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Lamb','Fish','Dove','Anchor','Chi-Rho',
       'Keys of Peter','Alpha and Omega','Pelican','Peacock','Phoenix','Lion','Eagle',
       'Ox','Winged Man','Grapes','Wheat','Vine','Bread','Chalice','Olive Branch','Palm Branch','Lily','Rose','Shell',
-      'Crown of Thorns','Sacred Heart','Immaculate Heart','Flaming Heart','Rooster','Serpent','Apple','Pomegranate','Fountain','Well','Ship','Anchor Cross','Tau Cross','Maltese Cross','Jerusalem Cross','Cross Pattée','Cross Potent','INRI','Halo','Nimbus','Mandorla','Vesica Piscis','Hand of God','Eye of Providence','Triquetra','Trinity Knot','Book of the Gospels','Scroll','Book with Seven Seals','Sword','Keys of Peter','Censer','Incense','Rainbow','Ladder','Jacob’s Ladder','Burning Bush','Manna','Fountain of Life','Unicorn','Stag','Butterfly','Bee','Scales','Sword and Palm','Crown','Globus Cruciger','Shepherd’s Staff','Lamb with Banner','Five Wounds'
+      'Crown of Thorns','Sacred Heart','Immaculate Heart','Flaming Heart','Rooster','Serpent','Apple','Pomegranate','Fountain','Well','Ship','Anchor Cross','Tau Cross','Maltese Cross','Jerusalem Cross','Cross Pattée','Cross Potent','INRI','Halo','Nimbus','Mandorla','Vesica Piscis','Hand of God','Eye of Providence','Triquetra','Trinity Knot','Book of the Gospels','Scroll','Book with Seven Seals','Sword','Censer','Incense','Rainbow','Ladder','Jacob’s Ladder','Burning Bush','Manna','Fountain of Life','Unicorn','Stag','Butterfly','Bee','Scales','Sword and Palm','Crown','Globus Cruciger','Shepherd’s Staff','Lamb with Banner','Five Wounds'
     ], {
       'Chi-Rho':'☧|Chrismon',
       'Keys of Peter':'Keys|Keys of the Kingdom',
@@ -803,7 +803,7 @@ for (const p of checkedLongTailPrompts) {
     if (prior && prior !== a.answer) throw new Error(`${p.id}: alias collision between ${prior} and ${a.answer} via ${form}`);
     seenForms.set(key, a.answer);
   }
-  if (/\\b(above|below)\\b/i.test(`${p.prompt} ${p.context}`)) throw new Error(`${p.id}: directional language is not allowed in player-facing text`);
+  if (/\b(above|below)\b/i.test(`${p.prompt} ${p.context}`)) throw new Error(`${p.id}: directional language is not allowed in player-facing text`);
   for (const g of p.commonGuesses) {
     if (!g.guess.trim()) throw new Error(`${p.id}: empty common guess`);
     if (g.accepted && !accepted.has(normalizeGuess(g.guess))) throw new Error(`${p.id}: accepted common guess not in key: ${g.guess}`);
