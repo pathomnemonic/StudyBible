@@ -10,6 +10,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name an occupation mentioned in the Bible.',
     context: 'Occupations and trades appear in biblical narratives, laws, parables and apostolic descriptions.',
     source: 'Douay-Rheims Bible; Catholic Bible app Scripture text.',
+    status: 'draft',
     answers: rows([
       ['fisherman', 1],
       ['farmer', 1, 'husbandman'],
@@ -63,6 +64,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a food or ingredient eaten in the Bible.',
     context: 'The list includes foods, staple crops, seasonings and prepared dishes named in Scripture.',
     source: 'Douay-Rheims Bible; Catholic Bible app Scripture text.',
+    status: 'draft',
     answers: rows([
       ['Bread', 1],
       ['fish', 1],
@@ -117,6 +119,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name an object or artifact found in a biblical story.',
     context: 'Includes ritual objects, household items, tools and objects central to named biblical episodes.',
     source: 'Douay-Rheims Bible; Catholic Bible app Scripture text.',
+    status: 'draft',
     answers: rows([
       ['Ark of the Covenant', 1, 'Ark of the Testimony'],
       ['staff of Moses', 1],
@@ -171,6 +174,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a saint who founded a religious order or congregation.',
     context: 'Founders are saints whose communities became established Catholic religious institutes; historical titles and attributions vary.',
     source: 'Catholic Encyclopedia (1913, public domain); Vatican biographies of saints; Order histories.',
+    status: 'draft',
     answers: rows([
       ['Benedict of Nursia', 1, 'Saint Benedict'],
       ['Francis of Assisi', 1, 'Saint Francis'],
@@ -217,6 +221,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a saint traditionally invoked for a particular need.',
     context: 'Includes widely established patronages and traditional devotions; local customs may differ.',
     source: 'Catholic Encyclopedia (1913, public domain); Butler\'s Lives of the Saints; Catholic devotional reference works.',
+    status: 'draft',
     answers: rows([
       ['Saint Christopher', 1, 'Christopher of Lycia'],
       ['Saint Joseph', 1, 'Joseph of Nazareth'],
@@ -263,6 +268,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a papal encyclical by its commonly used title.',
     context: 'Titles are given in their familiar Latin or English form; this is a representative, not exhaustive, list.',
     source: 'Vatican.va, papal encyclicals; public-domain Acta Apostolicae Sedis where applicable.',
+    status: 'draft',
     answers: rows([
       ['Rerum Novarum', 1, 'On New Things'],
       ['Quadragesimo Anno', 1],
@@ -306,6 +312,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name an early Christian heresy or heterodox movement.',
     context: 'Includes movements debated or condemned in the early Church; some labels cover diverse groups and periods.',
     source: 'Catholic Encyclopedia (1913, public domain); documents of the first seven ecumenical councils; Oxford Dictionary of the Christian Church for cross-checking.',
+    status: 'draft',
     answers: rows([
       ['Arianism', 1, 'Arian heresy'],
       ['Gnosticism', 1, 'Gnostic heresy'],
@@ -346,6 +353,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a vestment or liturgical garment worn by clergy.',
     context: 'Includes garments and insignia used in Latin and Eastern Catholic liturgies; usage varies by rite and office.',
     source: 'General Instruction of the Roman Missal; Ceremonial of Bishops; Catholic Encyclopedia (1913, public domain).',
+    status: 'draft',
     answers: rows([
       ['Alb', 1],
       ['chasuble', 1, 'casula'],
@@ -388,6 +396,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a book used in Catholic liturgy or the Divine Office.',
     context: 'Includes official liturgical books and books used to provide readings, prayers or chant.',
     source: 'Vatican.va liturgical books; General Instruction of the Roman Missal; Catholic Encyclopedia (1913, public domain).',
+    status: 'draft',
     answers: rows([
       ['Roman Missal', 1, 'Missale Romanum'],
       ['Lectionary', 1, 'Book of Readings'],
@@ -429,6 +438,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a traditional Catholic prayer commonly known by its Latin name.',
     context: 'Includes traditional prayers and devotional texts, not every Latin phrase used in the Mass.',
     source: 'Roman Missal; Liturgy of the Hours; Raccolta (public domain); Vatican.va liturgical texts.',
+    status: 'draft',
     answers: rows([
       ['Pater Noster', 1, 'Our Father'],
       ['Ave Maria', 1, 'Hail Mary'],
@@ -472,6 +482,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name an architectural feature of a Catholic church.',
     context: 'Includes architectural elements found in churches and basilicas across Catholic traditions.',
     source: 'Catholic Encyclopedia (1913, public domain); authoritative architectural glossaries; Vatican basilica descriptions.',
+    status: 'draft',
     answers: rows([
       ['Nave', 1],
       ['apse', 1, 'sanctuary apse'],
@@ -518,6 +529,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a historic church or basilica in Rome.',
     context: 'Includes the four papal basilicas and other historic churches and minor basilicas within Rome.',
     source: 'Holy See, Papal Basilicas; official basilica websites; Catholic Encyclopedia (1913, public domain).',
+    status: 'draft',
     answers: rows([
       ['Saint Peter\'s Basilica', 1, 'Basilica of Saint Peter'],
       ['Saint John Lateran', 1, 'Archbasilica of Saint John Lateran'],
@@ -563,6 +575,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a historian of the Church or early Christianity.',
     context: 'Includes historians and chroniclers whose works are important sources for Christian history.',
     source: 'Catholic Encyclopedia (1913, public domain); public-domain primary texts and standard scholarly reference works.',
+    status: 'draft',
     answers: rows([
       ['Eusebius of Caesarea', 1, 'Eusebius Pamphili'],
       ['Socrates Scholasticus', 1],
@@ -600,6 +613,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a Catholic saint known for missionary work.',
     context: 'Includes saints remembered for evangelization beyond their place of origin or for founding missionary communities.',
     source: 'Vatican.va saint biographies; Catholic Encyclopedia (1913, public domain); Butler\'s Lives of the Saints.',
+    status: 'draft',
     answers: rows([
       ['Francis Xavier', 1, 'Francis de Xavier'],
       ['Patrick of Ireland', 1, 'Saint Patrick'],
