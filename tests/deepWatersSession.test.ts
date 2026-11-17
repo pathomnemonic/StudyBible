@@ -78,11 +78,11 @@ describe('Deep Waters daily engine', () => {
     expect(resumeDeepSession(restored, 100000).deadlineAt).toBe(102000);
   });
 
-  it('replaces a same-day logbook entry rather than double-counting a completion', () => {
+  it('keeps the first counted daily result rather than overwriting it on replay', () => {
     recordDeepDive({ day: 100, score: 10, scoredRounds: 2, totalRounds: 7, pearlFound: false, practice: false });
     const entries = recordDeepDive({ day: 100, score: 20, scoredRounds: 4, totalRounds: 7, pearlFound: true, practice: false });
     expect(entries).toHaveLength(1);
-    expect(entries[0].score).toBe(20);
+    expect(entries[0].score).toBe(10);
   });
 
   it('calculates edit distance for explicit spelling suggestions', () => {
