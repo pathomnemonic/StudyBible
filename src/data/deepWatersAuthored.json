@@ -2030,7 +2030,7 @@
     ]
   },
   {
-    "id": "authored-ecumenical-councils-first-millennium",
+    "id": "authored-ecumenical-councils",
     "theme": "Church history",
     "prompt": "Which ecumenical councils are recognized by the Catholic Church?",
     "context": "The Catholic Church recognizes councils from the early centuries through the modern era. Identify them by city and ordinal number where needed.",
