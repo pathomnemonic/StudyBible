@@ -10,6 +10,7 @@ const G = (to: string, title: string, blurb: string, icon: string, color: string
 const GROUPS: Group[] = [
   { id: 'quick', title: 'Quick hits', sub: 'Two minutes or less. A new one every day.', games: [
     G('/play/verbum', 'Verbum', 'Guess the five-letter word of the faith in six tries.', '🟨', '#d4a017', '3 min', 'Solo', { daily: 'verbum' }),
+    G('/play/deepwaters', 'Deep Waters', 'Name Catholic and biblical answers. Rarer answers score more.', '🌊', '#2f7f91', '5 min', 'Solo', { daily: 'deepwaters', isNew: true }),
     G('/play/whichbook', 'Which Book?', 'Name the book of the Bible a verse comes from.', '📖', '#4a7bd0', '2 min', 'Solo', { daily: 'whichbook' }),
     G('/play/whosaid', 'Who Said It?', 'Five quotations from the saints: who said each?', '💬', '#c0507a', '2 min', 'Solo', { daily: 'whosaid' }),
     G('/play/saintguess', 'Saint Guess', 'Name the saint from clues that get easier.', '🕊️', '#2f8f6b', '2 min', 'Solo', { daily: 'saintguess' }),
