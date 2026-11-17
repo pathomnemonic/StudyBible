@@ -540,3 +540,12 @@ html[data-arcade] .charades-word { font-family: var(--font-display); color: #fff
 html[data-arcade] .charades-top { color: #fff; font-family: var(--font-display); }
 html[data-arcade] .charades-top .low { color: #ffd23f; animation: arc-shake 0.6s infinite; }
 html[data-arcade] .charades-btns .btn { min-height: 62px; font-size: 1.3rem; }
+
+/* ---------- the last seven dives ---------- */
+.dw-results .dw-log ol { text-align: center; margin: 12px 0; list-style: none; display: flex; align-items: flex-end; justify-content: center; gap: 8px; margin: 12px 0; padding: 0; height: 120px; }
+.dw-results .dw-log li { display: flex; grid-template-columns: none; border: 0; padding: 0; position: relative; flex: 1; max-width: 44px; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 2px; }
+.dw-results .dw-log li i { display: block; width: 100%; height: calc((100% - 40px) * var(--p, 0.1)); border-radius: 10px 10px 4px 4px; background: linear-gradient(180deg, #7df3ff, #1f83e0); box-shadow: 0 3px 0 #0f4f94; animation: arc-grow 0.7s cubic-bezier(0.3, 1.4, 0.5, 1) both; transform-origin: bottom; }
+.dw-results .dw-log li.today i { background: linear-gradient(180deg, #ffe27a, #ffb02e); box-shadow: 0 3px 0 #b86a00; }
+.dw-results .dw-log li b { font-family: var(--font-display); font-weight: 400; font-size: 0.78rem; }
+.dw-results .dw-log li small { color: var(--muted); font-size: 0.7rem; margin-top: 3px; }
+@keyframes arc-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }

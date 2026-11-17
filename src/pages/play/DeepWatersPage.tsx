@@ -221,6 +221,17 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
           <p className="dw-depth">{(score * 10).toLocaleString()} metres down</p>
           <p>{score >= 450 ? 'You know your way around the deep end.' : score >= 200 ? 'A strong dive. There is more beneath the surface.' : 'The deep end rewards curiosity. Try another dive.'}</p>
           {!practice && <p className="dw-streak">Current streak: <strong>{streak}</strong> day{streak === 1 ? '' : 's'} · {logbook.length} logged dives</p>}
+          {!practice && logbook.length > 1 && (
+            <div className="dw-log" aria-label="Your last dives">
+              <ol>{logbook.slice(-7).map((e) => (
+                <li key={e.day} className={e.day === today ? 'today' : ''} title={`${e.score} points`}>
+                  <b>{e.score}</b>
+                  <i style={{ ['--p' as string]: Math.max(0.06, Math.min(1, e.score / (DEEP_ROUNDS * 100))) }} />
+                  <small>{new Date(e.day * 86_400_000).toLocaleDateString(undefined, { weekday: 'short', timeZone: 'UTC' })}</small>
+                </li>))}
+              </ol>
+            </div>
+          )}
           {pearlFound && <p className="dw-pearl-bonus">You found the pearl of the day.</p>}
           <div className="dw-result-stats"><span><b>{history.filter((r) => r.points > 0).length}</b><small>ROUNDS SCORED</small></span><span><b>{Math.max(...history.map((r) => r.points), 0)}</b><small>BEST ROUND</small></span><span><b>{history.filter((r) => r.timedOut).length}</b><small>TIMEOUTS</small></span></div>
           <ol>{history.map((r, i) => <li key={i}><span>{r.prompt}</span><b>{r.points ? `+${r.points}` : '—'}</b><small>{r.answer ?? (r.timedOut ? 'Time expired' : 'No recognized answer')}</small></li>)}</ol>
