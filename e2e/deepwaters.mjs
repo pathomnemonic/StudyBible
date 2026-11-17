@@ -1,5 +1,31 @@
 import { chromium } from 'playwright';
+import { readFileSync } from 'node:fs';
+
 const BASE = process.env.BASE || 'http://localhost:4173';
+const generatedFiles = [
+  ...Array.from({ length: 5 }, (_, i) => `../src/data/deepWatersCurriculum${i + 1}.generated.json`),
+  ...Array.from({ length: 4 }, (_, i) => `../src/data/deepWatersScripture${i + 1}.generated.json`),
+];
+const answersById = new Map();
+for (const path of generatedFiles) {
+  const rows = JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
+  for (const row of rows) answersById.set(row.id, row.answers[0]?.answer);
+}
+const normalize = (value) => value.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+const manualAnswer = (question) => {
+  if (question.includes('religious order')) return 'Benedictines';
+  if (question.includes('title or invocation')) return 'Our Lady of Guadalupe';
+  if (question.includes('Church Father')) return 'Augustine';
+  if (question.includes('ecumenical council')) return 'Nicaea I';
+  if (question.includes('Catholic Old Testament')) return 'Tobit';
+  if (question.includes('prayer or devotion')) return 'Rosary';
+  if (question.includes('liturgical rite')) return 'Latin Church';
+  if (question.includes('saint who was a pope')) return 'Peter';
+  if (question.includes('woman in the Bible')) return 'Eve';
+  if (question.includes('New Testament')) return 'Jerusalem';
+  return null;
+};
+
 const b = await chromium.launch();
 const ctx = await b.newContext({ viewport: { width: 390, height: 844 } });
 await ctx.addInitScript(() => { localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });
@@ -14,28 +40,29 @@ try {
   await p.waitForSelector('.dw-card');
   if (await p.locator('.dw-progress span').count() !== 7) throw new Error('seven round markers expected');
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
+  await p.waitForFunction(() => {
+    const raw = localStorage.getItem('sb:deepwaters:session:v1');
+    try { return JSON.parse(raw || 'null')?.promptIds?.length === 7; } catch { return false; }
+  });
+  const session = await p.evaluate(() => JSON.parse(localStorage.getItem('sb:deepwaters:session:v1')));
   const question = await p.locator('.dw-card h2').innerText();
-  const answer = question.includes('religious order') ? 'Jesuit'
-    : question.includes('title or invocation') ? 'Theotokos'
-    : question.includes('Church Father') ? 'Augustine'
-    : question.includes('ecumenical council') ? 'Nicaea I'
-    : question.includes('Catholic Old Testament') ? 'Tobit'
-    : question.includes('prayer or devotion') ? 'Rosary'
-    : question.includes('liturgical rite') ? 'Latin Church'
-    : question.includes('saint who was a pope') ? 'Peter'
-    : question.includes('woman in the Bible') ? 'Eve'
-    : question.includes('New Testament') ? 'Jerusalem'
-    : null;
-  if (!answer) throw new Error(`unrecognized Deep Waters prompt in browser test: ${question}`);
-  await p.fill('#dw-answer', answer);
-  if (answer === 'Jesuit') {
-    await p.getByRole('button', { name: 'Jesuits' }).waitFor({ state: 'visible' });
-    await p.getByRole('button', { name: 'Jesuits' }).click();
-    if (await p.locator('#dw-answer').inputValue() !== 'Jesuits') throw new Error('spelling suggestion did not populate input');
+  const answer = answersById.get(session.promptIds[0]) || manualAnswer(question);
+  if (!answer) throw new Error(`no answer fixture for prompt ${session.promptIds[0]}: ${question}`);
+  const cleanAnswer = answer.replace(/[^\\p{L}\\p{N}]+$/u, '');
+  const typo = cleanAnswer.length >= 5 ? cleanAnswer.slice(0, -1) : null;
+  if (typo) {
+    await p.fill('#dw-answer', typo);
+    await p.locator('.dw-suggestions button').first().waitFor({ state: 'visible', timeout: 5000 });
+    const suggestion = p.locator('.dw-suggestions button').filter({ hasText: cleanAnswer });
+    if (!(await suggestion.count())) throw new Error('spelling suggestion did not include the accepted answer');
+    await suggestion.first().click();
+    if (normalize(await p.locator('#dw-answer').inputValue()) !== normalize(answer)) throw new Error('spelling suggestion did not populate input');
+  } else {
+    await p.fill('#dw-answer', answer);
   }
   await p.getByRole('button', { name: /Lock it in/ }).click();
   await p.waitForSelector('.dw-reveal');
-  if (!(await p.locator('.dw-reveal').innerText()).includes(answer === 'Jesuit' ? 'Jesuits' : answer)) throw new Error('recognized answer not revealed');
+  if (normalize(await p.locator('.dw-correct-answer').innerText()) !== normalize(answer)) throw new Error('recognized answer not revealed');
   await p.waitForFunction(() => localStorage.getItem('sb:deepwaters:session:v1')?.includes('"phase":"locked"'));
   await p.reload();
   await p.waitForSelector('.dw-reveal');
@@ -62,7 +89,7 @@ try {
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
   if (await p.locator('#dw-answer').inputValue() !== 'Dama') throw new Error('in-progress answer did not restore after reload');
   if (errors.length) throw new Error(errors.join('; '));
-  console.log('deep waters e2e ok: preview, accepted answer, spelling suggestion, locked and in-progress reload restore, next round, hidden-tab timer pause');
+  console.log('deep waters e2e ok: generated answer acceptance, spelling suggestion when eligible, locked and in-progress reload restore, next round, hidden-tab timer pause');
 } finally {
   await b.close();
 }
