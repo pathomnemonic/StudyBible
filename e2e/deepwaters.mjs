@@ -82,7 +82,14 @@ try {
   try {
     await p.waitForSelector('.dw-reveal', { timeout: 7000 });
   } catch {
-    throw new Error(`locked session did not restore; persisted=${JSON.stringify(persisted)}`);
+    const afterReload = await p.evaluate(() => ({
+      session: JSON.parse(localStorage.getItem('sb:deepwaters:session:v1') || 'null'),
+      day: Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000),
+      hash: location.hash,
+      card: document.querySelector('.dw-card')?.innerText || null,
+      reveal: Boolean(document.querySelector('.dw-reveal')),
+    }));
+    throw new Error(`locked session did not restore; before=${JSON.stringify(persisted)}; after=${JSON.stringify(afterReload)}`);
   }
   if (!(await p.locator('.dw-round-count').innerText()).includes('01')) throw new Error('locked round did not restore after reload');
 
