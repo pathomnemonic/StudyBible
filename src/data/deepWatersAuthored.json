@@ -3744,14 +3744,14 @@
         "answer": "Sign of the Cross"
       },
       {
-        "guess": "Benediction",
+        "guess": "Fatima Prayer",
         "accept": false,
-        "reason": "A liturgical blessing, not a prayer text or devotional prayer title in the key."
+        "reason": "A well-known Marian prayer, but it is not included in this hand-curated answer key."
       },
       {
-        "guess": "Lectio Divina",
+        "guess": "Prayer of Saint Patrick",
         "accept": false,
-        "reason": "A method of prayer, not a prayer text by title."
+        "reason": "A traditional prayer, but not included in this hand-curated answer key."
       },
       {
         "guess": "Confiteor",
