@@ -10,7 +10,7 @@ Baseline on `6b42401` before any change: `npm ci`, `npm run typecheck`, `npm tes
 
 Files: `src/db/db.ts`, `src/sync/engine.ts`, `src/sync/merge.ts`, `src/sync/state.ts`, `src/db/ops.ts`. Tests: `tests/sync-unsent.test.ts` (13 new), existing sync suites adapted.
 
-Found by reading the engine against the database hooks and the server handler. None of these had a failing test; eleven of the thirteen new tests fail on the previous code.
+Found by reading the engine against the database hooks and the server handler. None of these had a failing test. Eleven of the thirteen new tests fail on the previous code: nine on the behaviour described below, two only because they call the new `quietly` helper.
 
 | # | Fault | Consequence for a reader | Fix |
 |---|---|---|---|
@@ -150,3 +150,28 @@ New check: `e2e/sync-devices.mjs`, added to the `accounts` job in CI (which alre
 The unit tests for section 1 run on an IndexedDB stand-in. The existing accounts browser check covers signing in and two-factor codes but moves no data. The new check opens two browser contexts on one account against the real server and reads the real IndexedDB directly: a note written on A gets its identity and the unsent mark; a push clears the mark; the note arrives on B marked as sent with the same edit time; deleting it on B leaves one tombstone (unsent, later than the note) and one Recently-deleted copy, written after the delete commits; the deletion reaches A, which records it as already sent and puts nothing in its own Recently deleted; notes written on both devices before either syncs both survive on both; after every sync nothing is left marked unsent.
 
 Result here: `e2e/accounts.mjs` passed; `e2e/sync-devices.mjs` passed. (A second immediate run is refused by the server's five-registrations-an-hour limit, which is the server doing its job; CI registers twice.)
+
+## 10. Gate results for this cycle (what was actually run, and on what)
+
+| Command | Commit | Result |
+|---|---|---|
+| `npm ci`, `npm run typecheck`, `npm test`, `npm run build` | `6b42401` (start) | passed (163 files, 1,191 tests) |
+| `npm run typecheck` | head of branch | passed |
+| `npm test` | head of branch | passed: 169 files, 1,291 tests (100 new) |
+| `npm run data:validate` | after the last data change (`359b91b`) | passed |
+| `npx tsx scripts/versification/rebuild.ts --check` | same | shipped file matches the generator |
+| `npm run docs:status` | `9fcd0d9` | passed, no change |
+| `npm run build`, `npm run budget` | head of branch | passed |
+| `node scripts/audit-gate.mjs` | `9fcd0d9` | 0 failed, 2 waived, 2 below the gate (as before) |
+| `npm run e2e:release`, all 52 checks, fast sweep of 496 screens | build of `9fcd0d9` | **50 passed, 2 failed** (`review`, `gofurther`) |
+| `e2e/review.mjs`, `e2e/gofurther.mjs` after the fix below | build of head | both passed |
+| `datahealth`, `mediacontrols`, `edition-verse`, `reader-companion`, `collections`, `versenote` | build of head | all passed |
+| `e2e/accounts.mjs`, `e2e/sync-devices.mjs` (accounts build, real server) | `0ba6a4c`-era source | both passed |
+| Full-width sweep (2,480 screens) | — | **not run** |
+| CI on the pushed branch | — | **not checked**: I did not look at the Actions runs |
+
+The two failures in the full run were not regressions in the app. Both checks typed a John 6 passage as their example of "a passage whose numbering is unverified, so the app must hold back". John 6 was verified in section 6, so the app, correctly, no longer held back. `review` now uses Romans 14:1-10 and `gofurther` uses the lesson whose key verse is Micah 5:2; both chapters are still unverified, so what the checks guard is still guarded. The full 52-check run was not repeated after those two edits and after the later, smaller commits (Old Testament rules, local dates); the eight checks most exposed to those changes were re-run on a build of the head and passed.
+
+The previously failing pair (`datahealth`, `mediacontrols`) passed in the full run and again on the final build.
+
+Environment note: this container's Playwright browser is a different build from the one the project pins; a symbolic link outside the repository pointed the pinned path at the installed browser. Nothing in the repository was changed for it.
