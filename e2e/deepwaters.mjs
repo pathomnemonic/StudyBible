@@ -2,32 +2,20 @@ import { chromium } from 'playwright';
 import { readFileSync } from 'node:fs';
 
 const BASE = process.env.BASE || 'http://localhost:4173';
-const generatedFiles = [
+const answerFiles = [
+  '../src/data/deepWatersAuthored.json',
   ...Array.from({ length: 5 }, (_, i) => `../src/data/deepWatersCurriculum${i + 1}.generated.json`),
   ...Array.from({ length: 4 }, (_, i) => `../src/data/deepWatersScripture${i + 1}b.generated.json`),
 ];
 const answersById = new Map();
-for (const path of generatedFiles) {
+for (const path of answerFiles) {
   const rows = JSON.parse(readFileSync(new URL(path, import.meta.url), 'utf8'));
   for (const row of rows) answersById.set(row.id, row.answers[0]?.answer);
 }
 const normalize = (value) => value.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]/g, '');
-const manualAnswer = (question) => {
-  if (question.includes('religious order')) return 'Benedictines';
-  if (question.includes('title or invocation')) return 'Our Lady of Guadalupe';
-  if (question.includes('Church Father')) return 'Augustine of Hippo';
-  if (question.includes('ecumenical council')) return 'Nicaea I';
-  if (question.includes('Catholic Old Testament')) return 'Tobit';
-  if (question.includes('prayer or devotion')) return 'Rosary';
-  if (question.includes('liturgical rite')) return 'Latin Church';
-  if (question.includes('saint who was a pope')) return 'Peter';
-  if (question.includes('woman in the Bible')) return 'Eve';
-  if (question.includes('New Testament')) return 'Jerusalem';
-  return null;
-};
-const answerFor = (session, round, question) => {
-  const answer = answersById.get(session.promptIds[round]) || manualAnswer(question);
-  if (!answer) throw new Error(`no answer fixture for prompt ${session.promptIds[round]}: ${question}`);
+const answerFor = (session, round) => {
+  const answer = answersById.get(session.promptIds[round]);
+  if (!answer) throw new Error(`no answer fixture for prompt ${session.promptIds[round]}`);
   return answer;
 };
 const lockAnswer = async (page, answer, testSuggestion = false) => {
@@ -69,8 +57,7 @@ try {
     try { return JSON.parse(raw || 'null')?.promptIds?.length === 7; } catch { return false; }
   });
   const session = await p.evaluate(() => JSON.parse(localStorage.getItem('sb:deepwaters:session:v1')));
-  const firstQuestion = await p.locator('.dw-card h2').innerText();
-  await lockAnswer(p, answerFor(session, 0, firstQuestion));
+  await lockAnswer(p, answerFor(session, 0));
   await p.waitForFunction(() => {
     try {
       const stored = JSON.parse(localStorage.getItem('sb:deepwaters:session:v1') || 'null');
@@ -98,8 +85,7 @@ try {
   await p.getByRole('button', { name: 'Next round' }).click();
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
   if (!(await p.locator('.dw-round-count').innerText()).includes('02')) throw new Error('did not advance to round two');
-  const secondQuestion = await p.locator('.dw-card h2').innerText();
-  await lockAnswer(p, answerFor(session, 1, secondQuestion), true);
+  await lockAnswer(p, answerFor(session, 1), true);
 
   await p.getByRole('button', { name: 'Next round' }).click();
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
@@ -123,7 +109,7 @@ try {
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
   if (await p.locator('#dw-answer').inputValue() !== 'Dama') throw new Error('in-progress answer did not restore after reload');
   if (errors.length) throw new Error(errors.join('; '));
-  console.log('deep waters e2e ok: generated answer acceptance, spelling suggestion, locked and in-progress reload restore, next rounds, hidden-tab timer pause');
+  console.log('deep waters e2e ok: curated answer acceptance, spelling suggestion, locked and in-progress reload restore, next rounds, hidden-tab timer pause');
 } finally {
   await b.close();
 }

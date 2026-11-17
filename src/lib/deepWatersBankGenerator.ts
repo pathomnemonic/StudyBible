@@ -3,6 +3,7 @@ import { WHO_AM_I_2 } from '../data/whoami2';
 import { COUNCILS } from '../data/councils';
 import { NAME_SAINTS } from '../data/confirmationSaints';
 import { GLOSSARY } from '../data/glossary';
+import { normalizeDeepAnswer } from './deepWaters';
 
 export type DeepCandidateCategory = 'biblical-person' | 'council' | 'saint' | 'glossary';
 export interface DeepCandidate {
@@ -15,8 +16,6 @@ export interface DeepCandidate {
   reviewStatus: 'needs-review';
   tier: null;
 }
-
-const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase().replace(/[^a-z0-9]/g, '');
 
 export function generateDeepCandidates(): DeepCandidate[] {
   const rows: DeepCandidate[] = [];
@@ -53,7 +52,7 @@ export function generateDeepCandidates(): DeepCandidate[] {
   }
   const unique = new Map<string, DeepCandidate>();
   for (const row of rows) {
-    const key = `${row.category}:${normalize(row.answer)}`;
+    const key = `${row.category}:${normalizeDeepAnswer(row.answer)}`;
     const previous = unique.get(key);
     if (!previous || row.evidence.length > previous.evidence.length) unique.set(key, row);
   }

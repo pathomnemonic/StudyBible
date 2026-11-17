@@ -43,7 +43,8 @@ export default function DeepWatersPage() {
   const [logbook, setLogbook] = useState(loadDeepLogbook());
   const [isPaused, setIsPaused] = useState(Boolean(canResume && snapshot?.paused && document.visibilityState === 'hidden'));
   const streak = deepDiveStreak(logbook, today);
-  const pearlPool = prompts.flatMap((p) => p.answers.filter((a) => a.tier === 5).map((a) => a.answer));
+  const tierSixPearls = prompts.flatMap((p) => p.answers.filter((a) => a.tier === 6).map((a) => a.answer));
+  const pearlPool = tierSixPearls.length ? tierSixPearls : prompts.flatMap((p) => p.answers.filter((a) => a.tier === 5).map((a) => a.answer));
   const pearlAnswer = !practice && pearlPool.length ? pearlPool[Math.abs(today * 31) % pearlPool.length] : null;
   const pearlFound = history.some((item) => (item.pearlBonus ?? 0) > 0);
 
@@ -144,7 +145,7 @@ export default function DeepWatersPage() {
       </header>
       <GameHelp initialPractice={practice} how={[
         'Each round begins with a three-second preview, then gives you 30 seconds to enter one answer from the curated key.',
-        'Higher-difficulty questions and deeper-cut answers earn more points: 1, 2, 4, 8 or 16. Tiers are editorial game weights, not player-survey statistics.',
+        'Higher-difficulty questions and deeper-cut answers earn more points: 1, 2, 4, 8, 16 or 32. Tiers are editorial game weights, not player-survey statistics.',
         'Use the optional hint if you get stuck. Tiers are editorial game weights, not population statistics.',
         'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
         'One hidden pearl is worth a 5-point bonus. It is selected from the deepest accepted answers in today’s set.',
@@ -186,7 +187,7 @@ export default function DeepWatersPage() {
               {suggestions.map((item) => <button key={item.answer} type="button" onClick={() => { setGuess(item.answer); setFeedback(''); }}>{item.answer}</button>)}
             </div>}
             {!locked && !preview && <div className="dw-scoring-key" aria-label="Scoring guide">
-              <span>SCORING</span>{([1,2,3,4,5] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><b>{DEEP_POINTS[tier]}</b></i>)}<small>higher tiers score more</small>
+              <span>SCORING</span>{([1,2,3,4,5,6] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><b>{DEEP_POINTS[tier]}</b></i>)}<small>higher tiers score more</small>
             </div>}
             {locked && result && (
               <div className={`dw-reveal ${result.points ? 'scored' : ''}`}>
