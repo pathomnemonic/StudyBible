@@ -9,6 +9,7 @@ describe('Deep Waters content and rules', () => {
     expect(new Set(DEEP_WATERS.map((p) => p.id)).size).toBe(DEEP_WATERS.length);
     for (const p of DEEP_WATERS) {
       expect(p.prompt.trim().length, p.id).toBeGreaterThan(12);
+      expect(p.hint.trim().length, p.id).toBeGreaterThan(20);
       expect(p.answers.length, p.id).toBeGreaterThanOrEqual(10);
       expect(new Set(p.answers.map((a) => normalizeDeepAnswer(a.answer))).size, p.id).toBe(p.answers.length);
       for (const a of p.answers) expect([1, 2, 3, 4, 5]).toContain(a.tier);
