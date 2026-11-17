@@ -19,7 +19,7 @@ export const WINDOW = 2;
 const seedFor = (x: number) => ((Math.floor(x) % 2147483647) + 2147483647) % 2147483647;
 
 /** "people-A" and "people-B" are one family, as are "places-ACT" and "places-LUK" are one family; so are "saints-03" and "saints-martyr". Anything else is its own family. */
-export const familyOf = (id: string) => (/^(places|saints|people|roles)-/.test(id) ? id.split('-')[0] : id);
+export const familyOf = (id: string) => id.startsWith('krillion-saint-') ? 'saints' : id.startsWith('krillion-place-') ? 'places' : (/^(places|saints|people|roles)-/.test(id) ? id.split('-')[0] : id);
 
 interface Unit { p: DeepPrompt; key: string; family: string }
 interface Layout { units: Unit[]; days: number; homes: Map<string, number>; famCap: Map<string, number> }

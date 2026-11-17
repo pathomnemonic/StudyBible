@@ -3,26 +3,38 @@ import GENERATED_PROMPTS from './deepWaters.generated.json';
 import { deepTokens } from '../lib/deepWatersTokens';
 
 /** 2,416 accessible Krillion-style prompts built from the app's shipped Catholic/Bible answer corpora. */
-type SourceAnswer = { answer: string; tier: 1|2|3|4|5|6; aliases?: string[] };
 const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
 const clean = (s: string) => s.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 const key = (s: string) => deepTokens(s).join(' ');
+type SourceAnswer = { answer: string; tier: 1|2|3|4|5|6; aliases?: string[] };
 const unique = (xs: SourceAnswer[]) => {
   const seen = new Set<string>();
   return xs.filter((x) => { const k = key(x.answer); if (!k || seen.has(k)) return false; seen.add(k); return true; })
     .filter((x) => x.answer.trim().split(/\s+/).length <= 4);
 };
 const raw = GENERATED_PROMPTS as Array<{id:string; answers:SourceAnswer[]}>;
+function prepare(label: string, theme: 'saints'|'places', source: string, sourceAnswers: SourceAnswer[]) {
+  const ordered = [...unique(sourceAnswers)].sort((a,b)=>a.tier-b.tier||a.answer.localeCompare(b.answer));
+  const canonical = new Set(ordered.map((a)=>key(a.answer)));
+  const aliasKeys = new Set<string>();
+  // One shared answer object per source entry keeps the 2,416 prompt bank compact in memory.
+  const answers: DeepAnswer[] = ordered.map((a,i)=>{
+    const pct=(i+1)/ordered.length;
+    const tier=(pct<=0.08?1:pct<=0.20?2:pct<=0.40?3:pct<=0.65?4:pct<=0.90?5:6) as DeepAnswer['tier'];
+    const aliases=(a.aliases??[]).filter((x)=>x.trim().split(/\s+/).length<=4&&key(x)!==key(a.answer)&&!canonical.has(key(x))&&!aliasKeys.has(key(x)));
+    if(aliases.length) aliasKeys.add(key(aliases[0]));
+    return {answer:a.answer,tier,...(aliases.length?{aliases:[aliases[0]]}:{})};
+  });
+  return {label,theme,source,answers};
+}
 const pools = [
-  { key: 'saint', label: 'saint', theme: 'saints' as const, source: 'App-shipped saints reference corpus (saints-any in deepWaters.generated.json)', answers: unique(raw.find((x) => x.id === 'saints-any')!.answers) },
-  { key: 'place', label: 'biblical place', theme: 'places' as const, source: 'App-shipped OpenBible place corpus by biblical book (places-* in deepWaters.generated.json)', answers: unique(raw.filter((x) => x.id.startsWith('places-')).flatMap((x) => x.answers)) },
+  {...prepare('saint','saints','App-shipped saints reference corpus (saints-any in deepWaters.generated.json)',raw.find((x)=>x.id==='saints-any')!.answers),key:'saint'},
+  {...prepare('biblical place','places','App-shipped OpenBible place corpus by biblical book (places-* in deepWaters.generated.json)',raw.filter((x)=>x.id.startsWith('places-')).flatMap((x)=>x.answers)),key:'place'},
 ];
-const candidates: Array<{pool: typeof pools[number]; kind:string; prompt:string; answers:SourceAnswer[]}> = [];
+const candidates: Array<{pool: typeof pools[number]; kind:string; prompt:string; answers:DeepAnswer[]}> = [];
 function add(pool: typeof pools[number], kind: string, phrase: string, test: (name:string)=>boolean) {
   const answers = pool.answers.filter((a) => test(clean(a.answer)));
-  if (answers.length < 25) return;
-  const canonical = new Set(answers.map((a)=>key(a.answer)));
-  if (!answers.some((a) => (a.aliases ?? []).some((alias) => alias.trim().split(/\s+/).length <= 4 && key(alias) !== key(a.answer) && !canonical.has(key(alias))))) return;
+  if (answers.length < 25 || new Set(answers.map((a)=>a.tier)).size !== 6 || !answers.some((a)=>a.aliases?.length)) return;
   candidates.push({ pool, kind, prompt: 'Name a ' + pool.label + ' ' + phrase + '.', answers });
 }
 for (const pool of pools) {
@@ -69,17 +81,12 @@ for (const poolKey of ['saint','place']) {
   }
 }
 if(selected.length!==2416) throw new Error('Expected 2,416 complete prompts, generated ' + selected.length);
-const prompts: DeepPrompt[] = selected.map((c,index)=>{
-  const ordered=[...c.answers].sort((a,b)=>a.tier-b.tier||a.answer.localeCompare(b.answer));
-  const canonical = new Set(ordered.map((a)=>key(a.answer)));
-  const aliasKeys = new Set<string>();
-  const answers:DeepAnswer[]=ordered.map((a,i)=>{
-    const pct=(i+1)/ordered.length;
-    const tier=(pct<=0.08?1:pct<=0.20?2:pct<=0.40?3:pct<=0.65?4:pct<=0.90?5:6) as DeepAnswer['tier'];
-    const aliases=(a.aliases??[]).filter((x)=>x.trim().split(/\s+/).length<=4 && key(x)!==key(a.answer) && !canonical.has(key(x)) && !aliasKeys.has(key(x)));
-    if(aliases.length) aliasKeys.add(key(aliases[0]));
-    return {answer:a.answer,tier,...(aliases.length?{aliases:[aliases[0]]}:{})};
-  });
-  return {id:'krillion-' + c.pool.key + '-' + String(index+1).padStart(4,'0'),theme:c.pool.theme,source:c.pool.source,status:'draft',prompt:c.prompt,context:'A quick category-and-letter challenge. Answers are drawn from the app-shipped reference corpus; this open list is not claimed to exhaust all valid real-world answers.',answers};
-});
-export const KRILLION_PROMPTS: DeepPrompt[] = prompts;
+export const KRILLION_PROMPTS: DeepPrompt[] = selected.map((c,index)=>({
+  id:'krillion-' + c.pool.key + '-' + String(index+1).padStart(4,'0'),
+  theme:c.pool.theme,
+  source:c.pool.source,
+  status:'draft',
+  prompt:c.prompt,
+  context:'A quick category-and-letter challenge. Answers are drawn from the app-shipped reference corpus; this open list is not claimed to exhaust all valid real-world answers.',
+  answers:c.answers,
+}));

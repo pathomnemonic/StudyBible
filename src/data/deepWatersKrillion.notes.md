@@ -25,6 +25,6 @@ Each generated prompt has at least 25 distinct accepted answers, at least one no
 
 ## Rarity and review
 
-The source answers are ordered by their existing source tiers, then assigned the requested approximate 8/12/20/25/25/10 six-tier distribution within each filtered prompt. This is a deterministic editorial ranking, not player telemetry or measured familiarity.
+The source answers are ordered by their existing source tiers, then assigned the requested approximate 8/12/20/25/25/10 six-tier distribution once per source pool. Filtered prompts retain those shared answer objects and their tiers; every selected prompt is required to contain all six tiers. This is a deterministic editorial ranking, not player telemetry or measured familiarity. Shared answer objects keep the large prompt bank compact in memory.
 
 All generated prompts have status: draft. They are excluded from the manual hash-review registry because the generator and dedicated tests validate the full generated set on every run. The tests check prompt uniqueness, word-count bounds, answer counts, all six tiers, source metadata, three canonical accepted answers, a source alias, a wrong-category rejection, and a near-miss rejection for every generated prompt. Human review remains required before publication.
