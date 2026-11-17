@@ -15,18 +15,19 @@ const secondBatch = authored.filter((prompt) => prompt.id.startsWith('batch2-'))
 assert.equal(authored.length, 50, 'hand-authored prompt count');
 assert.equal(secondBatch.length, 25, 'second hand-authored batch count');
 assert.ok(new Set(authored.map((prompt) => prompt.theme)).size >= 20, 'hand-authored bank must span distinct themes');
-const authoredNormalize = (value: string) => value.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '').trim();
+const authoredNormalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '').trim();
 for (const prompt of authored) {
   assert.ok(prompt.answerMode === 'open' || prompt.answerMode === 'closed', `authored prompt must declare open/closed mode: ${prompt.id}`);
   assert.ok(prompt.source?.startsWith('Hand-authored'), `missing authored provenance: ${prompt.id}`);
   assert.ok(prompt.context.trim().length > 20, `insufficient scope context: ${prompt.id}`);
-  assert.ok(prompt.prompt.trim().split(/\\s+/).length <= 20, `player prompt exceeds 20 words: ${prompt.id}`);
-  assert.ok((prompt.context.match(/[.!?](?:\\s|$)/g) ?? []).length <= 1, `context must be one sentence: ${prompt.id}`);
-  assert.ok(!/\\b(above|below)\\b/i.test(`${prompt.prompt} ${prompt.context} ${prompt.hint}`), `forbidden player-facing wording: ${prompt.id}`);
+  assert.ok(prompt.prompt.trim().split(/\s+/).length <= 20, `player prompt exceeds 20 words: ${prompt.id}`);
+  assert.equal((prompt.prompt.match(/[.!?](?:\s|$)/g) ?? []).length, 1, `player prompt must be one sentence: ${prompt.id}`);
+  assert.ok((prompt.context.match(/[.!?](?:\s|$)/g) ?? []).length <= 1, `context must be one sentence: ${prompt.id}`);
+  assert.ok(!/\b(above|below)\b/i.test(`${prompt.prompt} ${prompt.context} ${prompt.hint}`), `forbidden player-facing wording: ${prompt.id}`);
   assert.equal(prompt.commonGuesses?.length, 10, `ten likely guesses required: ${prompt.id}`);
   const accepted = new Map<string, string>();
   for (const answer of prompt.answers) {
-    assert.ok(answer.answer.trim().split(/\\s+/).length <= 4, `answer exceeds four words: ${prompt.id}: ${answer.answer}`);
+    assert.ok(answer.answer.trim().split(/\s+/).length <= 4, `answer exceeds four words: ${prompt.id}: ${answer.answer}`);
     assert.ok(answer.source?.trim(), `missing per-answer source: ${prompt.id}: ${answer.answer}`);
     assert.ok([1, 2, 3, 4, 5, 6].includes(answer.tier), `invalid rarity tier: ${prompt.id}: ${answer.answer}`);
     for (const value of [answer.answer, ...(answer.aliases ?? [])]) {
