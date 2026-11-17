@@ -17,7 +17,12 @@ export function findDeepAnswer(prompt: DeepPrompt, guess: string): DeepAnswer | 
 
 /** Stable daily set; the prompt bank and order are the same for every visit on a given local day. */
 export function dailyDeepPrompts(day: number): DeepPrompt[] {
-  return shuffled(DEEP_WATERS, seeded(day + 78031)).slice(0, DEEP_ROUNDS);
+  // Deterministic rotating bag: globally consistent, no duplicates within a day,
+  // and minimum possible overlap between adjacent days for the current bank size.
+  const bag = shuffled(DEEP_WATERS, seeded(78031));
+  if (bag.length <= DEEP_ROUNDS) return bag;
+  const start = ((day - 1) * DEEP_ROUNDS) % bag.length;
+  return Array.from({ length: DEEP_ROUNDS }, (_, i) => bag[(start + i) % bag.length]);
 }
 export function practiceDeepPrompts(seed: number): DeepPrompt[] {
   return shuffled(DEEP_WATERS, seeded(seed + 99173)).slice(0, DEEP_ROUNDS);
