@@ -820,8 +820,12 @@
         "tier": 4
       },
       {
-        "answer": "Croatian and Serbian Catholic Church",
-        "tier": 5
+        "answer": "Greek Catholic Church of Croatia and Serbia",
+        "tier": 5,
+        "aliases": [
+          "Croatian and Serbian Greek Catholic Church",
+          "Church of Krizevci"
+        ]
       },
       {
         "answer": "Greek Byzantine Catholic Church",
@@ -910,7 +914,7 @@
     "prompt": "Name a person who has been formally proclaimed a Doctor of the Church.",
     "context": "The list includes Doctors from the Latin and Eastern traditions. Use the person's commonly accepted name.",
     "hint": "Some are bishops and theologians; others are mystics, religious founders, or early Christian writers.",
-    "source": "Hand-authored answer key; sources: Dicastery for the Causes of Saints / Holy See lists of Doctors of the Church.",
+    "source": "Hand-authored answer key; sources: Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025.",
     "status": "draft",
     "answerMode": "many",
     "answers": [
@@ -2041,8 +2045,8 @@
   {
     "id": "authored-pauline-women",
     "theme": "Pauline letters",
-    "prompt": "Which women are named in Paul's letters as co-workers, hosts, patrons, or members of the churches?",
-    "context": "Include women identified in the Pauline letters, not every woman in Acts or the Gospels.",
+    "prompt": "Which women are named or explicitly identified in Paul's letters as co-workers, hosts, patrons, or members of the churches?",
+    "context": "Include women named directly and women clearly identified by a family relationship in the Pauline letters.",
     "hint": "Romans 16 is the richest passage, but compare Philippians, Colossians, and 2 Timothy.",
     "source": "Hand-authored answer key; sources: Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19.",
     "status": "draft",
@@ -2090,10 +2094,6 @@
       {
         "answer": "Apphia",
         "tier": 4
-      },
-      {
-        "answer": "Nympha",
-        "tier": 3
       },
       {
         "answer": "Chloe",
@@ -2281,7 +2281,10 @@
       },
       {
         "answer": "Christmas Time",
-        "tier": 1
+        "tier": 1,
+        "aliases": [
+          "Christmastide"
+        ]
       },
       {
         "answer": "Lent",
@@ -2318,10 +2321,6 @@
       {
         "answer": "Pentecost",
         "tier": 1
-      },
-      {
-        "answer": "Christmastide",
-        "tier": 2
       },
       {
         "answer": "Epiphany",
