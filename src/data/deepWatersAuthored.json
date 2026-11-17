@@ -1,0 +1,2266 @@
+[
+  {
+    "id": "authored-pauline-coworkers",
+    "theme": "Acts and Paul",
+    "prompt": "Which named people appear as Paul's co-workers, travel companions, messengers, or ministry partners in Acts and his letters?",
+    "context": "Include people explicitly associated with Paul's journeys, churches, correspondence, or ministry. Do not include every person Paul merely greets.",
+    "hint": "Look through Acts and the closing greetings of Romans, Colossians, and 2 Timothy.",
+    "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Barnabas",
+        "tier": 1
+      },
+      {
+        "answer": "Silas",
+        "tier": 1
+      },
+      {
+        "answer": "Timothy",
+        "tier": 1
+      },
+      {
+        "answer": "Titus",
+        "tier": 1
+      },
+      {
+        "answer": "Luke",
+        "tier": 1
+      },
+      {
+        "answer": "John Mark",
+        "tier": 2,
+        "aliases": [
+          "Mark"
+        ]
+      },
+      {
+        "answer": "Priscilla",
+        "tier": 2,
+        "aliases": [
+          "Prisca"
+        ]
+      },
+      {
+        "answer": "Aquila",
+        "tier": 2
+      },
+      {
+        "answer": "Phoebe",
+        "tier": 2
+      },
+      {
+        "answer": "Tychicus",
+        "tier": 3
+      },
+      {
+        "answer": "Trophimus",
+        "tier": 4
+      },
+      {
+        "answer": "Aristarchus",
+        "tier": 3
+      },
+      {
+        "answer": "Epaphras",
+        "tier": 3
+      },
+      {
+        "answer": "Epaphroditus",
+        "tier": 3
+      },
+      {
+        "answer": "Onesimus",
+        "tier": 3
+      },
+      {
+        "answer": "Sosthenes",
+        "tier": 3
+      },
+      {
+        "answer": "Erastus",
+        "tier": 3
+      },
+      {
+        "answer": "Gaius",
+        "tier": 2
+      },
+      {
+        "answer": "Sopater",
+        "tier": 4
+      },
+      {
+        "answer": "Secundus",
+        "tier": 4
+      },
+      {
+        "answer": "Tertius",
+        "tier": 4
+      },
+      {
+        "answer": "Crescens",
+        "tier": 5
+      },
+      {
+        "answer": "Demas",
+        "tier": 3
+      },
+      {
+        "answer": "Apollos",
+        "tier": 2
+      },
+      {
+        "answer": "Andronicus",
+        "tier": 4
+      },
+      {
+        "answer": "Junia",
+        "tier": 4
+      },
+      {
+        "answer": "Jason",
+        "tier": 3
+      },
+      {
+        "answer": "Mnason",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "authored-romans16-women",
+    "theme": "Pauline letters",
+    "prompt": "Which women are individually named or clearly identified in Paul's greetings in Romans 16?",
+    "context": "The answer key is limited to women Paul names or identifies by a family relationship in this chapter.",
+    "hint": "Read Romans 16:1–15 closely; several names are easy to overlook.",
+    "source": "Romans 16:1–15.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Phoebe",
+        "tier": 1
+      },
+      {
+        "answer": "Prisca",
+        "tier": 1,
+        "aliases": [
+          "Priscilla"
+        ]
+      },
+      {
+        "answer": "Mary",
+        "tier": 1
+      },
+      {
+        "answer": "Junia",
+        "tier": 2
+      },
+      {
+        "answer": "Tryphaena",
+        "tier": 3
+      },
+      {
+        "answer": "Tryphosa",
+        "tier": 3
+      },
+      {
+        "answer": "Persis",
+        "tier": 3
+      },
+      {
+        "answer": "Rufus's mother",
+        "tier": 4,
+        "aliases": [
+          "Mother of Rufus"
+        ]
+      },
+      {
+        "answer": "Nereus's sister",
+        "tier": 5,
+        "aliases": [
+          "Sister of Nereus"
+        ]
+      },
+      {
+        "answer": "Julia",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "authored-luke-parables",
+    "theme": "Gospels",
+    "prompt": "Which parables are found in Luke's Gospel and have no parallel in the other canonical Gospels?",
+    "context": "Use the commonly recognized Lukan-only parables; a parable's title may vary between translations.",
+    "hint": "The Good Samaritan and the Prodigal Son are two familiar examples. Look especially at Luke 10–18.",
+    "source": "Luke 10:25–37; 12:13–21; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "The Good Samaritan",
+        "tier": 1
+      },
+      {
+        "answer": "The Rich Fool",
+        "tier": 1
+      },
+      {
+        "answer": "The Barren Fig Tree",
+        "tier": 2
+      },
+      {
+        "answer": "The Lowest Seat at the Banquet",
+        "tier": 3,
+        "aliases": [
+          "The Wedding Feast Seats"
+        ]
+      },
+      {
+        "answer": "The Great Banquet",
+        "tier": 2
+      },
+      {
+        "answer": "The Lost Coin",
+        "tier": 1
+      },
+      {
+        "answer": "The Prodigal Son",
+        "tier": 1,
+        "aliases": [
+          "The Lost Son"
+        ]
+      },
+      {
+        "answer": "The Shrewd Manager",
+        "tier": 3,
+        "aliases": [
+          "The Unjust Steward"
+        ]
+      },
+      {
+        "answer": "The Rich Man and Lazarus",
+        "tier": 2
+      },
+      {
+        "answer": "The Persistent Widow",
+        "tier": 2
+      },
+      {
+        "answer": "The Pharisee and the Tax Collector",
+        "tier": 2
+      },
+      {
+        "answer": "The Friend at Midnight",
+        "tier": 3
+      },
+      {
+        "answer": "The Tower Builder",
+        "tier": 3
+      },
+      {
+        "answer": "The King Going to War",
+        "tier": 4
+      }
+    ]
+  },
+  {
+    "id": "authored-judges-of-israel",
+    "theme": "Hebrew Bible",
+    "prompt": "Who are the judges named in the Book of Judges?",
+    "context": "Include the major and minor judges explicitly named in Judges. Do not add Eli or Samuel, whose judging roles appear in 1 Samuel.",
+    "hint": "The list includes several short notices between the better-known stories of Deborah, Gideon, and Samson.",
+    "source": "Judges 3–16.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Othniel",
+        "tier": 2
+      },
+      {
+        "answer": "Ehud",
+        "tier": 2
+      },
+      {
+        "answer": "Shamgar",
+        "tier": 4
+      },
+      {
+        "answer": "Deborah",
+        "tier": 1
+      },
+      {
+        "answer": "Gideon",
+        "tier": 1,
+        "aliases": [
+          "Jerubbaal"
+        ]
+      },
+      {
+        "answer": "Tola",
+        "tier": 4
+      },
+      {
+        "answer": "Jair",
+        "tier": 3
+      },
+      {
+        "answer": "Jephthah",
+        "tier": 2
+      },
+      {
+        "answer": "Ibzan",
+        "tier": 4
+      },
+      {
+        "answer": "Elon",
+        "tier": 4
+      },
+      {
+        "answer": "Abdon",
+        "tier": 4
+      },
+      {
+        "answer": "Samson",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "authored-pauline-letters",
+    "theme": "New Testament",
+    "prompt": "Which books of the New Testament are traditionally attributed to Paul?",
+    "context": "Use the traditional thirteen-letter Pauline corpus. Hebrews is excluded because its authorship is anonymous and not established as Pauline.",
+    "hint": "The list includes letters to churches and letters addressed to individuals.",
+    "source": "Romans; 1–2 Corinthians; Galatians; Ephesians; Philippians; Colossians; 1–2 Thessalonians; 1–2 Timothy; Titus; Philemon.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Romans",
+        "tier": 1
+      },
+      {
+        "answer": "1 Corinthians",
+        "tier": 1,
+        "aliases": [
+          "First Corinthians"
+        ]
+      },
+      {
+        "answer": "2 Corinthians",
+        "tier": 1,
+        "aliases": [
+          "Second Corinthians"
+        ]
+      },
+      {
+        "answer": "Galatians",
+        "tier": 1
+      },
+      {
+        "answer": "Ephesians",
+        "tier": 1
+      },
+      {
+        "answer": "Philippians",
+        "tier": 1
+      },
+      {
+        "answer": "Colossians",
+        "tier": 1
+      },
+      {
+        "answer": "1 Thessalonians",
+        "tier": 2,
+        "aliases": [
+          "First Thessalonians"
+        ]
+      },
+      {
+        "answer": "2 Thessalonians",
+        "tier": 2,
+        "aliases": [
+          "Second Thessalonians"
+        ]
+      },
+      {
+        "answer": "1 Timothy",
+        "tier": 2,
+        "aliases": [
+          "First Timothy"
+        ]
+      },
+      {
+        "answer": "2 Timothy",
+        "tier": 2,
+        "aliases": [
+          "Second Timothy"
+        ]
+      },
+      {
+        "answer": "Titus",
+        "tier": 2
+      },
+      {
+        "answer": "Philemon",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "authored-resurrection-witnesses",
+    "theme": "Gospels and Acts",
+    "prompt": "Which named people are described as witnesses of the risen Jesus in the New Testament?",
+    "context": "Include individuals or clearly identified groups who encounter the risen Jesus; do not include people who only hear a report second-hand.",
+    "hint": "Start with the appearance accounts in the four Gospels, then compare Paul's list in 1 Corinthians 15.",
+    "source": "Matthew 28; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Mary Magdalene",
+        "tier": 1
+      },
+      {
+        "answer": "Peter",
+        "tier": 1,
+        "aliases": [
+          "Simon Peter",
+          "Cephas"
+        ]
+      },
+      {
+        "answer": "John",
+        "tier": 2,
+        "aliases": [
+          "The beloved disciple"
+        ]
+      },
+      {
+        "answer": "Cleopas",
+        "tier": 3
+      },
+      {
+        "answer": "Thomas",
+        "tier": 1,
+        "aliases": [
+          "Didymus"
+        ]
+      },
+      {
+        "answer": "James",
+        "tier": 2,
+        "aliases": [
+          "James the brother of the Lord"
+        ]
+      },
+      {
+        "answer": "Mary the mother of James",
+        "tier": 3
+      },
+      {
+        "answer": "Joanna",
+        "tier": 3
+      },
+      {
+        "answer": "Salome",
+        "tier": 3
+      },
+      {
+        "answer": "The other Mary",
+        "tier": 3
+      },
+      {
+        "answer": "The two disciples on the road to Emmaus",
+        "tier": 2
+      },
+      {
+        "answer": "The Eleven",
+        "tier": 1
+      },
+      {
+        "answer": "The Twelve",
+        "tier": 1
+      },
+      {
+        "answer": "The five hundred brothers",
+        "tier": 4
+      },
+      {
+        "answer": "Paul",
+        "tier": 1,
+        "aliases": [
+          "Saul of Tarsus"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "authored-pauls-first-journey",
+    "theme": "Acts and geography",
+    "prompt": "Which places does Acts name along Paul's first missionary journey with Barnabas?",
+    "context": "Follow the outward and return route in Acts 13–14. Accept the ancient place-name used in the text.",
+    "hint": "The route begins in Cyprus, crosses to southern Asia Minor, and returns to the sending church.",
+    "source": "Acts 13:1–14:28.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Antioch",
+        "tier": 1,
+        "aliases": [
+          "Antioch in Syria"
+        ]
+      },
+      {
+        "answer": "Seleucia",
+        "tier": 3
+      },
+      {
+        "answer": "Salamis",
+        "tier": 2
+      },
+      {
+        "answer": "Paphos",
+        "tier": 2
+      },
+      {
+        "answer": "Perga",
+        "tier": 2
+      },
+      {
+        "answer": "Antioch in Pisidia",
+        "tier": 2
+      },
+      {
+        "answer": "Iconium",
+        "tier": 3
+      },
+      {
+        "answer": "Lystra",
+        "tier": 2
+      },
+      {
+        "answer": "Derbe",
+        "tier": 3
+      },
+      {
+        "answer": "Attalia",
+        "tier": 3
+      },
+      {
+        "answer": "Jerusalem",
+        "tier": 1
+      },
+      {
+        "answer": "Cyprus",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "authored-marian-litany",
+    "theme": "Catholic prayer",
+    "prompt": "Which invocations are found in the Litany of Loreto?",
+    "context": "Accept the traditional invocations in the litany, not every devotional title ever used for Mary.",
+    "hint": "Several invocations are symbolic titles such as 'Seat of Wisdom' and 'Ark of the Covenant'.",
+    "source": "Litany of Loreto, traditional form.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Holy Mary",
+        "tier": 1
+      },
+      {
+        "answer": "Holy Mother of God",
+        "tier": 1
+      },
+      {
+        "answer": "Holy Virgin of virgins",
+        "tier": 2
+      },
+      {
+        "answer": "Mother of Christ",
+        "tier": 1
+      },
+      {
+        "answer": "Mother of the Church",
+        "tier": 2
+      },
+      {
+        "answer": "Mother of divine grace",
+        "tier": 3
+      },
+      {
+        "answer": "Mother most pure",
+        "tier": 1
+      },
+      {
+        "answer": "Mother most chaste",
+        "tier": 2
+      },
+      {
+        "answer": "Mother inviolate",
+        "tier": 3
+      },
+      {
+        "answer": "Mother undefiled",
+        "tier": 3
+      },
+      {
+        "answer": "Mother most amiable",
+        "tier": 3
+      },
+      {
+        "answer": "Mother of good counsel",
+        "tier": 2
+      },
+      {
+        "answer": "Virgin most prudent",
+        "tier": 2
+      },
+      {
+        "answer": "Virgin most venerable",
+        "tier": 2
+      },
+      {
+        "answer": "Mirror of justice",
+        "tier": 3
+      },
+      {
+        "answer": "Seat of wisdom",
+        "tier": 2
+      },
+      {
+        "answer": "Cause of our joy",
+        "tier": 3
+      },
+      {
+        "answer": "Spiritual vessel",
+        "tier": 3
+      },
+      {
+        "answer": "Vessel of honor",
+        "tier": 3
+      },
+      {
+        "answer": "Singular vessel of devotion",
+        "tier": 4
+      },
+      {
+        "answer": "Mystical rose",
+        "tier": 2
+      },
+      {
+        "answer": "Tower of David",
+        "tier": 2
+      },
+      {
+        "answer": "Tower of ivory",
+        "tier": 3
+      },
+      {
+        "answer": "House of gold",
+        "tier": 3
+      },
+      {
+        "answer": "Ark of the covenant",
+        "tier": 2
+      },
+      {
+        "answer": "Gate of heaven",
+        "tier": 1
+      },
+      {
+        "answer": "Morning star",
+        "tier": 1
+      },
+      {
+        "answer": "Health of the sick",
+        "tier": 1
+      },
+      {
+        "answer": "Refuge of sinners",
+        "tier": 1
+      },
+      {
+        "answer": "Comforter of the afflicted",
+        "tier": 1
+      },
+      {
+        "answer": "Help of Christians",
+        "tier": 1
+      },
+      {
+        "answer": "Queen of angels",
+        "tier": 1
+      },
+      {
+        "answer": "Queen of prophets",
+        "tier": 2
+      },
+      {
+        "answer": "Queen of apostles",
+        "tier": 1
+      },
+      {
+        "answer": "Queen of martyrs",
+        "tier": 1
+      },
+      {
+        "answer": "Queen of all saints",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "authored-works-of-mercy",
+    "theme": "Catholic teaching",
+    "prompt": "What are the traditional corporal and spiritual works of mercy?",
+    "context": "The answer key contains the seven corporal and seven spiritual works as taught in Catholic catechesis.",
+    "hint": "There are exactly fourteen in the traditional lists: seven address bodily needs and seven address spiritual needs.",
+    "source": "Catechism of the Catholic Church 2447.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Feed the hungry",
+        "tier": 1
+      },
+      {
+        "answer": "Give drink to the thirsty",
+        "tier": 1
+      },
+      {
+        "answer": "Clothe the naked",
+        "tier": 1
+      },
+      {
+        "answer": "Shelter the homeless",
+        "tier": 1,
+        "aliases": [
+          "Give shelter to the homeless"
+        ]
+      },
+      {
+        "answer": "Visit the sick",
+        "tier": 1
+      },
+      {
+        "answer": "Visit the imprisoned",
+        "tier": 2
+      },
+      {
+        "answer": "Bury the dead",
+        "tier": 1
+      },
+      {
+        "answer": "Counsel the doubtful",
+        "tier": 2
+      },
+      {
+        "answer": "Instruct the ignorant",
+        "tier": 2
+      },
+      {
+        "answer": "Admonish the sinner",
+        "tier": 2
+      },
+      {
+        "answer": "Comfort the afflicted",
+        "tier": 1
+      },
+      {
+        "answer": "Forgive offenses willingly",
+        "tier": 2,
+        "aliases": [
+          "Forgive those who wrong you"
+        ]
+      },
+      {
+        "answer": "Bear wrongs patiently",
+        "tier": 2
+      },
+      {
+        "answer": "Pray for the living and the dead",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "authored-eastern-catholic-churches",
+    "theme": "Catholic Church",
+    "prompt": "Which are the Catholic Churches sui iuris in communion with the Bishop of Rome?",
+    "context": "Name a Church, not merely a liturgical rite. The list follows the commonly recognized twenty-three Eastern Catholic Churches plus the Latin Church.",
+    "hint": "Think of the distinct Byzantine, Alexandrian, Antiochian, Armenian, and East Syriac traditions.",
+    "source": "Code of Canons of the Eastern Churches; Holy See, Eastern Catholic Churches.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Latin Church",
+        "tier": 1
+      },
+      {
+        "answer": "Albanian Greek Catholic Church",
+        "tier": 5
+      },
+      {
+        "answer": "Belarusian Greek Catholic Church",
+        "tier": 5
+      },
+      {
+        "answer": "Bulgarian Greek Catholic Church",
+        "tier": 4
+      },
+      {
+        "answer": "Croatian and Serbian Catholic Church",
+        "tier": 5
+      },
+      {
+        "answer": "Greek Byzantine Catholic Church",
+        "tier": 4
+      },
+      {
+        "answer": "Hungarian Greek Catholic Church",
+        "tier": 3
+      },
+      {
+        "answer": "Macedonian Greek Catholic Church",
+        "tier": 5
+      },
+      {
+        "answer": "Melkite Greek Catholic Church",
+        "tier": 2,
+        "aliases": [
+          "Melkite Church"
+        ]
+      },
+      {
+        "answer": "Romanian Greek Catholic Church",
+        "tier": 3
+      },
+      {
+        "answer": "Russian Greek Catholic Church",
+        "tier": 5
+      },
+      {
+        "answer": "Ruthenian Byzantine Catholic Church",
+        "tier": 3
+      },
+      {
+        "answer": "Slovak Greek Catholic Church",
+        "tier": 3
+      },
+      {
+        "answer": "Ukrainian Greek Catholic Church",
+        "tier": 1
+      },
+      {
+        "answer": "Armenian Catholic Church",
+        "tier": 2
+      },
+      {
+        "answer": "Chaldean Catholic Church",
+        "tier": 2
+      },
+      {
+        "answer": "Syro-Malabar Church",
+        "tier": 1
+      },
+      {
+        "answer": "Syro-Malankara Church",
+        "tier": 2
+      },
+      {
+        "answer": "Maronite Church",
+        "tier": 1
+      },
+      {
+        "answer": "Coptic Catholic Church",
+        "tier": 2
+      },
+      {
+        "answer": "Ethiopian Catholic Church",
+        "tier": 3
+      },
+      {
+        "answer": "Eritrean Catholic Church",
+        "tier": 4
+      }
+    ]
+  },
+  {
+    "id": "authored-doctors-of-church",
+    "theme": "Catholic tradition",
+    "prompt": "Which people have been formally proclaimed Doctors of the Church?",
+    "context": "The list includes Doctors from the Latin and Eastern traditions. Use the person's commonly accepted name.",
+    "hint": "Some are bishops and theologians; others are mystics, religious founders, or early Christian writers.",
+    "source": "Dicastery for the Causes of Saints / Holy See lists of Doctors of the Church.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Ambrose of Milan",
+        "tier": 1
+      },
+      {
+        "answer": "Augustine of Hippo",
+        "tier": 1
+      },
+      {
+        "answer": "Jerome",
+        "tier": 1
+      },
+      {
+        "answer": "Gregory the Great",
+        "tier": 1
+      },
+      {
+        "answer": "Thomas Aquinas",
+        "tier": 1
+      },
+      {
+        "answer": "Bonaventure",
+        "tier": 2
+      },
+      {
+        "answer": "Anselm of Canterbury",
+        "tier": 2
+      },
+      {
+        "answer": "Isidore of Seville",
+        "tier": 2
+      },
+      {
+        "answer": "Peter Chrysologus",
+        "tier": 3
+      },
+      {
+        "answer": "Leo the Great",
+        "tier": 2
+      },
+      {
+        "answer": "Peter Damian",
+        "tier": 3
+      },
+      {
+        "answer": "Bernard of Clairvaux",
+        "tier": 2
+      },
+      {
+        "answer": "Hildegard of Bingen",
+        "tier": 2
+      },
+      {
+        "answer": "Albert the Great",
+        "tier": 2
+      },
+      {
+        "answer": "Anthony of Padua",
+        "tier": 1
+      },
+      {
+        "answer": "Francis de Sales",
+        "tier": 1
+      },
+      {
+        "answer": "John of the Cross",
+        "tier": 2
+      },
+      {
+        "answer": "Teresa of Ávila",
+        "tier": 1
+      },
+      {
+        "answer": "Catherine of Siena",
+        "tier": 1
+      },
+      {
+        "answer": "Thérèse of Lisieux",
+        "tier": 1
+      },
+      {
+        "answer": "John of Ávila",
+        "tier": 3
+      },
+      {
+        "answer": "Lawrence of Brindisi",
+        "tier": 4
+      },
+      {
+        "answer": "Robert Bellarmine",
+        "tier": 3
+      },
+      {
+        "answer": "Alphonsus Liguori",
+        "tier": 2
+      },
+      {
+        "answer": "Athanasius of Alexandria",
+        "tier": 1
+      },
+      {
+        "answer": "Basil the Great",
+        "tier": 1
+      },
+      {
+        "answer": "Gregory of Nazianzus",
+        "tier": 2
+      },
+      {
+        "answer": "John Chrysostom",
+        "tier": 1
+      },
+      {
+        "answer": "Cyril of Alexandria",
+        "tier": 2
+      },
+      {
+        "answer": "Cyril of Jerusalem",
+        "tier": 3
+      },
+      {
+        "answer": "Ephrem the Syrian",
+        "tier": 3
+      },
+      {
+        "answer": "John of Damascus",
+        "tier": 2
+      },
+      {
+        "answer": "Irenaeus of Lyons",
+        "tier": 2
+      },
+      {
+        "answer": "Hilary of Poitiers",
+        "tier": 3
+      },
+      {
+        "answer": "Cyril of Alexandria",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "authored-early-martyrs",
+    "theme": "Early Church",
+    "prompt": "Which Christians are remembered as martyrs of the early Church before the conversion of Constantine?",
+    "context": "Use well-attested early witnesses from the apostolic age through the early fourth century. The answer key avoids later medieval martyrs.",
+    "hint": "Look beyond the apostles to bishops, deacons, and lay Christians whose martyrdoms shaped early Christian memory.",
+    "source": "Acts 7; early martyr acts and patristic witnesses, including the Martyrdom of Polycarp.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Stephen",
+        "tier": 1,
+        "aliases": [
+          "Stephen the Protomartyr"
+        ]
+      },
+      {
+        "answer": "James son of Zebedee",
+        "tier": 2
+      },
+      {
+        "answer": "Ignatius of Antioch",
+        "tier": 1
+      },
+      {
+        "answer": "Polycarp of Smyrna",
+        "tier": 1
+      },
+      {
+        "answer": "Justin Martyr",
+        "tier": 1
+      },
+      {
+        "answer": "Perpetua",
+        "tier": 1
+      },
+      {
+        "answer": "Felicity",
+        "tier": 1,
+        "aliases": [
+          "Felicitas"
+        ]
+      },
+      {
+        "answer": "Pionius",
+        "tier": 4
+      },
+      {
+        "answer": "Blandina",
+        "tier": 2
+      },
+      {
+        "answer": "Potinus",
+        "tier": 4,
+        "aliases": [
+          "Pothinus"
+        ]
+      },
+      {
+        "answer": "Speratus",
+        "tier": 4
+      },
+      {
+        "answer": "Cyprian of Carthage",
+        "tier": 1
+      },
+      {
+        "answer": "Lawrence of Rome",
+        "tier": 1
+      },
+      {
+        "answer": "Agnes of Rome",
+        "tier": 1
+      },
+      {
+        "answer": "Cecilia of Rome",
+        "tier": 2
+      },
+      {
+        "answer": "Sixtus II",
+        "tier": 2
+      },
+      {
+        "answer": "Fructuosus of Tarragona",
+        "tier": 4
+      },
+      {
+        "answer": "Eulalia of Mérida",
+        "tier": 3
+      },
+      {
+        "answer": "Quirinus of Neuss",
+        "tier": 5
+      },
+      {
+        "answer": "Pancras of Rome",
+        "tier": 3
+      },
+      {
+        "answer": "Crispina of Thagura",
+        "tier": 5
+      },
+      {
+        "answer": "Marcellinus",
+        "tier": 4
+      }
+    ]
+  },
+  {
+    "id": "authored-prophets-before-kings",
+    "theme": "Hebrew Bible",
+    "prompt": "Which prophets confronted, corrected, or delivered warnings to Israelite or Judean rulers?",
+    "context": "Include prophets whose encounters with kings are narrated in Scripture; do not include every person called a prophet.",
+    "hint": "Nathan rebuked David; Elijah confronted Ahab; Micaiah challenged Ahab's court prophets.",
+    "source": "1 Samuel 15; 2 Samuel 12; 1 Kings 18–22; 2 Kings 1–9; Isaiah 7; Jeremiah 21–38.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Samuel",
+        "tier": 1
+      },
+      {
+        "answer": "Nathan",
+        "tier": 1
+      },
+      {
+        "answer": "Gad",
+        "tier": 3
+      },
+      {
+        "answer": "Ahijah of Shiloh",
+        "tier": 3
+      },
+      {
+        "answer": "Shemaiah",
+        "tier": 4
+      },
+      {
+        "answer": "Elijah",
+        "tier": 1
+      },
+      {
+        "answer": "Elisha",
+        "tier": 1
+      },
+      {
+        "answer": "Micaiah son of Imlah",
+        "tier": 3
+      },
+      {
+        "answer": "Isaiah",
+        "tier": 1
+      },
+      {
+        "answer": "Jeremiah",
+        "tier": 1
+      },
+      {
+        "answer": "Urijah son of Shemaiah",
+        "tier": 5
+      },
+      {
+        "answer": "Hanani",
+        "tier": 4
+      },
+      {
+        "answer": "Jehu son of Hanani",
+        "tier": 4
+      },
+      {
+        "answer": "Azariah son of Oded",
+        "tier": 4
+      },
+      {
+        "answer": "Huldah",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "authored-women-in-acts",
+    "theme": "Acts of the Apostles",
+    "prompt": "Which women are named in the Acts of the Apostles as disciples, hosts, patrons, prophets, or members of the early Christian community?",
+    "context": "Include women explicitly named in Acts, not unnamed groups or women known only from other books.",
+    "hint": "Lydia, Priscilla, Tabitha, and the daughters of Philip are useful starting points.",
+    "source": "Acts 1:14; 9:36–42; 12:12; 16:14–15; 18:2, 18, 26; 21:8–9.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Mary the mother of Jesus",
+        "tier": 1
+      },
+      {
+        "answer": "Mary the mother of John Mark",
+        "tier": 2
+      },
+      {
+        "answer": "Sapphira",
+        "tier": 2
+      },
+      {
+        "answer": "Tabitha",
+        "tier": 1,
+        "aliases": [
+          "Dorcas"
+        ]
+      },
+      {
+        "answer": "Mary of Rome",
+        "tier": 4
+      },
+      {
+        "answer": "Lydia",
+        "tier": 1
+      },
+      {
+        "answer": "Damaris",
+        "tier": 2
+      },
+      {
+        "answer": "Priscilla",
+        "tier": 1,
+        "aliases": [
+          "Prisca"
+        ]
+      },
+      {
+        "answer": "Rhoda",
+        "tier": 3
+      },
+      {
+        "answer": "Drusilla",
+        "tier": 3
+      },
+      {
+        "answer": "Bernice",
+        "tier": 3
+      },
+      {
+        "answer": "Philip's four daughters",
+        "tier": 2,
+        "aliases": [
+          "The four daughters of Philip"
+        ]
+      },
+      {
+        "answer": "Sister of Nereus",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "authored-acts-cities",
+    "theme": "Acts and geography",
+    "prompt": "Which cities are named as places where the apostolic mission took place in Acts?",
+    "context": "Use cities explicitly named in Acts as destinations, preaching locations, or places where churches formed.",
+    "hint": "Paul's journeys provide many examples, but include places associated with Peter and Philip as well.",
+    "source": "Acts 2–28.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Jerusalem",
+        "tier": 1
+      },
+      {
+        "answer": "Samaria",
+        "tier": 1
+      },
+      {
+        "answer": "Joppa",
+        "tier": 2
+      },
+      {
+        "answer": "Caesarea",
+        "tier": 1
+      },
+      {
+        "answer": "Damascus",
+        "tier": 1
+      },
+      {
+        "answer": "Antioch",
+        "tier": 1
+      },
+      {
+        "answer": "Tarsus",
+        "tier": 2
+      },
+      {
+        "answer": "Salamis",
+        "tier": 2
+      },
+      {
+        "answer": "Paphos",
+        "tier": 2
+      },
+      {
+        "answer": "Perga",
+        "tier": 3
+      },
+      {
+        "answer": "Iconium",
+        "tier": 3
+      },
+      {
+        "answer": "Lystra",
+        "tier": 2
+      },
+      {
+        "answer": "Derbe",
+        "tier": 3
+      },
+      {
+        "answer": "Philippi",
+        "tier": 1
+      },
+      {
+        "answer": "Thessalonica",
+        "tier": 1
+      },
+      {
+        "answer": "Berea",
+        "tier": 2
+      },
+      {
+        "answer": "Athens",
+        "tier": 1
+      },
+      {
+        "answer": "Corinth",
+        "tier": 1
+      },
+      {
+        "answer": "Ephesus",
+        "tier": 1
+      },
+      {
+        "answer": "Troas",
+        "tier": 2
+      },
+      {
+        "answer": "Miletus",
+        "tier": 2
+      },
+      {
+        "answer": "Tyre",
+        "tier": 1
+      },
+      {
+        "answer": "Ptolemais",
+        "tier": 4
+      },
+      {
+        "answer": "Sidon",
+        "tier": 2
+      },
+      {
+        "answer": "Rome",
+        "tier": 1
+      },
+      {
+        "answer": "Puteoli",
+        "tier": 4
+      },
+      {
+        "answer": "Malta",
+        "tier": 1
+      },
+      {
+        "answer": "Rhegium",
+        "tier": 5
+      },
+      {
+        "answer": "Syracuse",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "authored-jesus-healings",
+    "theme": "Gospels",
+    "prompt": "Which illnesses, disabilities, or physical conditions are specifically described as being healed by Jesus in the Gospels?",
+    "context": "Give the condition rather than the person's name. Include both individual healings and clearly described groups.",
+    "hint": "The narratives mention blindness, paralysis, leprosy, hemorrhage, fever, and several less familiar conditions.",
+    "source": "Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Blindness",
+        "tier": 1
+      },
+      {
+        "answer": "Leprosy",
+        "tier": 1
+      },
+      {
+        "answer": "Paralysis",
+        "tier": 1
+      },
+      {
+        "answer": "Withered hand",
+        "tier": 2
+      },
+      {
+        "answer": "Hemorrhage",
+        "tier": 2,
+        "aliases": [
+          "Chronic bleeding"
+        ]
+      },
+      {
+        "answer": "Fever",
+        "tier": 1
+      },
+      {
+        "answer": "Dropsy",
+        "tier": 4,
+        "aliases": [
+          "Edema"
+        ]
+      },
+      {
+        "answer": "Deafness",
+        "tier": 2
+      },
+      {
+        "answer": "Speech impairment",
+        "tier": 2,
+        "aliases": [
+          "Mute condition"
+        ]
+      },
+      {
+        "answer": "Bent back",
+        "tier": 4,
+        "aliases": [
+          "Inability to stand upright"
+        ]
+      },
+      {
+        "answer": "Demon-related seizures",
+        "tier": 3
+      },
+      {
+        "answer": "Ear injury",
+        "tier": 3,
+        "aliases": [
+          "Severed ear"
+        ]
+      },
+      {
+        "answer": "Lameness",
+        "tier": 2
+      },
+      {
+        "answer": "Skin disease",
+        "tier": 3
+      },
+      {
+        "answer": "Demonic possession",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "authored-johannine-titles",
+    "theme": "New Testament",
+    "prompt": "Which titles or images for Jesus appear in the Gospel of John?",
+    "context": "Use titles or metaphors explicitly applied to Jesus in John's Gospel, including those spoken by Jesus or by other characters.",
+    "hint": "The opening chapter and the 'I am' discourses are especially rich sources.",
+    "source": "John 1; 4; 6; 8–15; 19–20.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "The Word",
+        "tier": 1,
+        "aliases": [
+          "The Logos"
+        ]
+      },
+      {
+        "answer": "The Lamb of God",
+        "tier": 1
+      },
+      {
+        "answer": "The Son of God",
+        "tier": 1
+      },
+      {
+        "answer": "The Son of Man",
+        "tier": 1
+      },
+      {
+        "answer": "The King of Israel",
+        "tier": 2
+      },
+      {
+        "answer": "The Messiah",
+        "tier": 1,
+        "aliases": [
+          "The Christ"
+        ]
+      },
+      {
+        "answer": "The Savior of the world",
+        "tier": 2
+      },
+      {
+        "answer": "The Bread of Life",
+        "tier": 1
+      },
+      {
+        "answer": "The Light of the World",
+        "tier": 1
+      },
+      {
+        "answer": "The Door",
+        "tier": 2,
+        "aliases": [
+          "The Gate"
+        ]
+      },
+      {
+        "answer": "The Good Shepherd",
+        "tier": 1
+      },
+      {
+        "answer": "The Resurrection and the Life",
+        "tier": 1
+      },
+      {
+        "answer": "The Way",
+        "tier": 1
+      },
+      {
+        "answer": "The Truth",
+        "tier": 1
+      },
+      {
+        "answer": "The Life",
+        "tier": 1
+      },
+      {
+        "answer": "The True Vine",
+        "tier": 1
+      },
+      {
+        "answer": "Rabbi",
+        "tier": 1
+      },
+      {
+        "answer": "Teacher",
+        "tier": 1
+      },
+      {
+        "answer": "Lord",
+        "tier": 1
+      },
+      {
+        "answer": "The Holy One of God",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "authored-acts-leaders",
+    "theme": "Acts of the Apostles",
+    "prompt": "Which named leaders, teachers, or public figures play a substantial role in Acts?",
+    "context": "Include apostles, evangelists, missionaries, and civic or religious leaders whose actions shape the narrative.",
+    "hint": "The book moves from Peter and the Jerusalem community to Paul and the mission across the Roman world.",
+    "source": "Acts 1–28.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Peter",
+        "tier": 1
+      },
+      {
+        "answer": "John",
+        "tier": 1
+      },
+      {
+        "answer": "James the brother of the Lord",
+        "tier": 2
+      },
+      {
+        "answer": "Stephen",
+        "tier": 1
+      },
+      {
+        "answer": "Philip the Evangelist",
+        "tier": 2
+      },
+      {
+        "answer": "Barnabas",
+        "tier": 1
+      },
+      {
+        "answer": "Paul",
+        "tier": 1,
+        "aliases": [
+          "Saul"
+        ]
+      },
+      {
+        "answer": "Silas",
+        "tier": 2
+      },
+      {
+        "answer": "Timothy",
+        "tier": 1
+      },
+      {
+        "answer": "Apollos",
+        "tier": 2
+      },
+      {
+        "answer": "Priscilla",
+        "tier": 2
+      },
+      {
+        "answer": "Aquila",
+        "tier": 2
+      },
+      {
+        "answer": "Gamaliel",
+        "tier": 2
+      },
+      {
+        "answer": "Ananias of Damascus",
+        "tier": 2
+      },
+      {
+        "answer": "Cornelius",
+        "tier": 1
+      },
+      {
+        "answer": "Lydia",
+        "tier": 2
+      },
+      {
+        "answer": "Sosthenes",
+        "tier": 3
+      },
+      {
+        "answer": "Gallio",
+        "tier": 3
+      },
+      {
+        "answer": "Felix",
+        "tier": 2
+      },
+      {
+        "answer": "Festus",
+        "tier": 2
+      },
+      {
+        "answer": "Agrippa",
+        "tier": 2,
+        "aliases": [
+          "Herod Agrippa II"
+        ]
+      },
+      {
+        "answer": "Luke",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "authored-deuterocanonical-books",
+    "theme": "Catholic canon",
+    "prompt": "Which books or substantial textual additions belong to the Catholic Old Testament but are absent from the Protestant Old Testament canon?",
+    "context": "Include the seven deuterocanonical books and the recognized Greek additions to Esther and Daniel.",
+    "hint": "Separate whole books from additions within books; the answer key names both.",
+    "source": "Catholic canon of Scripture; Council of Trent, Session IV.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Tobit",
+        "tier": 1
+      },
+      {
+        "answer": "Judith",
+        "tier": 1
+      },
+      {
+        "answer": "Wisdom of Solomon",
+        "tier": 1,
+        "aliases": [
+          "Wisdom"
+        ]
+      },
+      {
+        "answer": "Sirach",
+        "tier": 1,
+        "aliases": [
+          "Ecclesiasticus"
+        ]
+      },
+      {
+        "answer": "Baruch",
+        "tier": 2
+      },
+      {
+        "answer": "1 Maccabees",
+        "tier": 1
+      },
+      {
+        "answer": "2 Maccabees",
+        "tier": 1
+      },
+      {
+        "answer": "Greek additions to Esther",
+        "tier": 3,
+        "aliases": [
+          "Additions to Esther"
+        ]
+      },
+      {
+        "answer": "Prayer of Azariah",
+        "tier": 2
+      },
+      {
+        "answer": "Song of the Three Young Men",
+        "tier": 2
+      },
+      {
+        "answer": "Susanna",
+        "tier": 1
+      },
+      {
+        "answer": "Bel and the Dragon",
+        "tier": 2
+      }
+    ]
+  },
+  {
+    "id": "authored-catholic-prayers",
+    "theme": "Catholic prayer",
+    "prompt": "Which named forms of Catholic prayer or devotional practice are distinct from the celebration of Mass?",
+    "context": "Include established forms of prayer, not every spontaneous prayer or generic act of devotion.",
+    "hint": "Consider the Liturgy of the Hours, the Rosary, Eucharistic adoration, and forms of meditation.",
+    "source": "Catechism of the Catholic Church 2626–2643; 2700–2724; Directory on Popular Piety.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Rosary",
+        "tier": 1
+      },
+      {
+        "answer": "Liturgy of the Hours",
+        "tier": 1,
+        "aliases": [
+          "Divine Office"
+        ]
+      },
+      {
+        "answer": "Angelus",
+        "tier": 1
+      },
+      {
+        "answer": "Regina Caeli",
+        "tier": 2
+      },
+      {
+        "answer": "Lectio Divina",
+        "tier": 1
+      },
+      {
+        "answer": "Eucharistic adoration",
+        "tier": 1
+      },
+      {
+        "answer": "Benediction",
+        "tier": 2
+      },
+      {
+        "answer": "Stations of the Cross",
+        "tier": 1
+      },
+      {
+        "answer": "Divine Mercy Chaplet",
+        "tier": 2
+      },
+      {
+        "answer": "Novenas",
+        "tier": 1,
+        "aliases": [
+          "Novena"
+        ]
+      },
+      {
+        "answer": "Ignatian examen",
+        "tier": 3,
+        "aliases": [
+          "Examen"
+        ]
+      },
+      {
+        "answer": "Jesus Prayer",
+        "tier": 2
+      },
+      {
+        "answer": "Memorare",
+        "tier": 2
+      },
+      {
+        "answer": "Act of Contrition",
+        "tier": 1
+      },
+      {
+        "answer": "Litany of the Saints",
+        "tier": 2
+      },
+      {
+        "answer": "Litany of Loreto",
+        "tier": 2
+      },
+      {
+        "answer": "Seven Sorrows Rosary",
+        "tier": 3
+      },
+      {
+        "answer": "First Fridays devotion",
+        "tier": 3
+      },
+      {
+        "answer": "First Saturdays devotion",
+        "tier": 3
+      }
+    ]
+  },
+  {
+    "id": "authored-ecumenical-councils-first-millennium",
+    "theme": "Church history",
+    "prompt": "Which ecumenical councils were held during the first millennium of Christianity?",
+    "context": "Use the first eight ecumenical councils recognized by the Catholic Church; identify them by city and ordinal number where needed.",
+    "hint": "The sequence begins at Nicaea in 325 and ends with Constantinople IV in 869–870.",
+    "source": "Catholic list of ecumenical councils; council dates 325–869/870.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "First Council of Nicaea",
+        "tier": 1,
+        "aliases": [
+          "Nicaea I"
+        ]
+      },
+      {
+        "answer": "First Council of Constantinople",
+        "tier": 2,
+        "aliases": [
+          "Constantinople I"
+        ]
+      },
+      {
+        "answer": "Council of Ephesus",
+        "tier": 2
+      },
+      {
+        "answer": "Council of Chalcedon",
+        "tier": 2
+      },
+      {
+        "answer": "Second Council of Constantinople",
+        "tier": 3,
+        "aliases": [
+          "Constantinople II"
+        ]
+      },
+      {
+        "answer": "Third Council of Constantinople",
+        "tier": 3,
+        "aliases": [
+          "Constantinople III"
+        ]
+      },
+      {
+        "answer": "Second Council of Nicaea",
+        "tier": 2,
+        "aliases": [
+          "Nicaea II"
+        ]
+      },
+      {
+        "answer": "Fourth Council of Constantinople",
+        "tier": 4,
+        "aliases": [
+          "Constantinople IV"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "authored-pauline-women",
+    "theme": "Pauline letters",
+    "prompt": "Which women are named in Paul's letters as co-workers, hosts, patrons, or members of the churches?",
+    "context": "Include women identified in the Pauline letters, not every woman in Acts or the Gospels.",
+    "hint": "Romans 16 is the richest passage, but compare Philippians, Colossians, and 2 Timothy.",
+    "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Phoebe",
+        "tier": 1
+      },
+      {
+        "answer": "Prisca",
+        "tier": 1,
+        "aliases": [
+          "Priscilla"
+        ]
+      },
+      {
+        "answer": "Mary",
+        "tier": 2
+      },
+      {
+        "answer": "Junia",
+        "tier": 2
+      },
+      {
+        "answer": "Tryphaena",
+        "tier": 3
+      },
+      {
+        "answer": "Tryphosa",
+        "tier": 3
+      },
+      {
+        "answer": "Persis",
+        "tier": 3
+      },
+      {
+        "answer": "Euodia",
+        "tier": 2
+      },
+      {
+        "answer": "Syntyche",
+        "tier": 2
+      },
+      {
+        "answer": "Apphia",
+        "tier": 4
+      },
+      {
+        "answer": "Nympha",
+        "tier": 3
+      },
+      {
+        "answer": "Chloe",
+        "tier": 2
+      },
+      {
+        "answer": "Lois",
+        "tier": 2
+      },
+      {
+        "answer": "Eunice",
+        "tier": 2
+      },
+      {
+        "answer": "Julia",
+        "tier": 3
+      },
+      {
+        "answer": "Rufus's mother",
+        "tier": 4
+      },
+      {
+        "answer": "Nereus's sister",
+        "tier": 5
+      }
+    ]
+  },
+  {
+    "id": "authored-martyrs-acts",
+    "theme": "Acts and early Church",
+    "prompt": "Which people are explicitly described in Acts as suffering or being killed because of their witness to the faith?",
+    "context": "Limit answers to people whose persecution or death is narrated in Acts; do not add later traditional martyrdom accounts.",
+    "hint": "Stephen's death is central, but Acts also records persecution of the apostles and James.",
+    "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Stephen",
+        "tier": 1
+      },
+      {
+        "answer": "James son of Zebedee",
+        "tier": 1
+      },
+      {
+        "answer": "Peter",
+        "tier": 1
+      },
+      {
+        "answer": "John",
+        "tier": 1
+      },
+      {
+        "answer": "The apostles",
+        "tier": 1
+      },
+      {
+        "answer": "Paul",
+        "tier": 1
+      },
+      {
+        "answer": "Barnabas",
+        "tier": 2
+      },
+      {
+        "answer": "Silas",
+        "tier": 2
+      },
+      {
+        "answer": "The believers scattered from Jerusalem",
+        "tier": 3
+      },
+      {
+        "answer": "The disciples in Lystra",
+        "tier": 4
+      }
+    ]
+  },
+  {
+    "id": "authored-revelation-images",
+    "theme": "New Testament",
+    "prompt": "Which symbolic images or figures appear in the visions of the Book of Revelation?",
+    "context": "Name a distinct image in the book's visions; do not give generic theological concepts that are not represented in the text.",
+    "hint": "The images include creatures, objects, numbers, and figures that recur across the visions.",
+    "source": "Revelation 1–22.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "The seven lampstands",
+        "tier": 1
+      },
+      {
+        "answer": "The seven stars",
+        "tier": 1
+      },
+      {
+        "answer": "The Lamb",
+        "tier": 1
+      },
+      {
+        "answer": "The four living creatures",
+        "tier": 1
+      },
+      {
+        "answer": "The twenty-four elders",
+        "tier": 1
+      },
+      {
+        "answer": "The scroll with seven seals",
+        "tier": 2
+      },
+      {
+        "answer": "The four horsemen",
+        "tier": 1
+      },
+      {
+        "answer": "The woman clothed with the sun",
+        "tier": 1
+      },
+      {
+        "answer": "The great red dragon",
+        "tier": 1
+      },
+      {
+        "answer": "Michael and his angels",
+        "tier": 2
+      },
+      {
+        "answer": "The beast from the sea",
+        "tier": 1
+      },
+      {
+        "answer": "The beast from the earth",
+        "tier": 2
+      },
+      {
+        "answer": "The image of the beast",
+        "tier": 2
+      },
+      {
+        "answer": "The number 666",
+        "tier": 1
+      },
+      {
+        "answer": "The two witnesses",
+        "tier": 1
+      },
+      {
+        "answer": "The seven bowls",
+        "tier": 2
+      },
+      {
+        "answer": "The great harlot Babylon",
+        "tier": 2
+      },
+      {
+        "answer": "The New Jerusalem",
+        "tier": 1
+      },
+      {
+        "answer": "The river of the water of life",
+        "tier": 2
+      },
+      {
+        "answer": "The tree of life",
+        "tier": 1
+      }
+    ]
+  },
+  {
+    "id": "authored-catholic-liturgical-seasons",
+    "theme": "Catholic liturgy",
+    "prompt": "Which seasons or major observances structure the Roman Catholic liturgical year?",
+    "context": "Include the principal liturgical seasons and major observances, not individual saints' memorials.",
+    "hint": "Think from Advent through Ordinary Time, including the Paschal Triduum and Easter season.",
+    "source": "General Norms for the Liturgical Year and the Calendar.",
+    "status": "draft",
+    "answerMode": "many",
+    "answers": [
+      {
+        "answer": "Advent",
+        "tier": 1
+      },
+      {
+        "answer": "Christmas Time",
+        "tier": 1
+      },
+      {
+        "answer": "Lent",
+        "tier": 1
+      },
+      {
+        "answer": "The Paschal Triduum",
+        "tier": 1
+      },
+      {
+        "answer": "Easter Time",
+        "tier": 1
+      },
+      {
+        "answer": "Ordinary Time",
+        "tier": 1
+      },
+      {
+        "answer": "Ash Wednesday",
+        "tier": 1
+      },
+      {
+        "answer": "Palm Sunday",
+        "tier": 1
+      },
+      {
+        "answer": "Easter Sunday",
+        "tier": 1
+      },
+      {
+        "answer": "Ascension of the Lord",
+        "tier": 1
+      },
+      {
+        "answer": "Pentecost",
+        "tier": 1
+      },
+      {
+        "answer": "Christmastide",
+        "tier": 2
+      },
+      {
+        "answer": "Epiphany",
+        "tier": 1
+      },
+      {
+        "answer": "Baptism of the Lord",
+        "tier": 2
+      },
+      {
+        "answer": "Solemnity of the Most Holy Trinity",
+        "tier": 2
+      },
+      {
+        "answer": "Corpus Christi",
+        "tier": 2
+      },
+      {
+        "answer": "Sacred Heart of Jesus",
+        "tier": 2
+      },
+      {
+        "answer": "Christ the King",
+        "tier": 2
+      }
+    ]
+  }
+]
