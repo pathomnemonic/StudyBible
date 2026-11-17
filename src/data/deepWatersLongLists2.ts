@@ -1874,4 +1874,675 @@ Nicholas Owen|4
 John Almond|6
 Forty Martyrs of England and Wales|2
 `),
+
+  L('christmas-songs', 'art-music', 'Name a Christmas carol or Christmas song.', 'Carols sung in church and songs heard in shops and on the radio, old and new, in English and other languages.', 'Hand-authored; standard carol books (Oxford Book of Carols) and popular Christmas song charts.', `
+Silent Night|1|Stille Nacht
+Jingle Bells|1
+Joy to the World|1
+O Come All Ye Faithful|1|Adeste Fideles
+Hark the Herald Angels Sing|1
+The First Noel|1|First Noel
+Away in a Manger|1
+O Little Town of Bethlehem|1
+White Christmas|1
+Rudolph the Red-Nosed Reindeer|1|Rudolph
+Frosty the Snowman|1
+Santa Claus Is Comin' to Town|1|Santa Claus Is Coming to Town
+Deck the Halls|1
+We Wish You a Merry Christmas|1
+Twelve Days of Christmas|1|The Twelve Days of Christmas
+Jingle Bell Rock|2
+Let It Snow|2
+Winter Wonderland|2
+Silver Bells|2
+The Little Drummer Boy|2|Little Drummer Boy
+Do You Hear What I Hear|2
+Carol of the Bells|2
+Ding Dong Merrily on High|3
+Coventry Carol|4
+Good King Wenceslas|2
+We Three Kings|2
+Angels We Have Heard on High|2
+It Came Upon the Midnight Clear|3
+I Saw Three Ships|4
+O Holy Night|1
+O Christmas Tree|2|O Tannenbaum
+Once in Royal David's City|3
+In the Bleak Midwinter|3
+Lo How a Rose E'er Blooming|4
+The Holly and the Ivy|3
+Here We Come A-Wassailing|4
+God Rest Ye Merry Gentlemen|2
+What Child Is This|2
+Mary Did You Know|3
+Have Yourself a Merry Little Christmas|2
+I'll Be Home for Christmas|2
+The Christmas Song|2|Chestnuts Roasting on an Open Fire
+Sleigh Ride|2
+It's the Most Wonderful Time of the Year|2
+All I Want for Christmas Is You|1
+Last Christmas|1
+Rockin' Around the Christmas Tree|2
+Blue Christmas|2
+Feliz Navidad|2
+Wonderful Christmastime|3
+Fairytale of New York|3
+Happy Xmas|3|War Is Over
+Do They Know It's Christmas|3
+Santa Baby|3
+Baby It's Cold Outside|3
+A Holly Jolly Christmas|2|Holly Jolly Christmas
+Up on the Housetop|3
+Jolly Old Saint Nicholas|3
+Go Tell It on the Mountain|3
+Gaudete|4
+Personent Hodie|6
+Wexford Carol|5
+Huron Carol|5|Jesous Ahatonhia
+Il Est Né|6
+Les Anges dans nos campagnes|6
+Noël Nouvelet|6
+Sussex Carol|5
+The Cherry Tree Carol|5
+Tomorrow Shall Be My Dancing Day|6
+Masters in This Hall|6
+While Shepherds Watched Their Flocks|3
+Rise Up Shepherd and Follow|5
+Mary's Boy Child|3
+Breath of Heaven|4
+Joseph's Lullaby|6
+Little Saint Nick|3
+Christmas Time Is Here|3
+Merry Christmas Everyone|4
+Step into Christmas|4
+Christmas Wrapping|5
+Mistletoe|4
+Please Come Home for Christmas|4
+Run Rudolph Run|4
+Driving Home for Christmas|4
+I Wish It Could Be Christmas Everyday|4
+O Come O Come Emmanuel|2
+Veni Veni Emmanuel|5
+Of the Father's Love Begotten|5
+Good Christian Men Rejoice|3
+Sing We Now of Christmas|6
+Shepherds Shake Off Your Drowsy Sleep|6
+`),
+  L('patron-occupations', 'saints', 'Name a job, group or condition that has a patron saint.', 'The Church honors saints as patrons of trades, causes and conditions: farmers, musicians, travelers, nurses, students and many more. Name the job or group, not the saint.', 'Hand-authored; Butler\'s Lives of the Saints and Catholic patron-saint directories (for example Catholic Online and the Catholic Encyclopedia).', `
+Farmers|1|Farming;Farmer
+Musicians|1|Music;Musician
+Travelers|1|Travellers;Traveler;Travelers
+Nurses|1|Nurse
+Students|1|Student;Scholars
+Teachers|1|Teacher;Educators
+Doctors|1|Physicians;Doctor;Physician
+Soldiers|1|Soldier
+Sailors|1|Mariners;Seamen;Sailor
+Fishermen|1|Fisherman;Fishers
+Carpenters|1|Carpenter;Woodworkers
+Lawyers|1|Lawyer;Attorneys
+Writers|1|Authors;Writer
+Artists|1|Painters;Artist
+Children|1|Child
+Animals|2|Pets
+Pilots|2|Aviators;Airmen;Pilot
+Cooks|2|Chefs;Cook
+Bakers|2|Baker
+Brewers|3|Brewer
+Butchers|3|Butcher
+Blacksmiths|4|Blacksmith;Smiths
+Tailors|3|Tailor
+Shoemakers|3|Shoemaker;Cobblers
+Weavers|4|Weaver
+Miners|3|Mining;Miner
+Firefighters|2|Firemen;Firefighter
+Police officers|2|Police;Policemen;Police
+Judges|3|Judge
+Accountants|2|Accountant;Bookkeepers
+Bankers|3|Banker
+Merchants|3|Merchant;Traders
+Architects|3|Architect
+Builders|3|Builder;Masons;Stonemasons
+Engineers|3|Engineer
+Scientists|3|Scientist
+Astronomers|4|Astronomer
+Philosophers|3|Philosopher
+Librarians|3|Librarian
+Booksellers|4|Bookseller
+Printers|4|Printer
+Journalists|2|Journalist;Reporters
+Editors|4|Editor
+Translators|3|Translator
+Secretaries|4|Secretary
+Actors|2|Actor;Entertainers
+Comedians|3|Comedian
+Dancers|3|Dancer
+Singers|2|Singer
+Poets|3|Poet
+Athletes|2|Athlete;Sportsmen
+Archers|4|Archer
+Hunters|3|Hunter
+Gardeners|3|Gardener
+Florists|3|Florist
+Beekeepers|4|Beekeeper
+Shepherds|2|Shepherd
+Cattle|5|Cattle breeders
+Horses|4|Horsemen
+Veterinarians|3|Vets
+Pharmacists|3|Pharmacist;Druggists
+Dentists|3|Dentist
+Surgeons|3|Surgeon
+Midwives|3|Midwife
+Barbers|3|Barber;Hairdressers
+Jewelers|4|Jeweler
+Goldsmiths|4
+Watchmakers|5|Clockmakers
+Tanners|4|Tanner
+Fullers|6
+Potters|4|Potter
+Glassmakers|5
+Sculptors|4|Sculptor
+Organists|5|Organist
+Postal workers|3|Postal Workers;Mail carriers
+Taxi drivers|3|Cab drivers;Drivers
+Truck drivers|4
+Undertakers|3|Funeral directors
+Prisoners|2|Prisoner;Captives
+Thieves|3|Thief
+Lepers|3|Leprosy;Lepers
+The sick|2|Sick people;Invalids
+The dying|2
+The poor|2
+Orphans|2|Orphan
+Widows|3|Widow
+Mothers|2|Mother
+Fathers|2|Father
+Expectant mothers|2|Pregnant women
+Unborn children|3
+Families|2|Family
+Workers|1|Laborers;Workmen;Working people
+Immigrants|2|Migrants;Immigrant
+Refugees|3|Refugee
+Missionaries|2|Missionary
+Priests|1|Priest
+Bishops|3|Bishop
+Seminarians|4|Seminarian
+Confessors|5
+Catechists|3|Catechist
+Altar servers|3|Altar boys;Servers
+Choirs|4
+Church musicians|3
+Parish priests|3|Parish Priests
+Lost things|2|Lost articles;Lost items
+Impossible causes|2|Desperate cases;Lost causes
+Headaches|4
+Toothaches|4
+Eye diseases|3|Eyes;Blind people
+Epilepsy|4
+Plague victims|4|Plague
+Skin diseases|5
+Mental illness|3|Mental health
+Depression|5
+Addiction|4|Alcoholics
+Victims of abuse|3|Abuse victims
+Peace|3
+Engaged couples|3|Fiancés;Engaged people
+Marriage|2|Married couples
+Young girls|4|Girls
+Young boys|4|Boys
+Youth|2|Young people;Teenagers
+Boy Scouts|5|Scouts
+Seafarers|3
+Cyclists|5|Bicyclists
+Computer programmers|4|Programmers;Internet
+Television|3|Broadcasters
+Radio|4
+Photographers|4|Photographer
+Tax collectors|3|Tax collector
+Gravediggers|5
+Tentmakers|4|Tentmaker
+`),
+  L('church-titles', 'church-history', 'Name a title, office or role in the Catholic Church.', 'Offices of clergy and bishops, ranks in religious life, and roles in a parish and the Vatican, from pope to altar server.', 'Hand-authored; Code of Canon Law and the Annuario Pontificio.', `
+Pontiff|2|Bishop of Rome;Holy Father;Supreme Pontiff
+Cardinal|1
+Archbishop|1
+Bishop|1
+Priest|1|Father
+Deacon|1
+Monsignor|2
+Abbot|2
+Abbess|3
+Prior|3
+Prioress|4
+Mother Superior|2
+Nun|1|Sister
+Monk|1
+Friar|2
+Brother|2
+Novice|3
+Postulant|4
+Oblate|4
+Hermit|3
+Anchorite|5
+Acolyte|3
+Lector|3|Reader
+Altar server|2|Altar boy;Altar girl;Server
+Usher|3
+Cantor|3
+Organist|3
+Sacristan|3
+Cathedral canon|5
+Canon|4
+Dean|4
+Vicar|3
+Vicar general|4
+Auxiliary bishop|3
+Coadjutor bishop|5|Coadjutor
+Diocesan bishop|4
+Metropolitan|5
+Primate|5
+Patriarch|3
+Major archbishop|6
+Eparch|6
+Exarch|6
+Archimandrite|6
+Pastor|2
+Parochial vicar|4|Associate pastor
+Curate|4
+Chaplain|2
+Rector|3
+Provost|6
+Prelate|3
+Nuncio|3|Apostolic nuncio
+Legate|4|Papal legate
+Camerlengo|3
+Dean of the College of Cardinals|5
+Prefect|4
+Secretary of State|3
+Cardinal bishop|6
+Cardinal priest|6
+Cardinal deacon|6
+Protonotary apostolic|6
+Chancellor|5
+Judicial vicar|6
+Defender of the bond|6
+Promoter of justice|6
+Master of ceremonies|4
+Thurifer|5|Incense bearer
+Crucifer|5|Cross bearer
+Extraordinary minister of Holy Communion|3|Eucharistic minister
+Catechist|3
+Lay minister|3
+Youth minister|4
+Seminarian|2
+Superior general|4
+Provincial|5|Provincial superior
+Master of novices|6|Novice master
+Abbot general|6
+Procurator general|6
+Postulator|6
+Devil's advocate|3|Promoter of the faith
+Swiss Guard|2|Papal Swiss Guard
+Papal gentleman|6
+Penitentiary|6
+Grand Penitentiary|6
+Almoner|4|Papal almoner
+Sub-deacon|5|Subdeacon
+Porter|5|Doorkeeper
+Exorcist|3
+Pastoral associate|6
+Director of religious education|6|DRE
+Religious sister|3
+Consecrated virgin|4
+Titular bishop|5
+Emeritus pope|4|Pope emeritus
+Antipope|3
+Pro-nuncio|6
+Apostolic delegate|5
+Apostolic administrator|6
+Prefect apostolic|6
+Vicar apostolic|5
+Archpriest|5
+Dean of a cathedral chapter|6
+Domestic prelate|6
+Honorary prelate|6
+Chaplain of His Holiness|5
+`),
+  L('church-architecture', 'places', 'Name a part or feature of a church or cathedral building.', 'Parts of the building, from the floor plan (nave, transept) to the windows, vaults, towers, doors and furnishings of great medieval and Renaissance churches.', 'Hand-authored; standard architectural glossaries (for example Banister Fletcher).', `
+Nave|1
+Altar|1
+Aisle|1
+Pew|1|Pews
+Steeple|1
+Bell tower|1|Campanile;Belfry
+Stained glass|1|Stained glass window
+Pulpit|1|Ambo
+Crypt|2
+Apse|2
+Transept|2
+Choir|2|Quire
+Chancel|3
+Sanctuary|2
+Sacristy|3
+Narthex|3|Vestibule
+Baptistery|2|Baptistry
+Font|2|Baptismal font
+Tabernacle|2
+Confessional|2|Confession booth
+Rose window|2|Rose
+Flying buttress|2|Buttress
+Pointed arch|3|Gothic arch
+Ribbed vault|3|Rib vault
+Barrel vault|4|Tunnel vault
+Groin vault|5
+Fan vault|5
+Dome|1|Cupola
+Lantern|5
+Clerestory|3
+Triforium|4
+Ambulatory|3
+Chapter house|4
+Cloister|2
+Gargoyle|2
+Grotesque|5
+Pinnacle|4
+Finial|5
+Crocket|6
+Tracery|4
+Lancet window|4|Lancet
+Oculus|5
+Tympanum|4
+Portal|3|Doorway
+Trumeau|6
+Rood screen|4|Rood
+Choir stalls|4|Stalls
+Misericord|5
+Sedilia|5
+Piscina|5
+Aumbry|6
+Reredos|4|Retable
+Altarpiece|2|Altar piece
+Triptych|3
+Predella|6
+Baldachin|3|Baldacchino;Ciborium
+Altar rail|3|Communion rail
+Lady chapel|3
+Side chapel|2|Chapel
+Chantry|5
+Mausoleum|3
+Ossuary|5
+Catacomb|3
+Galilee|6
+Lych gate|5|Lychgate
+Churchyard|3
+Graveyard|2|Cemetery
+Rectory|2
+Presbytery|3
+Vestry|3
+Choir loft|3|Organ loft;Gallery
+Organ|2|Pipe organ
+Bell|1|Bells
+Lectern|3
+Credence table|5
+Sanctuary lamp|3
+Paschal candlestick|5|Paschal candle stand
+Holy water stoup|3|Stoup
+Holy water font|2
+Stations of the Cross|2
+Crucifix|1
+Statues|2|Statue
+Icon|2|Icons
+Mosaic|3
+Fresco|3
+Pier|5
+Column|2|Pillar
+Capital|4
+Arcade|4
+Bay|5
+Boss|6|Roof boss
+Corbel|6
+Squinch|6
+Pendentive|6
+Drum|5
+Spire|2
+Tower|1
+Weathervane|4|Weathercock
+Parvis|6
+Bishop's throne|3|Cathedra
+Kneeler|2|Kneelers
+Hymn board|5
+`),
+  L('catholic-films', 'art-music', 'Name a film or TV series about the Bible, Jesus, a saint or Catholic life.', 'Movies and shows that tell the story of Christ, the saints, priests and nuns, the popes or the Church, from silent films to recent releases.', 'Hand-authored; standard film histories and the Vatican Film List.', `
+The Passion of the Christ|1
+Ben-Hur|1
+The Ten Commandments|1
+The Prince of Egypt|1
+The Song of Bernadette|2|Song of Bernadette
+A Man for All Seasons|2
+Becket|3
+The Mission|2
+Of Gods and Men|3
+Silence|3
+Jesus of Nazareth|2
+The Gospel According to St. Matthew|4|Gospel According to Saint Matthew
+King of Kings|3
+The Robe|3
+The Greatest Story Ever Told|2
+Quo Vadis|3
+Sister Act|1
+The Sound of Music|1
+The Nun's Story|3
+Going My Way|2
+The Bells of St. Mary's|2|Bells of Saint Mary's
+Boys Town|3
+Dead Man Walking|2
+Doubt|2
+Calvary|3
+Spotlight|2
+The Exorcist|1
+Francesco|4
+Brother Sun, Sister Moon|3|Brother Sun Sister Moon
+Joan of Arc|2
+The Passion of Joan of Arc|4
+Romero|4
+Marcelino Pan y Vino|4|Marcelino
+Padre Pio|3
+Monsieur Vincent|5
+The Miracle of Our Lady of Fatima|3|Miracle of Our Lady of Fatima
+Fatima|3
+Bernadette|4
+Mother Teresa|3
+Restless Heart|5
+Karol: A Man Who Became Pope|4|Karol
+Pope Francis: A Man of His Word|4
+The Two Popes|1
+Conclave|1
+Angels and Demons|2|Angels & Demons
+The Da Vinci Code|2
+Risen|3
+Son of God|2
+The Chosen|1
+Paul, Apostle of Christ|3
+The Nativity Story|1
+Jesus Christ Superstar|1
+Godspell|2
+Monty Python's Life of Brian|2|Life of Brian
+The Last Temptation of Christ|2
+Noah|2
+Exodus: Gods and Kings|3
+Fr. Stu|3|Father Stu
+Francis of Assisi|5
+Lilies of the Field|3
+Agnes of God|4
+The Scarlet and the Black|3
+Come to the Stable|5
+The Cardinal|5
+I Confess|3
+The Keys of the Kingdom|3
+The Trouble with Angels|4
+Black Robe|4
+The Name of the Rose|2
+The Magdalene Sisters|3
+Philomena|2
+Sister Act 2|2
+Entertaining Angels|5
+The Young Pope|2
+The New Pope|3
+The Way|3
+Thérèse|4
+A Hidden Life|4
+Barabbas|4
+Samson and Delilah|3
+David and Bathsheba|3
+The Story of Ruth|5
+The Bible: In the Beginning|4|The Bible
+The Gospel of John|4
+The Gospel of Luke|5|Jesus film
+The Miracle Maker|3
+`),
+  L('christmas-customs', 'devotion', 'Name a Christmas custom or tradition.', 'Things people do, make, eat and decorate at Advent and Christmas, from church customs to family and national traditions.', 'Hand-authored; standard folklore and liturgical references.', `
+Christmas tree|1
+Nativity scene|1|Crèche;Creche;Manger scene
+Advent calendar|1
+Advent wreath|1
+Santa Claus|1|Saint Nicholas;Father Christmas
+Christmas stockings|1|Stockings
+Christmas lights|1
+Wreath|1
+Christmas cards|1
+Midnight Mass|1
+Caroling|1|Carols;Christmas carols
+Gift giving|1|Presents;Gifts
+Candy cane|2
+Gingerbread house|2|Gingerbread
+Fruitcake|3
+Eggnog|2
+Yule log|3
+Mistletoe|2
+Holly|2
+Poinsettia|2
+Tinsel|3
+Star on the tree|2|Tree topper
+Angel on the tree|3
+Ornaments|2|Baubles
+Christmas Eve vigil|3
+Christmas crackers|3
+Panettone|3
+Stollen|3
+Kutia|6
+Wigilia|4|Polish Christmas Eve supper
+Oplatek|5|Christmas wafer
+Empty chair at the table|5
+Saint Nicholas Day|3|Feast of Saint Nicholas
+Saint Lucy Day|3|Saint Lucia procession;Santa Lucia
+Las Posadas|3|Posadas
+Simbang Gabi|4
+Three Kings Day|2|Epiphany;Feast of the Epiphany
+King cake|3|Rosca de Reyes
+Epiphany chalking|6|Chalking the door
+Blessing of the crib|5
+Christmas pageant|3|Nativity play
+Christmas market|2|Christkindlmarkt
+Christmas pudding|3|Plum pudding
+Mince pies|3
+Roast goose|4
+Turkey dinner|2|Christmas dinner
+Ham|3
+Tamales|3
+Feast of seven fishes|3|Seven fishes
+Buñuelos|6
+Bûche de Noël|4
+Lebkuchen|4
+Pierogi|5
+Boxing Day|3
+Secret Santa|3
+Letters to Santa|3
+Leaving cookies for Santa|3|Cookies and milk
+Reindeer|2
+Sleigh|2
+Elf on the shelf|3
+Jólabókaflóð|5|Yule book flood
+Krampus|4
+Belsnickel|6
+Befana|4|La Befana
+Julebukk|6
+Yule|3
+Wassailing|4|Wassail
+Burning the Yule log|5
+Candles in the window|3
+Luminarias|4|Farolitos
+Christmas Day Mass|2
+Christmas novena|4
+O Antiphons|4|Great Os
+Christmas Eve|1
+Christmas Day|1
+Twelve days of Christmas|2
+Advent|1
+Christmas octave|5
+Holy Family Sunday|4
+`),
+
+  L('english-monarchs', 'church-history', 'Name a king or queen of England.', 'Rulers of England from the Anglo-Saxon kings to the present, including those who defended the Pope, broke with Rome or returned to it.', 'Hand-authored; standard lists of English monarchs.', `
+William the Conqueror|1|William I
+William Rufus|3|William II
+Henry I|3
+Stephen|2|King Stephen
+Matilda|3|Empress Matilda;Maud
+Henry II|1
+Richard I|1|Richard the Lionheart;Richard the Lionhearted;Richard Lionheart
+John|1|King John;John Lackland
+Henry III|2
+Edward I|2|Longshanks
+Edward II|2
+Edward III|2
+Richard II|2
+Henry IV|2
+Henry V|1
+Henry VI|2
+Edward IV|2
+Edward V|3
+Richard III|1
+Henry VII|2
+Henry VIII|1
+Edward VI|2
+Lady Jane Grey|2|Jane Grey;Jane
+Mary I|1|Bloody Mary;Mary Tudor
+Elizabeth I|1|Queen Elizabeth I;Good Queen Bess
+James I|2|James VI
+Charles I|1
+Charles II|2
+James II|2
+William III|2|William of Orange
+Mary II|3
+Anne|2|Queen Anne
+George I|3
+George II|3
+George III|1
+George IV|3
+William IV|3
+Victoria|1|Queen Victoria
+Edward VII|3
+George V|3
+Edward VIII|2
+George VI|2
+Elizabeth II|1|Queen Elizabeth II
+Charles III|1|King Charles III
+Alfred the Great|1|Alfred
+Æthelstan|4|Athelstan
+Edmund I|5|Edmund the Magnificent
+Edgar|4|Edgar the Peaceful
+Æthelred the Unready|3|Ethelred the Unready;Æthelred II
+Cnut|2|Canute;Canute the Great
+Harold Harefoot|5
+Harthacnut|6|Hardicanute
+Edward the Confessor|1
+Harold Godwinson|1|Harold II
+Edward the Elder|4
+Edmund Ironside|4|Edmund II
+Edred|6
+Eadwig|6|Edwy
+Edward the Martyr|4
+Sweyn Forkbeard|4|Sweyn
+Æthelwulf|6|Ethelwulf
+`),
 ];

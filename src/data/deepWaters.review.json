@@ -1568,6 +1568,48 @@
    "status": "unreviewed"
   },
   {
+   "id": "authored2-christmas-songs",
+   "sha256": "2aab7bd965c4d79951b44b02dad2b4f36fd8308cf7506d2cd99949c038cf6697",
+   "answers": 91,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-patron-occupations",
+   "sha256": "1e2818bfcc849695bf1a894cebaeb615d14b14a9e40b49c313c1d6f381f1a60c",
+   "answers": 132,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-church-titles",
+   "sha256": "2ceade358fca78756704bc3eab83553a91d8aa64c976b0f35ca676acdffa5052",
+   "answers": 104,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-church-architecture",
+   "sha256": "8265bf9ed3df129904411eafaf63a1a3721999a45303a035f3dd30c488dcc42d",
+   "answers": 102,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-catholic-films",
+   "sha256": "c58948c24912e9eda102df336da7398b0db7e5b4d8785d0075fb994703a2cd92",
+   "answers": 86,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-christmas-customs",
+   "sha256": "f8fc24d41e3435dc9d04dad2e655d6719d5803084f74011152c3bc1c2baf74ba",
+   "answers": 79,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-english-monarchs",
+   "sha256": "6086837e376a5c36a3e780d06e05a191d5439137b4f215e2e9808b0aa6de0132",
+   "answers": 61,
+   "status": "unreviewed"
+  },
+  {
    "id": "derived:act-of-contrition",
    "sha256": "673415590fa3026213d49a2daff2fa930913901808960136fa166b529826e0e8",
    "answers": 25,
@@ -1599,20 +1641,20 @@
   },
   {
    "id": "derived:bible-books",
-   "sha256": "3715cd40b02038390f86fc14996d78faa0278a0bdf5d2c9aa80c08e8e6874580",
-   "answers": 109,
+   "sha256": "5ba3ed8aafea3cce506034f586714f0c83bd712e0ec4f95aed4eb12accfd8232",
+   "answers": 110,
    "status": "unreviewed"
   },
   {
    "id": "derived:bible-people",
-   "sha256": "e6985f65f2aba1688187e3d7b31bcace1441ff479ce2abc1fdbbd3a8547dae96",
-   "answers": 328,
+   "sha256": "38330942a49d32ec1ff3f47d3bb436e746c5d94fd32bd565eab5120cb483122e",
+   "answers": 330,
    "status": "unreviewed"
   },
   {
    "id": "derived:bible-places",
-   "sha256": "1b42b1c533cad83a2114dc4c1d1dd0441efa0207306f3d314586a73dc916a6cb",
-   "answers": 229,
+   "sha256": "6e4c72b00ca1558c2fe8c7b30a76f8498bfff483284a5b19b43b608c3d373bb6",
+   "answers": 231,
    "status": "unreviewed"
   },
   {
@@ -1671,8 +1713,8 @@
   },
   {
    "id": "derived:magnificat",
-   "sha256": "d64835f13c14ec87fa1a5c1790209dbb7e8a995849eb013f04999638647d21c4",
-   "answers": 109,
+   "sha256": "42d28a91dc1a6f7ae6d29d0d3495ebb9e626e784bc5650d1447c7a83f78b1403",
+   "answers": 110,
    "status": "unreviewed"
   },
   {
@@ -1791,8 +1833,8 @@
   },
   {
    "id": "derived:places-in-jos",
-   "sha256": "f03d2c4588598e246f153b3874f57a841af730d43b42a78a878176efbeef2f8a",
-   "answers": 76,
+   "sha256": "3bba2a639ec5aafe29c3fb389e6e4251b4a6ed7658e5934f0af9d696fd9e5e07",
+   "answers": 77,
    "status": "unreviewed"
   },
   {
