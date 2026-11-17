@@ -16,6 +16,7 @@
     "data:all": "tsx scripts/ingest/cli.ts all",
     "report:lessons": "tsx scripts/curriculum/lesson-report.ts",
     "verify:ccc": "tsx scripts/verify/ccc.ts",
+    "verify:deep-waters": "tsx scripts/deep-waters/independent-audit.ts",
     "docs:status": "tsx scripts/docs-status.ts",
     "server": "tsx server/index.ts",
     "server:dev": "tsx watch server/index.ts",
