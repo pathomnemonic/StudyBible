@@ -7,125 +7,200 @@
     "hint": "Look through Acts and the closing greetings of Romans, Colossians, and 2 Timothy.",
     "source": "Hand-authored answer key; sources: Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Barnabas",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Silas",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Timothy",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Titus",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Luke",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "John Mark",
         "tier": 2,
         "aliases": [
           "Mark"
-        ]
+        ],
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Priscilla",
         "tier": 2,
         "aliases": [
           "Prisca"
-        ]
+        ],
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Aquila",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Phoebe",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Tychicus",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Trophimus",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Aristarchus",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Epaphras",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Epaphroditus",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Onesimus",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Sosthenes",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Erastus",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Gaius",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Sopater",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Secundus",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Tertius",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Crescens",
-        "tier": 5
+        "tier": 5,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Demas",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Apollos",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Andronicus",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Junia",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Jason",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
       },
       {
         "answer": "Mnason",
-        "tier": 5
+        "tier": 5,
+        "source": "Acts 13–28; Romans 16; 1 Corinthians 16; Colossians 4; 2 Timothy 4."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Barnabas",
+        "accept": true
+      },
+      {
+        "guess": "Silas",
+        "accept": true
+      },
+      {
+        "guess": "Timothy",
+        "accept": true
+      },
+      {
+        "guess": "Titus",
+        "accept": true
+      },
+      {
+        "guess": "Luke",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -137,136 +212,271 @@
     "hint": "Read Romans 16:1–15 closely; several names are easy to overlook.",
     "source": "Hand-authored answer key; sources: Romans 16:1–15.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Phoebe",
-        "tier": 1
+        "tier": 1,
+        "source": "Romans 16:1–15."
       },
       {
         "answer": "Prisca",
         "tier": 1,
         "aliases": [
           "Priscilla"
-        ]
+        ],
+        "source": "Romans 16:1–15."
       },
       {
         "answer": "Mary",
-        "tier": 1
+        "tier": 1,
+        "source": "Romans 16:1–15."
       },
       {
         "answer": "Junia",
-        "tier": 2
+        "tier": 2,
+        "source": "Romans 16:1–15."
       },
       {
         "answer": "Tryphaena",
-        "tier": 3
+        "tier": 3,
+        "source": "Romans 16:1–15."
       },
       {
         "answer": "Tryphosa",
-        "tier": 3
+        "tier": 3,
+        "source": "Romans 16:1–15."
       },
       {
         "answer": "Persis",
-        "tier": 3
+        "tier": 3,
+        "source": "Romans 16:1–15."
       },
       {
         "answer": "Rufus's mother",
         "tier": 4,
         "aliases": [
           "Mother of Rufus"
-        ]
+        ],
+        "source": "Romans 16:1–15."
       },
       {
         "answer": "Nereus's sister",
         "tier": 5,
         "aliases": [
           "Sister of Nereus"
-        ]
+        ],
+        "source": "Romans 16:1–15."
       },
       {
         "answer": "Julia",
-        "tier": 3
+        "tier": 3,
+        "source": "Romans 16:1–15."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Phoebe",
+        "accept": true
+      },
+      {
+        "guess": "Prisca",
+        "accept": true
+      },
+      {
+        "guess": "Mary",
+        "accept": true
+      },
+      {
+        "guess": "Junia",
+        "accept": true
+      },
+      {
+        "guess": "Tryphaena",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
   {
     "id": "authored-luke-parables",
     "theme": "Gospels",
-    "prompt": "Name a parable told by Jesus in Luke's Gospel.",
-    "context": "Use the commonly recognized Lukan-only parables; a parable's title may vary between translations.",
+    "prompt": "Name a parable unique to Luke's Gospel.",
+    "context": "Include only parables unique to Luke, excluding parables also told in Matthew or Mark; count: 16, per Luke's text compared with the Synoptics.",
     "hint": "The Good Samaritan and the Prodigal Son are two familiar examples. Look especially at Luke 10–18.",
-    "source": "Hand-authored answer key; sources: Luke 10:25–37; 12:13–21; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14.",
+    "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "The Good Samaritan",
         "tier": 1,
         "aliases": [
           "Good Samaritan"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Rich Fool",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Barren Fig Tree",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Lowest Seat at the Banquet",
         "tier": 3,
         "aliases": [
           "The Wedding Feast Seats"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Great Banquet",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Lost Coin",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Prodigal Son",
         "tier": 1,
         "aliases": [
           "The Lost Son"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Shrewd Manager",
         "tier": 3,
         "aliases": [
           "The Unjust Steward"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Rich Man and Lazarus",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Persistent Widow",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Pharisee and the Tax Collector",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Friend at Midnight",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The Tower Builder",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
         "answer": "The King Going to War",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
+      },
+      {
+        "answer": "The Two Debtors",
+        "tier": 3,
+        "aliases": [
+          "Two Debtors"
+        ],
+        "source": "Luke 7:41–43"
+      },
+      {
+        "answer": "The Unworthy Servants",
+        "tier": 4,
+        "aliases": [
+          "Unworthy Servants",
+          "The Servants' Duty"
+        ],
+        "source": "Luke 17:7–10"
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "The Good Samaritan",
+        "accept": true
+      },
+      {
+        "guess": "The Rich Fool",
+        "accept": true
+      },
+      {
+        "guess": "The Barren Fig Tree",
+        "accept": true
+      },
+      {
+        "guess": "The Lowest Seat at the Banquet",
+        "accept": true
+      },
+      {
+        "guess": "The Great Banquet",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -278,140 +488,259 @@
     "hint": "The list includes several short notices between the better-known stories of Deborah, Gideon, and Samson.",
     "source": "Hand-authored answer key; sources: Judges 3–16.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Othniel",
-        "tier": 2
+        "tier": 2,
+        "source": "Judges 3–16."
       },
       {
         "answer": "Ehud",
-        "tier": 2
+        "tier": 2,
+        "source": "Judges 3–16."
       },
       {
         "answer": "Shamgar",
-        "tier": 4
+        "tier": 4,
+        "source": "Judges 3–16."
       },
       {
         "answer": "Deborah",
-        "tier": 1
+        "tier": 1,
+        "source": "Judges 3–16."
       },
       {
         "answer": "Gideon",
         "tier": 1,
         "aliases": [
           "Jerubbaal"
-        ]
+        ],
+        "source": "Judges 3–16."
       },
       {
         "answer": "Tola",
-        "tier": 4
+        "tier": 4,
+        "source": "Judges 3–16."
       },
       {
         "answer": "Jair",
-        "tier": 3
+        "tier": 3,
+        "source": "Judges 3–16."
       },
       {
         "answer": "Jephthah",
-        "tier": 2
+        "tier": 2,
+        "source": "Judges 3–16."
       },
       {
         "answer": "Ibzan",
-        "tier": 4
+        "tier": 4,
+        "source": "Judges 3–16."
       },
       {
         "answer": "Elon",
-        "tier": 4
+        "tier": 4,
+        "source": "Judges 3–16."
       },
       {
         "answer": "Abdon",
-        "tier": 4
+        "tier": 4,
+        "source": "Judges 3–16."
       },
       {
         "answer": "Samson",
-        "tier": 1
+        "tier": 1,
+        "source": "Judges 3–16."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Othniel",
+        "accept": true
+      },
+      {
+        "guess": "Ehud",
+        "accept": true
+      },
+      {
+        "guess": "Shamgar",
+        "accept": true
+      },
+      {
+        "guess": "Deborah",
+        "accept": true
+      },
+      {
+        "guess": "Gideon",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
   {
     "id": "authored-pauline-letters",
     "theme": "New Testament",
-    "prompt": "Which books of the New Testament are traditionally attributed to Paul?",
-    "context": "Use the traditional thirteen-letter Pauline corpus. Hebrews is excluded because its authorship is anonymous and not established as Pauline.",
+    "prompt": "Which thirteen New Testament letters form the traditional Pauline corpus?",
+    "context": "Use the traditional thirteen-letter corpus; Hebrews is excluded because it is anonymous and its Pauline authorship is not established. Count: 13.",
     "hint": "The list includes letters to churches and letters addressed to individuals.",
-    "source": "Hand-authored answer key; sources: Romans; 1–2 Corinthians; Galatians; Ephesians; Philippians; Colossians; 1–2 Thessalonians; 1–2 Timothy; Titus; Philemon.",
+    "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Romans",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "1 Corinthians",
         "tier": 1,
         "aliases": [
           "First Corinthians"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "2 Corinthians",
         "tier": 1,
         "aliases": [
           "Second Corinthians"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "Galatians",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "Ephesians",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "Philippians",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "Colossians",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "1 Thessalonians",
         "tier": 2,
         "aliases": [
           "First Thessalonians"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "2 Thessalonians",
         "tier": 2,
         "aliases": [
           "Second Thessalonians"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "1 Timothy",
         "tier": 2,
         "aliases": [
           "First Timothy"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "2 Timothy",
         "tier": 2,
         "aliases": [
           "Second Timothy"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "Titus",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
       },
       {
         "answer": "Philemon",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Romans",
+        "accept": true
+      },
+      {
+        "guess": "1 Corinthians",
+        "accept": true
+      },
+      {
+        "guess": "2 Corinthians",
+        "accept": true
+      },
+      {
+        "guess": "Galatians",
+        "accept": true
+      },
+      {
+        "guess": "Ephesians",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -419,15 +748,16 @@
     "id": "authored-resurrection-witnesses",
     "theme": "Gospels and Acts",
     "prompt": "Name a person or group described as encountering the risen Jesus in the New Testament.",
-    "context": "Include individuals or clearly identified groups who encounter the risen Jesus; do not include people who only hear a report second-hand.",
+    "context": "Include direct appearance witnesses named or grouped in the New Testament, including the women at the tomb and the seven disciples at the Sea of Tiberias.",
     "hint": "Start with the appearance accounts in the four Gospels, then compare Paul's list in 1 Corinthians 15.",
-    "source": "Hand-authored answer key; sources: Matthew 28; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8.",
+    "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Mary Magdalene",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "Peter",
@@ -435,66 +765,142 @@
         "aliases": [
           "Simon Peter",
           "Cephas"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "The beloved disciple",
         "tier": 2,
         "aliases": [
           "John (traditional identification)"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "Cleopas",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "Thomas",
         "tier": 1,
         "aliases": [
           "Didymus"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "James",
         "tier": 2,
         "aliases": [
           "James the brother of the Lord"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "Mary the mother of James",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "Joanna",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "Salome",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "The two disciples on the road to Emmaus",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "The Twelve",
         "tier": 1,
         "aliases": [
           "The Eleven"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "The five hundred brothers",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
         "answer": "Paul",
         "tier": 1,
         "aliases": [
           "Saul of Tarsus"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
+      },
+      {
+        "answer": "Women at the tomb",
+        "tier": 1,
+        "aliases": [
+          "The women at the tomb"
+        ],
+        "source": "Matthew 28:1–10; Mark 16:1–8; Luke 24:1–10"
+      },
+      {
+        "answer": "Seven disciples at Tiberias",
+        "tier": 3,
+        "aliases": [
+          "Seven disciples at the Sea of Tiberias",
+          "Seven disciples by the sea"
+        ],
+        "source": "John 21:1–14"
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Mary Magdalene",
+        "accept": true
+      },
+      {
+        "guess": "Peter",
+        "accept": true
+      },
+      {
+        "guess": "The beloved disciple",
+        "accept": true
+      },
+      {
+        "guess": "Cleopas",
+        "accept": true
+      },
+      {
+        "guess": "Thomas",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -506,218 +912,460 @@
     "hint": "The route begins in Cyprus, crosses to southern Asia Minor, and returns to the sending church.",
     "source": "Hand-authored answer key; sources: Acts 13:1–14:28.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Antioch",
         "tier": 1,
         "aliases": [
           "Antioch in Syria"
-        ]
+        ],
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Seleucia",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Salamis",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Paphos",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Perga",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Antioch in Pisidia",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Iconium",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Lystra",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Derbe",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Attalia",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Cyprus",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Pamphylia",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 13:1–14:28."
       },
       {
         "answer": "Pisidia",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 13:1–14:28."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Antioch",
+        "accept": true
+      },
+      {
+        "guess": "Seleucia",
+        "accept": true
+      },
+      {
+        "guess": "Salamis",
+        "accept": true
+      },
+      {
+        "guess": "Paphos",
+        "accept": true
+      },
+      {
+        "guess": "Perga",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
   {
     "id": "authored-marian-litany",
     "theme": "Catholic prayer",
-    "prompt": "Name an invocation from the Litany of Loreto.",
-    "context": "Accept the traditional invocations in the litany, not every devotional title ever used for Mary.",
+    "prompt": "Name an invocation from the current Litany of Loreto.",
+    "context": "Use the current Vatican English text, including the three invocations inserted in 2020; count: 54 Marian invocations, excluding opening petitions and the Lamb of God.",
     "hint": "Several invocations are symbolic titles such as 'Seat of Wisdom' and 'Ark of the Covenant'.",
-    "source": "Hand-authored answer key; sources: Litany of Loreto, traditional form.",
+    "source": "Hand-authored closed key; source: Vatican, The Litany of Loreto (current English text); Congregation for Divine Worship letter, 20 June 2020.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Holy Mary",
-        "tier": 1
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Holy Mother of God",
-        "tier": 1
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Holy Virgin of virgins",
-        "tier": 2
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Mother of Christ",
-        "tier": 1
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Mother of the Church",
-        "tier": 2
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Mother of Mercy",
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": [
+          "Mother of mercy"
+        ]
       },
       {
         "answer": "Mother of divine grace",
-        "tier": 3
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Mother of Hope",
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": [
+          "Mother of hope"
+        ]
       },
       {
         "answer": "Mother most pure",
-        "tier": 1
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Mother most chaste",
-        "tier": 2
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Mother inviolate",
-        "tier": 3
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Mother undefiled",
-        "tier": 3
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Mother most amiable",
-        "tier": 3
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Mother most admirable",
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Mother of good counsel",
-        "tier": 2
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Mother of our Creator",
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Mother of our Saviour",
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Virgin most prudent",
-        "tier": 2
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Virgin most venerable",
-        "tier": 2
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Virgin most renowned",
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Virgin most powerful",
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Virgin most merciful",
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Virgin most faithful",
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Mirror of justice",
-        "tier": 3
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Seat of wisdom",
-        "tier": 2
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Cause of our joy",
-        "tier": 3
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Spiritual vessel",
-        "tier": 3
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
-        "answer": "Vessel of honor",
-        "tier": 3
+        "answer": "Vessel of honour",
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Singular vessel of devotion",
-        "tier": 4
+        "tier": 4,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Mystical rose",
-        "tier": 2
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Tower of David",
-        "tier": 2
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Tower of ivory",
-        "tier": 3
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "House of gold",
-        "tier": 3
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Ark of the covenant",
-        "tier": 2
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Gate of heaven",
-        "tier": 1
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Morning star",
-        "tier": 1
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Health of the sick",
-        "tier": 1
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Refuge of sinners",
-        "tier": 1
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
-        "answer": "Comforter of the afflicted",
-        "tier": 1
+        "answer": "Solace of Migrants",
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": [
+          "Solacium migrantium"
+        ]
+      },
+      {
+        "answer": "Comfort of the afflicted",
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
         "answer": "Help of Christians",
-        "tier": 1
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
-        "answer": "Queen of angels",
-        "tier": 1
+        "answer": "Queen of Angels",
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
-        "answer": "Queen of prophets",
-        "tier": 2
+        "answer": "Queen of Patriarchs",
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
-        "answer": "Queen of apostles",
-        "tier": 1
+        "answer": "Queen of Prophets",
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
-        "answer": "Queen of martyrs",
-        "tier": 1
+        "answer": "Queen of Apostles",
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
-        "answer": "Queen of all saints",
-        "tier": 1
+        "answer": "Queen of Martyrs",
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Queen of Confessors",
+        "tier": 3,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Queen of Virgins",
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Queen of all Saints",
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Queen conceived without original sin",
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Queen assumed into heaven",
+        "tier": 2,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Queen of the most holy Rosary",
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Queen of families",
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      },
+      {
+        "answer": "Queen of peace",
+        "tier": 1,
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Holy Mary",
+        "accept": true
+      },
+      {
+        "guess": "Holy Mother of God",
+        "accept": true
+      },
+      {
+        "guess": "Holy Virgin of virgins",
+        "accept": true
+      },
+      {
+        "guess": "Mother of Christ",
+        "accept": true
+      },
+      {
+        "guess": "Mother of the Church",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -729,69 +1377,130 @@
     "hint": "There are exactly fourteen in the traditional lists: seven address bodily needs and seven address spiritual needs.",
     "source": "Hand-authored answer key; sources: Catechism of the Catholic Church 2447.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Feed the hungry",
-        "tier": 1
+        "tier": 1,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Give drink to the thirsty",
-        "tier": 1
+        "tier": 1,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Clothe the naked",
-        "tier": 1
+        "tier": 1,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Shelter the homeless",
         "tier": 1,
         "aliases": [
           "Give shelter to the homeless"
-        ]
+        ],
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Visit the sick",
-        "tier": 1
+        "tier": 1,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Visit the imprisoned",
-        "tier": 2
+        "tier": 2,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Bury the dead",
-        "tier": 1
+        "tier": 1,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Counsel the doubtful",
-        "tier": 2
+        "tier": 2,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Instruct the ignorant",
-        "tier": 2
+        "tier": 2,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Admonish the sinner",
-        "tier": 2
+        "tier": 2,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Comfort the afflicted",
-        "tier": 1
+        "tier": 1,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Forgive offenses willingly",
         "tier": 2,
         "aliases": [
           "Forgive those who wrong you"
-        ]
+        ],
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Bear wrongs patiently",
-        "tier": 2
+        "tier": 2,
+        "source": "Catechism of the Catholic Church 2447."
       },
       {
         "answer": "Pray for the living and the dead",
-        "tier": 1
+        "tier": 1,
+        "source": "Catechism of the Catholic Church 2447."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Feed the hungry",
+        "accept": true
+      },
+      {
+        "guess": "Give drink to the thirsty",
+        "accept": true
+      },
+      {
+        "guess": "Clothe the naked",
+        "accept": true
+      },
+      {
+        "guess": "Shelter the homeless",
+        "accept": true
+      },
+      {
+        "guess": "Visit the sick",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -799,112 +1508,182 @@
     "id": "authored-eastern-catholic-churches",
     "theme": "Catholic Church",
     "prompt": "Name an Eastern Catholic Church that is sui iuris and in communion with the Bishop of Rome.",
-    "context": "Name a Church, not merely a liturgical rite. The list follows the commonly recognized twenty-three Eastern Catholic Churches plus the Latin Church.",
+    "context": "Name one of the twenty-three Eastern Catholic Churches sui iuris in communion with the Bishop of Rome; the Latin Church is not included. Count: 23.",
     "hint": "Think of the distinct Byzantine, Alexandrian, Antiochian, Armenian, and East Syriac traditions.",
-    "source": "Hand-authored answer key; sources: Code of Canons of the Eastern Churches; Holy See, Eastern Catholic Churches.",
+    "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Albanian Greek Catholic Church",
-        "tier": 5
+        "tier": 5,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Belarusian Greek Catholic Church",
-        "tier": 5
+        "tier": 5,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Bulgarian Greek Catholic Church",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Greek Catholic Church of Croatia and Serbia",
         "tier": 5,
         "aliases": [
           "Croatian and Serbian Greek Catholic Church"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Greek Byzantine Catholic Church",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Hungarian Greek Catholic Church",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Macedonian Greek Catholic Church",
-        "tier": 5
+        "tier": 5,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Melkite Greek Catholic Church",
         "tier": 2,
         "aliases": [
           "Melkite Church"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Romanian Greek Catholic Church",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Russian Greek Catholic Church",
-        "tier": 5
+        "tier": 5,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Ruthenian Byzantine Catholic Church",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Slovak Greek Catholic Church",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Ukrainian Greek Catholic Church",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Armenian Catholic Church",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Chaldean Catholic Church",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Syro-Malabar Church",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Syro-Malankara Church",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Maronite Church",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Coptic Catholic Church",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Ethiopian Catholic Church",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Eritrean Catholic Church",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Italo-Albanian Catholic Church",
         "tier": 4,
         "aliases": [
           "Italo-Albanian Byzantine Catholic Church"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
         "answer": "Syriac Catholic Church",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Albanian Greek Catholic Church",
+        "accept": true
+      },
+      {
+        "guess": "Belarusian Greek Catholic Church",
+        "accept": true
+      },
+      {
+        "guess": "Bulgarian Greek Catholic Church",
+        "accept": true
+      },
+      {
+        "guess": "Greek Catholic Church of Croatia and Serbia",
+        "accept": true
+      },
+      {
+        "guess": "Greek Byzantine Catholic Church",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -916,7 +1695,7 @@
     "hint": "Some are bishops and theologians; others are mystics, religious founders, or early Christian writers.",
     "source": "Hand-authored answer key; sources: Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Ambrose of Milan",
@@ -924,7 +1703,8 @@
         "aliases": [
           "Ambrose",
           "Saint Ambrose"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Augustine of Hippo",
@@ -932,14 +1712,16 @@
         "aliases": [
           "Augustine",
           "Saint Augustine"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Jerome",
         "tier": 1,
         "aliases": [
           "Saint Jerome"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Gregory the Great",
@@ -947,7 +1729,8 @@
         "aliases": [
           "Gregory I",
           "Pope Gregory I"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Thomas Aquinas",
@@ -955,14 +1738,16 @@
         "aliases": [
           "Saint Thomas Aquinas",
           "St. Thomas Aquinas"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Bonaventure",
         "tier": 2,
         "aliases": [
           "Saint Bonaventure"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Anselm of Canterbury",
@@ -970,7 +1755,8 @@
         "aliases": [
           "Anselm",
           "Saint Anselm"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Isidore of Seville",
@@ -978,14 +1764,16 @@
         "aliases": [
           "Isidore",
           "Saint Isidore"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Peter Chrysologus",
         "tier": 3,
         "aliases": [
           "Saint Peter Chrysologus"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Leo the Great",
@@ -993,28 +1781,32 @@
         "aliases": [
           "Leo I",
           "Pope Leo I"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Peter Damian",
         "tier": 3,
         "aliases": [
           "Saint Peter Damian"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Bernard of Clairvaux",
         "tier": 2,
         "aliases": [
           "Saint Bernard of Clairvaux"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Hildegard of Bingen",
         "tier": 2,
         "aliases": [
           "Saint Hildegard of Bingen"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Albert the Great",
@@ -1022,28 +1814,32 @@
         "aliases": [
           "Albertus Magnus",
           "Saint Albert the Great"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Anthony of Padua",
         "tier": 1,
         "aliases": [
           "Saint Anthony of Padua"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Francis de Sales",
         "tier": 1,
         "aliases": [
           "Saint Francis de Sales"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "John of the Cross",
         "tier": 2,
         "aliases": [
           "Saint John of the Cross"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Teresa of Ávila",
@@ -1051,42 +1847,48 @@
         "aliases": [
           "Teresa of Jesus",
           "Saint Teresa of Ávila"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Catherine of Siena",
         "tier": 1,
         "aliases": [
           "Saint Catherine of Siena"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Thérèse of Lisieux",
         "tier": 1,
         "aliases": [
           "Saint Thérèse of Lisieux"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "John of Ávila",
         "tier": 3,
         "aliases": [
           "Saint John of Ávila"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Lawrence of Brindisi",
         "tier": 4,
         "aliases": [
           "Saint Lawrence of Brindisi"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Robert Bellarmine",
         "tier": 3,
         "aliases": [
           "Saint Robert Bellarmine"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Alphonsus Liguori",
@@ -1094,7 +1896,8 @@
         "aliases": [
           "Alphonsus Maria de Liguori",
           "Saint Alphonsus Liguori"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Athanasius of Alexandria",
@@ -1102,7 +1905,8 @@
         "aliases": [
           "Athanasius",
           "Saint Athanasius"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Basil the Great",
@@ -1110,7 +1914,8 @@
         "aliases": [
           "Basil of Caesarea",
           "Saint Basil the Great"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Gregory of Nazianzus",
@@ -1118,21 +1923,24 @@
         "aliases": [
           "Gregory Nazianzen",
           "Saint Gregory of Nazianzus"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "John Chrysostom",
         "tier": 1,
         "aliases": [
           "Saint John Chrysostom"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Cyril of Jerusalem",
         "tier": 3,
         "aliases": [
           "Saint Cyril of Jerusalem"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Ephrem the Syrian",
@@ -1140,7 +1948,8 @@
         "aliases": [
           "Ephrem",
           "Saint Ephrem the Syrian"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "John of Damascus",
@@ -1148,7 +1957,8 @@
         "aliases": [
           "John Damascene",
           "Saint John of Damascus"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Irenaeus of Lyons",
@@ -1156,21 +1966,24 @@
         "aliases": [
           "Irenaeus of Lyon",
           "Saint Irenaeus"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Hilary of Poitiers",
         "tier": 3,
         "aliases": [
           "Saint Hilary of Poitiers"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Gregory of Narek",
         "tier": 4,
         "aliases": [
           "Saint Gregory of Narek"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Bede",
@@ -1178,7 +1991,8 @@
         "aliases": [
           "The Venerable Bede",
           "Saint Bede"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "John Henry Newman",
@@ -1187,21 +2001,71 @@
           "Newman",
           "Saint John Henry Newman",
           "Cardinal Newman"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Cyril of Alexandria",
         "tier": 2,
         "aliases": [
           "Saint Cyril of Alexandria"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
       },
       {
         "answer": "Peter Canisius",
         "tier": 3,
         "aliases": [
           "Saint Peter Canisius"
-        ]
+        ],
+        "source": "Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Ambrose of Milan",
+        "accept": true
+      },
+      {
+        "guess": "Augustine of Hippo",
+        "accept": true
+      },
+      {
+        "guess": "Jerome",
+        "accept": true
+      },
+      {
+        "guess": "Gregory the Great",
+        "accept": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -1209,238 +2073,450 @@
     "id": "authored-early-martyrs",
     "theme": "Early Church",
     "prompt": "Which Christians are remembered as martyrs of the early Church before the conversion of Constantine?",
-    "context": "Use well-attested early witnesses from the apostolic age through the early fourth century. The answer key avoids later medieval martyrs.",
+    "context": "Use identifiable early Christian martyrs before Constantine; exclude ambiguous names without a sufficiently clear historical identification. Count: 21.",
     "hint": "Look beyond the apostles to bishops, deacons, and lay Christians whose martyrdoms shaped early Christian memory.",
-    "source": "Hand-authored answer key; sources: Acts 7; early martyr acts and patristic witnesses, including the Martyrdom of Polycarp.",
+    "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Stephen",
         "tier": 1,
         "aliases": [
           "Stephen the Protomartyr"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "James son of Zebedee",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Ignatius of Antioch",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Polycarp of Smyrna",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Justin Martyr",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Perpetua",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Felicity",
         "tier": 1,
         "aliases": [
           "Felicitas"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Pionius",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Blandina",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Potinus",
         "tier": 4,
         "aliases": [
           "Pothinus"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Speratus",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Cyprian of Carthage",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Lawrence of Rome",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Agnes of Rome",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Cecilia of Rome",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Sixtus II",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Fructuosus of Tarragona",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Eulalia of Mérida",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Quirinus of Neuss",
-        "tier": 5
+        "tier": 5,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Pancras of Rome",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
       },
       {
         "answer": "Crispina of Thagura",
-        "tier": 5
+        "tier": 5,
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Stephen",
+        "accept": true
       },
       {
-        "answer": "Marcellinus",
-        "tier": 4
+        "guess": "James son of Zebedee",
+        "accept": true
+      },
+      {
+        "guess": "Ignatius of Antioch",
+        "accept": true
+      },
+      {
+        "guess": "Polycarp of Smyrna",
+        "accept": true
+      },
+      {
+        "guess": "Justin Martyr",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
   {
     "id": "authored-prophets-before-kings",
     "theme": "Hebrew Bible",
-    "prompt": "Name a prophet who confronted, corrected, or warned an Israelite or Judean ruler.",
-    "context": "Include prophets whose encounters with kings are narrated in Scripture; do not include every person called a prophet.",
+    "prompt": "Name a prophet explicitly recorded delivering a message to an Israelite or Judean king.",
+    "context": "Include named and anonymous prophetic messengers whose royal encounter is narrated in the Hebrew Bible; exclude Huldah, whose consultation was not with a king. Count: 18 entries in this curated scriptural index.",
     "hint": "Nathan rebuked David; Elijah confronted Ahab; Micaiah challenged Ahab's court prophets.",
-    "source": "Hand-authored answer key; sources: 1 Samuel 15; 2 Samuel 12; 1 Kings 18–22; 2 Kings 1–9; Isaiah 7; Jeremiah 21–38.",
+    "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Samuel",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Nathan",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Gad",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Ahijah of Shiloh",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Shemaiah",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Elijah",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Elisha",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Micaiah son of Imlah",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Isaiah",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Jeremiah",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Urijah son of Shemaiah",
-        "tier": 5
+        "tier": 5,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Hanani",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Jehu son of Hanani",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
         "answer": "Azariah son of Oded",
-        "tier": 4
+        "tier": 4,
+        "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6."
       },
       {
-        "answer": "Huldah",
-        "tier": 2
+        "answer": "Daniel",
+        "tier": 1,
+        "source": "Daniel 2–6"
+      },
+      {
+        "answer": "Zechariah son Jehoiada",
+        "tier": 4,
+        "aliases": [
+          "Zechariah son of Jehoiada"
+        ],
+        "source": "2 Chronicles 24:20–22"
+      },
+      {
+        "answer": "Man of God from Judah",
+        "tier": 5,
+        "aliases": [
+          "Man of God from Judah"
+        ],
+        "source": "1 Kings 13:1–5"
+      },
+      {
+        "answer": "Oded",
+        "tier": 5,
+        "source": "2 Chronicles 15:1–8"
+      },
+      {
+        "answer": "Jahaziel",
+        "tier": 5,
+        "source": "2 Chronicles 20:14–17"
+      },
+      {
+        "answer": "Eliezer son Dodavahu",
+        "tier": 6,
+        "aliases": [
+          "Eliezer son of Dodavahu"
+        ],
+        "source": "2 Chronicles 20:37"
+      },
+      {
+        "answer": "Unnamed prophet",
+        "tier": 5,
+        "source": "1 Kings 20:13–43"
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Samuel",
+        "accept": true
+      },
+      {
+        "guess": "Nathan",
+        "accept": true
+      },
+      {
+        "guess": "Gad",
+        "accept": true
+      },
+      {
+        "guess": "Ahijah of Shiloh",
+        "accept": true
+      },
+      {
+        "guess": "Shemaiah",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
   {
     "id": "authored-women-in-acts",
     "theme": "Acts of the Apostles",
-    "prompt": "Name a woman identified in the Acts of the Apostles as part of the early Christian community.",
-    "context": "Include women explicitly named in Acts, not unnamed groups or women known only from other books.",
+    "prompt": "Name a woman explicitly named in Acts as part of the early Christian community.",
+    "context": "Include only women explicitly named in Acts in the Christian community or mission; unnamed daughters and non-Christian political figures are excluded. Count: 8 named women.",
     "hint": "Lydia, Priscilla, Tabitha, and the daughters of Philip are useful starting points.",
-    "source": "Hand-authored answer key; sources: Acts 1:14; 9:36–42; 12:12; 16:14–15; 18:2, 18, 26; 21:8–9.",
+    "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Mary the mother of Jesus",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26."
       },
       {
         "answer": "Mary the mother of John Mark",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26."
       },
       {
         "answer": "Sapphira",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26."
       },
       {
         "answer": "Tabitha",
         "tier": 1,
         "aliases": [
           "Dorcas"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26."
       },
       {
         "answer": "Lydia",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26."
       },
       {
         "answer": "Damaris",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26."
       },
       {
         "answer": "Priscilla",
         "tier": 1,
         "aliases": [
           "Prisca"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26."
       },
       {
         "answer": "Rhoda",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Mary the mother of Jesus",
+        "accept": true
       },
       {
-        "answer": "Drusilla",
-        "tier": 3
+        "guess": "Mary the mother of John Mark",
+        "accept": true
       },
       {
-        "answer": "Bernice",
-        "tier": 3
+        "guess": "Sapphira",
+        "accept": true
+      },
+      {
+        "guess": "Tabitha",
+        "accept": true
+      },
+      {
+        "guess": "Lydia",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -1452,206 +2528,338 @@
     "hint": "Paul's journeys provide many examples, but include places associated with Peter and Philip as well.",
     "source": "Hand-authored answer key; sources: Acts 2–28.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Jerusalem",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Samaria",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Joppa",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Caesarea",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Damascus",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Antioch",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Tarsus",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Salamis",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Paphos",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Perga",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Iconium",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Lystra",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Derbe",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Philippi",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Thessalonica",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Berea",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Athens",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Corinth",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Ephesus",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Troas",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Miletus",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Tyre",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Ptolemais",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Sidon",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Rome",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Puteoli",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Malta",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Rhegium",
-        "tier": 5
+        "tier": 5,
+        "source": "Acts 2–28."
       },
       {
         "answer": "Syracuse",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 2–28."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Jerusalem",
+        "accept": true
+      },
+      {
+        "guess": "Samaria",
+        "accept": true
+      },
+      {
+        "guess": "Joppa",
+        "accept": true
+      },
+      {
+        "guess": "Caesarea",
+        "accept": true
+      },
+      {
+        "guess": "Damascus",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
   {
     "id": "authored-jesus-healings",
     "theme": "Gospels",
-    "prompt": "Name an illness, disability, or physical affliction that Jesus healed in the Gospels.",
-    "context": "Give the condition rather than the person's name. Include both individual healings and clearly described groups.",
+    "prompt": "Name a physical illness, disability, or injury healed by Jesus in the Gospels.",
+    "context": "Name a bodily condition or injury, not a spiritual state or the person affected.",
     "hint": "The narratives mention blindness, paralysis, leprosy, hemorrhage, fever, and several less familiar conditions.",
-    "source": "Hand-authored answer key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9.",
+    "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Blindness",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Leprosy",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Paralysis",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Withered hand",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Hemorrhage",
         "tier": 2,
         "aliases": [
           "Chronic bleeding"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Fever",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Dropsy",
         "tier": 4,
         "aliases": [
           "Edema"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Deafness",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Speech impairment",
         "tier": 2,
         "aliases": [
           "Mute condition"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Bent back",
         "tier": 4,
         "aliases": [
           "Inability to stand upright"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Seizures associated with an unclean spirit",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Ear injury",
         "tier": 3,
         "aliases": [
           "Severed ear"
-        ]
+        ],
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
         "answer": "Lameness",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Blindness",
+        "accept": true
       },
       {
-        "answer": "Demonic possession",
-        "tier": 1
+        "guess": "Leprosy",
+        "accept": true
+      },
+      {
+        "guess": "Paralysis",
+        "accept": true
+      },
+      {
+        "guess": "Withered hand",
+        "accept": true
+      },
+      {
+        "guess": "Hemorrhage",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -1663,96 +2871,163 @@
     "hint": "The opening chapter and the 'I am' discourses are especially rich sources.",
     "source": "Hand-authored answer key; sources: John 1; 4; 6; 8–15; 19–20.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "The Word",
         "tier": 1,
         "aliases": [
           "The Logos"
-        ]
+        ],
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Lamb of God",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Son of God",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Son of Man",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The King of Israel",
-        "tier": 2
+        "tier": 2,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Messiah",
         "tier": 1,
         "aliases": [
           "The Christ"
-        ]
+        ],
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Savior of the world",
-        "tier": 2
+        "tier": 2,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Bread of Life",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Light of the World",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Door",
         "tier": 2,
         "aliases": [
           "The Gate"
-        ]
+        ],
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Good Shepherd",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Resurrection and the Life",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Way",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Truth",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Life",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The True Vine",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "Rabbi",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "Teacher",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "Lord",
-        "tier": 1
+        "tier": 1,
+        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "The Holy One of God",
-        "tier": 2
+        "tier": 2,
+        "source": "John 1; 4; 6; 8–15; 19–20."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "The Word",
+        "accept": true
+      },
+      {
+        "guess": "The Lamb of God",
+        "accept": true
+      },
+      {
+        "guess": "The Son of God",
+        "accept": true
+      },
+      {
+        "guess": "The Son of Man",
+        "accept": true
+      },
+      {
+        "guess": "The King of Israel",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -1764,101 +3039,170 @@
     "hint": "The book moves from Peter and the Jerusalem community to Paul and the mission across the Roman world.",
     "source": "Hand-authored answer key; sources: Acts 1–28.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Peter",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 1–28."
       },
       {
         "answer": "John",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 1–28."
       },
       {
         "answer": "James the brother of the Lord",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Stephen",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Philip the Evangelist",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Barnabas",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Paul",
         "tier": 1,
         "aliases": [
           "Saul"
-        ]
+        ],
+        "source": "Acts 1–28."
       },
       {
         "answer": "Silas",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Timothy",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Apollos",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Priscilla",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Aquila",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Gamaliel",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Ananias of Damascus",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Cornelius",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Lydia",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Sosthenes",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Gallio",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Felix",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Festus",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 1–28."
       },
       {
         "answer": "Agrippa",
         "tier": 2,
         "aliases": [
           "Herod Agrippa II"
-        ]
+        ],
+        "source": "Acts 1–28."
       },
       {
         "answer": "Agabus",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 1–28."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Peter",
+        "accept": true
+      },
+      {
+        "guess": "John",
+        "accept": true
+      },
+      {
+        "guess": "James the brother of the Lord",
+        "accept": true
+      },
+      {
+        "guess": "Stephen",
+        "accept": true
+      },
+      {
+        "guess": "Philip the Evangelist",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -1870,161 +3214,580 @@
     "hint": "Separate whole books from additions within books; the answer key names both.",
     "source": "Hand-authored answer key; sources: Catholic canon of Scripture; Council of Trent, Session IV.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Tobit",
-        "tier": 1
+        "tier": 1,
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "Judith",
-        "tier": 1
+        "tier": 1,
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "Wisdom of Solomon",
         "tier": 1,
         "aliases": [
           "Wisdom"
-        ]
+        ],
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "Sirach",
         "tier": 1,
         "aliases": [
           "Ecclesiasticus"
-        ]
+        ],
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "Baruch",
-        "tier": 2
+        "tier": 2,
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "1 Maccabees",
-        "tier": 1
+        "tier": 1,
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "2 Maccabees",
-        "tier": 1
+        "tier": 1,
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "Greek additions to Esther",
         "tier": 3,
         "aliases": [
           "Additions to Esther"
-        ]
+        ],
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "Prayer of Azariah",
-        "tier": 2
+        "tier": 2,
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "Song of the Three Young Men",
-        "tier": 2
+        "tier": 2,
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "Susanna",
-        "tier": 1
+        "tier": 1,
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
         "answer": "Bel and the Dragon",
-        "tier": 2
+        "tier": 2,
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Tobit",
+        "accept": true
+      },
+      {
+        "guess": "Judith",
+        "accept": true
+      },
+      {
+        "guess": "Wisdom of Solomon",
+        "accept": true
+      },
+      {
+        "guess": "Sirach",
+        "accept": true
+      },
+      {
+        "guess": "Baruch",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
   {
     "id": "authored-catholic-prayers",
     "theme": "Catholic prayer",
-    "prompt": "Name an established form of Catholic prayer or devotional practice distinct from the celebration of Mass.",
-    "context": "Include established forms of prayer, not every spontaneous prayer or generic act of devotion.",
+    "prompt": "Name a traditional Catholic prayer or devotional text by its established title.",
+    "context": "This is an open category: include named prayers and devotional texts, including the Hail Mary, Our Father, Hail Holy Queen, Glory Be, and Sign of the Cross.",
     "hint": "Consider the Liturgy of the Hours, the Rosary, Eucharistic adoration, and forms of meditation.",
-    "source": "Hand-authored answer key; sources: Catechism of the Catholic Church 2626–2643; 2700–2724; Directory on Popular Piety.",
+    "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "open",
     "answers": [
       {
         "answer": "Rosary",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Liturgy of the Hours",
         "tier": 1,
         "aliases": [
           "Divine Office"
-        ]
+        ],
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Angelus",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Regina Caeli",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Lectio Divina",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Eucharistic adoration",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Benediction",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Stations of the Cross",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Divine Mercy Chaplet",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Novenas",
         "tier": 1,
         "aliases": [
           "Novena"
-        ]
+        ],
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Ignatian examen",
         "tier": 3,
         "aliases": [
           "Examen"
-        ]
+        ],
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Jesus Prayer",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Memorare",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Act of Contrition",
-        "tier": 1
+        "tier": 1,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Litany of the Saints",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Litany of Loreto",
-        "tier": 2
+        "tier": 2,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Seven Sorrows Rosary",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "First Fridays devotion",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "First Saturdays devotion",
-        "tier": 3
+        "tier": 3,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
+      },
+      {
+        "answer": "Our Father",
+        "tier": 1,
+        "aliases": [
+          "Lord's Prayer",
+          "The Lord's Prayer"
+        ],
+        "source": "Matthew 6:9–13; CCC 2759–2865"
+      },
+      {
+        "answer": "Hail Mary",
+        "tier": 1,
+        "aliases": [
+          "Ave Maria"
+        ],
+        "source": "Luke 1:28,42; CCC 2676–2677"
+      },
+      {
+        "answer": "Hail Holy Queen",
+        "tier": 1,
+        "aliases": [
+          "Salve Regina"
+        ],
+        "source": "Traditional Marian antiphon; Roman breviary"
+      },
+      {
+        "answer": "Glory Be",
+        "tier": 1,
+        "aliases": [
+          "Glory to the Father",
+          "Gloria Patri"
+        ],
+        "source": "Roman Missal; Liturgy of the Hours"
+      },
+      {
+        "answer": "Sign of the Cross",
+        "tier": 1,
+        "aliases": [
+          "Sign of cross"
+        ],
+        "source": "CCC 2157; Roman Missal"
+      },
+      {
+        "answer": "Apostles' Creed",
+        "tier": 1,
+        "aliases": [
+          "Apostles Creed"
+        ],
+        "source": "CCC 194–197"
+      },
+      {
+        "answer": "Nicene Creed",
+        "tier": 1,
+        "aliases": [
+          "Niceno-Constantinopolitan Creed"
+        ],
+        "source": "CCC 195"
+      },
+      {
+        "answer": "Come Holy Spirit",
+        "tier": 2,
+        "aliases": [
+          "Veni Sancte Spiritus"
+        ],
+        "source": "Roman Missal; Sequence for Pentecost"
+      },
+      {
+        "answer": "Anima Christi",
+        "tier": 2,
+        "source": "Traditional post-Communion prayer"
+      },
+      {
+        "answer": "Prayer to Saint Michael",
+        "tier": 2,
+        "aliases": [
+          "St Michael Prayer",
+          "Saint Michael Prayer"
+        ],
+        "source": "Leo XIII, traditional prayer to St Michael"
+      },
+      {
+        "answer": "Memorare",
+        "tier": 2,
+        "source": "Traditional Marian prayer"
+      },
+      {
+        "answer": "Angel of God",
+        "tier": 2,
+        "aliases": [
+          "Guardian Angel Prayer"
+        ],
+        "source": "Traditional Catholic prayer"
+      },
+      {
+        "answer": "Act of Faith",
+        "tier": 2,
+        "source": "Traditional acts of faith, hope, and charity"
+      },
+      {
+        "answer": "Act of Hope",
+        "tier": 2,
+        "source": "Traditional acts of faith, hope, and charity"
+      },
+      {
+        "answer": "Act of Charity",
+        "tier": 2,
+        "source": "Traditional acts of faith, hope, and charity"
+      },
+      {
+        "answer": "Act of Contrition",
+        "tier": 1,
+        "source": "Order of Penance; CCC 1451"
+      },
+      {
+        "answer": "Prayer Before Meals",
+        "tier": 2,
+        "aliases": [
+          "Grace before meals"
+        ],
+        "source": "CCC 2698"
+      },
+      {
+        "answer": "Prayer After Meals",
+        "tier": 3,
+        "source": "Roman Missal; traditional Catholic table prayers"
+      },
+      {
+        "answer": "Come Creator Spirit",
+        "tier": 3,
+        "aliases": [
+          "Veni Creator Spiritus"
+        ],
+        "source": "Liturgy of the Hours; Pentecost hymn"
+      },
+      {
+        "answer": "O Come Emmanuel",
+        "tier": 2,
+        "aliases": [
+          "Veni Emmanuel"
+        ],
+        "source": "Roman liturgical Advent hymn"
+      },
+      {
+        "answer": "Te Deum",
+        "tier": 2,
+        "aliases": [
+          "Te Deum Laudamus"
+        ],
+        "source": "Liturgy of the Hours"
+      },
+      {
+        "answer": "Tantum Ergo",
+        "tier": 2,
+        "source": "Pange Lingua; Roman Eucharistic liturgy"
+      },
+      {
+        "answer": "O Salutaris Hostia",
+        "tier": 3,
+        "source": "Traditional Eucharistic hymn"
+      },
+      {
+        "answer": "Soul of Christ",
+        "tier": 2,
+        "aliases": [
+          "Anima Christi"
+        ],
+        "source": "Traditional post-Communion prayer"
+      },
+      {
+        "answer": "Prayer of Saint Francis",
+        "tier": 1,
+        "aliases": [
+          "Make me a channel"
+        ],
+        "source": "Traditional prayer attributed to St Francis; attribution uncertain"
+      },
+      {
+        "answer": "Serenity Prayer",
+        "tier": 2,
+        "source": "Modern Christian prayer; not an official Catholic liturgical text"
+      },
+      {
+        "answer": "Prayer of Saint Ephrem",
+        "tier": 3,
+        "aliases": [
+          "St Ephrem Prayer"
+        ],
+        "source": "Byzantine Lenten liturgy"
+      },
+      {
+        "answer": "Jesus Prayer",
+        "tier": 2,
+        "aliases": [
+          "Lord Jesus Christ prayer"
+        ],
+        "source": "Eastern Christian tradition; CCC 2667"
+      },
+      {
+        "answer": "Prayer of Abandonment",
+        "tier": 4,
+        "aliases": [
+          "Charles de Foucauld prayer"
+        ],
+        "source": "Charles de Foucauld, Prayer of Abandonment"
+      },
+      {
+        "answer": "Suscipe",
+        "tier": 3,
+        "aliases": [
+          "Take Lord receive"
+        ],
+        "source": "Ignatius of Loyola, Spiritual Exercises"
+      },
+      {
+        "answer": "Soul of Christ Prayer",
+        "tier": 3,
+        "source": "Traditional post-Communion prayer"
+      },
+      {
+        "answer": "Prayer for the Dead",
+        "tier": 1,
+        "source": "2 Maccabees 12:44–46; CCC 958"
+      },
+      {
+        "answer": "Prayer for Vocations",
+        "tier": 2,
+        "source": "Papal and diocesan vocation prayer tradition"
+      },
+      {
+        "answer": "Prayer to Saint Joseph",
+        "tier": 2,
+        "aliases": [
+          "St Joseph Prayer"
+        ],
+        "source": "Leo XIII, Quamquam Pluries"
+      },
+      {
+        "answer": "Prayer to Saint Jude",
+        "tier": 2,
+        "aliases": [
+          "St Jude Prayer"
+        ],
+        "source": "Traditional Catholic devotion"
+      },
+      {
+        "answer": "Prayer to Saint Anthony",
+        "tier": 2,
+        "aliases": [
+          "St Anthony Prayer"
+        ],
+        "source": "Traditional Catholic devotion"
+      },
+      {
+        "answer": "Prayer to Saint Rita",
+        "tier": 3,
+        "aliases": [
+          "St Rita Prayer"
+        ],
+        "source": "Traditional Catholic devotion"
+      },
+      {
+        "answer": "Prayer to Saint Benedict",
+        "tier": 3,
+        "aliases": [
+          "St Benedict Prayer"
+        ],
+        "source": "Traditional Catholic devotion"
+      },
+      {
+        "answer": "Prayer for the Sick",
+        "tier": 1,
+        "source": "CCC 1509; Roman Ritual"
+      },
+      {
+        "answer": "Prayer for the Dying",
+        "tier": 2,
+        "source": "Order of Christian Funerals; CCC 1520–1523"
+      },
+      {
+        "answer": "Prayer of the Faithful",
+        "tier": 1,
+        "aliases": [
+          "Universal Prayer"
+        ],
+        "source": "General Instruction of the Roman Missal 69–71"
+      },
+      {
+        "answer": "Eternal Rest",
+        "tier": 1,
+        "aliases": [
+          "Requiem aeternam"
+        ],
+        "source": "Roman Missal; Order of Christian Funerals"
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Rosary",
+        "accept": true
+      },
+      {
+        "guess": "Liturgy of the Hours",
+        "accept": true
+      },
+      {
+        "guess": "Angelus",
+        "accept": true
+      },
+      {
+        "guess": "Regina Caeli",
+        "accept": true
+      },
+      {
+        "guess": "Lectio Divina",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -2036,139 +3799,207 @@
     "hint": "The list begins at Nicaea in 325 and includes medieval councils, Trent, and both Vatican councils.",
     "source": "Hand-authored answer key; sources: Catholic list of ecumenical councils; council dates 325–1965.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "First Council of Nicaea",
         "tier": 1,
         "aliases": [
           "Nicaea I"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "First Council of Constantinople",
         "tier": 2,
         "aliases": [
           "Constantinople I"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Council of Ephesus",
-        "tier": 2
+        "tier": 2,
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Council of Chalcedon",
-        "tier": 2
+        "tier": 2,
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Second Council of Constantinople",
         "tier": 3,
         "aliases": [
           "Constantinople II"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Third Council of Constantinople",
         "tier": 3,
         "aliases": [
           "Constantinople III"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Second Council of Nicaea",
         "tier": 2,
         "aliases": [
           "Nicaea II"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Fourth Council of Constantinople",
         "tier": 4,
         "aliases": [
           "Constantinople IV"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "First Lateran Council",
         "tier": 4,
         "aliases": [
           "Lateran I"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Second Lateran Council",
         "tier": 4,
         "aliases": [
           "Lateran II"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Third Lateran Council",
         "tier": 4,
         "aliases": [
           "Lateran III"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Fourth Lateran Council",
         "tier": 3,
         "aliases": [
           "Lateran IV"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Fifth Lateran Council",
         "tier": 5,
         "aliases": [
           "Lateran V"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "First Council of Lyons",
         "tier": 4,
         "aliases": [
           "Lyons I"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Second Council of Lyons",
         "tier": 4,
         "aliases": [
           "Lyons II"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Council of Vienne",
-        "tier": 4
+        "tier": 4,
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Council of Constance",
-        "tier": 3
+        "tier": 3,
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Council of Florence",
-        "tier": 3
+        "tier": 3,
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Council of Trent",
         "tier": 1,
         "aliases": [
           "Trent"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "First Vatican Council",
         "tier": 2,
         "aliases": [
           "Vatican I"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
       },
       {
         "answer": "Second Vatican Council",
         "tier": 1,
         "aliases": [
           "Vatican II"
-        ]
+        ],
+        "source": "Catholic list of ecumenical councils; council dates 325–1965."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "First Council of Nicaea",
+        "accept": true
+      },
+      {
+        "guess": "First Council of Constantinople",
+        "accept": true
+      },
+      {
+        "guess": "Council of Ephesus",
+        "accept": true
+      },
+      {
+        "guess": "Council of Chalcedon",
+        "accept": true
+      },
+      {
+        "guess": "Second Council of Constantinople",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -2180,74 +4011,137 @@
     "hint": "Romans 16 is the richest passage, but compare Philippians, Colossians, and 2 Timothy.",
     "source": "Hand-authored answer key; sources: Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Phoebe",
-        "tier": 1
+        "tier": 1,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Prisca",
         "tier": 1,
         "aliases": [
           "Priscilla"
-        ]
+        ],
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Mary",
-        "tier": 2
+        "tier": 2,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Junia",
-        "tier": 2
+        "tier": 2,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Tryphaena",
-        "tier": 3
+        "tier": 3,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Tryphosa",
-        "tier": 3
+        "tier": 3,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Persis",
-        "tier": 3
+        "tier": 3,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Euodia",
-        "tier": 2
+        "tier": 2,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Syntyche",
-        "tier": 2
+        "tier": 2,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Apphia",
-        "tier": 4
+        "tier": 4,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Chloe",
-        "tier": 2
+        "tier": 2,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Lois",
-        "tier": 2
+        "tier": 2,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Eunice",
-        "tier": 2
+        "tier": 2,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Julia",
-        "tier": 3
+        "tier": 3,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Rufus's mother",
-        "tier": 4
+        "tier": 4,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
       },
       {
         "answer": "Nereus's sister",
-        "tier": 5
+        "tier": 5,
+        "source": "Romans 16; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Phoebe",
+        "accept": true
+      },
+      {
+        "guess": "Prisca",
+        "accept": true
+      },
+      {
+        "guess": "Mary",
+        "accept": true
+      },
+      {
+        "guess": "Junia",
+        "accept": true
+      },
+      {
+        "guess": "Tryphaena",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -2259,139 +4153,271 @@
     "hint": "Stephen's death is central, but Acts also records persecution of the apostles and James.",
     "source": "Hand-authored answer key; sources: Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Stephen",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
       },
       {
         "answer": "James son of Zebedee",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
       },
       {
         "answer": "Peter",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
       },
       {
         "answer": "John",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
       },
       {
         "answer": "The apostles",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
       },
       {
         "answer": "Paul",
-        "tier": 1
+        "tier": 1,
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
       },
       {
         "answer": "Barnabas",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
       },
       {
         "answer": "Silas",
-        "tier": 2
+        "tier": 2,
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
       },
       {
         "answer": "The believers scattered from Jerusalem",
-        "tier": 3
+        "tier": 3,
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
       },
       {
         "answer": "The disciples in Lystra",
-        "tier": 4
+        "tier": 4,
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Stephen",
+        "accept": true
+      },
+      {
+        "guess": "James son of Zebedee",
+        "accept": true
+      },
+      {
+        "guess": "Peter",
+        "accept": true
+      },
+      {
+        "guess": "John",
+        "accept": true
+      },
+      {
+        "guess": "The apostles",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
   {
     "id": "authored-revelation-images",
     "theme": "New Testament",
-    "prompt": "Name a symbolic image or figure in the visions of Revelation.",
-    "context": "Name a distinct image in the book's visions; do not give generic theological concepts that are not represented in the text.",
+    "prompt": "Name a judgment in one of Revelation's seven seals, seven trumpets, or seven bowls.",
+    "context": "Include the seven seal openings, seven trumpet blasts, and seven bowl plagues; count: 21 judgments.",
     "hint": "The images include creatures, objects, numbers, and figures that recur across the visions.",
-    "source": "Hand-authored answer key; sources: Revelation 1–22.",
+    "source": "Hand-authored closed key; source: Revelation 6–8; 8–11; 15–16.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
-        "answer": "The seven lampstands",
-        "tier": 1
+        "answer": "First seal: white horse",
+        "tier": 2,
+        "source": "Revelation 6:1–2"
       },
       {
-        "answer": "The seven stars",
-        "tier": 1
+        "answer": "Second seal: red horse",
+        "tier": 2,
+        "source": "Revelation 6:3–4"
       },
       {
-        "answer": "The Lamb",
-        "tier": 1
+        "answer": "Third seal: black horse",
+        "tier": 2,
+        "source": "Revelation 6:5–6"
       },
       {
-        "answer": "The four living creatures",
-        "tier": 1
+        "answer": "Fourth seal: pale horse",
+        "tier": 2,
+        "source": "Revelation 6:7–8"
       },
       {
-        "answer": "The twenty-four elders",
-        "tier": 1
+        "answer": "Fifth seal: martyrs",
+        "tier": 3,
+        "source": "Revelation 6:9–11"
       },
       {
-        "answer": "The scroll with seven seals",
-        "tier": 2
+        "answer": "Sixth seal: cosmic signs",
+        "tier": 2,
+        "source": "Revelation 6:12–17"
       },
       {
-        "answer": "The four horsemen",
-        "tier": 1
+        "answer": "Seventh seal: silence",
+        "tier": 3,
+        "source": "Revelation 8:1"
       },
       {
-        "answer": "The woman clothed with the sun",
-        "tier": 1
+        "answer": "First trumpet: hail and fire",
+        "tier": 3,
+        "source": "Revelation 8:7"
       },
       {
-        "answer": "The great red dragon",
-        "tier": 1
+        "answer": "Second trumpet: burning mountain",
+        "tier": 3,
+        "source": "Revelation 8:8–9"
       },
       {
-        "answer": "Michael and his angels",
-        "tier": 2
+        "answer": "Third trumpet: Wormwood",
+        "tier": 3,
+        "source": "Revelation 8:10–11",
+        "aliases": [
+          "Wormwood star"
+        ]
       },
       {
-        "answer": "The beast from the sea",
-        "tier": 1
+        "answer": "Fourth trumpet: darkened heavens",
+        "tier": 3,
+        "source": "Revelation 8:12"
       },
       {
-        "answer": "The beast from the earth",
-        "tier": 2
+        "answer": "Fifth trumpet: locusts",
+        "tier": 2,
+        "source": "Revelation 9:1–11"
       },
       {
-        "answer": "The image of the beast",
-        "tier": 2
+        "answer": "Sixth trumpet: four angels",
+        "tier": 4,
+        "source": "Revelation 9:13–19"
       },
       {
-        "answer": "The number 666",
-        "tier": 1
+        "answer": "Seventh trumpet: kingdom proclaimed",
+        "tier": 3,
+        "source": "Revelation 11:15–19"
       },
       {
-        "answer": "The two witnesses",
-        "tier": 1
+        "answer": "First bowl: painful sores",
+        "tier": 3,
+        "source": "Revelation 16:2"
       },
       {
-        "answer": "The seven bowls",
-        "tier": 2
+        "answer": "Second bowl: sea becomes blood",
+        "tier": 3,
+        "source": "Revelation 16:3"
       },
       {
-        "answer": "The great harlot Babylon",
-        "tier": 2
+        "answer": "Third bowl: rivers become blood",
+        "tier": 3,
+        "source": "Revelation 16:4–7"
       },
       {
-        "answer": "The New Jerusalem",
-        "tier": 1
+        "answer": "Fourth bowl: scorching sun",
+        "tier": 3,
+        "source": "Revelation 16:8–9"
       },
       {
-        "answer": "The river of the water of life",
-        "tier": 2
+        "answer": "Fifth bowl: darkness",
+        "tier": 2,
+        "source": "Revelation 16:10–11"
       },
       {
-        "answer": "The tree of life",
-        "tier": 1
+        "answer": "Sixth bowl: Euphrates dries",
+        "tier": 4,
+        "source": "Revelation 16:12–16"
+      },
+      {
+        "answer": "Seventh bowl: great earthquake",
+        "tier": 2,
+        "source": "Revelation 16:17–21"
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "First seal: white horse",
+        "accept": true
+      },
+      {
+        "guess": "Second seal: red horse",
+        "accept": true
+      },
+      {
+        "guess": "Third seal: black horse",
+        "accept": true
+      },
+      {
+        "guess": "Fourth seal: pale horse",
+        "accept": true
+      },
+      {
+        "guess": "Fifth seal: martyrs",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   },
@@ -2403,78 +4429,142 @@
     "hint": "Think from Advent through Ordinary Time, including the Paschal Triduum and Easter season.",
     "source": "Hand-authored answer key; sources: General Norms for the Liturgical Year and the Calendar.",
     "status": "draft",
-    "answerMode": "many",
+    "answerMode": "closed",
     "answers": [
       {
         "answer": "Advent",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Christmas Time",
         "tier": 1,
         "aliases": [
           "Christmastide"
-        ]
+        ],
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Lent",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "The Paschal Triduum",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Easter Time",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Ordinary Time",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Ash Wednesday",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Palm Sunday",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Easter Sunday",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Ascension of the Lord",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Pentecost",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Epiphany",
-        "tier": 1
+        "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Baptism of the Lord",
-        "tier": 2
+        "tier": 2,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Solemnity of the Most Holy Trinity",
-        "tier": 2
+        "tier": 2,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Corpus Christi",
-        "tier": 2
+        "tier": 2,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Sacred Heart of Jesus",
-        "tier": 2
+        "tier": 2,
+        "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
         "answer": "Christ the King",
-        "tier": 2
+        "tier": 2,
+        "source": "General Norms for the Liturgical Year and the Calendar."
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Advent",
+        "accept": true
+      },
+      {
+        "guess": "Christmas Time",
+        "accept": true
+      },
+      {
+        "guess": "Lent",
+        "accept": true
+      },
+      {
+        "guess": "The Paschal Triduum",
+        "accept": true
+      },
+      {
+        "guess": "Easter Time",
+        "accept": true
+      },
+      {
+        "guess": "A generic religious idea",
+        "accept": false,
+        "reason": "Not a named answer in this prompt's defined set."
+      },
+      {
+        "guess": "An unnamed biblical figure",
+        "accept": false,
+        "reason": "The key requires an identifiable named person or item."
+      },
+      {
+        "guess": "A later medieval custom",
+        "accept": false,
+        "reason": "Outside the stated historical or textual scope."
+      },
+      {
+        "guess": "A non-Catholic title",
+        "accept": false,
+        "reason": "Not listed in the named authority for this closed set."
+      },
+      {
+        "guess": "An unrelated Scripture passage",
+        "accept": false,
+        "reason": "Does not match the prompt's specified category."
       }
     ]
   }
