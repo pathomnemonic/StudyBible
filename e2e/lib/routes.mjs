@@ -104,6 +104,7 @@ export const CRAWL = [
   { path: "/history", kind: "static", route: "/history" },
   { path: "/your-year", kind: "static", route: "/your-year" },
   { path: "/play", kind: "static", route: "/play" },
+  { path: "/play/deepwaters", kind: "static", route: "/play/deepwaters" },
   { path: "/play/charades", kind: "static", route: "/play/charades" },
   { path: "/play/trivia", kind: "static", route: "/play/trivia" },
   { path: "/play/quartets", kind: "static", route: "/play/quartets" },
@@ -257,6 +258,7 @@ export const CRAWL = [
  * Unknown-id routes are held to a different marker: the explicit not-found state, [data-state="not-found"] (see routeMarkers in lib/crawl.mjs).
  */
 export const EXPECT = {
+  '/play/deepwaters': 'Deep Waters',
   '/': 'week|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|feast|solemnity|memorial|Easter|Advent|Lent|Christmas',
   '/study': 'Explore the Bible', '/study/catechism': 'Catechism of the Catholic Church', '/study/catechism/1324': 'Catechism of the Catholic Church',
   '/calendar': 'Church calendar', '/settings': '^Settings$', '/memorize': 'Memorize Scripture', '/library': '^Notes$', '/pray/plans': 'Reading plans',
