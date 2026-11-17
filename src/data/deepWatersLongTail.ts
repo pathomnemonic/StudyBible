@@ -428,13 +428,14 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     answers: ranked([
       'Cosmas', 'Damian', 'Crispin', 'Crispinian', 'Eligius',
       'Catherine of Alexandria', 'Ivo of Kermartin', 'Raymond of Penyafort', 'Raymond Nonnatus', 'Hubert',
-      'Lydia', 'Barbara', 'Apollonia', 'Blaise', 'Nicholas of Myra', 'Eraclius', 'Notburga', 'Zita', 'Dunstan', 'Julian the Hospitaller', 'Fiacre', 'Gerard Majella', 'Roch', 'Sebastian',
+      'Lydia', 'Barbara', 'Apollonia', 'Blaise', 'Nicholas of Myra', 'Eraclius', 'Notburga', 'Zita', 'Julian the Hospitaller', 'Fiacre', 'Gerard Majella', 'Roch', 'Sebastian',
       'Florian', 'Urban I', 'Vincent of Saragossa', 'Thomas More', 'Thomas Aquinas',
       'Albert the Great', 'Francis de Sales', 'John the Baptist', 'Catherine of Siena', 'Isidore of Seville',
       'Joseph Calasanz', 'John Nepomucene', 'Dismas',
           'Homobonus', 'John Berchmans', 'John Baptist de La Salle', 'Erasmus of Formiae', 'Brendan of Clonfert', 'John Gualbert', 'Amand', 'Arnulf of Metz', 'Cassian of Imola', 'Anastasius the Fuller', 'Joseph of Arimathea', 'Peter Gonzalez', 'Medard', 'Walstan',
           'Botolph', 'Phocas the Gardener', 'Honorius of Amiens', 'Bona of Pisa', 'Adjutor', 'Cuthbert', 'Eustace',
           'Dominic Savio', 'Theobald of Provins',
+          'Foillan',
     ], {
       'Joseph': 'Saint Joseph|Joseph the Worker',
       'Luke': 'Saint Luke the Evangelist',
@@ -474,6 +475,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Erhard of Regensburg', 'Catherine of Sweden', 'Ovidius', 'Denis of Paris', 'Quentin of Amiens',
           'Raymond Nonnatus', 'Gerard Majella', 'Colette of Corbie', 'Apollonia', 'Bibiana', 'Quirinus of Neuss', 'Walburga', 'Petronilla', 'Andrew Avellino', 'Odilia', 'Agapitus', 'Cadoc', 'Herveus', 'Alena', 'Sigismund', 'Martin of Autun',
           'Alexander of Rome', 'Anastasius the Persian', 'Ambert',
+          ,
     ], {
       'Lucy': 'Lucia of Syracuse|Saint Lucy',
       'Blaise': 'Saint Blaise',
@@ -489,7 +491,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       { guess: 'Raymond Nonnatus', accepted: true }, { guess: 'Blaise', accepted: true },
       { guess: 'Dymphna', accepted: true }, { guess: 'Roch', accepted: true }, { guess: 'Peregrine Laziosi', accepted: true },
       { guess: 'Gerard Majella', accepted: true },
-      { guess: 'Anthony of Padua', accepted: true },
+      { guess: 'Apollonia', accepted: true },
       { guess: 'Joan of Arc', accepted: false, reason: 'Not included in the cited health-patron catalogues.' },
       { guess: 'John Paul II', accepted: false, reason: 'Not a health-patron entry in the cited lists.' },
       { guess: 'Thomas Aquinas', accepted: false, reason: 'Not a condition-specific patron in the cited catalogue.' }
