@@ -368,6 +368,156 @@
    "status": "unreviewed"
   },
   {
+   "id": "longtail-all-popes",
+   "sha256": "f4380f4fb05b4a055b23f88637d1d670788b704d77fb0d54ea727b092c3f6e79",
+   "answers": 265,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-latin-worship",
+   "sha256": "8bfa6f612b690b1569d8068edb4948935c563862557db71690871f6650700fb9",
+   "answers": 61,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-heresies",
+   "sha256": "7e75e76441e0c01e6795d9b7f981fb2987022bd4e4900941e45d69cc39baa9b1",
+   "answers": 65,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-italian-saints",
+   "sha256": "f177f6fca314bcdc44df1526ca0f075f0689943a1b1d7b47512e2b7c18059b3b",
+   "answers": 65,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-english-martyrs",
+   "sha256": "8b01f0baf4ba80d2bd76dd4b78fa1e08cc725a3e9d888ccac0a02c9d04a43398",
+   "answers": 67,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-korean-martyrs",
+   "sha256": "f791c31b3560273f4853c032186a73fe0ad2e55192c724697d6b41a1beac011b",
+   "answers": 87,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-japanese-martyrs",
+   "sha256": "28c4e9136bc61e47af20f11ff7a9d70c170705a0383e6dd4304e96335d443ad3",
+   "answers": 90,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-augustine-works",
+   "sha256": "85e4b473e86706921e095182520183f2bd53d75e11bb880cef94475869050adb",
+   "answers": 64,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-aquinas-works",
+   "sha256": "fb8e1d239850b3bdf5eccb8572e0ab4749f8ab84a77f2f9e3b6fc8c99f898014",
+   "answers": 66,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-fathers-works",
+   "sha256": "6f075c0f1133e46be097b3b323773724c2c0107980f68f73ff802d884dec8899",
+   "answers": 71,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-catholic-shrines",
+   "sha256": "1391563b2ed45d1102bb74eb6b51187083fa9db4d3bc71b349d79081ff7b1690",
+   "answers": 64,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-patron-professions",
+   "sha256": "131a6c5278744809581910fc2d567c0479bcde7f2b25b5d3bece0ab58c613502",
+   "answers": 66,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-patron-illnesses",
+   "sha256": "83fe137aedc546cfbfd7f6ec5cf183f1269fba3e12a62d109a764500ce3895b8",
+   "answers": 66,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-patron-countries",
+   "sha256": "16b301c4038dfab470ab9b35c6bf6626b94859c2aee4e828b63eb2ebc272c715",
+   "answers": 69,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-ancient-sees",
+   "sha256": "312a75e36c0d24c3348277b9bd36d10c789ee3d7f0f9795d466d2bc580c2bde0",
+   "answers": 76,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-catholic-symbols",
+   "sha256": "609ed1f57330bd872056d112ebd53b1ae1dccf4ac8c061b7922a514d71a1b7ad",
+   "answers": 74,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-catholic-universities",
+   "sha256": "d958b624a27a10d24821def2ebb0bb5f33195f43744793d613887ac5f8aa2bc7",
+   "answers": 69,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-minor-basilicas",
+   "sha256": "9ca6d927d65e2c76d3e6b47d3fcea69ffe4afc8c760fe2c7114828e2c91f1253",
+   "answers": 68,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-mass-parts",
+   "sha256": "405f9578726914359f689dde70357fcf2a4bb0cedee9add1e5955f4a8d98f1e7",
+   "answers": 72,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-late-medieval-theologians",
+   "sha256": "b49dbed9c232b3453ea653344629821f53f5f98378ef3c824855792749f91551",
+   "answers": 67,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-martyrdom-texts",
+   "sha256": "155556b1fbf35e28681279b310d04a8c689b17c1bf7c798338da1adfc937ce58",
+   "answers": 64,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-relics",
+   "sha256": "b2b9f1136c428cf4bd60f022fdff9e6ca567cff7567ccb7e10c5097431f6e274",
+   "answers": 69,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-pilgrimage-routes",
+   "sha256": "e16252d4e87cb9600cf992d668d0e575daa3ae2e8905a53fb36e0d5c4056170d",
+   "answers": 72,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-city-patrons",
+   "sha256": "8623b7a339db9a3539500ff912af24a30e75628ed67d6032949cbab0cf9a8894",
+   "answers": 72,
+   "status": "unreviewed"
+  },
+  {
+   "id": "longtail-francis-canonizations",
+   "sha256": "6ee5c103ce573065694addb5286ce814dd0999504766fb29a263e461a15b0f12",
+   "answers": 89,
+   "status": "unreviewed"
+  },
+  {
    "id": "places-1CH",
    "sha256": "87dcc32c32e1582529ec447976fb4eba841ad15a387261411d75e8b182b7ecd6",
    "answers": 163,
