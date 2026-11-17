@@ -122,3 +122,23 @@ Until now ten New Testament chapters were "unverified": every reference into the
 **Tests re-pointed, not loosened.** Eleven existing assertions used John 6 or Mark 4 as their example of an unverified chapter. Each now uses a chapter that is still unverified (Romans 14, Jonah 1, Ecclesiastes 6), so the caution they test is still tested, and each gained an assertion of the new, correct result where there is one.
 
 **Left unverified, with reasons.** Romans 14 and 16 (WEB-C prints the doxology at 14:24-26, the RSV and the Vulgate at 16:25-27: one table cannot serve both editions; needs per-edition rules). Genesis 49 (the Vulgate has no verse for modern 49:32), Exodus 40, Joshua 21, Nehemiah 3 and 12, Job 16 and 42, the Song of Songs, Wisdom, Jeremiah 37, Baruch, Ezekiel 2, Amos 6, Micah 5, Haggai and 1 and 2 Maccabees: each needs its joins read; some have a verse with no partner. For the NABRE, Matthew 17, Mark 4, Acts 7, 14 and 19, 2 Corinthians 13 and Revelation 12 now map to the right verses but are still labelled approximate, because the NABRE-to-WEB matching has an unpartnered verse in each. Daniel in the NABRE follows the Vulgate's own arrangement and could be aligned directly; not done.
+
+## 7. "Today" taken from UTC instead of the reader's calendar
+
+Files: `src/lib/day.ts` (new), `ChapterCompanion.tsx`, `ReminderAsk.tsx`, `widgetData.ts`, `DownloadsPage.tsx`, `FeastCardPage.tsx`. Tests: `tests/day.test.ts` (7, run under four time zones).
+
+`new Date().toISOString().slice(0, 10)` is the date in UTC. Where it was used as "today":
+
+| Place | Effect |
+|---|---|
+| "This chapter at Mass" in the reader | From late afternoon in the Americas, today's Mass was dropped from the list. The years were also hard-coded to 2026 and 2027; they now follow the calendar. |
+| Home-screen widget data | The verse and counts turned over at midnight UTC (4 pm in Los Angeles), not at the reader's midnight. |
+| "Save the next Bible in a Year episodes" | In the evening in the Americas, today's episode was skipped. |
+| Feast page, "Day before" and "Day after" | Local noon was read back as a UTC date. Thirteen or fourteen hours ahead of UTC (New Zealand in summer, Tonga, Kiribati) "Day after" led to the same day and "Day before" went back two. |
+| The once-only reminder prompt | Counted days in UTC (harmless; corrected for consistency). |
+
+Other uses of that expression were checked and left: they stamp file names or format a stored timestamp, where UTC is acceptable.
+
+## 8. Handing work on
+
+`docs/HANDOFF_PROMPTS.md` holds six self-contained prompts for work that is laborious or well specified, not hard: the server naming which changes it refused; per-edition numbering for Romans 14 and 16; reading the remaining unverified chapters; aligning Daniel for the NABRE; bounding the rate limiter's memory; and (needing the owner's decision) merging listening totals from two devices.

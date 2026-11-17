@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { shiftDay } from '../lib/day';
 import { Link, useParams } from 'react-router-dom';
 import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
@@ -104,8 +105,8 @@ export default function FeastCardPage() {
         </div>
       </article>
       <div className="row between" style={{ marginTop: 10 }}>
-        <Link className="btn small ghost" to={`/feast/${new Date(new Date(date + 'T12:00').getTime() - 864e5).toISOString().slice(0, 10)}`}>← Day before</Link>
-        <Link className="btn small ghost" to={`/feast/${new Date(new Date(date + 'T12:00').getTime() + 864e5).toISOString().slice(0, 10)}`}>Day after →</Link>
+        <Link className="btn small ghost" to={`/feast/${shiftDay(date, -1)}`}>← Day before</Link>
+        <Link className="btn small ghost" to={`/feast/${shiftDay(date, 1)}`}>Day after →</Link>
       </div>
     </div>
   );

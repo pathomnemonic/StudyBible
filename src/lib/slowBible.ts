@@ -1,4 +1,5 @@
 import data from '../data/slowBible.json';
+import { isoToday } from './day';
 import { BOOKS } from './canon';
 import { getJson } from '../data/loader';
 import { parseRefs } from './refs';
@@ -33,7 +34,7 @@ const KEY = 'sb:slowBible';
 export interface SlowState { start: string; done: number[] }
 export const loadSlow = (): SlowState | null => { try { const s = JSON.parse(localStorage.getItem(KEY) ?? 'null') as SlowState | null; return s && /^\d{4}-\d{2}-\d{2}$/.test(s.start) ? { start: s.start, done: Array.isArray(s.done) ? s.done : [] } : null; } catch { return null; } };
 export const saveSlow = (s: SlowState | null) => { try { if (s) localStorage.setItem(KEY, JSON.stringify(s)); else localStorage.removeItem(KEY); } catch { /* private mode */ } };
-export const isoToday = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+export { isoToday };
 export const daysBetween = (a: string, b: string) => Math.round((Date.UTC(+b.slice(0, 4), +b.slice(5, 7) - 1, +b.slice(8)) - Date.UTC(+a.slice(0, 4), +a.slice(5, 7) - 1, +a.slice(8))) / 864e5);
 export const todayIndex = (s: SlowState) => Math.max(0, Math.min(SLOW_TOTAL - 1, daysBetween(s.start, isoToday())));
 

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { isoToday } from '../lib/day';
 import { Link } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
 import { downloadEdition, downloadPack, getManifest, verifyPack, isEditionCached, packCachedCount, packStillCached, type StudyPack } from '../data/loader';
@@ -83,7 +84,7 @@ export default function DownloadsPage() {
     setYearBusy('Finding episodes…'); setMsg('');
     try {
       const b = await getBiay();
-      const today = new Date().toISOString().slice(0, 10);
+      const today = isoToday();
       const days = (b?.episodes ?? []).filter((e: BiayEpisode) => e.kind === 'day' && e.audio);
       const yr = Math.max(...days.map((e) => e.year ?? 0));
       const list = days.filter((e) => e.year === yr && e.date >= today).sort((a, c) => a.date.localeCompare(c.date));
