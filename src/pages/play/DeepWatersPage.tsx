@@ -24,10 +24,10 @@ export default function DeepWatersPage() {
     }
     return practice ? practiceDeepPrompts(practiceSeed) : dailyDeepPrompts(today);
   }, [practice, practiceSeed, today, canResume, snapshot]);
-  const restoredRemaining = snapshot?.paused ? snapshot.remainingMs : snapshot?.deadlineAt ? Math.max(0, snapshot.deadlineAt - Date.now()) : 3_000;
+  const restoredRemaining = canResume ? (snapshot!.paused ? snapshot!.remainingMs : snapshot!.deadlineAt ? Math.max(0, snapshot!.deadlineAt - Date.now()) : snapshot!.remainingMs) : 3_000;
   const [preview, setPreview] = useState(!canResume || snapshot!.phase === 'preview');
   const [round, setRound] = useState(canResume ? snapshot!.round : 0);
-  const [seconds, setSeconds] = useState(canResume ? Math.ceil(restoredRemaining / 1000) : 3);
+  const [seconds, setSeconds] = useState(canResume && (snapshot!.phase === 'locked' || snapshot!.phase === 'done') ? 0 : Math.ceil(restoredRemaining / 1000));
   const [guess, setGuess] = useState(canResume ? snapshot!.guess : '');
   const [locked, setLocked] = useState(canResume && snapshot!.phase === 'locked');
   const [feedback, setFeedback] = useState('');
@@ -38,10 +38,10 @@ export default function DeepWatersPage() {
   const [showAnswers, setShowAnswers] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const prompt: DeepPrompt = prompts[round];
-  const deadlineRef = useRef<number>(snapshot?.paused ? Date.now() + restoredRemaining : snapshot?.deadlineAt ?? Date.now() + restoredRemaining);
+  const deadlineRef = useRef<number>(canResume ? (snapshot!.paused ? Date.now() + restoredRemaining : snapshot!.deadlineAt ?? Date.now() + restoredRemaining) : Date.now() + 3_000);
   const remainingRef = useRef<number>(restoredRemaining);
   const [logbook, setLogbook] = useState(loadDeepLogbook());
-  const [isPaused, setIsPaused] = useState(Boolean(snapshot?.paused && document.visibilityState === 'hidden'));
+  const [isPaused, setIsPaused] = useState(Boolean(canResume && snapshot?.paused && document.visibilityState === 'hidden'));
   const streak = deepDiveStreak(logbook, today);
   const pearlPool = prompts.flatMap((p) => p.answers.filter((a) => a.tier === 5).map((a) => a.answer));
   const pearlAnswer = !practice && pearlPool.length ? pearlPool[Math.abs(today * 31) % pearlPool.length] : null;
