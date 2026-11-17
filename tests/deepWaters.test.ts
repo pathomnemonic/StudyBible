@@ -89,7 +89,7 @@ describe('Deep Waters content and rules', () => {
       }
       if (prompt.answerMode === 'closed') {
         expect(prompt.context, prompt.id).toMatch(new RegExp('count: ' + prompt.answers.length + '\\.', 'i'));
-        expect(prompt.source, prompt.id).toMatch(/authority:|sources:/i);
+        expect(prompt.source, prompt.id).toMatch(/authority:|sources?:/i);
       } else {
         expect(prompt.answerMode).toBe('open');
         expect(prompt.answers.length, prompt.id).toBeGreaterThanOrEqual(60);
