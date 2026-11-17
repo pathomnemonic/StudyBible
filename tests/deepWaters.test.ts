@@ -192,3 +192,24 @@ describe('Deep Waters suggestions and hints', () => {
     }
   });
 });
+
+describe('Deep Waters first-letter and role questions', () => {
+  const find = (id: string) => DEEP_WATERS.find((p) => p.id === id)!;
+  const accept: [string, string[]][] = [
+    ['people-A', ['Abraham', 'Aaron', 'Andrew', 'Adam']], ['people-J', ['Jacob', 'Joseph', 'John', 'Joshua']], ['people-M', ['Moses', 'Matthew', 'Miriam']],
+    ['people-S', ['Solomon', 'Samuel', 'Saul']], ['people-D', ['David', 'Daniel', 'Deborah']], ['roles-women', ['Ruth', 'Esther', 'Sarah']],
+    ['saints-letter-A', ['Augustine', 'Anthony', 'Agnes']], ['saints-letter-J', ['Jerome', 'John Chrysostom']],
+  ];
+  for (const [id, names] of accept) {
+    it(`${id} accepts true answers`, () => {
+      const p = find(id);
+      for (const n of names) expect(matchDeepAnswer(p, n).status, `${id}: ${n}`).toBe('match');
+    });
+  }
+  it('rejects a name with the wrong first letter, and a man for the women question', () => {
+    expect(matchDeepAnswer(find('people-A'), 'Moses').status).not.toBe('match');
+    expect(matchDeepAnswer(find('people-J'), 'Peter').status).not.toBe('match');
+    expect(matchDeepAnswer(find('roles-women'), 'Moses').status).not.toBe('match');
+    expect(matchDeepAnswer(find('saints-letter-A'), 'Paul').status).not.toBe('match');
+  });
+});

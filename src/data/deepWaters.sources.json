@@ -246,6 +246,94 @@
    "sha256": "18c59a748736167d2340339e251f462416a66265a1f3c404c26c2b7032317c24"
   },
   {
+   "path": "public/data/reference/step/names-0.json",
+   "sha256": "d0691e006bfce4740de8fbfada9d422fffd3ea46e2fa918e4e3b32d323bc989c"
+  },
+  {
+   "path": "public/data/reference/step/names-1.json",
+   "sha256": "34e53761bafd493dee755463dff22a32bd47405fec504a539e9665b4fa23f254"
+  },
+  {
+   "path": "public/data/reference/step/names-10.json",
+   "sha256": "18b8f361f2fd4f69f683425b48976a05d5efca77b081ac286a19768a88da704f"
+  },
+  {
+   "path": "public/data/reference/step/names-11.json",
+   "sha256": "34a3202dd655a17873224e66d6531b2214e92f657056d364cd9747d2a3c82ffe"
+  },
+  {
+   "path": "public/data/reference/step/names-12.json",
+   "sha256": "b0a1330774792bd4bfad44826d2bda732ec42d2008a406e4a09d6efddcb71323"
+  },
+  {
+   "path": "public/data/reference/step/names-13.json",
+   "sha256": "6f83dc10579843f8cff276e72d5498d68c2f0fc397ef420b0e41cb1502469088"
+  },
+  {
+   "path": "public/data/reference/step/names-14.json",
+   "sha256": "2f512e23c455b4b3d6a72195612083a4fbbaf3c31550d30cf6b5ee2ca845c36b"
+  },
+  {
+   "path": "public/data/reference/step/names-15.json",
+   "sha256": "3ce2f1f3882c61ed5fe93e02c611066a52d9f03a0a960d3f55418d91eae02291"
+  },
+  {
+   "path": "public/data/reference/step/names-16.json",
+   "sha256": "f37f3947860550127f15079f056fd2f55c3307663ac1520d5f9e61a9ae66f3a4"
+  },
+  {
+   "path": "public/data/reference/step/names-17.json",
+   "sha256": "66036515f719fba5ebf523561ce7bf4124ab3aa076f88970074512066c69f4ce"
+  },
+  {
+   "path": "public/data/reference/step/names-18.json",
+   "sha256": "ec4578cbd4f5ade461c4c04505f803e042ceec69af8bfba1b992b9f1e7343efe"
+  },
+  {
+   "path": "public/data/reference/step/names-19.json",
+   "sha256": "d985407423ffc38ace171ab570357251c694359492f50e3271d0d95a581c2e1d"
+  },
+  {
+   "path": "public/data/reference/step/names-2.json",
+   "sha256": "edc55cd51b2ec12e813331b8605907b899fa9cbc15a592b0980338c2345fe482"
+  },
+  {
+   "path": "public/data/reference/step/names-20.json",
+   "sha256": "7c065acba7a6ea6407c6f539f099439f0b4d1d5a354e55d8cba2d7d620392d8c"
+  },
+  {
+   "path": "public/data/reference/step/names-21.json",
+   "sha256": "fbb22d904046b8ff2faadac9d98962fa00b16b4b75dffe940e5ad1e0a44bec93"
+  },
+  {
+   "path": "public/data/reference/step/names-3.json",
+   "sha256": "fcd4d9ec62bb778c706b6e72311a6b519563ee42190bfec49cce1fde98063463"
+  },
+  {
+   "path": "public/data/reference/step/names-4.json",
+   "sha256": "5191c7ac0a68f105a60df31691a1bde8c77e855dc1c63d038fb1b8188dfa2c36"
+  },
+  {
+   "path": "public/data/reference/step/names-5.json",
+   "sha256": "4dc76001bb6f3b513ac6bd26dc133fabb18f132c215b0c5b0797b42a281c1439"
+  },
+  {
+   "path": "public/data/reference/step/names-6.json",
+   "sha256": "2ac22dbf43cfd6a4b9f9a8702d384cff96f5a3259330e63f612d9eb75e0b6323"
+  },
+  {
+   "path": "public/data/reference/step/names-7.json",
+   "sha256": "7477d3bfcb691097e820447b221d8ac9da6aa7cb73cf961bb6dc277e070099e5"
+  },
+  {
+   "path": "public/data/reference/step/names-8.json",
+   "sha256": "eaf2428a513583ae57e67e34ea0672e90fcfe639bd87425cbb5d2892a76642ad"
+  },
+  {
+   "path": "public/data/reference/step/names-9.json",
+   "sha256": "d17ef7ea8f5e019a4dc15fa46e0963ae7588f16a2b5515cae0ff27d8a6ad3532"
+  },
+  {
    "path": "public/data/saints/butler/01.json",
    "sha256": "800b7d6a3180f33be497109bf71614f76978161fc6797ac00760bc786077ffc1"
   },
@@ -295,7 +383,7 @@
   },
   {
    "path": "scripts/deepwaters/overrides.json",
-   "sha256": "5f79727013425ff09e7331c58359806cf1ce8e8da9249bc308683680410ce53a"
+   "sha256": "022fc85fcb33f13cb59d3d3294e88f1fb536ebedfa464a5ce27e8c2fd6ad5e42"
   },
   {
    "path": "src/data/confirmationSaints.ts (names, feasts)",
@@ -526,6 +614,181 @@
    "id": "saints-abbot",
    "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
    "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the heading naming the state or office (\\b(ABBOT|ABBESS)\\b)"
+  },
+  {
+   "id": "saints-letter-A",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-B",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-C",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-E",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-F",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-G",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-J",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-L",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-M",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-P",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-S",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-T",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the first letter of the name"
+  },
+  {
+   "id": "saints-letter-DHIKNO",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by first letter, short letters pooled"
+  },
+  {
+   "id": "saints-letter-QRUVWZ",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by first letter, short letters pooled"
+  },
+  {
+   "id": "people-A",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-B",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-C",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-D",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-E",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-G",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-H",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-I",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-J",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-K",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-L",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-M",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-N",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-O",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-P",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-R",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-S",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-T",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-Z",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "people-FQUV",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "person names from the STEPBible TIPNR list filtered by first letter, the letters with fewer than 20 names pooled; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "roles-women",
+   "from": "STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles",
+   "rule": "names STEPBible marks Female; tier ranks log(1+mentions in the WEB-C Bible)"
   }
  ]
 }

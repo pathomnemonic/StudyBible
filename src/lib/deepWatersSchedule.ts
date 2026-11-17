@@ -18,8 +18,8 @@ export const WINDOW = 2;
 /** a seed that is safe for any integer, negative included */
 const seedFor = (x: number) => ((Math.floor(x) % 2147483647) + 2147483647) % 2147483647;
 
-/** "places-ACT" and "places-LUK" are one family; so are "saints-03" and "saints-martyr". Anything else is its own family. */
-export const familyOf = (id: string) => (/^(places|saints)-/.test(id) ? id.split('-')[0] : id);
+/** "people-A" and "people-B" are one family, as are "places-ACT" and "places-LUK" are one family; so are "saints-03" and "saints-martyr". Anything else is its own family. */
+export const familyOf = (id: string) => (/^(places|saints|people|roles)-/.test(id) ? id.split('-')[0] : id);
 
 interface Unit { p: DeepPrompt; key: string; family: string }
 interface Layout { units: Unit[]; days: number; homes: Map<string, number>; famCap: Map<string, number> }

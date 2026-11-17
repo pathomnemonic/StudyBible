@@ -103,7 +103,7 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
 {
   const names = [...WHO_AM_I, ...WHO_AM_I_2].map((w) => w.name);
   inputs.push({ path: 'src/data/whoami.ts + src/data/whoami2.ts (names)', sha256: sha(names.join('\n')) });
-  finish('bible-people', 'scripture', 'Name a person in the Bible.', 'The Bible names hundreds of people, from the first man to the last apostle. This list is long but not complete.', 'the app\'s Who Am I game lists',
+  finish('bible-people', 'people', 'Name a person in the Bible.', 'The Bible names hundreds of people, from the first man to the last apostle. This list is long but not complete.', 'the app\'s Who Am I game lists',
     names.map((n) => ({ name: n, aliases: [], score: Math.log(1 + countMentions(whole, n)) })),
     'names from the Who Am I game; tier ranks log(1+mentions in the WEB-C Bible)');
 }
@@ -112,7 +112,7 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
 {
   interface S { name: string; aliases: string[]; score: number; month?: number; desc: string }
   const saints: S[] = [];
-  const modern: Record<string, string> = { Jerom: 'Jerome', Lewis: 'Louis', Catharine: 'Catherine', 'Francis of Assisium': 'Francis of Assisi', 'Thomas of Aquino': 'Thomas Aquinas' };
+  const modern: Record<string, string> = { Jerom: 'Jerome', Lewis: 'Louis', Catharine: 'Catherine', 'Francis of Assisium': 'Francis of Assisi', 'Thomas of Aquino': 'Thomas Aquinas', 'Catharine of Sienna': 'Catherine of Siena', 'Catharine de Ricci': 'Catherine de Ricci' };
   const dir = 'public/data/saints/butler/';
   for (const f of readdirSync(ROOT + dir).filter((x) => /^\d\d\.json$/.test(x)).sort()) {
     const x = JSON.parse(track(dir + f)) as { month: string; days: Record<string, { heading: string; text: string[] }[]> };
@@ -163,6 +163,55 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
   for (const [id, q, re] of KINDS) {
     finish(`saints-${id}`, 'saints', q, 'The headings in Butler\'s Lives of the Saints name each saint\'s state or office. This list is long but not complete.', src, saints.filter((s) => re.test(s.desc)).map(to), rule + `; filtered by the heading naming the state or office (${re.source})`, 25);
   }
+  // by the first letter of the name (a letter with fewer than 20 saints is pooled with the other short letters)
+  const letters = [...new Set(saints.map((x) => x.name[0].toUpperCase()))].filter((c) => /[A-Z]/.test(c)).sort();
+  const ofLetter = (c: string) => saints.filter((x) => x.name[0].toUpperCase() === c);
+  const uniqS = (c: string) => new Set(ofLetter(c).map((x) => deepTokens(x.name).join(' '))).size;
+  const shortLetters = letters.filter((c) => uniqS(c) < 20);
+  for (const c of letters.filter((x) => !shortLetters.includes(x))) {
+    finish(`saints-letter-${c}`, 'saints', `Name a saint whose name begins with ${c}.`, 'Thousands of saints are honoured across the Church year. This list follows Butler\'s Lives of the Saints and the app\'s own saints; it is long but not complete.', src, ofLetter(c).map(to), rule + '; filtered by the first letter of the name', 20);
+  }
+  // the short letters are pooled in as few questions as keep each at about 50 answers
+  const pools: string[][] = [];
+  let cur: string[] = []; let curN = 0;
+  for (const c of shortLetters) { cur.push(c); curN += uniqS(c); if (curN >= 50) { pools.push(cur); cur = []; curN = 0; } }
+  if (cur.length) { if (pools.length && curN < 12) pools[pools.length - 1].push(...cur); else pools.push(cur); }
+  for (const pool of pools) {
+    const lab = pool.length > 1 ? pool.slice(0, -1).join(', ') + ' or ' + pool[pool.length - 1] : pool[0];
+    finish(`saints-letter-${pool.join('')}`, 'saints', `Name a saint whose name begins with ${lab}.`, 'These are the less common first letters of saints\' names. This list follows Butler\'s Lives of the Saints and the app\'s own saints; it is long but not complete.', src, pool.flatMap(ofLetter).map(to), rule + '; filtered by first letter, short letters pooled', 12);
+  }
+
+}
+
+/* ---------- 4. people of the Bible, by initial and by role (STEPBible TIPNR names, CC BY 4.0) ---------- */
+{
+  interface N { name: string; kind: string; type?: string; meaning?: string }
+  const stepDir = 'public/data/reference/step/';
+  const people: N[] = [];
+  for (const f of readdirSync(ROOT + stepDir).filter((x) => /^names-\d+\.json$/.test(x)).sort((a, b) => parseInt(a.slice(6)) - parseInt(b.slice(6)))) {
+    for (const e of JSON.parse(track(stepDir + f)) as N[]) if (e.kind === 'person' && /^[A-Z][A-Za-z'\- ]{2,}$/.test(e.name)) people.push(e);
+  }
+  const src = 'STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles';
+  const scoreOf = (n: string) => Math.log(1 + countMentions(whole, n));
+  const entryOf = (n: N) => ({ name: n.name, aliases: [] as string[], score: scoreOf(n.name) });
+  const initials = [...new Set(people.map((x) => x.name[0]))].sort();
+  // a letter with fewer than 20 names is pooled with the other short letters into one question
+  const byLetter = new Map(initials.map((ch) => [ch, people.filter((x) => x.name[0] === ch)] as const));
+  const uniq = (ch: string) => new Set(byLetter.get(ch)!.map((x) => deepTokens(x.name).join(' '))).size;
+  const rare = initials.filter((ch) => uniq(ch) < 20);
+  for (const ch of initials.filter((c) => !rare.includes(c))) {
+    finish(`people-${ch}`, 'people', `Name a person in the Bible whose name begins with ${ch}.`, 'The Bible names thousands of people, many only once. This list follows STEPBible\'s name list; it is long but may not be complete.', src,
+      byLetter.get(ch)!.map(entryOf), 'person names from the STEPBible TIPNR list filtered by first letter; tier ranks log(1+mentions in the WEB-C Bible)', 20);
+  }
+  if (rare.length) {
+    const label = rare.length > 1 ? rare.slice(0, -1).join(', ') + ' or ' + rare[rare.length - 1] : rare[0];
+    finish(`people-${rare.join('')}`, 'people', `Name a person in the Bible whose name begins with ${label}.`, 'These are the less common first letters of Bible names. This list follows STEPBible\'s name list; it is long but may not be complete.', src,
+      rare.flatMap((ch) => byLetter.get(ch)!).map(entryOf), 'person names from the STEPBible TIPNR list filtered by first letter, the letters with fewer than 20 names pooled; tier ranks log(1+mentions in the WEB-C Bible)', 12);
+  }
+  // Roles such as "king" or "prophet" are not generated: STEPBible's one-line meanings describe namesakes as well as the famous bearer of a name (a prophet Ahab, a king Ishmael), and
+  // leave out well-known kings, so a role list built from them would accept and reject the wrong answers. Only the objective field (Female) is used.
+  finish('roles-women', 'people', 'Name a woman in the Bible.', 'The Bible names many women, from Eve to the women at the tomb. This list follows STEPBible\'s name list; it is long but not complete.', src,
+    people.filter((x) => x.type === 'Female').map(entryOf), 'names STEPBible marks Female; tier ranks log(1+mentions in the WEB-C Bible)', 12);
 }
 
 /* ---------- write ---------- */

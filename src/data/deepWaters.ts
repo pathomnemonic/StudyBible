@@ -13,7 +13,7 @@
 export type DeepTier = 1 | 2 | 3 | 4 | 5;
 export interface DeepAnswer { answer: string; tier: DeepTier; aliases?: string[] }
 /** What a question is about. A daily set aims for one question per theme before it repeats one. */
-export type DeepTheme = 'scripture' | 'saints' | 'church-history' | 'liturgy' | 'doctrine' | 'devotion' | 'places' | 'art-music';
+export type DeepTheme = 'scripture' | 'saints' | 'church-history' | 'liturgy' | 'doctrine' | 'devotion' | 'places' | 'art-music' | 'people';
 export interface DeepPrompt {
   id: string;
   /** what the question is about (for balancing a daily set) */

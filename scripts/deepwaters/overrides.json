@@ -1,13 +1,104 @@
 [
-  { "prompt": "places-MAT", "answer": "Gethsemane", "tier": 2, "reason": "Named in the Passion narrative and in every Lenten Gospel reading; its verse count understates how familiar it is." },
-  { "prompt": "places-MAT", "answer": "Caesarea Philippi", "tier": 3, "reason": "The place of Peter's confession; a well-known Gospel setting." },
-  { "prompt": "places-MRK", "answer": "Gethsemane", "tier": 2, "reason": "Named in the Passion narrative; verse count understates familiarity." },
-  { "prompt": "places-MRK", "answer": "Golgotha", "tier": 2, "reason": "The place of the Crucifixion; verse count understates familiarity." },
-  { "prompt": "places-MRK", "answer": "Caesarea Philippi", "tier": 3, "reason": "The place of Peter's confession." },
-  { "prompt": "places-LUK", "answer": "Emmaus", "tier": 2, "reason": "The road to Emmaus is one of the best-known Resurrection scenes; it is named once in Luke, so a verse count ranks it as a deep cut." },
-  { "prompt": "places-LUK", "answer": "Nain", "tier": 3, "reason": "The widow's son raised at Nain; named once." },
-  { "prompt": "places-JHN", "answer": "Golgotha", "tier": 2, "reason": "The place of the Crucifixion." },
-  { "prompt": "places-JHN", "answer": "Sychar", "tier": 3, "reason": "Jacob's well and the Samaritan woman; named once." },
-  { "prompt": "places-JHN", "answer": "Bethesda", "tier": 3, "reason": "The pool of Bethesda healing; named once." },
-  { "prompt": "places-JHN", "answer": "Cana", "tier": 2, "reason": "The wedding at Cana; the first sign." }
+  {
+    "prompt": "places-MAT",
+    "answer": "Gethsemane",
+    "tier": 2,
+    "reason": "Named in the Passion narrative and in every Lenten Gospel reading; its verse count understates how familiar it is."
+  },
+  {
+    "prompt": "places-MAT",
+    "answer": "Caesarea Philippi",
+    "tier": 3,
+    "reason": "The place of Peter's confession; a well-known Gospel setting."
+  },
+  {
+    "prompt": "places-MRK",
+    "answer": "Gethsemane",
+    "tier": 2,
+    "reason": "Named in the Passion narrative; verse count understates familiarity."
+  },
+  {
+    "prompt": "places-MRK",
+    "answer": "Golgotha",
+    "tier": 2,
+    "reason": "The place of the Crucifixion; verse count understates familiarity."
+  },
+  {
+    "prompt": "places-MRK",
+    "answer": "Caesarea Philippi",
+    "tier": 3,
+    "reason": "The place of Peter's confession."
+  },
+  {
+    "prompt": "places-LUK",
+    "answer": "Emmaus",
+    "tier": 2,
+    "reason": "The road to Emmaus is one of the best-known Resurrection scenes; it is named once in Luke, so a verse count ranks it as a deep cut."
+  },
+  {
+    "prompt": "places-LUK",
+    "answer": "Nain",
+    "tier": 3,
+    "reason": "The widow's son raised at Nain; named once."
+  },
+  {
+    "prompt": "places-JHN",
+    "answer": "Golgotha",
+    "tier": 2,
+    "reason": "The place of the Crucifixion."
+  },
+  {
+    "prompt": "places-JHN",
+    "answer": "Sychar",
+    "tier": 3,
+    "reason": "Jacob's well and the Samaritan woman; named once."
+  },
+  {
+    "prompt": "places-JHN",
+    "answer": "Bethesda",
+    "tier": 3,
+    "reason": "The pool of Bethesda healing; named once."
+  },
+  {
+    "prompt": "places-JHN",
+    "answer": "Cana",
+    "tier": 2,
+    "reason": "The wedding at Cana; the first sign."
+  },
+  {
+    "prompt": "roles-women",
+    "answer": "Noah",
+    "tier": 5,
+    "reason": "The woman Noah, a daughter of Zelophehad (Numbers 26:33), is a valid answer but very obscure; the count of mentions is the patriarch's."
+  },
+  {
+    "prompt": "roles-women",
+    "answer": "Ephah",
+    "tier": 5,
+    "reason": "A concubine of Caleb (1 Chronicles 2:46); the mention count is mostly the measure and the man."
+  },
+  {
+    "prompt": "roles-women",
+    "answer": "Tirzah",
+    "tier": 4,
+    "reason": "A daughter of Zelophehad; the mention count is mostly the city."
+  },
+  {
+    "prompt": "saints-letter-C",
+    "answer": "Catherine of Siena",
+    "tier": 1,
+    "reason": "Universally known saints with obligatory memorials on the General Roman Calendar; the curated list gives them the same score as every other curated saint."
+  },
+  {
+    "prompt": "saints-letter-C",
+    "answer": "Clare of Assisi",
+    "tier": 1,
+    "reason": "Universally known saints with obligatory memorials on the General Roman Calendar; the curated list gives them the same score as every other curated saint."
+  },
+  {
+    "prompt": "saints-letter-C",
+    "answer": "Cecilia",
+    "tier": 1,
+    "reason": "Universally known saints with obligatory memorials on the General Roman Calendar; the curated list gives them the same score as every other curated saint."
+  }
 ]

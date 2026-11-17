@@ -110,7 +110,7 @@ describe('the bank as a whole', () => {
     expect(DEEP_WATERS.length).toBeGreaterThanOrEqual(80);
     expect(DEEP_WATERS.reduce((n, p) => n + p.answers.length, 0)).toBeGreaterThanOrEqual(5000);
     const themes = new Set(DEEP_WATERS.map((p) => p.theme));
-    expect([...themes].sort()).toEqual(['art-music', 'church-history', 'devotion', 'doctrine', 'liturgy', 'places', 'saints', 'scripture']);
+    expect([...themes].sort()).toEqual(['art-music', 'church-history', 'devotion', 'doctrine', 'liturgy', 'people', 'places', 'saints', 'scripture']);
   });
   it('every open question has at least 12 answers, and the ones that name a whole set equal it', () => {
     for (const p of DEEP_WATERS) expect(p.answers.length, p.id).toBeGreaterThanOrEqual(p.closed ?? 12);
