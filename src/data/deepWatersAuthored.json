@@ -125,29 +125,29 @@
         "answer": "Luke"
       },
       {
+        "guess": "Peter",
+        "accept": false,
+        "reason": "Not named in the two specified closing-greeting passages."
+      },
+      {
         "guess": "Barnabas",
         "accept": false,
-        "reason": "Not named in either specified closing-greeting passage."
+        "reason": "Not named in Colossians 4 or 2 Timothy 4."
       },
       {
         "guess": "Silas",
         "accept": false,
-        "reason": "Not named in either specified closing-greeting passage."
+        "reason": "Not named in the two specified passages."
       },
       {
         "guess": "Timothy",
         "accept": false,
-        "reason": "Co-worker elsewhere, but not named in the two specified passages."
+        "reason": "A co-worker elsewhere, but not a separate name in the two specified closing lists."
       },
       {
         "guess": "Priscilla",
         "accept": false,
         "reason": "Not named in either specified closing-greeting passage."
-      },
-      {
-        "guess": "Phoebe",
-        "accept": false,
-        "reason": "Named in Romans 16, outside the specified passages."
       }
     ]
   },
@@ -248,29 +248,29 @@
         "answer": "Tryphaena"
       },
       {
-        "guess": "A generic religious idea",
+        "guess": "Martha",
         "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "reason": "A Gospel figure, not named in Romans 16."
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "Mary Magdalene",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "A Gospel figure, not named in Romans 16."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "Lydia",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
+        "reason": "Named in Acts, not in Romans 16."
       },
       {
-        "guess": "A non-Catholic title",
+        "guess": "Euodia",
         "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
+        "reason": "Named in Philippians, not Romans 16."
       },
       {
-        "guess": "An unrelated Scripture passage",
+        "guess": "Syntyche",
         "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "Named in Philippians, not Romans 16."
       }
     ]
   },
@@ -549,29 +549,29 @@
         "answer": "Gideon"
       },
       {
-        "guess": "A generic religious idea",
+        "guess": "Samuel",
         "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "reason": "His judging role is narrated in 1 Samuel, not the Book of Judges."
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "Eli",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "A judge in 1 Samuel, not named as a judge in the Book of Judges."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "Moses",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
+        "reason": "A leader and prophet, not a judge named in this book."
       },
       {
-        "guess": "A non-Catholic title",
+        "guess": "Joshua",
         "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
+        "reason": "A successor to Moses, not a judge in the Book of Judges."
       },
       {
-        "guess": "An unrelated Scripture passage",
+        "guess": "Aaron",
         "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "A priest, not one of the judges named in Judges."
       }
     ]
   },
@@ -696,29 +696,29 @@
         "answer": "Ephesians"
       },
       {
-        "guess": "A generic religious idea",
+        "guess": "Hebrews",
         "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "reason": "Its author is anonymous; the Church does not establish Pauline authorship."
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "James",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "A Catholic epistle, not part of the traditional Pauline corpus."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "1 Peter",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
+        "reason": "A Catholic epistle, not part of the Pauline corpus."
       },
       {
-        "guess": "A non-Catholic title",
+        "guess": "Jude",
         "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
+        "reason": "A Catholic epistle, not part of the Pauline corpus."
       },
       {
-        "guess": "An unrelated Scripture passage",
+        "guess": "Revelation",
         "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "An apocalyptic book, not a Pauline letter."
       }
     ]
   },
@@ -946,11 +946,6 @@
         "answer": "Lycaonia"
       },
       {
-        "guess": "Asia Minor",
-        "accept": false,
-        "reason": "A broad geographical term, not one of the four specific regions in Acts 13–14."
-      },
-      {
         "guess": "Paphos",
         "accept": false,
         "reason": "A city, not a region."
@@ -971,9 +966,14 @@
         "reason": "A city, not a region."
       },
       {
-        "guess": "Jerusalem",
+        "guess": "Iconium",
         "accept": false,
-        "reason": "Not a region on the first missionary route."
+        "reason": "A city, not a region."
+      },
+      {
+        "guess": "Asia Minor",
+        "accept": false,
+        "reason": "A broad geographical term, not one of the four specified regions."
       }
     ]
   },
@@ -1300,29 +1300,29 @@
         "answer": "Mother of the Church"
       },
       {
-        "guess": "A generic religious idea",
+        "guess": "Mother of Perpetual Help",
         "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "reason": "A Marian title, but not an invocation in the current Litany of Loreto."
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "Queen of Heaven",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "A Marian title, but not one of the current litany's exact invocations."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "Immaculate Heart",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
+        "reason": "A Marian devotion, not an invocation in the litany."
       },
       {
-        "guess": "A non-Catholic title",
+        "guess": "Our Lady of Guadalupe",
         "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
+        "reason": "A Marian title, not an invocation in the litany."
       },
       {
-        "guess": "An unrelated Scripture passage",
+        "guess": "Mother of Sorrows",
         "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "A Marian title, not an invocation in the litany."
       }
     ]
   },
@@ -1446,29 +1446,29 @@
         "answer": "Visit the sick"
       },
       {
-        "guess": "A generic religious idea",
+        "guess": "Feed the poor",
         "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "reason": "A related charitable act, but the traditional work is 'Feed the hungry'."
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "Visit the lonely",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "Not one of the fourteen traditional works of mercy."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "Give alms",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
+        "reason": "A charitable practice, not one of the fourteen named works."
       },
       {
-        "guess": "A non-Catholic title",
+        "guess": "Teach children",
         "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
+        "reason": "Not the traditional wording of a work of mercy."
       },
       {
-        "guess": "An unrelated Scripture passage",
+        "guess": "Forgive yourself",
         "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "Not the traditional work; the list says forgive offenses willingly."
       }
     ]
   },
@@ -2022,29 +2022,29 @@
         "answer": "Thomas Aquinas"
       },
       {
-        "guess": "A generic religious idea",
+        "guess": "Francis of Assisi",
         "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "reason": "A major saint, but not formally proclaimed a Doctor of the Church."
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "Padre Pio",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "A canonized saint, but not a Doctor of the Church."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "Mother Teresa",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
+        "reason": "A canonized saint, but not a Doctor of the Church."
       },
       {
-        "guess": "A non-Catholic title",
+        "guess": "John Paul II",
         "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
+        "reason": "A canonized pope, but not a Doctor of the Church."
       },
       {
-        "guess": "An unrelated Scripture passage",
+        "guess": "Maximilian Kolbe",
         "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "A canonized saint, but not a Doctor of the Church."
       }
     ]
   },
@@ -2527,182 +2527,149 @@
   {
     "id": "authored-acts-cities",
     "theme": "Acts and geography",
-    "prompt": "Name a city in Acts outside Paul's first missionary journey route.",
-    "context": "Exclude cities visited on Paul's first journey in Acts 13–14; count: 23 cities in this curated index; count: 23.",
+    "prompt": "Name a city visited by Paul during his second missionary journey.",
+    "context": "Include cities named along the route in Acts 15:36–18:22; count: 17.",
     "hint": "Paul's journeys provide many examples, but include places associated with Peter and Philip as well.",
-    "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14.",
+    "source": "Hand-authored closed key; source: Acts 15:36–18:22. Count: 17.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
-        "answer": "Jerusalem",
-        "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "answer": "Antioch",
+        "tier": 3,
+        "source": "Acts 15:35–40"
       },
       {
-        "answer": "Samaria",
-        "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "answer": "Derbe",
+        "tier": 3,
+        "source": "Acts 16:1"
       },
       {
-        "answer": "Joppa",
-        "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "answer": "Lystra",
+        "tier": 3,
+        "source": "Acts 16:1"
       },
       {
-        "answer": "Caesarea",
-        "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "answer": "Iconium",
+        "tier": 3,
+        "source": "Acts 16:2"
       },
       {
-        "answer": "Damascus",
-        "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "answer": "Troas",
+        "tier": 3,
+        "source": "Acts 16:8"
       },
       {
-        "answer": "Tarsus",
-        "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "answer": "Neapolis",
+        "tier": 3,
+        "source": "Acts 16:11"
       },
       {
         "answer": "Philippi",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "source": "Acts 16:12"
+      },
+      {
+        "answer": "Amphipolis",
+        "tier": 3,
+        "source": "Acts 17:1"
+      },
+      {
+        "answer": "Apollonia",
+        "tier": 3,
+        "source": "Acts 17:1"
       },
       {
         "answer": "Thessalonica",
-        "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "tier": 2,
+        "source": "Acts 17:1"
       },
       {
         "answer": "Berea",
-        "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "tier": 3,
+        "source": "Acts 17:10"
       },
       {
         "answer": "Athens",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "source": "Acts 17:15"
       },
       {
         "answer": "Corinth",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "source": "Acts 18:1"
+      },
+      {
+        "answer": "Cenchreae",
+        "tier": 3,
+        "source": "Acts 18:18"
       },
       {
         "answer": "Ephesus",
-        "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
-      },
-      {
-        "answer": "Troas",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "source": "Acts 18:19"
       },
       {
-        "answer": "Miletus",
-        "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
-      },
-      {
-        "answer": "Tyre",
-        "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
-      },
-      {
-        "answer": "Ptolemais",
-        "tier": 4,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
-      },
-      {
-        "answer": "Sidon",
-        "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
-      },
-      {
-        "answer": "Rome",
-        "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
-      },
-      {
-        "answer": "Puteoli",
-        "tier": 4,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
-      },
-      {
-        "answer": "Malta",
-        "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
-      },
-      {
-        "answer": "Rhegium",
-        "tier": 5,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
-      },
-      {
-        "answer": "Syracuse",
+        "answer": "Caesarea",
         "tier": 3,
-        "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+        "source": "Acts 18:22"
       },
       {
-        "answer": "Antioch",
-        "tier": 1,
-        "aliases": [
-          "Antioch in Syria"
-        ],
-        "source": "Acts 11:19–26; 13:1–3"
+        "answer": "Jerusalem",
+        "tier": 3,
+        "source": "Acts 18:22"
       }
     ],
     "commonGuesses": [
       {
-        "guess": "Jerusalem",
+        "guess": "Philippi",
         "accept": true,
-        "answer": "Jerusalem"
+        "answer": "Philippi"
       },
       {
-        "guess": "Samaria",
+        "guess": "Thessalonica",
         "accept": true,
-        "answer": "Samaria"
+        "answer": "Thessalonica"
       },
       {
-        "guess": "Joppa",
+        "guess": "Athens",
         "accept": true,
-        "answer": "Joppa"
+        "answer": "Athens"
       },
       {
-        "guess": "Caesarea",
+        "guess": "Corinth",
         "accept": true,
-        "answer": "Caesarea"
+        "answer": "Corinth"
       },
       {
-        "guess": "Damascus",
+        "guess": "Ephesus",
         "accept": true,
-        "answer": "Damascus"
+        "answer": "Ephesus"
       },
       {
-        "guess": "Paphos",
+        "guess": "Jericho",
         "accept": false,
-        "reason": "On Paul's first missionary route, explicitly excluded."
+        "reason": "Not on Paul's second missionary journey route."
       },
       {
-        "guess": "Lystra",
+        "guess": "Bethlehem",
         "accept": false,
-        "reason": "On Paul's first missionary route, explicitly excluded."
+        "reason": "Not on Paul's second missionary journey route."
       },
       {
-        "guess": "Perga",
+        "guess": "Nazareth",
         "accept": false,
-        "reason": "On Paul's first missionary route, explicitly excluded."
+        "reason": "Not on Paul's second missionary journey route."
       },
       {
-        "guess": "Iconium",
+        "guess": "Capernaum",
         "accept": false,
-        "reason": "On Paul's first missionary route, explicitly excluded."
+        "reason": "Not on Paul's second missionary journey route."
       },
       {
-        "guess": "Derbe",
+        "guess": "Rome",
         "accept": false,
-        "reason": "On Paul's first missionary route, explicitly excluded."
+        "reason": "Paul reaches Rome later, after this journey."
       }
     ]
   },
@@ -2856,185 +2823,127 @@
   {
     "id": "authored-johannine-titles",
     "theme": "New Testament",
-    "prompt": "Name a title or image applied to Jesus in the Gospel of John.",
-    "context": "Use titles or metaphors explicitly applied to Jesus in John's Gospel, including those spoken by Jesus or by other characters; count: 20.",
+    "prompt": "Name one of the seven 'I am' sayings or images in John's Gospel.",
+    "context": "Use the seven traditional Johannine 'I am' images; count: 7.",
     "hint": "The opening chapter and the 'I am' discourses are especially rich sources.",
-    "source": "Hand-authored answer key; sources: John 1; 4; 6; 8–15; 19–20.",
+    "source": "Hand-authored closed key; sources: John 6:35; 8:12; 10:7,11; 11:25; 14:6; 15:1. Count: 7.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
-        "answer": "The Word",
+        "answer": "Bread of Life",
         "tier": 1,
+        "source": "John 6:35",
         "aliases": [
-          "The Logos"
-        ],
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "The Lamb of God",
-        "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "The Son of God",
-        "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "The Son of Man",
-        "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "The King of Israel",
-        "tier": 2,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "The Messiah",
-        "tier": 1,
-        "aliases": [
-          "The Christ"
-        ],
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "Savior of World",
-        "tier": 2,
-        "source": "John 1; 4; 6; 8–15; 19–20.",
-        "aliases": [
-          "The Savior of the world"
+          "I am the Bread of Life"
         ]
-      },
-      {
-        "answer": "The Bread of Life",
-        "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
         "answer": "Light of World",
         "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20.",
+        "source": "John 8:12",
         "aliases": [
-          "The Light of the World"
+          "Light of the World",
+          "I am the Light of the World"
         ]
       },
       {
-        "answer": "The Door",
+        "answer": "The Gate",
         "tier": 2,
+        "source": "John 10:7,9",
         "aliases": [
-          "The Gate"
-        ],
-        "source": "John 1; 4; 6; 8–15; 19–20."
+          "The Door",
+          "I am the Gate",
+          "I am the Door"
+        ]
       },
       {
-        "answer": "The Good Shepherd",
+        "answer": "Good Shepherd",
         "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
+        "source": "John 10:11",
+        "aliases": [
+          "The Good Shepherd",
+          "I am the Good Shepherd"
+        ]
       },
       {
         "answer": "Resurrection and Life",
         "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20.",
+        "source": "John 11:25",
         "aliases": [
-          "The Resurrection and the Life"
+          "The Resurrection and the Life",
+          "I am the Resurrection and the Life"
         ]
       },
       {
-        "answer": "The Way",
+        "answer": "Way Truth Life",
         "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "The Truth",
-        "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "The Life",
-        "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "The True Vine",
-        "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "Rabbi",
-        "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "Teacher",
-        "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "Lord",
-        "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
-      },
-      {
-        "answer": "Holy One of God",
-        "tier": 2,
-        "source": "John 1; 4; 6; 8–15; 19–20.",
+        "source": "John 14:6",
         "aliases": [
-          "The Holy One of God"
+          "The Way the Truth and the Life",
+          "I am the Way the Truth and the Life"
+        ]
+      },
+      {
+        "answer": "True Vine",
+        "tier": 2,
+        "source": "John 15:1",
+        "aliases": [
+          "The True Vine",
+          "I am the True Vine"
         ]
       }
     ],
     "commonGuesses": [
       {
-        "guess": "The Word",
+        "guess": "Bread of Life",
         "accept": true,
-        "answer": "The Word"
+        "answer": "Bread of Life"
       },
       {
-        "guess": "The Lamb of God",
+        "guess": "Light of the World",
         "accept": true,
-        "answer": "The Lamb of God"
+        "answer": "Light of World"
       },
       {
-        "guess": "The Son of God",
+        "guess": "Good Shepherd",
         "accept": true,
-        "answer": "The Son of God"
+        "answer": "Good Shepherd"
       },
       {
-        "guess": "The Son of Man",
+        "guess": "Resurrection and Life",
         "accept": true,
-        "answer": "The Son of Man"
+        "answer": "Resurrection and Life"
       },
       {
-        "guess": "The King of Israel",
+        "guess": "True Vine",
         "accept": true,
-        "answer": "The King of Israel"
+        "answer": "True Vine"
       },
       {
-        "guess": "A generic religious idea",
+        "guess": "King of the Jews",
         "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "reason": "A Johannine title, but not one of the seven 'I am' sayings."
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "Lamb of God",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "A Johannine title, but not one of the seven 'I am' sayings."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "Word made flesh",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
+        "reason": "A prologue title, not one of the seven 'I am' sayings."
       },
       {
-        "guess": "A non-Catholic title",
+        "guess": "Messiah",
         "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
+        "reason": "A title for Jesus, but not one of the seven 'I am' sayings."
       },
       {
-        "guess": "An unrelated Scripture passage",
+        "guess": "Rabbi",
         "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "A form of address, not one of the seven 'I am' sayings."
       }
     ]
   },
@@ -3280,29 +3189,29 @@
         "answer": "Baruch"
       },
       {
-        "guess": "A generic religious idea",
+        "guess": "1 Enoch",
         "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "reason": "Not part of the Catholic Old Testament canon."
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "3 Maccabees",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "Not part of the Catholic Old Testament canon."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "Jubilees",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
+        "reason": "Not part of the Catholic Old Testament canon."
       },
       {
-        "guess": "A non-Catholic title",
+        "guess": "Gospel of Thomas",
         "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
+        "reason": "Not an Old Testament book or addition."
       },
       {
-        "guess": "An unrelated Scripture passage",
+        "guess": "Shepherd of Hermas",
         "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "An early Christian writing, not part of the Catholic Old Testament."
       }
     ]
   },
@@ -3961,29 +3870,29 @@
         "answer": "Second Council of Constantinople"
       },
       {
-        "guess": "A generic religious idea",
+        "guess": "Council of Jerusalem",
         "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "reason": "An apostolic council in Acts, not one of the 21 ecumenical councils."
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "Council of Orange",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "A regional council, not an ecumenical council."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "Council of Rimini",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
+        "reason": "Not recognized as an ecumenical council by the Catholic Church."
       },
       {
-        "guess": "A non-Catholic title",
+        "guess": "Synod of Whitby",
         "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
+        "reason": "A local synod, not an ecumenical council."
       },
       {
-        "guess": "An unrelated Scripture passage",
+        "guess": "Council of Jamnia",
         "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "Not one of the Catholic Church's ecumenical councils."
       }
     ]
   },
@@ -4057,92 +3966,59 @@
       {
         "guess": "Phoebe",
         "accept": false,
-        "reason": "Appears in Romans 16, which this prompt explicitly excludes."
+        "reason": "Named in Romans 16, which this prompt excludes."
       },
       {
         "guess": "Priscilla",
         "accept": false,
-        "reason": "Appears in Romans 16, which this prompt explicitly excludes."
+        "reason": "Named in Romans 16, which this prompt excludes."
       },
       {
         "guess": "Junia",
         "accept": false,
-        "reason": "Appears in Romans 16, which this prompt explicitly excludes."
-      },
-      {
-        "guess": "Mary Magdalene",
-        "accept": false,
-        "reason": "A Gospel figure, not a woman identified in a non-Romans Pauline letter."
+        "reason": "Named in Romans 16, which this prompt excludes."
       },
       {
         "guess": "Lydia",
         "accept": false,
         "reason": "Named in Acts, not in a Pauline letter."
+      },
+      {
+        "guess": "Mary Magdalene",
+        "accept": false,
+        "reason": "A Gospel figure, not identified in a non-Romans Pauline letter."
       }
     ]
   },
   {
     "id": "authored-martyrs-acts",
     "theme": "Acts and early Church",
-    "prompt": "Name a person or group persecuted because of their Christian witness in Acts.",
-    "context": "Limit answers to people whose persecution or death is narrated in Acts; do not add later traditional martyrdom accounts; count: 10.",
+    "prompt": "Name a Christian whose martyrdom is explicitly narrated in Acts.",
+    "context": "Only Stephen and James son of Zebedee have their deaths narrated in Acts; count: 2.",
     "hint": "Stephen's death is central, but Acts also records persecution of the apostles and James.",
-    "source": "Hand-authored answer key; sources: Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28.",
+    "source": "Hand-authored closed key; source: Acts 7:54–60; 12:1–2. Count: 2.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
         "answer": "Stephen",
         "tier": 1,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
-      },
-      {
-        "answer": "James son of Zebedee",
-        "tier": 1,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
-      },
-      {
-        "answer": "Peter",
-        "tier": 1,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
-      },
-      {
-        "answer": "John",
-        "tier": 1,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
-      },
-      {
-        "answer": "The apostles",
-        "tier": 1,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
-      },
-      {
-        "answer": "Paul",
-        "tier": 1,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
-      },
-      {
-        "answer": "Barnabas",
-        "tier": 2,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
-      },
-      {
-        "answer": "Silas",
-        "tier": 2,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
-      },
-      {
-        "answer": "Scattered believers",
-        "tier": 3,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28.",
+        "source": "Acts 7:54–60",
         "aliases": [
-          "The believers scattered from Jerusalem"
+          "Saint Stephen",
+          "St Stephen",
+          "Stephen the Protomartyr"
         ]
       },
       {
-        "answer": "The disciples in Lystra",
-        "tier": 4,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
+        "answer": "James son Zebedee",
+        "tier": 2,
+        "source": "Acts 12:1–2",
+        "aliases": [
+          "James son of Zebedee",
+          "Saint James son of Zebedee",
+          "St James son of Zebedee"
+        ]
       }
     ],
     "commonGuesses": [
@@ -4154,47 +4030,47 @@
       {
         "guess": "James son of Zebedee",
         "accept": true,
-        "answer": "James son of Zebedee"
+        "answer": "James son Zebedee"
+      },
+      {
+        "guess": "St Stephen",
+        "accept": true,
+        "answer": "Stephen"
+      },
+      {
+        "guess": "Saint James",
+        "accept": true,
+        "answer": "James son Zebedee"
+      },
+      {
+        "guess": "James the Greater",
+        "accept": true,
+        "answer": "James son Zebedee"
+      },
+      {
+        "guess": "John the Baptist",
+        "accept": false,
+        "reason": "His martyrdom is narrated in the Gospels, not Acts."
+      },
+      {
+        "guess": "James the Just",
+        "accept": false,
+        "reason": "His death is not narrated in Acts."
       },
       {
         "guess": "Peter",
-        "accept": true,
-        "answer": "Peter"
-      },
-      {
-        "guess": "John",
-        "accept": true,
-        "answer": "John"
-      },
-      {
-        "guess": "The apostles",
-        "accept": true,
-        "answer": "The apostles"
-      },
-      {
-        "guess": "A generic religious idea",
         "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "reason": "Acts narrates his imprisonment and escape, not his martyrdom."
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "Paul",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "Acts ends with Paul alive under house arrest."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "Philip",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
-      },
-      {
-        "guess": "A non-Catholic title",
-        "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
-      },
-      {
-        "guess": "An unrelated Scripture passage",
-        "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "Acts narrates his missionary work, not his martyrdom."
       }
     ]
   },
@@ -4677,103 +4553,43 @@
   {
     "id": "authored-catholic-liturgical-seasons",
     "theme": "Catholic liturgy",
-    "prompt": "Name a season or major observance in the Roman Catholic liturgical year.",
-    "context": "Include the principal liturgical seasons and major observances, not individual saints' memorials; count: 17.",
+    "prompt": "Name one of the five seasons in the Roman Catholic liturgical year.",
+    "context": "Use the five seasons of the Roman Rite calendar; the Paschal Triduum is not counted as a separate season; count: 5.",
     "hint": "Think from Advent through Ordinary Time, including the Paschal Triduum and Easter season.",
-    "source": "Hand-authored answer key; sources: General Norms for the Liturgical Year and the Calendar.",
+    "source": "Hand-authored closed key; authority: General Norms for the Liturgical Year and the Calendar. Count: 5.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
         "answer": "Advent",
         "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
+        "source": "General Norms for the Liturgical Year and the Calendar"
       },
       {
         "answer": "Christmas Time",
         "tier": 1,
+        "source": "General Norms for the Liturgical Year and the Calendar",
         "aliases": [
           "Christmastide"
-        ],
-        "source": "General Norms for the Liturgical Year and the Calendar."
+        ]
       },
       {
         "answer": "Lent",
         "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "The Paschal Triduum",
-        "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
+        "source": "General Norms for the Liturgical Year and the Calendar"
       },
       {
         "answer": "Easter Time",
         "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
+        "source": "General Norms for the Liturgical Year and the Calendar",
+        "aliases": [
+          "Easter Season"
+        ]
       },
       {
         "answer": "Ordinary Time",
         "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "Ash Wednesday",
-        "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "Palm Sunday",
-        "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "Easter Sunday",
-        "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "Ascension of the Lord",
-        "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "Pentecost",
-        "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "Epiphany",
-        "tier": 1,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "Baptism of the Lord",
-        "tier": 2,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "Holy Trinity Sunday",
-        "tier": 2,
-        "source": "General Norms for the Liturgical Year and the Calendar.",
-        "aliases": [
-          "Solemnity of the Most Holy Trinity"
-        ]
-      },
-      {
-        "answer": "Corpus Christi",
-        "tier": 2,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "Sacred Heart of Jesus",
-        "tier": 2,
-        "source": "General Norms for the Liturgical Year and the Calendar."
-      },
-      {
-        "answer": "Christ the King",
-        "tier": 2,
-        "source": "General Norms for the Liturgical Year and the Calendar."
+        "source": "General Norms for the Liturgical Year and the Calendar"
       }
     ],
     "commonGuesses": [
@@ -4793,39 +4609,39 @@
         "answer": "Lent"
       },
       {
-        "guess": "The Paschal Triduum",
-        "accept": true,
-        "answer": "The Paschal Triduum"
-      },
-      {
-        "guess": "Easter Time",
+        "guess": "Easter Season",
         "accept": true,
         "answer": "Easter Time"
       },
       {
-        "guess": "A generic religious idea",
-        "accept": false,
-        "reason": "Not a named answer in this prompt's defined set."
+        "guess": "Ordinary Time",
+        "accept": true,
+        "answer": "Ordinary Time"
       },
       {
-        "guess": "An unnamed biblical figure",
+        "guess": "Paschal Triduum",
         "accept": false,
-        "reason": "The key requires an identifiable named person or item."
+        "reason": "A three-day liturgical celebration, not a separate season."
       },
       {
-        "guess": "A later medieval custom",
+        "guess": "Ash Wednesday",
         "accept": false,
-        "reason": "Outside the stated historical or textual scope."
+        "reason": "A day marking the beginning of Lent, not a season."
       },
       {
-        "guess": "A non-Catholic title",
+        "guess": "Pentecost",
         "accept": false,
-        "reason": "Not listed in the named authority for this closed set."
+        "reason": "A solemnity within Easter Time, not a season."
       },
       {
-        "guess": "An unrelated Scripture passage",
+        "guess": "Epiphany",
         "accept": false,
-        "reason": "Does not match the prompt's specified category."
+        "reason": "A solemnity in Christmas Time, not a season."
+      },
+      {
+        "guess": "Christ the King",
+        "accept": false,
+        "reason": "A solemnity near the end of Ordinary Time, not a season."
       }
     ]
   },
