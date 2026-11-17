@@ -124,6 +124,7 @@ describe('Deep Waters content and rules', () => {
     expect(report).toHaveLength(DEEP_WATERS.length);
     expect(report.every((row) => row.status === 'draft')).toBe(true);
     expect(report.some((row) => !row.meetsTarget)).toBe(true);
+    expect(deepWatersCoverageErrors()).toEqual([]);
     const underfilled = { ...DEEP_WATERS[0], status: 'reviewed' as const, answers: DEEP_WATERS[0].answers.slice(0, DEEP_ANSWER_TARGET - 1) };
     expect(deepWatersCoverageErrors([underfilled])).toHaveLength(1);
     const ready = { ...DEEP_WATERS[0], status: 'reviewed' as const, answers: Array.from({ length: DEEP_ANSWER_TARGET }, (_, i) => ({ answer: `answer-${i}`, tier: 1 as const })) };
