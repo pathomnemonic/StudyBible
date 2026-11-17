@@ -40,6 +40,7 @@ export default function DeepWatersPage() {
   const deadlineRef = useRef<number>(snapshot?.deadlineAt ?? Date.now() + restoredRemaining);
   const remainingRef = useRef<number>(restoredRemaining);
   const [logbook, setLogbook] = useState(loadDeepLogbook());
+  const [isPaused, setIsPaused] = useState(snapshot?.paused ?? false);
   const streak = deepDiveStreak(logbook, today);
 
   useEffect(() => {
@@ -52,8 +53,10 @@ export default function DeepWatersPage() {
       if (document.visibilityState === 'hidden') {
         remainingRef.current = Math.max(0, deadlineRef.current - Date.now());
         setSeconds(Math.ceil(remainingRef.current / 1000));
+        setIsPaused(true);
       } else {
         deadlineRef.current = Date.now() + remainingRef.current;
+        setIsPaused(false);
         update();
       }
     };
@@ -85,10 +88,10 @@ export default function DeepWatersPage() {
       history: history.map((entry, index) => ({ promptId: prompts[index]?.id ?? '', prompt: entry.prompt, guess: entry.guess, answer: entry.answer, tier: entry.tier, points: entry.points, timedOut: entry.timedOut })),
       guess, deadlineAt: done || locked ? null : deadlineRef.current,
       remainingMs: document.visibilityState === 'hidden' ? remainingRef.current : seconds * 1000,
-      paused: document.visibilityState === 'hidden', pearlAnswer: null,
+      paused: isPaused, pearlAnswer: null,
       pearlFound: history.some((r) => (r.pearlBonus ?? 0) > 0),
     });
-  }, [today, practice, practiceSeed, prompts, round, done, locked, score, history, guess, seconds]);
+  }, [today, practice, practiceSeed, prompts, round, done, locked, score, history, guess, seconds, isPaused]);
 
   const reset = (nextPractice = practice) => {
     clearDeepSession();
