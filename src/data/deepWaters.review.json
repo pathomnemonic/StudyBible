@@ -39,14 +39,14 @@
   },
   {
    "id": "rites",
-   "sha256": "2ac1f224e2cb455523592ed3e81c015c262130aa96b3615f0fb46fe1be370804",
-   "answers": 24,
+   "sha256": "5f86c92779eef400ba65e170890f5c66b796fa726cc79b3e8ecb78b2fbaa18cb",
+   "answers": 23,
    "status": "unreviewed"
   },
   {
    "id": "popes",
-   "sha256": "dbc39b765dc4ce3a4b028370da64913a6f6f1d727893c8307d0da51df38e1b82",
-   "answers": 76,
+   "sha256": "dab77d1484e8af646e253d05e8e0bfbd0bf9ed20bd88c7c9b8bb2f40f8c2f882",
+   "answers": 75,
    "status": "unreviewed"
   },
   {
@@ -327,8 +327,8 @@
   },
   {
    "id": "authored-prophets-before-kings",
-   "sha256": "f83799e19898a03a7e37077a7dc92414d7d6ed34dd268a3d4ac9b18caa9dab7d",
-   "answers": 15,
+   "sha256": "88b8566a0bfea33b3185cc17f7d77c7b0fc48dc1157ea69af0b0f220c62c6de8",
+   "answers": 17,
    "status": "unreviewed"
   },
   {
@@ -339,7 +339,7 @@
   },
   {
    "id": "authored-jesus-healings",
-   "sha256": "f7a2c18d2c5b7d1e99896948b2d7484fa9a27cce1aa40e0273090f6167d829e0",
+   "sha256": "508f81ca8d8dd4f01c2750c891e18388289a1d2eda843dbe02581d29f6d2ff28",
    "answers": 13,
    "status": "unreviewed"
   },
