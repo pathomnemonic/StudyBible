@@ -12,8 +12,14 @@
  */
 export type DeepTier = 1 | 2 | 3 | 4 | 5;
 export interface DeepAnswer { answer: string; tier: DeepTier; aliases?: string[] }
+/** What a question is about. A daily set aims for one question per theme before it repeats one. */
+export type DeepTheme = 'scripture' | 'saints' | 'church-history' | 'liturgy' | 'doctrine' | 'devotion' | 'places' | 'art-music';
 export interface DeepPrompt {
   id: string;
+  /** what the question is about (for balancing a daily set) */
+  theme: DeepTheme;
+  /** where the answers come from, when they were generated from the app's own data rather than written by hand */
+  source?: string;
   prompt: string;
   context: string;
   answers: DeepAnswer[];
@@ -23,10 +29,13 @@ export interface DeepPrompt {
   ignore?: string[];
 }
 
+import { MORE_PROMPTS } from './deepWatersMore';
+import GENERATED_PROMPTS from './deepWaters.generated.json';
+
 type Row = [name: string, tier: DeepTier, aliases?: string];
 const rows = (list: Row[]): DeepAnswer[] => list.map(([answer, tier, a]) => ({ answer, tier, ...(a ? { aliases: a.split('|') } : {}) }));
 
-export const DEEP_WATERS: DeepPrompt[] = [
+const CORE_PROMPTS: Omit<DeepPrompt, 'theme'>[] = [
   {
     id: 'orders',
     prompt: 'Name a Catholic religious order, congregation or society of apostolic life.',
@@ -252,3 +261,13 @@ export const DEEP_WATERS: DeepPrompt[] = [
     ]),
   },
 ];
+
+
+const CORE_THEMES: Record<string, DeepTheme> = {
+  orders: 'church-history', marian: 'devotion', fathers: 'church-history', councils: 'church-history', deuterocanon: 'scripture', devotions: 'devotion', rites: 'church-history',
+  popes: 'saints', women: 'scripture', places: 'places', apostles: 'scripture', doctors: 'saints', ntbooks: 'scripture', otbooks: 'scripture', mysteries: 'devotion',
+};
+const core: DeepPrompt[] = CORE_PROMPTS.map((p) => ({ ...p, theme: CORE_THEMES[p.id] ?? 'doctrine' }));
+
+/** Every prompt: the first fifteen written by hand, the second group written by hand, and the groups generated from the app's own data (see scripts/deepwaters). */
+export const DEEP_WATERS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[])];

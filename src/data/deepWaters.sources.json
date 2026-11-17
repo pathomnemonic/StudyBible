@@ -1,0 +1,531 @@
+{
+ "about": "Where each generated Deep Waters question comes from. `inputs` are the data files it was built from; if one changes, `npx tsx scripts/deepwaters/build.ts` must be run and its output reviewed.",
+ "inputs": [
+  {
+   "path": "public/data/bible/webc/*.json (concatenated, sorted)",
+   "sha256": "5468f612cb580836978a43869b55cb14f7ca90bacc3f0e3aa33f6e01f72ab6ca"
+  },
+  {
+   "path": "public/data/maps/by-book/1CH.json",
+   "sha256": "253df897999dd3c7f8b7f25ab6dc6662f6491b9d32539910eb07492a5dbca9de"
+  },
+  {
+   "path": "public/data/maps/by-book/1CO.json",
+   "sha256": "8deecf2572631f390c5555e90e1b35ee33034abaaa102c3136d3aaa9a18c398f"
+  },
+  {
+   "path": "public/data/maps/by-book/1KI.json",
+   "sha256": "dd3c583ab6933d78edbd57b34b5913aeb5990dd87bc02ab13995998f9fdf39ee"
+  },
+  {
+   "path": "public/data/maps/by-book/1PE.json",
+   "sha256": "c03bfe596b514b4c2d576de78ab7e2801ee826e1217a00e73a3cde5e5e801e4c"
+  },
+  {
+   "path": "public/data/maps/by-book/1SA.json",
+   "sha256": "eb1edc68e76ab62b6508ddb5631419d86bc4d3eaf053e32ab48f0d8b8fb5c3d5"
+  },
+  {
+   "path": "public/data/maps/by-book/1TH.json",
+   "sha256": "79b6099a7a33a609e4742662f84e58c6437cfc2f59039bf6ca1d33c806dcdabc"
+  },
+  {
+   "path": "public/data/maps/by-book/1TI.json",
+   "sha256": "ea36e9f705c930e40fa9569dfb2ebaf7d8affe231ee67714e5e1c6a1bae267e6"
+  },
+  {
+   "path": "public/data/maps/by-book/2CH.json",
+   "sha256": "dd1dee286fcf5d1327d1c32a5c6eaea41795482a80ed5b22d06466f3a9773daf"
+  },
+  {
+   "path": "public/data/maps/by-book/2CO.json",
+   "sha256": "614e360cf431345a1ba29092f3d4dcde959b70b8ccc019a529cbcfd1873c1fe5"
+  },
+  {
+   "path": "public/data/maps/by-book/2KI.json",
+   "sha256": "77d7f4396f4f6e25be33dff64f3ae586e6530f5262e6efe5e9295bc6d2fb217c"
+  },
+  {
+   "path": "public/data/maps/by-book/2PE.json",
+   "sha256": "94b3b0fd2f62039fe2c270e1f2df6ab9bc23484bc79065270de65addb4aa4abe"
+  },
+  {
+   "path": "public/data/maps/by-book/2SA.json",
+   "sha256": "056cecad4bd17e75b87fc7669fe5e812dbfc0db6d97b86494a011844b394eb35"
+  },
+  {
+   "path": "public/data/maps/by-book/2TI.json",
+   "sha256": "fd75482f7e567363a1d03d182ad544157716b670626f8aed06c99fe9aeb14fb2"
+  },
+  {
+   "path": "public/data/maps/by-book/ACT.json",
+   "sha256": "623d2da9912a809e2917f674eb1e56bc4771f30753d93f069023a7d2ecdf75bf"
+  },
+  {
+   "path": "public/data/maps/by-book/AMO.json",
+   "sha256": "15f702076462fb7a5d0ba95f14082695fffdb9e05dc8c37e3a29dbef21332382"
+  },
+  {
+   "path": "public/data/maps/by-book/COL.json",
+   "sha256": "1fb602be2290ec0468443f4d831261baa97945aac5dc84f0f4e0beac5eaaa120"
+  },
+  {
+   "path": "public/data/maps/by-book/DAN.json",
+   "sha256": "62c67ac8e57da6b65c035836ee904196b6914bc2ddcb22fc29df333f258ea713"
+  },
+  {
+   "path": "public/data/maps/by-book/DEU.json",
+   "sha256": "083098a67dc33ac0ce61b7bcae21830ed9461c3a68b5fe2abd33e7e35139883d"
+  },
+  {
+   "path": "public/data/maps/by-book/ECC.json",
+   "sha256": "0125ec1e29d1b07ef4dfbb758b38121dd320a2ee2519abc687fc76762174f04c"
+  },
+  {
+   "path": "public/data/maps/by-book/EPH.json",
+   "sha256": "b44f9387aab103ea5214952e37013186f24b7b0fe692a366e9feb80b84cf2950"
+  },
+  {
+   "path": "public/data/maps/by-book/EST.json",
+   "sha256": "64e06a15e34256e0bc50b20daf07f54931e2e5bc522d159f0a5e2e8d3d004f84"
+  },
+  {
+   "path": "public/data/maps/by-book/EXO.json",
+   "sha256": "cd6722de1e1e75b2880259df61cff493dd19f044933b2a0428fc2b821282a945"
+  },
+  {
+   "path": "public/data/maps/by-book/EZK.json",
+   "sha256": "5ae28b0badc5bb099880e00761e473a12add4373f79364af8b8e673bdae83f81"
+  },
+  {
+   "path": "public/data/maps/by-book/EZR.json",
+   "sha256": "011bf8e54bcc240ada9b2bd5692c0ea7a6964801543202570a2d8393241fcf55"
+  },
+  {
+   "path": "public/data/maps/by-book/GAL.json",
+   "sha256": "aa600fd6e5406d7cf47886465dabbdd0c9692468270f55fe1b11a892963c14db"
+  },
+  {
+   "path": "public/data/maps/by-book/GEN.json",
+   "sha256": "e27810e7ee8de1e87a58383521f955f51a2030598ee3d4226563fe74b795cf5e"
+  },
+  {
+   "path": "public/data/maps/by-book/HAB.json",
+   "sha256": "1489d140bcda22559b55d6008ead5e13e45fad70f6451c49af63c45ea13c0c3e"
+  },
+  {
+   "path": "public/data/maps/by-book/HAG.json",
+   "sha256": "47043488e10973ba9c5be1f2a447476a1a5c5fecf829efa218be4d1e0192cfb8"
+  },
+  {
+   "path": "public/data/maps/by-book/HEB.json",
+   "sha256": "ce043a04de74701c93321dad0da14d5f8c423cb25523decc10efc2b775d4d7de"
+  },
+  {
+   "path": "public/data/maps/by-book/HOS.json",
+   "sha256": "1cec76a1fe7d15ba5c42b5a70ac7a22be15dc161cd04d4feae262a8ec6eee39d"
+  },
+  {
+   "path": "public/data/maps/by-book/ISA.json",
+   "sha256": "7e90883136bb4f430bf38d28bc1ca3717b1258b95f4cd49fb30102c875abf593"
+  },
+  {
+   "path": "public/data/maps/by-book/JDG.json",
+   "sha256": "2fafb0ff326a4989158f66f9d27a7531a008206012742720ef20337683ca8f82"
+  },
+  {
+   "path": "public/data/maps/by-book/JER.json",
+   "sha256": "c97109d18aee427cfb9748993bef1ea5a5232f1565af81c0fcb6976336165c9a"
+  },
+  {
+   "path": "public/data/maps/by-book/JHN.json",
+   "sha256": "185539b197f3359a69e16030dd32aa7db0d36fa5ff21086531ab36398fa74eae"
+  },
+  {
+   "path": "public/data/maps/by-book/JOB.json",
+   "sha256": "15bdb6d0e5d5e0fc864f6fd5992888abe758982a714859ee3f576e6045debf27"
+  },
+  {
+   "path": "public/data/maps/by-book/JOL.json",
+   "sha256": "7f9ff33691248e7ecb2da08bb9f673cf4ee8c5d59981322f4c44e37769505be0"
+  },
+  {
+   "path": "public/data/maps/by-book/JON.json",
+   "sha256": "c4b8f93efe5d80cb4a66fb1268996b26e55ef2aa41018e4f354f9f0dab286ce3"
+  },
+  {
+   "path": "public/data/maps/by-book/JOS.json",
+   "sha256": "cd4cce87de84e3add879a6e755b54f941e67c0ae2a9258d080e11f9446037c6c"
+  },
+  {
+   "path": "public/data/maps/by-book/JUD.json",
+   "sha256": "6267607bcdb081a337201298640112c58217e941ff312e99d6dd273ccdd14160"
+  },
+  {
+   "path": "public/data/maps/by-book/LAM.json",
+   "sha256": "a327f08f84dfb0f71dca0c001b2c18183d369a87b8e2a13262d3fb0e9fd6bca5"
+  },
+  {
+   "path": "public/data/maps/by-book/LEV.json",
+   "sha256": "74cb73faccff17a54c3b0e3b502abe09044403363f9e6ffed72c8af0af43a558"
+  },
+  {
+   "path": "public/data/maps/by-book/LUK.json",
+   "sha256": "12b6c72d51f26efce68bfee67018a42e19acd40ac66d14511f0985d7bc8818d5"
+  },
+  {
+   "path": "public/data/maps/by-book/MAL.json",
+   "sha256": "9a5b512544642338aa1223f5e25d34162b698426db9bae40848cef42431ad055"
+  },
+  {
+   "path": "public/data/maps/by-book/MAT.json",
+   "sha256": "7d665493e76de680e9dc27315887694dcb205b4f1d7c9f77bd10e8a6919e4c04"
+  },
+  {
+   "path": "public/data/maps/by-book/MIC.json",
+   "sha256": "6241b3a7e9d6807bf70f4329cb55303681cc43972a582a79aad978fd985af481"
+  },
+  {
+   "path": "public/data/maps/by-book/MRK.json",
+   "sha256": "92d75f22179b02cf2f3ec308c144fefdb60244aa6e31fd06d384845ecfd0f47e"
+  },
+  {
+   "path": "public/data/maps/by-book/NAM.json",
+   "sha256": "838887900cd016d1acc0020b3f0bddd1b31ca14cb8069667e275c8e2a724c682"
+  },
+  {
+   "path": "public/data/maps/by-book/NEH.json",
+   "sha256": "ecd6cd0a18ee5b659ddf13919895fedbcc99073f2b6d4eec2f90cad92b510fa1"
+  },
+  {
+   "path": "public/data/maps/by-book/NUM.json",
+   "sha256": "b73d18bba1de8a0d32e25e24b347d4c5b5edd4ac3ab4e532d32e1af59b70cfd0"
+  },
+  {
+   "path": "public/data/maps/by-book/OBA.json",
+   "sha256": "f124350d56b4147a02c4dac9c8bac170ccb4bfabc338ecb87f9dcb0144607248"
+  },
+  {
+   "path": "public/data/maps/by-book/PHP.json",
+   "sha256": "b5f94a19608ef883948e6072a67c14b79c3841d6159998c71dc0dec341d56db1"
+  },
+  {
+   "path": "public/data/maps/by-book/PSA.json",
+   "sha256": "1cf0f1ae2fe2ebf15d9d0c52c240cf26241e8f4877d19e634036a5ce133a7ec2"
+  },
+  {
+   "path": "public/data/maps/by-book/REV.json",
+   "sha256": "8e0c9fdd8b5a957c9f12cedb52e38de558afae3c9215676fd38011684f2b4a5d"
+  },
+  {
+   "path": "public/data/maps/by-book/ROM.json",
+   "sha256": "e1e7dfc8028bdf5546f18d52983e074f816d2a0f6620548443eaa7390207fa0d"
+  },
+  {
+   "path": "public/data/maps/by-book/RUT.json",
+   "sha256": "de168d926e3c8aa8112fb2492f81859225d0f1b93b18818e3f32caa374d8edde"
+  },
+  {
+   "path": "public/data/maps/by-book/SNG.json",
+   "sha256": "f593e944e9caa118415ca824a4482d150eb1d32ef91e16013f924fe2a5bc0737"
+  },
+  {
+   "path": "public/data/maps/by-book/TIT.json",
+   "sha256": "30aa7c887b85037a9464571b484ca52445fc5d27a394d5e34ce0fe3fba7971a2"
+  },
+  {
+   "path": "public/data/maps/by-book/ZEC.json",
+   "sha256": "f44751f2257af758f3e33eb52ccc464d6e73cf149f0668c148cec619374e4a7d"
+  },
+  {
+   "path": "public/data/maps/by-book/ZEP.json",
+   "sha256": "70db0671e8fe7197a43bf17520f10d6f25ca4aeaf24df06d929056e1c79ca5bd"
+  },
+  {
+   "path": "public/data/maps/places.json",
+   "sha256": "18c59a748736167d2340339e251f462416a66265a1f3c404c26c2b7032317c24"
+  },
+  {
+   "path": "public/data/saints/butler/01.json",
+   "sha256": "800b7d6a3180f33be497109bf71614f76978161fc6797ac00760bc786077ffc1"
+  },
+  {
+   "path": "public/data/saints/butler/02.json",
+   "sha256": "e5a830e134a89d29fe942b9d2e5fb52ae06fc696708fca20cce7a3e84659189b"
+  },
+  {
+   "path": "public/data/saints/butler/03.json",
+   "sha256": "79e6bc2f4cd1d7cecfc5afb46de67e9249ed09aae8a8f0ed3cd6ea040b9ba4a1"
+  },
+  {
+   "path": "public/data/saints/butler/04.json",
+   "sha256": "37fe18ece23a4c21c96d4e832d163ad4e9d6e74548ef829c5cabdcc87beb8bc5"
+  },
+  {
+   "path": "public/data/saints/butler/05.json",
+   "sha256": "bd96770cece6c5bea738aa3e618bf1a6540a82363c852bdf0e2adcde968951d0"
+  },
+  {
+   "path": "public/data/saints/butler/06.json",
+   "sha256": "4959368c193a8a685bc75c916c621b8b7ceafd10314c0a679e0c8add05b8ea44"
+  },
+  {
+   "path": "public/data/saints/butler/07.json",
+   "sha256": "e87b86f7790b6338ef7f7c6c40ee3dff7c82e720d768bee20b6bddfd3fb06f0f"
+  },
+  {
+   "path": "public/data/saints/butler/08.json",
+   "sha256": "e36172b66c25be78ed0c524188429d4c86dc619ef0f202a1d6135a10cfb255df"
+  },
+  {
+   "path": "public/data/saints/butler/09.json",
+   "sha256": "4881c4b94197d199603c6e9d929d8c730323f927d14589ea7d8b9e846ff2271e"
+  },
+  {
+   "path": "public/data/saints/butler/10.json",
+   "sha256": "80de8895c16a529ced9725dbbdc7202905529af37fa764409e3a5c4ecec3c89a"
+  },
+  {
+   "path": "public/data/saints/butler/11.json",
+   "sha256": "58a822726557ddd69377f5e3ee5623f7095dd51b1283d3a48ae2293d62b58602"
+  },
+  {
+   "path": "public/data/saints/butler/12.json",
+   "sha256": "b97a08f02167fbd2447e4f96bf83509e51d7fbe7f346986d0b8f7c69bebbdc53"
+  },
+  {
+   "path": "scripts/deepwaters/overrides.json",
+   "sha256": "5f79727013425ff09e7331c58359806cf1ce8e8da9249bc308683680410ce53a"
+  },
+  {
+   "path": "src/data/confirmationSaints.ts (names, feasts)",
+   "sha256": "5328f5f7c97af0287980baac61a4c89aca2d3dbdbd1d7a8e27fcda7367053bf3"
+  },
+  {
+   "path": "src/data/whoami.ts + src/data/whoami2.ts (names)",
+   "sha256": "3fce5b5753611e6562a604837a24ab93fb4e2ea1decec44c420f1b632318ea67"
+  }
+ ],
+ "prompts": [
+  {
+   "id": "places-1CH",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-1KI",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-1SA",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-2CH",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-2KI",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-2SA",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-ACT",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-AMO",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-DEU",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-EXO",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-EZK",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-EZR",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-GEN",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-HOS",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-ISA",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-JDG",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-JER",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-JHN",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-JOS",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-LUK",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-MAT",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-MIC",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-MRK",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-NEH",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-NUM",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-PSA",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "places-ZEC",
+   "from": "maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app's maps)",
+   "rule": "places the app's own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)"
+  },
+  {
+   "id": "bible-people",
+   "from": "the app's Who Am I game lists",
+   "rule": "names from the Who Am I game; tier ranks log(1+mentions in the WEB-C Bible)"
+  },
+  {
+   "id": "saints-any",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints"
+  },
+  {
+   "id": "saints-01",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-02",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-03",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-04",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-05",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-06",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-07",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-08",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-09",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-10",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-11",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-12",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the month of the feast"
+  },
+  {
+   "id": "saints-martyr",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the heading naming the state or office (\\bMARTYRS?\\b)"
+  },
+  {
+   "id": "saints-bishop",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the heading naming the state or office (\\b(BISHOP|ARCHBISHOP)\\b)"
+  },
+  {
+   "id": "saints-abbot",
+   "from": "Butler's Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app's own list of well-known saints",
+   "rule": "names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app's list of well-known saints; filtered by the heading naming the state or office (\\b(ABBOT|ABBESS)\\b)"
+  }
+ ]
+}

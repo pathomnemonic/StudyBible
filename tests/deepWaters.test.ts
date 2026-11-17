@@ -8,7 +8,7 @@ const says = (id: string, guess: string) => findDeepAnswer(P(id), guess)?.answer
 describe('Deep Waters content', () => {
   it('has enough prompts for a seven-round daily set, each with a clear question and context', () => {
     expect(DEEP_ROUNDS).toBe(7);
-    expect(DEEP_WATERS.length).toBeGreaterThanOrEqual(14);
+    expect(DEEP_WATERS.length).toBeGreaterThanOrEqual(70);
     expect(new Set(DEEP_WATERS.map((p) => p.id)).size).toBe(DEEP_WATERS.length);
     for (const p of DEEP_WATERS) {
       expect(p.prompt.trim().length, p.id).toBeGreaterThan(12);
@@ -35,7 +35,7 @@ describe('Deep Waters content', () => {
 
   it('a prompt that names a whole set lists exactly that set', () => {
     const sizes = Object.fromEntries(DEEP_WATERS.filter((p) => p.closed).map((p) => [p.id, p.answers.length]));
-    expect(sizes).toEqual({ councils: 21, rites: 24, apostles: 13, doctors: 37, ntbooks: 27, otbooks: 46, mysteries: 20 });
+    expect(sizes).toEqual({ councils: 21, rites: 24, apostles: 13, doctors: 37, ntbooks: 27, otbooks: 46, mysteries: 20, sacraments: 7, virtues: 7, 'deadly-sins': 7, gifts: 7, fruits: 12, 'corporal-works': 7, 'spiritual-works': 7, plagues: 10, 'sons-of-jacob': 12, 'minor-prophets': 12, pius: 12, 'popes-20c': 9, 'holy-days': 6, 'liturgical-seasons': 5 });
     for (const p of DEEP_WATERS.filter((x) => x.closed)) expect(p.answers.length, p.id).toBe(p.closed);
   });
 

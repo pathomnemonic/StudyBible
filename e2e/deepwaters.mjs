@@ -15,17 +15,14 @@ await p.goto(`${BASE}/#/play`);
 await p.waitForSelector('.pf-tile');
 if (!(await p.locator('.pf-tile:has-text("Deep Waters")').count())) fail('Deep Waters missing from Games home');
 
-// a true answer for each question the game can ask (all of them were refused by the first version, or are checked here as accepted)
-const TRUE = [
-  [/Protestant/, 'Susanna'], [/religious order/, 'Ursulines'], [/title, apparition/, 'Our Lady of Perpetual Help'], [/Church Father/, 'Polycarp'], [/21 ecumenical/, 'Lateran V'],
-  [/prayer, devotion/, 'Scapular'], [/24 Churches/, 'Slovak Greek Catholic Church'], [/pope who/, 'Linus'], [/woman in the Bible/, 'Mary Magdalene'], [/city, town or place/, 'Damascus'],
-  [/Twelve Apostles/, 'Matthias'], [/Doctor of the Church/, 'Bede'], [/book of the New Testament/, 'Philemon'], [/Catholic Old Testament\./, 'Habakkuk'], [/twenty mysteries/, 'Pentecost'],
-];
+// a true answer for every question the game can ask, read from the game's own data
+import { execSync } from 'node:child_process';
+const ANSWER = JSON.parse(execSync('npx tsx scripts/deepwaters/answers-for-e2e.ts', { encoding: 'utf8', timeout: 60000 }));
+if (Object.keys(ANSWER).length < 80) fail('expected the answers for 80 or more questions, got ' + Object.keys(ANSWER).length);
 
 await p.goto(`${BASE}/#/play/deepwaters`);
 await p.waitForSelector('.dw-card');
 if ((await p.locator('.dw-progress span').count()) !== 7) fail('seven round markers expected');
-if (!/not on our list|never wrong/i.test(await p.locator('.gamehelp, .dw-card, body').first().innerText().catch(() => '') + await p.locator('body').innerText())) { /* help text is inside a fold on some widths; checked below by the miss message */ }
 
 let seenMiss = false;
 for (let round = 1; round <= 7; round++) {
@@ -43,13 +40,13 @@ for (let round = 1; round <= 7; round++) {
     if ((await p.locator('.dw-reveal').count()) !== 0) fail('a guess that is not on the list must not lock the round');
     seenMiss = true;
   }
-  const hit = TRUE.find(([re]) => re.test(question));
-  if (!hit) fail(`no test answer for the question: ${question}`);
-  await p.fill('#dw-answer', hit[1]);
+  const ans = ANSWER[question];
+  if (!ans) fail(`no test answer for the question: ${question}`);
+  await p.fill('#dw-answer', ans);
   await p.keyboard.press('Enter');
   await p.waitForSelector('.dw-reveal.scored');
   const reveal = await p.locator('.dw-reveal').innerText();
-  if (!/\+\d+ points/.test(reveal)) fail(`"${hit[1]}" should score for "${question}": ${reveal}`);
+  if (!/\+\d+ points/.test(reveal)) fail(`"${ans}" should score for "${question}": ${reveal}`);
   if (!(await p.evaluate(() => document.activeElement?.classList.contains('dw-next')))) fail(`round ${round}: focus should move to the Next button`);
   await p.keyboard.press('Enter');
 }
