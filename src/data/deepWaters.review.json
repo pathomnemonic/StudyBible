@@ -1442,6 +1442,132 @@
    "status": "unreviewed"
   },
   {
+   "id": "authored2-nt-people",
+   "sha256": "047f7de9212d45feaa4d8eb94b0cc17140172497dc2f5062e6dad73c03ed8adc",
+   "answers": 127,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-catholic-songs",
+   "sha256": "008d7785e45db78490b27d30465be1b4eb3cea91fc90d27c13ac4c26e659d426",
+   "answers": 103,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-catholic-authors",
+   "sha256": "11e010b95f27d23c844b243f5e9e9c8bf30b19b1b58d6be48cf1904048915490",
+   "answers": 65,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-sacred-composers",
+   "sha256": "86595ebb0601595b1e7b504cc31ea3a4878de9cf28e917710b426640c85d5bd2",
+   "answers": 95,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-old-masters",
+   "sha256": "ba3d2a46bb22000039e50d3fb3427dfeec009dedeacad474925829a67c9427e6",
+   "answers": 103,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-women-saints",
+   "sha256": "5103f48173b0acb824e63ba4e961661f40b7c6b4355193b12e1b4d33f95a6c55",
+   "answers": 127,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-famous-churches",
+   "sha256": "79ac7c222a7ea01e631f562680b4dbb16f7671d97dd7524745fcde1dff18dd0e",
+   "answers": 91,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-universities",
+   "sha256": "2e9e96f1a9767545bfc08510073c9c416f5b744a850365da0116b540a8a63aa4",
+   "answers": 102,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-denominations",
+   "sha256": "51cbab16f802ced7bf7883726b99d3df74e44c4cf8bf72a146762f4f64f08bdf",
+   "answers": 64,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-bible-objects",
+   "sha256": "f4d5f1a190f2a54e925a0eeb4153146e77dec25868055f5924683261cb6996aa",
+   "answers": 102,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-martyrs",
+   "sha256": "28651c1227174bbb7f6e5a7f7afaa5f9e821712a650a0a5a61a97830106cd131",
+   "answers": 111,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-rome-churches",
+   "sha256": "abb085d72e34fe574c78c29dca3c5a8faeeb27d4fb1091399c6b8c2129455b7e",
+   "answers": 73,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-catholic-prayers",
+   "sha256": "2782b18ca82f79c27a23fe1d6f96abf1f5b0752b6e8304ccfa70c0cb1a06c2a8",
+   "answers": 91,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-vatican-ii-documents",
+   "sha256": "7faee266242848f4bb74ccf89ab04a00ff13b65adad6e5258aa2439840d51872",
+   "answers": 16,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-stations-of-the-cross",
+   "sha256": "dd838542bf4458640f8b510928d47adbc0bde9f3e5489deb5873c31cc9e38b13",
+   "answers": 14,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-roman-emperors",
+   "sha256": "45909927fd66a76f44b681cdf0cbda93db0194f81b94a5658c99d74319fb1aea",
+   "answers": 84,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-us-cities-saints",
+   "sha256": "01ffadadce3ee5be8021433eb72dd9580d85f18fd1e1828ea04d520825e30a9a",
+   "answers": 64,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-abbeys",
+   "sha256": "fa84f91eb343db860ee23c506a1ae10ca991078f9016a9e1b608d310b1b94df3",
+   "answers": 84,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-ot-stories",
+   "sha256": "c060b409e02614e6ed37949ba2cab55faa233c40184f87df04696a5a6ef7f6bc",
+   "answers": 93,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-genesis-people",
+   "sha256": "773b97b652f0d17fd902c03414ea504cc8640df710941c959e003b93b1f7e352",
+   "answers": 100,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-british-isles-saints",
+   "sha256": "c3038db5ed128f413ddcccdc577134c6c519b18d30b513505bb085e2bd02accf",
+   "answers": 106,
+   "status": "unreviewed"
+  },
+  {
    "id": "derived:act-of-contrition",
    "sha256": "673415590fa3026213d49a2daff2fa930913901808960136fa166b529826e0e8",
    "answers": 25,
@@ -1479,14 +1605,14 @@
   },
   {
    "id": "derived:bible-people",
-   "sha256": "38330942a49d32ec1ff3f47d3bb436e746c5d94fd32bd565eab5120cb483122e",
-   "answers": 330,
+   "sha256": "e6985f65f2aba1688187e3d7b31bcace1441ff479ce2abc1fdbbd3a8547dae96",
+   "answers": 328,
    "status": "unreviewed"
   },
   {
    "id": "derived:bible-places",
-   "sha256": "0a2a5769037c9a479fee164ea2fe08a3f61ba1d851e7293204b206079ae167d9",
-   "answers": 228,
+   "sha256": "1b42b1c533cad83a2114dc4c1d1dd0441efa0207306f3d314586a73dc916a6cb",
+   "answers": 229,
    "status": "unreviewed"
   },
   {
@@ -1665,8 +1791,8 @@
   },
   {
    "id": "derived:places-in-jos",
-   "sha256": "ff207cdf37a3b7ba292c5952f0071782088e26b40636d1aa1bf330c1e26a5932",
-   "answers": 75,
+   "sha256": "f03d2c4588598e246f153b3874f57a841af730d43b42a78a878176efbeef2f8a",
+   "answers": 76,
    "status": "unreviewed"
   },
   {
