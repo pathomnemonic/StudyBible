@@ -648,3 +648,11 @@ html[data-game='termmatch'] [aria-label='Terms'] .btn:nth-child(4n+3) { backgrou
 html[data-game='termmatch'] [aria-label='Terms'] .btn:nth-child(4n) { background: linear-gradient(180deg, #5fe08a, #1fa856); box-shadow: 0 4px 0 #0f6a32; }
 html[data-game='termmatch'] [aria-label='Terms'] .btn:disabled { opacity: .35; filter: grayscale(.5); box-shadow: none; }
 html[data-game='termmatch'] [aria-label='Terms'] .btn.wrong { animation: arc-shake .45s both; background: #7a3b3b; }
+
+/* Quiz night lobby: glass panels, players as coloured seats */
+html[data-game='quiznight'] fieldset.cq { background: rgba(255,255,255,.12); border: 2px solid rgba(255,255,255,.3); border-radius: 18px; padding: 12px; margin: 12px 0; backdrop-filter: blur(4px); }
+html[data-game='quiznight'] fieldset.cq legend { font-family: var(--font-display); background: #ff4fa3; color: #fff; padding: 2px 12px; border-radius: 999px; font-size: .95rem; }
+html[data-game='quiznight'] fieldset.cq .row input { flex: 1; border-radius: 12px; font-weight: 700; border-left: 12px solid var(--seat, #ffd23f); }
+html[data-game='quiznight'] fieldset.cq .row:nth-of-type(6n+1) { --seat: #ff4fa3; } html[data-game='quiznight'] fieldset.cq .row:nth-of-type(6n+2) { --seat: #2ee6d6; } html[data-game='quiznight'] fieldset.cq .row:nth-of-type(6n+3) { --seat: #ffd23f; } html[data-game='quiznight'] fieldset.cq .row:nth-of-type(6n+4) { --seat: #7dff9a; } html[data-game='quiznight'] fieldset.cq .row:nth-of-type(6n+5) { --seat: #7b5cff; } html[data-game='quiznight'] fieldset.cq .row:nth-of-type(6n) { --seat: #ff9f1c; }
+html[data-game='quiznight'] ol.list li { background: #fff; color: #2a1a66; border-radius: 14px; padding: 10px 14px; margin: 8px 0; box-shadow: 0 4px 0 #b8a8e8; list-style: none; }
+html[data-game='quiznight'] ol.list li:first-child { background: linear-gradient(180deg, #ffe27a, #ffb300); box-shadow: 0 4px 0 #a36a00, 0 0 18px #ffd23f; }
