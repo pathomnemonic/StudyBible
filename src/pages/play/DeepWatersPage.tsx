@@ -40,7 +40,7 @@ export default function DeepWatersPage() {
   const deadlineRef = useRef<number>(snapshot?.deadlineAt ?? Date.now() + restoredRemaining);
   const remainingRef = useRef<number>(restoredRemaining);
   const [logbook, setLogbook] = useState(loadDeepLogbook());
-  const [isPaused, setIsPaused] = useState(snapshot?.paused ?? false);
+  const [isPaused, setIsPaused] = useState(Boolean(snapshot?.paused && document.visibilityState === 'hidden'));
   const streak = deepDiveStreak(logbook, today);
   const pearlPool = prompts.flatMap((p) => p.answers.filter((a) => a.tier === 5).map((a) => a.answer));
   const pearlAnswer = !practice && pearlPool.length ? pearlPool[Math.abs(today * 31) % pearlPool.length] : null;
