@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { useLocation } from 'react-router-dom';
 import '@fontsource/lilita-one';
 import '@fontsource-variable/fredoka';
@@ -20,6 +21,7 @@ export default function ArcadeMode() {
   const on = inArcade(pathname);
   const [sound, setSoundState] = useState(soundOn);
   const [win, setWin] = useState<number | null>(null);
+  const [slot, setSlot] = useState<HTMLElement | null>(null);
   const game = pathname.split('/')[2] ?? 'home';
   useEffect(() => {
     if (!on) return;
@@ -27,6 +29,21 @@ export default function ArcadeMode() {
     return () => { delete document.documentElement.dataset.arcade; delete document.documentElement.dataset.game; };
   }, [on]);
   useEffect(() => { if (on) document.documentElement.dataset.game = game; }, [on, game]);
+  // the sound switch lives with the game's own How to play row when it has one (so it never sits on top of the play area); otherwise it floats in the corner
+  useEffect(() => {
+    if (!on) return;
+    setSlot(null);
+    let made: HTMLElement | null = null;
+    const find = () => {
+      if (made?.isConnected) return;
+      const host = document.querySelector('.game-help');
+      if (host) { made = document.createElement('div'); made.className = 'arc-sound-slot'; host.appendChild(made); setSlot(made); }
+    };
+    const obs = new MutationObserver(find);
+    obs.observe(document.body, { childList: true, subtree: true });
+    find();
+    return () => { obs.disconnect(); made?.remove(); setSlot(null); };
+  }, [on, pathname]);
   useEffect(() => { if (win === null) return; const t = window.setTimeout(() => setWin(null), 2400); return () => window.clearTimeout(t); }, [win]);
   useEffect(() => {
     if (!on) return;
@@ -55,6 +72,9 @@ export default function ArcadeMode() {
     return () => { obs.disconnect(); document.removeEventListener('pointerdown', tap, true); };
   }, [on]);
   if (!on) return null;
+  const SOUND = (
+    <button type="button" className={slot ? 'arc-sound inline' : 'arc-sound'} aria-pressed={sound} aria-label={sound ? 'Sound on. Tap to turn off' : 'Sound off. Tap to turn on'} onClick={() => { const next = !sound; setSound(next); setSoundState(next); if (next) blip('good'); }}><span aria-hidden="true">{sound ? '🔊' : '🔇'}</span>{slot && <span className="arc-sound-txt">{sound ? 'Sound on' : 'Sound off'}</span>}</button>
+  );
   return (
     <>
       {game === 'deepwaters' && (
@@ -74,7 +94,8 @@ export default function ArcadeMode() {
         {Array.from({ length: 14 }, (_, i) => <b key={i} className={`arc-shape s${i % 5}`} style={{ ['--x' as string]: `${(i * 37 + 8) % 96}%`, ['--d' as string]: `${(i * 1.9) % 14}s`, ['--s' as string]: `${14 + (i % 4) * 8}px`, ['--t' as string]: `${12 + (i % 5) * 3}s` }} />)}
       </div>
       {win !== null && <div className="arc-win" role="status"><Anim c={WINS[win][0]} size={132} /><strong>{WINS[win][1]}</strong></div>}
-      <button type="button" className="arc-sound" aria-pressed={sound} aria-label={sound ? 'Sound on. Tap to turn off' : 'Sound off. Tap to turn on'} onClick={() => { const next = !sound; setSound(next); setSoundState(next); if (next) blip('good'); }}>{sound ? '🔊' : '🔇'}</button>
+
+      {slot ? createPortal(SOUND, slot) : SOUND}
     </>
   );
 }

@@ -5,10 +5,13 @@ import { dayIndex, isPractice, markDailyDone, setPractice } from '../../lib/dail
 import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, deepHint, deepMissMessage, matchDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../../lib/deepWaters';
 import { clearDeepSession, deepDiveStreak, loadDeepLogbook, loadDeepSession, recordDeepDive, saveDeepSession } from '../../lib/deepWatersSession';
 import { clearDeepMisses, deepMissesText, loadDeepMisses, recordDeepMiss } from '../../lib/deepWatersMisses';
+import { Art } from '../../arcade/art';
 import { DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
 interface RoundResult { prompt: string; guess: string; answer: string | null; tier: DeepAnswer['tier'] | null; points: number; timedOut: boolean; pearlBonus?: number }
+/** the creature that stands for each depth */
+const TIER_ART: Record<number, string> = { 1: 'fish', 2: 'turtle', 3: 'dolphin', 4: 'whale', 5: 'octopus', 6: 'gem-stone' };
 const PEARL_BONUS = 50; // our own addition: the original's pearl bonus, if it has one, is not documented
 const newPracticeSeed = () => Math.floor(Math.random() * 1_000_000);
 
@@ -193,7 +196,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
             {locked && result && (
               <div className={`dw-reveal ${result.points ? 'scored' : ''}`}>
                 <div className="dw-reveal-heading">
-                  <span className="dw-reveal-symbol">{result.points ? '✦' : '○'}</span>
+                  <span className="dw-reveal-symbol">{result.points && result.tier ? <Art n={TIER_ART[result.tier]} size={64} className="dw-tier-art" /> : <Art n={result.timedOut ? 'hourglass-done' : 'red-question-mark'} size={56} />}</span>
                   <div><strong>{result.points ? `+${result.points} points` : result.timedOut ? 'Time is up' : 'No score this round'}</strong><small>{result.points ? DEEP_TIER_NAMES[result.tier!] : 'Keep exploring the answer key'}</small></div>
                 </div>
                 {result.answer && <span className="dw-correct-answer">{result.answer}</span>}
@@ -211,7 +214,9 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
       ) : (
         <section className="dw-card dw-results">
           <p className="dw-kicker">DIVE COMPLETE</p>
+          <Art n="trophy" size={104} className="dw-trophy" />
           <h2>{score}<small> pts</small></h2>
+          <p className="dw-depth">{(score * 10).toLocaleString()} metres down</p>
           <p>{score >= 450 ? 'You know your way around the deep end.' : score >= 200 ? 'A strong dive. There is more beneath the surface.' : 'The deep end rewards curiosity. Try another dive.'}</p>
           {!practice && <p className="dw-streak">Current streak: <strong>{streak}</strong> day{streak === 1 ? '' : 's'} · {logbook.length} logged dives</p>}
           {pearlFound && <p className="dw-pearl-bonus">You found the pearl of the day.</p>}

@@ -410,3 +410,57 @@ html[data-arcade] .trophy-grid li.locked { opacity: 0.8; }
 html[data-arcade] .trophy-grid li.locked .arc-art { filter: grayscale(0.7) brightness(0.8); }
 html[data-arcade] .trophy-ico .arc-art { width: 64px; height: 64px; filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.35)); }
 html[data-arcade] .trophy-grid li.got .trophy-ico .arc-art { animation: arc-bob 2.6s ease-in-out infinite; }
+
+/* ---------- Deep Waters: reveal and results ---------- */
+html[data-game='deepwaters'] .dw-reveal-symbol { background: none; width: auto; height: auto; display: inline-grid; place-items: center; }
+.dw-tier-art { filter: drop-shadow(0 6px 6px rgba(0, 0, 30, 0.45)); animation: arc-pop 0.6s both; }
+html[data-game='deepwaters'] .dw-reveal-heading strong { font-family: var(--font-display); font-weight: 400; font-size: 2rem; color: #ffd23f; text-shadow: 0 3px 0 #b86a00; animation: arc-pop 0.5s both; }
+html[data-game='deepwaters'] .dw-correct-answer { font-family: var(--font-display); font-size: 1.7rem; }
+html[data-game='deepwaters'] .dw-results { text-align: center; }
+html[data-game='deepwaters'] .dw-results h2 { font-family: var(--font-display); font-size: 4.2rem; color: #ffd23f; text-shadow: 0 5px 0 #b86a00, 0 12px 24px rgba(0, 0, 0, 0.4); margin: 0; animation: arc-pop 0.8s both; }
+.dw-trophy { display: block; margin: 0 auto -6px; filter: drop-shadow(0 10px 8px rgba(0, 0, 30, 0.45)); animation: arc-bob 3s ease-in-out infinite; }
+.dw-depth { font-family: var(--font-display); font-size: 1.2rem; color: #7df3ff; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.3); margin: 0 0 8px; }
+
+/* ---------- polish round 3: answer marks, toasts, the help fold and Practice switch ---------- */
+html[data-arcade] .ws-opt.right::after, html[data-arcade] .ws-opt.wrong::after { content: ''; flex: none; width: 34px; height: 34px; margin-left: auto; background: center / contain no-repeat; filter: drop-shadow(0 3px 2px rgba(0, 0, 0, 0.35)); }
+html[data-arcade] .ws-opt.right::after { background-image: url(/arcade/3d/check-mark-button.webp); }
+html[data-arcade] .ws-opt.wrong::after { background-image: url(/arcade/3d/cross-mark.webp); }
+html[data-arcade] .ws-opt { display: flex; align-items: center; }
+html[data-arcade] .trophy-toast, html[data-arcade] .toasts > * { background: linear-gradient(180deg, #ffe27a, #ffb02e); color: #2a1700; border: 0; border-radius: 22px; font-weight: 600; box-shadow: 0 5px 0 #b86a00, 0 14px 24px rgba(10, 4, 40, 0.45); }
+html[data-arcade] .trophy-toast a, html[data-arcade] .toasts a { color: #5b2d00; }
+html[data-arcade] .trophy-toast strong { font-family: var(--font-display); font-weight: 400; }
+
+html[data-arcade] .game-help details { padding: 0; border-radius: 99px; width: fit-content; background: rgba(255, 255, 255, 0.14); box-shadow: 0 4px 0 rgba(10, 4, 40, 0.45); border-width: 2px; }
+html[data-arcade] .game-help details[open] { width: auto; border-radius: 22px; }
+html[data-arcade] .game-help summary { list-style: none; padding: 7px 16px; font-size: 0.98rem; }
+html[data-arcade] .game-help summary::-webkit-details-marker { display: none; }
+html[data-arcade] .game-help summary::before { content: '?'; display: inline-grid; place-items: center; width: 22px; height: 22px; margin-right: 8px; border-radius: 50%; background: #ffd23f; color: #2a1700; font-size: 0.85rem; }
+html[data-arcade] .game-help details[open] ul { padding: 0 18px 12px 34px; margin: 0; }
+html[data-arcade] .game-help label { display: flex; align-items: center; gap: 10px; background: none; padding: 4px 2px; font-size: 0.85rem; cursor: pointer; }
+html[data-arcade] .game-help label .muted { font-size: 0.74rem; }
+html[data-arcade] .game-help input[type=checkbox] { appearance: none; -webkit-appearance: none; flex: none; position: relative; width: 48px; height: 28px; border-radius: 99px; background: rgba(10, 4, 40, 0.55); box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.35); cursor: pointer; transition: background 0.2s; }
+html[data-arcade] .game-help input[type=checkbox]::after { content: ''; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: #fff; box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3); transition: transform 0.2s cubic-bezier(0.3, 1.6, 0.5, 1); }
+html[data-arcade] .game-help input[type=checkbox]:checked { background: #1fa85a; }
+html[data-arcade] .game-help input[type=checkbox]:checked::after { transform: translateX(20px); }
+html[data-arcade] .game-help input[type=checkbox]:focus-visible { outline: 3px solid #7df3ff; outline-offset: 2px; }
+.arc-sound.inline { position: static; width: auto; height: auto; display: inline-flex; align-items: center; gap: 8px; padding: 5px 14px; border-radius: 99px; font-family: var(--font-display); font-size: 0.9rem; color: #2a1700; margin-top: 6px; box-shadow: 0 3px 0 #b86a00; }
+.arc-sound.inline .arc-sound-txt { font-size: 0.88rem; }
+.arc-sound-slot { display: block; }
+
+/* ---------- polish round 4: the featured game ---------- */
+html[data-arcade] .gp-hero { background: radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.35), transparent 38%), radial-gradient(circle at 12% 90%, rgba(0, 0, 0, 0.3), transparent 50%), linear-gradient(150deg, color-mix(in srgb, var(--c) 90%, #fff), color-mix(in srgb, var(--c) 55%, #12063a)); position: relative; overflow: hidden; }
+html[data-arcade] .gp-hero::after { content: ''; position: absolute; top: -20%; bottom: -20%; width: 40%; left: -60%; transform: skewX(-20deg); background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent); animation: arc-sweep 4.5s ease-in-out infinite; pointer-events: none; }
+@keyframes arc-sweep { 0%, 55% { left: -60%; } 100% { left: 130%; } }
+html[data-arcade] .gp-hero .btn.primary { animation: arc-pulse 1.8s ease-in-out infinite; }
+@keyframes arc-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+html[data-arcade] .pf-hero-ico { position: relative; }
+html[data-arcade] .pf-hero-ico::before { content: ''; position: absolute; inset: -14%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 65%); z-index: -1; }
+@media (min-width: 760px) {
+  html[data-arcade] .page.play-home { max-width: 1040px; }
+  html[data-arcade] .pf-grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 18px; }
+  html[data-arcade] .gp-hero { padding: 30px 36px; }
+  html[data-arcade] .pf-hero-ico .arc-art { width: 190px; height: 190px; }
+  html[data-arcade] .page h1 { font-size: 2.6rem; }
+}
+html[data-arcade] .pf-ico.gp-blob { box-shadow: none; align-self: flex-start; }
+html[data-arcade] .gp-mascot .gp-bot { box-shadow: 0 4px 0 rgba(10, 4, 40, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3); }
