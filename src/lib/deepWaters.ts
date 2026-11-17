@@ -5,14 +5,14 @@ export const DEEP_ROUNDS = 7;
 export const DEEP_ANSWER_TARGET = 40;
 export const DEEP_SINGLE_ANSWER_TARGET = 1;
 export const DEEP_SECONDS = 30;
-export const DEEP_POINTS: Record<DeepAnswer['tier'], number> = { 1: 1, 2: 2, 3: 4, 4: 8, 5: 16 };
+export const DEEP_POINTS: Record<DeepAnswer['tier'], number> = { 1: 1, 2: 2, 3: 4, 4: 8, 5: 16, 6: 32 };
 export const DEEP_TIER_NAMES: Record<DeepAnswer['tier'], string> = {
-  1: 'Foundational', 2: 'Familiar', 3: 'Intermediate', 4: 'Advanced', 5: 'Deep cut'
+  1: 'Foundational', 2: 'Familiar', 3: 'Intermediate', 4: 'Advanced', 5: 'Rare', 6: 'Deep cut'
 };
 export interface DeepCoverageRow { promptId: string; answerCount: number; target: number; status: 'draft' | 'reviewed'; meetsTarget: boolean }
 export function deepWatersCoverageReport(prompts: DeepPrompt[] = DEEP_WATERS): DeepCoverageRow[] {
   return prompts.map((prompt) => {
-    const target = prompt.answerMode === 'single' ? DEEP_SINGLE_ANSWER_TARGET : DEEP_ANSWER_TARGET;
+    const target = prompt.answerMode === 'single' ? DEEP_SINGLE_ANSWER_TARGET : prompt.answerMode === 'open' ? 60 : prompt.answerMode === 'closed' ? prompt.answers.length : DEEP_ANSWER_TARGET;
     return {
     promptId: prompt.id, answerCount: prompt.answers.length, target,
     status: prompt.status ?? 'draft', meetsTarget: prompt.answers.length >= target,
