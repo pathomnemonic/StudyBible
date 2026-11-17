@@ -8,6 +8,9 @@ interface Group { id: string; title: string; sub: string; games: Game[] }
 const G = (to: string, title: string, blurb: string, icon: string, color: string, time: string, who: string, extra: Partial<Game> = {}): Game => ({ to, title, blurb, icon, color, time, who, ...extra });
 
 const GROUPS: Group[] = [
+  { id: 'deep', title: 'Deep dives', sub: 'One answer. A little time. The less obvious, the better.', games: [
+    G('/play/deepwaters', 'Deep Waters', 'Seven Catholic prompts. Find a valid answer others might overlook.', '🌊', '#287d91', '4 min', 'Solo', { daily: 'deepwaters', isNew: true }),
+  ] },
   { id: 'quick', title: 'Quick hits', sub: 'Two minutes or less. A new one every day.', games: [
     G('/play/verbum', 'Verbum', 'Guess the five-letter word of the faith in six tries.', '🟨', '#d4a017', '3 min', 'Solo', { daily: 'verbum' }),
     G('/play/whichbook', 'Which Book?', 'Name the book of the Bible a verse comes from.', '📖', '#4a7bd0', '2 min', 'Solo', { daily: 'whichbook' }),
