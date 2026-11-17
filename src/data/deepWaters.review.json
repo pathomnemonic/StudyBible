@@ -759,8 +759,8 @@
   },
   {
    "id": "bible-trades",
-   "sha256": "70ce351622f14307eac3a951c4219787e7fe4df7ca79965976dc9528861bee2e",
-   "answers": 40,
+   "sha256": "926ffba462822af0bc83e20682ab98d33603698fd79181e3ab2b5ecf2d07d1ed",
+   "answers": 39,
    "status": "unreviewed"
   },
   {
@@ -789,7 +789,7 @@
   },
   {
    "id": "early-heresies",
-   "sha256": "2d82e80de25b027679baa5664189b8e0f0f3ca13833c264d0cb94e903dfdd481",
+   "sha256": "4587557399e79788aaa6d9a5efea390d29d07b00cff1b494dedd0a847058abff",
    "answers": 32,
    "status": "unreviewed"
   },
