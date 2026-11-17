@@ -1,3 +1,4 @@
+import { art3d } from '../../arcade/art';
 import GameHelp from '../../components/GameHelp';
 import { useEffect, useRef, useState } from 'react';
 import L from 'leaflet';
@@ -16,6 +17,9 @@ const points = pinPoints;
 const km = distanceKm;
 
 /** Where in the Bible lands is it? Tap the map for a place named in Scripture; the closer you are, the more you score. */
+/** a 3D icon as a map marker (the tip of the pin sits on the spot) */
+const pin = (name: string) => L.divIcon({ className: 'pg-pin', html: `<img src="${art3d(name)}" width="44" height="44" alt="" draggable="false">`, iconSize: [44, 44], iconAnchor: [22, 38] });
+
 export default function PilgrimPage() {
   const [pool, setPool] = useState<Place[] | null>(null);
   const [seed, setSeed] = useState(dayIndex());
@@ -66,10 +70,10 @@ export default function PilgrimPage() {
     const g = layer.current;
     if (!g) return;
     g.clearLayers();
-    if (guess) L.circleMarker(guess, { radius: 7, color: '#6b1f29', fillColor: '#8a2f39', fillOpacity: 0.9 }).addTo(g);
+    if (guess) L.marker(guess, { icon: pin('round-pushpin'), interactive: false, keyboard: false }).addTo(g);
     if (last && q) {
       const a: [number, number] = [q.lat, q.lon];
-      L.circleMarker(a, { radius: 7, color: '#1b1405', fillColor: '#c9a227', fillOpacity: 1 }).bindTooltip(q.n, { permanent: true }).addTo(g);
+      L.marker(a, { icon: pin('glowing-star'), keyboard: false }).bindTooltip(q.n, { permanent: true, direction: 'top', offset: [0, -30] }).addTo(g);
       if (guess) { L.polyline([guess, a], { color: '#6b1f29', dashArray: '4 6' }).addTo(g); map.current?.fitBounds(L.latLngBounds([guess, a]).pad(0.5), { maxZoom: 8, animate: false }); }
     }
   }, [guess, last, q]);

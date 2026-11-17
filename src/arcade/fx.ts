@@ -2,6 +2,8 @@
  * Small, dependency-free game effects: a confetti burst, a ring where you tap, and optional sound blips (off until the player turns them on).
  * Nothing here runs under reduced motion, and the sounds are synthesized, so there are no audio files.
  */
+import { buzz } from '../lib/haptics';
+
 const reduced = () => typeof window !== 'undefined' && (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || document.documentElement.dataset.motion === 'none');
 const COLORS = ['#ffd23f', '#ff4fa3', '#2ee6d6', '#ff8a2b', '#8bea3a', '#7b5cff', '#ffffff'];
 
@@ -47,6 +49,8 @@ function tone(freq: number, start: number, dur: number, type: OscillatorType = '
 }
 export type Blip = 'tap' | 'good' | 'bad' | 'win';
 export function blip(kind: Blip) {
+  // a small buzz on a phone whose owner switched haptics on in settings: short for a tap, longer for a right or wrong answer
+  buzz(kind === 'tap' ? 6 : kind === 'bad' ? 40 : kind === 'good' ? 18 : 60);
   if (!soundOn()) return;
   try {
     ctx ??= new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();

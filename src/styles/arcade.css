@@ -525,3 +525,18 @@ html[data-game='trivia'] .arc-bg::before, html[data-game='charades'] .arc-bg::be
 .gp-dive-bubbles i { position: absolute; bottom: -20px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.7); animation: sea-bub 7s ease-in infinite; }
 .gp-dive-bubbles i:nth-child(1) { left: 12%; animation-delay: 0s; } .gp-dive-bubbles i:nth-child(2) { left: 32%; animation-delay: -2s; width: 8px; height: 8px; } .gp-dive-bubbles i:nth-child(3) { left: 58%; animation-delay: -4s; } .gp-dive-bubbles i:nth-child(4) { left: 74%; animation-delay: -1s; width: 9px; height: 9px; } .gp-dive-bubbles i:nth-child(5) { left: 90%; animation-delay: -5s; }
 @media (prefers-reduced-motion: reduce) { .gp-dive-bubbles i, .gp-dive-whale { animation: none; } }
+
+.pg-pin { background: none; border: 0; }
+.pg-pin img { filter: drop-shadow(0 6px 4px rgba(0, 0, 40, 0.5)); animation: arc-drop 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) both; }
+@keyframes arc-drop { from { transform: translateY(-40px) scale(0.6); opacity: 0; } to { transform: none; opacity: 1; } }
+html[data-arcade] .pg-map .leaflet-tooltip { font-family: var(--font-display); background: #fff; color: #2a1a66; border: 0; border-radius: 12px; box-shadow: 0 3px 0 rgba(10, 4, 40, 0.4); font-size: 0.95rem; }
+
+/* ---------- Charades stage ---------- */
+html[data-arcade] .charades-stage { background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.25), transparent 55%), linear-gradient(160deg, #ff4fa3, #7b5cff); box-shadow: none; border-radius: 0; }
+html[data-arcade] .charades-stage.flash-right { background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.35), transparent 55%), linear-gradient(160deg, #2ee68a, #0f9a5a); }
+html[data-arcade] .charades-stage.flash-pass { background: radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.3), transparent 55%), linear-gradient(160deg, #ffb02e, #e0561a); }
+html[data-arcade] .charades-count { font-family: var(--font-display); font-size: 9rem; color: #fff; text-shadow: 0 8px 0 rgba(0, 0, 0, 0.25); animation: arc-pop 0.6s both; }
+html[data-arcade] .charades-word { font-family: var(--font-display); color: #fff; text-shadow: 0 5px 0 rgba(0, 0, 0, 0.28); animation: arc-pop 0.4s both; }
+html[data-arcade] .charades-top { color: #fff; font-family: var(--font-display); }
+html[data-arcade] .charades-top .low { color: #ffd23f; animation: arc-shake 0.6s infinite; }
+html[data-arcade] .charades-btns .btn { min-height: 62px; font-size: 1.3rem; }
