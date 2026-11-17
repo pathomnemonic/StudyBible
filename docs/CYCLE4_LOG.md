@@ -142,3 +142,11 @@ Other uses of that expression were checked and left: they stamp file names or fo
 ## 8. Handing work on
 
 `docs/HANDOFF_PROMPTS.md` holds six self-contained prompts for work that is laborious or well specified, not hard: the server naming which changes it refused; per-edition numbering for Romans 14 and 16; reading the remaining unverified chapters; aligning Daniel for the NABRE; bounding the rate limiter's memory; and (needing the owner's decision) merging listening totals from two devices.
+
+## 9. The sync rewrite proved in a real browser
+
+New check: `e2e/sync-devices.mjs`, added to the `accounts` job in CI (which already builds with accounts on and starts the real server).
+
+The unit tests for section 1 run on an IndexedDB stand-in. The existing accounts browser check covers signing in and two-factor codes but moves no data. The new check opens two browser contexts on one account against the real server and reads the real IndexedDB directly: a note written on A gets its identity and the unsent mark; a push clears the mark; the note arrives on B marked as sent with the same edit time; deleting it on B leaves one tombstone (unsent, later than the note) and one Recently-deleted copy, written after the delete commits; the deletion reaches A, which records it as already sent and puts nothing in its own Recently deleted; notes written on both devices before either syncs both survive on both; after every sync nothing is left marked unsent.
+
+Result here: `e2e/accounts.mjs` passed; `e2e/sync-devices.mjs` passed. (A second immediate run is refused by the server's five-registrations-an-hour limit, which is the server doing its job; CI registers twice.)
