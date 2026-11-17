@@ -48,9 +48,9 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
       ['vinedresser', 5],
       ['sailor', 5],
       ['shipmaster', 6],
-      ['caravan trader', 6],
+      ['tanner', 6],
       ['perfumer', 6],
-      ['spice merchant', 6],
+      ['woodcutter', 6],
     ]),
   },
   {
@@ -167,7 +167,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     id: 'saint-founders', theme: 'saints', ignore: ['saint'],
     prompt: 'Name a saint who founded a religious order or congregation.',
     context: 'Founders are saints whose communities became established Catholic religious institutes; historical titles and attributions vary.',
-    source: 'Catholic Encyclopedia (1913, public domain); Vatican biographies of saints; Order histories.',
+    source: 'Catholic Encyclopedia (1913, public domain), “Religious Life” and individual order/saint entries; Butler’s Lives of the Saints (public domain).',
     status: 'draft',
     answers: rows([
       ['Benedict of Nursia', 1, 'Saint Benedict'],
@@ -305,7 +305,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     id: 'early-heresies', theme: 'church-history', ignore: ['heresy', 'movement'],
     prompt: 'Name a Christian heresy or heterodox movement.',
     context: 'Includes early, medieval and early modern movements debated or condemned by Catholic authorities; some labels cover diverse groups and periods.',
-    source: 'Catholic Encyclopedia (1913, public domain); documents of the first seven ecumenical councils; Oxford Dictionary of the Christian Church for cross-checking.',
+    source: 'Catholic Encyclopedia (1913, public domain), “Heresies” and individual entries; acts and definitions of the first seven ecumenical councils.',
     status: 'draft',
     answers: rows([
       ['Arianism', 1, 'Arian heresy'],
@@ -474,7 +474,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     id: 'church-historians', theme: 'people', ignore: ['historian'],
     prompt: 'Name a historian of the Church or early Christianity.',
     context: 'Includes historians and chroniclers whose works are important sources for Christian history.',
-    source: 'Catholic Encyclopedia (1913, public domain); public-domain primary texts and standard scholarly reference works.',
+    source: 'Catholic Encyclopedia (1913, public domain), “Ecclesiastical History” and individual historian entries; public-domain primary chronicles.',
     status: 'draft',
     answers: rows([
       ['Eusebius of Caesarea', 1, 'Eusebius Pamphili'],
@@ -553,14 +553,14 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     id: 'evangelist-symbols', theme: 'art-music', ignore: ['symbol'],
     prompt: 'Name a traditional symbol of one of the four Evangelists.',
     context: 'Christian art traditionally represents Matthew, Mark, Luke and John by a winged man, lion, ox and eagle, respectively.',
-    source: 'Catholic Encyclopedia (1913, public domain), “Evangelists, Symbols of the”; standard Christian iconography references.',
+    source: 'Catholic Encyclopedia (1913, public domain), “Symbolism” and “Evangelist”.',
     status: 'draft',
     closed: 4,
     answers: rows([
       ['Man', 1, 'Winged man|Angel'],
       ['Lion', 1, 'Winged lion'],
       ['Eagle', 2, 'Winged eagle'],
-      ['Ox', 5, 'Bull|Winged ox'],
+      ['Ox', 5, 'Bull|Winged ox|Winged calf'],
     ]),
   },
   {
