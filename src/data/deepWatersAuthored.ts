@@ -976,6 +976,17 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
+    "answer": "Daniel",
+    "tier": 2
+   },
+   {
+    "answer": "Zechariah son of Jehoiada",
+    "tier": 4,
+    "aliases": [
+     "Zechariah ben Jehoiada"
+    ]
+   },
+   {
     "answer": "The man of God from Judah",
     "tier": 5
    }
@@ -1037,7 +1048,7 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
   "theme": "scripture",
   "basis": "Hand-authored answer key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9.",
   "prompt": "Name an illness or disability that Jesus healed in the Gospels.",
-  "context": "Give the condition, such as blindness, not the person's name.",
+  "context": "Give the symptom or disability, not the person's name; Gospel descriptions are not modern medical diagnoses.",
   "answers": [
    {
     "answer": "Blindness",
@@ -1092,8 +1103,12 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
-    "answer": "Seizures associated with an unclean spirit",
-    "tier": 3
+    "answer": "Convulsions",
+    "tier": 3,
+    "aliases": [
+     "Seizures",
+     "Convulsive episode"
+    ]
    },
    {
     "answer": "Ear injury",
