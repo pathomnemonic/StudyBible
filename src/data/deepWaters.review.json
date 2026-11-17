@@ -387,8 +387,8 @@
   },
   {
    "id": "longtail-italian-saints",
-   "sha256": "1f252ef8de32d08160a17c5794e7bfb6dc33ada662634d3e4291b351c82b4abd",
-   "answers": 63,
+   "sha256": "8127036b90eb448198492d19202a733294080be47f8171a5f292394518f31cde",
+   "answers": 60,
    "status": "unreviewed"
   },
   {
@@ -435,25 +435,25 @@
   },
   {
    "id": "longtail-patron-professions",
-   "sha256": "2cc2029c5183f1dd5edf925df6bb69edf0efb2e41f66ad91c6f005059c1fbbc5",
-   "answers": 63,
+   "sha256": "d661775e9ed300fd043188f5cabf7602e24a50da375a275200b41e7756616fed",
+   "answers": 60,
    "status": "unreviewed"
   },
   {
    "id": "longtail-patron-illnesses",
-   "sha256": "7af995cd09a5b89c6a3e287f8fc3f75be06bf8c4dac292009323f7c87992905d",
+   "sha256": "130444a7cbb3d1c4f297fee99a479fe9e3257f04ac5331e94462736c14f9c43b",
    "answers": 60,
    "status": "unreviewed"
   },
   {
    "id": "longtail-patron-countries",
-   "sha256": "c9f5864d0f69203ec0efeeabf8996daccac3d8a58a978b1ee6b107574a8f1c66",
-   "answers": 61,
+   "sha256": "8cddd7af1b56aa1f17d48d4b77f6d9fa431db7d8286cde93a6bd197e2e211095",
+   "answers": 60,
    "status": "unreviewed"
   },
   {
    "id": "longtail-ancient-sees",
-   "sha256": "b5f0355940ef597302f28079d870b85c44fb777311b4eb693114dcbffca84d51",
+   "sha256": "8793abf52de2e6b33eaab5f9d7fcfe06d5c456962714dd7ff78e5402d6259768",
    "answers": 62,
    "status": "unreviewed"
   },
@@ -507,8 +507,8 @@
   },
   {
    "id": "longtail-city-patrons",
-   "sha256": "eb04ac18b3c11fd8e2329ca2a5fbb99013cd5421baa3e03be2d3d597fbfebb49",
-   "answers": 64,
+   "sha256": "48ec7b13cb9673ebe92ceac0d1a332f53e13dc948db5782c78e53d59820a876a",
+   "answers": 61,
    "status": "unreviewed"
   },
   {
