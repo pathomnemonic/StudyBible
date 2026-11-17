@@ -2,7 +2,7 @@ import type { DeepAnswer, DeepPrompt } from './deepWaters';
 import GENERATED_PROMPTS from './deepWaters.generated.json';
 import { deepTokens } from '../lib/deepWatersTokens';
 
-/** 2,000 accessible Krillion-style prompts built from the app's shipped Catholic/Bible answer corpora. */
+/** 2,416 accessible Krillion-style prompts built from the app's shipped Catholic/Bible answer corpora. */
 type SourceAnswer = { answer: string; tier: 1|2|3|4|5|6; aliases?: string[] };
 const letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
 const clean = (s: string) => s.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -62,13 +62,13 @@ for (const poolKey of ['saint','place']) {
     buckets.get(c.kind)!.push(c);
   }
   const kinds=[...buckets.keys()]; let cursor=0;
-  const target = poolKey === 'saint' ? 1000 : 1003;
+  const target = poolKey === 'saint' ? 1200 : 1216;
   while(selected.filter((x)=>x.pool.key===poolKey).length<target && kinds.some((k)=>buckets.get(k)!.length)) {
     const kind=kinds[cursor++%kinds.length], bucket=buckets.get(kind)!;
     if(bucket.length) selected.push(bucket.shift()!);
   }
 }
-if(selected.length!==2003) throw new Error('Expected 2,003 complete prompts, generated ' + selected.length);
+if(selected.length!==2416) throw new Error('Expected 2,416 complete prompts, generated ' + selected.length);
 const prompts: DeepPrompt[] = selected.map((c,index)=>{
   const ordered=[...c.answers].sort((a,b)=>a.tier-b.tier||a.answer.localeCompare(b.answer));
   const canonical = new Set(ordered.map((a)=>key(a.answer)));

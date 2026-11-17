@@ -3,10 +3,10 @@ import { KRILLION_PROMPTS } from '../src/data/deepWatersKrillion';
 import { matchDeepAnswer } from '../src/lib/deepWaters';
 
 describe('Krillion-style Deep Waters expansion', () => {
-  it('adds 2,000 distinct, short, accessible prompts with complete answer lists', () => {
-    expect(KRILLION_PROMPTS).toHaveLength(2003);
-    expect(new Set(KRILLION_PROMPTS.map((p) => p.id)).size).toBe(2003);
-    expect(new Set(KRILLION_PROMPTS.map((p) => p.prompt)).size).toBe(2000);
+  it('adds 2,416 distinct, short, accessible prompts with complete answer lists', () => {
+    expect(KRILLION_PROMPTS).toHaveLength(2416);
+    expect(new Set(KRILLION_PROMPTS.map((p) => p.id)).size).toBe(2416);
+    expect(new Set(KRILLION_PROMPTS.map((p) => p.prompt)).size).toBe(2416);
     for (const p of KRILLION_PROMPTS) {
       expect(p.prompt.trim().split(/\s+/).length, p.id).toBeGreaterThanOrEqual(4);
       expect(p.prompt.trim().split(/\s+/).length, p.id).toBeLessThanOrEqual(14);
@@ -17,6 +17,8 @@ describe('Krillion-style Deep Waters expansion', () => {
       expect(new Set(p.answers.map((a) => a.answer.toLowerCase())).size, p.id).toBe(p.answers.length);
       expect(p.answers.every((a) => a.answer.trim().split(/\s+/).length <= 4), p.id).toBe(true);
       expect(p.answers.some((a) => (a.aliases ?? []).length > 0), p.id).toBe(true);
+      expect(new Set(p.answers.map((a) => a.tier)).size, p.id).toBe(6);
+      expect(p.source, p.id).toBeTruthy();
       expect(p.status).toBe('draft');
       const accepted = p.answers.slice(0, 3);
       for (const a of accepted) expect(matchDeepAnswer(p, a.answer).status, p.id).toBe('match');
