@@ -3490,8 +3490,8 @@
   {
     "id": "authored-catholic-prayers",
     "theme": "Catholic prayer",
-    "prompt": "Name a traditional Catholic prayer or devotional text by its established title.",
-    "context": "Include named prayers and devotional texts, including common prayers such as the Hail Mary, Our Father, Hail Holy Queen, Glory Be, and Sign of the Cross.",
+    "prompt": "Name a prayer, canticle, or devotional practice used in Catholic devotional life.",
+    "context": "Include traditional and widely used prayers, canticles, and devotional practices; official liturgical status is not required.",
     "hint": "Think of both fixed prayer texts and recurring devotional practices.",
     "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy.",
     "status": "draft",
@@ -3758,7 +3758,7 @@
       {
         "answer": "Serenity Prayer",
         "tier": 5,
-        "source": "Modern Christian prayer; not an official Catholic liturgical text"
+        "source": "Modern Christian prayer; not an official Catholic liturgical text; included as a widely used devotional prayer."
       },
       {
         "answer": "Prayer of Saint Ephrem",
