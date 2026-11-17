@@ -69,8 +69,8 @@
   },
   {
    "id": "doctors",
-   "sha256": "ea5ecfa11271c31d44c74d2fd106ef2c1127f750ee79b5a48bf7491f2b07cb2c",
-   "answers": 37,
+   "sha256": "20494f55eb834bfeafb6c735ea4d0b10a1ddaf97fbd11bce49e8edc13e9835f4",
+   "answers": 38,
    "status": "unreviewed"
   },
   {
@@ -923,6 +923,564 @@
    "id": "roles-women",
    "sha256": "408e2fb5eddf9e6a9887c2f8b7ac86ad0200e3d6273a0db5a4c0139f647a644d",
    "answers": 148,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:act-of-contrition",
+   "sha256": "9242d1b2e1b3defc79adfd6766d51fc9dd342d5efdb506f77f0788dc7ee48a92",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:angel-of-god",
+   "sha256": "b0491e00cb50133ca4515572861a7850d4c49dfc19ffed0e16c3d87603cff977",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:anima-christi",
+   "sha256": "9ba7435bacf6b756add5078828c1e4aef357c47bd5d1fe5a7f92cd342f5da8e0",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:animals",
+   "sha256": "be5c34eb15322b2b76b335cc7eb46e2aa4c939f36852720c68fecd1d04298677",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:apostles",
+   "sha256": "16009047da33132203f9afedad9300b4e812741d001f473ccdd301fcab935d9b",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:apostles-creed",
+   "sha256": "a631fa9cf5c34c701ad5c5bfd7da6214d84cc57e33da2848068fa1b33ddaa4a1",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:art",
+   "sha256": "da1b83078384d250dc8a68de87c3602eaaf8ab5e88edfa4da88d2e87ed6f5a06",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:beatitudes",
+   "sha256": "bd48c78aeee5078cf7c3196d462f3f3aa440239a71dd31423483e495c967bcff",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:bible-books",
+   "sha256": "65a903594a119f9327da63e986ba6a764e55de2763057dda3f507dd9bce4c828",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:bible-people",
+   "sha256": "4aa5ecae13a366bf8470fcb4275fe1dde29a121b4edb490fdcb2e9d02486e8f8",
+   "answers": 75,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:bible-places",
+   "sha256": "98e89008a6b3ed1cd565ac87b64067e3acdbe4c0c01adbeac735b07db795f7f1",
+   "answers": 75,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:bible-women",
+   "sha256": "8a0e260292923813fa76d4b667af5e371f926f69aeeaaa8aece880dbe7a97308",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:calendar-saints",
+   "sha256": "bb769e60541c6301a2e018d34b896151bc29f60b62277c426f9d91bf93d179a8",
+   "answers": 50,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:classics",
+   "sha256": "d8c41c53277dc70a59e60f58af5d3397d66bc08be0ef4d97916e0dd3149cd695",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:councils",
+   "sha256": "fd9be5db0d3ffc32088d31ec1ea5ac55606b077734aef94f200ce69e4749e00f",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:devotions",
+   "sha256": "722aa2e44db60d50902211d8637ad4a6502d53744469a187852e739065d1067a",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:doctors",
+   "sha256": "47c67effcab0fe2706cac0db83851e2c9fbea879058f5965ba297026489f610d",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:encyclicals",
+   "sha256": "72ab0df0581881d7047671618915ed67acbb457417c66748693b8dee62ef98b4",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:events-of-jesus",
+   "sha256": "539cfa8cab1e3a2107325c1488dbc3e2c82d4e0ec1ca4c4e6ec8863926612f8d",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:fathers",
+   "sha256": "83e03c88807046ea38f380ee9a69c45259c7e851a70679222961973b862e780d",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-april",
+   "sha256": "1040f56d301cd3cd638945a3a10649943c19530857b7461084d3395a39d1ee7c",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-august",
+   "sha256": "f9e92df0f5af349988c927967d6efb372f3b6ed6c0245eec5f2f6c33c44431f0",
+   "answers": 3,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-december",
+   "sha256": "f190b52b57cafa87d7e7156e4dac178f039fd0ad2983bec101bb26177a73360e",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-february",
+   "sha256": "6536f07366717d717e8773161dd96991eb7cfe91b831e51c19636144d7a64c00",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-january",
+   "sha256": "a0ca3eafd713d337df6fdb1f968b412e52db1cfe460719cb009bc19fc6b70e7e",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-july",
+   "sha256": "a438ef51747a3b1f7ee7a37703bd781300a7dbb1467eaaf29e0f710a353df999",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-june",
+   "sha256": "f9dcc1f52790a548c84f5df11f0b19efacc8ca94ca21b4c119ab8b35cfd6f80b",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-march",
+   "sha256": "b06eafeb5c9ee4e5f0bb4eac346244c950275e84950416f13b4bbc68eed69e03",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-may",
+   "sha256": "1b71dac94c89f297d40acc0be858226d4cd71aa11de8acc41a8e273903386da8",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-november",
+   "sha256": "bd7e6462134e3ee21bb4764deaf98ab1eef63e0ba86b0c3ff4a4ef29b88baa07",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-october",
+   "sha256": "fb13bac73f1ef548bd3a87191aca927d16502c8e91817406c48dbd80e9c8f6bd",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:feast-september",
+   "sha256": "fbc8d3334c0f22fceed0314c487ec7e900d31ea32135286998cf42ac7c9c911c",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:foods",
+   "sha256": "7eea8883d03bdeeb9aacdb1056cd080584c6c73ff518067b1d8b012f13be2d23",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:furnishings",
+   "sha256": "40d8bf0320fd40f36d64d7f393d0eb61b7fa45bca8a886b63703ec2eeb4a351f",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:glory-be",
+   "sha256": "cafd7006217230915f91a552056b35f25477a33b0f03a94c87cb55e6348ab9bc",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:hail-holy-queen",
+   "sha256": "a3d11d6e4f80018950f8dbca22f8f199796e969155f485cc49c7e53c50f9b0d8",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:hail-mary",
+   "sha256": "3b610603a501e3e3eedbf6ae13d41b1218316c16a175ed9dd80332bb83370a38",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:heresies",
+   "sha256": "230517e805577d380725fd6c7b9ca6b53901517ebd8ae6f56dfe9ffadb366a3f",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:kings",
+   "sha256": "969cd486c3db116b19b55464a0c557d67cdf4fc9bd6c4309f870490abe7e6b0f",
+   "answers": 23,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:latin",
+   "sha256": "765de772110778baba583bb533c179f780ce76e4e15367e4e760f169cc870d93",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:loreto",
+   "sha256": "8aeff6b8b67077ad2a575d40641491d5af73bec21deb0ced5bbc9d83731b1865",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:magnificat",
+   "sha256": "7f243ef0a8e4ad04d372e07f8ec40f5bb77d2b92e43f59a144d7fda9bf389f3a",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:marian",
+   "sha256": "c13ee3d764f207c183b5b0473dfb79ca3f81e4016f519f6ac8c34d6705f2d94a",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:mass",
+   "sha256": "f90d113eee318c4221bc473df7f20aa7c6210e2f61bb4d85a2eecb4448d277e6",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:memorare",
+   "sha256": "34cf1905c5ac7421ce78347fdfd7292ac86de5b771366016324b1b916822f064",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:miracles",
+   "sha256": "10840d6edbb63a5c3989ac1fc26170d66573cc23d24e6582c0edbf45e7187cc9",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:music",
+   "sha256": "f8cc6ffbaf8ac78aea04c3e6a1bc952074a1192a63b40d6923bb713d9c1eb874",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:mysteries",
+   "sha256": "e1384bff3511fee8d91d5f88c71c8f06a5ebaeceaab8588ad3c4cf4187ea7c52",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:observances",
+   "sha256": "f3c55c8a221533b32ec53d582b066ae6c5a449e3de99a25ee4fc04b35f762e3b",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:orders",
+   "sha256": "bc13d460eb03eff9b8cb83d8624048ac5977635c72a66f5ffda54b1d1079669f",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:our-father",
+   "sha256": "68585e0bfaca40164573f807f2af969cc6e671d360e385a41c63c95caa2b897c",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:papal-names",
+   "sha256": "dceddceef436f475501e2d134a2e80a727cc0a6f1c525e766378fbae1fbf8051",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:parables",
+   "sha256": "73eb240505c1c46457e8662ffdd7f4ebd70d783d426c0b9b9e1efb3917a41562",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:peoples",
+   "sha256": "bdf57f64d679f228886f25053d1e00007f17409b5734e0552658302095b39f5b",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-1ch",
+   "sha256": "fe0bac44693c94d40dd95ea16741002c2785c7e8a586d959847590ac91eb4993",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-1ki",
+   "sha256": "6f03e7bc2b645375d3a178fac0f99314ee11226b675dbe72e825811b597c881b",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-1sa",
+   "sha256": "204e1a8a43501f04e41b458c84a41b7deb1d261ecdebfd343dae8e29523538c0",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-2ch",
+   "sha256": "02128aa7e9ae075fb05d6fca784d2a0de5975f849f7f0bf01960102d97f27c81",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-2ki",
+   "sha256": "7b8987458f243fcc3a8b60c964227f0e893172e922bc09bf173bc696591da0ea",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-2sa",
+   "sha256": "6797d04aca25e54cf45d8f1b8729663823f09172614e024f9bc46518af2d2c52",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-act",
+   "sha256": "d601c74bf28231ae65830507676fbb5bcca87ded7a34446ae508a6e2a9682c0c",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-deu",
+   "sha256": "7b1aa9b05286950233ce6c5fd22606d5b3bda424900ba6076ab14ba87a926119",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-ezk",
+   "sha256": "47e1ad0e7436bff2b66ccc4c6d5122794bed0ba2d1df770083eb52f0669dfb03",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-gen",
+   "sha256": "f71d9b0abb8a407c6d26939c4ab2c231c4f5adbb8e507aeb0092c9b7d6db0539",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-isa",
+   "sha256": "f7e2809282d58b58daf86daedb09085cc5ceb3f4445c47ed0a0befe5be5d1133",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-jdg",
+   "sha256": "0f97fd1cec4afbacdd34b5742670a3b3e7fab04613c256a6e9328cd20c6a754d",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-jer",
+   "sha256": "80e96245b10c9e0d3d37ff0638a36d8d93b079a811bc69db33241ce3dbce4e2c",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-jos",
+   "sha256": "174302420933eb88cc6b2f6b85e1a95a694210f8d37851cb0fcaf9201a40e091",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:places-in-num",
+   "sha256": "2ffb7b35d7d079717f4771c224072597af43731d1a9e722c1702c292ba1ed875",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:plants",
+   "sha256": "848c69e4e435ff2db5327356301bb078976517516c1e4c7c025af1d7a68fe9a1",
+   "answers": 16,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:popes-since-1500",
+   "sha256": "7c4c62cd2856037f6aef2a55517d2c7039eb88687600a3f7e8c2ec1032d9749a",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:prophets",
+   "sha256": "f385cd050fdd4aac156bc0700266c45260523ea8cfe80ffb0597ae206eb0a90f",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:psalm-23",
+   "sha256": "c7c6f7bbb56f126fbe453df352d4cab737a4ea8fbb3152aaebc57a93bbd27c28",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:revelation",
+   "sha256": "72369d47e761fb28e380bc4ed4bd04a1277e0bdd6c96211778f4fa060932224a",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:rites",
+   "sha256": "2159867a28d0d31f67dcff086e3a19b834b8fa36d9b4c3a811d252a5b5f49211",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:rulers",
+   "sha256": "81c4c5e795821e7dc91cc7064cefd8756ada158abde381fe36118b8c7557d32e",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:saint-abbots",
+   "sha256": "f86e753ccac0abf7357f3a51f06510998cce3e0f808e302e27ca8339f7f0d0c0",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:saint-bishops",
+   "sha256": "f228c90921c2027e87ae0be22d071158e099322db0e88a608166cd6293ea2099",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:saint-martyrs",
+   "sha256": "c9026e7533ec64456b72eb3562bf54d7da52a6626c23573b32a35ef690c6977a",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:saint-popes",
+   "sha256": "dc680c700ad3506509811fc610026fd555ba91d4298ae7101a94c84e3ad51c04",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:saints",
+   "sha256": "07e96aacb4b36e864324faa771d9a06a6b3ec78ba2b6f1b13e4a6ecba3b6a24e",
+   "answers": 75,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:saints-named-for-bible",
+   "sha256": "7779866f54b5f340512e93f13ca9676cfbedd87160a0b4ec68b054718d7bc4e7",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:saints-named-for-books",
+   "sha256": "0f70f7cf9b807bc76328a82ed0861ece4359458e14a5b7de19898c19cec9bc31",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:shrines",
+   "sha256": "49b3f4eb7f3f9378dbcd49f605389a585d1a135177acead3bea13cfbdf44f4ab",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:sons-of-jacob",
+   "sha256": "d7abb172224785041e63afd9f4f5e34108a21bf69b94fcf845512bd3e83f7e65",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:st-michael",
+   "sha256": "26c9b3a50a7913c26b09fcd77bab8348f44e4279bca08fec8dec355929440b55",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:symbols",
+   "sha256": "1dccf710ba36783cc8430428f495a1ee361fc9dbd1490b0c5a43412029772977",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:ten-commandments",
+   "sha256": "9d47fc74eba6e323916767e442e3e9fe42661686d56f0364db3c453a34032cec",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:theology",
+   "sha256": "90c1056bf4898bf1a894afe3dca60c631fae9549a70fd9565ad983f62136a2e7",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:titles-of-jesus",
+   "sha256": "9fdef6a5d7e71438901a8d934530336aae8a5235e934953fe64dda7b402fe275",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:trades",
+   "sha256": "fb3ff553942664ea183f334ab7fa0c3bb39eeb6944306ecff003b08ceb715627",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:vestments",
+   "sha256": "f92ac9d29713098440f3e2445630fba3d2a8b8d3569a2a7f9bd885bd8d767000",
+   "answers": 22,
+   "status": "unreviewed"
+  },
+  {
+   "id": "derived:writers",
+   "sha256": "f79e98006b07434d090122e4610fcb5c93a5cea5153643b983450423126e8b3e",
+   "answers": 25,
    "status": "unreviewed"
   }
  ]

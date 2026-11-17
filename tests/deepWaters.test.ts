@@ -34,8 +34,8 @@ describe('Basilion content', () => {
   });
 
   it('a prompt that names a whole set lists exactly that set', () => {
-    const sizes = Object.fromEntries(DEEP_WATERS.filter((p) => p.closed).map((p) => [p.id, p.answers.length]));
-    expect(sizes).toEqual({ councils: 21, rites: 24, apostles: 13, doctors: 37, ntbooks: 27, otbooks: 46, mysteries: 20, sacraments: 7, virtues: 7, 'deadly-sins': 7, gifts: 7, fruits: 12, 'corporal-works': 7, 'spiritual-works': 7, plagues: 10, 'sons-of-jacob': 12, 'minor-prophets': 12, pius: 12, 'popes-20c': 9, 'holy-days': 6, 'liturgical-seasons': 5, 'seven-churches': 7 , 'authored-romans16-women': 10, 'authored-pauline-letters': 13, 'authored-women-in-acts': 8});
+    const sizes = Object.fromEntries(DEEP_WATERS.filter((p) => p.closed && !p.derived).map((p) => [p.id, p.answers.length]));
+    expect(sizes).toEqual({ councils: 21, rites: 24, apostles: 13, doctors: 38, ntbooks: 27, otbooks: 46, mysteries: 20, sacraments: 7, virtues: 7, 'deadly-sins': 7, gifts: 7, fruits: 12, 'corporal-works': 7, 'spiritual-works': 7, plagues: 10, 'sons-of-jacob': 12, 'minor-prophets': 12, pius: 12, 'popes-20c': 9, 'holy-days': 6, 'liturgical-seasons': 5, 'seven-churches': 7 , 'authored-romans16-women': 10, 'authored-pauline-letters': 13, 'authored-women-in-acts': 8});
     for (const p of DEEP_WATERS.filter((x) => x.closed)) expect(p.answers.length, p.id).toBe(p.closed);
   });
 
@@ -188,7 +188,8 @@ describe('Basilion suggestions and hints', () => {
     for (const p of DEEP_WATERS) {
       const h = deepHint(p);
       expect(h.length, p.id).toBeGreaterThan(20);
-      for (const a of p.answers.filter((x) => x.answer.length > 4)) expect(h.toLowerCase(), `${p.id} gives away ${a.answer}`).not.toContain(a.answer.toLowerCase());
+      // the hint is a fixed sentence with only a number, one letter and a length filled in: no answer's text is ever put into it
+      expect(h, p.id).toMatch(/^(There are exactly \d+ possible answers\.|Many answers are possible\.) One accepted answer begins with \u201c[^\u201d]\u201d and has \d+ letters\.$/);
     }
   });
 });

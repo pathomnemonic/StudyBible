@@ -122,7 +122,7 @@ describe('the bank as a whole', () => {
 });
 
 describe('the daily schedule', () => {
-  const DAYS = 366;
+  const DAYS = 2 * cycleLength(DEEP_WATERS.length) + 10; // two full cycles and a few days over, so a question's second appearance is seen
   const days = Array.from({ length: DAYS }, (_, i) => dailyDeepPrompts(20000 + i));
   it('gives seven different questions every day', () => {
     for (const [i, d] of days.entries()) { expect(d, `day ${i}`).toHaveLength(DAILY_SIZE); expect(new Set(d.map((p) => p.id)).size, `day ${i}`).toBe(DAILY_SIZE); }
@@ -138,6 +138,7 @@ describe('the daily schedule', () => {
     days.forEach((d, i) => { for (const p of d) { const j = last.get(p.id); if (j !== undefined && i - j < gap) tooSoon.push(`${p.id} on day ${j} and ${i}`); last.set(p.id, i); } });
     expect(tooSoon).toEqual([]);
     expect(gap).toBeGreaterThanOrEqual(8);
+    expect(gap, 'a question may not come back within a year').toBeGreaterThanOrEqual(365);
   });
   it('spreads each family: no day has more than its share of places or saints questions', () => {
     const per = (f: string) => DEEP_WATERS.filter((p) => familyOf(p.id) === f).length;
@@ -154,12 +155,17 @@ describe('the daily schedule', () => {
     for (const d of days) { const c: Record<string, number> = {}; d.forEach((p) => (c[p.theme] = (c[p.theme] ?? 0) + 1)); if (Math.max(...Object.values(c)) > 3) crowded++; }
     expect(crowded).toBeLessThanOrEqual(DAYS * 0.03);
   });
-  it('uses the whole bank over a year, and each question about the same number of times', () => {
+  it('uses the whole bank in one cycle, every question once, and none comes back within a year', () => {
+    const cycle = cycleLength(DEEP_WATERS.length);
     const uses = new Map<string, number>();
-    for (const d of days) for (const p of d) uses.set(p.id, (uses.get(p.id) ?? 0) + 1);
+    for (const d of days.slice(0, cycle)) for (const p of d) uses.set(p.id, (uses.get(p.id) ?? 0) + 1);
     expect(uses.size).toBe(DEEP_WATERS.length);
-    const counts = [...uses.values()];
-    expect(Math.max(...counts) - Math.min(...counts)).toBeLessThanOrEqual(3);
+    expect(Math.max(...uses.values())).toBe(1);
+    // no question is repeated in any 365 consecutive days, so a player never sees the same question twice in a year
+    const lastSeen = new Map<string, number>();
+    const repeats: string[] = [];
+    days.forEach((d, i) => { for (const p of d) { const j = lastSeen.get(p.id); if (j !== undefined && i - j < 365) repeats.push(`${p.id}: day ${j} and day ${i}`); lastSeen.set(p.id, i); } });
+    expect(repeats).toEqual([]);
   });
   it('handles any day number, including ones far away and before the epoch', () => {
     for (const d of [0, 1, 365, 20000, 99999, 1_000_000, -1, -400]) expect(dailyDeepPrompts(d), String(d)).toHaveLength(DAILY_SIZE);

@@ -2,7 +2,7 @@
  * Curated Catholic knowledge prompts for Deep Waters.
  *
  * Two kinds of prompt:
- *  - `closed`: the set is finite and the list below is the whole set (the 21 ecumenical councils, the 24 Churches sui iuris, the 37 Doctors of
+ *  - `closed`: the set is finite and the list below is the whole set (the 21 ecumenical councils, the 24 Churches sui iuris, the 38 Doctors of
  *    the Church, the books of the Bible...). `tests/deepWaters.test.ts` checks each count, so an answer that is true cannot be missing.
  *  - open: the set has no end (religious orders, Marian titles, saints, devotions). The list is large but cannot be complete, so the game says
  *    "not on our list" for an unlisted answer, never "wrong".
@@ -29,12 +29,17 @@ export interface DeepPrompt {
   closed?: number;
   /** words that carry no meaning for this prompt and are ignored when matching ("council" in "Council of Trent") */
   ignore?: string[];
+  /** set on a question that was worked out from a complete list by a rule (see src/lib/deepWatersDerive.ts); `pool` names the list */
+  derived?: { pool: string; kind: string };
 }
 
 import { MORE_PROMPTS } from './deepWatersMore';
 import { AUTHORED_PROMPTS } from './deepWatersAuthored';
 import { LONG_LIST_PROMPTS } from './deepWatersLongLists';
 import GENERATED_PROMPTS from './deepWaters.generated.json';
+import { materialize, type DerivedEntry } from '../lib/deepWatersDerive';
+import DERIVED_ENTRIES from './deepWaters.derived.json';
+import { buildPools } from './deepWatersPools';
 
 type Row = [name: string, tier: DeepTier, aliases?: string];
 const rows = (list: Row[]): DeepAnswer[] => list.map(([answer, tier, a]) => ({ answer, tier, ...(a ? { aliases: a.split('|') } : {}) }));
@@ -217,14 +222,14 @@ const CORE_PROMPTS: Omit<DeepPrompt, 'theme'>[] = [
   {
     id: 'doctors',
     prompt: 'Name a Doctor of the Church.',
-    context: 'The Church has named 37 Doctors, saints whose teaching has been of special benefit to the whole Church. The most recent, Saint Irenaeus of Lyons, was named in 2022.',
-    closed: 37,
+    context: 'The Church has named 38 Doctors, saints whose teaching has been of special benefit to the whole Church. The most recent, Saint John Henry Newman, was named in 2025.',
+    closed: 38,
     answers: rows([
       ['Thomas Aquinas', 1, 'Aquinas|Saint Thomas Aquinas|Thomas of Aquino|Angelic Doctor'], ['Augustine of Hippo', 1, 'Augustine|Saint Augustine'], ['Jerome', 1, 'Saint Jerome'], ['Ambrose of Milan', 1, 'Ambrose'], ['Gregory the Great', 1, 'Gregory I|Pope Gregory I'], ['Teresa of Avila', 1, 'Teresa of Jesus|Saint Teresa of Avila|Teresa of Ávila'], ['Therese of Lisieux', 1, 'Thérèse of Lisieux|Little Flower|Saint Therese|Therese of the Child Jesus|Thérèse of the Child Jesus'],
       ['Catherine of Siena', 1, 'Saint Catherine of Siena'], ['John of the Cross', 2, 'Saint John of the Cross|Juan de la Cruz'], ['Francis de Sales', 2, 'Saint Francis de Sales'], ['Bonaventure', 2, 'Saint Bonaventure|Seraphic Doctor'], ['John Chrysostom', 2, 'Chrysostom'], ['Basil the Great', 2, 'Basil|Basil of Caesarea'], ['Athanasius of Alexandria', 2, 'Athanasius'], ['Gregory Nazianzen', 3, 'Gregory of Nazianzus'],
       ['Alphonsus Liguori', 2, 'Alphonsus de Liguori|Alphonsus|Saint Alphonsus Liguori|Alphonsus Maria de Liguori'], ['Anselm', 2, 'Anselm of Canterbury|Saint Anselm'], ['Bernard of Clairvaux', 2, 'Bernard|Saint Bernard'], ['Albert the Great', 2, 'Albertus Magnus|Albert Magnus|Saint Albert the Great'], ['Antony of Padua', 2, 'Anthony of Padua|Saint Anthony of Padua|Anthony|Antony|Saint Anthony'], ['Robert Bellarmine', 3, 'Bellarmine'],
       ['Peter Canisius', 3, 'Canisius'], ['Hilary of Poitiers', 4, 'Hilary'], ['Cyril of Alexandria', 3], ['Cyril of Jerusalem', 3], ['John of Damascus', 4, 'John Damascene'], ['Ephrem the Syrian', 3, 'Ephrem|Ephraem'], ['Leo the Great', 2, 'Leo I|Pope Leo I'], ['Peter Chrysologus', 4], ['Isidore of Seville', 3, 'Isidore'], ['Bede the Venerable', 3, 'Bede|Venerable Bede'],
-      ['Peter Damian', 4, 'Peter Damiani'], ['Lawrence of Brindisi', 4, 'Laurence of Brindisi'], ['Hildegard of Bingen', 3, 'Hildegard'], ['John of Avila', 4, 'Juan de Avila|John of Ávila'], ['Gregory of Narek', 5, 'Gregory of Narekatsi|Grigor Narekatsi'], ['Irenaeus of Lyons', 3, 'Irenaeus'],
+      ['Peter Damian', 4, 'Peter Damiani'], ['Lawrence of Brindisi', 4, 'Laurence of Brindisi'], ['Hildegard of Bingen', 3, 'Hildegard'], ['John of Avila', 4, 'Juan de Avila|John of Ávila'], ['Gregory of Narek', 5, 'Gregory of Narekatsi|Grigor Narekatsi'], ['John Henry Newman', 3, 'Newman|Saint John Henry Newman|Cardinal Newman'], ['Irenaeus of Lyons', 3, 'Irenaeus'],
     ]),
   },
   {
@@ -273,5 +278,23 @@ const CORE_THEMES: Record<string, DeepTheme> = {
 };
 const core: DeepPrompt[] = CORE_PROMPTS.map((p) => ({ ...p, theme: CORE_THEMES[p.id] ?? 'doctrine' }));
 
-/** Every prompt: the first fifteen written by hand, the second group written by hand, and the groups generated from the app's own data (see scripts/deepwaters). */
-export const DEEP_WATERS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...LONG_LIST_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[])];
+/** the hand-written and generated questions, before the derived ones */
+export const BASE_PROMPTS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...LONG_LIST_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[])];
+
+/**
+ * How many questions the bank holds: 370 days of seven. A question comes back no sooner than a whole cycle (370 days) minus four days, so no question is
+ * ever repeated within a year, leap years included. The questions after the hand-written and generated ones are derived by rule (see
+ * src/lib/deepWatersDerive.ts and src/data/deepWatersPools.ts) up to this size, with no theme holding more than a quarter of the bank.
+ */
+export const BANK_SIZE = 370 * 7;
+const THEME_SHARE = 0.24;
+export const themeCaps = (() => {
+  const held: Record<string, number> = {};
+  for (const p of BASE_PROMPTS) held[p.theme] = (held[p.theme] ?? 0) + 1;
+  const cap: Record<string, number> = {};
+  for (const t of ['scripture', 'saints', 'church-history', 'liturgy', 'doctrine', 'devotion', 'places', 'art-music', 'people']) cap[t] = Math.floor(BANK_SIZE * THEME_SHARE) - (held[t] ?? 0);
+  return cap;
+})();
+
+/** Every prompt: the hand-written groups, the groups generated from the app's own data (see scripts/deepwaters), and the questions derived by rule from complete lists. */
+export const DEEP_WATERS: DeepPrompt[] = [...BASE_PROMPTS, ...materialize(buildPools(BASE_PROMPTS), DERIVED_ENTRIES as DerivedEntry[])];

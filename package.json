@@ -32,7 +32,8 @@
     "graph": "tsx scripts/graph/build.ts",
     "deepwaters:build": "tsx scripts/deepwaters/build.ts",
     "deepwaters:review": "tsx scripts/deepwaters/review.ts",
-    "deepwaters:report": "tsx scripts/deepwaters/review.ts --report"
+    "deepwaters:report": "tsx scripts/deepwaters/review.ts --report",
+    "deepwaters:derive": "tsx scripts/deepwaters/derive.ts"
   },
   "dependencies": {
     "@fontsource-variable/fredoka": "^5.3.0",

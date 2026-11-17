@@ -13,16 +13,22 @@ const FILE = new URL('../../src/data/deepWaters.review.json', import.meta.url).p
 interface Entry { id: string; sha256: string; answers: number; status: 'unreviewed' | 'reviewed'; reviewedBy?: string; reviewedOn?: string; notes?: string }
 const hashOf = (p: (typeof DEEP_WATERS)[number]) => createHash('sha256').update(JSON.stringify({ id: p.id, prompt: p.prompt, closed: p.closed ?? null, ignore: p.ignore ?? [], answers: p.answers })).digest('hex');
 const prev: Entry[] = existsSync(FILE) ? (JSON.parse(readFileSync(FILE, 'utf8')) as { entries: Entry[] }).entries : [];
-const entries: Entry[] = DEEP_WATERS.map((p) => {
-  const h = hashOf(p);
-  const old = prev.find((e) => e.id === p.id);
-  return old && old.sha256 === h ? old : { id: p.id, sha256: h, answers: p.answers.length, status: 'unreviewed' as const };
-});
+const keep = (id: string, h: string, answers: number): Entry => {
+  const old = prev.find((e) => e.id === id);
+  return old && old.sha256 === h ? old : { id, sha256: h, answers, status: 'unreviewed' as const };
+};
+// a question worked out by rule from a list is checked by checking its list and its rules (src/data/deepWatersPools.ts), so each list has one record, not each question
+const byPool = new Map<string, (typeof DEEP_WATERS)[number][]>();
+for (const p of DEEP_WATERS) if (p.derived) (byPool.get(p.derived.pool) ?? byPool.set(p.derived.pool, []).get(p.derived.pool)!).push(p);
+const entries: Entry[] = [
+  ...DEEP_WATERS.filter((p) => !p.derived).map((p) => keep(p.id, hashOf(p), p.answers.length)),
+  ...[...byPool].sort(([a], [b]) => a.localeCompare(b)).map(([pool, list]) => keep(`derived:${pool}`, createHash('sha256').update(JSON.stringify(list.map((p) => [p.id, p.prompt, p.answers.map((a) => a.answer + a.tier)]))).digest('hex'), list.length)),
+];
 const text = JSON.stringify({ about: 'Review records for the Deep Waters questions. A question whose answers or tiers change is unreviewed again. See scripts/deepwaters/review.ts.', entries }, null, 1) + '\n';
 
 if (process.argv.includes('--report')) {
   const answers = DEEP_WATERS.reduce((n, p) => n + p.answers.length, 0);
-  console.log(`${DEEP_WATERS.length} questions, ${answers} answers; ${entries.filter((e) => e.status === 'reviewed').length} reviewed, ${entries.filter((e) => e.status === 'unreviewed').length} unreviewed`);
+  console.log(`${DEEP_WATERS.length} questions (${DEEP_WATERS.filter((p) => p.derived).length} derived by rule from ${byPool.size} lists), ${answers} answers; ${entries.filter((e) => e.status === 'reviewed').length} reviewed, ${entries.filter((e) => e.status === 'unreviewed').length} unreviewed`);
   const themes: Record<string, number> = {};
   for (const p of DEEP_WATERS) themes[p.theme] = (themes[p.theme] ?? 0) + 1;
   console.log('by theme:', Object.entries(themes).map(([t, n]) => `${t} ${n}`).join(', '));
