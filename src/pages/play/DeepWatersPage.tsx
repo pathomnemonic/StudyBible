@@ -99,7 +99,7 @@ export default function DeepWatersPage() {
       paused: isPaused, pearlAnswer,
       pearlFound,
     });
-  }, [today, practice, practiceSeed, prompts, round, done, locked, score, history, guess, seconds, isPaused]);
+  }, [today, practice, practiceSeed, prompts, round, done, locked, score, history, guess, seconds, isPaused, preview]);
 
   const reset = (nextPractice = practice) => {
     clearDeepSession();
