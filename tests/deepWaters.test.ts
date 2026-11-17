@@ -25,6 +25,24 @@ describe('Deep Waters content and rules', () => {
     expect(c.map((p) => p.id)).not.toEqual(a.map((p) => p.id));
   });
 
+  it('simulates 365 days with unique daily prompts and balanced bank rotation', () => {
+    const counts = new Map(DEEP_WATERS.map((p) => [p.id, 0]));
+    let previous = new Set<string>();
+    for (let day = 1; day <= 365; day++) {
+      const current = dailyDeepPrompts(day);
+      const ids = current.map((p) => p.id);
+      expect(new Set(ids).size, `duplicate on day ${day}`).toBe(DEEP_ROUNDS);
+      for (const id of ids) counts.set(id, (counts.get(id) ?? 0) + 1);
+      if (day > 1) {
+        const overlap = ids.filter((id) => previous.has(id)).length;
+        expect(overlap).toBe(Math.max(0, DEEP_ROUNDS * 2 - DEEP_WATERS.length));
+      }
+      previous = new Set(ids);
+    }
+    const frequencies = [...counts.values()];
+    expect(Math.max(...frequencies) - Math.min(...frequencies)).toBeLessThanOrEqual(1);
+  });
+
   it('practice sets are reproducible without changing the daily set', () => {
     expect(practiceDeepPrompts(123)).toEqual(practiceDeepPrompts(123));
     expect(dailyDeepPrompts(123)).not.toEqual(practiceDeepPrompts(123));
