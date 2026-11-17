@@ -89,7 +89,7 @@ describe('Deep Waters content and rules', () => {
       }
       if (prompt.answerMode === 'closed') {
         expect(prompt.context, prompt.id).toMatch(new RegExp('count: ' + prompt.answers.length + '\\.', 'i'));
-        expect(prompt.source, prompt.id).toMatch(/authority:|sources?:/i);
+        expect(prompt.source, prompt.id).toMatch(/authorit(?:y|ies):|sources?:/i);
       } else {
         expect(prompt.answerMode).toBe('open');
         expect(prompt.answers.length, prompt.id).toBeGreaterThanOrEqual(60);
@@ -101,11 +101,11 @@ describe('Deep Waters content and rules', () => {
     }
     for (let i = 0; i < authored.length; i++) {
       for (let j = i + 1; j < authored.length; j++) {
-        const a = new Set(authored[i].answers.map((x) => normalizeDeepAnswer(x.answer)));
-        const b = new Set(authored[j].answers.map((x) => normalizeDeepAnswer(x.answer)));
+        const a = new Set(authored[i].answers.flatMap((x) => [x.answer, ...(x.aliases ?? [])].map(normalizeDeepAnswer)));
+        const b = new Set(authored[j].answers.flatMap((x) => [x.answer, ...(x.aliases ?? [])].map(normalizeDeepAnswer)));
         const intersection = [...a].filter((x) => b.has(x)).length;
-        const jaccard = intersection / (a.size + b.size - intersection);
-        expect(jaccard, authored[i].id + ' / ' + authored[j].id).toBeLessThanOrEqual(0.2);
+        const overlap = intersection / Math.min(a.size, b.size);
+        expect(overlap, authored[i].id + ' / ' + authored[j].id).toBeLessThanOrEqual(0.2);
       }
     }
   });
