@@ -2,32 +2,32 @@
   {
     "id": "authored-pauline-coworkers",
     "theme": "Acts and Paul",
-    "prompt": "Name a person named in Paul's closing greetings in Colossians or 2 Timothy.",
-    "context": "Limit answers to people named in Colossians 4:7–18 or 2 Timothy 4:9–22; count: 17.",
+    "prompt": "Name a person named in Paul's closing greetings in Colossians.",
+    "context": "Limit answers to people named in Colossians 4:7–18; count: 10.",
     "hint": "Look through Acts and the closing greetings of Romans, Colossians, and 2 Timothy.",
-    "source": "Hand-authored closed key; sources: Colossians 4:7–18; 2 Timothy 4:9–22.",
+    "source": "Hand-authored closed key; source: Colossians 4:7–18. Count: 10.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
         "answer": "Tychicus",
         "tier": 2,
-        "source": "Colossians 4:7; 2 Timothy 4:12"
+        "source": "Colossians 4:7–18"
       },
       {
         "answer": "Onesimus",
         "tier": 2,
-        "source": "Colossians 4:9"
+        "source": "Colossians 4:7–18"
       },
       {
         "answer": "Aristarchus",
         "tier": 3,
-        "source": "Colossians 4:10"
+        "source": "Colossians 4:7–18"
       },
       {
         "answer": "Mark",
         "tier": 1,
-        "source": "Colossians 4:10; 2 Timothy 4:11",
+        "source": "Colossians 4:7–18",
         "aliases": [
           "John Mark"
         ]
@@ -35,67 +35,32 @@
       {
         "answer": "Jesus Justus",
         "tier": 5,
-        "source": "Colossians 4:11"
+        "source": "Colossians 4:7–18"
       },
       {
         "answer": "Epaphras",
         "tier": 2,
-        "source": "Colossians 4:12"
+        "source": "Colossians 4:7–18"
       },
       {
         "answer": "Luke",
         "tier": 1,
-        "source": "Colossians 4:14; 2 Timothy 4:11"
+        "source": "Colossians 4:7–18"
       },
       {
         "answer": "Demas",
         "tier": 3,
-        "source": "Colossians 4:14; 2 Timothy 4:10"
+        "source": "Colossians 4:7–18"
       },
       {
         "answer": "Nympha",
         "tier": 5,
-        "source": "Colossians 4:15"
+        "source": "Colossians 4:7–18"
       },
       {
         "answer": "Archippus",
         "tier": 4,
-        "source": "Colossians 4:17"
-      },
-      {
-        "answer": "Crescens",
-        "tier": 5,
-        "source": "2 Timothy 4:10"
-      },
-      {
-        "answer": "Titus",
-        "tier": 1,
-        "source": "2 Timothy 4:10"
-      },
-      {
-        "answer": "Carpus",
-        "tier": 5,
-        "source": "2 Timothy 4:13"
-      },
-      {
-        "answer": "Alexander",
-        "tier": 3,
-        "source": "2 Timothy 4:14"
-      },
-      {
-        "answer": "Eubulus",
-        "tier": 6,
-        "source": "2 Timothy 4:21"
-      },
-      {
-        "answer": "Pudens",
-        "tier": 6,
-        "source": "2 Timothy 4:21"
-      },
-      {
-        "answer": "Linus",
-        "tier": 5,
-        "source": "2 Timothy 4:21"
+        "source": "Colossians 4:7–18"
       }
     ],
     "commonGuesses": [
@@ -125,29 +90,29 @@
         "answer": "Luke"
       },
       {
-        "guess": "Peter",
-        "accept": false,
-        "reason": "Not named in the two specified closing-greeting passages."
-      },
-      {
         "guess": "Barnabas",
         "accept": false,
-        "reason": "Not named in Colossians 4 or 2 Timothy 4."
+        "reason": "Not named in Colossians 4:7–18."
       },
       {
         "guess": "Silas",
         "accept": false,
-        "reason": "Not named in the two specified passages."
+        "reason": "Not named in Colossians 4:7–18."
       },
       {
         "guess": "Timothy",
         "accept": false,
-        "reason": "A co-worker elsewhere, but not a separate name in the two specified closing lists."
+        "reason": "Not named in this closing-greeting passage."
       },
       {
         "guess": "Priscilla",
         "accept": false,
-        "reason": "Not named in either specified closing-greeting passage."
+        "reason": "Not named in Colossians 4:7–18."
+      },
+      {
+        "guess": "Linus",
+        "accept": false,
+        "reason": "Named in 2 Timothy, not in the specified Colossians passage."
       }
     ]
   },
@@ -2264,33 +2229,12 @@
     "id": "authored-early-martyrs",
     "theme": "Early Church",
     "prompt": "Which Christians are remembered as martyrs of the early Church before the conversion of Constantine?",
-    "context": "Use identifiable early Christian martyrs before Constantine; exclude ambiguous names without clear historical identification; count: 21.",
+    "context": "Include identifiable pre-Constantinian Christian martyrs whose deaths are not narrated in Acts; exclude ambiguous Marcellinus; count: 19.",
     "hint": "Look beyond the apostles to bishops, deacons, and lay Christians whose martyrdoms shaped early Christian memory.",
-    "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+    "source": "Hand-authored closed key; sources: Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyr acts and patristic witnesses. Count: 19.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
-      {
-        "answer": "Stephen",
-        "tier": 1,
-        "aliases": [
-          "Stephen the Protomartyr",
-          "Saint Stephen",
-          "St Stephen",
-          "St. Stephen"
-        ],
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
-      },
-      {
-        "answer": "James son of Zebedee",
-        "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
-        "aliases": [
-          "Saint James son of Zebedee",
-          "St James son of Zebedee",
-          "St. James son of Zebedee"
-        ]
-      },
       {
         "answer": "Ignatius of Antioch",
         "tier": 1,
@@ -2487,9 +2431,9 @@
     ],
     "commonGuesses": [
       {
-        "guess": "Stephen",
+        "guess": "Ignatius of Antioch",
         "accept": true,
-        "answer": "Stephen"
+        "answer": "Ignatius of Antioch"
       },
       {
         "guess": "Polycarp",
@@ -2497,9 +2441,9 @@
         "answer": "Polycarp of Smyrna"
       },
       {
-        "guess": "Ignatius of Antioch",
+        "guess": "Justin Martyr",
         "accept": true,
-        "answer": "Ignatius of Antioch"
+        "answer": "Justin Martyr"
       },
       {
         "guess": "Perpetua",
@@ -2514,7 +2458,17 @@
       {
         "guess": "Marcellinus",
         "accept": false,
-        "reason": "The name is ambiguous without a clear identification, so it is deliberately excluded."
+        "reason": "The name is ambiguous without a clear historical identification, so it is deliberately excluded."
+      },
+      {
+        "guess": "Stephen",
+        "accept": false,
+        "reason": "His martyrdom is narrated in Acts, which this prompt excludes."
+      },
+      {
+        "guess": "James son of Zebedee",
+        "accept": false,
+        "reason": "His death is narrated in Acts, which this prompt excludes."
       },
       {
         "guess": "Joan of Arc",
@@ -2525,16 +2479,6 @@
         "guess": "Thomas Becket",
         "accept": false,
         "reason": "He is a medieval martyr."
-      },
-      {
-        "guess": "Maximilian Kolbe",
-        "accept": false,
-        "reason": "He is a modern martyr."
-      },
-      {
-        "guess": "Oscar Romero",
-        "accept": false,
-        "reason": "He is a modern martyr."
       }
     ]
   },
@@ -3553,11 +3497,6 @@
         "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
-        "answer": "Regina Caeli",
-        "tier": 3,
-        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
-      },
-      {
         "answer": "Lectio Divina",
         "tier": 3,
         "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
@@ -3933,6 +3872,15 @@
         "tier": 6,
         "source": "Ancient Marian prayer; Roman liturgical tradition",
         "aliases": []
+      },
+      {
+        "answer": "Prayer to Saint Christopher",
+        "tier": 4,
+        "source": "Traditional Catholic devotion to St Christopher",
+        "aliases": [
+          "St Christopher Prayer",
+          "Saint Christopher Prayer"
+        ]
       }
     ],
     "commonGuesses": [
@@ -3985,6 +3933,11 @@
         "guess": "Gloria in Excelsis",
         "accept": false,
         "reason": "A Mass hymn, not included in this curated answer key."
+      },
+      {
+        "guess": "Prayer to Saint Christopher",
+        "accept": true,
+        "answer": "Prayer to Saint Christopher"
       }
     ]
   },
@@ -5439,10 +5392,10 @@
   {
     "id": "batch2-marian-dogmas",
     "theme": "Mariology",
-    "prompt": "Name one of the four dogmas concerning the Blessed Virgin Mary.",
-    "context": "Use the four dogmas formally defined or taught as Marian dogmas in Catholic doctrine; count: 4.",
+    "prompt": "Name one of the three Marian dogmas other than the Assumption.",
+    "context": "Use the dogmas of divine motherhood, perpetual virginity, and the Immaculate Conception; count: 3.",
     "hint": "One concerns Mary's beginning; another concerns her end of earthly life.",
-    "source": "Hand-authored closed key; authority: CCC 487–511; Ineffabilis Deus; Munificentissimus Deus; Lumen gentium 52–69. Count: 4.",
+    "source": "Hand-authored closed key; authority: CCC 487–511; Ineffabilis Deus; Lumen gentium 52–69. Count: 3.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
@@ -5467,14 +5420,6 @@
         "answer": "Immaculate Conception",
         "tier": 1,
         "source": "CCC 487–511; Ineffabilis Deus; Munificentissimus Deus; Lumen gentium 52–69"
-      },
-      {
-        "answer": "Assumption",
-        "tier": 1,
-        "source": "CCC 487–511; Ineffabilis Deus; Munificentissimus Deus; Lumen gentium 52–69",
-        "aliases": [
-          "Assumption of Mary"
-        ]
       }
     ],
     "commonGuesses": [
@@ -5495,13 +5440,28 @@
       },
       {
         "guess": "Assumption",
-        "accept": true,
-        "answer": "Assumption"
+        "accept": false,
+        "reason": "The prompt explicitly excludes the Assumption."
+      },
+      {
+        "guess": "Perpetual Help",
+        "accept": false,
+        "reason": "A Marian devotional title, not a dogma."
+      },
+      {
+        "guess": "Queen of Heaven",
+        "accept": false,
+        "reason": "A Marian title, not one of the three dogmas in this prompt."
+      },
+      {
+        "guess": "Mother of the Church",
+        "accept": false,
+        "reason": "An official Marian title, not one of the three dogmas in this prompt."
       },
       {
         "guess": "Mediatrix",
         "accept": false,
-        "reason": "A theological title, not one of the four defined dogmas."
+        "reason": "A theological title, not one of the three dogmas."
       },
       {
         "guess": "Co-redemptrix",
@@ -5509,24 +5469,9 @@
         "reason": "Not a defined Marian dogma."
       },
       {
-        "guess": "Queen of Heaven",
+        "guess": "Our Lady of Guadalupe",
         "accept": false,
-        "reason": "A Marian title, not one of the four dogmas."
-      },
-      {
-        "guess": "Mother of the Church",
-        "accept": false,
-        "reason": "An official title, not one of the four dogmas."
-      },
-      {
-        "guess": "Perpetual Help",
-        "accept": false,
-        "reason": "A devotional title, not a dogma."
-      },
-      {
-        "guess": "Divine Mercy",
-        "accept": false,
-        "reason": "A devotion, not a Marian dogma."
+        "reason": "A Marian apparition title, not a dogma."
       }
     ]
   },
@@ -5833,102 +5778,86 @@
     ]
   },
   {
-    "id": "batch2-latin-fathers",
+    "id": "batch2-latin-apologists",
     "theme": "Church Fathers",
-    "prompt": "Name one of the four traditional great Latin Church Fathers.",
-    "context": "Use the traditional four great Latin Fathers of the Western Church; count: 4.",
-    "hint": "Their writings helped shape the theology and liturgy of the Western Church.",
-    "source": "Hand-authored closed key; authority: Traditional patristic classification; Roman Martyrology; Catholic Encyclopedia, Fathers of the Church. Count: 4.",
+    "prompt": "Name one of four pre-Augustinian Latin Christian apologists.",
+    "context": "Use Tertullian, Minucius Felix, Arnobius, and Lactantius; count: 4.",
+    "hint": "Their works defended Christianity against pagan criticism.",
+    "source": "Hand-authored closed key; authorities: Tertullian, Apologeticus; Minucius Felix, Octavius; Arnobius, Adversus Nationes; Lactantius, Divine Institutes. Count: 4.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
-        "answer": "Ambrose",
+        "answer": "Tertullian",
         "tier": 1,
-        "source": "Traditional patristic classification; Roman Martyrology; Catholic Encyclopedia, Fathers of the Church",
-        "aliases": [
-          "Saint Ambrose",
-          "St Ambrose"
-        ]
+        "source": "Tertullian, Apologeticus"
       },
       {
-        "answer": "Augustine",
-        "tier": 1,
-        "source": "Traditional patristic classification; Roman Martyrology; Catholic Encyclopedia, Fathers of the Church",
-        "aliases": [
-          "Augustine of Hippo",
-          "St Augustine"
-        ]
+        "answer": "Minucius Felix",
+        "tier": 4,
+        "source": "Minucius Felix, Octavius"
       },
       {
-        "answer": "Jerome",
-        "tier": 1,
-        "source": "Traditional patristic classification; Roman Martyrology; Catholic Encyclopedia, Fathers of the Church",
-        "aliases": [
-          "Saint Jerome",
-          "St Jerome"
-        ]
+        "answer": "Arnobius",
+        "tier": 5,
+        "source": "Arnobius, Adversus Nationes"
       },
       {
-        "answer": "Gregory the Great",
-        "tier": 1,
-        "source": "Traditional patristic classification; Roman Martyrology; Catholic Encyclopedia, Fathers of the Church",
-        "aliases": [
-          "Pope Gregory I",
-          "St Gregory the Great"
-        ]
+        "answer": "Lactantius",
+        "tier": 3,
+        "source": "Lactantius, Divine Institutes"
       }
     ],
     "commonGuesses": [
       {
-        "guess": "Ambrose",
+        "guess": "Tertullian",
         "accept": true,
-        "answer": "Ambrose"
+        "answer": "Tertullian"
+      },
+      {
+        "guess": "Minucius Felix",
+        "accept": true,
+        "answer": "Minucius Felix"
+      },
+      {
+        "guess": "Arnobius",
+        "accept": true,
+        "answer": "Arnobius"
+      },
+      {
+        "guess": "Lactantius",
+        "accept": true,
+        "answer": "Lactantius"
       },
       {
         "guess": "Augustine",
-        "accept": true,
-        "answer": "Augustine"
+        "accept": false,
+        "reason": "A later Doctor of the Church, not one of the four named apologists."
       },
       {
         "guess": "Jerome",
-        "accept": true,
-        "answer": "Jerome"
+        "accept": false,
+        "reason": "A Doctor of the Church, not one of the four named apologists."
       },
       {
-        "guess": "Gregory the Great",
-        "accept": true,
-        "answer": "Gregory the Great"
+        "guess": "Ambrose",
+        "accept": false,
+        "reason": "A Doctor of the Church, not one of the four named apologists."
       },
       {
         "guess": "Athanasius",
         "accept": false,
-        "reason": "One of the great Greek Fathers."
+        "reason": "A Greek theologian, not one of the four Latin apologists."
       },
       {
-        "guess": "Basil",
+        "guess": "Cyprian",
         "accept": false,
-        "reason": "A Greek Father."
-      },
-      {
-        "guess": "John Chrysostom",
-        "accept": false,
-        "reason": "A Greek Father."
-      },
-      {
-        "guess": "Gregory Nazianzen",
-        "accept": false,
-        "reason": "A Greek Father."
+        "reason": "A bishop and martyr, not one of the four apologists in this key."
       },
       {
         "guess": "Origen",
         "accept": false,
-        "reason": "An important early theologian, not one of the four Latin Fathers."
-      },
-      {
-        "guess": "Origen",
-        "accept": false,
-        "reason": "An early theologian, not one of the four traditional Latin Fathers."
+        "reason": "A Greek Christian writer, not one of the four Latin apologists."
       }
     ]
   },
@@ -6985,163 +6914,178 @@
     ]
   },
   {
-    "id": "batch2-carmelite-doctors",
+    "id": "batch2-order-founders",
     "theme": "Saints and religious orders",
-    "prompt": "Name one of the three Doctors of the Church from the Carmelite tradition.",
-    "context": "Use the three Carmelite saints formally proclaimed Doctors of the Church; count: 3.",
-    "hint": "Two share the same first name.",
-    "source": "Hand-authored closed key; authority: Vatican declarations of Teresa of Ávila (1970), John of the Cross (1990), and Thérèse of Lisieux (1997). Count: 3.",
+    "prompt": "Name the founder of one of four major Catholic religious orders.",
+    "context": "Use the founders of the Franciscans, Dominicans, Jesuits, and Christian Brothers; count: 4.",
+    "hint": "The four founders lived in different centuries and served different apostolates.",
+    "source": "Hand-authored closed key; authorities: Franciscan Order history; Dominican Order history; Society of Jesus history; De La Salle Institute history. Count: 4.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
-        "answer": "Teresa of Avila",
+        "answer": "Francis of Assisi",
         "tier": 1,
-        "source": "Paul VI, Multiformis Sapientia (1970)",
+        "source": "Franciscan Order, history"
+      },
+      {
+        "answer": "Dominic",
+        "tier": 1,
+        "source": "Order of Preachers, history",
         "aliases": [
-          "Saint Teresa of Avila",
-          "St Teresa of Avila",
-          "Teresa of Jesus"
+          "Saint Dominic",
+          "St Dominic",
+          "Dominic de Guzman"
         ]
       },
       {
-        "answer": "John of the Cross",
+        "answer": "Ignatius of Loyola",
         "tier": 2,
-        "source": "John Paul II, Magister in Fide (1990)",
+        "source": "Society of Jesus, history",
         "aliases": [
-          "Saint John of the Cross",
-          "St John of the Cross",
-          "Juan de la Cruz"
+          "Saint Ignatius of Loyola",
+          "St Ignatius"
         ]
       },
       {
-        "answer": "Therese of Lisieux",
-        "tier": 1,
-        "source": "John Paul II, Divini Amoris Scientia (1997)",
+        "answer": "John Baptist De La Salle",
+        "tier": 4,
+        "source": "De La Salle Institute, history",
         "aliases": [
-          "Saint Therese of Lisieux",
-          "St Therese of Lisieux",
-          "The Little Flower",
-          "Thérèse of Lisieux"
+          "Saint John Baptist de La Salle",
+          "St John Baptist de La Salle"
         ]
       }
     ],
     "commonGuesses": [
       {
-        "guess": "Teresa of Avila",
+        "guess": "Francis of Assisi",
         "accept": true,
-        "answer": "Teresa of Avila"
+        "answer": "Francis of Assisi"
       },
       {
-        "guess": "John of the Cross",
+        "guess": "Dominic",
         "accept": true,
-        "answer": "John of the Cross"
+        "answer": "Dominic"
       },
       {
-        "guess": "The Little Flower",
+        "guess": "Ignatius of Loyola",
         "accept": true,
-        "answer": "Therese of Lisieux"
+        "answer": "Ignatius of Loyola"
       },
       {
-        "guess": "Teresa Benedicta",
-        "accept": false,
-        "reason": "A Doctor of the Church, but not from the Carmelite tradition."
-      },
-      {
-        "guess": "Catherine of Siena",
-        "accept": false,
-        "reason": "A Doctor of the Church, but not a Carmelite."
-      },
-      {
-        "guess": "Hildegard of Bingen",
-        "accept": false,
-        "reason": "A Doctor of the Church, but not a Carmelite."
+        "guess": "John Baptist de La Salle",
+        "accept": true,
+        "answer": "John Baptist De La Salle"
       },
       {
         "guess": "Benedict of Nursia",
         "accept": false,
-        "reason": "A monastic founder, not a Carmelite Doctor."
-      },
-      {
-        "guess": "John Henry Newman",
-        "accept": false,
-        "reason": "A Doctor of the Church, but not a Carmelite."
-      },
-      {
-        "guess": "John of Avila",
-        "accept": false,
-        "reason": "A Doctor of the Church, but not a Carmelite."
+        "reason": "Founder of the Benedictine monastic tradition, not one of the four orders specified."
       },
       {
         "guess": "Catherine of Siena",
         "accept": false,
-        "reason": "A Doctor of the Church, but not from the Carmelite tradition."
+        "reason": "A Dominican tertiary, not the founder of the Dominican Order."
+      },
+      {
+        "guess": "Teresa of Avila",
+        "accept": false,
+        "reason": "A Carmelite reformer, not the founder of one of the four listed orders."
+      },
+      {
+        "guess": "Philip Neri",
+        "accept": false,
+        "reason": "Founder of the Oratory, not one of the four orders listed."
+      },
+      {
+        "guess": "John Bosco",
+        "accept": false,
+        "reason": "Founder of the Salesians, not one of the four orders listed."
+      },
+      {
+        "guess": "Peter Nolasco",
+        "accept": false,
+        "reason": "Founder of the Mercedarians, not one of the four orders listed."
       }
     ]
   },
   {
-    "id": "batch2-july-doctors",
+    "id": "batch2-july-14-saints",
     "theme": "Saints and feast days",
-    "prompt": "Name one of the three Doctors of the Church whose Roman-calendar feast falls in July.",
-    "context": "Use the Roman General Calendar dates for the three Doctors commemorated in July; count: 3.",
-    "hint": "Their memorials fall in the middle and final third of the month.",
-    "source": "Hand-authored closed key; authority: General Roman Calendar; Roman Martyrology. Count: 3.",
+    "prompt": "Name one of three saints commemorated on July 14 in Vatican and United States calendars.",
+    "context": "Use St Camillus de Lellis, St Kateri Tekakwitha, and St Francis Solano; count: 3.",
+    "hint": "One founded an order devoted to care of the sick; another is the first Native American saint.",
+    "source": "Hand-authored closed key; authorities: Vatican News, Saint of the Day (14 July); US proper calendar; Roman Martyrology. Count: 3.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
-        "answer": "Bonaventure",
+        "answer": "Camillus de Lellis",
+        "tier": 2,
+        "source": "Vatican News, Saint of the Day, 14 July",
+        "aliases": [
+          "Saint Camillus de Lellis",
+          "St Camillus",
+          "Camillo de Lellis"
+        ]
+      },
+      {
+        "answer": "Kateri Tekakwitha",
         "tier": 1,
-        "source": "Roman General Calendar, July 15",
+        "source": "US Proper Calendar, July 14",
         "aliases": [
-          "Saint Bonaventure",
-          "St Bonaventure"
+          "Saint Kateri Tekakwitha",
+          "St Kateri",
+          "Catherine Tekakwitha"
         ]
       },
       {
-        "answer": "Lawrence of Brindisi",
-        "tier": 3,
-        "source": "Roman General Calendar, July 21",
-        "aliases": [
-          "Saint Lawrence of Brindisi",
-          "St Lawrence of Brindisi"
-        ]
-      },
-      {
-        "answer": "Peter Chrysologus",
+        "answer": "Francis Solano",
         "tier": 4,
-        "source": "Roman General Calendar, July 30",
+        "source": "Roman Martyrology, July 14",
         "aliases": [
-          "Saint Peter Chrysologus",
-          "St Peter Chrysologus"
+          "Saint Francis Solano",
+          "St Francis Solano",
+          "Francisco Solano"
         ]
       }
     ],
     "commonGuesses": [
       {
+        "guess": "Camillus de Lellis",
+        "accept": true,
+        "answer": "Camillus de Lellis"
+      },
+      {
+        "guess": "Kateri Tekakwitha",
+        "accept": true,
+        "answer": "Kateri Tekakwitha"
+      },
+      {
+        "guess": "Francis Solano",
+        "accept": true,
+        "answer": "Francis Solano"
+      },
+      {
         "guess": "Bonaventure",
-        "accept": true,
-        "answer": "Bonaventure"
-      },
-      {
-        "guess": "Lawrence of Brindisi",
-        "accept": true,
-        "answer": "Lawrence of Brindisi"
-      },
-      {
-        "guess": "Peter Chrysologus",
-        "accept": true,
-        "answer": "Peter Chrysologus"
-      },
-      {
-        "guess": "Thomas Aquinas",
         "accept": false,
-        "reason": "His memorial is January 28."
+        "reason": "His memorial is July 15, not July 14."
       },
       {
-        "guess": "John of the Cross",
+        "guess": "Benedict of Nursia",
         "accept": false,
-        "reason": "His memorial is December 14."
+        "reason": "His memorial is July 11."
+      },
+      {
+        "guess": "Mary Magdalene",
+        "accept": false,
+        "reason": "Her feast is July 22."
+      },
+      {
+        "guess": "Thomas the Apostle",
+        "accept": false,
+        "reason": "His feast is July 3."
       },
       {
         "guess": "Catherine of Siena",
@@ -7149,24 +7093,14 @@
         "reason": "Her memorial is April 29."
       },
       {
-        "guess": "Therese of Lisieux",
-        "accept": false,
-        "reason": "Her memorial is October 1."
-      },
-      {
-        "guess": "Ambrose",
-        "accept": false,
-        "reason": "His memorial is December 7."
-      },
-      {
-        "guess": "Thomas Aquinas",
-        "accept": false,
-        "reason": "His Roman-calendar memorial is in January, not July."
-      },
-      {
         "guess": "John of the Cross",
         "accept": false,
-        "reason": "His Roman-calendar memorial is in December, not July."
+        "reason": "His memorial is December 14."
+      },
+      {
+        "guess": "Peter Chrysologus",
+        "accept": false,
+        "reason": "His memorial is July 30."
       }
     ]
   },
