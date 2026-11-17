@@ -3323,7 +3323,7 @@
       },
       {
         "answer": "Liturgy of the Hours",
-        "tier": 1,
+        "tier": 2,
         "aliases": [
           "Divine Office"
         ],
@@ -3336,27 +3336,27 @@
       },
       {
         "answer": "Regina Caeli",
-        "tier": 2,
+        "tier": 3,
         "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Lectio Divina",
-        "tier": 1,
+        "tier": 3,
         "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "Eucharistic adoration",
-        "tier": 1,
-        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
-      },
-      {
-        "answer": "Benediction",
         "tier": 2,
         "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
+        "answer": "Benediction",
+        "tier": 3,
+        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
+      },
+      {
         "answer": "Stations of the Cross",
-        "tier": 1,
+        "tier": 2,
         "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
@@ -3374,25 +3374,10 @@
       },
       {
         "answer": "Ignatian examen",
-        "tier": 3,
+        "tier": 4,
         "aliases": [
           "Examen"
         ],
-        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
-      },
-      {
-        "answer": "Jesus Prayer",
-        "tier": 2,
-        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
-      },
-      {
-        "answer": "Memorare",
-        "tier": 2,
-        "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
-      },
-      {
-        "answer": "Act of Contrition",
-        "tier": 1,
         "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
@@ -3407,17 +3392,17 @@
       },
       {
         "answer": "Seven Sorrows Rosary",
-        "tier": 3,
+        "tier": 4,
         "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "First Fridays devotion",
-        "tier": 3,
+        "tier": 4,
         "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
         "answer": "First Saturdays devotion",
-        "tier": 3,
+        "tier": 4,
         "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy."
       },
       {
@@ -3447,7 +3432,7 @@
       },
       {
         "answer": "Glory Be",
-        "tier": 1,
+        "tier": 2,
         "aliases": [
           "Glory to the Father",
           "Gloria Patri"
@@ -3464,7 +3449,7 @@
       },
       {
         "answer": "Apostles' Creed",
-        "tier": 1,
+        "tier": 3,
         "aliases": [
           "Apostles Creed"
         ],
@@ -3472,7 +3457,7 @@
       },
       {
         "answer": "Nicene Creed",
-        "tier": 2,
+        "tier": 3,
         "aliases": [
           "Niceno-Constantinopolitan Creed"
         ],
@@ -3480,7 +3465,7 @@
       },
       {
         "answer": "Come Holy Spirit",
-        "tier": 2,
+        "tier": 4,
         "aliases": [
           "Veni Sancte Spiritus"
         ],
@@ -3488,16 +3473,18 @@
       },
       {
         "answer": "Anima Christi",
-        "tier": 2,
+        "tier": 5,
         "source": "Traditional post-Communion prayer",
         "aliases": [
+          "Soul of Christ",
+          "Soul of Christ Prayer",
           "Soul of Christ",
           "Soul of Christ Prayer"
         ]
       },
       {
         "answer": "Prayer to Saint Michael",
-        "tier": 2,
+        "tier": 5,
         "aliases": [
           "St Michael Prayer",
           "Saint Michael Prayer"
@@ -3506,12 +3493,12 @@
       },
       {
         "answer": "Memorare",
-        "tier": 2,
+        "tier": 3,
         "source": "Traditional Marian prayer"
       },
       {
         "answer": "Angel of God",
-        "tier": 3,
+        "tier": 4,
         "aliases": [
           "Guardian Angel Prayer"
         ],
@@ -3519,27 +3506,27 @@
       },
       {
         "answer": "Act of Faith",
-        "tier": 3,
+        "tier": 4,
         "source": "Traditional acts of faith, hope, and charity"
       },
       {
         "answer": "Act of Hope",
-        "tier": 3,
+        "tier": 4,
         "source": "Traditional acts of faith, hope, and charity"
       },
       {
         "answer": "Act of Charity",
-        "tier": 3,
+        "tier": 4,
         "source": "Traditional acts of faith, hope, and charity"
       },
       {
         "answer": "Act of Contrition",
-        "tier": 1,
+        "tier": 2,
         "source": "Order of Penance; CCC 1451"
       },
       {
         "answer": "Prayer Before Meals",
-        "tier": 2,
+        "tier": 4,
         "aliases": [
           "Grace before meals"
         ],
@@ -3547,12 +3534,12 @@
       },
       {
         "answer": "Prayer After Meals",
-        "tier": 4,
+        "tier": 5,
         "source": "Roman Missal; traditional Catholic table prayers"
       },
       {
         "answer": "Come Creator Spirit",
-        "tier": 3,
+        "tier": 4,
         "aliases": [
           "Veni Creator Spiritus"
         ],
@@ -3560,7 +3547,7 @@
       },
       {
         "answer": "O Come Emmanuel",
-        "tier": 2,
+        "tier": 5,
         "aliases": [
           "Veni Emmanuel"
         ],
@@ -3568,7 +3555,7 @@
       },
       {
         "answer": "Te Deum",
-        "tier": 2,
+        "tier": 3,
         "aliases": [
           "Te Deum Laudamus"
         ],
@@ -3576,25 +3563,17 @@
       },
       {
         "answer": "Tantum Ergo",
-        "tier": 2,
+        "tier": 4,
         "source": "Pange Lingua; Roman Eucharistic liturgy"
       },
       {
         "answer": "O Salutaris Hostia",
-        "tier": 3,
+        "tier": 4,
         "source": "Traditional Eucharistic hymn"
       },
       {
-        "answer": "Soul of Christ",
-        "tier": 6,
-        "aliases": [
-          "Anima Christi"
-        ],
-        "source": "Traditional post-Communion prayer"
-      },
-      {
         "answer": "Prayer of Saint Francis",
-        "tier": 6,
+        "tier": 5,
         "aliases": [
           "Make me a channel"
         ],
@@ -3615,7 +3594,7 @@
       },
       {
         "answer": "Jesus Prayer",
-        "tier": 2,
+        "tier": 3,
         "aliases": [
           "Lord Jesus Christ prayer"
         ],
@@ -3639,17 +3618,17 @@
       },
       {
         "answer": "Prayer for the Dead",
-        "tier": 3,
+        "tier": 5,
         "source": "2 Maccabees 12:44–46; CCC 958"
       },
       {
         "answer": "Prayer for Vocations",
-        "tier": 4,
+        "tier": 5,
         "source": "Papal and diocesan vocation prayer tradition"
       },
       {
         "answer": "Prayer to Saint Joseph",
-        "tier": 3,
+        "tier": 5,
         "aliases": [
           "St Joseph Prayer"
         ],
@@ -3657,7 +3636,7 @@
       },
       {
         "answer": "Prayer to Saint Jude",
-        "tier": 4,
+        "tier": 5,
         "aliases": [
           "St Jude Prayer"
         ],
@@ -3665,7 +3644,7 @@
       },
       {
         "answer": "Prayer to Saint Anthony",
-        "tier": 4,
+        "tier": 5,
         "aliases": [
           "St Anthony Prayer"
         ],
@@ -3673,7 +3652,7 @@
       },
       {
         "answer": "Prayer to Saint Rita",
-        "tier": 6,
+        "tier": 5,
         "aliases": [
           "St Rita Prayer"
         ],
@@ -3689,17 +3668,17 @@
       },
       {
         "answer": "Prayer for the Sick",
-        "tier": 4,
+        "tier": 5,
         "source": "CCC 1509; Roman Ritual"
       },
       {
         "answer": "Prayer for the Dying",
-        "tier": 4,
+        "tier": 5,
         "source": "Order of Christian Funerals; CCC 1520–1523"
       },
       {
         "answer": "Prayer of the Faithful",
-        "tier": 2,
+        "tier": 4,
         "aliases": [
           "Universal Prayer"
         ],
@@ -3707,11 +3686,35 @@
       },
       {
         "answer": "Eternal Rest",
-        "tier": 6,
+        "tier": 4,
         "aliases": [
           "Requiem aeternam"
         ],
         "source": "Roman Missal; Order of Christian Funerals"
+      },
+      {
+        "answer": "Magnificat",
+        "tier": 3,
+        "source": "Luke 1:46–55; Liturgy of the Hours",
+        "aliases": []
+      },
+      {
+        "answer": "Benedictus",
+        "tier": 5,
+        "source": "Luke 1:68–79; Liturgy of the Hours",
+        "aliases": []
+      },
+      {
+        "answer": "Nunc Dimittis",
+        "tier": 6,
+        "source": "Luke 2:29–32; Liturgy of the Hours",
+        "aliases": []
+      },
+      {
+        "answer": "Sub Tuum Praesidium",
+        "tier": 6,
+        "source": "Ancient Marian prayer; Roman liturgical tradition",
+        "aliases": []
       }
     ],
     "commonGuesses": [
@@ -3741,29 +3744,29 @@
         "answer": "Sign of the Cross"
       },
       {
-        "guess": "Memorare",
-        "accept": true,
-        "answer": "Memorare"
+        "guess": "Benediction",
+        "accept": false,
+        "reason": "A liturgical blessing, not a prayer text or devotional prayer title in the key."
       },
       {
-        "guess": "Stations of the Cross",
-        "accept": true,
-        "answer": "Stations of the Cross"
+        "guess": "Lectio Divina",
+        "accept": false,
+        "reason": "A method of prayer, not a prayer text by title."
       },
       {
-        "guess": "Angelus",
-        "accept": true,
-        "answer": "Angelus"
+        "guess": "Confiteor",
+        "accept": false,
+        "reason": "A liturgical penitential text not included in this curated open answer key."
       },
       {
-        "guess": "Apostles' Creed",
-        "accept": true,
-        "answer": "Apostles' Creed"
+        "guess": "Kyrie Eleison",
+        "accept": false,
+        "reason": "A liturgical acclamation, not one of the prayer titles selected in this key."
       },
       {
-        "guess": "Divine Mercy Chaplet",
-        "accept": true,
-        "answer": "Divine Mercy Chaplet"
+        "guess": "Gloria in Excelsis",
+        "accept": false,
+        "reason": "A Mass hymn, not included in this curated answer key."
       }
     ]
   },
@@ -4207,12 +4210,12 @@
     "answers": [
       {
         "answer": "The seven lampstands",
-        "tier": 1,
+        "tier": 2,
         "source": "Revelation 1:12,20"
       },
       {
         "answer": "The seven stars",
-        "tier": 1,
+        "tier": 2,
         "source": "Revelation 1:16,20"
       },
       {
@@ -4222,17 +4225,17 @@
       },
       {
         "answer": "The four living creatures",
-        "tier": 1,
+        "tier": 2,
         "source": "Revelation 4:6–8"
       },
       {
         "answer": "The twenty-four elders",
-        "tier": 1,
+        "tier": 2,
         "source": "Revelation 4:4"
       },
       {
         "answer": "Scroll with Seven Seals",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 5:1",
         "aliases": [
           "The scroll with seven seals"
@@ -4258,12 +4261,12 @@
       },
       {
         "answer": "Michael and his angels",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 12:7"
       },
       {
         "answer": "Beast from Sea",
-        "tier": 1,
+        "tier": 2,
         "source": "Revelation 13:1",
         "aliases": [
           "The beast from the sea"
@@ -4271,7 +4274,7 @@
       },
       {
         "answer": "Beast from Earth",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 13:11",
         "aliases": [
           "The beast from the earth"
@@ -4279,7 +4282,7 @@
       },
       {
         "answer": "Image of Beast",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 13:14–15",
         "aliases": [
           "The image of the beast"
@@ -4287,12 +4290,12 @@
       },
       {
         "answer": "The number 666",
-        "tier": 1,
+        "tier": 2,
         "source": "Revelation 13:18"
       },
       {
         "answer": "The two witnesses",
-        "tier": 1,
+        "tier": 2,
         "source": "Revelation 11:3"
       },
       {
@@ -4302,7 +4305,7 @@
       },
       {
         "answer": "The great harlot Babylon",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 17:1–5"
       },
       {
@@ -4312,7 +4315,7 @@
       },
       {
         "answer": "River of Life",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 22:1",
         "aliases": [
           "The river of the water of life"
@@ -4320,12 +4323,12 @@
       },
       {
         "answer": "The tree of life",
-        "tier": 1,
+        "tier": 3,
         "source": "Revelation 22:2"
       },
       {
         "answer": "Son of Man Figure",
-        "tier": 2,
+        "tier": 4,
         "source": "Revelation 1:12–16",
         "aliases": [
           "The one like a son of man"
@@ -4333,12 +4336,12 @@
       },
       {
         "answer": "The sharp two-edged sword",
-        "tier": 3,
+        "tier": 4,
         "source": "Revelation 1:16; 2:12"
       },
       {
         "answer": "Seven Fire Torches",
-        "tier": 3,
+        "tier": 4,
         "source": "Revelation 4:5",
         "aliases": [
           "The seven torches of fire"
@@ -4346,12 +4349,12 @@
       },
       {
         "answer": "The sea of glass",
-        "tier": 2,
+        "tier": 4,
         "source": "Revelation 4:6; 15:2"
       },
       {
         "answer": "The golden altar",
-        "tier": 3,
+        "tier": 4,
         "source": "Revelation 8:3"
       },
       {
@@ -4361,7 +4364,7 @@
       },
       {
         "answer": "Souls Beneath Altar",
-        "tier": 3,
+        "tier": 5,
         "source": "Revelation 6:9",
         "aliases": [
           "The souls beneath the altar"
@@ -4369,7 +4372,7 @@
       },
       {
         "answer": "Rainbow-Crowned Angel",
-        "tier": 6,
+        "tier": 5,
         "source": "Revelation 10:1",
         "aliases": [
           "The angel with the rainbow"
@@ -4377,12 +4380,12 @@
       },
       {
         "answer": "The little scroll",
-        "tier": 5,
+        "tier": 4,
         "source": "Revelation 10:2–10"
       },
       {
         "answer": "The measuring rod",
-        "tier": 5,
+        "tier": 4,
         "source": "Revelation 11:1"
       },
       {
@@ -4392,22 +4395,22 @@
       },
       {
         "answer": "The iron rod",
-        "tier": 3,
+        "tier": 4,
         "source": "Revelation 12:5; 19:15"
       },
       {
         "answer": "The eagle in midheaven",
-        "tier": 6,
+        "tier": 5,
         "source": "Revelation 8:13"
       },
       {
         "answer": "The abyss",
-        "tier": 2,
+        "tier": 4,
         "source": "Revelation 9:1–2"
       },
       {
         "answer": "Key of Abyss",
-        "tier": 4,
+        "tier": 5,
         "source": "Revelation 9:1; 20:1",
         "aliases": [
           "The key of the abyss"
@@ -4415,7 +4418,7 @@
       },
       {
         "answer": "The locust army",
-        "tier": 3,
+        "tier": 4,
         "source": "Revelation 9:3–11"
       },
       {
@@ -4425,12 +4428,12 @@
       },
       {
         "answer": "The two olive trees",
-        "tier": 5,
+        "tier": 4,
         "source": "Revelation 11:4"
       },
       {
         "answer": "The two lampstands",
-        "tier": 5,
+        "tier": 4,
         "source": "Revelation 11:4"
       },
       {
@@ -4440,7 +4443,7 @@
       },
       {
         "answer": "Woman in Wilderness",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 12:6,14",
         "aliases": [
           "The woman in the wilderness"
@@ -4448,17 +4451,17 @@
       },
       {
         "answer": "The seven heads",
-        "tier": 3,
+        "tier": 4,
         "source": "Revelation 12:3; 13:1"
       },
       {
         "answer": "The ten horns",
-        "tier": 3,
+        "tier": 4,
         "source": "Revelation 12:3; 13:1"
       },
       {
         "answer": "Beast's Mark",
-        "tier": 1,
+        "tier": 3,
         "source": "Revelation 13:16–18",
         "aliases": [
           "The mark of the beast"
@@ -4466,7 +4469,7 @@
       },
       {
         "answer": "Beast's Name",
-        "tier": 3,
+        "tier": 4,
         "source": "Revelation 13:17",
         "aliases": [
           "The name of the beast"
@@ -4499,7 +4502,7 @@
       },
       {
         "answer": "The white horse rider",
-        "tier": 1,
+        "tier": 3,
         "source": "Revelation 19:11"
       },
       {
@@ -4512,7 +4515,7 @@
       },
       {
         "answer": "The armies of heaven",
-        "tier": 2,
+        "tier": 5,
         "source": "Revelation 19:14"
       },
       {
@@ -4522,12 +4525,12 @@
       },
       {
         "answer": "The lake of fire",
-        "tier": 1,
+        "tier": 3,
         "source": "Revelation 19:20; 20:14"
       },
       {
         "answer": "The great white throne",
-        "tier": 2,
+        "tier": 5,
         "source": "Revelation 20:11"
       },
       {
@@ -4537,12 +4540,12 @@
       },
       {
         "answer": "The book of life",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 20:12,15"
       },
       {
         "answer": "The second death",
-        "tier": 2,
+        "tier": 5,
         "source": "Revelation 20:14; 21:8"
       },
       {
@@ -4555,7 +4558,7 @@
       },
       {
         "answer": "First Trumpet Hail",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 8:7",
         "aliases": [
           "First trumpet: hail and fire"
@@ -4563,7 +4566,7 @@
       },
       {
         "answer": "Second Trumpet Mountain",
-        "tier": 3,
+        "tier": 4,
         "source": "Revelation 8:8–9",
         "aliases": [
           "Second trumpet: burning mountain"
@@ -4571,7 +4574,7 @@
       },
       {
         "answer": "Third Trumpet Wormwood",
-        "tier": 3,
+        "tier": 5,
         "source": "Revelation 8:10–11",
         "aliases": [
           "Third trumpet: Wormwood"
@@ -4579,7 +4582,7 @@
       },
       {
         "answer": "Fourth Trumpet Darkness",
-        "tier": 3,
+        "tier": 6,
         "source": "Revelation 8:12",
         "aliases": [
           "Fourth trumpet: darkened heavens"
@@ -4587,7 +4590,7 @@
       },
       {
         "answer": "Fifth Trumpet Locusts",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 9:1–11",
         "aliases": [
           "Fifth trumpet: locusts"
@@ -4603,11 +4606,19 @@
       },
       {
         "answer": "Seventh Trumpet Kingdom",
-        "tier": 2,
+        "tier": 6,
         "source": "Revelation 11:15–19",
         "aliases": [
           "Seventh trumpet: kingdom proclaimed"
         ]
+      },
+      {
+        "answer": "Seven Trumpets",
+        "tier": 1,
+        "aliases": [
+          "The seven trumpets"
+        ],
+        "source": "Revelation 8:2–11:19"
       }
     ],
     "commonGuesses": [
@@ -4632,34 +4643,34 @@
         "answer": "Beast from Sea"
       },
       {
-        "guess": "The New Jerusalem",
-        "accept": true,
-        "answer": "The New Jerusalem"
-      },
-      {
         "guess": "The seven trumpets",
         "accept": true,
-        "answer": "First Trumpet Hail"
-      },
-      {
-        "guess": "The Antichrist",
-        "accept": false,
-        "reason": "A later theological label, not an image named in Revelation's text."
+        "answer": "Seven Trumpets"
       },
       {
         "guess": "Purgatory",
         "accept": false,
-        "reason": "Not an image or figure explicitly depicted in Revelation."
-      },
-      {
-        "guess": "The Assumption",
-        "accept": false,
-        "reason": "A Catholic dogma, not a distinct image in Revelation's visions."
+        "reason": "Not a distinct image depicted in Revelation's visions."
       },
       {
         "guess": "The Rosary",
         "accept": false,
         "reason": "A later devotional prayer, not an image in Revelation."
+      },
+      {
+        "guess": "The Assumption",
+        "accept": false,
+        "reason": "A Marian dogma, not a symbolic image in Revelation."
+      },
+      {
+        "guess": "The Stations of the Cross",
+        "accept": false,
+        "reason": "A later devotional sequence, not an image in Revelation."
+      },
+      {
+        "guess": "The Trinity",
+        "accept": false,
+        "reason": "A central Christian doctrine, but not a discrete vision-image answer in this prompt."
       }
     ]
   },
