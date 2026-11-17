@@ -549,3 +549,9 @@ html[data-arcade] .charades-btns .btn { min-height: 62px; font-size: 1.3rem; }
 .dw-results .dw-log li b { font-family: var(--font-display); font-weight: 400; font-size: 0.78rem; }
 .dw-results .dw-log li small { color: var(--muted); font-size: 0.7rem; margin-top: 3px; }
 @keyframes arc-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+/* on a wide screen the app's navigation is a rail down the left side: its edge, not a bar across the bottom */
+@media (min-width: 900px) {
+  html[data-arcade] .tabs { border-top: 0; border-right: 3px solid #ffd23f; background: linear-gradient(90deg, #2f1a86, #1c0e5c); box-shadow: 8px 0 24px rgba(10, 4, 40, 0.5); }
+  html[data-arcade] .brand { color: #fff; }
+}
