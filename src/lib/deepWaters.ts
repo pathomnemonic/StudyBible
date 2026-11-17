@@ -20,5 +20,5 @@ export function dailyDeepPrompts(day: number): DeepPrompt[] {
   return shuffled(DEEP_WATERS, seeded(day + 78031)).slice(0, DEEP_ROUNDS);
 }
 export function practiceDeepPrompts(seed: number): DeepPrompt[] {
-  return shuffled(DEEP_WATERS, seeded(seed + 78031)).slice(0, DEEP_ROUNDS);
+  return shuffled(DEEP_WATERS, seeded(seed + 99173)).slice(0, DEEP_ROUNDS);
 }
