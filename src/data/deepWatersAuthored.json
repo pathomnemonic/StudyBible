@@ -7041,8 +7041,8 @@
   {
     "id": "batch2-july-14-saints",
     "theme": "Saints and feast days",
-    "prompt": "Name one of three saints commemorated on July 14 in Vatican and United States calendars.",
-    "context": "Use St Camillus de Lellis, St Kateri Tekakwitha, and St Francis Solano; count: 3.",
+    "prompt": "Name one of three saints commemorated on July 14 in Catholic calendars.",
+    "context": "Use saints whose memorial or feast falls on July 14 in Vatican, United States, or Roman Martyrology sources; count: 3.",
     "hint": "The trio includes a hospital reformer, a North American convert, and a Franciscan missionary.",
     "source": "Hand-authored closed key; authorities: Vatican News, Saint of the Day (14 July); US proper calendar; Roman Martyrology. Count: 3.",
     "status": "draft",
