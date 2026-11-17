@@ -4,8 +4,16 @@ import {
   resumeDeepSession, tickDeepSession,
 } from '../src/lib/deepWatersSession';
 
+const memory = new Map<string, string>();
+vi.stubGlobal('localStorage', {
+  getItem: (key: string) => memory.get(key) ?? null,
+  setItem: (key: string, value: string) => { memory.set(key, value); },
+  removeItem: (key: string) => { memory.delete(key); },
+  clear: () => memory.clear(),
+});
+
 describe('Deep Waters daily engine', () => {
-  afterEach(() => { vi.restoreAllMocks(); localStorage.clear(); });
+  afterEach(() => { vi.restoreAllMocks(); memory.clear(); });
 
   it('starts with a three-second preview before the answer clock', () => {
     const session = createDeepSession({ day: 20, practice: false, practiceSeed: 1, promptIds: ['a','b','c','d','e','f','g'], now: 1000 });
@@ -40,9 +48,9 @@ describe('Deep Waters daily engine', () => {
 
   it('records daily results once per day and computes consecutive-day streaks', () => {
     const entries = recordDeepDive({ day: 100, score: 18, scoredRounds: 3, totalRounds: 7, pearlFound: false, practice: false });
-    recordDeepDive({ day: 101, score: 25, scoredRounds: 4, totalRounds: 7, pearlFound: true, practice: false });
-    expect(deepDiveStreak(entries, 101)).toBe(2);
-    expect(deepDiveStreak(entries, 103)).toBe(0);
+    const next = recordDeepDive({ day: 101, score: 25, scoredRounds: 4, totalRounds: 7, pearlFound: true, practice: false });
+    expect(deepDiveStreak(next, 101)).toBe(2);
+    expect(deepDiveStreak(next, 103)).toBe(0);
   });
 
   it('does not add practice dives to the logbook', () => {
