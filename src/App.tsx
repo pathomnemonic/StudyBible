@@ -324,6 +324,8 @@ export default function App() {
   const loc = useLocation();
   const [spell] = useSettings();
   useSpelling(spell.spelling);
+  // the games take a moment to load their own look; until then the screen is already the arcade's colour instead of flashing the app's
+  useEffect(() => { const on = loc.pathname === '/play' || loc.pathname.startsWith('/play/'); if (on) document.documentElement.dataset.arcadePre = '1'; else delete document.documentElement.dataset.arcadePre; }, [loc.pathname]);
   useEffect(() => {
     // a page chunk that no longer exists (the app was updated under an open tab): reload once to get the new one
     const h = (e: Event) => { e.preventDefault(); try { const k = 'sb-reloaded'; const last = Number(sessionStorage.getItem(k) ?? 0); if (Date.now() - last > 60_000) { sessionStorage.setItem(k, String(Date.now())); location.reload(); } } catch { location.reload(); } };

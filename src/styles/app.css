@@ -6480,3 +6480,5 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .games-bar-link .gb-text strong { font-size: 1.1rem; text-shadow: 0 2px 0 rgba(0, 0, 0, 0.25); }
 .games-bar-link .gb-text small { opacity: 0.95; }
 .games-bar-link .games-menu-n { background: #ffd23f; color: #2a1700; font-weight: 700; }
+html[data-arcade-pre] body { background: #1a0b4d; color: #fff; }
+html[data-arcade-pre] .skeleton-list i { background: rgba(255, 255, 255, 0.12); }
