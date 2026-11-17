@@ -49,6 +49,7 @@ for (const prompt of authored) {
   if (prompt.answerMode === 'closed') {
     assert.match(prompt.context, new RegExp(`count: ${prompt.answers.length}\\.`, 'i'), `closed set count mismatch: ${prompt.id}`);
     assert.match(prompt.source ?? '', /authorit(?:y|ies):|sources?:/i, `closed set must name an authority: ${prompt.id}`);
+    if (prompt.answers.length >= 20) assert.equal(new Set(prompt.answers.map((answer) => answer.tier)).size, 6, `closed set with twenty or more answers must use all six tiers: ${prompt.id}`);
   } else {
     assert.ok(prompt.answers.length >= 60, `open prompt needs at least 60 answers: ${prompt.id}`);
     const counts = [1, 2, 3, 4, 5, 6].map((tier) => prompt.answers.filter((answer) => answer.tier === tier).length);
