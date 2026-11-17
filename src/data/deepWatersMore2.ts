@@ -344,8 +344,8 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
   },
   {
     id: 'liturgical-books', theme: 'liturgy', ignore: ['book'],
-    prompt: 'Name a book used in Catholic liturgy or the Divine Office.',
-    context: 'Includes official liturgical books and books used to provide readings, prayers or chant.',
+    prompt: 'Name an official liturgical book used in Catholic worship.',
+    context: 'Includes official Roman and Eastern Catholic liturgical books used to provide readings, prayers, rites or chant.',
     source: 'Vatican.va liturgical books; General Instruction of the Roman Missal; Catholic Encyclopedia (1913, public domain).',
     status: 'draft',
     answers: rows([
