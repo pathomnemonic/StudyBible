@@ -3,10 +3,10 @@ import CURRICULUM_PROMPTS_2 from './deepWatersCurriculum2.generated.json';
 import CURRICULUM_PROMPTS_3 from './deepWatersCurriculum3.generated.json';
 import CURRICULUM_PROMPTS_4 from './deepWatersCurriculum4.generated.json';
 import CURRICULUM_PROMPTS_5 from './deepWatersCurriculum5.generated.json';
-import SCRIPTURE_PROMPTS_1 from './deepWatersScripture1.generated.json';
-import SCRIPTURE_PROMPTS_2 from './deepWatersScripture2.generated.json';
-import SCRIPTURE_PROMPTS_3 from './deepWatersScripture3.generated.json';
-import SCRIPTURE_PROMPTS_4 from './deepWatersScripture4.generated.json';
+import SCRIPTURE_PROMPTS_1 from './deepWatersScripture1b.generated.json';
+import SCRIPTURE_PROMPTS_2 from './deepWatersScripture2b.generated.json';
+import SCRIPTURE_PROMPTS_3 from './deepWatersScripture3b.generated.json';
+import SCRIPTURE_PROMPTS_4 from './deepWatersScripture4b.generated.json';
 /** Curated Catholic knowledge prompts. Rarity is editorial game weighting, not population-survey data. */
 export type DeepTier = 1 | 2 | 3 | 4 | 5;
 export interface DeepAnswer { answer: string; tier: DeepTier; aliases?: string[] }
