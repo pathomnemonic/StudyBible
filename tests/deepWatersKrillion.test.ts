@@ -33,7 +33,7 @@ describe('Krillion-style Deep Waters expansion', () => {
   });
   it('deals every prompt exactly once across a 365-day cycle', () => {
     expect(DEEP_WATERS).toHaveLength(2555);
-    const dealt = Array.from({ length: 365 }, (_, day) => dailyDeepPrompts(40000 + day)).flat();
+    const dealt = Array.from({ length: 365 }, (_, day) => dailyDeepPrompts(40150 + day)).flat();
     expect(dealt).toHaveLength(2555);
     expect(new Set(dealt.map((p) => p.id)).size).toBe(2555);
   });
