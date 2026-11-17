@@ -39,6 +39,7 @@ export interface DeepLogEntry {
   totalRounds: number;
   pearlFound: boolean;
   practice: boolean;
+  completedAt?: string;
 }
 
 export function createDeepSession(args: {
