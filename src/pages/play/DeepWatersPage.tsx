@@ -4,6 +4,7 @@ import ShareButton from '../../components/ShareButton';
 import { dayIndex, isPractice, markDailyDone } from '../../lib/dailyGame';
 import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, deepHint, deepMissMessage, matchDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../../lib/deepWaters';
 import { clearDeepSession, deepDiveStreak, loadDeepLogbook, loadDeepSession, recordDeepDive, saveDeepSession } from '../../lib/deepWatersSession';
+import { clearDeepMisses, deepMissesText, loadDeepMisses, recordDeepMiss } from '../../lib/deepWatersMisses';
 import { DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
@@ -37,6 +38,8 @@ export default function DeepWatersPage() {
   const [showAnswers, setShowAnswers] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [showAllAnswers, setShowAllAnswers] = useState(false);
+  const [misses, setMisses] = useState(loadDeepMisses);
+  const [copied, setCopied] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
   useEffect(() => { if (!locked && !done) inputRef.current?.focus(); }, [round, locked, done]);
@@ -114,7 +117,10 @@ export default function DeepWatersPage() {
     const trimmed = guess.trim();
     if (!trimmed) { setFeedback('Type an answer before locking it in.'); return; }
     const match = matchDeepAnswer(prompt, trimmed);
-    if (match.status !== 'match') { setFeedback(deepMissMessage(prompt, match)); return; }
+    if (match.status !== 'match') {
+      if (match.status === 'none') setMisses(recordDeepMiss({ promptId: prompt.id, prompt: prompt.prompt, guess: trimmed }));
+      setFeedback(deepMissMessage(prompt, match)); return;
+    }
     const found = match.answer;
     const basePoints = DEEP_POINTS[found.tier];
     const pearlBonus = pearlAnswer && normalizeDeepAnswer(found.answer) === normalizeDeepAnswer(pearlAnswer) ? 5 : 0;
@@ -217,6 +223,11 @@ export default function DeepWatersPage() {
           {pearlFound && <p className="dw-pearl-bonus">You found the pearl of the day.</p>}
           <div className="dw-result-stats"><span><b>{history.filter((r) => r.points > 0).length}</b><small>ROUNDS SCORED</small></span><span><b>{Math.max(...history.map((r) => r.points), 0)}</b><small>BEST ROUND</small></span><span><b>{history.filter((r) => r.timedOut).length}</b><small>TIMEOUTS</small></span></div>
           <ol>{history.map((r, i) => <li key={i}><span>{r.prompt}</span><b>{r.points ? `+${r.points}` : '—'}</b><small>{r.answer ?? (r.timedOut ? 'Time expired' : 'No recognized answer')}</small></li>)}</ol>
+          {misses.length > 0 && <div className="dw-misses">
+            <p>{misses.length} answer{misses.length === 1 ? '' : 's'} you tried {misses.length === 1 ? 'is' : 'are'} not on our list. The list is not complete, so some may be right. They are kept only on this device.</p>
+            <button type="button" className="dw-hint-button" onClick={() => { void navigator.clipboard?.writeText(deepMissesText(misses)).then(() => setCopied(true)).catch(() => setCopied(false)); }}>{copied ? 'Copied' : 'Copy the list to send us'}</button>
+            <button type="button" className="dw-hint-button" onClick={() => { clearDeepMisses(); setMisses([]); setCopied(false); }}>Clear</button>
+          </div>}
           <div className="dw-actions"><ShareButton text={share} path="/play/deepwaters" label="Share result" className="btn" /><button className="dw-submit" onClick={() => reset(practice)}>Dive again ↗</button></div>
         </section>
       )}
