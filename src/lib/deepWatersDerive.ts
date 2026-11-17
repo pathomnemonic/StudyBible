@@ -30,6 +30,8 @@ export interface Pool {
   part?: 'name' | 'word' | 'phrase' | 'title';
   /** the answers end in a Roman numeral ("Pius XII", "Lateran IV"): the numeral is not counted as letters */
   numerals?: boolean;
+  /** no letter or length rules for this pool (its questions are about facts or about how lists overlap) */
+  noLetters?: boolean;
   /** how many questions this pool gives for each one a small pool gives (large pools get more) */
   weight?: number;
 }
@@ -112,8 +114,14 @@ const RULES = letterRules();
 /** how a question's answers are tested for "easy": enough of them are ones almost everyone would name */
 const easyEnough = (answers: DeepAnswer[], closed: boolean) => answers.filter((a) => a.tier <= 2).length >= (closed ? 2 : 3);
 
-export interface Limits { minOpen: number; minClosed: number; maxShare: number }
-export const LIMITS: Limits = { minOpen: 12, minClosed: 5, maxShare: 0.72 };
+/**
+ * The standard every letter or length question must meet (the same standard the hand-written questions were held to): an open list has at least 60 answers and
+ * a closed one at least 12; a list of 40 or more answers has at least five of the six rarity tiers, so there is a ladder to climb; and several answers are ones
+ * almost everyone would name. A question about a fact (a pope's era, the books of a group, the words two prayers share) may be smaller, but is held to the
+ * same ease and the same completeness.
+ */
+export interface Limits { minOpen: number; minClosed: number; maxShare: number; minFact: number; tiersFrom: number; tiersNeeded: number }
+export const LIMITS: Limits = { minOpen: 60, minClosed: 12, maxShare: 0.72, minFact: 12, tiersFrom: 40, tiersNeeded: 5 };
 
 const sig = (answers: DeepAnswer[]) => answers.map((a) => a.answer).sort().join('|');
 const similar = (a: Set<string>, b: Set<string>) => { let both = 0; for (const x of a) if (b.has(x)) both++; return both / (a.size + b.size - both); };
@@ -127,8 +135,9 @@ export function candidatesOf(pool: Pool): Candidate[] {
   const factFirst: Candidate[] = [];
   let accepted = 0;
   const consider = (kind: string, key: string, text: string, answers: DeepAnswer[], minOverride?: number, fact = false) => {
-    const min = minOverride ?? (pool.closed ? LIMITS.minClosed : LIMITS.minOpen);
+    const min = fact ? Math.max(minOverride ?? 0, LIMITS.minFact) : pool.closed ? LIMITS.minClosed : LIMITS.minOpen;
     if (answers.length < min || answers.length > total * LIMITS.maxShare) return;
+    if (!fact && answers.length >= LIMITS.tiersFrom && new Set(answers.map((a) => a.tier)).size < LIMITS.tiersNeeded) return;
     // letter rules must be easy (several answers almost everyone would name); a question about a fact need only have one reasonably familiar answer
     if (fact ? !answers.some((a) => a.tier <= 3) : !easyEnough(answers, pool.closed)) return;
     const names = new Set(answers.map((a) => a.answer));
@@ -150,7 +159,7 @@ export function candidatesOf(pool: Pool): Candidate[] {
   // a trailing Roman numeral ("XII" in "Pius XII") is part of how the answer is written, not of the name, so letters are counted without it
   const feats = pool.answers.map((a) => featOf(a.answer, pool.numerals ? a.answer.replace(/\s+[IVXL]+$/, '') : a.answer));
   const raw: { r: Raw; answers: DeepAnswer[] }[] = [];
-  for (const r of RULES) {
+  for (const r of pool.noLetters ? [] : RULES) {
     if (pool.part === 'word' && r.kind === 'words') continue;
     const answers: DeepAnswer[] = [];
     for (let i = 0; i < feats.length; i++) if (r.test(feats[i])) answers.push(pool.answers[i]);

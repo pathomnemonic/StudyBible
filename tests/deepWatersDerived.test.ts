@@ -1,7 +1,7 @@
 import { execSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
 import { BANK_SIZE, DEEP_WATERS } from '../src/data/deepWaters';
-import { buildPools } from '../src/data/deepWatersPools';
+import { TABLE_NAMES, buildPools } from '../src/data/deepWatersPools';
 import { matchDeepAnswer } from '../src/lib/deepWaters';
 import { cycleLength, familyOf } from '../src/lib/deepWatersSchedule';
 
@@ -70,8 +70,9 @@ describe('the questions derived by rule', () => {
       expect(p.prompt, p.id).toMatch(/^Name (a|an|one of) .+\.$/);
       const easy = p.answers.filter((a) => a.tier <= 2).length;
       expect(p.answers.some((a) => a.tier <= 3), p.id).toBe(true);
-      if (!['era', 'where', 'set', 'section', 'group', 'trade', 'mother', 'named', 'freq', 'decade'].includes(p.derived!.kind)) expect(easy, p.id).toBeGreaterThanOrEqual(p.closed ? 2 : 3);
-      expect(p.answers.length, p.id).toBeGreaterThanOrEqual(p.closed ? 4 : 12);
+      if (!['era', 'where', 'set', 'section', 'group', 'trade', 'mother', 'named', 'freq', 'decade', 'table'].includes(p.derived!.kind)) expect(easy, p.id).toBeGreaterThanOrEqual(p.closed ? 2 : 3);
+      expect(p.answers.length, p.id).toBeGreaterThanOrEqual(p.derived!.kind === 'freq' ? 4 : p.closed || ['table', 'era', 'group', 'section', 'where', 'named', 'set', 'decade'].includes(p.derived!.kind) ? 12 : 60);
+      if (p.answers.length >= 40 && !['table', 'era', 'group', 'section', 'where', 'named', 'set', 'decade', 'freq'].includes(p.derived!.kind)) expect(new Set(p.answers.map((a) => a.tier)).size, p.id).toBeGreaterThanOrEqual(5);
       if (p.closed) expect(p.closed, p.id).toBe(p.answers.length);
     }
   });
@@ -92,7 +93,7 @@ describe('the questions derived by rule', () => {
   });
   it('mark a question closed only when its whole list is the real-world set', () => {
     const closedPools = [...new Set(derived.filter((p) => p.closed).map((p) => p.derived!.pool))].sort();
-    expect(closedPools).toEqual(['apostles', 'apostles-creed', 'angel-of-god', 'act-of-contrition', 'anima-christi', 'beatitudes', 'bible-books', 'councils', 'doctors', 'glory-be', 'hail-holy-queen', 'hail-mary', 'magnificat', 'memorare', 'mysteries', 'our-father', 'popes-since-1500', 'psalm-23', 'rites', 'sons-of-jacob', 'st-michael', 'ten-commandments'].sort());
+    expect(closedPools).toEqual(['act-of-contrition', 'angel-of-god', 'anima-christi', 'apostles-creed', 'beatitudes', 'bible-books', 'councils', 'doctors', 'glory-be', 'hail-holy-queen', 'hail-mary', 'magnificat', 'memorare', 'mysteries', 'our-father', 'popes-since-1500', 'psalm-23', 'rites', 'st-michael', 'ten-commandments'].sort());
   });
   it('are accepted when a player types any of their answers, in any case', () => {
     const sample = derived.filter((_, i) => i % 37 === 0);
@@ -124,26 +125,15 @@ describe('the closed lists of words', () => {
 
 describe('the questions about facts', () => {
   const answersOf = (kind: string, key: string, pool: string) => derived.find((p) => p.derived!.pool === pool && p.id.endsWith(`.${kind}.${key}`))?.answers.map((a) => a.answer).sort();
-  it('popes by era and by name', () => {
-    expect(answersOf('era', '1950', 'popes-since-1500')).toEqual(['Benedict XVI', 'Francis', 'John Paul I', 'John Paul II', 'John XXIII', 'Leo XIV', 'Paul VI'].sort());
-    expect(answersOf('era', '1900', 'popes-since-1500')).toHaveLength(11);
-    expect(answersOf('named', 'pius', 'popes-since-1500')).toEqual(['Pius III', 'Pius IV', 'Pius V', 'Pius VI', 'Pius VII', 'Pius VIII', 'Pius IX', 'Pius X', 'Pius XI', 'Pius XII'].sort());
-  });
-  it('councils by era and place', () => {
-    expect(answersOf('where', 'rome', 'councils')).toEqual(['Lateran I', 'Lateran II', 'Lateran III', 'Lateran IV', 'Lateran V', 'Vatican I', 'Vatican II']);
-    expect(answersOf('era', 'before800', 'councils')).toEqual(['Chalcedon', 'Constantinople I', 'Constantinople II', 'Constantinople III', 'Ephesus', 'Nicaea I', 'Nicaea II'].sort());
-  });
-  it('books by group', () => {
-    expect(answersOf('group', 'pentateuch', 'bible-books')).toEqual(['Deuteronomy', 'Exodus', 'Genesis', 'Leviticus', 'Numbers']);
-    expect(answersOf('group', 'letters', 'bible-books')).toHaveLength(21);
-    expect(answersOf('group', 'general', 'bible-books')).toEqual(['1 John', '1 Peter', '2 John', '2 Peter', '3 John', 'Hebrews', 'James', 'Jude']);
+  it('popes since 1800 and the books of the prophets are the real sets', () => {
+    expect(answersOf('era', '1800', 'popes-since-1500')).toHaveLength(16);
     expect(answersOf('group', 'prophets', 'bible-books')).toHaveLength(18);
   });
-  it('the four sets of Rosary mysteries are five each', () => {
-    for (const set of ['joyful', 'luminous', 'sorrowful', 'glorious']) expect(answersOf('set', set, 'mysteries'), set).toHaveLength(5);
+  it('every name in a hand-written fact table is on its list', () => {
+    for (const t of TABLE_NAMES()) {
+      const have = new Set(pools.get(t.pool)!.answers.flatMap((a) => [a.answer, ...(a.aliases ?? [])]));
+      for (const n of t.names) expect(have.has(n), `${t.pool}: ${n}`).toBe(true);
+    }
   });
-  it('the words of a prayer, by how often they appear', () => {
-    expect(answersOf('freq', 'twice', 'our-father')).toEqual(expect.arrayContaining(['thy', 'us', 'forgive']));
-    expect(answersOf('freq', 'twice', 'our-father')).not.toContain('bread');
-  });
+
 });

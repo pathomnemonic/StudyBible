@@ -189,6 +189,148 @@ function bookFacts(): { facts: Facts; rules: FactRule[] } {
   };
 }
 
+
+/* ---------- hand-written facts about the answers of some lists (each name must be on its list: tests/deepWatersDerived.test.ts checks) ---------- */
+
+interface Table { tags: Record<string, string[]>; rules: [tag: string, text: string, min?: number][] }
+const TABLES: Record<string, Table> = {
+  doctors: {
+    tags: {
+      c4: ['Athanasius of Alexandria', 'Basil the Great', 'Gregory Nazianzen', 'Hilary of Poitiers', 'Ambrose of Milan', 'Cyril of Jerusalem', 'Ephrem the Syrian'],
+      c5: ['John Chrysostom', 'Augustine of Hippo', 'Jerome', 'Cyril of Alexandria', 'Leo the Great', 'Peter Chrysologus'],
+      early: ['Irenaeus of Lyons', 'Athanasius of Alexandria', 'Basil the Great', 'Gregory Nazianzen', 'Hilary of Poitiers', 'Ambrose of Milan', 'Cyril of Jerusalem', 'Ephrem the Syrian', 'John Chrysostom', 'Augustine of Hippo', 'Jerome', 'Cyril of Alexandria', 'Leo the Great', 'Peter Chrysologus'],
+      medieval: ['Gregory of Narek', 'Peter Damian', 'Anselm', 'Bernard of Clairvaux', 'Hildegard of Bingen', 'Antony of Padua', 'Albert the Great', 'Bonaventure', 'Thomas Aquinas', 'Catherine of Siena'],
+      modern: ['Teresa of Avila', 'Peter Canisius', 'John of the Cross', 'John of Avila', 'Robert Bellarmine', 'Lawrence of Brindisi', 'Francis de Sales', 'Alphonsus Liguori', 'Therese of Lisieux', 'John Henry Newman'],
+      east: ['Athanasius of Alexandria', 'Basil the Great', 'Gregory Nazianzen', 'John Chrysostom', 'Cyril of Jerusalem', 'Cyril of Alexandria', 'John of Damascus', 'Ephrem the Syrian', 'Gregory of Narek'],
+    },
+    rules: [['c4', 'Name a Doctor of the Church who died in the 300s.', 5], ['c5', 'Name a Doctor of the Church who died in the 400s.', 5], ['early', 'Name a Doctor of the Church who died before the year 500.'], ['medieval', 'Name a Doctor of the Church who died between 1000 and 1500.'], ['modern', 'Name a Doctor of the Church who died after 1500.'], ['east', 'Name a Doctor of the Church from the Christian East.']],
+  },
+  kings: {
+    tags: {
+      judah: ['Hezekiah', 'Josiah', 'Jehoshaphat', 'Rehoboam', 'Manasseh', 'Uzziah', 'Ahaz', 'Zedekiah', 'Jehoiakim', 'Jehoiachin', 'Asa', 'Joash', 'Amaziah', 'Jotham', 'Amon', 'Jehoram', 'Ahaziah', 'Abijah', 'Jehoahaz', 'Shallum', 'Athaliah'],
+      israel: ['Jeroboam', 'Jeroboam II', 'Ahab', 'Jehu', 'Omri', 'Baasha', 'Elah', 'Zimri', 'Nadab', 'Pekah', 'Pekahiah', 'Menahem', 'Hoshea', 'Shallum', 'Jehoahaz', 'Joash', 'Jehoram', 'Ahaziah', 'Zechariah'],
+    },
+    rules: [['judah', 'Name a king (or the queen) who ruled the southern kingdom of Judah.'], ['israel', 'Name a king who ruled the northern kingdom of Israel.']],
+  },
+  miracles: {
+    tags: {
+      nature: ['Water into wine', 'Feeding the five thousand', 'Walking on water', 'Calming the storm', 'Feeding the four thousand', 'Miraculous catch of fish', 'Cursing the fig tree', 'The coin in the fish\'s mouth'],
+      exorcism: ['Gerasene demoniac', 'Healing the man at Capernaum with an unclean spirit', 'Healing the dumb demoniac', 'Healing the Canaanite woman\'s daughter', 'Healing the epileptic boy'],
+      galilee: ['Water into wine', 'Feeding the five thousand', 'Walking on water', 'Calming the storm', 'Feeding the four thousand', 'Miraculous catch of fish', 'The coin in the fish\'s mouth', 'Healing Peter\'s mother-in-law', 'Healing the centurion\'s servant', 'Healing the official\'s son', 'Woman with the flow of blood', 'Raising of Jairus\'s daughter', 'Raising the widow\'s son at Nain', 'Healing the man with a withered hand', 'Gerasene demoniac', 'Healing the man at Capernaum with an unclean spirit', 'Healing the blind man of Bethsaida', 'Healing the deaf mute', 'Healing the dumb demoniac'],
+    },
+    rules: [['nature', 'Name a miracle of Jesus over nature, bread or water.', 6], ['exorcism', 'Name a miracle in which Jesus drove out an unclean spirit.', 5], ['galilee', 'Name a miracle of Jesus worked in or around Galilee.', 8]],
+  },
+  rulers: {
+    tags: {
+      egypt: ['Pharaoh', 'Neco', 'Hophra', 'Shishak', 'Tirhakah', 'So of Egypt'],
+      assyria: ['Sennacherib', 'Tiglath-pileser', 'Shalmaneser', 'Sargon', 'Esarhaddon'],
+      persia: ['Cyrus', 'Darius', 'Xerxes', 'Artaxerxes', 'Vashti'],
+      rome: ['Caesar Augustus', 'Tiberius', 'Claudius', 'Pontius Pilate', 'Felix', 'Festus', 'Quirinius', 'Gallio', 'Sergius Paulus'],
+      herod: ['Herod the Great', 'Herod Antipas', 'Archelaus', 'Philip the Tetrarch', 'Herod Agrippa I', 'Herod Agrippa II'],
+      greek: ['Alexander the Great', 'Antiochus Epiphanes', 'Antiochus III', 'Demetrius I', 'Ptolemy', 'Seleucus IV', 'Alexander Balas'],
+      neighbors: ['Melchizedek', 'Abimelech of Gerar', 'Balak', 'Sihon', 'Og', 'Eglon', 'Jabin', 'Agag', 'Achish', 'Ben-hadad', 'Hazael', 'Rezin', 'Mesha', 'Hadadezer', 'Toi', 'Nahash', 'Hanun', 'Cushan-rishathaim', 'Chedorlaomer', 'Amraphel', 'Adoni-bezek', 'Adoni-zedek', 'Zebah and Zalmunna', 'Hiram'],
+      governors: ['Pontius Pilate', 'Felix', 'Festus', 'Quirinius', 'Gallio', 'Sergius Paulus'],
+    },
+    rules: [['egypt', 'Name a king of Egypt in the Bible.', 6], ['assyria', 'Name a king of Assyria in the Bible.', 5], ['persia', 'Name a king or queen of Persia in the Bible.', 5], ['rome', 'Name a Roman emperor or governor in the New Testament.', 8], ['herod', 'Name a member of the Herod family in the New Testament.', 6], ['greek', 'Name a Greek or Hellenistic king in the books of the Maccabees.', 6], ['governors', 'Name a Roman governor in the New Testament.', 6]],
+  },
+  foods: {
+    tags: {
+      fruit: ['Figs', 'Grapes', 'Dates', 'Pomegranates', 'Raisins', 'Melons', 'Apples', 'Olives'],
+      grain: ['Bread', 'Barley', 'Wheat', 'Parched grain', 'Unleavened bread', 'Showbread', 'Raisin cakes', 'Millet', 'Spelt', 'Fine flour', 'Wafers'],
+      vegetable: ['Lentils', 'Beans', 'Cucumbers', 'Leeks', 'Onions', 'Garlic', 'Gourds', 'Vetches', 'Bitter herbs'],
+      seasoning: ['Cumin', 'Dill', 'Mint', 'Rue', 'Coriander', 'Mustard', 'Salt'],
+      meat: ['Fish', 'Quail', 'Locusts', 'Lamb', 'Goat', 'Kid', 'Fatted calf', 'Eggs', 'Broiled fish'],
+      drink: ['Wine', 'Water', 'New wine', 'Vinegar', 'Milk'],
+    },
+    rules: [['fruit', 'Name a fruit in the Bible.', 8], ['grain', 'Name a grain or bread in the Bible.', 8], ['vegetable', 'Name a vegetable or legume in the Bible.', 8], ['seasoning', 'Name a herb, spice or seasoning in the Bible.', 6], ['meat', 'Name an animal food in the Bible.', 8], ['drink', 'Name a drink in the Bible.', 5]],
+  },
+  vestments: {
+    tags: {
+      mass: ['Alb', 'Amice', 'Cincture', 'Stole', 'Chasuble', 'Maniple'],
+      bishop: ['Mitre', 'Pectoral cross', 'Zucchetto', 'Rochet', 'Mozzetta', 'Cappa magna', 'Ferraiolo', 'Pallium', 'Biretta'],
+      head: ['Mitre', 'Zucchetto', 'Biretta', 'Veil', 'Wimple'],
+    },
+    rules: [['mass', 'Name a vestment a priest puts on to say Mass.', 6], ['bishop', 'Name a vestment or insignia worn by a bishop.', 8], ['head', 'Name a covering for the head worn in the Church.', 5]],
+  },
+  furnishings: {
+    tags: {
+      vessel: ['Chalice', 'Paten', 'Ciborium', 'Monstrance', 'Pyx', 'Chrismatory', 'Thurible', 'Cruet'],
+      building: ['Nave', 'Apse', 'Transept', 'Narthex', 'Chancel', 'Sanctuary', 'Sacristy'],
+      sanctuary: ['Altar', 'Ambo', 'Tabernacle', 'Sanctuary lamp', 'Sedilia', 'Credence table', 'Cathedra', 'Baldachin', 'Reredos', 'Altar rail'],
+    },
+    rules: [['vessel', 'Name a sacred vessel used in the liturgy.', 8], ['building', 'Name a part of a church building.', 7], ['sanctuary', 'Name something found in or around the sanctuary of a church.', 8]],
+  },
+  encyclicals: {
+    tags: {
+      jp2: ['Redemptor Hominis', 'Dives in Misericordia', 'Laborem Exercens', 'Sollicitudo Rei Socialis', 'Centesimus Annus', 'Redemptoris Missio', 'Ecclesia de Eucharistia', 'Dominum et Vivificantem', 'Redemptoris Mater', 'Veritatis Splendor', 'Fides et Ratio', 'Ut Unum Sint', 'Evangelium Vitae', 'Familiaris Consortio', 'Christifideles Laici', 'Pastores Dabo Vobis', 'Reconciliatio et Paenitentia', 'Catechesi Tradendae', 'Redemptoris Custos', 'Ecclesia in Europa', 'Novo Millennio Ineunte'],
+      benedict: ['Deus Caritas Est', 'Spe Salvi', 'Caritas in Veritate', 'Sacramentum Caritatis', 'Verbum Domini', 'Africae Munus'],
+      francis: ['Lumen Fidei', 'Laudato Si', 'Fratelli Tutti', 'Dilexit Nos', 'Evangelii Gaudium', 'Amoris Laetitia', 'Gaudete et Exsultate', 'Christus Vivit', 'Querida Amazonia'],
+      social: ['Rerum Novarum', 'Quadragesimo Anno', 'Mater et Magistra', 'Pacem in Terris', 'Laborem Exercens', 'Sollicitudo Rei Socialis', 'Centesimus Annus', 'Caritas in Veritate', 'Laudato Si', 'Fratelli Tutti'],
+      family: ['Humanae Vitae', 'Evangelium Vitae', 'Casti Connubii', 'Familiaris Consortio', 'Amoris Laetitia'],
+      faith: ['Fides et Ratio', 'Aeterni Patris', 'Providentissimus Deus', 'Divino Afflante Spiritu', 'Verbum Domini'],
+    },
+    rules: [['benedict', 'Name a document of Pope Benedict XVI.', 6], ['francis', 'Name a document of Pope Francis.', 8], ['social', 'Name a papal document on the Church\'s social teaching.', 8], ['family', 'Name a papal document on marriage, family or life.', 5], ['faith', 'Name a papal document on Scripture, faith or reason.', 5]],
+  },
+  shrines: {
+    tags: {
+      italy: ['Loreto', 'Assisi', 'San Giovanni Rotondo', 'Santa Croce in Gerusalemme', 'San Lorenzo fuori le Mura', 'San Sebastiano', 'Catacombs of Rome', 'Scala Santa', 'Saint John Lateran', 'Saint Mary Major', 'Saint Paul Outside the Walls', 'Saint Peter\'s Basilica', 'Basilica of Saint Anthony of Padua', 'Siena', 'Cascia', 'Lanciano', 'Turin', 'Manoppello', 'Orvieto', 'Monte Cassino', 'Subiaco', 'Norcia', 'La Verna', 'Porziuncola', 'San Damiano'],
+      france: ['Lourdes', 'Mont-Saint-Michel', 'Chartres', 'Lisieux', 'Paray-le-Monial', 'Nevers', 'La Salette', 'Pontmain', 'Rocamadour', 'Vezelay', 'Conques', 'Ars', 'Mont Sainte-Odile'],
+      spain: ['Santiago de Compostela', 'Montserrat', 'Avila', 'Alba de Tormes', 'Our Lady of the Pillar', 'Covadonga', 'Loyola', 'Javier'],
+      holyland: ['Basilica of the Annunciation', 'Church of the Nativity', 'Church of the Holy Sepulchre', 'Gethsemane', 'Mount of Olives', 'Via Dolorosa', 'Mount Tabor', 'Mount Nebo', 'Cana', 'Capernaum', 'Tabgha', 'Emmaus', 'Bethany', 'Ein Karem'],
+      germanic: ['Kevelaer', 'Altotting', 'Mariazell', 'Einsiedeln', 'Cologne Cathedral', 'Aachen', 'Trier'],
+      americas: ['Guadalupe', 'Aparecida', 'Lujan', 'Sainte-Anne-de-Beaupre', 'Saint Joseph\'s Oratory', 'Cap-de-la-Madeleine', 'National Shrine of the Immaculate Conception', 'Our Lady of Good Help', 'Our Lady of Charity', 'Our Lady of the Angels of Cartago', 'Our Lady of Suyapa', 'San Juan de los Lagos', 'Our Lady of Copacabana'],
+      isles: ['Knock', 'Croagh Patrick', 'Lough Derg', 'Glendalough', 'Walsingham'],
+      poland: ['Czestochowa', 'Divine Mercy Sanctuary', 'Wadowice', 'Kalwaria Zebrzydowska', 'Lichen'],
+    },
+    rules: [['italy', 'Name a Catholic shrine or pilgrimage site in Italy.', 12], ['france', 'Name a Catholic shrine or pilgrimage site in France.', 8], ['spain', 'Name a Catholic shrine or pilgrimage site in Spain.', 6], ['holyland', 'Name a pilgrimage site in the Holy Land.', 8], ['germanic', 'Name a Catholic shrine in Germany, Austria or Switzerland.', 6], ['americas', 'Name a Catholic shrine in the Americas.', 8], ['isles', 'Name a pilgrimage site in Ireland or Britain.', 5], ['poland', 'Name a Catholic shrine in Poland.', 5]],
+  },
+  parables: {
+    tags: { matthew: ['The Ten Virgins', 'The Talents', 'The Wheat and the Weeds', 'The Hidden Treasure', 'The Pearl of Great Price', 'The Dragnet', 'The Unforgiving Servant', 'The Workers in the Vineyard', 'The Two Sons', 'The Sheep and the Goats'] },
+    rules: [['matthew', 'Name a parable of Jesus found only in Matthew\'s Gospel.', 8]],
+  },
+  animals: {
+    tags: {
+      bird: ['Dove', 'Raven', 'Eagle', 'Sparrow', 'Hawk', 'Owl', 'Ostrich', 'Peacock', 'Stork', 'Quail'],
+      farm: ['Sheep', 'Lamb', 'Donkey', 'Ox', 'Goat', 'Camel', 'Swine', 'Calf', 'Ram', 'Horse'],
+      wild: ['Lion', 'Wolf', 'Leopard', 'Bear', 'Fox', 'Jackal'],
+    },
+    rules: [['bird', 'Name a bird in the Bible.', 8], ['farm', 'Name a farm or pack animal in the Bible.', 8], ['wild', 'Name a wild beast in the Bible.', 6]],
+  },
+  plants: {
+    tags: {
+      tree: ['Olive', 'Fig', 'Cedar', 'Palm', 'Sycamore', 'Almond', 'Pomegranate', 'Oak', 'Cypress', 'Fir', 'Acacia', 'Terebinth'],
+      herb: ['Mustard', 'Hyssop', 'Myrrh', 'Frankincense', 'Balm', 'Mint', 'Cummin', 'Dill', 'Rue'],
+    },
+    rules: [['tree', 'Name a tree in the Bible.', 8], ['herb', 'Name a herb, spice or resin in the Bible.', 8]],
+  },
+  trades: {
+    tags: {
+      farming: ['Farmer', 'Shepherd', 'Vinedresser', 'Gardener', 'Sower', 'Reaper', 'Gleaner', 'Thresher', 'Herdsman', 'Hired hand'],
+      craft: ['Carpenter', 'Potter', 'Tentmaker', 'Weaver', 'Tanner', 'Fuller', 'Goldsmith', 'Silversmith', 'Blacksmith', 'Coppersmith', 'Mason', 'Builder', 'Master builder', 'Seller of purple', 'Perfumer'],
+      war: ['Soldier', 'Centurion', 'Archer', 'Armor-bearer', 'Charioteer', 'Spy', 'Executioner'],
+      service: ['Servant', 'Slave', 'Steward', 'Cook', 'Baker', 'Cupbearer', 'Nurse', 'Midwife', 'Hired hand', 'Messenger', 'Gatekeeper', 'Watchman'],
+      holy: ['Priest', 'Levite', 'Prophet', 'Scribe', 'Exorcist', 'Evangelist'],
+    },
+    rules: [['farming', 'Name a farming or herding job in the Bible.', 8], ['craft', 'Name a craft or building trade in the Bible.', 8], ['war', 'Name a soldier\'s job in the Bible.', 6], ['service', 'Name a household or service job in the Bible.', 8], ['holy', 'Name a religious job or calling in the Bible.', 5]],
+  },
+  peoples: {
+    tags: {
+      canaan: ['Canaanites', 'Amorites', 'Hittites', 'Hivites', 'Perizzites', 'Jebusites', 'Girgashites'],
+      kin: ['Moabites', 'Ammonites', 'Edomites', 'Midianites', 'Amalekites', 'Ishmaelites'],
+      empire: ['Egyptians', 'Babylonians', 'Assyrians', 'Persians', 'Medes', 'Romans', 'Greeks', 'Chaldeans'],
+      letters: ['Ephesians', 'Philippians', 'Colossians', 'Thessalonians', 'Corinthians', 'Galatians', 'Romans'],
+      pentecost: ['Parthians', 'Medes', 'Elamites', 'Cappadocians', 'Phrygians', 'Pamphylians', 'Libyans', 'Cretans', 'Arabs', 'Romans', 'Cyrenians'],
+    },
+    rules: [['canaan', 'Name one of the seven nations of Canaan.', 7], ['kin', 'Name a people descended from Abraham\'s family or from the neighbors of Israel in the desert.', 6], ['empire', 'Name a great power that ruled the Bible lands.', 8], ['letters', 'Name a people to whom Paul wrote a letter.', 7], ['pentecost', 'Name a people present in Jerusalem at Pentecost.', 8]],
+  },
+};
+const tableFacts = (t: Table): { facts: Facts; rules: FactRule[] } => {
+  const facts: Facts = {};
+  for (const [tag, names] of Object.entries(t.tags)) for (const n of names) facts[n] = { t: `${(facts[n]?.t as string) ?? '|'}${tag}|` };
+  return { facts, rules: t.rules.map(([tag, text, min]) => ({ kind: 'table', key: tag, text, test: (f) => String(f.t ?? '').includes(`|${tag}|`), ...(min ? { min } : {}) })) };
+};
+export const TABLE_NAMES = (): { pool: string; names: string[] }[] => Object.entries(TABLES).map(([pool, t]) => ({ pool, names: [...new Set(Object.values(t.tags).flat())] }));
+
 /* ---------- the lists already in the bank, read again by rule ---------- */
 
 interface Spec { id: string; from: string | RegExp; noun: string; theme: DeepTheme; part?: Pool['part']; weight?: number }
@@ -293,6 +435,8 @@ export function buildPools(base: DeepPrompt[]): Pool[] {
     if (s.id === 'councils') { pool.facts = COUNCIL_FACTS; pool.factRules = councilRules; }
     if (s.id === 'mysteries') { pool.facts = Object.fromEntries(Object.entries(MYSTERY_SET).map(([k, v]) => [k, { set: v }])); pool.factRules = mysteryRules; }
     if (s.id === 'apostles') { pool.facts = Object.fromEntries(['Peter', 'Andrew', 'James the Greater', 'John'].map((n) => [n, { fisher: 1 }])); pool.factRules = rules([['trade', 'fishermen', 'Name an apostle who was a fisherman.', (f) => f.fisher === 1, 4]]); }
+    const table = TABLES[s.id];
+    if (table) { const t = tableFacts(table); pool.facts = t.facts; pool.factRules = [...(pool.factRules ?? []), ...t.rules]; }
     pools.push(pool);
   }
   const sons = withFacts(base, 'sons-of-jacob', 'son of Jacob', 'scripture', 'sons-of-jacob', SONS_FACTS, sonsRules);
