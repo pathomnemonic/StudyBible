@@ -37,6 +37,7 @@ import { MORE_PROMPTS } from './deepWatersMore';
 import { AUTHORED_PROMPTS } from './deepWatersAuthored';
 import { LONG_LIST_PROMPTS } from './deepWatersLongLists';
 import GENERATED_PROMPTS from './deepWaters.generated.json';
+import REGION_PROMPTS from './deepWaters.regions.json';
 import { materialize, type DerivedEntry } from '../lib/deepWatersDerive';
 import DERIVED_ENTRIES from './deepWaters.derived.json';
 import { buildPools } from './deepWatersPools';
@@ -279,7 +280,7 @@ const CORE_THEMES: Record<string, DeepTheme> = {
 const core: DeepPrompt[] = CORE_PROMPTS.map((p) => ({ ...p, theme: CORE_THEMES[p.id] ?? 'doctrine' }));
 
 /** the hand-written and generated questions, before the derived ones */
-export const BASE_PROMPTS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...LONG_LIST_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[])];
+export const BASE_PROMPTS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...LONG_LIST_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[]), ...(REGION_PROMPTS as DeepPrompt[])];
 
 /**
  * How many questions the bank holds: 370 days of seven. A question comes back no sooner than a whole cycle (370 days) minus four days, so no question is

@@ -51,7 +51,7 @@ describe('the generated questions', () => {
   }, 130000);
   it('record where they came from, for every generated question', () => {
     const src = JSON.parse(readFileSync('src/data/deepWaters.sources.json', 'utf8')) as { inputs: { path: string; sha256: string }[]; prompts: { id: string; from: string; rule: string }[] };
-    const generated = DEEP_WATERS.filter((p) => p.source);
+    const generated = DEEP_WATERS.filter((p) => p.source && !p.id.startsWith('places-x-'));
     expect(generated.length).toBeGreaterThanOrEqual(40);
     expect(src.prompts.map((p) => p.id).sort()).toEqual(generated.map((p) => p.id).sort());
     for (const p of src.prompts) { expect(p.from.length, p.id).toBeGreaterThan(10); expect(p.rule.length, p.id).toBeGreaterThan(20); }

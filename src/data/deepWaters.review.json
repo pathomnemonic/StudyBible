@@ -926,6 +926,522 @@
    "status": "unreviewed"
   },
   {
+   "id": "places-x-near-jerusalem-25",
+   "sha256": "07fb7ceb5124e74a4dcede41828eb37470820a56c40c290afffdb29b0542a571",
+   "answers": 249,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-jerusalem-50",
+   "sha256": "35bf9b9d158dc127f54b9f8f5887bdbca990b1521a079d52b331510695dfff68",
+   "answers": 444,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-jerusalem-100",
+   "sha256": "8c47e250739595d1c7adb79fa9709e35d73d5298e5ba66c63d7c9c65e8a5cfcc",
+   "answers": 655,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-bethlehem-25",
+   "sha256": "b906c0575201d98cbbb2ba3de69f83249eb6558447a34f5b0bd7a4a407a4917a",
+   "answers": 257,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-nazareth-50",
+   "sha256": "908e14b12e75d884f8fa15358f7aa7a89785ec3aad9302bdcbb1a96aec01682a",
+   "answers": 164,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-nazareth-100",
+   "sha256": "6d482d399bb964ea27d17263cc5f7d65a19aa21b8902f1f9ab46bf470c3b1396",
+   "answers": 406,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-capernaum-50",
+   "sha256": "f0128659a26f5d48b83debb59721373e2f9eb27dcc79e7dbef37ee8661f4b758",
+   "answers": 153,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-capernaum-100",
+   "sha256": "03fc3a41f90297e5f33f06f015d8ef6542c8d7e9714d9a50840504d02f9e1d83",
+   "answers": 303,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-damascus-100",
+   "sha256": "3f812c28b3f8b7fbd0e05176efc0e5a5509d88fe331c149711e4b47de3d55cb4",
+   "answers": 99,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-damascus-200",
+   "sha256": "df46c94d1366d2273e5a6cddc5bae23955657d3f126eeb975b311263c470dc67",
+   "answers": 385,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-rome-1500",
+   "sha256": "8cfcffdfedd5a6cd21670825d57521c2c68bce5c4290f96d13a9f1085fa87733",
+   "answers": 63,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-babylon-800",
+   "sha256": "42ea32af56c25f3f69cf7c3fed96a561b335d0db775f6c5c98c28ad022f91c01",
+   "answers": 131,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-cairo-400",
+   "sha256": "4721bca7e402529f651a68a5dbdbe604afbc5cb77f008ffbbf53ec372f457ea4",
+   "answers": 198,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-antioch-400",
+   "sha256": "119223ea2642f2857c5b9aca9ea7c5e3725c2406791d2b5a1aa5fa9df722189b",
+   "answers": 228,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-ephesus-800",
+   "sha256": "679ef3e3babfe0f3a5182ba3c2611c62cd60af21be0e381de3ec57ffe51fafcf",
+   "answers": 78,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-corinth-800",
+   "sha256": "26b88c5f9a6eaf910a47e245adfac0fe48faaf73c8b4890778fabe2e2c1f0641",
+   "answers": 64,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-tyre-50",
+   "sha256": "1aed5066e2f0012af6f09817c2904e6f17c212214ebd6113f40ec18148b7952d",
+   "answers": 68,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-tyre-100",
+   "sha256": "2bd6161eca3b18fd1db370bfce0850edd1447b3cd4b071cf8b829ef0afa24ef7",
+   "answers": 199,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-hebron-25",
+   "sha256": "46f52baf41d440048269956369a8a7970deba1a81559b90d0e225ce2a510d8af",
+   "answers": 105,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-hebron-50",
+   "sha256": "7db481f61aebea36b91d9ef6f7caadc63d7019bd8876ecb207017fc513023717",
+   "answers": 398,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-shechem-50",
+   "sha256": "7798da6c06ecbba7c4e11c16ef7b1c451c03b333b89fc19047d3cbc85d20b517",
+   "answers": 352,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-jericho-25",
+   "sha256": "1ab561fc82b014fbf04b110817991bb84162dbad7b40da3b4d5bc918f46ce5fa",
+   "answers": 185,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-jericho-50",
+   "sha256": "71ae1d3ffa7887575580a05c6360d33b622e623acd4a7652b7f0865e085053cd",
+   "answers": 427,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-beersheba-100",
+   "sha256": "72060aabe4600bab172d82c497b11818e6aba928befe466bfcd708bac0811de0",
+   "answers": 524,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-near-nineveh-800",
+   "sha256": "37310e53324770570446b6cf3a54a6f1361f53221faa30f1233624b8ec6c502b",
+   "answers": 216,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-in-law",
+   "sha256": "5a3e03720035c50596027e4662032ababa47925edc59d679077893991045cd40",
+   "answers": 263,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-in-wisdom",
+   "sha256": "6c84345d3417ff949caa0132fa096ff522709939c0c84a425e07f21e0d639ae4",
+   "answers": 68,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-in-prophets",
+   "sha256": "e437763824b401f62621afdf7de40cd52cd2cc397d74ad9b58625e2fa41c3ee4",
+   "answers": 283,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-in-nt",
+   "sha256": "35e00a2a63fcae4b4055e35c24308c58da4a0821634a24fc0d852c4a72bd8188",
+   "answers": 170,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-in-kingdoms",
+   "sha256": "09a72f59b2daa031e7b3ab2eac04f815ef2c32f41dab453026f30f8801b200a7",
+   "answers": 382,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-both-law-prophets",
+   "sha256": "7f5960e4817c1386169307ed7c0348aac5404661a0dcb1b00c0c3caf90b68bdf",
+   "answers": 78,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-only-law-prophets",
+   "sha256": "52747571bf1d0cfa3b8f1557dfc6452b5cc054d43ef6a4d5afcb24b29961149e",
+   "answers": 185,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-both-history-law",
+   "sha256": "32407e53d07eb82604b91f507f99e63bba218ce31226f1eee9a140c5c779a4c0",
+   "answers": 114,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-only-history-law",
+   "sha256": "1ca8b80449e27c27532fb4c6f264da7919fdb14ffdbc0478635573b2ac872548",
+   "answers": 626,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-both-history-prophets",
+   "sha256": "9b8d5fd30df98d340f5a16b341ff593f0bb28c6b4223afdb5002bb936e9664e2",
+   "answers": 140,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-books-2",
+   "sha256": "e5bdba3912850e3f23886357a3ba4761333261d1e6ceab78009c6a22056da962",
+   "answers": 426,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-books-3",
+   "sha256": "b1b5f4d531e3164168aa87885b9fe165e20c54f18781baf76111c7e74204ce68",
+   "answers": 256,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-books-4",
+   "sha256": "551ce0df74d3c303f8255e63f905502cac55a2a3891a72bc53d93aff228aa3ed",
+   "answers": 157,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-books-5",
+   "sha256": "68d054c93ce37a0ce05b30302bba3b8e3d523dc65d407aab0422e8f179f88e9e",
+   "answers": 113,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-books-6",
+   "sha256": "2ac0f796c491cac847108c5d554c02f9e53714470dad3a9b13db86a04a145e42",
+   "answers": 81,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-onebook-2",
+   "sha256": "8a8b6bb94935d444fd740eb4aa5a6364f726d206a4c58c62327f3ad2d3e91c1c",
+   "answers": 180,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-onebook-3",
+   "sha256": "6e4103dd09c507c0a3ae757617687a7dca5686be2f6bbadae9ec8aaf5277625e",
+   "answers": 101,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-north",
+   "sha256": "53fab5a01c0b310b2953b3024a2d48c72cfa56f804e5fbe2628bbc98c3f40915",
+   "answers": 478,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-north-in-law",
+   "sha256": "e8e9388b28a35bf8216ad53fb626332db0fc3bb245913fc0be3b9027051acac0",
+   "answers": 77,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-north-in-history",
+   "sha256": "050252cbb64e19db02863e5b358c9e80aecc5015f89842d3609cb6861f96c1aa",
+   "answers": 289,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-north-in-prophets",
+   "sha256": "9b3a5526e5e03ba07f9d32cbe7b8ebd74d816362e8687116d2d5bd93157b0104",
+   "answers": 101,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-north-in-ot",
+   "sha256": "4c9e3340387c8e295edb0612ec1e3e49d4bc5d1a0787d1193412e204605b80e8",
+   "answers": 374,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-north-in-nt",
+   "sha256": "2ffe7278d3814141712d891cdaae5131c737de4c764a2c719a788de408e51448",
+   "answers": 122,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-north-in-kingdoms",
+   "sha256": "cae15d8c1a031c364fae4d41f28849cf77e7dd86997059b6b06183bb5d2668c5",
+   "answers": 138,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-south",
+   "sha256": "a2919476b7544299e5717b1b64320bb19412acb4080e7323c10cb21e565ded2f",
+   "answers": 232,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-south-in-law",
+   "sha256": "2c64a982421c50098bc964e352fc6d1297349b08892a26d574072750dec3d4d3",
+   "answers": 106,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-south-in-history",
+   "sha256": "28e06e7882c3f6a15b0b1620ebe5f5f794871ec5d6df40f65ef88b8531353c6f",
+   "answers": 127,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-south-in-prophets",
+   "sha256": "6fd09027225af35a8057c5bb417aff39dc42121d433927ee80a0d65498c636ac",
+   "answers": 66,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-south-in-kingdoms",
+   "sha256": "091aaa22332f8cb922590fb91eb940b39d3d8b0fdf52f322054b5adb3d2c90d2",
+   "answers": 66,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-south-in-nonlaw",
+   "sha256": "b21d3e1639ad319294428face2a24cad4b329b136576deead4a837a2cdee728d",
+   "answers": 172,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-east",
+   "sha256": "b3c285dc98965c65c59ee67c2642b8075cc3190af613ded4a9c76b4e389f6281",
+   "answers": 334,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-east-in-law",
+   "sha256": "95af4b367cfec4776b999f8d6d972fefaad9aa649d8e0732289a7d5128bcc60e",
+   "answers": 129,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-east-in-history",
+   "sha256": "1d78e7100a6140327c0f6094f3cf53122e910ddb23e835d8ec995c21489052bc",
+   "answers": 194,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-east-in-prophets",
+   "sha256": "d913920281e1cd97d70831cb8500adb238478ebc8e062b7c4b52b1b8655f718b",
+   "answers": 128,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-east-in-kingdoms",
+   "sha256": "b697ca6b7b6c8b5ec5ba8ea1d2822b3eb49ba04f494cb9ccc524ecc7af596539",
+   "answers": 120,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-east-in-nonlaw",
+   "sha256": "43404d95d25e6acf569493927d53a1d9d0c7244bb426a323dc5c5559154252a7",
+   "answers": 266,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-west",
+   "sha256": "bf2cc0b8fa0dc87d275432af74d4cc863fa546a00abbf4fdacbf0b0e794626ff",
+   "answers": 253,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-west-in-law",
+   "sha256": "179f0e2fe50ab1730043d4b966b8d3c71f60278416f9560902c01ebec213b32f",
+   "answers": 67,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-west-in-history",
+   "sha256": "ebbfd33adff1c48f122f77f07b4c393618f35141d770d11db2a334f52d2d2961",
+   "answers": 102,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-west-in-ot",
+   "sha256": "75d2c468d97bf98cbefb3f58404718843d86b129f13bd75837ad38eb6f7bfd46",
+   "answers": 174,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-west-in-nt",
+   "sha256": "1a06cecf9a7fd8dec867e184f9f247aca84631b3b9edb0ee10d2252d0c77568f",
+   "answers": 89,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-west-in-nonlaw",
+   "sha256": "51bfc475a25eebfabc79f52d61878ef936fd8027e16a7212ebae58786c012899",
+   "answers": 139,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-holyland-in-law",
+   "sha256": "0e5827516ffddbe13609f227babaf9a232fbdc2a2b35ab3c7bd28cc77a1ae429",
+   "answers": 117,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-holyland-in-prophets",
+   "sha256": "5d2d60b128aa631d730741350dcb253d9bf903f82161a45b79400797ecf94535",
+   "answers": 151,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-holyland-in-nt",
+   "sha256": "3fe3f3b1b7d08201329b350a71b5bf67f72908d71cba5f5da2ef02539ad5ed38",
+   "answers": 66,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-holyland-in-kingdoms",
+   "sha256": "90fa693f6645640584851ae0edc5be301c783d2dbc146143d4521d0b613a48c1",
+   "answers": 291,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-holyland-in-major",
+   "sha256": "f3c3c37370803cacb963373bbd9e2de50437a06433428593f49f56444710f789",
+   "answers": 116,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-holyland-in-nonlaw",
+   "sha256": "e781330a6bc7aeef964b771cf3ad762e04a69fe634c7071f3701531c4b6f1cd0",
+   "answers": 664,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-abroad",
+   "sha256": "20a7f387ce6200ab599e87480fc2d1b523450686f0d961e5a7538bf912714ced",
+   "answers": 280,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-abroad-in-law",
+   "sha256": "a9c2270cff8b8100a61f29d4f4cc621cf7ab9af10ec3abfd20f3f380a60b1546",
+   "answers": 73,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-abroad-in-history",
+   "sha256": "3dbcf9ec12856a00ddb6dfd7c8abdc70d34e1b9b06752ad7609dd9ec804512ef",
+   "answers": 95,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-abroad-in-prophets",
+   "sha256": "3680cbcccfba60cdccc2c42ba52fa1e131eba5f9c2878cfed96c9fa6b3255885",
+   "answers": 101,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-abroad-in-ot",
+   "sha256": "6196ee6cc32ec870a0f6066eaca92a15769a7079b2dbacafd42c0603e26a89ab",
+   "answers": 195,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-abroad-in-nt",
+   "sha256": "af3ec82de5bff9ae9535ace33a254660b7aab4e73699376dfd89259afc688fcb",
+   "answers": 100,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-abroad-in-kingdoms",
+   "sha256": "50500b05ae7bff08934ed67db52b3dd77f0fd97048f6f0b691fbbfeed851b81f",
+   "answers": 64,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-transjordan",
+   "sha256": "2f0c98f459161b931bd52a16ae2b7f22e31042f6d4039992aca657875b1b39d3",
+   "answers": 209,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-transjordan-in-law",
+   "sha256": "7fd9822c4ab713b4ed610fb8923f051246591f6587b6e109193d33d92c12d192",
+   "answers": 92,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-transjordan-in-history",
+   "sha256": "c442889520c803df67f73496671edcc7c91042b5548dd8765f7002e8a7a7dd3c",
+   "answers": 124,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-transjordan-in-prophets",
+   "sha256": "19c3f9c147ac7cc14d544952fe23c41fe2a9c503b37cea529b0adc0a63c649a8",
+   "answers": 76,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-transjordan-in-kingdoms",
+   "sha256": "173241f1c505683d335c874886a6c455db5a043c464564efef1a60dc8678c3ea",
+   "answers": 74,
+   "status": "unreviewed"
+  },
+  {
+   "id": "places-x-dir-coast",
+   "sha256": "708ca6e4eac198fa26648e1755acdca5f894efa3cfcd8563818078dde94a5a93",
+   "answers": 116,
+   "status": "unreviewed"
+  },
+  {
    "id": "derived:act-of-contrition",
    "sha256": "673415590fa3026213d49a2daff2fa930913901808960136fa166b529826e0e8",
    "answers": 25,
@@ -969,8 +1485,8 @@
   },
   {
    "id": "derived:bible-places",
-   "sha256": "11894174f320bc5598a85df86008789c07e3f9f0f337bb2fca494b4489c6d9cc",
-   "answers": 292,
+   "sha256": "0a2a5769037c9a479fee164ea2fe08a3f61ba1d851e7293204b206079ae167d9",
+   "answers": 228,
    "status": "unreviewed"
   },
   {
@@ -1149,8 +1665,8 @@
   },
   {
    "id": "derived:places-in-jos",
-   "sha256": "7d6de850b0106986269bb395167515b60c226711af335f11e5ea4cbc5c655973",
-   "answers": 97,
+   "sha256": "ff207cdf37a3b7ba292c5952f0071782088e26b40636d1aa1bf330c1e26a5932",
+   "answers": 75,
    "status": "unreviewed"
   },
   {
