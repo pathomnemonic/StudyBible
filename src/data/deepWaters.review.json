@@ -284,6 +284,90 @@
    "status": "unreviewed"
   },
   {
+   "id": "authored-pauline-coworkers",
+   "sha256": "a37a5ea91107c2e82d3def14bde62a2d875cf7a56b0af943650d13ad66421751",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-romans16-women",
+   "sha256": "638321c7e0e21cc5e78ed1c0140315bf3774891b56727f581600af88f25dcb00",
+   "answers": 10,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-luke-parables",
+   "sha256": "05552912237b031d2319b41c525b99410cca58c4a65b22d287a10c552c2eec42",
+   "answers": 16,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-pauline-letters",
+   "sha256": "2924065627ac98bf15cd6f612001b0d1218a06cb0fcf555f229b863b662ecc9b",
+   "answers": 13,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-resurrection-witnesses",
+   "sha256": "a8f54b1853cf4c83b8426a54e22ee7fb3060024797a37aa0c0de0b9e123a0d0b",
+   "answers": 13,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-marian-litany",
+   "sha256": "e2b99dd23b2d3dbed7284b05288b19fc05c82086dfd34f56e4551816f43521c3",
+   "answers": 54,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-early-martyrs",
+   "sha256": "f498304d71e7318ae92f4d1af1b500b8f17f997f1319f18fae95e98041632c7b",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-prophets-before-kings",
+   "sha256": "f83799e19898a03a7e37077a7dc92414d7d6ed34dd268a3d4ac9b18caa9dab7d",
+   "answers": 15,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-women-in-acts",
+   "sha256": "acfdade90a4ba24fa20f1debf79dece86faccb455f875f9946c6e3084a74b886",
+   "answers": 8,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-jesus-healings",
+   "sha256": "f7a2c18d2c5b7d1e99896948b2d7484fa9a27cce1aa40e0273090f6167d829e0",
+   "answers": 13,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-johannine-titles",
+   "sha256": "7e2b2c793c474b9b9ed6b1dabf4a25bda245993518cb45a3a0f39a19f0c0b08b",
+   "answers": 24,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-revelation-images",
+   "sha256": "17dd60e96303e3f34376676d1f84632ab408bb5c54efb22dc7be5f5071c6fd22",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-liturgical-observances",
+   "sha256": "6131667712b7461bec92199a27a947aaebc1b61ef4b08e0f93d3209a0ac07103",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored-pauls-first-journey",
+   "sha256": "d070c010fdecb2c4f00301219e605b83b7311e2ba42a1d8d77fc774be8e9a33b",
+   "answers": 14,
+   "status": "unreviewed"
+  },
+  {
    "id": "places-1CH",
    "sha256": "87dcc32c32e1582529ec447976fb4eba841ad15a387261411d75e8b182b7ecd6",
    "answers": 163,
