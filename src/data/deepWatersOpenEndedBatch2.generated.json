@@ -91,10 +91,6 @@
         "tier": 3
       },
       {
-        "answer": "Mount of Olives",
-        "tier": 3
-      },
-      {
         "answer": "Mount Sion",
         "tier": 3
       },
@@ -120,7 +116,7 @@
       },
       {
         "answer": "Mount Lebanon",
-        "tier": 4
+        "tier": 3
       },
       {
         "answer": "Mount Jarmuth",
@@ -152,7 +148,7 @@
       },
       {
         "answer": "Mount Samaria",
-        "tier": 5
+        "tier": 4
       },
       {
         "answer": "Mount Bethel",
@@ -160,34 +156,6 @@
       },
       {
         "answer": "Mount Abarim",
-        "tier": 5
-      },
-      {
-        "answer": "Mount Ebal",
-        "tier": 5
-      },
-      {
-        "answer": "Mount Nebo",
-        "tier": 5
-      },
-      {
-        "answer": "Mount Gilboa",
-        "tier": 5
-      },
-      {
-        "answer": "Mount Carmel",
-        "tier": 5
-      },
-      {
-        "answer": "Mount Tabor",
-        "tier": 5
-      },
-      {
-        "answer": "Mount Zion",
-        "tier": 5
-      },
-      {
-        "answer": "Mount Moriah",
         "tier": 5
       }
     ],
@@ -582,7 +550,7 @@
   {
     "id": "open-miracles-001",
     "theme": "New Testament",
-    "prompt": "Name a distinct miracle performed by Jesus in the Gospels.",
+    "prompt": "Name a miracle or supernatural sign involving Jesus recorded in the Gospels.",
     "context": "Use a specific event rather than a general ability; the answer bank includes healing, nature, and provision miracles.",
     "hint": "Think of named individuals, unusual settings, and miracles involving food, water, or weather.",
     "answers": [
@@ -732,6 +700,18 @@
       },
       {
         "answer": "The Transfiguration",
+        "tier": 5
+      },
+      {
+        "answer": "The Resurrection of Jesus",
+        "tier": 5
+      },
+      {
+        "answer": "Jesus' appearance to the disciples on the road to Emmaus",
+        "tier": 5
+      },
+      {
+        "answer": "Jesus' appearance to Thomas after the Resurrection",
         "tier": 5
       }
     ],
