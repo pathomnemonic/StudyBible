@@ -1,4 +1,4 @@
-// New Testament chapters whose verse division differs between the Vulgate and modern Bibles, verified in the fourth cycle
+// Chapters whose verse division differs between the Vulgate and modern Bibles, verified in the fourth cycle
 // (docs/CYCLE4_LOG.md, section 6). Every expectation here was read in both texts; the test also proves it against the shipped
 // texts by checking that each mapped verse exists and that no verse of either side is left without a partner.
 import { readFileSync } from 'node:fs';
@@ -41,7 +41,8 @@ describe.each(['english', 'kjv'])('%s numbering to the Vulgate', (s) => {
 });
 
 describe('the rules close: no verse on either side is left out or invented', () => {
-  it.each([['MAT', [17]], ['MRK', [4, 8, 9]], ['JHN', [6]], ['ACT', [7, 14, 19]], ['2CO', [13]], ['REV', [12]]] as [string, number[]][])('%s %j', (book, chapters) => {
+  it.each([['MAT', [17]], ['MRK', [4, 8, 9]], ['JHN', [6]], ['ACT', [7, 14, 19]], ['2CO', [13]], ['REV', [12]],
+    ['GEN', [50]], ['LEV', [26]], ['NUM', [11, 12, 13, 20, 29, 30]], ['JOS', [4, 5]], ['JDG', [5, 21]], ['1SA', [20, 23, 24]], ['1KI', [22]], ['1CH', [11, 20]], ['ECC', [4, 5, 6, 7]], ['HOS', [2, 13, 14]], ['JON', [1, 2]]] as [string, number[]][])('%s %j', (book, chapters) => {
     const web = counts('webc'), vul = counts('vulgate'), dra = counts('dra');
     const hit = new Set<string>();
     for (const c of chapters) for (let v = 1; v <= web[book][c - 1]; v++) {
@@ -57,6 +58,25 @@ describe('the rules close: no verse on either side is left out or invented', () 
         expect(n.v2, `Vulgate ${book} ${c}:${v} -> ${n.c}:${n.v2}`).toBeLessThanOrEqual(web[book][n.c - 1]);
       }
     }
+  });
+});
+
+describe('Old Testament chapters where a verse belongs to the next chapter in the Vulgate', () => {
+  it('Jonah 1:17 is 2:1; Ecclesiastes 5:1 is 4:17; Hosea 13:16 is 14:1; Numbers 12:16 is 13:1; 1 Samuel 23:29 is 24:1', () => {
+    expect(to('kjv', 'JON', 1, 17)).toBe('JON.2.1');
+    expect(to('kjv', 'JON', 2, 1, 10)).toBe('JON.2.2-11');
+    expect(to('kjv', 'ECC', 5, 1)).toBe('ECC.4.17');
+    expect(to('kjv', 'ECC', 7, 1)).toBe('ECC.7.2');
+    expect(to('kjv', 'HOS', 14, 1, 9)).toBe('HOS.14.2-10');
+    expect(to('kjv', 'NUM', 12, 16)).toBe('NUM.13.1');
+    expect(to('kjv', '1SA', 24, 1, 7)).toBe('1SA.24.2-8');
+    expect(to('kjv', 'JDG', 21, 25)).toBe('JDG.21.24 ~');
+  });
+  it('the NABRE already numbers these as the Vulgate does, so the Lectionary citation is the same place', () => {
+    expect(to('nabre', 'JON', 2, 1, 11)).toBe('JON.2.1-11');
+    expect(to('nabre', 'ECC', 5, 1, 2)).toBe('ECC.5.1-2');
+    expect(to('nabre', 'HOS', 14, 2, 10)).toBe('HOS.14.2-10');
+    expect(to('nabre', 'NUM', 13, 1, 2)).toBe('NUM.13.2-3');
   });
 });
 

@@ -211,13 +211,13 @@ describe('key verse for the memorize list', () => {
     if (k.status === 'approximate') { expect(k.exact).toBe(false); expect(k.reason).toBeTruthy(); expect(refId(k.original)).toBe('ROM.14.10'); }
   });
   it('turns known missing Vulgate verse endpoints into chapter-only explicit approximations', () => {
-    const mark = kv('Jonah 1:17');
+    const mark = kv('Micah 5:15');
     expect(mark.status).toBe('approximate');
-    if (mark.status !== 'approximate') throw new Error('Jonah 1:17 should be an explicit approximation');
+    if (mark.status !== 'approximate') throw new Error('Micah 5:15 should be an explicit approximation');
     expect(checkRefIn(ed('vulgate'), mark.ref)).toBeNull();
-    const acts = kv('Ecclesiastes 6:12');
+    const acts = kv('Song of Solomon 6:13');
     expect(acts.status).toBe('approximate');
-    if (acts.status !== 'approximate') throw new Error('Ecclesiastes 6:12 should be an explicit approximation');
+    if (acts.status !== 'approximate') throw new Error('Song of Solomon 6:13 should be an explicit approximation');
     expect(checkRefIn(ed('vulgate'), acts.ref)).toBeNull();
   });
   it('a verse past the end of its chapter is invalid: no card, with a reason', () => {
