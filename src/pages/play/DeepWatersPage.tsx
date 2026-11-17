@@ -4,7 +4,7 @@ import ShareButton from '../../components/ShareButton';
 import { dayIndex, isPractice, markDailyDone } from '../../lib/dailyGame';
 import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, findDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../../lib/deepWaters';
 import { clearDeepSession, deepDiveStreak, loadDeepLogbook, loadDeepSession, recordDeepDive, saveDeepSession } from '../../lib/deepWatersSession';
-import type { DeepAnswer, DeepPrompt } from '../../data/deepWaters';
+import { DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
 interface RoundResult { prompt: string; guess: string; answer: string | null; tier: DeepAnswer['tier'] | null; points: number; timedOut: boolean; pearlBonus?: number }
@@ -13,20 +13,34 @@ const newPracticeSeed = () => Math.floor(Math.random() * 1_000_000);
 export default function DeepWatersPage() {
   const today = dayIndex();
   const [practice, setPracticeMode] = useState(isPractice());
-  const [practiceSeed, setPracticeSeed] = useState(newPracticeSeed);
-  const prompts = useMemo(() => practice ? practiceDeepPrompts(practiceSeed) : dailyDeepPrompts(today), [practice, practiceSeed, today]);
-  const [round, setRound] = useState(0);
-  const [seconds, setSeconds] = useState(DEEP_SECONDS);
-  const [guess, setGuess] = useState('');
-  const [locked, setLocked] = useState(false);
+  const [snapshot] = useState(() => loadDeepSession(today));
+  const [practiceSeed, setPracticeSeed] = useState(snapshot?.practiceSeed ?? newPracticeSeed);
+  const canResume = Boolean(snapshot && snapshot.practice === practice && snapshot.practiceSeed === practiceSeed);
+  const prompts = useMemo(() => {
+    if (canResume && snapshot) {
+      const byId = new Map(DEEP_WATERS.map((p) => [p.id, p]));
+      const restored = snapshot.promptIds.map((id) => byId.get(id)).filter((p): p is DeepPrompt => Boolean(p));
+      if (restored.length === DEEP_ROUNDS) return restored;
+    }
+    return practice ? practiceDeepPrompts(practiceSeed) : dailyDeepPrompts(today);
+  }, [practice, practiceSeed, today, canResume, snapshot]);
+  const restoredRemaining = snapshot?.paused ? snapshot.remainingMs : snapshot?.deadlineAt ? Math.max(0, snapshot.deadlineAt - Date.now()) : DEEP_SECONDS * 1000;
+  const [round, setRound] = useState(canResume ? snapshot!.round : 0);
+  const [seconds, setSeconds] = useState(canResume ? Math.ceil(restoredRemaining / 1000) : DEEP_SECONDS);
+  const [guess, setGuess] = useState(canResume ? snapshot!.guess : '');
+  const [locked, setLocked] = useState(canResume && snapshot!.phase === 'locked');
   const [feedback, setFeedback] = useState('');
-  const [result, setResult] = useState<RoundResult | null>(null);
-  const [history, setHistory] = useState<RoundResult[]>([]);
-  const [score, setScore] = useState(0);
-  const [done, setDone] = useState(false);
+  const [history, setHistory] = useState<RoundResult[]>(canResume ? snapshot!.history as RoundResult[] : []);
+  const [result, setResult] = useState<RoundResult | null>(canResume && snapshot!.phase === 'locked' ? (snapshot!.history.at(-1) as RoundResult ?? null) : null);
+  const [score, setScore] = useState(canResume ? snapshot!.score : 0);
+  const [done, setDone] = useState(canResume && snapshot!.phase === 'done');
   const [showAnswers, setShowAnswers] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const prompt: DeepPrompt = prompts[round];
+  const deadlineRef = useRef<number>(snapshot?.deadlineAt ?? Date.now() + restoredRemaining);
+  const remainingRef = useRef<number>(restoredRemaining);
+  const [logbook, setLogbook] = useState(loadDeepLogbook());
+  const streak = deepDiveStreak(logbook, today);
 
   useEffect(() => {
     if (done || locked) return;
