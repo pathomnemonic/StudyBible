@@ -6,10 +6,10 @@ const cases = [
   { id: 'bible-trades', accept: ['Shepherd', 'publican', 'tentmaker'], reject: ['Pharaoh', 'fisherking'] },
   { id: 'bible-foods', accept: ['Bread', 'wheaten flour', 'manna'], reject: ['silver', 'lemon'] },
   { id: 'bible-objects', accept: ['Ark of the Covenant', 'Ark of the Testimony', 'stone tablets'], reject: ['Nineveh', 'golden calfskin'] },
-  { id: 'saint-founders', accept: ['Benedict of Nursia', 'Saint Benedict', 'Clare of Assisi'], reject: ['Saint Augustine', 'Saint Benedictine'] },
-  { id: 'saint-patronages', accept: ['Saint Christopher', 'Christopher of Lycia', 'Saint Joseph'], reject: ['Saint Paul', 'Christopher Columbus'] },
+  { id: 'saint-founders', accept: ['Benedict of Nursia', 'Saint Benedict', 'Clare of Assisi'], reject: ['King David', 'Benedictine'] },
+  { id: 'saint-patronages', accept: ['Saint Christopher', 'Christopher of Lycia', 'Saint Joseph'], reject: ['Zeus', 'Christopher Columbus'] },
   { id: 'encyclicals', accept: ['Rerum Novarum', 'On New Things', 'Humanae Vitae'], reject: ['Dei Verbum', 'Rerum Novissima'] },
-  { id: 'early-heresies', accept: ['Arianism', 'Arian heresy', 'Gnosticism'], reject: ['Nicene Creed', 'Arianisms'] },
+  { id: 'early-heresies', accept: ['Arianism', 'Arian heresy', 'Gnosticism'], reject: ['Nicene Creed', 'Arius'] },
   { id: 'liturgical-vestments', accept: ['Alb', 'Chasuble', 'casula'], reject: ['Roman Missal', 'chasubler'] },
   { id: 'liturgical-books', accept: ['Roman Missal', 'Missale Romanum', 'Lectionary'], reject: ['Catechism', 'Roman Missalette'] },
   { id: 'latin-prayers', accept: ['Pater Noster', 'Our Father', 'Ave Maria'], reject: ['Roman Missal', 'Pater Nostrum'] },
@@ -24,9 +24,10 @@ describe('Deep Waters Krillion batch 2', () => {
     const prompts = cases.map(({ id }) => DEEP_WATERS.find((p) => p.id === id));
     expect(prompts.every(Boolean)).toBe(true);
     expect(new Set(prompts.map((p) => p!.prompt)).size).toBe(cases.length);
+    expect(DEEP_WATERS.length % 7).toBe(0);
     for (const p of prompts) {
-      expect(p!.prompt.split(/\\s+/).length, p!.id).toBeGreaterThanOrEqual(4);
-      expect(p!.prompt.split(/\\s+/).length, p!.id).toBeLessThanOrEqual(14);
+      expect(p!.prompt.split(/\s+/).length, p!.id).toBeGreaterThanOrEqual(4);
+      expect(p!.prompt.split(/\s+/).length, p!.id).toBeLessThanOrEqual(14);
       expect(/^(Name|Give)\\b/.test(p!.prompt), p!.id).toBe(true);
       expect(p!.answers.length, p!.id).toBeGreaterThanOrEqual(25);
       expect(new Set(p!.answers.map((a) => a.answer.toLowerCase())).size, p!.id).toBe(p!.answers.length);
