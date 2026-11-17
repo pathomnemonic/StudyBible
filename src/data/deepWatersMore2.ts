@@ -1,0 +1,2265 @@
+import type { DeepAnswer, DeepPrompt, DeepTier } from './deepWaters';
+
+/** Editorial Krillion-style open prompts. Tiers are editorial familiarity estimates, not player telemetry. */
+type Row = [name: string, tier: DeepTier, aliases?: string];
+const rows = (list: Row[]): DeepAnswer[] => list.map(([answer, tier, aliases]) => ({ answer, tier, ...(aliases ? { aliases: aliases.split('|') } : {}) }));
+
+export const MORE2_PROMPTS: DeepPrompt[] = [
+  {
+    "id": "bible-trades",
+    "theme": "scripture",
+    "prompt": "Name an occupation mentioned in the Bible.",
+    "context": "Occupations and trades appear in biblical narratives, laws, parables and apostolic descriptions.",
+    "source": "Douay-Rheims Bible; Catholic Bible app Scripture text.",
+    "ignore": [
+      "shepherd",
+      "shepherdess"
+    ],
+    "answers": rows([
+      [
+        "fisherman|fisher",
+        1
+      ],
+      [
+        "farmer|husbandman",
+        1
+      ],
+      [
+        "carpenter|builder",
+        1
+      ],
+      [
+        "tentmaker",
+        1
+      ],
+      [
+        "tax collector|publican",
+        2
+      ],
+      [
+        "fisher",
+        2
+      ],
+      [
+        "soldier",
+        2
+      ],
+      [
+        "centurion",
+        2
+      ],
+      [
+        "king",
+        2
+      ],
+      [
+        "priest",
+        2
+      ],
+      [
+        "high priest",
+        3
+      ],
+      [
+        "scribe",
+        3
+      ],
+      [
+        "teacher of the law",
+        3
+      ],
+      [
+        "judge",
+        3
+      ],
+      [
+        "prophet",
+        3
+      ],
+      [
+        "weaver",
+        3
+      ],
+      [
+        "dyer",
+        3
+      ],
+      [
+        "fuller",
+        3
+      ],
+      [
+        "potter",
+        3
+      ],
+      [
+        "blacksmith",
+        4
+      ],
+      [
+        "smith",
+        4
+      ],
+      [
+        "mason",
+        4
+      ],
+      [
+        "stonemason",
+        4
+      ],
+      [
+        "merchant",
+        4
+      ],
+      [
+        "trader",
+        4
+      ],
+      [
+        "innkeeper",
+        4
+      ],
+      [
+        "keeper of an inn",
+        4
+      ],
+      [
+        "midwife",
+        4
+      ],
+      [
+        "nurse",
+        4
+      ],
+      [
+        "physician",
+        4
+      ],
+      [
+        "doctor",
+        5
+      ],
+      [
+        "magician",
+        5
+      ],
+      [
+        "astrologer",
+        5
+      ],
+      [
+        "cupbearer",
+        5
+      ],
+      [
+        "baker",
+        5
+      ],
+      [
+        "butler",
+        5
+      ],
+      [
+        "cook",
+        5
+      ],
+      [
+        "gardener",
+        5
+      ],
+      [
+        "vine dresser",
+        5
+      ],
+      [
+        "vinedresser",
+        5
+      ],
+      [
+        "fisher of men",
+        5
+      ],
+      [
+        "sailor",
+        5
+      ],
+      [
+        "shipmaster",
+        6
+      ],
+      [
+        "caravan trader",
+        6
+      ],
+      [
+        "perfumer",
+        6
+      ],
+      [
+        "spice merchant",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "bible-foods",
+    "theme": "scripture",
+    "prompt": "Name a food or ingredient eaten in the Bible.",
+    "context": "The list includes foods, staple crops, seasonings and prepared dishes named in Scripture.",
+    "source": "Douay-Rheims Bible; Catholic Bible app Scripture text.",
+    "ignore": [
+      "bread"
+    ],
+    "answers": rows([
+      [
+        "fish",
+        1
+      ],
+      [
+        "lamb",
+        1
+      ],
+      [
+        "manna",
+        1
+      ],
+      [
+        "honey",
+        1
+      ],
+      [
+        "milk",
+        2
+      ],
+      [
+        "wine",
+        2
+      ],
+      [
+        "water",
+        2
+      ],
+      [
+        "oil",
+        2
+      ],
+      [
+        "olive",
+        2
+      ],
+      [
+        "fig",
+        3
+      ],
+      [
+        "grapes",
+        3
+      ],
+      [
+        "raisins",
+        3
+      ],
+      [
+        "dates",
+        3
+      ],
+      [
+        "pomegranates",
+        3
+      ],
+      [
+        "lentils",
+        3
+      ],
+      [
+        "beans",
+        3
+      ],
+      [
+        "cucumbers",
+        3
+      ],
+      [
+        "melons",
+        3
+      ],
+      [
+        "leeks",
+        4
+      ],
+      [
+        "onions",
+        4
+      ],
+      [
+        "garlic",
+        4
+      ],
+      [
+        "wheat",
+        4
+      ],
+      [
+        "barley",
+        4
+      ],
+      [
+        "flour",
+        4
+      ],
+      [
+        "fine flour",
+        4
+      ],
+      [
+        "unleavened bread",
+        4
+      ],
+      [
+        "cakes",
+        4
+      ],
+      [
+        "cakes of figs",
+        4
+      ],
+      [
+        "roasted grain",
+        4
+      ],
+      [
+        "parched corn",
+        4
+      ],
+      [
+        "quail",
+        5
+      ],
+      [
+        "locusts",
+        5
+      ],
+      [
+        "bitter herbs",
+        5
+      ],
+      [
+        "salt",
+        5
+      ],
+      [
+        "vinegar",
+        5
+      ],
+      [
+        "cheese",
+        5
+      ],
+      [
+        "curds",
+        5
+      ],
+      [
+        "butter",
+        5
+      ],
+      [
+        "fatted calf",
+        5
+      ],
+      [
+        "kid",
+        5
+      ],
+      [
+        "roasted lamb",
+        5
+      ],
+      [
+        "honeycomb",
+        6
+      ],
+      [
+        "wild honey",
+        6
+      ],
+      [
+        "pulse",
+        6
+      ],
+      [
+        "herbs",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "bible-objects",
+    "theme": "scripture",
+    "prompt": "Name an object or artifact found in a biblical story.",
+    "context": "Includes ritual objects, household items, tools and objects central to named biblical episodes.",
+    "source": "Douay-Rheims Bible; Catholic Bible app Scripture text.",
+    "ignore": [
+      "Ark of the Covenant"
+    ],
+    "answers": rows([
+      [
+        "staff of Moses",
+        1
+      ],
+      [
+        "stone tablets",
+        1
+      ],
+      [
+        "golden calf",
+        1
+      ],
+      [
+        "Noah's ark",
+        1
+      ],
+      [
+        "sling",
+        2
+      ],
+      [
+        "Goliath's sword",
+        2
+      ],
+      [
+        "David's harp",
+        2
+      ],
+      [
+        "sling and stone",
+        2
+      ],
+      [
+        "shofar",
+        2
+      ],
+      [
+        "trumpet",
+        3
+      ],
+      [
+        "lampstand",
+        3
+      ],
+      [
+        "menorah",
+        3
+      ],
+      [
+        "altar of incense",
+        3
+      ],
+      [
+        "showbread table",
+        3
+      ],
+      [
+        "bronze serpent",
+        3
+      ],
+      [
+        "Jacob's ladder",
+        3
+      ],
+      [
+        "Joseph's coat",
+        3
+      ],
+      [
+        "coat of many colors",
+        3
+      ],
+      [
+        "potter's wheel",
+        4
+      ],
+      [
+        "oil flask",
+        4
+      ],
+      [
+        "widow's mite",
+        4
+      ],
+      [
+        "wedding garment",
+        4
+      ],
+      [
+        "winnowing fan",
+        4
+      ],
+      [
+        "threshing floor",
+        4
+      ],
+      [
+        "millstone",
+        4
+      ],
+      [
+        "lamp",
+        4
+      ],
+      [
+        "bushel basket",
+        4
+      ],
+      [
+        "mustard seed",
+        4
+      ],
+      [
+        "net",
+        4
+      ],
+      [
+        "fishing net",
+        4
+      ],
+      [
+        "manger",
+        5
+      ],
+      [
+        "swaddling clothes",
+        5
+      ],
+      [
+        "crown of thorns",
+        5
+      ],
+      [
+        "purple robe",
+        5
+      ],
+      [
+        "reed",
+        5
+      ],
+      [
+        "sponge",
+        5
+      ],
+      [
+        "spear",
+        5
+      ],
+      [
+        "linen cloth",
+        5
+      ],
+      [
+        "burial shroud",
+        5
+      ],
+      [
+        "censer",
+        5
+      ],
+      [
+        "censer of Korah",
+        5
+      ],
+      [
+        "veil of the Temple",
+        6
+      ],
+      [
+        "curtain of the Temple",
+        6
+      ],
+      [
+        "scroll",
+        6
+      ],
+      [
+        "seal",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "saint-founders",
+    "theme": "saints",
+    "prompt": "Name a saint who founded a religious order or congregation.",
+    "context": "Founders are saints whose communities became established Catholic religious institutes; historical titles and attributions vary.",
+    "source": "Catholic Encyclopedia (1913, public domain); Vatican biographies of saints; Order histories.",
+    "ignore": [
+      "Benedict of Nursia"
+    ],
+    "answers": rows([
+      [
+        "Francis of Assisi",
+        1
+      ],
+      [
+        "Dominic de Guzman",
+        1
+      ],
+      [
+        "Ignatius of Loyola",
+        1
+      ],
+      [
+        "Teresa of Avila",
+        2
+      ],
+      [
+        "John of the Cross",
+        2
+      ],
+      [
+        "Bruno of Cologne",
+        2
+      ],
+      [
+        "Romuald",
+        2
+      ],
+      [
+        "Norbert of Xanten",
+        2
+      ],
+      [
+        "John of Matha",
+        3
+      ],
+      [
+        "Felix of Valois",
+        3
+      ],
+      [
+        "Camillus de Lellis",
+        3
+      ],
+      [
+        "Philip Neri",
+        3
+      ],
+      [
+        "Angela Merici",
+        3
+      ],
+      [
+        "Jane Frances de Chantal",
+        3
+      ],
+      [
+        "Vincent de Paul",
+        3
+      ],
+      [
+        "Louise de Marillac",
+        4
+      ],
+      [
+        "John Bosco",
+        4
+      ],
+      [
+        "Eugene de Mazenod",
+        4
+      ],
+      [
+        "Marcellin Champagnat",
+        4
+      ],
+      [
+        "Alphonsus Liguori",
+        4
+      ],
+      [
+        "Paul of the Cross",
+        4
+      ],
+      [
+        "Gaspar del Bufalo",
+        4
+      ],
+      [
+        "Giovanni Leonardi",
+        4
+      ],
+      [
+        "Joseph Calasanz",
+        4
+      ],
+      [
+        "John Baptist de La Salle",
+        4
+      ],
+      [
+        "Francis de Sales",
+        5
+      ],
+      [
+        "Jeanne Jugan",
+        5
+      ],
+      [
+        "Mary MacKillop",
+        5
+      ],
+      [
+        "Elizabeth Ann Seton",
+        5
+      ],
+      [
+        "Frances Xavier Cabrini",
+        5
+      ],
+      [
+        "Daniel Comboni",
+        5
+      ],
+      [
+        "Arnold Janssen",
+        5
+      ],
+      [
+        "Charles de Foucauld",
+        5
+      ],
+      [
+        "Josemaría Escrivá",
+        5
+      ],
+      [
+        "Josef Kentenich",
+        6
+      ],
+      [
+        "Luigi Orione",
+        6
+      ],
+      [
+        "Maria De Mattias",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "saint-patronages",
+    "theme": "saints",
+    "prompt": "Name a saint traditionally invoked for a particular need.",
+    "context": "Includes widely established patronages and traditional devotions; local customs may differ.",
+    "source": "Catholic Encyclopedia (1913, public domain); Butler's Lives of the Saints; Catholic devotional reference works.",
+    "ignore": [
+      "Saint Christopher"
+    ],
+    "answers": rows([
+      [
+        "Saint Joseph",
+        1
+      ],
+      [
+        "Saint Luke",
+        1
+      ],
+      [
+        "Saint Cecilia",
+        1
+      ],
+      [
+        "Saint Blaise",
+        2
+      ],
+      [
+        "Saint Anthony of Padua",
+        2
+      ],
+      [
+        "Saint Jude",
+        2
+      ],
+      [
+        "Saint Rita of Cascia",
+        2
+      ],
+      [
+        "Saint Monica",
+        2
+      ],
+      [
+        "Saint Dymphna",
+        3
+      ],
+      [
+        "Saint Peregrine",
+        3
+      ],
+      [
+        "Saint Florian",
+        3
+      ],
+      [
+        "Saint Isidore the Farmer",
+        3
+      ],
+      [
+        "Saint Francis of Assisi",
+        3
+      ],
+      [
+        "Saint Hubert",
+        3
+      ],
+      [
+        "Saint Nicholas",
+        3
+      ],
+      [
+        "Saint Barbara",
+        4
+      ],
+      [
+        "Saint Lawrence",
+        4
+      ],
+      [
+        "Saint Apollonia",
+        4
+      ],
+      [
+        "Saint Erasmus",
+        4
+      ],
+      [
+        "Saint Elmo",
+        4
+      ],
+      [
+        "Saint Roch",
+        4
+      ],
+      [
+        "Saint Sebastian",
+        4
+      ],
+      [
+        "Saint Anne",
+        4
+      ],
+      [
+        "Saint Elizabeth of Hungary",
+        4
+      ],
+      [
+        "Saint Thomas Aquinas",
+        4
+      ],
+      [
+        "Saint Albert the Great",
+        5
+      ],
+      [
+        "Saint Genesius",
+        5
+      ],
+      [
+        "Saint Zita",
+        5
+      ],
+      [
+        "Saint Homobonus",
+        5
+      ],
+      [
+        "Saint Expeditus",
+        5
+      ],
+      [
+        "Saint Catherine of Alexandria",
+        5
+      ],
+      [
+        "Saint Margaret of Antioch",
+        5
+      ],
+      [
+        "Saint Raymond Nonnatus",
+        5
+      ],
+      [
+        "Saint Gerard Majella",
+        5
+      ],
+      [
+        "Saint Gianna Beretta Molla",
+        6
+      ],
+      [
+        "Saint Camillus de Lellis",
+        6
+      ],
+      [
+        "Saint John Bosco",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "encyclicals",
+    "theme": "church-history",
+    "prompt": "Name a papal encyclical by its commonly used title.",
+    "context": "Titles are given in their familiar Latin or English form; this is a representative, not exhaustive, list.",
+    "source": "Vatican.va, papal encyclicals; public-domain Acta Apostolicae Sedis where applicable.",
+    "ignore": [
+      "Rerum Novarum"
+    ],
+    "answers": rows([
+      [
+        "Quadragesimo Anno",
+        1
+      ],
+      [
+        "Mater et Magistra",
+        1
+      ],
+      [
+        "Pacem in Terris",
+        1
+      ],
+      [
+        "Populorum Progressio",
+        2
+      ],
+      [
+        "Humanae Vitae",
+        2
+      ],
+      [
+        "Laborem Exercens",
+        2
+      ],
+      [
+        "Sollicitudo Rei Socialis",
+        2
+      ],
+      [
+        "Centesimus Annus",
+        3
+      ],
+      [
+        "Veritatis Splendor",
+        3
+      ],
+      [
+        "Evangelium Vitae",
+        3
+      ],
+      [
+        "Fides et Ratio",
+        3
+      ],
+      [
+        "Deus Caritas Est",
+        3
+      ],
+      [
+        "Spe Salvi",
+        3
+      ],
+      [
+        "Caritas in Veritate",
+        3
+      ],
+      [
+        "Lumen Fidei",
+        4
+      ],
+      [
+        "Laudato Si'",
+        4
+      ],
+      [
+        "Fratelli Tutti",
+        4
+      ],
+      [
+        "Mystici Corporis Christi",
+        4
+      ],
+      [
+        "Mediator Dei",
+        4
+      ],
+      [
+        "Mortalium Animos",
+        4
+      ],
+      [
+        "Divino Afflante Spiritu",
+        4
+      ],
+      [
+        "Summi Pontificatus",
+        4
+      ],
+      [
+        "Quas Primas",
+        4
+      ],
+      [
+        "Pascendi Dominici Gregis",
+        5
+      ],
+      [
+        "Satis Cognitum",
+        5
+      ],
+      [
+        "Aeterni Patris",
+        5
+      ],
+      [
+        "Providentissimus Deus",
+        5
+      ],
+      [
+        "Ad Caeli Reginam",
+        5
+      ],
+      [
+        "Redemptoris Mater",
+        5
+      ],
+      [
+        "Redemptoris Missio",
+        5
+      ],
+      [
+        "Ecclesia de Eucharistia",
+        5
+      ],
+      [
+        "Ecclesiam Suam",
+        6
+      ],
+      [
+        "Mense Maio",
+        6
+      ],
+      [
+        "Ad Petri Cathedram",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "early-heresies",
+    "theme": "church-history",
+    "prompt": "Name an early Christian heresy or heterodox movement.",
+    "context": "Includes movements debated or condemned in the early Church; some labels cover diverse groups and periods.",
+    "source": "Catholic Encyclopedia (1913, public domain); documents of the first seven ecumenical councils; Oxford Dictionary of the Christian Church for cross-checking.",
+    "ignore": [
+      "Arianism"
+    ],
+    "answers": rows([
+      [
+        "Gnosticism",
+        1
+      ],
+      [
+        "Docetism",
+        1
+      ],
+      [
+        "Marcionism",
+        1
+      ],
+      [
+        "Montanism",
+        2
+      ],
+      [
+        "Donatism",
+        2
+      ],
+      [
+        "Pelagianism",
+        2
+      ],
+      [
+        "Nestorianism",
+        2
+      ],
+      [
+        "Monophysitism",
+        3
+      ],
+      [
+        "Monothelitism",
+        3
+      ],
+      [
+        "Manichaeism",
+        3
+      ],
+      [
+        "Novatianism",
+        3
+      ],
+      [
+        "Sabellianism",
+        3
+      ],
+      [
+        "Adoptionism",
+        3
+      ],
+      [
+        "Apollinarianism",
+        4
+      ],
+      [
+        "Macedonianism",
+        4
+      ],
+      [
+        "Priscillianism",
+        4
+      ],
+      [
+        "Eutychianism",
+        4
+      ],
+      [
+        "Valentinianism",
+        4
+      ],
+      [
+        "Basilideanism",
+        4
+      ],
+      [
+        "Ebionism",
+        4
+      ],
+      [
+        "Encratism",
+        4
+      ],
+      [
+        "Messalianism",
+        5
+      ],
+      [
+        "Bogomilism",
+        5
+      ],
+      [
+        "Paulicianism",
+        5
+      ],
+      [
+        "Iconoclasm",
+        5
+      ],
+      [
+        "Jansenism",
+        5
+      ],
+      [
+        "Quietism",
+        5
+      ],
+      [
+        "Albigensianism",
+        5
+      ],
+      [
+        "Catharism",
+        6
+      ],
+      [
+        "Arian controversy",
+        6
+      ],
+      [
+        "Rigorism",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "liturgical-vestments",
+    "theme": "liturgy",
+    "prompt": "Name a vestment or liturgical garment worn by clergy.",
+    "context": "Includes garments and insignia used in Latin and Eastern Catholic liturgies; usage varies by rite and office.",
+    "source": "General Instruction of the Roman Missal; Ceremonial of Bishops; Catholic Encyclopedia (1913, public domain).",
+    "ignore": [
+      "alb"
+    ],
+    "answers": rows([
+      [
+        "chasuble",
+        1
+      ],
+      [
+        "stole",
+        1
+      ],
+      [
+        "dalmatic",
+        1
+      ],
+      [
+        "cope",
+        2
+      ],
+      [
+        "surplice",
+        2
+      ],
+      [
+        "cassock",
+        2
+      ],
+      [
+        "amice",
+        2
+      ],
+      [
+        "maniple",
+        3
+      ],
+      [
+        "humeral veil",
+        3
+      ],
+      [
+        "mitre",
+        3
+      ],
+      [
+        "pallium",
+        3
+      ],
+      [
+        "papal tiara",
+        3
+      ],
+      [
+        "zucchetto",
+        3
+      ],
+      [
+        "biretta",
+        4
+      ],
+      [
+        "rochet",
+        4
+      ],
+      [
+        "cotta",
+        4
+      ],
+      [
+        "tunicle",
+        4
+      ],
+      [
+        "epitrachelion",
+        4
+      ],
+      [
+        "phelonion",
+        4
+      ],
+      [
+        "sakkos",
+        4
+      ],
+      [
+        "orarion",
+        4
+      ],
+      [
+        "epimanikia",
+        5
+      ],
+      [
+        "zone",
+        5
+      ],
+      [
+        "nabedrennik",
+        5
+      ],
+      [
+        "omophorion",
+        5
+      ],
+      [
+        "epigonation",
+        5
+      ],
+      [
+        "mandyas",
+        5
+      ],
+      [
+        "riassa",
+        5
+      ],
+      [
+        "cowl",
+        6
+      ],
+      [
+        "habit",
+        6
+      ],
+      [
+        "scapular",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "liturgical-books",
+    "theme": "liturgy",
+    "prompt": "Name a book used in Catholic liturgy or the Divine Office.",
+    "context": "Includes official liturgical books and books used to provide readings, prayers or chant.",
+    "source": "Vatican.va liturgical books; General Instruction of the Roman Missal; Catholic Encyclopedia (1913, public domain).",
+    "ignore": [
+      "Roman Missal"
+    ],
+    "answers": rows([
+      [
+        "Lectionary",
+        1
+      ],
+      [
+        "Book of the Gospels",
+        1
+      ],
+      [
+        "Liturgy of the Hours",
+        1
+      ],
+      [
+        "Roman Pontifical",
+        2
+      ],
+      [
+        "Roman Ritual",
+        2
+      ],
+      [
+        "Book of Blessings",
+        2
+      ],
+      [
+        "Martyrology",
+        2
+      ],
+      [
+        "Gradual",
+        3
+      ],
+      [
+        "Antiphonary",
+        3
+      ],
+      [
+        "Psalter",
+        3
+      ],
+      [
+        "Breviary",
+        3
+      ],
+      [
+        "Missal",
+        3
+      ],
+      [
+        "Sacramentary",
+        3
+      ],
+      [
+        "Epistolary",
+        4
+      ],
+      [
+        "Evangelary",
+        4
+      ],
+      [
+        "Collectar",
+        4
+      ],
+      [
+        "Kyriale",
+        4
+      ],
+      [
+        "Processional",
+        4
+      ],
+      [
+        "Ceremonial of Bishops",
+        4
+      ],
+      [
+        "Caeremoniale Episcoporum",
+        4
+      ],
+      [
+        "Ordo",
+        4
+      ],
+      [
+        "Ordo Cantus Missae",
+        5
+      ],
+      [
+        "Liber Usualis",
+        5
+      ],
+      [
+        "Typikon",
+        5
+      ],
+      [
+        "Horologion",
+        5
+      ],
+      [
+        "Euchologion",
+        5
+      ],
+      [
+        "Apostolos",
+        5
+      ],
+      [
+        "Menaion",
+        5
+      ],
+      [
+        "Triodion",
+        5
+      ],
+      [
+        "Pentecostarion",
+        6
+      ],
+      [
+        "Octoechos",
+        6
+      ],
+      [
+        "Irmologion",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "latin-prayers",
+    "theme": "devotion",
+    "prompt": "Name a traditional Catholic prayer commonly known by its Latin name.",
+    "context": "Includes traditional prayers and devotional texts, not every Latin phrase used in the Mass.",
+    "source": "Roman Missal; Liturgy of the Hours; Raccolta (public domain); Vatican.va liturgical texts.",
+    "ignore": [
+      "Pater Noster"
+    ],
+    "answers": rows([
+      [
+        "Ave Maria",
+        1
+      ],
+      [
+        "Gloria Patri",
+        1
+      ],
+      [
+        "Salve Regina",
+        1
+      ],
+      [
+        "Regina Caeli",
+        2
+      ],
+      [
+        "Angelus",
+        2
+      ],
+      [
+        "Magnificat",
+        2
+      ],
+      [
+        "Benedictus",
+        2
+      ],
+      [
+        "Nunc Dimittis",
+        3
+      ],
+      [
+        "Te Deum",
+        3
+      ],
+      [
+        "Veni Creator Spiritus",
+        3
+      ],
+      [
+        "Veni Sancte Spiritus",
+        3
+      ],
+      [
+        "Anima Christi",
+        3
+      ],
+      [
+        "Memorare",
+        3
+      ],
+      [
+        "Sub Tuum Praesidium",
+        3
+      ],
+      [
+        "Tantum Ergo",
+        4
+      ],
+      [
+        "Adoro Te Devote",
+        4
+      ],
+      [
+        "O Salutaris Hostia",
+        4
+      ],
+      [
+        "Panis Angelicus",
+        4
+      ],
+      [
+        "Stabat Mater",
+        4
+      ],
+      [
+        "Dies Irae",
+        4
+      ],
+      [
+        "Confiteor",
+        4
+      ],
+      [
+        "Actus Contritionis",
+        4
+      ],
+      [
+        "Credo",
+        4
+      ],
+      [
+        "Apostles' Creed",
+        5
+      ],
+      [
+        "Symbolum Apostolorum",
+        5
+      ],
+      [
+        "Agnus Dei",
+        5
+      ],
+      [
+        "Kyrie Eleison",
+        5
+      ],
+      [
+        "Gloria in Excelsis Deo",
+        5
+      ],
+      [
+        "Sanctus",
+        5
+      ],
+      [
+        "Benedicite",
+        5
+      ],
+      [
+        "De Profundis",
+        5
+      ],
+      [
+        "Miserere",
+        6
+      ],
+      [
+        "In Paradisum",
+        6
+      ],
+      [
+        "Requiem Aeternam",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "church-architecture",
+    "theme": "art-music",
+    "prompt": "Name an architectural feature of a Catholic church.",
+    "context": "Includes architectural elements found in churches and basilicas across Catholic traditions.",
+    "source": "Catholic Encyclopedia (1913, public domain); authoritative architectural glossaries; Vatican basilica descriptions.",
+    "ignore": [
+      "nave"
+    ],
+    "answers": rows([
+      [
+        "apse",
+        1
+      ],
+      [
+        "transept",
+        1
+      ],
+      [
+        "narthex",
+        1
+      ],
+      [
+        "sanctuary",
+        1
+      ],
+      [
+        "altar",
+        2
+      ],
+      [
+        "ambo",
+        2
+      ],
+      [
+        "baptistery",
+        2
+      ],
+      [
+        "baptistry",
+        2
+      ],
+      [
+        "campanile",
+        2
+      ],
+      [
+        "bell tower",
+        3
+      ],
+      [
+        "dome",
+        3
+      ],
+      [
+        "cupola",
+        3
+      ],
+      [
+        "clerestory",
+        3
+      ],
+      [
+        "ambulatory",
+        3
+      ],
+      [
+        "choir",
+        3
+      ],
+      [
+        "chancel",
+        3
+      ],
+      [
+        "side chapel",
+        3
+      ],
+      [
+        "chapel",
+        4
+      ],
+      [
+        "crypt",
+        4
+      ],
+      [
+        "confessional",
+        4
+      ],
+      [
+        "sacristy",
+        4
+      ],
+      [
+        "cloister",
+        4
+      ],
+      [
+        "portico",
+        4
+      ],
+      [
+        "tympanum",
+        4
+      ],
+      [
+        "rose window",
+        4
+      ],
+      [
+        "stained glass",
+        4
+      ],
+      [
+        "flying buttress",
+        4
+      ],
+      [
+        "buttress",
+        4
+      ],
+      [
+        "vault",
+        5
+      ],
+      [
+        "rib vault",
+        5
+      ],
+      [
+        "keystone",
+        5
+      ],
+      [
+        "pinnacle",
+        5
+      ],
+      [
+        "spire",
+        5
+      ],
+      [
+        "triforium",
+        5
+      ],
+      [
+        "transept crossing",
+        5
+      ],
+      [
+        "rood screen",
+        5
+      ],
+      [
+        "iconostasis",
+        5
+      ],
+      [
+        "templon",
+        5
+      ],
+      [
+        "solea",
+        6
+      ],
+      [
+        "bema",
+        6
+      ],
+      [
+        "prothesis",
+        6
+      ],
+      [
+        "diaconicon",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "roman-basilicas",
+    "theme": "places",
+    "prompt": "Name a major papal or titular basilica in Rome.",
+    "context": "Includes the major basilicas and historically important basilicas within Rome; some names have multiple common forms.",
+    "source": "Holy See, basilicas and papal basilicas; Rome's official tourism and basilica websites.",
+    "ignore": [
+      "Saint Peter's Basilica"
+    ],
+    "answers": rows([
+      [
+        "Archbasilica of Saint John Lateran",
+        1
+      ],
+      [
+        "Saint Mary Major",
+        1
+      ],
+      [
+        "Saint Paul Outside the Walls",
+        1
+      ],
+      [
+        "Santa Croce in Gerusalemme",
+        2
+      ],
+      [
+        "San Lorenzo fuori le Mura",
+        2
+      ],
+      [
+        "San Sebastiano fuori le Mura",
+        2
+      ],
+      [
+        "Sant'Agnese fuori le Mura",
+        3
+      ],
+      [
+        "Santa Maria in Trastevere",
+        3
+      ],
+      [
+        "Santa Maria sopra Minerva",
+        3
+      ],
+      [
+        "Santa Maria in Aracoeli",
+        3
+      ],
+      [
+        "San Clemente",
+        3
+      ],
+      [
+        "Santa Sabina",
+        3
+      ],
+      [
+        "San Pietro in Vincoli",
+        4
+      ],
+      [
+        "Sant'Apollinare",
+        4
+      ],
+      [
+        "San Carlo al Corso",
+        4
+      ],
+      [
+        "Sant'Andrea della Valle",
+        4
+      ],
+      [
+        "Sant'Ignazio",
+        4
+      ],
+      [
+        "Il Gesù",
+        4
+      ],
+      [
+        "Santa Maria del Popolo",
+        4
+      ],
+      [
+        "Santa Cecilia in Trastevere",
+        4
+      ],
+      [
+        "San Crisogono",
+        5
+      ],
+      [
+        "San Giovanni a Porta Latina",
+        5
+      ],
+      [
+        "Santi Cosma e Damiano",
+        5
+      ],
+      [
+        "Santa Prassede",
+        5
+      ],
+      [
+        "Santa Pudenziana",
+        5
+      ],
+      [
+        "San Giorgio in Velabro",
+        5
+      ],
+      [
+        "San Bartolomeo all'Isola",
+        5
+      ],
+      [
+        "Sant'Agostino",
+        6
+      ],
+      [
+        "San Marco",
+        6
+      ],
+      [
+        "Santa Maria degli Angeli e dei Martiri",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "church-historians",
+    "theme": "people",
+    "prompt": "Name a historian of the Church or early Christianity.",
+    "context": "Includes historians and chroniclers whose works are important sources for Christian history.",
+    "source": "Catholic Encyclopedia (1913, public domain); public-domain primary texts and standard scholarly reference works.",
+    "ignore": [
+      "Eusebius of Caesarea"
+    ],
+    "answers": rows([
+      [
+        "Socrates Scholasticus",
+        1
+      ],
+      [
+        "Sozomen",
+        1
+      ],
+      [
+        "Theodoret of Cyrus",
+        1
+      ],
+      [
+        "Evagrius Scholasticus",
+        2
+      ],
+      [
+        "Bede",
+        2
+      ],
+      [
+        "Paul the Deacon",
+        2
+      ],
+      [
+        "Gregory of Tours",
+        3
+      ],
+      [
+        "Orosius",
+        3
+      ],
+      [
+        "Rufinus of Aquileia",
+        3
+      ],
+      [
+        "Cassiodorus",
+        3
+      ],
+      [
+        "Sulpicius Severus",
+        3
+      ],
+      [
+        "Athanasius",
+        3
+      ],
+      [
+        "Jerome",
+        4
+      ],
+      [
+        "Augustine",
+        4
+      ],
+      [
+        "John of Ephesus",
+        4
+      ],
+      [
+        "Zacharias Rhetor",
+        4
+      ],
+      [
+        "Nicephorus Callistus Xanthopoulos",
+        4
+      ],
+      [
+        "Photius",
+        4
+      ],
+      [
+        "Orderic Vitalis",
+        4
+      ],
+      [
+        "William of Tyre",
+        4
+      ],
+      [
+        "Matthew Paris",
+        5
+      ],
+      [
+        "Caesar Baronius",
+        5
+      ],
+      [
+        "Ludwig von Pastor",
+        5
+      ],
+      [
+        "Johann Adam Möhler",
+        5
+      ],
+      [
+        "John Henry Newman",
+        5
+      ],
+      [
+        "Philip Schaff",
+        5
+      ],
+      [
+        "Henri Daniel-Rops",
+        5
+      ],
+      [
+        "Hubert Jedin",
+        6
+      ],
+      [
+        "Jaroslav Pelikan",
+        6
+      ],
+      [
+        "Aloys Grillmeier",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "saint-missionaries",
+    "theme": "saints",
+    "prompt": "Name a Catholic saint known for missionary work.",
+    "context": "Includes saints remembered for evangelization beyond their place of origin or for founding missionary communities.",
+    "source": "Vatican.va saint biographies; Catholic Encyclopedia (1913, public domain); Butler's Lives of the Saints.",
+    "ignore": [
+      "Francis Xavier"
+    ],
+    "answers": rows([
+      [
+        "Patrick of Ireland",
+        1
+      ],
+      [
+        "Boniface",
+        1
+      ],
+      [
+        "Cyril",
+        1
+      ],
+      [
+        "Methodius",
+        2
+      ],
+      [
+        "Augustine of Canterbury",
+        2
+      ],
+      [
+        "Ansgar",
+        2
+      ],
+      [
+        "Willibrord",
+        2
+      ],
+      [
+        "Columbanus",
+        3
+      ],
+      [
+        "Aidan of Lindisfarne",
+        3
+      ],
+      [
+        "Bede",
+        3
+      ],
+      [
+        "Peter Claver",
+        3
+      ],
+      [
+        "Junipero Serra",
+        3
+      ],
+      [
+        "Isaac Jogues",
+        3
+      ],
+      [
+        "Jean de Brébeuf",
+        3
+      ],
+      [
+        "Kateri Tekakwitha",
+        4
+      ],
+      [
+        "Roque González",
+        4
+      ],
+      [
+        "Peter Chanel",
+        4
+      ],
+      [
+        "Daniel Comboni",
+        4
+      ],
+      [
+        "Charles Lwanga",
+        4
+      ],
+      [
+        "Josephine Bakhita",
+        4
+      ],
+      [
+        "Damien of Molokai",
+        4
+      ],
+      [
+        "Marianne Cope",
+        4
+      ],
+      [
+        "Theodosius of Kiev",
+        4
+      ],
+      [
+        "Olga of Kyiv",
+        5
+      ],
+      [
+        "Vladimir of Kyiv",
+        5
+      ],
+      [
+        "Stephen of Hungary",
+        5
+      ],
+      [
+        "Adalbert of Prague",
+        5
+      ],
+      [
+        "Otto of Bamberg",
+        5
+      ],
+      [
+        "Francis Solano",
+        5
+      ],
+      [
+        "John de Britto",
+        5
+      ],
+      [
+        "Eugene de Mazenod",
+        5
+      ],
+      [
+        "Arnold Janssen",
+        6
+      ],
+      [
+        "Frances Xavier Cabrini",
+        6
+      ],
+      [
+        "Maria Teresa Ledóchowska",
+        6
+      ]
+    ])
+  },
+  {
+    "id": "mary-dogmas",
+    "theme": "doctrine",
+    "prompt": "Name a title or term directly associated with a Marian dogma.",
+    "context": "The four Marian dogmas are the Divine Motherhood, Perpetual Virginity, Immaculate Conception and Assumption; this prompt accepts their established names and theological terms.",
+    "source": "Catechism of the Catholic Church; Ineffabilis Deus; Munificentissimus Deus; Council of Ephesus acts.",
+    "ignore": [
+      "Theotokos"
+    ],
+    "answers": rows([
+      [
+        "Mother of God",
+        1
+      ],
+      [
+        "Divine Maternity",
+        2
+      ],
+      [
+        "Perpetual Virginity",
+        2
+      ],
+      [
+        "Ever-Virgin",
+        3
+      ],
+      [
+        "Aeiparthenos",
+        3
+      ],
+      [
+        "Immaculate Conception",
+        4
+      ],
+      [
+        "Conception without original sin",
+        4
+      ],
+      [
+        "Assumption",
+        4
+      ],
+      [
+        "Dormition",
+        5
+      ],
+      [
+        "Assumpta",
+        5
+      ],
+      [
+        "Queen assumed into heaven",
+        6
+      ]
+    ])
+  }
+];
