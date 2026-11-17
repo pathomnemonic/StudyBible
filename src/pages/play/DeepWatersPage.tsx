@@ -91,7 +91,7 @@ export default function DeepWatersPage() {
           <div className="dw-status">
             <span className="dw-round-count">DIVE <b>{String(round + 1).padStart(2, '0')}</b><i> / 07</i></span>
             <span className="dw-score"><b>{score}</b><small>POINTS</small></span>
-            <div className={`dw-clock ${timerTone}`} role="timer" aria-label={`${seconds} seconds remaining`} style={{ ['--timer-ratio' as string]: seconds / DEEP_SECONDS }}>
+            <div className={`dw-clock ${timerTone}`} role="timer" aria-label={`${seconds} seconds remaining`} style={{ ['--timer-angle' as string]: `${(seconds / DEEP_SECONDS) * 360}deg` }}>
               <span>{seconds}</span><small>SEC</small>
             </div>
           </div>
