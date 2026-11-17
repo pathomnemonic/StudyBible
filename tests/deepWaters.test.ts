@@ -24,6 +24,15 @@ describe('Deep Waters content and rules', () => {
     const authored = DEEP_WATERS.filter((p) => p.id.startsWith('authored-'));
     expect(authored).toHaveLength(25);
     expect(new Set(authored.map((p) => p.theme)).size).toBeGreaterThanOrEqual(15);
+    const byId = (id: string) => authored.find((p) => p.id === id)!;
+    expect(byId('authored-eastern-catholic-churches').answers).toHaveLength(23);
+    expect(byId('authored-doctors-of-church').answers).toHaveLength(38);
+    expect(byId('authored-ecumenical-councils-first-millennium').answers).toHaveLength(21);
+    expect(byId('authored-works-of-mercy').answers).toHaveLength(14);
+    expect(byId('authored-judges-of-israel').answers).toHaveLength(12);
+    expect(byId('authored-pauline-letters').answers).toHaveLength(13);
+    expect(byId('authored-deuterocanonical-books').answers).toHaveLength(12);
+
     for (const prompt of authored) {
       expect(prompt.source, prompt.id).toMatch(/^Hand-authored answer key; sources:/);
       expect(prompt.answerMode).toBe('many');
