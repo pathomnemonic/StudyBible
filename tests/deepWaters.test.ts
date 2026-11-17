@@ -4,15 +4,16 @@ import { GENERATED_DEEP_CANDIDATES } from '../src/lib/deepWatersBankGenerator';
 import { dailyDeepPrompts, deepWatersCoverageErrors, deepWatersCoverageReport, DEEP_ANSWER_TARGET, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, findDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../src/lib/deepWaters';
 
 describe('Deep Waters content and rules', () => {
-  it('has enough Catholic prompts for a seven-round daily set', () => {
-    expect(DEEP_WATERS.length).toBeGreaterThanOrEqual(10);
+  it('has enough distinct Catholic prompts for a full 365-day year', () => {
+    expect(DEEP_WATERS.length).toBeGreaterThanOrEqual(365 * DEEP_ROUNDS);
     expect(DEEP_ROUNDS).toBe(7);
     expect(DEEP_SECONDS).toBe(30);
     expect(new Set(DEEP_WATERS.map((p) => p.id)).size).toBe(DEEP_WATERS.length);
     for (const p of DEEP_WATERS) {
       expect(p.prompt.trim().length, p.id).toBeGreaterThan(12);
       expect(p.hint.trim().length, p.id).toBeGreaterThan(20);
-      expect(p.answers.length, p.id).toBeGreaterThanOrEqual(10);
+      expect(p.answers.length, p.id).toBeGreaterThanOrEqual(p.answerMode === 'single' ? 1 : 10);
+      if (p.answerMode === 'single') expect(p.source, p.id).toBeTruthy();
       expect(new Set(p.answers.map((a) => normalizeDeepAnswer(a.answer))).size, p.id).toBe(p.answers.length);
       for (const a of p.answers) expect([1, 2, 3, 4, 5]).toContain(a.tier);
     }
@@ -29,6 +30,7 @@ describe('Deep Waters content and rules', () => {
   it('simulates 365 days with unique daily prompts and balanced bank rotation', () => {
     const counts = new Map(DEEP_WATERS.map((p) => [p.id, 0]));
     let previous = new Set<string>();
+    const yearIds = new Set<string>();
     for (let day = 1; day <= 365; day++) {
       const current = dailyDeepPrompts(day);
       const ids = current.map((p) => p.id);
@@ -40,6 +42,7 @@ describe('Deep Waters content and rules', () => {
       }
       previous = new Set(ids);
     }
+    expect(yearIds.size).toBe(365 * DEEP_ROUNDS);
     const frequencies = [...counts.values()];
     expect(Math.max(...frequencies) - Math.min(...frequencies)).toBeLessThanOrEqual(1);
   });
@@ -124,6 +127,7 @@ describe('Deep Waters content and rules', () => {
     expect(report).toHaveLength(DEEP_WATERS.length);
     expect(report.every((row) => row.status === 'draft')).toBe(true);
     expect(report.some((row) => !row.meetsTarget)).toBe(true);
+    expect(report.filter((row) => row.target === 1)).toHaveLength(2555);
     expect(deepWatersCoverageErrors()).toEqual([]);
     const underfilled = { ...DEEP_WATERS[0], status: 'reviewed' as const, answers: DEEP_WATERS[0].answers.slice(0, DEEP_ANSWER_TARGET - 1) };
     expect(deepWatersCoverageErrors([underfilled])).toHaveLength(1);
