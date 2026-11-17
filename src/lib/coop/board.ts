@@ -14,6 +14,11 @@ export function pointsFor(game: string, result: string): number {
     const m = /^(\d)\/(\d)/.exec(result);
     return m ? Math.max(1, Number(m[2]) + 1 - Number(m[1])) : 1;
   }
+  if (game === 'deepwaters') {
+    // a dive result reads "350 pts": one board point per 100 (so a very good dive is worth a little more than another daily, not many times more)
+    const m = /^(\d+)\s*pts/.exec(result);
+    return m ? Math.max(1, Math.round(Number(m[1]) / 100)) : 1;
+  }
   return /miss|fail|lost/i.test(result) ? 1 : 3;
 }
 

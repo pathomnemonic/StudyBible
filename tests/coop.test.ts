@@ -51,6 +51,9 @@ describe('weeks', () => {
     const d = day('2026-11-03');
     expect(pointsFor('verbum', '2/6')).toBe(5);
     expect(pointsFor('verbum', 'missed')).toBe(1);
+    expect(pointsFor('deepwaters', '350 pts')).toBe(4);
+    expect(pointsFor('deepwaters', '20 pts')).toBe(1);
+    expect(pointsFor('deepwaters', 'garbled')).toBe(1);
     expect(pointsFor('chain', '4 steps')).toBe(3);
     const rows = standings([
       { n: 'Ann', e: [{ d, g: 'verbum', r: '2/6' }, { d, g: 'verbum', r: '6/6' }, { d: day('2026-10-01'), g: 'chain', r: 'x' }] },

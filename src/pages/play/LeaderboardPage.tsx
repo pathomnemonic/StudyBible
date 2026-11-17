@@ -12,7 +12,7 @@ const store = (s: Saved | null) => { try { if (s) localStorage.setItem(SAVE, JSO
 const LOCAL = (g: string, n: string, w: number) => `sb:lb:posted:${g}:${n.toLowerCase()}:${w}`;
 const readLocal = (g: string, n: string, w: number): Post[] => { try { return JSON.parse(localStorage.getItem(LOCAL(g, n, w)) ?? '[]') as Post[]; } catch { return []; } };
 const writeLocal = (g: string, n: string, w: number, p: Post[]) => { try { localStorage.setItem(LOCAL(g, n, w), JSON.stringify(p)); } catch { /* private mode */ } };
-const NAMES: Record<string, string> = { verbum: 'Verbum', quartets: 'Quartets', saintguess: 'Saint guess', whoami: 'Who am I', artdetective: 'Art detective', whosaid: 'Who said it', whichbook: 'Which book', chain: 'Chain', pilgrim: 'Pilgrim' };
+const NAMES: Record<string, string> = { deepwaters: 'Deep Waters', verbum: 'Verbum', quartets: 'Quartets', saintguess: 'Saint guess', whoami: 'Who am I', artdetective: 'Art detective', whosaid: 'Who said it', whichbook: 'Which book', chain: 'Chain', pilgrim: 'Pilgrim' };
 const DAY_LETTERS = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
 
 /** Today's finished daily puzzles, from this device's own record. */
@@ -133,7 +133,7 @@ function Board({ saved, update, leave }: { saved: Saved; update: (s: Saved) => v
           </tbody>
         </table>
       )}
-      <p className="muted small">Points: Verbum scores by guesses (six for a first try, one for six), other dailies three each for finishing, one for a miss. The week follows your own time zone.</p>
+      <p className="muted small">Points: Verbum scores by guesses (six for a first try, one for six), Deep Waters one for every 100 points of the dive (at least one), other dailies three each for finishing, one for a miss. The week follows your own time zone.</p>
       {note && <p className="cp-err" role="alert">{note}</p>}
     </div>
   );
