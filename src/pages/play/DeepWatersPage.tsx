@@ -84,7 +84,7 @@ export default function DeepWatersPage() {
   useEffect(() => {
     if (done && !practice) {
       markDailyDone('deepwaters', `${score} pts`, score >= 32);
-      const entries = recordDeepDive({ day: today, score, scoredRounds: history.filter((r) => r.points > 0).length, totalRounds: DEEP_ROUNDS, pearlFound: history.some((r) => (r.pearlBonus ?? 0) > 0), practice: false });
+      const entries = recordDeepDive({ day: today, score, scoredRounds: history.filter((r) => r.points > 0).length, totalRounds: DEEP_ROUNDS, pearlFound: history.some((r) => (r.pearlBonus ?? 0) > 0), practice: false, completedAt: new Date().toISOString() });
       setLogbook(entries);
     }
   }, [done]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -212,6 +212,7 @@ export default function DeepWatersPage() {
           <p>{score >= 48 ? 'You know your way around the deep end.' : score >= 24 ? 'A strong dive. There is more beneath the surface.' : 'The deep end rewards curiosity. Try another dive.'}</p>
           {!practice && <p className="dw-streak">Current streak: <strong>{streak}</strong> day{streak === 1 ? '' : 's'} · {logbook.length} logged dives</p>}
           {pearlFound && <p className="dw-pearl-bonus">You found the pearl of the day.</p>}
+          {!practice && logbook.length > 0 && <div className="dw-logbook"><h3>Recent dives</h3><ul>{logbook.slice(-5).reverse().map((entry) => <li key={entry.day}><span>{entry.completedAt ? new Date(entry.completedAt).toLocaleDateString() : `Day ${entry.day}`}</span><strong>{entry.score} pts</strong><small>{entry.scoredRounds}/{entry.totalRounds} rounds scored{entry.pearlFound ? ' · pearl found' : ''}</small></li>)}</ul></div>}
           <div className="dw-result-stats"><span><b>{history.filter((r) => r.points > 0).length}</b><small>ROUNDS SCORED</small></span><span><b>{Math.max(...history.map((r) => r.points), 0)}</b><small>BEST ROUND</small></span><span><b>{history.filter((r) => r.timedOut).length}</b><small>TIMEOUTS</small></span></div>
           <ol>{history.map((r, i) => <li key={i}><span>{r.prompt}</span><b>{r.points ? `+${r.points}` : '—'}</b><small>{r.answer ?? (r.timedOut ? 'Time expired' : 'No recognized answer')}</small></li>)}</ol>
           <div className="dw-actions"><ShareButton text={share} path="/play/deepwaters" label="Share result" className="btn" /><button className="dw-submit" onClick={() => reset(practice)}>Dive again ↗</button></div>
