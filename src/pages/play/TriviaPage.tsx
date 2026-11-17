@@ -4,7 +4,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CATS, LEVELS, NEED, SLICE, WHEEL, bestPick, botRight, hasWon, levelOf, newPlayer, nextQuestion, shuffleOptions, wheelRotation, type CatId, type Level, type Player, type TQ } from '../../lib/trivia';
 import { contextLink } from '../../chains/links';
-import { isPractice, recordPlay } from '../../lib/dailyGame';
+import { dayIndex, isPractice, recordPlay } from '../../lib/dailyGame';
+import { POWER_UPS, COINS, bombTargets, canUse, claimDaily, costOf, loadWallet, saveWallet, type PowerUp } from '../../lib/triviaPowerUps';
 import { Anim, Art, art3d } from '../../arcade/art';
 import { blip, burst } from '../../arcade/fx';
 import '../../styles/crownquest.css';
@@ -97,6 +98,15 @@ export default function TriviaPage() {
   const [hearts, setHearts] = useState(3);
   const [left, setLeft] = useState(20);
   const [note, setNote] = useState('');
+  // coins and power-ups: play money kept on this device; a pass-the-phone game gives each player a small purse of their own
+  const [wallet, setWallet] = useState(loadWallet);
+  const [purse, setPurse] = useState<number[]>([]);
+  const [hidden, setHidden] = useState<number[]>([]);
+  const [elim, setElim] = useState<number[]>([]);
+  const [second, setSecond] = useState<'off' | 'armed' | 'spent'>('off');
+  const [usedPU, setUsedPU] = useState<PowerUp[]>([]);
+  const [gift, setGift] = useState('');
+  const addCoins = useCallback((i: number, n: number) => setPurse((p) => p.map((c, j) => (j === i ? Math.max(0, c + n) : c))), []);
   const [crownFor, setCrownFor] = useState<{ cat: CatId; who: string } | null>(null);
   useEffect(() => { if (!crownFor) return; const t = window.setTimeout(() => setCrownFor(null), 2600); return () => window.clearTimeout(t); }, [crownFor]);
   const [stats, setStats] = useState(loadStats);
@@ -109,25 +119,27 @@ export default function TriviaPage() {
     loadTriviaBank().then((b) => live && setBank(b)).catch(() => live && setBank(Object.fromEntries(CATS.map((c) => [c.id, [] as TQ[]]))));
     return () => { live = false; };
   }, []);
+  useEffect(() => { if (mode !== 'pass' && purse.length && purse[0] !== wallet.coins) { const w = { ...wallet, coins: purse[0] }; setWallet(w); saveWallet(w); } }, [purse, mode]); // eslint-disable-line react-hooks/exhaustive-deps
   const size = bank ? Object.values(bank).reduce((n, l) => n + l.length, 0) : 0;
   const me = players[turn];
   const isBot = !!me?.bot;
 
   const finish = useCallback((ps: Player[], winner: number | null) => {
+    if (winner !== null && !ps[winner].bot) addCoins(winner, COINS.win);
     setPhase('over');
     setStats((s: ReturnType<typeof loadStats>) => { const crowns = ps.reduce((n, p) => n + (p.bot ? 0 : p.crowns.length), 0); const n = { ...s, played: s.played + 1, won: s.won + (winner !== null && !ps[winner].bot ? 1 : 0), crowns: s.crowns + crowns, bestSolo: mode === 'solo' ? Math.max(s.bestSolo, ps[0].crowns.length) : s.bestSolo }; try { if (!isPractice()) localStorage.setItem(STATS, JSON.stringify(n)); } catch { /* private mode */ } return n; });
     try { recordPlay('trivia', { perfect: winner !== null && !ps[winner].bot && ps[winner].wrong === 0 }); } catch { /* ignore */ }
-  }, [mode]);
+  }, [mode, addCoins]);
 
   const start = () => {
     const ps = mode === 'solo' ? [newPlayer(names[0] || 'You')] : mode === 'pass' ? names.map((n, i) => newPlayer(n.trim() || `Player ${i + 1}`)) : [newPlayer(names[0] || 'You'), newPlayer('Brother Bot', true)];
-    used.current = {}; setPlayers(ps); setTurn(0); setHearts(3); setCat(null); setQ(null); setLanded(null); setNote(''); setPhase('spin');
+    used.current = {}; setPurse(mode === 'pass' ? ps.map(() => COINS.passStart) : ps.map((_, i) => (i === 0 ? wallet.coins : 0))); setPlayers(ps); setTurn(0); setHearts(3); setCat(null); setQ(null); setLanded(null); setNote(''); setPhase('spin');
   };
   const ask = useCallback((c: CatId) => {
     const pool = bank?.[c] ?? []; const u = (used.current[c] ??= new Set());
     const nq = nextQuestion(pool, u, level, rnd);
     if (!nq) { setNote('No questions in that category yet.'); setPhase('spin'); return; }
-    u.add(nq.id); setCat(c); setQ({ ...nq, ...shuffleOptions(nq, rnd) }); setPickedI(null); setBotPick(null); setLeft(20); setPhase('question');
+    u.add(nq.id); setCat(c); setQ({ ...nq, ...shuffleOptions(nq, rnd) }); setPickedI(null); setBotPick(null); setLeft(20); setHidden([]); setElim([]); setSecond('off'); setUsedPU([]); setPhase('question');
   }, [bank, level]);
 
   const spin = useCallback(() => {
@@ -151,13 +163,31 @@ export default function TriviaPage() {
     setPickedI(chosen);
     const ps = players.map((p) => ({ ...p, crowns: [...p.crowns], progress: { ...p.progress } }));
     const p = ps[turn];
-    if (right) { p.right++; p.progress[cat] = (p.progress[cat] ?? 0) + 1; if (p.progress[cat] >= NEED && !p.crowns.includes(cat)) { p.crowns.push(cat); setNote(`${who.name} earns the ${catOf(cat)?.name} crown!`); setCrownFor({ cat, who: who.name }); burst(); blip('win'); } else setNote(right ? 'Correct!' : ''); }
+    if (right) { p.right++; p.progress[cat] = (p.progress[cat] ?? 0) + 1; if (!who.bot) addCoins(turn, COINS.right); if (p.progress[cat] >= NEED && !p.crowns.includes(cat)) { if (!who.bot) addCoins(turn, COINS.crown); p.crowns.push(cat); setNote(`${who.name} earns the ${catOf(cat)?.name} crown!`); setCrownFor({ cat, who: who.name }); burst(); blip('win'); } else setNote(who.bot ? 'Correct!' : `Correct! +${COINS.right} coins`); }
     else { p.wrong++; setNote(chosen === null ? 'Time’s up.' : 'Not quite.'); }
     setPlayers(ps); setPhase('reveal');
     if (mode === 'solo' && !right) setHearts((h) => h - 1);
-  }, [q, cat, players, turn, mode]);
+  }, [q, cat, players, turn, mode, addCoins]);
 
-  const answer = useCallback((i: number | null) => { if (phase !== 'question' || !me) return; settle(i, me); }, [phase, me, settle]);
+  const answer = useCallback((i: number | null) => {
+    if (phase !== 'question' || !me) return;
+    // a Second chance: the first wrong pick does not count and is crossed out
+    if (i !== null && second === 'armed' && q && i !== q.answer && !elim.includes(i)) { setElim((e) => [...e, i]); setSecond('spent'); setNote('Not that one. Try once more!'); blip('bad'); return; }
+    settle(i, me);
+  }, [phase, me, settle, second, q, elim]);
+
+  const usePower = (id: PowerUp) => {
+    if (!q || !cat) return;
+    const verdict = canUse(id, { coins: purse[turn] ?? 0, used: new Set(usedPU), hearts, solo: mode === 'solo', mode: phase === 'question' ? 'question' : 'other' });
+    if (!verdict.ok) { setNote(verdict.why ?? ''); return; }
+    addCoins(turn, -costOf(id)); blip('good');
+    if (id !== 'swap') setUsedPU((u) => [...u, id]);
+    if (id === 'bomb') setHidden(bombTargets(q.options.length, q.answer, rnd));
+    else if (id === 'second') { setSecond('armed'); setNote('Second chance ready: your next wrong answer will not count.'); }
+    else if (id === 'time') setLeft((l) => Math.min(40, l + 10));
+    else if (id === 'life') setHearts((h) => Math.min(3, h + 1));
+    else if (id === 'swap') ask(cat);
+  };
 
   // question clock
   useEffect(() => {
@@ -204,6 +234,11 @@ export default function TriviaPage() {
         <GameHelp how={["Spin the wheel to land on a category and answer a question.", "Three right answers in a category win its crown. First to all six crowns wins.", "Play against the Bot, pass the phone, or play alone."]} />
         <p className="lede">Spin the wheel, answer in a category, and win its crown with three right answers. Collect all six crowns first.</p>
         <div className="tv-cats" aria-label="The six categories">{CATS.map((c) => <span key={c.id} className="tv-cat-chip" style={{ ['--c' as string]: LOOK[c.id].c, ['--d' as string]: LOOK[c.id].dark }}><Art n={LOOK[c.id].art} size={34} /> <b>{c.name}</b></span>)}</div>
+        <div className="tv-wallet-card">
+          <span className="tv-coinchip big"><Art n="money-bag" size={34} /> <b>{wallet.coins}</b> coins</span>
+          <p className="muted small">Play money, kept only on this device. You earn {COINS.right} for a right answer, {COINS.crown} for a crown and {COINS.win} for winning, and spend it on power-ups during a question: {POWER_UPS.filter((u) => u.id !== 'life').map((u) => `${u.name} (${u.cost})`).join(', ')}, and an extra life when playing alone ({costOf('life')}). Nothing here can be bought.</p>
+          {claimDaily(wallet, dayIndex()) ? <button className="btn primary small" onClick={() => { const w = claimDaily(wallet, dayIndex()); if (w) { setWallet(w); saveWallet(w); setGift(`+${COINS.daily} coins`); blip('good'); burst(); } }}><Art n="wrapped-gift" size={22} /> Collect today’s {COINS.daily} coins</button> : <p className="small">{gift || 'Today’s gift is collected. Come back tomorrow.'}</p>}
+        </div>
         <h2 className="chain-h2">Who’s playing?</h2>
         <div className="chips" role="group" aria-label="Mode">
           {([['bot', 'Against Brother Bot'], ['pass', 'Pass the phone'], ['solo', 'On my own']] as [Mode, string][]).map(([m, l]) => <button key={m} className={`chip${mode === m ? ' sel' : ''}`} aria-pressed={mode === m} onClick={() => { setMode(m); setNames((n) => (m === 'pass' && n.length < 2 ? ['Player 1', 'Player 2'] : n)); }}>{l}</button>)}
@@ -240,7 +275,10 @@ export default function TriviaPage() {
     <div className="page trivia cq">
       <h1 className="sr-only">Crown Quest</h1>
       <div className="tv-board">{players.map((p, i) => <Crowns key={p.name + i} p={p} active={i === turn} avatar={AVATARS[i % AVATARS.length]} />)}</div>
-      {mode === 'solo' && <p className="tv-hearts" aria-label={`${hearts} lives left`}>{'❤️'.repeat(Math.max(0, hearts))}{'🤍'.repeat(Math.max(0, 3 - hearts))}</p>}
+      <div className="tv-wallet-row">
+        <span className="tv-coinchip" aria-label={`${purse[turn] ?? 0} coins`}><Art n="coin" size={22} /> <b>{purse[turn] ?? 0}</b></span>
+        {mode === 'solo' && <span className="tv-hearts" aria-label={`${hearts} lives left`}>{Array.from({ length: 3 }, (_, i) => <Art key={i} n={i < hearts ? 'red-heart' : 'locked'} size={24} className={i < hearts ? '' : 'tv-heart-off'} />)}</span>}
+      </div>
       {(phase === 'spin' || phase === 'spinning' || phase === 'pick') && (
         <section className="tv-spin" aria-label="The wheel">
           <Wheel rot={rot} spinning={phase === 'spinning'} landed={landed} />
@@ -274,10 +312,23 @@ export default function TriviaPage() {
           <ul className="tv-opts">
             {q.options.map((o, i) => {
               const done = phase === 'reveal';
-              const cls = done ? (i === q.answer ? ' right' : i === pickedI ? ' wrong' : ' dim') : '';
-              return <li key={i}><button className={`tv-opt${cls}`} disabled={done || isBot} onClick={() => answer(i)}><span className="tv-key">{done && i === q.answer ? <Art n="check-mark-button" size={26} /> : done && i === pickedI ? <Art n="cross-mark" size={26} /> : i + 1}</span><span className="tv-otext">{o}</span>{done && i === botPick && isBot && <em> (Brother Bot’s answer)</em>}</button></li>;
+              const cls = done ? (i === q.answer ? ' right' : i === pickedI ? ' wrong' : ' dim') : hidden.includes(i) ? ' gone' : elim.includes(i) ? ' wrong' : '';
+              return <li key={i}><button className={`tv-opt${cls}`} disabled={done || isBot || hidden.includes(i) || elim.includes(i)} aria-hidden={hidden.includes(i) ? true : undefined} onClick={() => answer(i)}><span className="tv-key">{done && i === q.answer ? <Art n="check-mark-button" size={26} /> : done && i === pickedI ? <Art n="cross-mark" size={26} /> : i + 1}</span><span className="tv-otext">{o}</span>{done && i === botPick && isBot && <em> (Brother Bot’s answer)</em>}</button></li>;
             })}
           </ul>
+          {phase === 'question' && !isBot && (
+            <div className="tv-pu" role="group" aria-label="Power-ups. They cost coins.">
+              {POWER_UPS.filter((u) => u.id !== 'life' || mode === 'solo').map((u) => {
+                const v = canUse(u.id, { coins: purse[turn] ?? 0, used: new Set(usedPU), hearts, solo: mode === 'solo', mode: 'question' });
+                const armed = u.id === 'second' && second !== 'off';
+                return (
+                  <button key={u.id} type="button" className={`tv-pu-btn${armed ? ' armed' : ''}`} disabled={!v.ok} onClick={() => usePower(u.id)} title={v.ok ? u.blurb : `${u.blurb} ${v.why ?? ''}`} aria-label={`${u.name}, ${u.cost} coins. ${u.blurb}${v.ok ? '' : ' ' + (v.why ?? '')}`}>
+                    <Art n={u.art} size={34} /><b>{u.name}</b><span><Art n="coin" size={14} />{u.cost}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
           {isBot && phase === 'question' && <p className="tv-think">Brother Bot is thinking…</p>}
           {phase === 'reveal' && (
             <div className={`tv-why ${pickedI === q.answer ? 'ok' : 'no'}`} aria-live="polite">

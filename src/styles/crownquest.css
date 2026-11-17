@@ -89,3 +89,20 @@ html[data-arcade] .cq .tv-confetti { font-size: 2.6rem; animation: arc-bob 1.2s 
 @media (prefers-reduced-motion: reduce) { html[data-arcade] .cq .tv-spin-btn { animation: none; } html[data-arcade] .cq .tv-wheel-wrap .tv-pointer-svg { animation: none !important; } }
 
 @keyframes arc-glow { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.18) drop-shadow(0 0 14px rgba(255, 210, 63, 0.8)); } }
+
+/* coins, hearts and power-ups */
+html[data-arcade] .cq .tv-wallet-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 2px 0 8px; }
+html[data-arcade] .cq .tv-coinchip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px 4px 6px; border-radius: 99px; background: rgba(10, 4, 40, 0.5); box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.3), 0 0 0 2px rgba(255, 210, 63, 0.5); font-family: var(--font-display); color: var(--gold); font-size: 1.15rem; }
+html[data-arcade] .cq .tv-coinchip.big { font-size: 1.5rem; padding: 6px 16px 6px 8px; }
+html[data-arcade] .cq .tv-hearts { display: inline-flex; gap: 4px; }
+html[data-arcade] .cq .tv-heart-off { filter: grayscale(1) brightness(0.7); opacity: 0.6; }
+html[data-arcade] .cq .tv-wallet-card { display: grid; gap: 8px; justify-items: start; margin: 14px 0; padding: 12px 14px; border-radius: 20px; background: linear-gradient(180deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05)); border: 2px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 0 rgba(10, 4, 40, 0.5); }
+html[data-arcade] .cq .tv-wallet-card p { margin: 0; }
+html[data-arcade] .cq .tv-pu { display: grid; grid-template-columns: repeat(auto-fit, minmax(70px, 1fr)); gap: 8px; margin-top: 14px; }
+html[data-arcade] .cq .tv-pu-btn { display: grid; justify-items: center; gap: 2px; padding: 8px 4px 6px; border: 0; border-radius: 16px; color: #fff; cursor: pointer; background: rgba(0, 0, 0, 0.32); box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3), inset 0 2px 0 rgba(255, 255, 255, 0.2); font-family: var(--font-display); }
+html[data-arcade] .cq .tv-pu-btn b { font-weight: 400; font-size: 0.78rem; line-height: 1.05; text-align: center; }
+html[data-arcade] .cq .tv-pu-btn span { display: inline-flex; align-items: center; gap: 3px; font-size: 0.85rem; color: var(--gold); }
+html[data-arcade] .cq .tv-pu-btn:not([disabled]):active { transform: translateY(3px); box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3); }
+html[data-arcade] .cq .tv-pu-btn[disabled] { opacity: 0.45; filter: grayscale(0.6); cursor: not-allowed; }
+html[data-arcade] .cq .tv-pu-btn.armed { background: linear-gradient(180deg, #5ee08a, #1fa85a); box-shadow: 0 4px 0 #0f6a35; opacity: 1; filter: none; }
+html[data-arcade] .cq .tv-opts li .tv-opt.gone { visibility: hidden; }
