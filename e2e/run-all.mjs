@@ -5,7 +5,7 @@ import { existsSync } from 'node:fs';
 import { parseShard } from './lib/config.mjs';
 const CHECKS = [
   'smoke', 'deepwaters', 'deepwaterslock', 'newroutes', 'notfound', 'versenote', 'xref', 'dataflow', 'parallel', 'crosslinks', 'passportgo', 'bigquestions',
-  'collections', 'review', 'datahealth', 'studytools', 'videoshorts', 'videoresume', 'offline', 'offlinepack', 'stalechunk', 'recovery', 'updatesafety', 'themeapplier', 'reader-companion', 'editionswitch', 'edition-verse', 'readerbar', 'a11y2', 'a11y3', 'a11y', 'profiles-nav', 'profiles-panel', 'study-tools', 'reader-position', 'reader-parallel', 'reader-about', 'reader-recent-pairs', 'library-p4', 'mediacontrols', 'learngames', 'gofurther', 'chant', 'transcript', 'scan', 'greek-editions', 'mediahost', 'mediahost-lifecycle', 'mediaaudit', 'overlap', 'behaviors', 'invariants-selftest', 'crawler-selftest', 'sweep',
+  'deeplink', 'collections', 'review', 'datahealth', 'studytools', 'videoshorts', 'videoresume', 'offline', 'offlinepack', 'stalechunk', 'recovery', 'updatesafety', 'themeapplier', 'reader-companion', 'editionswitch', 'edition-verse', 'readerbar', 'a11y2', 'a11y3', 'a11y', 'profiles-nav', 'profiles-panel', 'study-tools', 'reader-position', 'reader-parallel', 'reader-about', 'reader-recent-pairs', 'library-p4', 'mediacontrols', 'learngames', 'gofurther', 'chant', 'transcript', 'scan', 'greek-editions', 'mediahost', 'mediahost-lifecycle', 'mediaaudit', 'overlap', 'behaviors', 'invariants-selftest', 'crawler-selftest', 'sweep',
 ];
 // SHARD=2/3 runs the second of three slices, so CI can run the checks in parallel jobs
 let si, sn;

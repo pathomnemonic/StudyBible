@@ -8,7 +8,7 @@ export const gameUrl = (path: string) => `${location.origin}${location.pathname}
 export default function ShareButton({ text, path, label = 'Share my result', className = 'btn primary' }: { text: string; path: string; label?: string; className?: string }) {
   const [msg, setMsg] = useState('');
   const go = async () => {
-    const full = `${text}\n${gameUrl(path)}`;
+    const full = `${text}\n\nPlay it yourself:\n${gameUrl(path)}`;
     try {
       if (navigator.share) { await navigator.share({ text: full }); return; }
     } catch (e) { if ((e as Error)?.name === 'AbortError') return; }

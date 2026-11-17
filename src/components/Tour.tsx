@@ -122,7 +122,8 @@ function TourControl({ kind }: { kind: 'tradition' | 'theme' | 'size' }) {
 
 /** The first-run walkthrough: short steps that point at the real screen and ask you to tap through it. */
 export default function Tour() {
-  const [on, setOn] = useState(() => !tourSeen());
+  // a friend's shared link (a game or a room) opens that screen straight away; the tour waits for a normal visit
+  const [on, setOn] = useState(() => !tourSeen() && !/^#\/(play|join)(\/|$)/.test(window.location.hash));
   const [i, setI] = useState(() => Math.min(Math.max(+(get(STEP) ?? 0) || 0, 0), STEPS.length - 1));
   const [rect, setRect] = useState<DOMRect | null>(null);
   const nav = useNavigate();
