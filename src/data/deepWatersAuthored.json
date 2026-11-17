@@ -3,7 +3,7 @@
     "id": "authored-pauline-coworkers",
     "theme": "Acts and Paul",
     "prompt": "Name a person named in Paul's closing greetings in Colossians or 2 Timothy.",
-    "context": "Limit answers to people named in Colossians 4:7–18 or 2 Timothy 4:9–22; count: 17. Count: 17.",
+    "context": "Limit answers to people named in Colossians 4:7–18 or 2 Timothy 4:9–22; count: 17.",
     "hint": "Look through Acts and the closing greetings of Romans, Colossians, and 2 Timothy.",
     "source": "Hand-authored closed key; sources: Colossians 4:7–18; 2 Timothy 4:9–22.",
     "status": "draft",
@@ -155,7 +155,7 @@
     "id": "authored-romans16-women",
     "theme": "Pauline letters",
     "prompt": "Which women are individually named or clearly identified in Paul's greetings in Romans 16?",
-    "context": "The answer key is limited to women Paul names or identifies by a family relationship in this chapter. Count: 10.",
+    "context": "Include only women Paul names or identifies by family relationship in Romans 16:1–15; count: 10.",
     "hint": "Read Romans 16:1–15 closely; several names are easy to overlook.",
     "source": "Hand-authored answer key; sources: Romans 16:1–15.",
     "status": "draft",
@@ -224,23 +224,28 @@
     "commonGuesses": [
       {
         "guess": "Phoebe",
-        "accept": true
+        "accept": true,
+        "answer": "Phoebe"
       },
       {
         "guess": "Prisca",
-        "accept": true
+        "accept": true,
+        "answer": "Prisca"
       },
       {
         "guess": "Mary",
-        "accept": true
+        "accept": true,
+        "answer": "Mary"
       },
       {
         "guess": "Junia",
-        "accept": true
+        "accept": true,
+        "answer": "Junia"
       },
       {
         "guess": "Tryphaena",
-        "accept": true
+        "accept": true,
+        "answer": "Tryphaena"
       },
       {
         "guess": "A generic religious idea",
@@ -273,7 +278,7 @@
     "id": "authored-luke-parables",
     "theme": "Gospels",
     "prompt": "Name a parable unique to Luke's Gospel.",
-    "context": "Include only parables unique to Luke, excluding parables also told in Matthew or Mark; count: 16, per Luke's text compared with the Synoptics. Count: 16.",
+    "context": "Include only parables unique to Luke, excluding those also told in Matthew or Mark; count: 16.",
     "hint": "The Good Samaritan and the Prodigal Son are two familiar examples. Look especially at Luke 10–18.",
     "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark.",
     "status": "draft",
@@ -298,10 +303,11 @@
         "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
-        "answer": "The Lowest Seat at the Banquet",
+        "answer": "Lowest Seat",
         "tier": 3,
         "aliases": [
-          "The Wedding Feast Seats"
+          "The Wedding Feast Seats",
+          "The Lowest Seat at the Banquet"
         ],
         "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
@@ -319,7 +325,8 @@
         "answer": "The Prodigal Son",
         "tier": 1,
         "aliases": [
-          "The Lost Son"
+          "The Lost Son",
+          "Prodigal Son"
         ],
         "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
@@ -332,9 +339,12 @@
         "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
-        "answer": "The Rich Man and Lazarus",
+        "answer": "Rich Man and Lazarus",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark.",
+        "aliases": [
+          "The Rich Man and Lazarus"
+        ]
       },
       {
         "answer": "The Persistent Widow",
@@ -342,9 +352,12 @@
         "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
-        "answer": "The Pharisee and the Tax Collector",
+        "answer": "Pharisee and Tax Collector",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark.",
+        "aliases": [
+          "The Pharisee and the Tax Collector"
+        ]
       },
       {
         "answer": "The Friend at Midnight",
@@ -357,9 +370,12 @@
         "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
       },
       {
-        "answer": "The King Going to War",
+        "answer": "King Going to War",
         "tier": 4,
-        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark."
+        "source": "Hand-authored closed key; sources: Luke 7:41–43; 10:25–37; 11:5–8; 12:13–21; 12:35–40; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14; Synoptic comparison with Matthew and Mark.",
+        "aliases": [
+          "The King Going to War"
+        ]
       },
       {
         "answer": "The Two Debtors",
@@ -436,7 +452,7 @@
     "id": "authored-judges-of-israel",
     "theme": "Hebrew Bible",
     "prompt": "Who are the judges named in the Book of Judges?",
-    "context": "Include the major and minor judges explicitly named in Judges. Do not add Eli or Samuel, whose judging roles appear in 1 Samuel. Count: 12.",
+    "context": "Include the major and minor judges explicitly named in Judges; Do not add Eli or Samuel, whose judging roles appear in 1 Samuel; count: 12.",
     "hint": "The list includes several short notices between the better-known stories of Deborah, Gideon, and Samson.",
     "source": "Hand-authored answer key; sources: Judges 3–16.",
     "status": "draft",
@@ -509,23 +525,28 @@
     "commonGuesses": [
       {
         "guess": "Othniel",
-        "accept": true
+        "accept": true,
+        "answer": "Othniel"
       },
       {
         "guess": "Ehud",
-        "accept": true
+        "accept": true,
+        "answer": "Ehud"
       },
       {
         "guess": "Shamgar",
-        "accept": true
+        "accept": true,
+        "answer": "Shamgar"
       },
       {
         "guess": "Deborah",
-        "accept": true
+        "accept": true,
+        "answer": "Deborah"
       },
       {
         "guess": "Gideon",
-        "accept": true
+        "accept": true,
+        "answer": "Gideon"
       },
       {
         "guess": "A generic religious idea",
@@ -558,7 +579,7 @@
     "id": "authored-pauline-letters",
     "theme": "New Testament",
     "prompt": "Which thirteen New Testament letters form the traditional Pauline corpus?",
-    "context": "Use the traditional thirteen-letter corpus; Hebrews is excluded because it is anonymous and its Pauline authorship is not established. Count: 13.",
+    "context": "Use the traditional thirteen-letter corpus; Hebrews is excluded because it is anonymous and its Pauline authorship is not established; count: 13.",
     "hint": "The list includes letters to churches and letters addressed to individuals.",
     "source": "Hand-authored closed key; sources: New Testament canon; Pontifical Biblical Commission, The Interpretation of the Bible in the Church; Hebrews 1:1 and historical authorship tradition.",
     "status": "draft",
@@ -651,23 +672,28 @@
     "commonGuesses": [
       {
         "guess": "Romans",
-        "accept": true
+        "accept": true,
+        "answer": "Romans"
       },
       {
         "guess": "1 Corinthians",
-        "accept": true
+        "accept": true,
+        "answer": "1 Corinthians"
       },
       {
         "guess": "2 Corinthians",
-        "accept": true
+        "accept": true,
+        "answer": "2 Corinthians"
       },
       {
         "guess": "Galatians",
-        "accept": true
+        "accept": true,
+        "answer": "Galatians"
       },
       {
         "guess": "Ephesians",
-        "accept": true
+        "accept": true,
+        "answer": "Ephesians"
       },
       {
         "guess": "A generic religious idea",
@@ -700,7 +726,7 @@
     "id": "authored-resurrection-witnesses",
     "theme": "Gospels and Acts",
     "prompt": "Name a person or group described as encountering the risen Jesus in the New Testament.",
-    "context": "Include direct appearance witnesses named or grouped in the New Testament, including the women at the tomb and the seven disciples at the Sea of Tiberias. Count: 15.",
+    "context": "Include direct appearance witnesses named or grouped in the New Testament, including the women at the tomb and seven disciples at Tiberias; count: 15.",
     "hint": "Start with the appearance accounts in the four Gospels, then compare Paul's list in 1 Corinthians 15.",
     "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8.",
     "status": "draft",
@@ -750,9 +776,12 @@
         "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
-        "answer": "Mary the mother of James",
+        "answer": "Mary mother James",
         "tier": 3,
-        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8.",
+        "aliases": [
+          "Mary the mother of James"
+        ]
       },
       {
         "answer": "Joanna",
@@ -765,9 +794,12 @@
         "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
       },
       {
-        "answer": "The two disciples on the road to Emmaus",
+        "answer": "Emmaus disciples",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8."
+        "source": "Hand-authored closed key; sources: Matthew 28; Mark 16; Luke 24; John 20–21; Acts 9; 1 Corinthians 15:5–8.",
+        "aliases": [
+          "The two disciples on the road to Emmaus"
+        ]
       },
       {
         "answer": "The Twelve",
@@ -865,7 +897,7 @@
     "id": "authored-pauls-first-journey",
     "theme": "Acts and geography",
     "prompt": "Name a region traversed on Paul's first missionary journey with Barnabas.",
-    "context": "Name only regions, not cities, on the route in Acts 13–14. Count: 4.",
+    "context": "Name only regions, not cities, on the route in Acts 13–14; count: 4.",
     "hint": "The route begins in Cyprus, crosses to southern Asia Minor, and returns to the sending church.",
     "source": "Hand-authored closed key; source: Acts 13:1–14:28.",
     "status": "draft",
@@ -915,8 +947,8 @@
       },
       {
         "guess": "Asia Minor",
-        "accept": true,
-        "answer": "Lycaonia"
+        "accept": false,
+        "reason": "A broad geographical term, not one of the four specific regions in Acts 13–14."
       },
       {
         "guess": "Paphos",
@@ -949,7 +981,7 @@
     "id": "authored-marian-litany",
     "theme": "Catholic prayer",
     "prompt": "Name an invocation from the current Litany of Loreto.",
-    "context": "Use the current Vatican English text, including the three invocations inserted in 2020; count: 54 Marian invocations, excluding opening petitions and the Lamb of God. Count: 54.",
+    "context": "Use the current Vatican English text, including the three invocations inserted in 2020; count: 54 Marian invocations, excluding opening petitions and the Lamb of God; count: 54.",
     "hint": "Several invocations are symbolic titles such as 'Seat of Wisdom' and 'Ark of the Covenant'.",
     "source": "Hand-authored closed key; source: Vatican, The Litany of Loreto (current English text); Congregation for Divine Worship letter, 20 June 2020.",
     "status": "draft",
@@ -1210,9 +1242,12 @@
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
-        "answer": "Queen conceived without original sin",
+        "answer": "Queen Immaculately Conceived",
         "tier": 2,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": [
+          "Queen conceived without original sin"
+        ]
       },
       {
         "answer": "Queen assumed into heaven",
@@ -1220,9 +1255,12 @@
         "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
       },
       {
-        "answer": "Queen of the most holy Rosary",
+        "answer": "Queen of Holy Rosary",
         "tier": 1,
-        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable."
+        "source": "Vatican, The Litany of Loreto (current English text); 20 June 2020 additions where applicable.",
+        "aliases": [
+          "Queen of the most holy Rosary"
+        ]
       },
       {
         "answer": "Queen of families",
@@ -1238,23 +1276,28 @@
     "commonGuesses": [
       {
         "guess": "Holy Mary",
-        "accept": true
+        "accept": true,
+        "answer": "Holy Mary"
       },
       {
         "guess": "Holy Mother of God",
-        "accept": true
+        "accept": true,
+        "answer": "Holy Mother of God"
       },
       {
         "guess": "Holy Virgin of virgins",
-        "accept": true
+        "accept": true,
+        "answer": "Holy Virgin of virgins"
       },
       {
         "guess": "Mother of Christ",
-        "accept": true
+        "accept": true,
+        "answer": "Mother of Christ"
       },
       {
         "guess": "Mother of the Church",
-        "accept": true
+        "accept": true,
+        "answer": "Mother of the Church"
       },
       {
         "guess": "A generic religious idea",
@@ -1287,7 +1330,7 @@
     "id": "authored-works-of-mercy",
     "theme": "Catholic teaching",
     "prompt": "What are the traditional corporal and spiritual works of mercy?",
-    "context": "The answer key contains the seven corporal and seven spiritual works as taught in Catholic catechesis. Count: 14.",
+    "context": "The answer key contains the seven corporal and seven spiritual works as taught in Catholic catechesis; count: 14.",
     "hint": "There are exactly fourteen in the traditional lists: seven address bodily needs and seven address spiritual needs.",
     "source": "Hand-authored answer key; sources: Catechism of the Catholic Church 2447.",
     "status": "draft",
@@ -1299,9 +1342,12 @@
         "source": "Catechism of the Catholic Church 2447."
       },
       {
-        "answer": "Give drink to the thirsty",
+        "answer": "Give drink thirsty",
         "tier": 1,
-        "source": "Catechism of the Catholic Church 2447."
+        "source": "Catechism of the Catholic Church 2447.",
+        "aliases": [
+          "Give drink to the thirsty"
+        ]
       },
       {
         "answer": "Clothe the naked",
@@ -1365,31 +1411,39 @@
         "source": "Catechism of the Catholic Church 2447."
       },
       {
-        "answer": "Pray for the living and the dead",
+        "answer": "Pray for living dead",
         "tier": 1,
-        "source": "Catechism of the Catholic Church 2447."
+        "source": "Catechism of the Catholic Church 2447.",
+        "aliases": [
+          "Pray for the living and the dead"
+        ]
       }
     ],
     "commonGuesses": [
       {
         "guess": "Feed the hungry",
-        "accept": true
+        "accept": true,
+        "answer": "Feed the hungry"
       },
       {
         "guess": "Give drink to the thirsty",
-        "accept": true
+        "accept": true,
+        "answer": "Give drink thirsty"
       },
       {
         "guess": "Clothe the naked",
-        "accept": true
+        "accept": true,
+        "answer": "Clothe the naked"
       },
       {
         "guess": "Shelter the homeless",
-        "accept": true
+        "accept": true,
+        "answer": "Shelter the homeless"
       },
       {
         "guess": "Visit the sick",
-        "accept": true
+        "accept": true,
+        "answer": "Visit the sick"
       },
       {
         "guess": "A generic religious idea",
@@ -1422,7 +1476,7 @@
     "id": "authored-eastern-catholic-churches",
     "theme": "Catholic Church",
     "prompt": "Name an Eastern Catholic Church that is sui iuris and in communion with the Bishop of Rome.",
-    "context": "Name one of the twenty-three Eastern Catholic Churches sui iuris in communion with the Bishop of Rome; the Latin Church is not included. Count: 23.",
+    "context": "Name one of the twenty-three Eastern Catholic Churches sui iuris in communion with the Bishop of Rome; the Latin Church is excluded; count: 23.",
     "hint": "Think of the distinct Byzantine, Alexandrian, Antiochian, Armenian, and East Syriac traditions.",
     "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches.",
     "status": "draft",
@@ -1444,10 +1498,11 @@
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
       {
-        "answer": "Greek Catholic Church of Croatia and Serbia",
+        "answer": "Croatian Serbian Church",
         "tier": 5,
         "aliases": [
-          "Croatian and Serbian Greek Catholic Church"
+          "Croatian and Serbian Greek Catholic Church",
+          "Greek Catholic Church of Croatia and Serbia"
         ],
         "source": "Hand-authored closed key; sources: Code of Canons of the Eastern Churches; Annuario Pontificio; Holy See, Eastern Catholic Churches."
       },
@@ -1610,7 +1665,7 @@
     "id": "authored-doctors-of-church",
     "theme": "Catholic tradition",
     "prompt": "Name a person who has been formally proclaimed a Doctor of the Church.",
-    "context": "The list includes Doctors from the Latin and Eastern traditions. Use the person's commonly accepted name. Count: 38.",
+    "context": "The list includes Doctors from the Latin and Eastern traditions; Use the person's commonly accepted name; count: 38.",
     "hint": "Some are bishops and theologians; others are mystics, religious founders, or early Christian writers.",
     "source": "Hand-authored answer key; sources: Holy See list of Doctors of the Church; John Henry Newman proclaimed 1 November 2025.",
     "status": "draft",
@@ -1943,23 +1998,28 @@
     "commonGuesses": [
       {
         "guess": "Ambrose of Milan",
-        "accept": true
+        "accept": true,
+        "answer": "Ambrose of Milan"
       },
       {
         "guess": "Augustine of Hippo",
-        "accept": true
+        "accept": true,
+        "answer": "Augustine of Hippo"
       },
       {
         "guess": "Jerome",
-        "accept": true
+        "accept": true,
+        "answer": "Jerome"
       },
       {
         "guess": "Gregory the Great",
-        "accept": true
+        "accept": true,
+        "answer": "Gregory the Great"
       },
       {
         "guess": "Thomas Aquinas",
-        "accept": true
+        "accept": true,
+        "answer": "Thomas Aquinas"
       },
       {
         "guess": "A generic religious idea",
@@ -1992,7 +2052,7 @@
     "id": "authored-early-martyrs",
     "theme": "Early Church",
     "prompt": "Which Christians are remembered as martyrs of the early Church before the conversion of Constantine?",
-    "context": "Use identifiable early Christian martyrs before Constantine; exclude ambiguous names without a sufficiently clear historical identification. Count: 21.",
+    "context": "Use identifiable early Christian martyrs before Constantine; exclude ambiguous names without clear historical identification; count: 21.",
     "hint": "Look beyond the apostles to bishops, deacons, and lay Christians whose martyrdoms shaped early Christian memory.",
     "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
     "status": "draft",
@@ -2019,7 +2079,10 @@
       {
         "answer": "Polycarp of Smyrna",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses."
+        "source": "Hand-authored closed key; sources: Acts 7; Martyrdom of Polycarp; Martyrs of Lyons; Acts of Perpetua and Felicity; early martyrologies and patristic witnesses.",
+        "aliases": [
+          "Polycarp"
+        ]
       },
       {
         "answer": "Justin Martyr",
@@ -2170,7 +2233,7 @@
     "id": "authored-prophets-before-kings",
     "theme": "Hebrew Bible",
     "prompt": "Name a prophet explicitly recorded delivering a message to an Israelite or Judean king.",
-    "context": "Include named and anonymous prophetic messengers whose royal encounter is narrated in the Hebrew Bible; exclude Huldah, whose consultation was not with a king. Count: 18 entries in this curated scriptural index. Count: 21.",
+    "context": "Include named and anonymous prophetic messengers whose royal encounter is narrated in the Hebrew Bible; exclude Huldah, whose consultation was not with a king; count: 21.",
     "hint": "Nathan rebuked David; Elijah confronted Ahab; Micaiah challenged Ahab's court prophets.",
     "source": "Hand-authored closed key; sources: 1 Samuel 15; 2 Samuel 12, 24; 1 Kings 11, 13, 14, 18–22; 2 Kings 1–9; 2 Chronicles 15–20, 24; Isaiah 7; Jeremiah 21–38; Daniel 2–6.",
     "status": "draft",
@@ -2260,9 +2323,10 @@
         "source": "2 Chronicles 24:20–22"
       },
       {
-        "answer": "Man of God from Judah",
+        "answer": "Judah's Man of God",
         "tier": 5,
         "aliases": [
+          "Man of God from Judah",
           "Man of God from Judah"
         ],
         "source": "1 Kings 13:1–5"
@@ -2348,21 +2412,27 @@
     "id": "authored-women-in-acts",
     "theme": "Acts of the Apostles",
     "prompt": "Name a woman explicitly named in Acts as part of the early Christian community.",
-    "context": "Include only women explicitly named in Acts in the Christian community or mission; unnamed daughters and non-Christian political figures are excluded. Count: 8 named women. Count: 8.",
+    "context": "Include only women explicitly named in Acts as members of the Christian community or mission; count: 8.",
     "hint": "Lydia, Priscilla, Tabitha, and the daughters of Philip are useful starting points.",
     "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
-        "answer": "Mary the mother of Jesus",
+        "answer": "Mary mother Jesus",
         "tier": 1,
-        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26."
+        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26.",
+        "aliases": [
+          "Mary the mother of Jesus"
+        ]
       },
       {
-        "answer": "Mary the mother of John Mark",
+        "answer": "Mary mother John Mark",
         "tier": 2,
-        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26."
+        "source": "Hand-authored closed key; sources: Acts 1:14; 5:1–10; 9:36–42; 12:12–16; 16:14–15; 17:34; 18:2,18,26.",
+        "aliases": [
+          "Mary the mother of John Mark"
+        ]
       },
       {
         "answer": "Sapphira",
@@ -2458,7 +2528,7 @@
     "id": "authored-acts-cities",
     "theme": "Acts and geography",
     "prompt": "Name a city in Acts outside Paul's first missionary journey route.",
-    "context": "Exclude the cities visited on Paul's first journey in Acts 13–14; count: 22 cities in this curated index. Count: 22.",
+    "context": "Exclude cities visited on Paul's first journey in Acts 13–14; count: 23 cities in this curated index; count: 23.",
     "hint": "Paul's journeys provide many examples, but include places associated with Peter and Philip as well.",
     "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14.",
     "status": "draft",
@@ -2573,6 +2643,14 @@
         "answer": "Syracuse",
         "tier": 3,
         "source": "Hand-authored closed key; sources: Acts 1–28, excluding the cities on Paul's first missionary journey in Acts 13–14."
+      },
+      {
+        "answer": "Antioch",
+        "tier": 1,
+        "aliases": [
+          "Antioch in Syria"
+        ],
+        "source": "Acts 11:19–26; 13:1–3"
       }
     ],
     "commonGuesses": [
@@ -2632,7 +2710,7 @@
     "id": "authored-jesus-healings",
     "theme": "Gospels",
     "prompt": "Name a physical illness, disability, or injury healed by Jesus in the Gospels.",
-    "context": "Name a bodily condition or injury, not a spiritual state or the person affected. Count: 13.",
+    "context": "Give a bodily condition or injury rather than the person's name, spiritual state, or possession; count: 13.",
     "hint": "The narratives mention blindness, paralysis, leprosy, hemorrhage, fever, and several less familiar conditions.",
     "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9.",
     "status": "draft",
@@ -2701,9 +2779,12 @@
         "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
       },
       {
-        "answer": "Seizures associated with an unclean spirit",
+        "answer": "Spirit-related seizures",
         "tier": 3,
-        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9."
+        "source": "Hand-authored closed key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9.",
+        "aliases": [
+          "Seizures associated with an unclean spirit"
+        ]
       },
       {
         "answer": "Ear injury",
@@ -2776,7 +2857,7 @@
     "id": "authored-johannine-titles",
     "theme": "New Testament",
     "prompt": "Name a title or image applied to Jesus in the Gospel of John.",
-    "context": "Use titles or metaphors explicitly applied to Jesus in John's Gospel, including those spoken by Jesus or by other characters. Count: 20.",
+    "context": "Use titles or metaphors explicitly applied to Jesus in John's Gospel, including those spoken by Jesus or by other characters; count: 20.",
     "hint": "The opening chapter and the 'I am' discourses are especially rich sources.",
     "source": "Hand-authored answer key; sources: John 1; 4; 6; 8–15; 19–20.",
     "status": "draft",
@@ -2819,9 +2900,12 @@
         "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
-        "answer": "The Savior of the world",
+        "answer": "Savior of World",
         "tier": 2,
-        "source": "John 1; 4; 6; 8–15; 19–20."
+        "source": "John 1; 4; 6; 8–15; 19–20.",
+        "aliases": [
+          "The Savior of the world"
+        ]
       },
       {
         "answer": "The Bread of Life",
@@ -2829,9 +2913,12 @@
         "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
-        "answer": "The Light of the World",
+        "answer": "Light of World",
         "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
+        "source": "John 1; 4; 6; 8–15; 19–20.",
+        "aliases": [
+          "The Light of the World"
+        ]
       },
       {
         "answer": "The Door",
@@ -2847,9 +2934,12 @@
         "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
-        "answer": "The Resurrection and the Life",
+        "answer": "Resurrection and Life",
         "tier": 1,
-        "source": "John 1; 4; 6; 8–15; 19–20."
+        "source": "John 1; 4; 6; 8–15; 19–20.",
+        "aliases": [
+          "The Resurrection and the Life"
+        ]
       },
       {
         "answer": "The Way",
@@ -2887,31 +2977,39 @@
         "source": "John 1; 4; 6; 8–15; 19–20."
       },
       {
-        "answer": "The Holy One of God",
+        "answer": "Holy One of God",
         "tier": 2,
-        "source": "John 1; 4; 6; 8–15; 19–20."
+        "source": "John 1; 4; 6; 8–15; 19–20.",
+        "aliases": [
+          "The Holy One of God"
+        ]
       }
     ],
     "commonGuesses": [
       {
         "guess": "The Word",
-        "accept": true
+        "accept": true,
+        "answer": "The Word"
       },
       {
         "guess": "The Lamb of God",
-        "accept": true
+        "accept": true,
+        "answer": "The Lamb of God"
       },
       {
         "guess": "The Son of God",
-        "accept": true
+        "accept": true,
+        "answer": "The Son of God"
       },
       {
         "guess": "The Son of Man",
-        "accept": true
+        "accept": true,
+        "answer": "The Son of Man"
       },
       {
         "guess": "The King of Israel",
-        "accept": true
+        "accept": true,
+        "answer": "The King of Israel"
       },
       {
         "guess": "A generic religious idea",
@@ -2943,8 +3041,8 @@
   {
     "id": "authored-acts-leaders",
     "theme": "Acts of the Apostles",
-    "prompt": "Name a civic official or public opponent who interacts with the Christian mission in Acts.",
-    "context": "Include political, judicial, or civic figures, not Christian missionaries or martyrs. Count: 13 in this curated index. Count: 13.",
+    "prompt": "Name a ruler, official, or public opponent who interacts with the Christian mission in Acts.",
+    "context": "Include political, judicial, or civic figures and public opponents, not Christian missionaries or martyrs; count: 13.",
     "hint": "The book moves from Peter and the Jerusalem community to Paul and the mission across the Roman world.",
     "source": "Hand-authored closed key; sources: Acts 4; 12; 13; 16–19; 23–26.",
     "status": "draft",
@@ -3075,8 +3173,8 @@
   {
     "id": "authored-deuterocanonical-books",
     "theme": "Catholic canon",
-    "prompt": "Which books or substantial textual additions belong to the Catholic Old Testament but are absent from the Protestant Old Testament canon?",
-    "context": "Include the seven deuterocanonical books and the recognized Greek additions to Esther and Daniel. Count: 12.",
+    "prompt": "Which books or substantial additions belong to the Catholic Old Testament but not the Protestant canon?",
+    "context": "Include the seven deuterocanonical books and the recognized Greek additions to Esther and Daniel; count: 12.",
     "hint": "Separate whole books from additions within books; the answer key names both.",
     "source": "Hand-authored answer key; sources: Catholic canon of Scripture; Council of Trent, Session IV.",
     "status": "draft",
@@ -3137,9 +3235,12 @@
         "source": "Catholic canon of Scripture; Council of Trent, Session IV."
       },
       {
-        "answer": "Song of the Three Young Men",
+        "answer": "Three Young Men",
         "tier": 2,
-        "source": "Catholic canon of Scripture; Council of Trent, Session IV."
+        "source": "Catholic canon of Scripture; Council of Trent, Session IV.",
+        "aliases": [
+          "Song of the Three Young Men"
+        ]
       },
       {
         "answer": "Susanna",
@@ -3155,23 +3256,28 @@
     "commonGuesses": [
       {
         "guess": "Tobit",
-        "accept": true
+        "accept": true,
+        "answer": "Tobit"
       },
       {
         "guess": "Judith",
-        "accept": true
+        "accept": true,
+        "answer": "Judith"
       },
       {
         "guess": "Wisdom of Solomon",
-        "accept": true
+        "accept": true,
+        "answer": "Wisdom of Solomon"
       },
       {
         "guess": "Sirach",
-        "accept": true
+        "accept": true,
+        "answer": "Sirach"
       },
       {
         "guess": "Baruch",
-        "accept": true
+        "accept": true,
+        "answer": "Baruch"
       },
       {
         "guess": "A generic religious idea",
@@ -3204,7 +3310,7 @@
     "id": "authored-catholic-prayers",
     "theme": "Catholic prayer",
     "prompt": "Name a traditional Catholic prayer or devotional text by its established title.",
-    "context": "This is an open category: include named prayers and devotional texts, including the Hail Mary, Our Father, Hail Holy Queen, Glory Be, and Sign of the Cross.",
+    "context": "Include named prayers and devotional texts, including common prayers such as the Hail Mary, Our Father, Hail Holy Queen, Glory Be, and Sign of the Cross.",
     "hint": "Consider the Liturgy of the Hours, the Rosary, Eucharistic adoration, and forms of meditation.",
     "source": "Hand-authored open key; sources: Catechism of the Catholic Church 2626–2643, 2663–2696, 2700–2724; Directory on Popular Piety and the Liturgy.",
     "status": "draft",
@@ -3665,7 +3771,7 @@
     "id": "authored-ecumenical-councils",
     "theme": "Church history",
     "prompt": "Which ecumenical councils are recognized by the Catholic Church?",
-    "context": "The Catholic Church recognizes councils from the early centuries through the modern era. Identify them by city and ordinal number where needed. Count: 21.",
+    "context": "The Catholic Church recognizes councils from the early centuries through the modern era; Identify them by city and ordinal number where needed; count: 21.",
     "hint": "The list begins at Nicaea in 325 and includes medieval councils, Trent, and both Vatican councils.",
     "source": "Hand-authored answer key; sources: Catholic list of ecumenical councils; council dates 325–1965.",
     "status": "draft",
@@ -3828,23 +3934,28 @@
     "commonGuesses": [
       {
         "guess": "First Council of Nicaea",
-        "accept": true
+        "accept": true,
+        "answer": "First Council of Nicaea"
       },
       {
         "guess": "First Council of Constantinople",
-        "accept": true
+        "accept": true,
+        "answer": "First Council of Constantinople"
       },
       {
         "guess": "Council of Ephesus",
-        "accept": true
+        "accept": true,
+        "answer": "Council of Ephesus"
       },
       {
         "guess": "Council of Chalcedon",
-        "accept": true
+        "accept": true,
+        "answer": "Council of Chalcedon"
       },
       {
         "guess": "Second Council of Constantinople",
-        "accept": true
+        "accept": true,
+        "answer": "Second Council of Constantinople"
       },
       {
         "guess": "A generic religious idea",
@@ -3877,7 +3988,7 @@
     "id": "authored-pauline-women",
     "theme": "Pauline letters",
     "prompt": "Name a woman identified in a Pauline letter outside Romans.",
-    "context": "Include women named or clearly identified in the other Pauline letters, excluding Romans 16. Count: 6.",
+    "context": "Include women named or clearly identified in the other Pauline letters, excluding Romans 16; count: 6.",
     "hint": "Romans 16 is the richest passage, but compare Philippians, Colossians, and 2 Timothy.",
     "source": "Hand-authored closed key; sources: 1 Corinthians 1:11; Philippians 4:2–3; Colossians 4:15; 2 Timothy 1:5; 4:19.",
     "status": "draft",
@@ -3971,7 +4082,7 @@
     "id": "authored-martyrs-acts",
     "theme": "Acts and early Church",
     "prompt": "Name a person or group persecuted because of their Christian witness in Acts.",
-    "context": "Limit answers to people whose persecution or death is narrated in Acts; do not add later traditional martyrdom accounts. Count: 10.",
+    "context": "Limit answers to people whose persecution or death is narrated in Acts; do not add later traditional martyrdom accounts; count: 10.",
     "hint": "Stephen's death is central, but Acts also records persecution of the apostles and James.",
     "source": "Hand-authored answer key; sources: Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28.",
     "status": "draft",
@@ -4018,9 +4129,12 @@
         "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
       },
       {
-        "answer": "The believers scattered from Jerusalem",
+        "answer": "Scattered believers",
         "tier": 3,
-        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28."
+        "source": "Acts 4–8; 12:1–5; 14:19–20; 16:16–24; 21–28.",
+        "aliases": [
+          "The believers scattered from Jerusalem"
+        ]
       },
       {
         "answer": "The disciples in Lystra",
@@ -4031,23 +4145,28 @@
     "commonGuesses": [
       {
         "guess": "Stephen",
-        "accept": true
+        "accept": true,
+        "answer": "Stephen"
       },
       {
         "guess": "James son of Zebedee",
-        "accept": true
+        "accept": true,
+        "answer": "James son of Zebedee"
       },
       {
         "guess": "Peter",
-        "accept": true
+        "accept": true,
+        "answer": "Peter"
       },
       {
         "guess": "John",
-        "accept": true
+        "accept": true,
+        "answer": "John"
       },
       {
         "guess": "The apostles",
-        "accept": true
+        "accept": true,
+        "answer": "The apostles"
       },
       {
         "guess": "A generic religious idea",
@@ -4080,7 +4199,7 @@
     "id": "authored-revelation-images",
     "theme": "New Testament",
     "prompt": "Name a symbolic image, figure, object, or judgment in the visions of Revelation.",
-    "context": "Include distinct images explicitly described in Revelation, including the seven trumpet judgments; this is an open set.",
+    "context": "Include distinct images explicitly described in Revelation, including all seven trumpet judgments; this set is open.",
     "hint": "Think of the heavenly throne, seals, trumpets, beasts, the New Jerusalem, and the final vision.",
     "source": "Hand-authored open key; source: Revelation 1–22, with each entry tied to its chapter and verse.",
     "status": "draft",
@@ -4112,9 +4231,12 @@
         "source": "Revelation 4:4"
       },
       {
-        "answer": "The scroll with seven seals",
+        "answer": "Scroll with Seven Seals",
         "tier": 2,
-        "source": "Revelation 5:1"
+        "source": "Revelation 5:1",
+        "aliases": [
+          "The scroll with seven seals"
+        ]
       },
       {
         "answer": "The four horsemen",
@@ -4122,9 +4244,12 @@
         "source": "Revelation 6:1–8"
       },
       {
-        "answer": "The woman clothed with the sun",
+        "answer": "Woman Clothed with Sun",
         "tier": 1,
-        "source": "Revelation 12:1"
+        "source": "Revelation 12:1",
+        "aliases": [
+          "The woman clothed with the sun"
+        ]
       },
       {
         "answer": "The great red dragon",
@@ -4137,19 +4262,28 @@
         "source": "Revelation 12:7"
       },
       {
-        "answer": "The beast from the sea",
+        "answer": "Beast from Sea",
         "tier": 1,
-        "source": "Revelation 13:1"
+        "source": "Revelation 13:1",
+        "aliases": [
+          "The beast from the sea"
+        ]
       },
       {
-        "answer": "The beast from the earth",
+        "answer": "Beast from Earth",
         "tier": 2,
-        "source": "Revelation 13:11"
+        "source": "Revelation 13:11",
+        "aliases": [
+          "The beast from the earth"
+        ]
       },
       {
-        "answer": "The image of the beast",
+        "answer": "Image of Beast",
         "tier": 2,
-        "source": "Revelation 13:14–15"
+        "source": "Revelation 13:14–15",
+        "aliases": [
+          "The image of the beast"
+        ]
       },
       {
         "answer": "The number 666",
@@ -4177,9 +4311,12 @@
         "source": "Revelation 21:2"
       },
       {
-        "answer": "The river of the water of life",
+        "answer": "River of Life",
         "tier": 2,
-        "source": "Revelation 22:1"
+        "source": "Revelation 22:1",
+        "aliases": [
+          "The river of the water of life"
+        ]
       },
       {
         "answer": "The tree of life",
@@ -4187,9 +4324,12 @@
         "source": "Revelation 22:2"
       },
       {
-        "answer": "The one like a son of man",
-        "tier": 1,
-        "source": "Revelation 1:12–16"
+        "answer": "Son of Man Figure",
+        "tier": 2,
+        "source": "Revelation 1:12–16",
+        "aliases": [
+          "The one like a son of man"
+        ]
       },
       {
         "answer": "The sharp two-edged sword",
@@ -4197,9 +4337,12 @@
         "source": "Revelation 1:16; 2:12"
       },
       {
-        "answer": "The seven torches of fire",
+        "answer": "Seven Fire Torches",
         "tier": 3,
-        "source": "Revelation 4:5"
+        "source": "Revelation 4:5",
+        "aliases": [
+          "The seven torches of fire"
+        ]
       },
       {
         "answer": "The sea of glass",
@@ -4217,28 +4360,34 @@
         "source": "Revelation 8:3–5"
       },
       {
-        "answer": "The souls beneath the altar",
+        "answer": "Souls Beneath Altar",
         "tier": 3,
-        "source": "Revelation 6:9"
+        "source": "Revelation 6:9",
+        "aliases": [
+          "The souls beneath the altar"
+        ]
       },
       {
-        "answer": "The angel with the rainbow",
+        "answer": "Rainbow-Crowned Angel",
         "tier": 6,
-        "source": "Revelation 10:1"
+        "source": "Revelation 10:1",
+        "aliases": [
+          "The angel with the rainbow"
+        ]
       },
       {
         "answer": "The little scroll",
-        "tier": 3,
+        "tier": 5,
         "source": "Revelation 10:2–10"
       },
       {
         "answer": "The measuring rod",
-        "tier": 4,
+        "tier": 5,
         "source": "Revelation 11:1"
       },
       {
         "answer": "The male child",
-        "tier": 2,
+        "tier": 5,
         "source": "Revelation 12:5"
       },
       {
@@ -4257,9 +4406,12 @@
         "source": "Revelation 9:1–2"
       },
       {
-        "answer": "The key of the abyss",
+        "answer": "Key of Abyss",
         "tier": 4,
-        "source": "Revelation 9:1; 20:1"
+        "source": "Revelation 9:1; 20:1",
+        "aliases": [
+          "The key of the abyss"
+        ]
       },
       {
         "answer": "The locust army",
@@ -4273,27 +4425,30 @@
       },
       {
         "answer": "The two olive trees",
-        "tier": 3,
+        "tier": 5,
         "source": "Revelation 11:4"
       },
       {
         "answer": "The two lampstands",
-        "tier": 3,
+        "tier": 5,
         "source": "Revelation 11:4"
       },
       {
         "answer": "The great eagle's wings",
-        "tier": 4,
+        "tier": 5,
         "source": "Revelation 12:14"
       },
       {
-        "answer": "The woman in the wilderness",
+        "answer": "Woman in Wilderness",
         "tier": 2,
-        "source": "Revelation 12:6,14"
+        "source": "Revelation 12:6,14",
+        "aliases": [
+          "The woman in the wilderness"
+        ]
       },
       {
         "answer": "The seven heads",
-        "tier": 2,
+        "tier": 3,
         "source": "Revelation 12:3; 13:1"
       },
       {
@@ -4302,38 +4457,44 @@
         "source": "Revelation 12:3; 13:1"
       },
       {
-        "answer": "The mark of the beast",
+        "answer": "Beast's Mark",
         "tier": 1,
-        "source": "Revelation 13:16–18"
+        "source": "Revelation 13:16–18",
+        "aliases": [
+          "The mark of the beast"
+        ]
       },
       {
-        "answer": "The name of the beast",
-        "tier": 2,
-        "source": "Revelation 13:17"
+        "answer": "Beast's Name",
+        "tier": 3,
+        "source": "Revelation 13:17",
+        "aliases": [
+          "The name of the beast"
+        ]
       },
       {
         "answer": "The scarlet beast",
-        "tier": 3,
+        "tier": 5,
         "source": "Revelation 17:3"
       },
       {
         "answer": "The golden cup",
-        "tier": 2,
+        "tier": 5,
         "source": "Revelation 17:4"
       },
       {
         "answer": "The ten kings",
-        "tier": 3,
+        "tier": 5,
         "source": "Revelation 17:12"
       },
       {
         "answer": "The fine linen",
-        "tier": 3,
+        "tier": 5,
         "source": "Revelation 19:8"
       },
       {
         "answer": "The marriage supper",
-        "tier": 2,
+        "tier": 5,
         "source": "Revelation 19:9"
       },
       {
@@ -4342,9 +4503,12 @@
         "source": "Revelation 19:11"
       },
       {
-        "answer": "The sword from his mouth",
+        "answer": "Sword from Mouth",
         "tier": 3,
-        "source": "Revelation 19:15"
+        "source": "Revelation 19:15",
+        "aliases": [
+          "The sword from his mouth"
+        ]
       },
       {
         "answer": "The armies of heaven",
@@ -4368,12 +4532,12 @@
       },
       {
         "answer": "The books opened",
-        "tier": 3,
+        "tier": 5,
         "source": "Revelation 20:12"
       },
       {
         "answer": "The book of life",
-        "tier": 1,
+        "tier": 2,
         "source": "Revelation 20:12,15"
       },
       {
@@ -4382,44 +4546,68 @@
         "source": "Revelation 20:14; 21:8"
       },
       {
-        "answer": "The bride of the Lamb",
+        "answer": "Lamb's Bride",
         "tier": 1,
-        "source": "Revelation 21:2,9"
+        "source": "Revelation 21:2,9",
+        "aliases": [
+          "The bride of the Lamb"
+        ]
       },
       {
-        "answer": "First trumpet: hail and fire",
-        "tier": 3,
-        "source": "Revelation 8:7"
-      },
-      {
-        "answer": "Second trumpet: burning mountain",
-        "tier": 3,
-        "source": "Revelation 8:8–9"
-      },
-      {
-        "answer": "Third trumpet: Wormwood",
-        "tier": 3,
-        "source": "Revelation 8:10–11"
-      },
-      {
-        "answer": "Fourth trumpet: darkened heavens",
-        "tier": 3,
-        "source": "Revelation 8:12"
-      },
-      {
-        "answer": "Fifth trumpet: locusts",
+        "answer": "First Trumpet Hail",
         "tier": 2,
-        "source": "Revelation 9:1–11"
+        "source": "Revelation 8:7",
+        "aliases": [
+          "First trumpet: hail and fire"
+        ]
       },
       {
-        "answer": "Sixth trumpet: four angels",
-        "tier": 6,
-        "source": "Revelation 9:13–19"
-      },
-      {
-        "answer": "Seventh trumpet: kingdom proclaimed",
+        "answer": "Second Trumpet Mountain",
         "tier": 3,
-        "source": "Revelation 11:15–19"
+        "source": "Revelation 8:8–9",
+        "aliases": [
+          "Second trumpet: burning mountain"
+        ]
+      },
+      {
+        "answer": "Third Trumpet Wormwood",
+        "tier": 3,
+        "source": "Revelation 8:10–11",
+        "aliases": [
+          "Third trumpet: Wormwood"
+        ]
+      },
+      {
+        "answer": "Fourth Trumpet Darkness",
+        "tier": 3,
+        "source": "Revelation 8:12",
+        "aliases": [
+          "Fourth trumpet: darkened heavens"
+        ]
+      },
+      {
+        "answer": "Fifth Trumpet Locusts",
+        "tier": 2,
+        "source": "Revelation 9:1–11",
+        "aliases": [
+          "Fifth trumpet: locusts"
+        ]
+      },
+      {
+        "answer": "Sixth Trumpet Angels",
+        "tier": 6,
+        "source": "Revelation 9:13–19",
+        "aliases": [
+          "Sixth trumpet: four angels"
+        ]
+      },
+      {
+        "answer": "Seventh Trumpet Kingdom",
+        "tier": 2,
+        "source": "Revelation 11:15–19",
+        "aliases": [
+          "Seventh trumpet: kingdom proclaimed"
+        ]
       }
     ],
     "commonGuesses": [
@@ -4436,12 +4624,12 @@
       {
         "guess": "The woman clothed with the sun",
         "accept": true,
-        "answer": "The woman clothed with the sun"
+        "answer": "Woman Clothed with Sun"
       },
       {
         "guess": "The beast from the sea",
         "accept": true,
-        "answer": "The beast from the sea"
+        "answer": "Beast from Sea"
       },
       {
         "guess": "The New Jerusalem",
@@ -4451,7 +4639,7 @@
       {
         "guess": "The seven trumpets",
         "accept": true,
-        "answer": "First trumpet: hail and fire"
+        "answer": "First Trumpet Hail"
       },
       {
         "guess": "The Antichrist",
@@ -4479,7 +4667,7 @@
     "id": "authored-catholic-liturgical-seasons",
     "theme": "Catholic liturgy",
     "prompt": "Name a season or major observance in the Roman Catholic liturgical year.",
-    "context": "Include the principal liturgical seasons and major observances, not individual saints' memorials. Count: 17.",
+    "context": "Include the principal liturgical seasons and major observances, not individual saints' memorials; count: 17.",
     "hint": "Think from Advent through Ordinary Time, including the Paschal Triduum and Easter season.",
     "source": "Hand-authored answer key; sources: General Norms for the Liturgical Year and the Calendar.",
     "status": "draft",
@@ -4554,9 +4742,12 @@
         "source": "General Norms for the Liturgical Year and the Calendar."
       },
       {
-        "answer": "Solemnity of the Most Holy Trinity",
+        "answer": "Holy Trinity Sunday",
         "tier": 2,
-        "source": "General Norms for the Liturgical Year and the Calendar."
+        "source": "General Norms for the Liturgical Year and the Calendar.",
+        "aliases": [
+          "Solemnity of the Most Holy Trinity"
+        ]
       },
       {
         "answer": "Corpus Christi",
@@ -4577,23 +4768,28 @@
     "commonGuesses": [
       {
         "guess": "Advent",
-        "accept": true
+        "accept": true,
+        "answer": "Advent"
       },
       {
         "guess": "Christmas Time",
-        "accept": true
+        "accept": true,
+        "answer": "Christmas Time"
       },
       {
         "guess": "Lent",
-        "accept": true
+        "accept": true,
+        "answer": "Lent"
       },
       {
         "guess": "The Paschal Triduum",
-        "accept": true
+        "accept": true,
+        "answer": "The Paschal Triduum"
       },
       {
         "guess": "Easter Time",
-        "accept": true
+        "accept": true,
+        "answer": "Easter Time"
       },
       {
         "guess": "A generic religious idea",
@@ -4626,7 +4822,7 @@
     "id": "batch2-sacraments",
     "theme": "Sacraments",
     "prompt": "Name one of the seven sacraments of the Catholic Church.",
-    "context": "The Catholic Church recognizes exactly seven sacraments. Count: 7.",
+    "context": "The Catholic Church recognizes exactly seven sacraments; count: 7.",
     "hint": "Think of initiation, healing, and service.",
     "source": "Hand-authored closed key; authority: Catechism of the Catholic Church 1210–1666. Count: 7.",
     "status": "draft",
@@ -4732,7 +4928,7 @@
     "id": "batch2-gifts-spirit",
     "theme": "Holy Spirit",
     "prompt": "Name one of the seven gifts of the Holy Spirit.",
-    "context": "Use the traditional seven gifts listed in Isaiah 11:2–3 and Catholic catechesis. Count: 7.",
+    "context": "Use the traditional seven gifts listed in Isaiah 11:2–3 and Catholic catechesis; count: 7.",
     "hint": "The list includes wisdom and fortitude.",
     "source": "Hand-authored closed key; authority: Isaiah 11:2–3; Catechism of the Catholic Church 1830–1831. Count: 7.",
     "status": "draft",
@@ -4840,7 +5036,7 @@
     "id": "batch2-fruits-spirit",
     "theme": "Holy Spirit",
     "prompt": "Name one of the twelve traditional fruits of the Holy Spirit.",
-    "context": "Use the twelve-fruit list in the Vulgate-based Catholic tradition. Count: 12.",
+    "context": "Use the twelve-fruit list in the Vulgate-based Catholic tradition; count: 12.",
     "hint": "Several are familiar Christian virtues, but use the traditional list.",
     "source": "Hand-authored closed key; authority: Galatians 5:22–23; CCC 1832; Vulgate tradition. Count: 12.",
     "status": "draft",
@@ -4964,7 +5160,7 @@
     "id": "batch2-beatitudes",
     "theme": "Sermon on the Mount",
     "prompt": "Name one of the eight Beatitudes in Matthew's Sermon on the Mount.",
-    "context": "Use the eight declarations in Matthew 5:3–10. Count: 8.",
+    "context": "Use the eight declarations in Matthew 5:3–10; count: 8.",
     "hint": "Each begins with 'Blessed are'.",
     "source": "Hand-authored closed key; authority: Matthew 5:3–10; Catechism of the Catholic Church 1716–1717. Count: 8.",
     "status": "draft",
@@ -4986,9 +5182,12 @@
         "source": "Matthew 5:3–10; Catechism of the Catholic Church 1716–1717"
       },
       {
-        "answer": "Those who hunger for righteousness",
+        "answer": "Hunger for righteousness",
         "tier": 2,
-        "source": "Matthew 5:3–10; Catechism of the Catholic Church 1716–1717"
+        "source": "Matthew 5:3–10; Catechism of the Catholic Church 1716–1717",
+        "aliases": [
+          "Those who hunger for righteousness"
+        ]
       },
       {
         "answer": "The merciful",
@@ -5068,7 +5267,7 @@
     "id": "batch2-stations-cross",
     "theme": "Passion",
     "prompt": "Name one of the traditional fourteen Stations of the Cross.",
-    "context": "Use the traditional fourteen-station devotion, not the optional scriptural variant. Count: 14.",
+    "context": "Use the traditional fourteen-station devotion, not the optional scriptural variant; count: 14.",
     "hint": "The sequence follows Jesus from condemnation to burial.",
     "source": "Hand-authored closed key; authority: Directory on Popular Piety 131–135; traditional fourteen Stations. Count: 14.",
     "status": "draft",
@@ -5229,7 +5428,7 @@
     "id": "batch2-marian-dogmas",
     "theme": "Mariology",
     "prompt": "Name one of the four dogmas concerning the Blessed Virgin Mary.",
-    "context": "Use the four dogmas formally defined or taught as Marian dogmas in Catholic doctrine. Count: 4.",
+    "context": "Use the four dogmas formally defined or taught as Marian dogmas in Catholic doctrine; count: 4.",
     "hint": "One concerns Mary's beginning; another concerns her end of earthly life.",
     "source": "Hand-authored closed key; authority: CCC 487–511; Ineffabilis Deus; Munificentissimus Deus; Lumen gentium 52–69. Count: 4.",
     "status": "draft",
@@ -5311,6 +5510,11 @@
         "guess": "Perpetual Help",
         "accept": false,
         "reason": "A devotional title, not a dogma."
+      },
+      {
+        "guess": "Divine Mercy",
+        "accept": false,
+        "reason": "A devotion, not a Marian dogma."
       }
     ]
   },
@@ -5318,7 +5522,7 @@
     "id": "batch2-papal-basilicas",
     "theme": "Pilgrimage sites",
     "prompt": "Name one of the four major papal basilicas in Rome.",
-    "context": "Use the four major basilicas designated by the Holy See. Count: 4.",
+    "context": "Use the four major basilicas designated by the Holy See; count: 4.",
     "hint": "Two are dedicated to Peter and Paul.",
     "source": "Hand-authored closed key; authority: Vatican, The Four Papal Basilicas. Count: 4.",
     "status": "draft",
@@ -5352,11 +5556,12 @@
         ]
       },
       {
-        "answer": "Saint Paul Outside the Walls",
+        "answer": "Saint Paul Outside Walls",
         "tier": 2,
         "source": "Vatican, The Four Papal Basilicas",
         "aliases": [
-          "Basilica of Saint Paul Outside the Walls"
+          "Basilica of Saint Paul Outside the Walls",
+          "Saint Paul Outside the Walls"
         ]
       }
     ],
@@ -5379,7 +5584,7 @@
       {
         "guess": "Saint Paul Outside the Walls",
         "accept": true,
-        "answer": "Saint Paul Outside the Walls"
+        "answer": "Saint Paul Outside Walls"
       },
       {
         "guess": "Sistine Chapel",
@@ -5405,6 +5610,11 @@
         "guess": "Basilica of the Holy Sepulchre",
         "accept": false,
         "reason": "Located in Jerusalem."
+      },
+      {
+        "guess": "Basilica of the Holy Sepulchre",
+        "accept": false,
+        "reason": "Located in Jerusalem, not Rome."
       }
     ]
   },
@@ -5412,7 +5622,7 @@
     "id": "batch2-evangelist-symbols",
     "theme": "Iconography",
     "prompt": "Name the traditional symbol of one of the four Evangelists.",
-    "context": "Use the four living-creature symbols associated with the Evangelists in Christian iconography. Count: 4.",
+    "context": "Use the four living-creature symbols associated with the Evangelists in Christian iconography; count: 4.",
     "hint": "One is winged; another is leonine.",
     "source": "Hand-authored closed key; authority: Ezekiel 1; Revelation 4:7; St Jerome, Commentary on Matthew; traditional Christian iconography. Count: 4.",
     "status": "draft",
@@ -5498,6 +5708,11 @@
         "guess": "Phoenix",
         "accept": false,
         "reason": "A resurrection symbol, not an Evangelist symbol."
+      },
+      {
+        "guess": "Lamb",
+        "accept": false,
+        "reason": "A symbol of Christ, not an Evangelist symbol."
       }
     ]
   },
@@ -5505,7 +5720,7 @@
     "id": "batch2-four-marks",
     "theme": "Ecclesiology",
     "prompt": "Name one of the four traditional marks of the Church in the Nicene Creed.",
-    "context": "Use the four marks confessed in the Creed. Count: 4.",
+    "context": "Use the four marks confessed in the Creed; count: 4.",
     "hint": "They describe the Church's unity, holiness, universality, and apostolic origin.",
     "source": "Hand-authored closed key; authority: Niceno-Constantinopolitan Creed; CCC 811–870. Count: 4.",
     "status": "draft",
@@ -5577,6 +5792,11 @@
         "guess": "Indefectible",
         "accept": false,
         "reason": "A theological property, not one of the four marks."
+      },
+      {
+        "guess": "Universal",
+        "accept": false,
+        "reason": "A gloss of Catholic, not the standard Creed wording."
       }
     ]
   },
@@ -5584,7 +5804,7 @@
     "id": "batch2-precepts-church",
     "theme": "Catholic teaching",
     "prompt": "Name one of the five precepts of the Catholic Church.",
-    "context": "Use the five precepts summarized in the Catechism. Count: 5.",
+    "context": "Use the five precepts summarized in the Catechism; count: 5.",
     "hint": "They include Sunday worship and annual confession and Communion.",
     "source": "Hand-authored closed key; authority: CCC 2041–2043. Count: 5.",
     "status": "draft",
@@ -5688,7 +5908,7 @@
     "id": "batch2-cardinal-virtues",
     "theme": "Moral theology",
     "prompt": "Name one of the four cardinal virtues.",
-    "context": "Use the four principal human virtues named in Catholic moral teaching. Count: 4.",
+    "context": "Use the four principal human virtues named in Catholic moral teaching; count: 4.",
     "hint": "They are prudence, justice, fortitude, and temperance.",
     "source": "Hand-authored closed key; authority: Wisdom 8:7; CCC 1805–1809. Count: 4.",
     "status": "draft",
@@ -5760,6 +5980,11 @@
         "guess": "Patience",
         "accept": false,
         "reason": "A virtue, but not one of the four cardinal virtues."
+      },
+      {
+        "guess": "Humility",
+        "accept": false,
+        "reason": "A virtue, but not one of the four cardinal virtues."
       }
     ]
   },
@@ -5767,7 +5992,7 @@
     "id": "batch2-theological-virtues",
     "theme": "Moral theology",
     "prompt": "Name one of the three theological virtues.",
-    "context": "Use the three virtues infused by God and named in Catholic doctrine. Count: 3.",
+    "context": "Use the three virtues infused by God and named in Catholic doctrine; count: 3.",
     "hint": "Paul names all three together in 1 Corinthians 13.",
     "source": "Hand-authored closed key; authority: 1 Corinthians 13:13; CCC 1812–1829. Count: 3.",
     "status": "draft",
@@ -5832,6 +6057,16 @@
         "guess": "Patience",
         "accept": false,
         "reason": "A virtue, but not a theological virtue."
+      },
+      {
+        "guess": "Patience",
+        "accept": false,
+        "reason": "A virtue, but not a theological virtue."
+      },
+      {
+        "guess": "Mercy",
+        "accept": false,
+        "reason": "A divine attribute, not one of the three theological virtues."
       }
     ]
   },
@@ -5839,7 +6074,7 @@
     "id": "batch2-archangels",
     "theme": "Angels",
     "prompt": "Name one of the three angels named in Scripture and venerated as archangels in Catholic tradition.",
-    "context": "Use the three named archangels recognized in Catholic liturgical tradition. Count: 3.",
+    "context": "Use the three named archangels recognized in Catholic liturgical tradition; count: 3.",
     "hint": "Their names are associated with protection, divine strength, and healing.",
     "source": "Hand-authored closed key; authority: Daniel 8–12; Luke 1:19,26; Jude 9; Roman Martyrology; General Roman Calendar. Count: 3.",
     "status": "draft",
@@ -5913,6 +6148,16 @@
         "guess": "Metatron",
         "accept": false,
         "reason": "Not a biblical archangel in Catholic canon."
+      },
+      {
+        "guess": "Uriel",
+        "accept": false,
+        "reason": "Not one of the three archangels in the Roman liturgical calendar."
+      },
+      {
+        "guess": "Metatron",
+        "accept": false,
+        "reason": "Not a biblical archangel in Catholic canon."
       }
     ]
   },
@@ -5920,7 +6165,7 @@
     "id": "batch2-pentateuch",
     "theme": "Scripture",
     "prompt": "Name one of the five books of the Pentateuch.",
-    "context": "Use the first five books of the Catholic Bible. Count: 5.",
+    "context": "Use the first five books of the Catholic Bible; count: 5.",
     "hint": "The first book is Genesis; the last is Deuteronomy.",
     "source": "Hand-authored closed key; authority: Catholic Bible; CCC 120. Count: 5.",
     "status": "draft",
@@ -6009,7 +6254,7 @@
     "id": "batch2-latin-fathers",
     "theme": "Church Fathers",
     "prompt": "Name one of the four traditional great Latin Church Fathers.",
-    "context": "Use the traditional four great Latin Fathers of the Western Church. Count: 4.",
+    "context": "Use the traditional four great Latin Fathers of the Western Church; count: 4.",
     "hint": "They include Augustine and Jerome.",
     "source": "Hand-authored closed key; authority: Traditional patristic classification; Roman Martyrology; Catholic Encyclopedia, Fathers of the Church. Count: 4.",
     "status": "draft",
@@ -6097,6 +6342,11 @@
         "guess": "Origen",
         "accept": false,
         "reason": "An important early theologian, not one of the four Latin Fathers."
+      },
+      {
+        "guess": "Origen",
+        "accept": false,
+        "reason": "An early theologian, not one of the four traditional Latin Fathers."
       }
     ]
   },
@@ -6104,7 +6354,7 @@
     "id": "batch2-seven-churches",
     "theme": "Revelation",
     "prompt": "Name one of the seven churches addressed in Revelation's opening chapters.",
-    "context": "Use the seven churches named in Revelation 1–3. Count: 7.",
+    "context": "Use the seven churches named in Revelation 1–3; count: 7.",
     "hint": "They are all in the Roman province of Asia.",
     "source": "Hand-authored closed key; authority: Revelation 1:4,11; chapters 2–3. Count: 7.",
     "status": "draft",
@@ -6206,7 +6456,7 @@
     "id": "batch2-marian-antiphons",
     "theme": "Marian devotion",
     "prompt": "Name one of the four traditional seasonal Marian antiphons.",
-    "context": "Use the four antiphons traditionally assigned to the liturgical year. Count: 4.",
+    "context": "Use the four antiphons traditionally assigned to the liturgical year; count: 4.",
     "hint": "Salve Regina is associated with Ordinary Time.",
     "source": "Hand-authored closed key; authority: Liturgy of the Hours; Roman antiphon tradition. Count: 4.",
     "status": "draft",
@@ -6278,6 +6528,11 @@
         "guess": "Stabat Mater",
         "accept": false,
         "reason": "A Marian hymn, not one of the four seasonal antiphons."
+      },
+      {
+        "guess": "Sub Tuum Praesidium",
+        "accept": false,
+        "reason": "An ancient Marian prayer, not one of the four seasonal antiphons."
       }
     ]
   },
@@ -6285,7 +6540,7 @@
     "id": "batch2-vatican-constitutions",
     "theme": "Vatican II",
     "prompt": "Name one of the four constitutions promulgated by the Second Vatican Council.",
-    "context": "The Council promulgated exactly four constitutions. Count: 4.",
+    "context": "The Council promulgated exactly four constitutions; count: 4.",
     "hint": "One addresses divine revelation; another addresses the liturgy.",
     "source": "Hand-authored closed key; authority: Second Vatican Council, official document list. Count: 4.",
     "status": "draft",
@@ -6357,6 +6612,11 @@
         "guess": "Apostolicam Actuositatem",
         "accept": false,
         "reason": "A decree."
+      },
+      {
+        "guess": "Apostolicam Actuositatem",
+        "accept": false,
+        "reason": "A council decree, not a constitution."
       }
     ]
   },
@@ -6364,7 +6624,7 @@
     "id": "batch2-mendicant-orders",
     "theme": "Religious orders",
     "prompt": "Name one of the four traditional principal mendicant orders of the medieval Church.",
-    "context": "Use the four principal mendicant orders in the standard historical classification. Count: 4.",
+    "context": "Use the four principal mendicant orders in the standard historical classification; count: 4.",
     "hint": "Franciscans and Dominicans are two familiar examples.",
     "source": "Hand-authored closed key; authority: Second Council of Lyons (1274); Catholic Encyclopedia, Mendicant Friars. Count: 4.",
     "status": "draft",
@@ -6449,6 +6709,11 @@
         "guess": "Salesians",
         "accept": false,
         "reason": "A modern religious congregation, not one of the four medieval mendicant orders."
+      },
+      {
+        "guess": "Trappists",
+        "accept": false,
+        "reason": "A Cistercian monastic reform, not one of the four mendicant orders."
       }
     ]
   },
@@ -6456,7 +6721,7 @@
     "id": "batch2-liturgical-colors",
     "theme": "Catholic liturgy",
     "prompt": "Name one of the five principal liturgical colors in the Roman Rite.",
-    "context": "Use the five principal colors in the General Instruction of the Roman Missal. Count: 5.",
+    "context": "Use the five principal colors in the General Instruction of the Roman Missal; count: 5.",
     "hint": "Rose is used on two Sundays in the liturgical year.",
     "source": "Hand-authored closed key; authority: General Instruction of the Roman Missal 346. Count: 5.",
     "status": "draft",
@@ -6548,7 +6813,7 @@
     "id": "batch2-vatican-encyclicals",
     "theme": "Papal documents",
     "prompt": "Name one of the four encyclicals issued by Pope Francis.",
-    "context": "Use the four encyclicals issued during Pope Francis's pontificate, including Lumen fidei. Count: 4.",
+    "context": "Use the four encyclicals issued during Pope Francis's pontificate, including Lumen fidei; count: 4.",
     "hint": "The latest was published in 2024 and concerns the Sacred Heart.",
     "source": "Hand-authored closed key; authority: Vatican, official papal encyclical archive: Lumen fidei, Laudato si', Fratelli tutti, Dilexit nos. Count: 4.",
     "status": "draft",
@@ -6623,6 +6888,11 @@
         "guess": "Patris Corde",
         "accept": false,
         "reason": "An apostolic letter."
+      },
+      {
+        "guess": "Amoris Laetitia",
+        "accept": false,
+        "reason": "An apostolic exhortation, not an encyclical."
       }
     ]
   },
@@ -6630,7 +6900,7 @@
     "id": "batch2-priest-mass-vestments",
     "theme": "Vestments",
     "prompt": "Which three principal vestments does a Roman Rite priest wear for Mass?",
-    "context": "The normal set for a priest celebrating Mass consists of an alb, stole, and chasuble. Count: 3.",
+    "context": "The normal set for a priest celebrating Mass consists of an alb, stole, and chasuble; count: 3.",
     "hint": "The outer vestment is the chasuble.",
     "source": "Hand-authored closed key; authority: General Instruction of the Roman Missal 119, 335–347; Redemptionis Sacramentum 122. Count: 3.",
     "status": "draft",
@@ -6692,6 +6962,16 @@
         "guess": "Surplice",
         "accept": false,
         "reason": "A choir or service garment, not the priest's principal Mass vestment."
+      },
+      {
+        "guess": "Surplice",
+        "accept": false,
+        "reason": "A choir or service garment, not a principal Mass vestment."
+      },
+      {
+        "guess": "Mitre",
+        "accept": false,
+        "reason": "An episcopal headwear, not a priest's Mass vestment."
       }
     ]
   },
@@ -6699,7 +6979,7 @@
     "id": "batch2-gregorian-modes",
     "theme": "Gregorian chant",
     "prompt": "Name one of the eight traditional Gregorian chant modes.",
-    "context": "Use the eight-mode system of Gregorian chant. Count: 8.",
+    "context": "Use the eight-mode system of Gregorian chant; count: 8.",
     "hint": "The modes are numbered from I through VIII.",
     "source": "Hand-authored closed key; authority: Gregorian chant theory; Graduale Romanum; traditional Octoechos system. Count: 8.",
     "status": "draft",
@@ -6779,7 +7059,7 @@
       {
         "guess": "Mode II",
         "accept": true,
-        "answer": "Mode II"
+        "answer": "Mode I"
       },
       {
         "guess": "Mode V",
@@ -6789,12 +7069,12 @@
       {
         "guess": "Mode VII",
         "accept": true,
-        "answer": "Mode VII"
+        "answer": "Mode V"
       },
       {
         "guess": "Mode VIII",
         "accept": true,
-        "answer": "Mode VIII"
+        "answer": "Mode V"
       },
       {
         "guess": "Mode IX",
@@ -6827,7 +7107,7 @@
     "id": "batch2-three-evangelical-counsels",
     "theme": "Consecrated life",
     "prompt": "Name one of the three evangelical counsels professed in consecrated life.",
-    "context": "The three evangelical counsels are poverty, chastity, and obedience. Count: 3.",
+    "context": "The three evangelical counsels are poverty, chastity, and obedience; count: 3.",
     "hint": "They are the basis of the public vows in many religious institutes.",
     "source": "Hand-authored closed key; authority: Lumen gentium 42–43; Perfectae caritatis 1–2; Code of Canon Law 573. Count: 3.",
     "status": "draft",
@@ -6889,6 +7169,16 @@
         "guess": "Hospitality",
         "accept": false,
         "reason": "A charism or practice, not one of the three counsels."
+      },
+      {
+        "guess": "Stability",
+        "accept": false,
+        "reason": "A Benedictine vow in some traditions, not one of the three evangelical counsels."
+      },
+      {
+        "guess": "Enclosure",
+        "accept": false,
+        "reason": "A discipline, not one of the three evangelical counsels."
       }
     ]
   },
@@ -6896,7 +7186,7 @@
     "id": "batch2-rosary-mysteries",
     "theme": "Rosary",
     "prompt": "Name one of the twenty traditional mysteries contemplated in the Rosary.",
-    "context": "Use the four sets of five mysteries: Joyful, Sorrowful, Glorious, and Luminous. Count: 20.",
+    "context": "Use the four sets of five mysteries: Joyful, Sorrowful, Glorious, and Luminous; count: 20.",
     "hint": "The sets follow the life, Passion, Resurrection, and public ministry of Jesus.",
     "source": "Hand-authored closed key; authorities: USCCB, How to Pray the Rosary; John Paul II, Rosarium Virginis Mariae 21–26. Count: 20.",
     "status": "draft",
@@ -6978,11 +7268,12 @@
         "source": "USCCB, How to Pray the Rosary; traditional Rosary"
       },
       {
-        "answer": "Descent of the Holy Spirit",
+        "answer": "Descent of Spirit",
         "tier": 1,
         "source": "USCCB, How to Pray the Rosary; traditional Rosary",
         "aliases": [
-          "Pentecost"
+          "Pentecost",
+          "Descent of the Holy Spirit"
         ]
       },
       {
