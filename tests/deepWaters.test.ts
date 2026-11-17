@@ -15,7 +15,7 @@ describe('Deep Waters content and rules', () => {
       expect(p.answers.length, p.id).toBeGreaterThanOrEqual(p.answerMode === 'single' ? 1 : 10);
       if (p.answerMode === 'single') expect(p.source, p.id).toBeTruthy();
       expect(new Set(p.answers.map((a) => normalizeDeepAnswer(a.answer))).size, p.id).toBe(p.answers.length);
-      for (const a of p.answers) expect([1, 2, 3, 4, 5]).toContain(a.tier);
+      for (const a of p.answers) expect([1, 2, 3, 4, 5, 6]).toContain(a.tier);
     }
   });
 
@@ -34,11 +34,11 @@ describe('Deep Waters content and rules', () => {
     expect(byId('authored-deuterocanonical-books').answers).toHaveLength(12);
 
     for (const prompt of authored) {
-      expect(prompt.source, prompt.id).toMatch(/^Hand-authored answer key; sources:/);
-      expect(prompt.answerMode).toBe('many');
+      expect(prompt.source, prompt.id).toMatch(/^Hand-authored/);
+      expect(['open', 'closed']).toContain(prompt.answerMode);
       expect(prompt.context.trim().length).toBeGreaterThan(30);
       expect(prompt.hint.trim().length).toBeGreaterThan(20);
-      expect(prompt.answers.length, prompt.id).toBeGreaterThanOrEqual(10);
+      expect(prompt.answers.length, prompt.id).toBeGreaterThan(0);
       const answerKeys = prompt.answers.map((a) => normalizeDeepAnswer(a.answer));
       expect(new Set(answerKeys).size, prompt.id).toBe(answerKeys.length);
       const accepted = new Map<string, string>();
@@ -48,6 +48,64 @@ describe('Deep Waters content and rules', () => {
           expect(accepted.has(key) ? accepted.get(key) : answer.answer, prompt.id + ': ' + value).toBe(answer.answer);
           accepted.set(key, answer.answer);
         }
+      }
+    }
+  });
+  it('validates the 25-question second hand-authored batch and every authored prompt contract', () => {
+    const authored = DEEP_WATERS.filter((p) => p.id.startsWith('authored-') || p.id.startsWith('batch2-'));
+    const secondBatch = authored.filter((p) => p.id.startsWith('batch2-'));
+    expect(secondBatch).toHaveLength(25);
+    expect(authored).toHaveLength(50);
+    for (const prompt of authored) {
+      expect(prompt.prompt.trim().split(/\\s+/).length, prompt.id).toBeLessThanOrEqual(20);
+      expect((prompt.context.match(/[.!?](?:\\s|$)/g) ?? []).length, prompt.id).toBeLessThanOrEqual(1);
+      expect(prompt.prompt + ' ' + prompt.context + ' ' + prompt.hint, prompt.id).not.toMatch(/\\b(above|below)\\b/i);
+      expect(prompt.commonGuesses, prompt.id).toHaveLength(10);
+      expect(prompt.answers.length, prompt.id).toBeGreaterThan(0);
+      const answerKeys = prompt.answers.map((a) => normalizeDeepAnswer(a.answer));
+      expect(new Set(answerKeys).size, prompt.id).toBe(answerKeys.length);
+      for (const answer of prompt.answers) {
+        expect(answer.answer.trim().split(/\\s+/).length, prompt.id + ': ' + answer.answer).toBeLessThanOrEqual(4);
+        expect(answer.source, prompt.id + ': ' + answer.answer).toBeTruthy();
+        expect([1, 2, 3, 4, 5, 6]).toContain(answer.tier);
+      }
+      const aliases = new Map<string, string>();
+      for (const answer of prompt.answers) {
+        for (const value of [answer.answer, ...(answer.aliases ?? [])]) {
+          const key = normalizeDeepAnswer(value);
+          expect(aliases.has(key) ? aliases.get(key) : answer.answer, prompt.id + ': alias ' + value).toBe(answer.answer);
+          aliases.set(key, answer.answer);
+        }
+      }
+      for (const guess of prompt.commonGuesses ?? []) {
+        const matched = findDeepAnswer(prompt, guess.guess);
+        if (guess.accept) {
+          expect(guess.answer, prompt.id + ': accepted guess ' + guess.guess).toBeTruthy();
+          expect(matched?.answer, prompt.id + ': accepted guess ' + guess.guess).toBe(guess.answer);
+        } else {
+          expect(guess.reason, prompt.id + ': rejected guess ' + guess.guess).toBeTruthy();
+          expect(matched, prompt.id + ': rejected guess ' + guess.guess).toBeNull();
+        }
+      }
+      if (prompt.answerMode === 'closed') {
+        expect(prompt.context, prompt.id).toMatch(new RegExp('count: ' + prompt.answers.length + '\\\\.', 'i'));
+        expect(prompt.source, prompt.id).toMatch(/authority:|sources:/i);
+      } else {
+        expect(prompt.answerMode).toBe('open');
+        expect(prompt.answers.length, prompt.id).toBeGreaterThanOrEqual(60);
+        const tierCounts = [1, 2, 3, 4, 5, 6].map((tier) => prompt.answers.filter((a) => a.tier === tier).length);
+        expect(tierCounts.every((count) => count > 0), prompt.id).toBe(true);
+        expect(tierCounts.reduce((sum, count) => sum + count, 0)).toBe(prompt.answers.length);
+        for (const count of tierCounts) expect(count / prompt.answers.length, prompt.id).toBeGreaterThanOrEqual(0.05);
+      }
+    }
+    for (let i = 0; i < authored.length; i++) {
+      for (let j = i + 1; j < authored.length; j++) {
+        const a = new Set(authored[i].answers.map((x) => normalizeDeepAnswer(x.answer)));
+        const b = new Set(authored[j].answers.map((x) => normalizeDeepAnswer(x.answer)));
+        const intersection = [...a].filter((x) => b.has(x)).length;
+        const jaccard = intersection / (a.size + b.size - intersection);
+        expect(jaccard, authored[i].id + ' / ' + authored[j].id).toBeLessThanOrEqual(0.2);
       }
     }
   });
@@ -168,6 +226,6 @@ describe('Deep Waters content and rules', () => {
   });
 
   it('uses an explicit increasing editorial score ladder', () => {
-    expect([1, 2, 3, 4, 5].map((n) => DEEP_POINTS[n as 1 | 2 | 3 | 4 | 5])).toEqual([1, 2, 4, 8, 16]);
+    expect([1, 2, 3, 4, 5, 6].map((n) => DEEP_POINTS[n as 1 | 2 | 3 | 4 | 5 | 6])).toEqual([1, 2, 4, 8, 16, 32]);
   });
 });
