@@ -85,8 +85,11 @@ export function saveDeepSession(session: DeepSession): void {
 export function loadDeepSession(day: number): DeepSession | null {
   try {
     const value = JSON.parse(localStorage.getItem(DEEP_SESSION_KEY) ?? 'null') as DeepSession | null;
-    if (!value || value.version !== 1 || value.day !== day || !Array.isArray(value.promptIds) || value.promptIds.length !== 7) return null;
-    if (!['preview', 'playing', 'locked', 'done'].includes(value.phase)) return null;
+    if (!value || value.version !== 1 || value.day !== day || typeof value.practice !== 'boolean' || !Number.isInteger(value.practiceSeed)) return null;
+    if (!Array.isArray(value.promptIds) || value.promptIds.length !== 7 || new Set(value.promptIds).size !== 7) return null;
+    if (!Number.isInteger(value.round) || value.round < 0 || value.round >= 7 || !Number.isFinite(value.score) || !Array.isArray(value.history) || value.history.length > 7) return null;
+    if (!['preview', 'playing', 'locked', 'done'].includes(value.phase) || typeof value.paused !== 'boolean' || !Number.isFinite(value.remainingMs)) return null;
+    if (value.deadlineAt !== null && !Number.isFinite(value.deadlineAt)) return null;
     return value;
   } catch { return null; }
 }
