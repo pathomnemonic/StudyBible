@@ -500,3 +500,20 @@ The two failing browser checks both fail deterministically when run alone and ar
 * `e2e/mediacontrols.mjs` step 10: going offline and starting a meditation track shows no `.player-msg` notice. Not diagnosed; it follows the owner's change to how the player clears and re-arms its source-error listener.
 
 `e2e/gofurther.mjs` (new, registered in `e2e/run-all.mjs`) and `e2e/chant.mjs`, `e2e/greek-editions.mjs`, `e2e/edition-verse.mjs`, `e2e/review.mjs` passed in that run.
+
+## Games and Deep Waters cycle — 2026-11-17
+
+Scope: make Deep Waters comparable to the original rare-answer game, and make the Games section its own world. Work is on branch `ccr-c086ddeb-igsukm`.
+
+| Area | What changed | Honest limits |
+| --- | --- | --- |
+| Engine | ChatGPT's session/timer/logbook/pearl engine merged with the matching, suggestion and hint API; a clock that keeps running while the page is hidden; daily dive stored separately from practice and never restartable; a finished daily dive offers only a Practice dive. Found and fixed: the Practice switch wiped the saved dive on every page load, so leaving the game reset it. `e2e/deepwaterslock.mjs` covers it. | Everything is on the device, so someone who clears site data or uses another browser can still replay; there is no server to prevent that. |
+| Scoring | Six tiers worth 10/15/30/60/85/100, 25 s per question, 700 at most, as third-party guides report for the original. Tier names are ours. Pearl bonus (50) is ours. | Figures not checked against the original's own FAQ. Hand-written lists use only the first five tiers. |
+| Content | 126 questions: places by book, saints by month/kind/first letter, Bible people and women by first letter (STEPBible TIPNR, CC BY 4.0), hand-written lists. Role lists (kings, prophets) were tried and dropped because the source descriptions confuse namesakes. | None of the 126 has been reviewed by a person (`deepWaters.review.json`). About 420 questions would be needed for a 60-day gap; a question now returns after at least 14 days. |
+| Missing answers | Private on-device list of unrecognised guesses with Copy and Clear. | There is no tool yet to turn a pasted list into aliases. |
+| Games world | `/play` switches the whole screen to an arcade look (`src/arcade`, `src/styles/arcade.css`, docs/GAMES_ARCADE.md): per-game colour themes, 3D icons (Fluent UI Emoji, MIT) and animated emoji (Noto, CC BY 4.0), underwater scene for Deep Waters, confetti, finish banner, level HUD, optional sound and haptics, 3D map pins, daily-dive banner. Loads only on games pages. | This is mobile-casual-game polish from CSS, bundled emoji art and small animations. It is not hand-illustrated character art or a game engine. |
+| Accessibility | axe (WCAG 2 A/AA) is clean on all 25 games routes, including the two grid pages whose ARIA grid roles were wrong; reduced motion and `data-motion=none` turn the motion off; sound is opt-in. | Not tested with a screen reader. |
+| Tests | New: `deepWaters` scripture lists and first-letter lists, `deepWatersMisses`, `arcadeLevel`, `arcadeAssets`, `deepwaterslock` e2e. Changed tests: the 25 s clock in the session tests; the Learn "games bar" is now a single link (`games2` e2e was stale); `gofurther` e2e had a check-then-act race under load. | |
+
+### Gate results (actual)
+See the end of this section for the final run; filled in when the last full `npm run e2e:release` on the final build completes.
