@@ -96,7 +96,10 @@ describe('Deep Waters content and rules', () => {
         const tierCounts = [1, 2, 3, 4, 5, 6].map((tier) => prompt.answers.filter((a) => a.tier === tier).length);
         expect(tierCounts.every((count) => count > 0), prompt.id).toBe(true);
         expect(tierCounts.reduce((sum, count) => sum + count, 0)).toBe(prompt.answers.length);
-        for (const count of tierCounts) expect(count / prompt.answers.length, prompt.id).toBeGreaterThanOrEqual(0.05);
+        const targetShares = [0.08, 0.12, 0.20, 0.25, 0.25, 0.10];
+        for (let tier = 0; tier < 6; tier++) {
+          expect(Math.abs(tierCounts[tier] / prompt.answers.length - targetShares[tier]), prompt.id + ': tier ' + (tier + 1)).toBeLessThanOrEqual(0.08);
+        }
       }
     }
     for (let i = 0; i < authored.length; i++) {
@@ -219,9 +222,9 @@ describe('Deep Waters content and rules', () => {
     expect(report.some((row) => !row.meetsTarget)).toBe(true);
     expect(report.filter((row) => row.target === 1)).toHaveLength(2555);
     expect(deepWatersCoverageErrors()).toEqual([]);
-    const underfilled = { ...DEEP_WATERS[0], status: 'reviewed' as const, answers: DEEP_WATERS[0].answers.slice(0, DEEP_ANSWER_TARGET - 1) };
+    const underfilled = { ...DEEP_WATERS[0], answerMode: 'many' as const, status: 'reviewed' as const, answers: DEEP_WATERS[0].answers.slice(0, DEEP_ANSWER_TARGET - 1) };
     expect(deepWatersCoverageErrors([underfilled])).toHaveLength(1);
-    const ready = { ...DEEP_WATERS[0], status: 'reviewed' as const, answers: Array.from({ length: DEEP_ANSWER_TARGET }, (_, i) => ({ answer: `answer-${i}`, tier: 1 as const })) };
+    const ready = { ...DEEP_WATERS[0], answerMode: 'many' as const, status: 'reviewed' as const, answers: Array.from({ length: DEEP_ANSWER_TARGET }, (_, i) => ({ answer: `answer-${i}`, tier: 1 as const })) };
     expect(deepWatersCoverageErrors([ready])).toEqual([]);
   });
 
