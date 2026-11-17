@@ -548,8 +548,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
       ['Frances Xavier Cabrini', 6],
       ['Maria Teresa Ledóchowska', 6],
     ]),
-  }
-  ,
+  },
   {
     id: 'evangelist-symbols', theme: 'art-music', ignore: ['symbol'],
     prompt: 'Name a traditional symbol of one of the four Evangelists.',
