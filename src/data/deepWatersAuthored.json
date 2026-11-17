@@ -1886,10 +1886,10 @@
   {
     "id": "authored-ecumenical-councils-first-millennium",
     "theme": "Church history",
-    "prompt": "Which ecumenical councils were held during the first millennium of Christianity?",
-    "context": "Use the first eight ecumenical councils recognized by the Catholic Church; identify them by city and ordinal number where needed.",
-    "hint": "The sequence begins at Nicaea in 325 and ends with Constantinople IV in 869–870.",
-    "source": "Hand-authored answer key; sources: Catholic list of ecumenical councils; council dates 325–869/870.",
+    "prompt": "Which ecumenical councils are recognized by the Catholic Church?",
+    "context": "The Catholic Church recognizes councils from the early centuries through the modern era. Identify them by city and ordinal number where needed.",
+    "hint": "The list begins at Nicaea in 325 and includes medieval councils, Trent, and both Vatican councils.",
+    "source": "Hand-authored answer key; sources: Catholic list of ecumenical councils; council dates 325–1965.",
     "status": "draft",
     "answerMode": "many",
     "answers": [
@@ -1941,6 +1941,88 @@
         "tier": 4,
         "aliases": [
           "Constantinople IV"
+        ]
+      },
+      {
+        "answer": "First Lateran Council",
+        "tier": 4,
+        "aliases": [
+          "Lateran I"
+        ]
+      },
+      {
+        "answer": "Second Lateran Council",
+        "tier": 4,
+        "aliases": [
+          "Lateran II"
+        ]
+      },
+      {
+        "answer": "Third Lateran Council",
+        "tier": 4,
+        "aliases": [
+          "Lateran III"
+        ]
+      },
+      {
+        "answer": "Fourth Lateran Council",
+        "tier": 3,
+        "aliases": [
+          "Lateran IV"
+        ]
+      },
+      {
+        "answer": "Fifth Lateran Council",
+        "tier": 5,
+        "aliases": [
+          "Lateran V"
+        ]
+      },
+      {
+        "answer": "First Council of Lyons",
+        "tier": 4,
+        "aliases": [
+          "Lyons I"
+        ]
+      },
+      {
+        "answer": "Second Council of Lyons",
+        "tier": 4,
+        "aliases": [
+          "Lyons II"
+        ]
+      },
+      {
+        "answer": "Council of Vienne",
+        "tier": 4
+      },
+      {
+        "answer": "Council of Constance",
+        "tier": 3
+      },
+      {
+        "answer": "Council of Florence",
+        "tier": 3
+      },
+      {
+        "answer": "Council of Trent",
+        "tier": 1,
+        "aliases": [
+          "Trent"
+        ]
+      },
+      {
+        "answer": "First Vatican Council",
+        "tier": 2,
+        "aliases": [
+          "Vatican I"
+        ]
+      },
+      {
+        "answer": "Second Vatican Council",
+        "tier": 1,
+        "aliases": [
+          "Vatican II"
         ]
       }
     ]
