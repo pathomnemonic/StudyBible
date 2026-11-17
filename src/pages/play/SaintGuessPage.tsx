@@ -51,6 +51,7 @@ export default function SaintGuessPage() {
       <h1>Saint Guess</h1>
       <GameHelp how={["You get one clue at a time, and a limited number of tries.", "Pick the saint you think it is. Another clue shows the next hint."]} />
       <p className="muted small">Who is it? One clue at a time: {TRIES} tries.</p>
+      <div className="sg-pips" aria-hidden="true">{Array.from({ length: TRIES }, (_, i) => <i key={i} className={i < shown ? 'on' : ''} />)}<span>Clue {Math.min(shown, TRIES)} of {TRIES}</span></div>
       <ol className="sg-clues">{Array.from({ length: shown }, (_, i) => <li key={i}>{clueFor(saint, i)}</li>)}</ol>
       {wrong.length > 0 && <p className="small muted">Not: {wrong.join(', ')}</p>}
       {won === null ? (

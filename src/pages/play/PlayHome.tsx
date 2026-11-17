@@ -103,7 +103,7 @@ export default function PlayHome() {
           <p className="pf-hero-actions"><Link className="btn primary big" to={featured.to}>Let’s go →</Link> <button className="btn big gp-dice" onClick={surprise}><span aria-hidden="true">🎲</span> Surprise me</button></p>
         </div>
       </section>
-      <Link to="/play/deepwaters" className="gp-dive" aria-label="Deep Waters, today's dive">
+      <Link to="/play/deepwaters" className="gp-dive">
         <span className="gp-dive-bubbles" aria-hidden="true"><i /><i /><i /><i /><i /></span>
         <Art n="whale" size={110} className="gp-dive-whale" />
         <span className="gp-dive-text">
