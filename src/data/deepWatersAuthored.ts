@@ -1,4 +1,5 @@
 import type { DeepPrompt } from './deepWaters';
+import { LONG_TAIL_PROMPTS } from './deepWatersLongTail';
 
 /**
  * Hand-authored Deep Waters prompts. Each answer key was chosen one answer at a time (not generated from a list or a template), with a source and an
@@ -1607,3 +1608,6 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
   ]
  }
 ];
+
+// The separate module keeps this batch's source notes, aliases and common-guess audit data together.
+AUTHORED_PROMPTS.push(...LONG_TAIL_PROMPTS);
