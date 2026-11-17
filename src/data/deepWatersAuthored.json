@@ -5837,7 +5837,7 @@
     "theme": "Church Fathers",
     "prompt": "Name one of the four traditional great Latin Church Fathers.",
     "context": "Use the traditional four great Latin Fathers of the Western Church; count: 4.",
-    "hint": "They include Augustine and Jerome.",
+    "hint": "Their writings helped shape the theology and liturgy of the Western Church.",
     "source": "Hand-authored closed key; authority: Traditional patristic classification; Roman Martyrology; Catholic Encyclopedia, Fathers of the Church. Count: 4.",
     "status": "draft",
     "answerMode": "closed",
@@ -6039,7 +6039,7 @@
     "theme": "Marian devotion",
     "prompt": "Name one of the four traditional seasonal Marian antiphons.",
     "context": "Use the four antiphons traditionally assigned to the liturgical year; count: 4.",
-    "hint": "Salve Regina is associated with Ordinary Time.",
+    "hint": "Each is assigned to a season or part of the liturgical year.",
     "source": "Hand-authored closed key; authority: Liturgy of the Hours; Roman antiphon tradition. Count: 4.",
     "status": "draft",
     "answerMode": "closed",
@@ -6123,7 +6123,7 @@
     "theme": "Vatican II",
     "prompt": "Name one of the four constitutions promulgated by the Second Vatican Council.",
     "context": "The Council promulgated exactly four constitutions; count: 4.",
-    "hint": "One addresses divine revelation; another addresses the liturgy.",
+    "hint": "They are the Council's foundational documents on revelation, the Church, liturgy, and the modern world.",
     "source": "Hand-authored closed key; authority: Second Vatican Council, official document list. Count: 4.",
     "status": "draft",
     "answerMode": "closed",
@@ -6207,7 +6207,7 @@
     "theme": "Religious orders",
     "prompt": "Name one of the four traditional principal mendicant orders of the medieval Church.",
     "context": "Use the four principal mendicant orders in the standard historical classification; count: 4.",
-    "hint": "Franciscans and Dominicans are two familiar examples.",
+    "hint": "They arose as major preaching and apostolic movements in the medieval Church.",
     "source": "Hand-authored closed key; authority: Second Council of Lyons (1274); Catholic Encyclopedia, Mendicant Friars. Count: 4.",
     "status": "draft",
     "answerMode": "closed",
@@ -6396,7 +6396,7 @@
     "theme": "Papal documents",
     "prompt": "Name one of the four encyclicals issued by Pope Francis.",
     "context": "Use the four encyclicals issued during Pope Francis's pontificate, including Lumen fidei; count: 4.",
-    "hint": "The latest was published in 2024 and concerns the Sacred Heart.",
+    "hint": "Their themes range from faith and ecology to fraternity and devotion to Christ.",
     "source": "Hand-authored closed key; authority: Vatican, official papal encyclical archive: Lumen fidei, Laudato si', Fratelli tutti, Dilexit nos. Count: 4.",
     "status": "draft",
     "answerMode": "closed",
@@ -6483,7 +6483,7 @@
     "theme": "Vestments",
     "prompt": "Which three principal vestments does a Roman Rite priest wear for Mass?",
     "context": "The normal set for a priest celebrating Mass consists of an alb, stole, and chasuble; count: 3.",
-    "hint": "The outer vestment is the chasuble.",
+    "hint": "They are worn in layers for the Eucharistic celebration.",
     "source": "Hand-authored closed key; authority: General Instruction of the Roman Missal 119, 335–347; Redemptionis Sacramentum 122. Count: 3.",
     "status": "draft",
     "answerMode": "closed",
@@ -6878,16 +6878,16 @@
     "id": "batch2-europe-patron-saints",
     "theme": "Saints and patronage",
     "prompt": "Name one of the five patron saints of Europe proclaimed by Pope John Paul II.",
-    "context": "Use the five co-patrons named in Spes Aedificandi.; count: 5.",
+    "context": "Use the five co-patrons named in papal declarations of 1964, 1980, and 1999; count: 5.",
     "hint": "The list includes two brothers who evangelized the Slavic peoples.",
-    "source": "Hand-authored closed key; authority: John Paul II, Apostolic Letter Spes Aedificandi (1999). Count: 5.",
+    "source": "Hand-authored closed key; authorities: Paul VI, Pacis Nuntius (1964); John Paul II, Egregiae Virtutis (1980), Spes Aedificandi (1999). Count: 5.",
     "status": "draft",
     "answerMode": "closed",
     "answers": [
       {
         "answer": "Benedict of Nursia",
         "tier": 1,
-        "source": "Spes Aedificandi 5",
+        "source": "Paul VI, Pacis Nuntius (1964)",
         "aliases": [
           "Saint Benedict",
           "St Benedict"
@@ -6896,7 +6896,7 @@
       {
         "answer": "Cyril and Methodius",
         "tier": 2,
-        "source": "Spes Aedificandi 5",
+        "source": "John Paul II, Egregiae Virtutis (1980)",
         "aliases": [
           "Saints Cyril and Methodius",
           "Sts Cyril and Methodius"
@@ -6905,7 +6905,7 @@
       {
         "answer": "Bridget of Sweden",
         "tier": 3,
-        "source": "Spes Aedificandi 5",
+        "source": "John Paul II, Spes Aedificandi (1999)",
         "aliases": [
           "Saint Bridget of Sweden",
           "St Bridget"
@@ -6914,7 +6914,7 @@
       {
         "answer": "Catherine of Siena",
         "tier": 1,
-        "source": "Spes Aedificandi 5",
+        "source": "John Paul II, Spes Aedificandi (1999)",
         "aliases": [
           "Saint Catherine of Siena",
           "St Catherine"
@@ -6923,7 +6923,7 @@
       {
         "answer": "Teresa Benedicta",
         "tier": 4,
-        "source": "Spes Aedificandi 5",
+        "source": "John Paul II, Spes Aedificandi (1999)",
         "aliases": [
           "Edith Stein",
           "Teresa Benedicta of the Cross",
@@ -6988,7 +6988,7 @@
     "id": "batch2-carmelite-doctors",
     "theme": "Saints and religious orders",
     "prompt": "Name one of the three Doctors of the Church from the Carmelite tradition.",
-    "context": "Use the three Carmelite saints formally proclaimed Doctors of the Church.; count: 3.",
+    "context": "Use the three Carmelite saints formally proclaimed Doctors of the Church; count: 3.",
     "hint": "Two share the same first name.",
     "source": "Hand-authored closed key; authority: Vatican declarations of Teresa of Ávila (1970), John of the Cross (1990), and Thérèse of Lisieux (1997). Count: 3.",
     "status": "draft",
@@ -7083,7 +7083,7 @@
     "id": "batch2-july-doctors",
     "theme": "Saints and feast days",
     "prompt": "Name one of the three Doctors of the Church whose Roman-calendar feast falls in July.",
-    "context": "Use the Roman General Calendar dates for the three Doctors commemorated in July; count: 3.; count: 3.",
+    "context": "Use the Roman General Calendar dates for the three Doctors commemorated in July; count: 3.",
     "hint": "Their memorials fall in the middle and final third of the month.",
     "source": "Hand-authored closed key; authority: General Roman Calendar; Roman Martyrology. Count: 3.",
     "status": "draft",
@@ -7174,7 +7174,7 @@
     "id": "batch2-early-popes",
     "theme": "Popes",
     "prompt": "Name one of the first four bishops of Rome after Saint Peter.",
-    "context": "Use the traditional succession list immediately following Peter; count: 4.; count: 4.",
+    "context": "Use the traditional succession list immediately following Peter; count: 4.",
     "hint": "The third successor is associated with an early Roman letter to Corinth.",
     "source": "Hand-authored closed key; authority: Irenaeus, Against Heresies 3.3.3; Eusebius, Ecclesiastical History 3.2, 4.1; Annuario Pontificio. Count: 4.",
     "status": "draft",
@@ -7268,8 +7268,8 @@
     "id": "batch2-sacramentals-types",
     "theme": "Sacramentals",
     "prompt": "Name one of the three broad categories of sacramentals described in the Catechism.",
-    "context": "Use the Catechism's three categories of sacramentals; count: 3.; count: 3.",
-    "hint": "One category includes blessings of persons, meals, and objects.",
+    "context": "Use the Catechism's three categories of sacramentals; count: 3.",
+    "hint": "These are ways the Church sanctifies people, places, and objects.",
     "source": "Hand-authored closed key; authority: Catechism of the Catholic Church 1667–1673. Count: 3.",
     "status": "draft",
     "answerMode": "closed",
@@ -7349,8 +7349,8 @@
   {
     "id": "batch2-early-christological-heresies",
     "theme": "Heresies",
-    "prompt": "Name one of four Christological errors rejected by the first four ecumenical councils.",
-    "context": "Use the four errors addressed by Nicaea I, Constantinople I, Ephesus, and Chalcedon; count: 4.; count: 4.",
+    "prompt": "Name one of the four Christological errors rejected by the first four ecumenical councils.",
+    "context": "Use the four errors addressed by Nicaea I, Constantinople I, Ephesus, and Chalcedon; count: 4.",
     "hint": "They concern Christ's divinity, humanity, or unity of person.",
     "source": "Hand-authored closed key; authority: Council of Nicaea I (325); Constantinople I (381); Ephesus (431); Chalcedon (451); CCC 465–467, 471. Count: 4.",
     "status": "draft",
@@ -7435,7 +7435,7 @@
     "theme": "Popes and saints",
     "prompt": "Name one of the four twentieth-century popes canonized as saints.",
     "context": "Use popes of the twentieth century who were canonized saints; count: 4.",
-    "hint": "They include two popes canonized together in 2014.",
+    "hint": "The group spans the early and late twentieth century.",
     "source": "Hand-authored closed key; authority: Vatican canonization records for Pius X, John XXIII, John Paul II, and Paul VI. Count: 4.",
     "status": "draft",
     "answerMode": "closed",
