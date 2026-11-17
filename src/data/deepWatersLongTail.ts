@@ -160,7 +160,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     basis: 'Source list: GCatholic, Saints and Blesseds of Italy, filtering the birthplace column to Italy: https://gcatholic.org/saints/data/country-IT.htm .',
     reviewFlags: ['For early saints whose birthplace is not explicitly recorded in the catalogue, verify the historical birthplace independently; the prompt requires birth in Italy, not merely death or veneration there.'],
     answers: ranked([
-      'Philip Neri', 'Gemma Galgani', 'Maria Goretti', 'Pier Giorgio Frassati', 'Gianna Beretta Molla',
+      'Gemma Galgani', 'Pier Giorgio Frassati', 'Gianna Beretta Molla',
       'Giuseppe Moscati', 'Luigi Gonzaga', 'Robert Bellarmine', 'Catherine of Bologna', 'Angela Merici',
       'Frances of Rome', 'Camillus de Lellis', 'Bernardino of Siena', 'Lawrence of Brindisi', 'Alphonsus Liguori',
       'Aloysius Gonzaga', 'Charles Borromeo', 'John Leonardi', 'Joseph Calasanz', 'Joseph of Cupertino',
@@ -172,6 +172,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Juliana Falconieri', 'Francesca Romana', 'Catherine of Genoa', 'Giacomo Bianconi', 'Andrea Conti da Segni',
       'Giovanna da Orvieto', 'Alberto degli Abati', 'Chiara della Croce da Montefalco',
           'Peter Damian', 'Zita of Lucca',       'Philip Benizi', 'Maria Maddalena de\' Pazzi', 'Antoninus of Florence', 'Romuald', 'Peter of Verona',
+          'Maria Troncatti', 'Giuseppe Allamano',
     ], {
       'Francis of Assisi': 'Saint Francis|St Francis',
       'Catherine of Siena': 'Saint Catherine of Siena',
@@ -186,7 +187,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     }),
     commonGuesses: [
       { guess: 'Peter Damian', accepted: true }, { guess: 'Zita of Lucca', accepted: true },
-      { guess: 'Philip Benizi', accepted: true }, { guess: 'Angela of Foligno', accepted: true }, { guess: 'Carlo Acutis', accepted: true },
+      { guess: 'Philip Benizi', accepted: true }, { guess: 'Angela of Foligno', accepted: true }, { guess: 'Maria Troncatti', accepted: true },
       { guess: 'Anthony of Padua', accepted: false, reason: 'Born in Lisbon, Portugal; the prompt is limited to Italian birthplaces.' },
       { guess: 'Francis Xavier', accepted: false, reason: 'Born in the Kingdom of Navarre, not Italy.' },
       { guess: 'Teresa of Ávila', accepted: false, reason: 'Born in Spain, not Italy.' },
@@ -427,14 +428,13 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     answers: ranked([
       'Cosmas', 'Damian', 'Crispin', 'Crispinian', 'Eligius',
       'Catherine of Alexandria', 'Ivo of Kermartin', 'Raymond of Penyafort', 'Raymond Nonnatus', 'Hubert',
-      'Lydia', 'Barbara', 'Apollonia', 'Blaise', 'Nicholas of Myra', 'Eraclius', 'Honorius of Amiens',
-      'Notburga', 'Zita', 'Dunstan', 'Genesius',
-      'Julian the Hospitaller', 'Fiacre', 'Gerard Majella', 'Roch', 'Sebastian',
+      'Lydia', 'Barbara', 'Apollonia', 'Blaise', 'Nicholas of Myra', 'Eraclius', 'Notburga', 'Zita', 'Dunstan', 'Julian the Hospitaller', 'Fiacre', 'Gerard Majella', 'Roch', 'Sebastian',
       'Florian', 'Urban I', 'Vincent of Saragossa', 'Thomas More', 'Thomas Aquinas',
       'Albert the Great', 'Francis de Sales', 'John the Baptist', 'Catherine of Siena', 'Isidore of Seville',
       'Joseph Calasanz', 'John Nepomucene', 'Dismas',
           'Homobonus', 'John Berchmans', 'John Baptist de La Salle', 'Erasmus of Formiae', 'Brendan of Clonfert', 'John Gualbert', 'Amand', 'Arnulf of Metz', 'Cassian of Imola', 'Anastasius the Fuller', 'Joseph of Arimathea', 'Peter Gonzalez', 'Medard', 'Walstan',
           'Botolph', 'Phocas the Gardener', 'Honorius of Amiens', 'Bona of Pisa', 'Adjutor', 'Cuthbert', 'Eustace',
+          'Dominic Savio', 'Theobald of Provins',
     ], {
       'Joseph': 'Saint Joseph|Joseph the Worker',
       'Luke': 'Saint Luke the Evangelist',
@@ -502,8 +502,8 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
     basis: 'Source lists: CatholicSaints.info “Patron Saints of Countries” (124 country entries); Catholic Encyclopedia “Patron Saints”: https://catholicsaints.info/patron-saints-of-countries/ ; https://www.newadvent.org/cathen/11562a.htm .',
     reviewFlags: ['National patronages are not always exclusive or formally defined by one universal list; verify every saint-country pairing against the country entry and diocesan or episcopal source.'],
     answers: ranked([
-      'James the Greater', 'Denis of Paris', 'Anne', 'Our Lady of the Immaculate Conception',
-      'Thomas the Apostle', 'Bridget of Sweden', 'Olaf of Norway', 'David of Wales', 'Willibrord',
+      'James the Greater', 'Denis of Paris', 'Our Lady of the Immaculate Conception',
+      'Bridget of Sweden', 'Olaf of Norway', 'David of Wales', 'Willibrord',
       'Henry of Uppsala', 'Ansgar', 'Casimir', 'Adalbert of Prague', 'Stanislaus of Krakow',
       'Florian', 'Anthony of Padua', 'Francis Borgia', 'Vincent of Saragossa', 'Rose of Lima',
       'Our Lady of Lanka', 'Our Lady of the Angels', 'Our Lady of Help', 'Our Lady of Mount Carmel', 'Our Lady of the Rosary', 'Our Lady of Good Counsel', 'Our Lady of Częstochowa',
@@ -515,6 +515,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'John Vianney',
           'Peter Claver', 'John Nepomucene', 'Wenceslaus', 'Hedwig of Silesia',
           'Margaret of Scotland', 'Ninian of Whithorn', 'Louis IX', 'Mary MacKillop',
+          'Jose de Anchieta', 'Turibius of Mogrovejo',
     ], {
       'Patrick': 'Saint Patrick',
       'James the Greater': 'Saint James the Greater|James the Apostle',
