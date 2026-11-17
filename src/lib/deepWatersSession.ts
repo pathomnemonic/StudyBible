@@ -85,13 +85,30 @@ export function saveDeepSession(session: DeepSession): void {
 
 export function loadDeepSession(day: number): DeepSession | null {
   try {
-    const value = JSON.parse(localStorage.getItem(DEEP_SESSION_KEY) ?? 'null') as DeepSession | null;
-    if (!value || value.version !== 1 || value.day !== day || typeof value.practice !== 'boolean' || !Number.isInteger(value.practiceSeed)) return null;
-    if (!Array.isArray(value.promptIds) || value.promptIds.length !== 7 || new Set(value.promptIds).size !== 7) return null;
-    if (!Number.isInteger(value.round) || value.round < 0 || value.round >= 7 || !Number.isFinite(value.score) || !Array.isArray(value.history) || value.history.length > 7) return null;
-    if (!['preview', 'playing', 'locked', 'done'].includes(value.phase) || typeof value.paused !== 'boolean' || !Number.isFinite(value.remainingMs)) return null;
+    const raw: unknown = JSON.parse(localStorage.getItem(DEEP_SESSION_KEY) ?? 'null');
+    if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+    const value = raw as Partial<DeepSession>;
+    if (value.version !== 1 || value.day !== day || typeof value.practice !== 'boolean' || !Number.isInteger(value.practiceSeed)) return null;
+    if (!Array.isArray(value.promptIds) || value.promptIds.length !== 7 || value.promptIds.some((id) => typeof id !== 'string' || !id.trim()) || new Set(value.promptIds).size !== 7) return null;
+    if (!Number.isInteger(value.round) || value.round! < 0 || value.round! >= 7 || !Number.isInteger(value.score) || value.score! < 0) return null;
+    if (!Array.isArray(value.history) || value.history.length > 7) return null;
+    if (!['preview', 'playing', 'locked', 'done'].includes(value.phase ?? '') || typeof value.paused !== 'boolean') return null;
+    if (typeof value.guess !== 'string' || !Number.isFinite(value.remainingMs) || value.remainingMs! < 0 || value.remainingMs! > 30_000) return null;
     if (value.deadlineAt !== null && !Number.isFinite(value.deadlineAt)) return null;
-    return value;
+    if (value.pearlAnswer !== null && typeof value.pearlAnswer !== 'string') return null;
+    if (typeof value.pearlFound !== 'boolean') return null;
+    const validHistory = value.history.every((entry) => {
+      if (!entry || typeof entry !== 'object') return false;
+      return typeof entry.promptId === 'string' && typeof entry.prompt === 'string' &&
+        typeof entry.guess === 'string' && (entry.answer === null || typeof entry.answer === 'string') &&
+        (entry.tier === null || [1, 2, 3, 4, 5].includes(entry.tier)) &&
+        Number.isFinite(entry.points) && entry.points >= 0 && typeof entry.timedOut === 'boolean' &&
+        (entry.pearlBonus === undefined || (Number.isFinite(entry.pearlBonus) && entry.pearlBonus >= 0));
+    });
+    if (!validHistory) return null;
+    const expectedHistory = value.phase === 'locked' ? value.round! + 1 : value.phase === 'done' ? 7 : value.round!;
+    if (value.history.length !== expectedHistory) return null;
+    return value as DeepSession;
   } catch { return null; }
 }
 
