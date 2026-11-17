@@ -27,8 +27,8 @@ export const loadPlays = (): Plays => { try { return { ...emptyPlays(), ...(JSON
 export const loadTrophies = (): Record<string, number> => { try { return JSON.parse(localStorage.getItem(TROPHIES) ?? '{}') as Record<string, number>; } catch { return {}; } };
 
 export interface Trophy { id: string; icon: string; title: string; how: string }
-export const DAILY_IDS = ['verbum', 'quartets', 'saintguess', 'whoami', 'artdetective', 'whosaid', 'whichbook', 'chain', 'pilgrim'];
-export const ALL_GAMES = ['trivia', 'verbum', 'quartets', 'whosaid', 'whichbook', 'chain', 'pilgrim', 'crossword', 'cloister', 'prophet', 'charades', 'wordsearch', 'saintguess', 'whoami', 'artdetective', 'doctrineladder', 'familyquiz'];
+export const DAILY_IDS = ['deepwaters', 'verbum', 'quartets', 'saintguess', 'whoami', 'artdetective', 'whosaid', 'whichbook', 'chain', 'pilgrim'];
+export const ALL_GAMES = ['deepwaters', 'trivia', 'verbum', 'quartets', 'whosaid', 'whichbook', 'chain', 'pilgrim', 'crossword', 'cloister', 'prophet', 'charades', 'wordsearch', 'saintguess', 'whoami', 'artdetective', 'doctrineladder', 'familyquiz'];
 export const TROPHY_LIST: Trophy[] = [
   { id: 'first', icon: '🌱', title: 'First steps', how: 'Finish any game.' },
   { id: 'streak3', icon: '🔥', title: 'Three in a row', how: 'Play on 3 days in a row.' },

@@ -30,6 +30,7 @@ export const CRAWL = [
   { path: "/teach/__nope__", kind: "unknown-id", route: "/teach/:classId" },
   { path: "/join", kind: "static", route: "/join" },
   { path: "/join/__nope__", kind: "sample", route: "/join/:code" }, // a code that is not a game: the join form (a code field), not an error
+  { path: "/play/deepwaters", kind: "static", route: "/play/deepwaters" },
   { path: "/play/__nope__", kind: "unknown-id", route: "/play/:code" },
   { path: "/host/__nope__", kind: "unknown-id", route: "/host/:code" },
   { path: "/study/curriculum", kind: "static", route: "/study/curriculum" },
@@ -258,6 +259,7 @@ export const CRAWL = [
  */
 export const EXPECT = {
   '/': 'week|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|feast|solemnity|memorial|Easter|Advent|Lent|Christmas',
+  '/play/deepwaters': 'Deep Waters',
   '/study': 'Explore the Bible', '/study/catechism': 'Catechism of the Catholic Church', '/study/catechism/1324': 'Catechism of the Catholic Church',
   '/calendar': 'Church calendar', '/settings': '^Settings$', '/memorize': 'Memorize Scripture', '/library': '^Notes$', '/pray/plans': 'Reading plans',
   '/study/saints': 'Lives of the Saints', '/study/councils': 'councils', '/study/curriculum': 'Catechism program', '/study/curriculum/9': 'Grade 9',
