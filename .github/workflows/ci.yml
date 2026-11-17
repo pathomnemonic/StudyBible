@@ -84,6 +84,8 @@ jobs:
         run: |
           npx vite preview --port 4173 &
           for i in $(seq 1 30); do curl -sf http://localhost:4173 >/dev/null && break; sleep 1; done
+      # Deep Waters-specific gameplay, persistence, spelling suggestion and hidden-tab timer regressions.
+      - run: node e2e/deepwaters.mjs
       # smoke, routes, the study and data workflows through the interface, parallel reader, offline (a real dead server), stale scripts, accessibility at every level
       - run: npm run e2e:release
         env:
