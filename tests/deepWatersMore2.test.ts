@@ -16,7 +16,7 @@ const cases = [
   { id: 'church-architecture', accept: ['Nave', 'sanctuary apse', 'transept'], reject: ['Chalice', 'navel'] },
   { id: 'roman-basilicas', accept: ["Saint Peter's Basilica", 'Basilica of Saint Peter', 'Saint Mary Major'], reject: ['Colosseum', "Saint Peter's Cathedral"] },
   { id: 'church-historians', accept: ['Eusebius of Caesarea', 'Eusebius Pamphili', 'Socrates Scholasticus'], reject: ['Saint Peter', 'Eusebius of Antioch'] },
-  { id: 'saint-missionaries', accept: ['Francis Xavier', 'Francis de Xavier', 'Patrick of Ireland'], reject: ['Thomas Aquinas', 'Francis Xaverius of Paris'] },
+  { id: 'saint-missionaries', accept: ['Francis Xavier', 'Francisco de Javier', 'Patrick of Ireland'], reject: ['Thomas Aquinas', 'Francis Xaverius of Paris'] },
 ] as const;
 
 describe('Deep Waters Krillion batch 2', () => {
