@@ -217,7 +217,7 @@ describe('Deep Waters content and rules', () => {
     }
   });
 
-  it('reports underfilled draft prompts and gates reviewed prompts below forty answers', () => {
+  it('reports complete draft coverage and gates reviewed prompts below target', () => {
     const report = deepWatersCoverageReport();
     expect(report).toHaveLength(DEEP_WATERS.length);
     expect(report.every((row) => row.status === 'draft')).toBe(true);
