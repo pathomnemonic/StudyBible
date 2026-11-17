@@ -52,7 +52,8 @@ export default defineConfig({
         importScripts: ['widgets-sw.js'],
         // App shell is precached; Scripture and content packs are cached the first time they are read
         // (or on demand through Settings → Offline), never fetched eagerly.
-        globPatterns: ['**/*.{js,css,html,svg,woff2}'],
+        // the games' 3D icons (about 0.6 MB) are part of the shell so the games look right offline
+        globPatterns: ['**/*.{js,css,html,svg,woff2}', 'arcade/3d/*.webp'],
         // the 3D galaxy (three.js) and the map are large and used occasionally: cached the first time they are opened
         globIgnores: ['**/assets/scene-*.js', '**/assets/leaflet-*.js'],
         navigateFallback: 'index.html',
@@ -61,6 +62,12 @@ export default defineConfig({
             urlPattern: ({ url }) => /\/assets\/(scene|leaflet)-.*\.js$/.test(url.pathname),
             handler: 'CacheFirst',
             options: { cacheName: 'studybible-heavy-v1' },
+          },
+          {
+            // the animated emoji are larger and only appear at moments of celebration: cached the first time they are shown
+            urlPattern: ({ url }) => url.pathname.includes('/arcade/anim/'),
+            handler: 'CacheFirst',
+            options: { cacheName: 'studybible-arcade-v1', expiration: { maxEntries: 80 } },
           },
           {
             // network first (a fast check; the browser answers 304 for unchanged files), cached copy when offline or slow:

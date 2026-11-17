@@ -33,3 +33,11 @@ Each edition's `attribution` string is displayed under every chapter; each study
 * Extra library works: CCEL ThML volumes, each with translator and rights evidence in `data/registry/library.json`; John of the Cross (Peers), Devout Life and the 1949 Imitation are excluded.
 * Summa Theologiae: index only (≤300-char snippets + link-out).
 * Catholic Answers / Word on Fire / Ascension: link-only; CA's ToS forbid automated collection, so no crawl.
+
+## Games artwork and fonts
+| Item | Where | Licence |
+| --- | --- | --- |
+| Fluent UI Emoji, 3D style (Microsoft) | `public/arcade/3d` (resized to 176 px WebP) | MIT, © Microsoft Corporation. The licence text is kept in `public/arcade/LICENSE-fluent-emoji.txt` |
+| Noto Emoji Animation (Google) | `public/arcade/anim` (resized to 144 px, frames thinned) | CC BY 4.0, © Google. Credit shown on the Games page. https://googlefonts.github.io/noto-emoji-animation/ |
+| Lilita One, Fredoka (fonts) | npm `@fontsource/lilita-one`, `@fontsource-variable/fredoka` | SIL Open Font License 1.1 |
+Fetched from `raw.githubusercontent.com/microsoft/fluentui-emoji` and `fonts.gstatic.com/s/e/notoemoji` on 2026-11-17. Both are redistributable with attribution; the images were only resized and re-encoded.

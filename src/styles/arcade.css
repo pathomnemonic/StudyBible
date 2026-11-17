@@ -315,3 +315,98 @@ html[data-arcade] .charades-deck.on span, html[data-arcade] .charades-deck.on em
 .gp-stars { flex: none; text-align: center; font-size: 0.8rem; color: var(--muted); }
 .gp-stars b { display: block; font-family: var(--font-display); font-weight: 400; font-size: 1.6rem; color: #ffd23f; line-height: 1; }
 .gp-stars b small { font-size: 0.9rem; color: var(--muted); }
+
+/* ---------- artwork ---------- */
+.arc-art, .arc-anim { display: inline-block; vertical-align: middle; object-fit: contain; user-select: none; -webkit-user-drag: none; }
+html[data-arcade] .pf-ico.gp-blob { width: auto; height: auto; padding: 0; border: 0; background: none; border-radius: 0; display: inline-block; filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.35)); transition: transform 0.25s; }
+html[data-arcade] .pf-tile:hover .pf-ico, html[data-arcade] .pf-tile:focus-visible .pf-ico { transform: scale(1.15) rotate(-6deg); }
+html[data-arcade] .pf-ico .arc-art { width: 76px; height: 76px; margin: -6px 0 -4px -4px; }
+html[data-arcade] .pf-hero-ico .arc-art { width: 120px; height: 120px; filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.4)); }
+html[data-arcade] .gp-streak .arc-anim, html[data-arcade] .gp-streak .arc-art { margin: -6px 2px -6px -4px; }
+html[data-arcade] .gp-bot { display: inline-grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: radial-gradient(circle at 30% 25%, #6e53f2, #3a22a8); box-shadow: 0 4px 0 rgba(10, 4, 40, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.3); }
+.gp-lv { position: relative; background: none !important; box-shadow: none !important; width: 64px; height: 64px; }
+.gp-lv .gp-lv-star { position: absolute; inset: 0; width: 64px; height: 64px; filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.4)); }
+.gp-lv b { position: relative; z-index: 1; font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; color: #2a1700; text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6); margin-top: 3px; }
+
+/* ---------- each game's emblem beside its title ---------- */
+html[data-arcade] .page h1:not(.gp-title)::before { content: ''; display: inline-block; width: 56px; height: 56px; margin: -8px 10px -8px 0; vertical-align: middle; background: var(--emblem, none) center / contain no-repeat; filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.35)); animation: arc-bob 3s ease-in-out infinite; }
+html[data-game='deepwaters'] { --emblem: url(/arcade/3d/whale.webp); }
+html[data-game='verbum'] { --emblem: url(/arcade/3d/game-die.webp); }
+html[data-game='whichbook'] { --emblem: url(/arcade/3d/open-book.webp); }
+html[data-game='whosaid'] { --emblem: url(/arcade/3d/speech-balloon.webp); }
+html[data-game='saintguess'] { --emblem: url(/arcade/3d/dove.webp); }
+html[data-game='quartets'] { --emblem: url(/arcade/3d/puzzle-piece.webp); }
+html[data-game='chain'] { --emblem: url(/arcade/3d/link.webp); }
+html[data-game='crossword'] { --emblem: url(/arcade/3d/memo.webp); }
+html[data-game='wordsearch'] { --emblem: url(/arcade/3d/magnifying-glass-tilted-left.webp); }
+html[data-game='cloister'] { --emblem: url(/arcade/3d/scroll.webp); }
+html[data-game='termmatch'] { --emblem: url(/arcade/3d/light-bulb.webp); }
+html[data-game='familyties'] { --emblem: url(/arcade/3d/evergreen-tree.webp); }
+html[data-game='whoami'] { --emblem: url(/arcade/3d/old-man.webp); }
+html[data-game='pilgrim'] { --emblem: url(/arcade/3d/round-pushpin.webp); }
+html[data-game='artdetective'] { --emblem: url(/arcade/3d/framed-picture.webp); }
+html[data-game='prophet'] { --emblem: url(/arcade/3d/crystal-ball.webp); }
+html[data-game='doctrineladder'] { --emblem: url(/arcade/3d/ladder.webp); }
+html[data-game='trivia'] { --emblem: url(/arcade/3d/crown.webp); }
+html[data-game='online'] { --emblem: url(/arcade/3d/world-map.webp); }
+html[data-game='quiznight'] { --emblem: url(/arcade/3d/party-popper.webp); }
+html[data-game='leaderboard'] { --emblem: url(/arcade/3d/sports-medal.webp); }
+html[data-game='coop'] { --emblem: url(/arcade/3d/handshake.webp); }
+html[data-game='charades'] { --emblem: url(/arcade/3d/performing-arts.webp); }
+html[data-game='trophies'] { --emblem: url(/arcade/3d/trophy.webp); }
+
+/* ---------- the finish banner ---------- */
+.arc-win { position: fixed; z-index: 9100; left: 50%; top: 38%; transform: translate(-50%, -50%); display: grid; justify-items: center; gap: 4px; padding: 18px 34px 22px; border-radius: 30px; pointer-events: none; background: linear-gradient(180deg, rgba(60, 30, 150, 0.96), rgba(30, 12, 90, 0.96)); border: 3px solid #ffd23f; box-shadow: 0 8px 0 rgba(10, 4, 40, 0.5), 0 0 60px rgba(255, 210, 63, 0.55); animation: arc-win 2.4s both; }
+.arc-win strong { font-family: var(--font-display); font-weight: 400; font-size: 2.2rem; color: #ffd23f; text-shadow: 0 4px 0 #b86a00; white-space: nowrap; }
+@keyframes arc-win { 0% { opacity: 0; transform: translate(-50%, -30%) scale(0.5); } 14% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); } 22% { transform: translate(-50%, -50%) scale(1); } 82% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -62%) scale(0.95); } }
+
+/* ---------- Deep Waters: an underwater scene ---------- */
+html[data-game='deepwaters'] body { background: linear-gradient(180deg, #19a8c9 0%, #0c6fa8 22%, #0a3d86 52%, #0a1f5c 80%, #060d33 100%) fixed; }
+html[data-game='deepwaters'] .arc-bg .arc-blob.b1 { background: #7df3ff; opacity: 0.35; }
+html[data-game='deepwaters'] .arc-bg .arc-shape { display: none; }
+.arc-sea { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.sea-rays { position: absolute; left: -20%; right: -20%; top: -10%; height: 70%; background: repeating-conic-gradient(from 200deg at 50% -10%, rgba(255, 255, 255, 0.22) 0deg 4deg, transparent 4deg 14deg); mask-image: linear-gradient(180deg, #000, transparent 85%); -webkit-mask-image: linear-gradient(180deg, #000, transparent 85%); animation: sea-sway 9s ease-in-out infinite alternate; transform-origin: 50% 0; }
+@keyframes sea-sway { from { transform: rotate(-4deg); opacity: 0.7; } to { transform: rotate(4deg); opacity: 1; } }
+.sea-bubble { position: absolute; left: var(--x); bottom: -30px; width: var(--s); height: var(--s); border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.7); background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.05)); animation: sea-bub var(--t) ease-in infinite; animation-delay: calc(var(--d) * -1); }
+@keyframes sea-bub { 0% { transform: translate(0, 0) scale(0.6); opacity: 0; } 12% { opacity: 1; } 50% { transform: translate(14px, -50vh) scale(1); } 100% { transform: translate(-10px, -112vh) scale(1.1); opacity: 0.2; } }
+.sea-fish { position: absolute; opacity: 0.9; filter: drop-shadow(0 6px 6px rgba(0, 0, 20, 0.3)); }
+.sea-fish.f1 { top: 22%; left: -90px; animation: sea-swim 19s linear infinite; }
+.sea-fish.f2 { top: 48%; left: -140px; animation: sea-swim 27s linear infinite 6s; }
+.sea-fish.f3 { top: 66%; right: -200px; left: auto; opacity: 0.55; animation: sea-swim-r 46s linear infinite 3s; }
+.sea-fish.f4 { top: 80%; left: 10%; animation: arc-bob 4s ease-in-out infinite; opacity: 0.8; }
+.sea-fish.f5 { top: 35%; right: -100px; left: auto; animation: sea-swim-r 34s linear infinite 12s; }
+@keyframes sea-swim { from { transform: translateX(0) translateY(0); } 50% { transform: translateX(55vw) translateY(-18px); } to { transform: translateX(115vw) translateY(10px); } }
+@keyframes sea-swim-r { from { transform: translateX(0) scaleX(-1); } 50% { transform: translateX(-55vw) scaleX(-1) translateY(16px); } to { transform: translateX(-120vw) scaleX(-1); } }
+.sea-floor { position: absolute; left: 0; right: 0; bottom: 0; height: 90px; background: radial-gradient(ellipse 60% 100% at 20% 100%, #d9a35a 0 55%, transparent 56%), radial-gradient(ellipse 55% 90% at 75% 100%, #c48f4b 0 55%, transparent 56%), linear-gradient(180deg, transparent, rgba(6, 13, 51, 0.8)); opacity: 0.85; }
+html[data-game='deepwaters'] .dw-atmosphere { display: none; }
+@media (prefers-reduced-motion: reduce) { .sea-bubble, .sea-fish, .sea-rays { animation: none; } .sea-fish { left: 20%; } }
+
+/* ---------- polish round 1 ---------- */
+html[data-arcade] .gp-top { padding-right: 52px; }
+html[data-arcade] .pf-hero-ico .arc-art { width: 150px; height: 150px; }
+html[data-arcade] .gp-hero { overflow: visible; }
+html[data-game='deepwaters'] .dw-head p, html[data-game='deepwaters'] .dw-head .dw-kicker { color: #fff; text-shadow: 0 2px 6px rgba(0, 30, 80, 0.7); }
+html[data-game='deepwaters'] .dw-kicker { color: #ffd23f; }
+html[data-game='deepwaters'] .dw-score { background: linear-gradient(180deg, #ffe27a, #ffb02e); border-radius: 99px; box-shadow: 0 4px 0 #b86a00; color: #2a1700; padding: 4px 14px; }
+html[data-game='deepwaters'] .dw-score b { color: #2a1700; text-shadow: none; }
+html[data-game='deepwaters'] .dw-score small { color: #5b3300; }
+html[data-game='deepwaters'] .dw-round-count { font-family: var(--font-display); text-shadow: 0 2px 0 rgba(0, 0, 0, 0.3); }
+
+/* ---------- polish round 2 ---------- */
+html[data-arcade] .page h1:not(.gp-title) { padding-right: 46px; }
+html[data-arcade] .pg-map.leaflet-container { background: radial-gradient(circle at 30% 20%, #6fe3ff, #1d9ad6 70%); }
+html[data-arcade] .pg-map svg path { fill: #ffe9a8; stroke: #e0a84a; stroke-width: 1.2; }
+html[data-arcade] .pg-map .leaflet-control-zoom a { border-radius: 10px; font-family: var(--font-display); background: #fff; color: #2a1a66; }
+html[data-arcade] .pg-ask { font-family: var(--font-display); font-size: 1.5rem; }
+html[data-arcade] .pg-ask strong { color: #ffd23f; text-shadow: 0 3px 0 #b86a00; }
+html[data-arcade] .tv-wheel { filter: drop-shadow(0 0 0 #fff) drop-shadow(0 10px 14px rgba(10, 4, 40, 0.55)); border-radius: 50%; box-shadow: 0 0 0 6px #ffd23f, 0 0 0 10px #b86a00, 0 0 40px rgba(255, 210, 63, 0.5); }
+html[data-arcade] .tv-wheel-wrap { position: relative; }
+html[data-arcade] .tv-wheel-wrap::after { content: ''; position: absolute; inset: 6%; border-radius: 50%; pointer-events: none; background: radial-gradient(circle at 32% 24%, rgba(255, 255, 255, 0.45), transparent 42%); }
+html[data-arcade] .trophy-grid { gap: 12px; }
+html[data-arcade] .trophy-grid li { border-radius: 22px; border: 2px solid rgba(255, 255, 255, 0.18); background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03)), #2b1a77; box-shadow: 0 5px 0 rgba(10, 4, 40, 0.5); text-align: center; }
+html[data-arcade] .trophy-grid li.got { background: linear-gradient(180deg, #ffe27a, #ffb02e); color: #2a1700; border-color: #fff3b0; box-shadow: 0 5px 0 #b86a00, 0 0 24px rgba(255, 210, 63, 0.5); animation: arc-in 0.5s both; }
+html[data-arcade] .trophy-grid li.got * { color: #2a1700; }
+html[data-arcade] .trophy-grid li.locked { opacity: 0.8; }
+html[data-arcade] .trophy-grid li.locked .arc-art { filter: grayscale(0.7) brightness(0.8); }
+html[data-arcade] .trophy-ico .arc-art { width: 64px; height: 64px; filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.35)); }
+html[data-arcade] .trophy-grid li.got .trophy-ico .arc-art { animation: arc-bob 2.6s ease-in-out infinite; }
