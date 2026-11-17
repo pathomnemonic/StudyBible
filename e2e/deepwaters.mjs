@@ -57,7 +57,6 @@ try {
     try { return JSON.parse(raw || 'null')?.promptIds?.length === 7; } catch { return false; }
   });
   const session = await p.evaluate(() => JSON.parse(localStorage.getItem('sb:deepwaters:session:v1')));
-  const firstQuestion = await p.locator('.dw-card h2').innerText();
   await lockAnswer(p, answerFor(session, 0));
   await p.waitForFunction(() => {
     try {
@@ -86,7 +85,6 @@ try {
   await p.getByRole('button', { name: 'Next round' }).click();
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
   if (!(await p.locator('.dw-round-count').innerText()).includes('02')) throw new Error('did not advance to round two');
-  const secondQuestion = await p.locator('.dw-card h2').innerText();
   await lockAnswer(p, answerFor(session, 1), true);
 
   await p.getByRole('button', { name: 'Next round' }).click();
@@ -111,7 +109,7 @@ try {
   await p.waitForSelector('#dw-answer', { state: 'visible', timeout: 7000 });
   if (await p.locator('#dw-answer').inputValue() !== 'Dama') throw new Error('in-progress answer did not restore after reload');
   if (errors.length) throw new Error(errors.join('; '));
-  console.log('deep waters e2e ok: generated answer acceptance, spelling suggestion, locked and in-progress reload restore, next rounds, hidden-tab timer pause');
+  console.log('deep waters e2e ok: curated answer acceptance, spelling suggestion, locked and in-progress reload restore, next rounds, hidden-tab timer pause');
 } finally {
   await b.close();
 }
