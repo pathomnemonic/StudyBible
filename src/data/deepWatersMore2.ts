@@ -61,7 +61,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
   },
   {
     id: 'bible-foods', theme: 'scripture', ignore: ['food', 'ingredient'],
-    prompt: 'Name a food or ingredient eaten in the Bible.',
+    prompt: 'Name a food, drink or ingredient mentioned in the Bible.',
     context: 'The list includes foods, staple crops, seasonings and prepared dishes named in Scripture.',
     source: 'Douay-Rheims Bible; Catholic Bible app Scripture text.',
     status: 'draft',
@@ -344,8 +344,8 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
       ['Quietism', 5],
       ['Albigensianism', 5],
       ['Catharism', 6],
-      ['Arian controversy', 6],
-      ['Rigorism', 6],
+      ['Semi-Arianism', 6],
+      ['Modalism', 6],
     ]),
   },
   {
@@ -498,7 +498,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
       ['ambulatory', 3],
       ['choir', 3],
       ['chancel', 3],
-      ['side chapel', 3],
+      ['choir loft', 3],
       ['chapel', 4],
       ['crypt', 4],
       ['cloister', 4],
@@ -615,7 +615,7 @@ export const MORE2_PROMPTS: DeepPrompt[] = [
     source: 'Vatican.va saint biographies; Catholic Encyclopedia (1913, public domain); Butler\'s Lives of the Saints.',
     status: 'draft',
     answers: rows([
-      ['Francis Xavier', 1, 'Francis de Xavier'],
+      ['Francis Xavier', 1, 'Francisco de Javier'],
       ['Patrick of Ireland', 1, 'Saint Patrick'],
       ['Boniface', 1],
       ['Cyril', 1],
