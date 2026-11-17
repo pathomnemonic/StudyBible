@@ -84,18 +84,6 @@ export default function ArcadeMode() {
   return (
     <>
       {curtain && <div className="arc-curtain" aria-hidden="true"><Art n="joystick" size={96} /></div>}
-      {game === 'deepwaters' && (
-        <div className="arc-sea" aria-hidden="true">
-          <i className="sea-rays" />
-          {Array.from({ length: 16 }, (_, i) => <b key={i} className="sea-bubble" style={{ ['--x' as string]: `${(i * 29 + 5) % 97}%`, ['--s' as string]: `${6 + (i % 5) * 5}px`, ['--t' as string]: `${7 + (i % 6) * 2}s`, ['--d' as string]: `${(i * 1.3) % 9}s` }} />)}
-          <Art n="fish" size={64} className="sea-fish f1" />
-          <Art n="dolphin" size={96} className="sea-fish f2" />
-          <Art n="whale" size={150} className="sea-fish f3" />
-          <Art n="octopus" size={84} className="sea-fish f4" />
-          <Art n="turtle" size={70} className="sea-fish f5" />
-          <i className="sea-floor" />
-        </div>
-      )}
       <div className="arc-bg" aria-hidden="true">
         <i className="arc-blob b1" /><i className="arc-blob b2" /><i className="arc-blob b3" />
         {Array.from({ length: 14 }, (_, i) => <b key={i} className={`arc-shape s${i % 5}`} style={{ ['--x' as string]: `${(i * 37 + 8) % 96}%`, ['--d' as string]: `${(i * 1.9) % 14}s`, ['--s' as string]: `${14 + (i % 4) * 8}px`, ['--t' as string]: `${12 + (i % 5) * 3}s` }} />)}

@@ -451,7 +451,7 @@ html[data-arcade] .game-help input[type=checkbox]:focus-visible { outline: 3px s
 html[data-arcade] .gp-hero { background: radial-gradient(circle at 78% 18%, rgba(255, 255, 255, 0.35), transparent 38%), radial-gradient(circle at 12% 90%, rgba(0, 0, 0, 0.3), transparent 50%), linear-gradient(150deg, color-mix(in srgb, var(--c) 90%, #fff), color-mix(in srgb, var(--c) 55%, #12063a)); position: relative; overflow: hidden; }
 html[data-arcade] .gp-hero::after { content: ''; position: absolute; top: -20%; bottom: -20%; width: 40%; left: -60%; transform: skewX(-20deg); background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent); animation: arc-sweep 4.5s ease-in-out infinite; pointer-events: none; }
 @keyframes arc-sweep { 0%, 55% { left: -60%; } 100% { left: 130%; } }
-html[data-arcade] .gp-hero .btn.primary { animation: arc-pulse 1.8s ease-in-out infinite; }
+html[data-arcade] .gp-hero .btn.primary { animation: arc-glow 1.8s ease-in-out infinite; }
 @keyframes arc-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
 html[data-arcade] .pf-hero-ico { position: relative; }
 html[data-arcade] .pf-hero-ico::before { content: ''; position: absolute; inset: -14%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, 0.5), transparent 65%); z-index: -1; }
@@ -564,3 +564,6 @@ html[data-arcade][data-game='deepwaters'] .dw-scoring-key > span { width: 100%; 
 html[data-arcade][data-game='deepwaters'] .dw-scoring-key i { display: inline-flex; flex-direction: column; align-items: center; width: auto; height: auto; min-width: 44px; padding: 4px 6px 3px; border-radius: 14px; background: rgba(10, 4, 40, 0.4); box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.3); }
 html[data-arcade][data-game='deepwaters'] .dw-scoring-key i .arc-art { width: 26px; height: 26px; }
 html[data-arcade][data-game='deepwaters'] .dw-scoring-key i b { font-size: 0.78rem; }
+
+/* a glow that breathes without moving the element (so it can always be clicked, by people and by tests) */
+@keyframes arc-glow { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.18) drop-shadow(0 0 14px rgba(255, 210, 63, 0.8)); } }

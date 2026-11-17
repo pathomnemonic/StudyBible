@@ -21,6 +21,10 @@ const ANSWER = JSON.parse(execSync('npx tsx scripts/deepwaters/answers-for-e2e.t
 if (Object.keys(ANSWER).length < 80) fail('expected the answers for 80 or more questions, got ' + Object.keys(ANSWER).length);
 
 await p.goto(`${BASE}/#/play/deepwaters`);
+// a dive begins on the title screen: no question is shown and no clock runs until the player says so
+await p.waitForSelector('.dw-begin');
+if (await p.locator('.dw-card').count()) fail('no question may be shown before the dive begins');
+await p.click('.dw-begin');
 await p.waitForSelector('.dw-card');
 if ((await p.locator('.dw-progress span').count()) !== 7) fail('seven round markers expected');
 
