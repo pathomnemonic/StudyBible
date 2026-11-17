@@ -2545,4 +2545,278 @@ Edward the Martyr|4
 Sweyn Forkbeard|4|Sweyn
 Æthelwulf|6|Ethelwulf
 `),
+
+  L('kings-people', 'people', 'Name a person in the Books of Kings.', 'First and Second Kings follow Israel from Solomon to the exile: kings of Judah and Israel, prophets and their servants, queens, priests, and foreign rulers.', 'Hand-authored from 1 and 2 Kings.', `
+Solomon|1
+Elijah|1
+Elisha|1
+Ahab|1
+Jezebel|1
+Jeroboam|2
+Rehoboam|2
+Hezekiah|1
+Josiah|2
+Jehu|2
+Athaliah|3
+Joash|3
+Ahaz|3
+Manasseh|2
+Nebuchadnezzar|2
+Sennacherib|2
+Isaiah|2
+Naaman|2
+Gehazi|3
+Queen of Sheba|1|Sheba
+Hiram|3
+Zadok|3
+Nathan|3
+Adonijah|3
+Abishag|4
+Joab|3
+Benaiah|4
+Shimei|4
+Naboth|2
+Obadiah|4
+Micaiah|4
+Ben-hadad|4
+Hazael|4
+Jehoshaphat|3
+Ahaziah|4
+Jehoram|4
+Omri|3
+Baasha|5
+Nadab|5
+Elah|5
+Zimri|4
+Jehoiada|4
+Amaziah|4
+Uzziah|3|Azariah
+Jotham|4
+Jeroboam II|4
+Menahem|5
+Pekahiah|6
+Pekah|5
+Hoshea|4
+Shalmaneser|4
+Tiglath-pileser|4
+Rezin|5
+Rabshakeh|5
+Tirhakah|6
+Amon|5
+Hilkiah|4
+Huldah|3
+Shaphan|5
+Neco|4
+Jehoahaz|5
+Jehoiakim|4
+Jehoiachin|4
+Zedekiah|3
+Nebuzaradan|6
+Gedaliah|5
+Evil-merodach|5
+Mesha|5
+Abijam|6
+Asa|3
+Abijah|5
+Maacah|6
+Ethbaal|6
+Widow of Zarephath|2|Widow of Sarepta
+Shunammite woman|3
+Hadad|6
+Rezon|6
+Ahijah|5
+Shishak|4
+Mattan|6
+Seraiah|6
+Zephaniah the priest|6
+Ahimaaz|6
+Hamutal|6
+Nehushta|6
+Zeruiah|6
+Tahpenes|6
+Pharaoh's daughter|3
+`),
+
+  L('samuel-people', 'people', 'Name a person in the Books of Samuel.', 'First and Second Samuel tell of the prophet Samuel, King Saul and King David: judges and priests, soldiers and wives, enemies and friends.', 'Hand-authored from 1 and 2 Samuel.', `
+David|1
+Saul|1
+Samuel|1
+Goliath|1
+Jonathan|1
+Bathsheba|1
+Absalom|1
+Solomon|2
+Nathan|2
+Joab|2
+Abner|3
+Michal|3
+Abigail|3
+Nabal|4
+Eli|2
+Hannah|2
+Elkanah|4
+Peninnah|5
+Phinehas|4
+Hophni|4
+Jesse|2
+Eliab|4
+Abinadab|5
+Shammah|5
+Ahimelech|4
+Abiathar|4
+Doeg|4
+Abishai|4
+Asahel|4
+Ishbosheth|4|Ish-bosheth
+Rizpah|5
+Amnon|3
+Tamar|3
+Adonijah|4
+Uriah|2|Uriah the Hittite
+Ahithophel|4
+Hushai|5
+Shimei|4
+Mephibosheth|3
+Ziba|5
+Barzillai|5
+Amasa|5
+Sheba|5
+Araunah|5|Ornan
+Achish|4
+Agag|3
+Benaiah|5
+Ittai|6
+Zadok|4
+Jonadab|5
+Hanun|5
+Nahash|5
+Merab|5
+Joel|6
+Abijah|6
+Hiram|4
+Toi|6
+Hadadezer|6
+Shobi|6
+Machir|6
+Obed-edom|5
+Uzzah|3
+Ahio|6
+Ahimaaz|5
+Jonathan son of Abiathar|6
+Zeruiah|5
+Maacah|6
+Haggith|6
+Abital|6
+Eglah|6
+Ahinoam|5
+Chileab|6
+Shammua|6
+Shobab|6
+Ibhar|6
+Elishua|6
+Nepheg|6
+Japhia|6
+Elishama|6
+Eliada|6
+Eliphelet|6
+Medium of Endor|3|Witch of Endor
+Rechab|6
+Baanah|6
+Paltiel|6
+Ira|6
+Eleazar son of Dodo|6
+Josheb-basshebeth|6
+Bichri|6
+Ahijah|6
+Chimham|6
+Naharai|6
+Zelek|6
+`),
+  L('acts-people', 'people', 'Name a person in the Acts of the Apostles.', 'Acts follows the first Christians from the upper room to Rome: apostles and deacons, converts, helpers and officials, and the rulers before whom Paul stood.', 'Hand-authored from the Acts of the Apostles.', `
+Peter|1
+Paul|1|Saul
+John|1
+James|2
+Stephen|1
+Philip|2
+Barnabas|2
+Silas|2
+Timothy|2
+Luke|2
+Mark|3|John Mark
+Matthias|2
+Judas|2|Judas Iscariot
+Ananias|2
+Sapphira|2
+Simon Magus|3|Simon the Sorcerer
+Tabitha|3|Dorcas
+Aeneas|4
+Cornelius|2
+Simon the tanner|4
+Herod Agrippa|3|Herod Agrippa I
+Rhoda|4
+Manaen|6
+Lucius of Cyrene|6|Lucius
+Elymas|4|Bar-Jesus
+Sergius Paulus|3
+Lydia|2
+Jason|5
+Dionysius the Areopagite|4|Dionysius
+Damaris|5
+Priscilla|3
+Aquila|3
+Apollos|3
+Crispus|5
+Gallio|4
+Sosthenes|6
+Demetrius|4
+Alexander|6
+Gaius|5
+Aristarchus|5
+Sopater|6
+Secundus|6
+Tychicus|5
+Trophimus|5
+Eutychus|3
+Agabus|4
+Felix|3
+Festus|3
+Agrippa|3|Herod Agrippa II
+Bernice|4|Berenice
+Drusilla|5
+Publius|4
+Julius|4
+Ananias the high priest|4
+Tertullus|5
+Claudius Lysias|4|Lysias
+Gamaliel|2
+Theudas|5
+Judas the Galilean|5
+Annas|3
+Caiaphas|3
+Joseph Barnabas|3
+Judas Barsabbas|4|Barsabbas
+Joseph called Barsabbas|6|Justus
+Mnason|5
+Ethiopian eunuch|2|Eunuch
+Candace|4
+Titius Justus|6
+Thomas|4
+Andrew|3
+Bartholomew|4
+Matthew|3
+Simon the Zealot|4
+Jude|4
+James the son of Alphaeus|5
+Mary the mother of Jesus|2|Mary
+Mary the mother of John Mark|5
+Nicanor|6
+Prochorus|6
+Parmenas|6
+Timon|6
+Nicolaus|5|Nicolas of Antioch
+Sceva|6
+Gaius of Derbe|6
+Erastus|6
+`),
 ];

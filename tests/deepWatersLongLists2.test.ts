@@ -32,6 +32,9 @@ const ACCEPT: Record<string, string[]> = {
   'catholic-films': ['the passion of the christ', 'ben-hur', 'sister act', 'the mission', 'a man for all seasons', 'the two popes', 'the exorcist'],
   'christmas-customs': ['christmas tree', 'advent wreath', 'nativity scene', 'midnight mass', 'caroling', 'las posadas', 'advent calendar'],
   'english-monarchs': ['henry viii', 'elizabeth i', 'richard iii', 'william the conqueror', 'victoria', 'charles i', 'mary i', 'alfred the great', 'edward the confessor'],
+  'kings-people': ['solomon', 'elijah', 'elisha', 'ahab', 'jezebel', 'hezekiah', 'josiah', 'naaman', 'queen of sheba'],
+  'samuel-people': ['david', 'saul', 'samuel', 'goliath', 'jonathan', 'bathsheba', 'absalom', 'eli', 'hannah'],
+  'acts-people': ['peter', 'paul', 'stephen', 'barnabas', 'lydia', 'cornelius', 'ananias', 'timothy', 'gamaliel'],
   'rome-churches': ['saint peters basilica', 'saint john lateran', 'santa maria maggiore', 'il gesu', 'pantheon', 'san clemente'],
   'catholic-prayers': ['our father', 'hail mary', 'glory be', 'act of contrition', 'memorare', 'angelus', 'rosary', 'nicene creed', 'prayer to saint michael'],
 };
@@ -60,6 +63,9 @@ const REJECT: Record<string, string[]> = {
   'catholic-films': ['star wars', 'titanic', 'jaws'],
   'christmas-customs': ['fireworks', 'easter egg hunt'],
   'english-monarchs': ['napoleon', 'louis xiv', 'robert the bruce'],
+  'kings-people': ['moses', 'abraham'],
+  'samuel-people': ['elijah', 'solomon the wise'],
+  'acts-people': ['jesus', 'moses'],
   'rome-churches': ['colosseum', 'trevi fountain'],
   'catholic-prayers': ['serenity prayer', 'shema'],
 };

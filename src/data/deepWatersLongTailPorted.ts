@@ -3,7 +3,7 @@ import { LONG_TAIL_PROMPTS } from './deepWatersLongTail';
 
 /**
  * The part of ChatGPT's long-tail batch (src/data/deepWatersLongTail.ts) that was checked here and kept, with corrections. Not kept: lists that duplicate
- * an existing question (Latin in worship, heresies, shrines, symbols, universities, parts of the Mass), lists that fell under 60 answers once errors were removed (saints born in Italy, patrons of illnesses, patrons of countries), lists whose answers a player could not reasonably
+ * an existing question (Latin in worship, heresies, shrines, symbols, universities, parts of the Mass), lists whose answers a player could not reasonably
  * give or that were padded (Korean and Japanese martyrs by transliterated name, relics, pilgrimage routes, minor basilicas, city patrons), and the popes list
  * (its title said "not canonized or venerated as a saint" but it held Blessed popes and saints). Corrections below are listed per question.
  */
@@ -15,11 +15,29 @@ const DROP: Record<string, string[]> = {
   'longtail-francis-canonizations': ['Álvaro del Portillo', 'Guadalupe Ortiz de Landázuri', 'Giuseppina Vannini', 'Maria Alfonsina Danil Ghattas', 'María de la Purísima'],
   'longtail-patron-professions': ['Cloud', 'Eraclius', 'Joseph Calasanz'],
   'longtail-english-martyrs': [],
+  'longtail-italian-saints': ['Joseph Calasanz', 'Urban V', 'Pope Eusebius', 'Pope Sixtus II', 'Pope Damasus I', 'Chiara della Croce da Montefalco', 'Francesca Romana', 'Giacomo Bianconi'],
+  'longtail-patron-illnesses': ['Ovidius', 'Swithbert', 'Catherine of Sweden', 'Aidan of Lindisfarne', 'Aloysius of Gonzaga'],
+  'longtail-patron-countries': ['Our Lady of Peace', 'Our Lady of the Assumption', 'Our Lady of Sorrows', 'Our Lady of the Cape', 'Our Lady of Help', 'Our Lady of Lanka', 'Teresia of Calcutta'],
   'longtail-martyrdom-texts': ['Acts of Thomas the Apostle', 'Acts of Paul and Thecla'],
   'longtail-ancient-sees': ['Philadelphia in Lydia', 'Antioch Pisidia', 'Pella', 'Heraclea', 'Byzantium'],
 };
 // the most famous sees were missing from the original key
-const ADD: Record<string, { answer: string; tier: 1 | 2 | 3; aliases?: string[] }[]> = {
+type Add = { answer: string; tier: 1 | 2 | 3 | 4 | 5 | 6; aliases?: string[] };
+const ADD: Record<string, Add[]> = {
+  'longtail-italian-saints': [
+    { answer: 'Anselm of Canterbury', tier: 4, aliases: ['Anselm of Aosta'] }, { answer: 'Bonaventure', tier: 3 }, { answer: 'Peter Damian', tier: 4 }, { answer: 'Pius X', tier: 3 }, { answer: 'Paul VI', tier: 3 },
+    { answer: 'Anthony Zaccaria', tier: 5 }, { answer: 'Jerome Emiliani', tier: 5 }, { answer: 'Cajetan', tier: 4, aliases: ['Gaetano of Thiene'] }, { answer: 'Francis Caracciolo', tier: 5 }, { answer: 'Andrew Avellino', tier: 5 },
+    { answer: 'Vincent Pallotti', tier: 5 }, { answer: 'Dominic Savio', tier: 3 }, { answer: 'Leonard Murialdo', tier: 6 }, { answer: 'John Baptist Scalabrini', tier: 5 }, { answer: 'Frances Xavier Cabrini', tier: 2, aliases: ['Mother Cabrini'] },
+    { answer: 'Magdalene of Canossa', tier: 6 }, { answer: 'Romuald', tier: 5 }, { answer: 'Gregory the Great', tier: 2 }, { answer: 'Scholastica', tier: 3 }, { answer: 'Agatha', tier: 3 }, { answer: 'Lucy', tier: 2 },
+    { answer: 'Cecilia', tier: 3 }, { answer: 'Mary Mazzarello', tier: 5 }, { answer: 'Joseph Cafasso', tier: 6 },
+  ],
+  'longtail-patron-illnesses': [
+    { answer: 'Cornelius', tier: 5 }, { answer: 'Valentine', tier: 3 }, { answer: 'Hubert', tier: 4 }, { answer: 'Wolfgang', tier: 5 }, { answer: 'Odilia', tier: 5 }, { answer: 'Servatius', tier: 6 }, { answer: 'Sebastian', tier: 3 }, { answer: 'Maurus', tier: 6 },
+  ],
+  'longtail-patron-countries': [
+    { answer: 'Boniface', tier: 3 }, { answer: 'Joan of Arc', tier: 2 }, { answer: 'Thérèse of Lisieux', tier: 2 }, { answer: 'Wenceslaus', tier: 3 }, { answer: 'Sava', tier: 5 }, { answer: 'Gregory the Illuminator', tier: 5 },
+    { answer: 'Nino', tier: 6 }, { answer: 'Mark the Evangelist', tier: 3 }, { answer: 'Charles Lwanga', tier: 4 }, { answer: 'Columba', tier: 3 }, { answer: 'Brigid of Kildare', tier: 2 }, { answer: 'Canute IV', tier: 6 },
+  ],
   'longtail-ancient-sees': [
     { answer: 'Rome', tier: 1 }, { answer: 'Jerusalem', tier: 1 }, { answer: 'Antioch', tier: 1, aliases: ['Antioch in Syria'] }, { answer: 'Ephesus', tier: 1 }, { answer: 'Corinth', tier: 2 },
     { answer: 'Smyrna', tier: 2 }, { answer: 'Thessalonica', tier: 2 }, { answer: 'Hippo', tier: 2, aliases: ['Hippo Regius'] }, { answer: 'Philippi', tier: 3 }, { answer: 'Laodicea', tier: 3 }, { answer: 'Pergamum', tier: 3 }, { answer: 'Sardis', tier: 3 }, { answer: 'Colossae', tier: 3 },

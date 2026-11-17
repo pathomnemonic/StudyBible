@@ -289,7 +289,7 @@ export const BASE_PROMPTS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED
  * ever repeated within a year, leap years included. The questions after the hand-written and generated ones are derived by rule (see
  * src/lib/deepWatersDerive.ts and src/data/deepWatersPools.ts) up to this size, with no theme holding more than a quarter of the bank.
  */
-export const BANK_SIZE = 377 * 7;
+export const BANK_SIZE = 378 * 7;
 const THEME_SHARE = 0.24;
 export const themeCaps = (() => {
   const held: Record<string, number> = {};

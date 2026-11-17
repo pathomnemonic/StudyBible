@@ -1610,6 +1610,30 @@
    "status": "unreviewed"
   },
   {
+   "id": "authored2-kings-people",
+   "sha256": "5607b5ab0363d6d78c60152232c7fd05d33587921c6fa4df6e0f9c74e7111db8",
+   "answers": 88,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-samuel-people",
+   "sha256": "972eec734a06263443181ee5711c84273d4037ffb5077c566ece64cd7111d3d4",
+   "answers": 93,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored2-acts-people",
+   "sha256": "edabc82c9875e7fe61d6c3cfd528b622dcdfdf921fd4673f38258637190579ef",
+   "answers": 85,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-italian-saints",
+   "sha256": "50523d7df532dd6545d4829076196e2ecee2a4ec2055732d008ed543b32d7114",
+   "answers": 79,
+   "status": "unreviewed"
+  },
+  {
    "id": "ported-english-martyrs",
    "sha256": "15102ab005837d438d2937b65b60d6ad9a904fb6c2a23ae43130966d94ea3b51",
    "answers": 67,
@@ -1637,6 +1661,18 @@
    "id": "ported-patron-professions",
    "sha256": "d0f0c5cb6f26ba661892c1ee615999d33a27e84c64861409a9c2d2b59dc29970",
    "answers": 60,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-patron-illnesses",
+   "sha256": "06e58fd4afc79ac40aeb1cc3e1488c5dd8f98c39f47acff14957cba666e6eb95",
+   "answers": 63,
+   "status": "unreviewed"
+  },
+  {
+   "id": "ported-patron-countries",
+   "sha256": "0cec079c2b5f25548c518846494dfed9dc2ab167082816879a53cadaceb45897",
+   "answers": 66,
    "status": "unreviewed"
   },
   {
@@ -1707,8 +1743,8 @@
   },
   {
    "id": "derived:bible-places",
-   "sha256": "86436f335277ed80a931f4a17f3dfa75b71a0514878e2874b37c5f8600f29d4d",
-   "answers": 233,
+   "sha256": "fe3f88c9bbd103d9425e62b3c58de01c8b1e61feb0059cbf479ce429dddc36fe",
+   "answers": 234,
    "status": "unreviewed"
   },
   {
@@ -1887,8 +1923,8 @@
   },
   {
    "id": "derived:places-in-jos",
-   "sha256": "3bba2a639ec5aafe29c3fb389e6e4251b4a6ed7658e5934f0af9d696fd9e5e07",
-   "answers": 77,
+   "sha256": "45a312c6d56b03f5029752e3e46b952d813c99498d89209fc7fd4433d9b7b674",
+   "answers": 78,
    "status": "unreviewed"
   },
   {
@@ -1929,8 +1965,8 @@
   },
   {
    "id": "derived:saints",
-   "sha256": "bf06f794add7ea009bdd4c932cea33e4b40b403bb6a9c9971da53602db0769b9",
-   "answers": 333,
+   "sha256": "3d8dd0d7437ca3a057ee4d5e5270b98d5481a1dbf4c80bce3060a26d4b0b10ea",
+   "answers": 332,
    "status": "unreviewed"
   },
   {

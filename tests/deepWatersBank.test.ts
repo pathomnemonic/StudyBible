@@ -123,7 +123,9 @@ describe('the bank as a whole', () => {
 
 describe('the daily schedule', () => {
   const DAYS = 2 * cycleLength(DEEP_WATERS.length) + 10; // two full cycles and a few days over, so a question's second appearance is seen
-  const days = Array.from({ length: DAYS }, (_, i) => dailyDeepPrompts(20000 + i));
+  // start on a cycle boundary, so the first cycle is one whole cycle (a window that straddles two cycles can miss a question whose home day moved)
+  const START = Math.ceil(20000 / cycleLength(DEEP_WATERS.length)) * cycleLength(DEEP_WATERS.length);
+  const days = Array.from({ length: DAYS }, (_, i) => dailyDeepPrompts(START + i));
   it('gives seven different questions every day', () => {
     for (const [i, d] of days.entries()) { expect(d, `day ${i}`).toHaveLength(DAILY_SIZE); expect(new Set(d.map((p) => p.id)).size, `day ${i}`).toBe(DAILY_SIZE); }
   });

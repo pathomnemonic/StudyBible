@@ -15,6 +15,9 @@ const ACCEPT: Record<string, string[]> = {
   'ancient-sees': ['rome', 'jerusalem', 'antioch', 'alexandria', 'constantinople', 'carthage', 'ephesus'],
   'late-medieval-theologians': ['anselm of canterbury', 'bernard of clairvaux', 'peter abelard', 'hildegard of bingen'],
   'martyrdom-texts': ['martyrdom of polycarp', 'passion of perpetua and felicity', 'acts of the scillitan martyrs'],
+  'italian-saints': ['francis of assisi', 'catherine of siena', 'padre pio', 'benedict of nursia', 'john bosco', 'thomas aquinas', 'carlo acutis'],
+  'patron-illnesses': ['lucy', 'blaise', 'roch', 'dymphna', 'agatha of catania', 'peregrine laziosi'],
+  'patron-countries': ['patrick', 'james the greater', 'george', 'andrew', 'stephen of hungary', 'casimir'],
   'francis-canonizations': ['john paul ii', 'teresa of calcutta', 'oscar romero', 'carlo acutis', 'john henry newman', 'padre pio'],
 };
 const REJECT: Record<string, string[]> = {
@@ -22,12 +25,14 @@ const REJECT: Record<string, string[]> = {
   'augustine-works': ['summa theologiae'],
   'aquinas-works': ['confessions'],
   'ancient-sees': ['london', 'paris'],
+  'italian-saints': ['anthony of padua', 'ignatius of loyola', 'joseph calasanz'],
+  'patron-countries': ['padre pio'],
   'francis-canonizations': ['alvaro del portillo', 'francis of assisi', 'john xxiii'],
 };
 
 describe('the part of ChatGPT\'s long-tail batch that was kept', () => {
   it('are open, 60 answers or more, six tiers, with a basis naming the source', () => {
-    expect(LONG_TAIL_PORTED.length).toBe(9);
+    expect(LONG_TAIL_PORTED.length).toBe(12);
     for (const p of LONG_TAIL_PORTED) {
       expect(DEEP_WATERS, p.id).toContain(p);
       expect(p.closed, p.id).toBeUndefined();
