@@ -13,6 +13,7 @@ export interface DeepRoundRecord {
   tier: DeepAnswer['tier'] | null;
   points: number;
   timedOut: boolean;
+  pearlBonus?: number;
 }
 export interface DeepSession {
   version: 1;
