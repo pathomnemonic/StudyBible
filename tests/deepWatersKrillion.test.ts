@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { KRILLION_PROMPTS } from '../src/data/deepWatersKrillion';
-import { matchDeepAnswer } from '../src/lib/deepWaters';
+import { DEEP_WATERS } from '../src/data/deepWaters';
+import { dailyDeepPrompts, matchDeepAnswer } from '../src/lib/deepWaters';
 
 describe('Krillion-style Deep Waters expansion', () => {
   it('adds 2,416 distinct, short, accessible prompts with complete answer lists', () => {
@@ -29,5 +30,11 @@ describe('Krillion-style Deep Waters expansion', () => {
       expect(matchDeepAnswer(p, wrongCategory).status, p.id).toBe('none');
       expect(matchDeepAnswer(p, p.answers[0].answer + 'zz').status, p.id).toBe('none');
     }
+  });
+  it('deals every prompt exactly once across a 365-day cycle', () => {
+    expect(DEEP_WATERS).toHaveLength(2555);
+    const dealt = Array.from({ length: 365 }, (_, day) => dailyDeepPrompts(40000 + day)).flat();
+    expect(dealt).toHaveLength(2555);
+    expect(new Set(dealt.map((p) => p.id)).size).toBe(2555);
   });
 });
