@@ -8,15 +8,15 @@ const cases = [
   { id: 'bible-objects', accept: ['Ark of the Covenant', 'Ark of the Testimony', 'stone tablets'], reject: ['Nineveh', 'golden calfskin'] },
   { id: 'saint-founders', accept: ['Benedict of Nursia', 'Saint Benedict', 'Clare of Assisi'], reject: ['King David', 'Benedictine'] },
   { id: 'saint-patronages', accept: ['Saint Christopher', 'Christopher of Lycia', 'Saint Joseph'], reject: ['Zeus', 'Christopher Columbus'] },
-  { id: 'encyclicals', accept: ['Rerum Novarum', 'On New Things', 'Humanae Vitae'], reject: ['Dei Verbum', 'Rerum Novissima'] },
+  { id: 'papal-encyclicals', accept: ['Rerum Novarum', 'On New Things', 'Humanae Vitae'], reject: ['Dei Verbum', 'Rerum Novissima'] },
   { id: 'early-heresies', accept: ['Arianism', 'Arian heresy', 'Gnosticism'], reject: ['Nicene Creed', 'Arius'] },
-  { id: 'liturgical-vestments', accept: ['Alb', 'Chasuble', 'casula'], reject: ['Roman Missal', 'chasubler'] },
   { id: 'liturgical-books', accept: ['Roman Missal', 'Missale Romanum', 'Lectionary'], reject: ['Catechism', 'Roman Missalette'] },
   { id: 'latin-prayers', accept: ['Pater Noster', 'Our Father', 'Ave Maria'], reject: ['Roman Missal', 'Pater Nostrum'] },
-  { id: 'church-architecture', accept: ['Nave', 'sanctuary apse', 'transept'], reject: ['Chalice', 'navel'] },
   { id: 'roman-basilicas', accept: ["Saint Peter's Basilica", 'Basilica of Saint Peter', 'Saint Mary Major'], reject: ['Colosseum', "Saint Peter's Cathedral"] },
   { id: 'church-historians', accept: ['Eusebius of Caesarea', 'Eusebius Pamphili', 'Socrates Scholasticus'], reject: ['Saint Peter', 'Eusebius of Antioch'] },
   { id: 'saint-missionaries', accept: ['Francis Xavier', 'Francisco de Javier', 'Patrick of Ireland'], reject: ['Thomas Aquinas', 'Francis Xaverius of Paris'] },
+  { id: 'evangelist-symbols', accept: ['Man', 'Winged lion', 'Eagle'], reject: ['Sword', 'Eaglefish'] },
+  { id: 'saint-art-attributes', accept: ['Keys', 'Catherine wheel', 'Gridiron'], reject: ['Cathedral', 'gridironsman'] },
 ] as const;
 
 describe('Deep Waters Krillion batch 2', () => {
@@ -29,9 +29,9 @@ describe('Deep Waters Krillion batch 2', () => {
       expect(p!.prompt.split(/\s+/).length, p!.id).toBeGreaterThanOrEqual(4);
       expect(p!.prompt.split(/\s+/).length, p!.id).toBeLessThanOrEqual(14);
       expect(/^(Name|Give)\\b/.test(p!.prompt), p!.id).toBe(true);
-      expect(p!.answers.length, p!.id).toBeGreaterThanOrEqual(25);
+      if (p!.closed) expect(p!.answers.length, p!.id).toBe(p!.closed);\n      else expect(p!.answers.length, p!.id).toBeGreaterThanOrEqual(25);
       expect(new Set(p!.answers.map((a) => a.answer.toLowerCase())).size, p!.id).toBe(p!.answers.length);
-      expect(new Set(p!.answers.map((a) => a.tier)).size, p!.id).toBe(6);
+      if (!p!.closed) expect(new Set(p!.answers.map((a) => a.tier)).size, p!.id).toBe(6);
       expect(p!.answers.some((a) => a.tier === 1), p!.id).toBe(true);
       expect(p!.answers.some((a) => a.tier >= 5), p!.id).toBe(true);
     }
