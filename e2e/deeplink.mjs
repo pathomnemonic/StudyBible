@@ -3,7 +3,7 @@ import { chromium } from 'playwright';
 const BASE = process.env.BASE || 'http://localhost:4173';
 const b = await chromium.launch();
 let bad = 0;
-for (const [route, h1] of [['play/deepwaters', /deep/i], ['play/crossword', /crossword/i], ['play/trivia', /./], ['join/ABCD', /./]]) {
+for (const [route, h1] of [['play/deepwaters', /basilion/i], ['play/crossword', /crossword/i], ['play/trivia', /./], ['join/ABCD', /./]]) {
   const ctx = await b.newContext({ viewport: { width: 390, height: 844 } });
   const p = await ctx.newPage();
   await p.goto(`${BASE}/#/${route}`); await p.waitForTimeout(2500);
