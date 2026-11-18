@@ -56,7 +56,7 @@ for (let round = 1; round <= 7; round++) {
 }
 await p.waitForSelector('.dw-results');
 const results = await p.locator('.dw-results').innerText();
-if (!/pts|points/.test(results) || (await p.locator('.dw-results li').count()) !== 7) fail('the results should list seven rounds: ' + results.slice(0, 200));
+if (!/pts|points/.test(results) || (await p.locator('.dw-results > ol > li').count()) !== 7) fail('the results should list seven rounds: ' + results.slice(0, 200));
 if (errors.length) fail(errors.join('; '));
 await b.close();
 console.log('deep waters e2e ok');

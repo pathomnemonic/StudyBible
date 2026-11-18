@@ -3,6 +3,10 @@
 
 
 
+
+## Basilion: no scoring table during a round
+- The "Explore all accepted answers" list, which showed every answer with its points, no longer appears after a round. Each question's answer key (with points) is now an expandable entry on the results screen instead.
+
 ## Basilion: a quieter screen during a round
 - Once a round starts the how-to-play banner, practice switch, sound button, scoring key, hints about penalties and the footer line are gone. The screen is one thin line (step, height, points, clock; a small tag when practising), a slim progress strip and the question. The explanations stay on the title and results screens.
 - The question card is now close to opaque, and the reading box is dark glass with white text, so the question reads clearly against the scene.

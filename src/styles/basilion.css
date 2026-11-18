@@ -300,3 +300,5 @@ html .deep-waters.bas .dw-card.reading .dw-ready { text-shadow: none; }
 html .deep-waters.bas .dw-card.rising { background: transparent; }
 html .deep-waters.bas .dw-topline + .dw-progress { margin: -6px 18px 12px; gap: 5px; }
 html .deep-waters.bas .dw-mode { font-style: normal; margin-left: 8px; padding: 1px 8px; border-radius: 99px; background: rgba(241, 207, 107, 0.2); color: var(--gold2); font-size: 0.62rem; letter-spacing: 0.1em; }
+html .deep-waters.bas .dw-key { margin-top: 6px; font-size: 0.9rem; }
+html .deep-waters.bas .dw-key summary { cursor: pointer; color: var(--crim); font-weight: 700; }

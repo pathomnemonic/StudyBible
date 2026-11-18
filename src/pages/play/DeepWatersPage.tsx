@@ -74,9 +74,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   // each round opens with the question alone in a glass box (no input, no clock), and a locked-in answer rises up the basilica before its points are shown
   const [reading, setReading] = useState(false);
   const [rising, setRising] = useState(false);
-  const [showAnswers, setShowAnswers] = useState(false);
   const [showHint, setShowHint] = useState(false);
-  const [showAllAnswers, setShowAllAnswers] = useState(false);
   const [misses, setMisses] = useState(loadDeepMisses);
   const [copied, setCopied] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -151,7 +149,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
     setPracticeSeed(newPracticeSeed());
     setReading(false); setRising(false);
     setRound(0); setSeconds(DEEP_SECONDS); setGuess(''); setLocked(false); setFeedback('');
-    setResult(null); setHistory([]); setScore(0); setDone(false); setShowAnswers(false); setShowHint(false); setShowAllAnswers(false); setBegun(false);
+    setResult(null); setHistory([]); setScore(0); setDone(false); setShowHint(false); setBegun(false);
   };
 
   const submit = () => {
@@ -178,14 +176,11 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
     if (round + 1 >= DEEP_ROUNDS) { setDone(true); cue('final'); return; }
     cue('next');
     setRound((n) => n + 1); setSeconds(DEEP_SECONDS); setReading(true); setGuess(''); setLocked(false);
-    setFeedback(''); setResult(null); setShowAnswers(false); setShowHint(false); setShowAllAnswers(false);
+    setFeedback(''); setResult(null); setShowHint(false);
   };
 
   // the result as a row of symbols (one per question, a higher one is rarer) so it can be shared without giving the answers away
   const share = deepWatersShare({ day: today, practice, score, rounds: history, zone: levelAt(score * 10).name, pearl: pearlFound, bank: bankSignature(DEEP_PLAYABLE.map((p) => p.id)) });
-  const accepted = useMemo(() => [...prompt.answers].sort((a, b) => b.tier - a.tier || a.answer.localeCompare(b.answer)), [prompt]);
-  const SHOWN_MAX = 15;
-  const shownAnswers = prompt.closed || showAllAnswers ? accepted : accepted.slice(0, SHOWN_MAX);
   const timerTone = seconds <= 10 ? 'urgent' : seconds <= 25 ? 'warm' : 'calm';
   const suggestions = useMemo(() => guess.trim() && !locked ? suggestDeepAnswers(prompt, guess) : [], [prompt, guess, locked]);
 
@@ -288,9 +283,6 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
                 {result.answer && <span className="dw-correct-answer">{result.answer}</span>}
                 {(result.pearlBonus ?? 0) > 0 && <strong className="dw-pearl-bonus"><Art n="gem-stone" size={36} className="dw-pearl-gem" /> Keystone found · +{result.pearlBonus} bonus</strong>}
                 <p className="dw-context">{prompt.context}</p>
-                <button type="button" className="dw-hint-button" onClick={() => setShowAnswers((v) => !v)}>{showAnswers ? 'Hide answer key' : `Explore all ${accepted.length} accepted answers`}</button>
-                {showAnswers && <ul className="dw-answer-list">{shownAnswers.map((a) => <li key={a.answer}><span>{a.answer}</span><b>{DEEP_POINTS[a.tier]} pts</b></li>)}</ul>}
-                {showAnswers && shownAnswers.length < accepted.length && <button type="button" className="dw-hint-button" onClick={() => setShowAllAnswers(true)}>…and {accepted.length - shownAnswers.length} more. Show all</button>}
                 <button type="button" ref={nextRef} className="dw-next" onClick={advance}>{round + 1 === DEEP_ROUNDS ? 'View your climb' : 'Next round'} <span aria-hidden="true">→</span></button>
               </div>
             )}
@@ -319,7 +311,11 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
           )}
           {pearlFound && <p className="dw-pearl-bonus">You found the keystone of the day.</p>}
           <div className="dw-result-stats"><span><b>{history.filter((r) => r.points > 0).length}</b><small>ROUNDS SCORED</small></span><span><b>{Math.max(...history.map((r) => r.points), 0)}</b><small>BEST ROUND</small></span><span><b>{history.filter((r) => r.timedOut).length}</b><small>TIMEOUTS</small></span></div>
-          <ol>{history.map((r, i) => <li key={i}><span>{r.prompt}</span><b>{r.points ? `+${r.points}` : '—'}</b><small>{r.answer ?? (r.timedOut ? 'Time expired' : 'No recognized answer')}</small></li>)}</ol>
+          <ol>{history.map((r, i) => <li key={i}><span>{r.prompt}</span><b>{r.points ? `+${r.points}` : '—'}</b><small>{r.answer ?? (r.timedOut ? 'Time expired' : 'No recognized answer')}</small>
+            {prompts[i] && <details className="dw-key"><summary>Answer key ({prompts[i].answers.length})</summary>
+              <ul className="dw-answer-list">{[...prompts[i].answers].sort((x, y) => y.tier - x.tier || x.answer.localeCompare(y.answer)).slice(0, 40).map((a) => <li key={a.answer}><span>{a.answer}</span><b>{DEEP_POINTS[a.tier]} pts</b></li>)}</ul>
+              {prompts[i].answers.length > 40 && <small>…and {prompts[i].answers.length - 40} more</small>}
+            </details>}</li>)}</ol>
           {misses.length > 0 && <div className="dw-misses">
             <p>{misses.length} answer{misses.length === 1 ? '' : 's'} you tried {misses.length === 1 ? 'is' : 'are'} not on our list. The list is not complete, so some may be right. They are kept only on this device.</p>
             <button type="button" className="dw-hint-button" onClick={() => { void navigator.clipboard?.writeText(deepMissesText(misses)).then(() => setCopied(true)).catch(() => setCopied(false)); }}>{copied ? 'Copied' : 'Copy the list to send us'}</button>
