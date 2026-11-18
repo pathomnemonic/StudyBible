@@ -138,6 +138,7 @@ const CORE_PROMPTS: Omit<DeepPrompt, 'theme'>[] = [
     id: 'devotions',
     prompt: 'Name a prayer.',
     context: 'Catholic prayer takes many forms: familiar daily prayers, biblical canticles, traditional Latin prayers, litanies and prayers associated with saints. This open list is not complete.',
+    basis: 'USCCB, Basic Prayers and its A–Z Prayers directory (327 indexed prayer resources): https://www.usccb.org/prayer-and-worship/prayers-and-devotions/prayers/basic-prayers ; https://www.usccb.org/prayers/list . Additional traditional liturgical prayers are checked against the Roman Missal and Liturgy of the Hours.',
     answers: rows([
       ['Our Father', 1, 'Lord\'s Prayer|Pater Noster'], ['Hail Mary', 1, 'Ave Maria'], ['Glory Be', 1, 'Gloria Patri|Doxology'], ['Sign of the Cross', 1], ['Apostles\' Creed', 1, 'Apostles Creed'], ['Nicene Creed', 1, 'Nicene-Constantinopolitan Creed'],
       ['Act of Contrition', 1], ['Act of Faith', 2], ['Act of Hope', 2], ['Act of Charity', 2, 'Act of Love'], ['Angelus', 1], ['Regina Caeli', 2, 'Regina Coeli|Queen of Heaven'], ['Memorare', 2], ['Hail Holy Queen', 1, 'Salve Regina'], ['Anima Christi', 2], ['Divine Praises', 3],
