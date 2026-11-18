@@ -3263,4 +3263,596 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-writer-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was a writer.",
+    "context": "Catholic saints have written theology, philosophy, poetry, letters, histories, spiritual classics and fiction. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Writers,” a directory of 431 profiles: https://catholicsaints.info/saints-who-were-writers/ . The answer bank samples named people in that index.",
+    "answers": [
+      {
+        "answer": "Augustine of Hippo",
+        "tier": 1
+      },
+      {
+        "answer": "Jerome",
+        "tier": 1
+      },
+      {
+        "answer": "Thomas Aquinas",
+        "tier": 1
+      },
+      {
+        "answer": "John Henry Newman",
+        "tier": 1
+      },
+      {
+        "answer": "Teresa of Ávila",
+        "tier": 1
+      },
+      {
+        "answer": "Francis de Sales",
+        "tier": 2
+      },
+      {
+        "answer": "Bonaventure",
+        "tier": 2
+      },
+      {
+        "answer": "Catherine of Siena",
+        "tier": 2
+      },
+      {
+        "answer": "Hildegard of Bingen",
+        "tier": 2
+      },
+      {
+        "answer": "John of the Cross",
+        "tier": 2
+      },
+      {
+        "answer": "Bede the Venerable",
+        "tier": 2
+      },
+      {
+        "answer": "G. K. Chesterton",
+        "tier": 2
+      },
+      {
+        "answer": "Gregory the Great",
+        "tier": 3
+      },
+      {
+        "answer": "John Chrysostom",
+        "tier": 3
+      },
+      {
+        "answer": "Athanasius",
+        "tier": 3
+      },
+      {
+        "answer": "Basil the Great",
+        "tier": 3
+      },
+      {
+        "answer": "Ambrose of Milan",
+        "tier": 3
+      },
+      {
+        "answer": "Bernard of Clairvaux",
+        "tier": 3
+      },
+      {
+        "answer": "Thomas à Kempis",
+        "tier": 3
+      },
+      {
+        "answer": "Dante Alighieri",
+        "tier": 3
+      },
+      {
+        "answer": "Flannery O'Connor",
+        "tier": 3
+      },
+      {
+        "answer": "J. R. R. Tolkien",
+        "tier": 3
+      },
+      {
+        "answer": "Dorothy Day",
+        "tier": 3
+      },
+      {
+        "answer": "Thomas Merton",
+        "tier": 3
+      },
+      {
+        "answer": "Edith Stein",
+        "tier": 4
+      },
+      {
+        "answer": "Julian of Norwich",
+        "tier": 4
+      },
+      {
+        "answer": "Meister Eckhart",
+        "tier": 4
+      },
+      {
+        "answer": "Peter Canisius",
+        "tier": 4
+      },
+      {
+        "answer": "Robert Bellarmine",
+        "tier": 4
+      },
+      {
+        "answer": "Alphonsus Liguori",
+        "tier": 4
+      },
+      {
+        "answer": "John of Ávila",
+        "tier": 4
+      },
+      {
+        "answer": "Irenaeus of Lyons",
+        "tier": 4
+      },
+      {
+        "answer": "Justin Martyr",
+        "tier": 4
+      },
+      {
+        "answer": "Origen",
+        "tier": 4
+      },
+      {
+        "answer": "Clement of Alexandria",
+        "tier": 4
+      },
+      {
+        "answer": "Tertullian",
+        "tier": 4
+      },
+      {
+        "answer": "Cyprian of Carthage",
+        "tier": 4
+      },
+      {
+        "answer": "Eusebius of Caesarea",
+        "tier": 4
+      },
+      {
+        "answer": "Isidore of Seville",
+        "tier": 4
+      },
+      {
+        "answer": "Anselm of Canterbury",
+        "tier": 4
+      },
+      {
+        "answer": "Acardo of Avranches",
+        "tier": 5
+      },
+      {
+        "answer": "Alan the Great of Lille",
+        "tier": 5
+      },
+      {
+        "answer": "Alanus de Rupe",
+        "tier": 5
+      },
+      {
+        "answer": "Alberto Pandoni",
+        "tier": 5
+      },
+      {
+        "answer": "Amalarius of Metz",
+        "tier": 5
+      },
+      {
+        "answer": "Ambrose of Camaldoli",
+        "tier": 5
+      },
+      {
+        "answer": "Anacleto González Flores",
+        "tier": 5
+      },
+      {
+        "answer": "Ángel Martínez Miquélez",
+        "tier": 5
+      },
+      {
+        "answer": "Angelo Carletti",
+        "tier": 5
+      },
+      {
+        "answer": "Angelo Tancredi",
+        "tier": 5
+      },
+      {
+        "answer": "Anne of Saint Bartholomew",
+        "tier": 5
+      },
+      {
+        "answer": "Antoine-Frédéric Ozanam",
+        "tier": 5
+      },
+      {
+        "answer": "Anton Martin Slomsek",
+        "tier": 5
+      },
+      {
+        "answer": "Antonio Rosmini-Serbati",
+        "tier": 5
+      },
+      {
+        "answer": "Armand of Zierikzee",
+        "tier": 6
+      },
+      {
+        "answer": "Arnald Arench",
+        "tier": 6
+      },
+      {
+        "answer": "Arnulf of Leuven",
+        "tier": 6
+      },
+      {
+        "answer": "Astolfo Lobo",
+        "tier": 6
+      },
+      {
+        "answer": "Augustinus Jeong Yak-jong",
+        "tier": 6
+      },
+      {
+        "answer": "Basilissa Fernandez",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Augustine of Hippo",
+        "accepted": true
+      },
+      {
+        "guess": "Jerome",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": true
+      },
+      {
+        "guess": "John Henry Newman",
+        "accepted": true
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": true
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not listed as a writer in the source index."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A parish priest, not listed as a writer."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A religious founder; not included in this answer key."
+      },
+      {
+        "guess": "Padre Pio",
+        "accepted": false,
+        "reason": "A priest and mystic, not listed as a writer."
+      },
+      {
+        "guess": "Christopher Columbus",
+        "accepted": false,
+        "reason": "Not a Catholic saint, blessed or venerable."
+      }
+    ]
+  },
+  {
+    "id": "longtail-poet-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was a poet.",
+    "context": "Catholic poets wrote hymns, canticles, devotional verse and poetry in many languages and traditions. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Poets,” 97 profiles: https://catholicsaints.info/saints-who-were-poets/ . The answer bank selects 60 named entries from the index.",
+    "answers": [
+      {
+        "answer": "David",
+        "tier": 1
+      },
+      {
+        "answer": "John of the Cross",
+        "tier": 1
+      },
+      {
+        "answer": "Ephrem the Syrian",
+        "tier": 1
+      },
+      {
+        "answer": "Ambrose of Milan",
+        "tier": 1
+      },
+      {
+        "answer": "Bede the Venerable",
+        "tier": 1
+      },
+      {
+        "answer": "Jacopone da Todi",
+        "tier": 2
+      },
+      {
+        "answer": "Rabanus Maurus",
+        "tier": 2
+      },
+      {
+        "answer": "Raymond Lull",
+        "tier": 2
+      },
+      {
+        "answer": "Tommaso of Celano",
+        "tier": 2
+      },
+      {
+        "answer": "Aengus the Culdee",
+        "tier": 2
+      },
+      {
+        "answer": "Aldhelm of Sherborne",
+        "tier": 2
+      },
+      {
+        "answer": "Andrew of Crete",
+        "tier": 2
+      },
+      {
+        "answer": "Alan the Great of Lille",
+        "tier": 3
+      },
+      {
+        "answer": "Albert of Csanád",
+        "tier": 3
+      },
+      {
+        "answer": "Anne of Saint Bartholomew",
+        "tier": 3
+      },
+      {
+        "answer": "Arnulf of Leuven",
+        "tier": 3
+      },
+      {
+        "answer": "Edmund Bojanowski",
+        "tier": 3
+      },
+      {
+        "answer": "Florencio López Egea",
+        "tier": 3
+      },
+      {
+        "answer": "Herman the Cripple",
+        "tier": 3
+      },
+      {
+        "answer": "Jarich of Mariegaarde",
+        "tier": 3
+      },
+      {
+        "answer": "Joan Franquesa Costa",
+        "tier": 3
+      },
+      {
+        "answer": "John Baptist Spagnuolo",
+        "tier": 3
+      },
+      {
+        "answer": "Leandro",
+        "tier": 3
+      },
+      {
+        "answer": "Lojze Grozde",
+        "tier": 3
+      },
+      {
+        "answer": "Max Josef Metzger",
+        "tier": 4
+      },
+      {
+        "answer": "Narcís Sitjà Basté",
+        "tier": 4
+      },
+      {
+        "answer": "Nikollë Prennushi",
+        "tier": 4
+      },
+      {
+        "answer": "Notkar Balbulus",
+        "tier": 4
+      },
+      {
+        "answer": "Valentín Díez Serna",
+        "tier": 4
+      },
+      {
+        "answer": "Victor Chumillas-Fernández",
+        "tier": 4
+      },
+      {
+        "answer": "Adrian of Canterbury",
+        "tier": 4
+      },
+      {
+        "answer": "Amphilocus of Iconium",
+        "tier": 4
+      },
+      {
+        "answer": "Anatolius of Constantinople",
+        "tier": 4
+      },
+      {
+        "answer": "Angilbert of Centula",
+        "tier": 4
+      },
+      {
+        "answer": "Athenogenes of Pontus",
+        "tier": 4
+      },
+      {
+        "answer": "Avitus of Vienne",
+        "tier": 4
+      },
+      {
+        "answer": "Bartholomew of Rossano",
+        "tier": 4
+      },
+      {
+        "answer": "Brinolfo Algotsson",
+        "tier": 4
+      },
+      {
+        "answer": "Brogan of Ross Tuirc",
+        "tier": 4
+      },
+      {
+        "answer": "Caedmon",
+        "tier": 4
+      },
+      {
+        "answer": "Carthage the Younger",
+        "tier": 5
+      },
+      {
+        "answer": "César de Bus",
+        "tier": 5
+      },
+      {
+        "answer": "Colman Mac Ui Cluasigh of Cork",
+        "tier": 5
+      },
+      {
+        "answer": "Colman of Cloyne",
+        "tier": 5
+      },
+      {
+        "answer": "Columba of Iona",
+        "tier": 5
+      },
+      {
+        "answer": "Cosmas the Melodist",
+        "tier": 5
+      },
+      {
+        "answer": "Costanzo of Vercelli",
+        "tier": 5
+      },
+      {
+        "answer": "Donatus of Fiesoli",
+        "tier": 5
+      },
+      {
+        "answer": "Amadeus of Portugal",
+        "tier": 5
+      },
+      {
+        "answer": "Amalarius of Metz",
+        "tier": 5
+      },
+      {
+        "answer": "Anacleto González Flores",
+        "tier": 5
+      },
+      {
+        "answer": "Antonio Rosmini-Serbati",
+        "tier": 5
+      },
+      {
+        "answer": "Herman Joseph",
+        "tier": 5
+      },
+      {
+        "answer": "Henry Suso",
+        "tier": 5
+      },
+      {
+        "answer": "Peter the Venerable",
+        "tier": 5
+      },
+      {
+        "answer": "Francisco Martín Fernández de Posadas",
+        "tier": 6
+      },
+      {
+        "answer": "Frowin of Engelberg",
+        "tier": 6
+      },
+      {
+        "answer": "Fructuoso Pérez Márquez",
+        "tier": 6
+      },
+      {
+        "answer": "Fulton John Sheen",
+        "tier": 6
+      },
+      {
+        "answer": "Gennaro Maria Sarnelli",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "David",
+        "accepted": true
+      },
+      {
+        "guess": "John of the Cross",
+        "accepted": true
+      },
+      {
+        "guess": "Ephrem the Syrian",
+        "accepted": true
+      },
+      {
+        "guess": "Ambrose of Milan",
+        "accepted": true
+      },
+      {
+        "guess": "Bede the Venerable",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A theologian and hymn writer, but not included in this poet directory."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not a poet."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A parish priest, not listed as a poet."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A missionary, not listed as a poet."
+      },
+      {
+        "guess": "Teresa of Calcutta",
+        "accepted": false,
+        "reason": "A missionary sister, not listed as a poet."
+      }
+    ]
+  }
 ];
