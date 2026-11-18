@@ -4743,4 +4743,596 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-married-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was married.",
+    "context": "Many holy people were spouses and parents before, during or after their lives of public service in the Church. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Married,” 1,073 profiles: https://catholicsaints.info/saints-who-were-married/ . The answer list samples named figures in that directory, including biblical figures and later saints.",
+    "answers": [
+      {
+        "answer": "Joseph",
+        "tier": 1
+      },
+      {
+        "answer": "Mary, Mother of Jesus",
+        "tier": 1
+      },
+      {
+        "answer": "Peter the Apostle",
+        "tier": 1
+      },
+      {
+        "answer": "Monica",
+        "tier": 1
+      },
+      {
+        "answer": "Elizabeth of Hungary",
+        "tier": 1
+      },
+      {
+        "answer": "Louis IX of France",
+        "tier": 2
+      },
+      {
+        "answer": "Zélie Martin",
+        "tier": 2
+      },
+      {
+        "answer": "Louis Martin",
+        "tier": 2
+      },
+      {
+        "answer": "Thomas More",
+        "tier": 2
+      },
+      {
+        "answer": "Joanna of Chuza",
+        "tier": 2
+      },
+      {
+        "answer": "Priscilla",
+        "tier": 2
+      },
+      {
+        "answer": "Aquila",
+        "tier": 2
+      },
+      {
+        "answer": "Abraham",
+        "tier": 3
+      },
+      {
+        "answer": "Sarah",
+        "tier": 3
+      },
+      {
+        "answer": "Isaac",
+        "tier": 3
+      },
+      {
+        "answer": "Rebecca",
+        "tier": 3
+      },
+      {
+        "answer": "Jacob",
+        "tier": 3
+      },
+      {
+        "answer": "Rachel",
+        "tier": 3
+      },
+      {
+        "answer": "Leah",
+        "tier": 3
+      },
+      {
+        "answer": "Moses",
+        "tier": 3
+      },
+      {
+        "answer": "Zipporah",
+        "tier": 3
+      },
+      {
+        "answer": "David",
+        "tier": 3
+      },
+      {
+        "answer": "Bathsheba",
+        "tier": 3
+      },
+      {
+        "answer": "Elizabeth of Portugal",
+        "tier": 3
+      },
+      {
+        "answer": "Rita of Cascia",
+        "tier": 3
+      },
+      {
+        "answer": "Frances of Rome",
+        "tier": 3
+      },
+      {
+        "answer": "Bridget of Sweden",
+        "tier": 3
+      },
+      {
+        "answer": "Hedwig of Silesia",
+        "tier": 3
+      },
+      {
+        "answer": "Catherine of Genoa",
+        "tier": 4
+      },
+      {
+        "answer": "Gianna Beretta Molla",
+        "tier": 4
+      },
+      {
+        "answer": "Maria Corsini Beltrame Quattrocchi",
+        "tier": 4
+      },
+      {
+        "answer": "Louis and Zélie Martin",
+        "tier": 4
+      },
+      {
+        "answer": "Joachim",
+        "tier": 4
+      },
+      {
+        "answer": "Anne",
+        "tier": 4
+      },
+      {
+        "answer": "Mary of Cleophas",
+        "tier": 4
+      },
+      {
+        "answer": "Salome",
+        "tier": 4
+      },
+      {
+        "answer": "Cleopas",
+        "tier": 4
+      },
+      {
+        "answer": "Andronicus",
+        "tier": 4
+      },
+      {
+        "answer": "Junia",
+        "tier": 4
+      },
+      {
+        "answer": "Philemon",
+        "tier": 4
+      },
+      {
+        "answer": "Apphia",
+        "tier": 4
+      },
+      {
+        "answer": "Aquila of Sinope",
+        "tier": 4
+      },
+      {
+        "answer": "Blandina",
+        "tier": 5
+      },
+      {
+        "answer": "Felix of Nola",
+        "tier": 5
+      },
+      {
+        "answer": "Gorgonia",
+        "tier": 5
+      },
+      {
+        "answer": "Gordianus",
+        "tier": 5
+      },
+      {
+        "answer": "Gregory of Nazianzus",
+        "tier": 5
+      },
+      {
+        "answer": "Helena",
+        "tier": 5
+      },
+      {
+        "answer": "Ludmila",
+        "tier": 5
+      },
+      {
+        "answer": "Maurus of Porec",
+        "tier": 5
+      },
+      {
+        "answer": "Natalia of Nicomedia",
+        "tier": 5
+      },
+      {
+        "answer": "Paula of Rome",
+        "tier": 5
+      },
+      {
+        "answer": "Perpetua",
+        "tier": 5
+      },
+      {
+        "answer": "Theodora of Alexandria",
+        "tier": 5
+      },
+      {
+        "answer": "Valerian",
+        "tier": 5
+      },
+      {
+        "answer": "Adalbert of Ostrevant",
+        "tier": 6
+      },
+      {
+        "answer": "Adam Arakawa",
+        "tier": 6
+      },
+      {
+        "answer": "Alexius Sato Seisuke",
+        "tier": 6
+      },
+      {
+        "answer": "Álvaro Santos Cejudo Moreno Chocano",
+        "tier": 6
+      },
+      {
+        "answer": "Antero Mateo García",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Joseph",
+        "accepted": true
+      },
+      {
+        "guess": "Mary, Mother of Jesus",
+        "accepted": true
+      },
+      {
+        "guess": "Peter the Apostle",
+        "accepted": true
+      },
+      {
+        "guess": "Monica",
+        "accepted": true
+      },
+      {
+        "guess": "Elizabeth of Hungary",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Dominican friar who never married."
+      },
+      {
+        "guess": "Clare of Assisi",
+        "accepted": false,
+        "reason": "A religious sister who never married."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A Jesuit priest who never married."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Carmelite nun who never married."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A diocesan priest who never married."
+      }
+    ]
+  },
+  {
+    "id": "longtail-widow-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was a widow.",
+    "context": "Many women continued lives of prayer, charity and service after the death of a spouse. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Widows,” 223 profiles: https://catholicsaints.info/saints-who-were-widows/ . The answer list uses names from the source directory.",
+    "answers": [
+      {
+        "answer": "Adelindis of Buchau",
+        "tier": 1
+      },
+      {
+        "answer": "Alda of Siena",
+        "tier": 1
+      },
+      {
+        "answer": "Alruna of Cham",
+        "tier": 3
+      },
+      {
+        "answer": "Amalia Abad Casasempere de Maestre",
+        "tier": 5
+      },
+      {
+        "answer": "Angelina di Marsciano",
+        "tier": 3
+      },
+      {
+        "answer": "Anna Kajiya",
+        "tier": 4
+      },
+      {
+        "answer": "Anna Maria Adorni Botti",
+        "tier": 2
+      },
+      {
+        "answer": "Anna Rosa Gattorno",
+        "tier": 2
+      },
+      {
+        "answer": "Antonia of Florence",
+        "tier": 3
+      },
+      {
+        "answer": "Beatrice Bicchieri",
+        "tier": 4
+      },
+      {
+        "answer": "Bertha de Marbais",
+        "tier": 5
+      },
+      {
+        "answer": "Bertrada of Saint Gallen",
+        "tier": 5
+      },
+      {
+        "answer": "Bonizzella Cacciaconti",
+        "tier": 6
+      },
+      {
+        "answer": "Celina Chludzinska",
+        "tier": 3
+      },
+      {
+        "answer": "Christina of Spoleto",
+        "tier": 4
+      },
+      {
+        "answer": "Concepcion Cabrera de Armida",
+        "tier": 2
+      },
+      {
+        "answer": "Constance de Castro",
+        "tier": 5
+      },
+      {
+        "answer": "Delfina of Pedralbes",
+        "tier": 5
+      },
+      {
+        "answer": "Delphine of Glandèves",
+        "tier": 4
+      },
+      {
+        "answer": "Dorothy of Montau",
+        "tier": 3
+      },
+      {
+        "answer": "Ela of Lacock",
+        "tier": 4
+      },
+      {
+        "answer": "Eleanora",
+        "tier": 5
+      },
+      {
+        "answer": "Elisabetta Berti",
+        "tier": 6
+      },
+      {
+        "answer": "Elisabetta Sanna",
+        "tier": 3
+      },
+      {
+        "answer": "Émilie d’Oultremont d’Hoogvorst",
+        "tier": 5
+      },
+      {
+        "answer": "Émilie Tavernier Gamelin",
+        "tier": 3
+      },
+      {
+        "answer": "Esclaramunda of Majorca",
+        "tier": 4
+      },
+      {
+        "answer": "Eurosia Fabris",
+        "tier": 2
+      },
+      {
+        "answer": "Frances d’Amboise",
+        "tier": 4
+      },
+      {
+        "answer": "Gaetana Sterni",
+        "tier": 3
+      },
+      {
+        "answer": "Gisella of Ungarn",
+        "tier": 4
+      },
+      {
+        "answer": "Helen del Cavalcanti",
+        "tier": 5
+      },
+      {
+        "answer": "Helen Duglioli",
+        "tier": 5
+      },
+      {
+        "answer": "Helen of Poland",
+        "tier": 5
+      },
+      {
+        "answer": "Helwisa",
+        "tier": 6
+      },
+      {
+        "answer": "Hilsindis",
+        "tier": 6
+      },
+      {
+        "answer": "Humiliana de’ Cerchi",
+        "tier": 4
+      },
+      {
+        "answer": "Ida of Hohenfels",
+        "tier": 5
+      },
+      {
+        "answer": "Isabella Fernandes",
+        "tier": 6
+      },
+      {
+        "answer": "Ivetta of Huy",
+        "tier": 4
+      },
+      {
+        "answer": "Jacoba de Settesoli",
+        "tier": 3
+      },
+      {
+        "answer": "Jeanne Marie de Maille",
+        "tier": 4
+      },
+      {
+        "answer": "Louise degli Albertoni",
+        "tier": 2
+      },
+      {
+        "answer": "Louise of Savoy",
+        "tier": 4
+      },
+      {
+        "answer": "Lucrecia García Solanas",
+        "tier": 6
+      },
+      {
+        "answer": "Marcelina Darowska",
+        "tier": 3
+      },
+      {
+        "answer": "Margaret of Lorraine",
+        "tier": 3
+      },
+      {
+        "answer": "Margaret of Savoy",
+        "tier": 3
+      },
+      {
+        "answer": "Margaret Pole",
+        "tier": 2
+      },
+      {
+        "answer": "Maria Alvarez Marco",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Corsini Beltrame Quattrocchi",
+        "tier": 2
+      },
+      {
+        "answer": "Maria del Carmen of the Child Jesus",
+        "tier": 4
+      },
+      {
+        "answer": "María Lorenza Requenses de Longo",
+        "tier": 4
+      },
+      {
+        "answer": "Maria Mancini",
+        "tier": 5
+      },
+      {
+        "answer": "Maria of Haarlem",
+        "tier": 5
+      },
+      {
+        "answer": "Marianna Biernacka",
+        "tier": 3
+      },
+      {
+        "answer": "Marie de la Dive veuve du Verdier de la Sorinière",
+        "tier": 6
+      },
+      {
+        "answer": "Marie of the Incarnation",
+        "tier": 3
+      },
+      {
+        "answer": "Marie-Louise-Élisabeth de Lamoignon de Dolé de Champlâtreux",
+        "tier": 6
+      },
+      {
+        "answer": "Mary Mamala",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Monica",
+        "accepted": true
+      },
+      {
+        "guess": "Rita of Cascia",
+        "accepted": true
+      },
+      {
+        "guess": "Elizabeth of Hungary",
+        "accepted": true
+      },
+      {
+        "guess": "Frances of Rome",
+        "accepted": true
+      },
+      {
+        "guess": "Jane Frances de Chantal",
+        "accepted": true
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Carmelite nun, not a widow."
+      },
+      {
+        "guess": "Clare of Assisi",
+        "accepted": false,
+        "reason": "A religious sister, not a widow."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not a widow."
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accepted": false,
+        "reason": "A lay Dominican, not a widow."
+      },
+      {
+        "guess": "Bernadette Soubirous",
+        "accepted": false,
+        "reason": "A religious sister, not a widow."
+      }
+    ]
+  }
 ];
