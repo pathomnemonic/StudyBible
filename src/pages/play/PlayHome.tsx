@@ -11,8 +11,8 @@ interface Group { id: string; title: string; sub: string; games: Game[] }
 const G = (to: string, title: string, blurb: string, icon: string, color: string, time: string, who: string, extra: Partial<Game> = {}): Game => ({ to, title, blurb, icon, color, time, who, ...extra });
 
 const GROUPS: Group[] = [
-  { id: 'deep', title: 'Deep dives', sub: 'One answer. A little time. The less obvious, the better.', games: [
-    G('/play/deepwaters', 'Basilion', 'Seven Catholic prompts. Find a valid answer others might overlook.', '🌊', '#287d91', '4 min', 'Solo', { daily: 'deepwaters', isNew: true }),
+  { id: 'deep', title: 'Climb', sub: 'One answer. A little time. The less obvious, the higher you go.', games: [
+    G('/play/deepwaters', 'Basilion', 'Seven Catholic prompts. Find a valid answer others might overlook.', '⛪', '#7a4fb0', '4 min', 'Solo', { daily: 'deepwaters', isNew: true }),
   ] },
   { id: 'quick', title: 'Quick hits', sub: 'Two minutes or less. A new one every day.', games: [
     G('/play/verbum', 'Creedle', 'Guess the five-letter word of the faith in six tries.', '🟨', '#d4a017', '3 min', 'Solo', { daily: 'verbum' }),
@@ -49,6 +49,8 @@ const ALL = GROUPS.flatMap((g) => g.games);
 /** The games we are proudest of: two big banners, then two more tiles. */
 const BANNERS = ['/play/deepwaters', '/play/trivia'];
 const FEATURED_TILES = ['/play/cloister', '/play/verbum'];
+/** a game shown in the featured block is not listed again in its group, so no game appears twice */
+const SHOWN_ABOVE_THE_GROUPS = [...BANNERS, ...FEATURED_TILES];
 
 /** A lively front door for the games: a "play this next" banner, a Surprise me button, and colorful tiles grouped by mood. */
 export default function PlayHome() {
@@ -59,8 +61,8 @@ export default function PlayHome() {
   const streak = currentStreak();
   const totals = playTotals();
   const plays = loadPlays();
-  const heroPool = todo.filter((g) => !BANNERS.includes(g.to));
-  const featured = useMemo(() => (heroPool.length ? heroPool[Math.floor(seeded(dayIndex() + 3)() * heroPool.length)] : ALL.find((g) => g.to === '/play/cloister')!), [todo.length]); // eslint-disable-line react-hooks/exhaustive-deps
+  const heroPool = todo.filter((g) => !SHOWN_ABOVE_THE_GROUPS.includes(g.to));
+  const featured = useMemo(() => (heroPool.length ? heroPool[Math.floor(seeded(dayIndex() + 3)() * heroPool.length)] : ALL.find((g) => g.to === '/play/crossword')!), [todo.length]); // eslint-disable-line react-hooks/exhaustive-deps
   const surprise = () => { const pool = todo.length ? todo : ALL; nav(pool[Math.floor(Math.random() * pool.length)].to); };
   const lv = levelOf(totals.games, totals.days, streak);
   // reaching a new level since the last visit to this page is celebrated once (the first visit only records the level)
@@ -99,13 +101,13 @@ export default function PlayHome() {
       <div className="gp-mascot" role="note"><span className="gp-bot" aria-hidden="true"><Anim c="1f60e" size={54} /></span><p key={tip}>{TIPS[tip]}</p></div>
       <section className="gp-featured" aria-labelledby="pf-featured">
         <h2 id="pf-featured" className="gp-banner"><span>Featured</span></h2>
-        <Link to="/play/deepwaters" className="gp-dive">
+        <Link to="/play/deepwaters" className="gp-dive gp-basilion">
           <span className="gp-dive-bubbles" aria-hidden="true"><i /><i /><i /><i /><i /></span>
-          <Art n="whale" size={110} className="gp-dive-whale" />
+          <Art n="church" size={110} className="gp-dive-whale" />
           <span className="gp-dive-text">
-            <small>{dailyDone('deepwaters') ? 'Dive complete' : 'Daily dive'}</small>
+            <small>{dailyDone('deepwaters') ? 'Climb complete' : 'Daily climb'}</small>
             <strong>Basilion</strong>
-            <em>{dailyDone('deepwaters') ? `Today: ${dailyDone('deepwaters')}. Practise or come back tomorrow.` : 'Seven questions. Go deeper than everyone else.'}</em>
+            <em>{dailyDone('deepwaters') ? `Today: ${dailyDone('deepwaters')}. Practise or come back tomorrow.` : 'Seven questions. Climb higher than everyone else.'}</em>
           </span>
           <span className="gp-dive-go" aria-hidden="true">▶</span>
         </Link>
@@ -143,7 +145,7 @@ export default function PlayHome() {
           <p className="pf-hero-actions"><Link className="btn primary big" to={featured.to}>Let’s go →</Link> <button className="btn big gp-dice" onClick={surprise}><span aria-hidden="true">🎲</span> Surprise me</button></p>
         </div>
       </section>
-      {GROUPS.map((grp) => (
+      {GROUPS.map((grp) => ({ ...grp, games: grp.games.filter((g) => !SHOWN_ABOVE_THE_GROUPS.includes(g.to)) })).filter((grp) => grp.games.length).map((grp) => (
         <section key={grp.id} className="pf-group" aria-labelledby={`pf-${grp.id}`}>
           <h2 id={`pf-${grp.id}`} className="gp-banner"><span>{grp.title}</span></h2>
           <p className="muted small pf-sub">{grp.sub}</p>

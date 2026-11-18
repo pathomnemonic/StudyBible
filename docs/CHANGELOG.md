@@ -5,6 +5,11 @@
 
 
 
+
+## Games menu: no game listed twice, and Basilion is no longer dive-themed
+- A game shown in the Featured block (Basilion, Trivia Chrism, Scriggle, Creedle) is no longer listed again in its group, and the "Play this next" card never picks one of them. The empty group header is hidden.
+- The Basilion banner and tile now use the church (not a whale or a wave), a dusk sky with drifting sparks (not bubbles), and say "Daily climb" and "Climb complete" and "Climb higher than everyone else". Its group is called "Climb".
+
 ## Basilion: more motion to match the feel of the genre
 - Streaks of light rush past a rising answer so the climb feels fast.
 - A landing now pops: rarity-coloured sparks (more for a rarer answer), a bouncing result card, a spinning rarity badge and the points counting up. Red, purple and gold answers also flash the screen in their colour; purple and gold shake it and the card glows.
