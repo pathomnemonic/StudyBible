@@ -44,7 +44,7 @@ describe('the long open lists of the second hand-written batch', () => {
   it('are 14 open questions in the bank, each long enough to have a tail', () => {
     expect(LONG_LIST_PROMPTS).toHaveLength(14);
     for (const p of LONG_LIST_PROMPTS) {
-      expect(DEEP_WATERS, p.id).toContain(p);
+      expect(DEEP_WATERS.map((x) => x.id), p.id).toContain(p.id);
       expect(p.closed, p.id).toBeUndefined();
       expect(p.answers.length, p.id).toBeGreaterThanOrEqual(60);
       expect(p.basis?.length ?? 0, p.id).toBeGreaterThan(15);

@@ -11,7 +11,7 @@ describe('Basilion content', () => {
     expect(DEEP_WATERS.length).toBeGreaterThanOrEqual(70);
     expect(new Set(DEEP_WATERS.map((p) => p.id)).size).toBe(DEEP_WATERS.length);
     for (const p of DEEP_WATERS) {
-      expect(p.prompt.trim().length, p.id).toBeGreaterThan(12);
+      expect(p.prompt.trim().length, p.id).toBeGreaterThan(8); // short is good: "Name a sin."
       expect(p.context.trim().length, p.id).toBeGreaterThan(20);
       expect(p.answers.length, p.id).toBeGreaterThanOrEqual(p.closed ?? 12);
       for (const a of p.answers) expect([1, 2, 3, 4, 5, 6], `${p.id} ${a.answer}`).toContain(a.tier);
@@ -35,7 +35,7 @@ describe('Basilion content', () => {
 
   it('a prompt that names a whole set lists exactly that set', () => {
     const sizes = Object.fromEntries(DEEP_WATERS.filter((p) => p.closed && !p.derived).map((p) => [p.id, p.answers.length]));
-    expect(sizes).toEqual({ 'authored5-iam-sayings': 7, councils: 21, rites: 24, apostles: 13, doctors: 38, ntbooks: 27, otbooks: 46, mysteries: 20, sacraments: 7, virtues: 7, 'deadly-sins': 7, gifts: 7, fruits: 12, 'corporal-works': 7, 'spiritual-works': 7, plagues: 10, 'sons-of-jacob': 12, 'minor-prophets': 12, pius: 12, 'popes-20c': 9, 'holy-days': 6, 'liturgical-seasons': 5, 'seven-churches': 7 , 'authored-romans16-women': 10, 'authored-pauline-letters': 13, 'authored-women-in-acts': 8, 'authored2-vatican-ii-documents': 16, 'authored2-stations-of-the-cross': 14});
+    expect(sizes).toEqual({ 'authored6-book-of-bible': 73, 'authored6-liturgical-colors': 7, 'authored6-nt-letters-writers': 8, 'authored5-iam-sayings': 7, councils: 21, rites: 24, apostles: 13, doctors: 38, ntbooks: 27, otbooks: 46, mysteries: 20, sacraments: 7, virtues: 7, 'deadly-sins': 7, gifts: 7, fruits: 12, 'corporal-works': 7, 'spiritual-works': 7, plagues: 10, 'sons-of-jacob': 12, 'minor-prophets': 12, pius: 12, 'popes-20c': 9, 'holy-days': 6, 'liturgical-seasons': 5, 'seven-churches': 7 , 'authored-romans16-women': 10, 'authored-pauline-letters': 13, 'authored-women-in-acts': 8, 'authored2-vatican-ii-documents': 16, 'authored2-stations-of-the-cross': 14});
     for (const p of DEEP_WATERS.filter((x) => x.closed)) expect(p.answers.length, p.id).toBe(p.closed);
   });
 

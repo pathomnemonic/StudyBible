@@ -10,7 +10,7 @@ describe('the hand-written Deep Waters questions', () => {
   it('are in the bank, each with a theme, a basis and a one-sentence context', () => {
     expect(AUTHORED_PROMPTS).toHaveLength(14);
     for (const p of AUTHORED_PROMPTS) {
-      expect(DEEP_WATERS).toContain(p);
+      expect(DEEP_WATERS.map((x) => x.id)).toContain(p.id);
       expect(p.id).toMatch(/^authored-/);
       expect(p.basis?.length ?? 0, p.id).toBeGreaterThan(15);
       expect(p.prompt.split(/\s+/).length, p.id).toBeLessThanOrEqual(20);

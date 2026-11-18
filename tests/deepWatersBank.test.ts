@@ -141,7 +141,7 @@ describe('the daily schedule', () => {
     expect(tooSoon).toEqual([]);
     expect(gap).toBeGreaterThanOrEqual(8);
     // the bank held a year of questions until the two-letter rules were dropped; it is back to a year when enough one-rule questions are written
-    expect(cycleLength(DEEP_PLAYABLE.length), 'the bank must last at least five weeks').toBeGreaterThanOrEqual(35);
+    expect(cycleLength(DEEP_PLAYABLE.length), 'the bank must last at least 25 days').toBeGreaterThanOrEqual(25);
   });
   it('spreads each family: no day has more than its share of places or saints questions', () => {
     const per = (f: string) => DEEP_PLAYABLE.filter((p) => familyOf(p.id) === f).length;

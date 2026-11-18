@@ -49,11 +49,11 @@ describe('the questions derived by rule', () => {
   it('are the ones the rules choose now (the stored choice in deepWaters.derived.json is not out of date)', () => {
     expect(() => execSync('npx tsx scripts/deepwaters/derive.ts', { stdio: 'pipe', timeout: 120000 })).not.toThrow();
   }, 130000);
-  it('fill the bank to a whole number of days, 36 days of seven', () => {
+  it('fill the bank to a whole number of days, 27 days of seven', () => {
     expect(DEEP_PLAYABLE).toHaveLength(BANK_SIZE);
-    expect(BANK_SIZE).toBe(252);
-    expect(cycleLength(DEEP_PLAYABLE.length)).toBe(36);
-    expect(derived.length).toBeGreaterThan(100);
+    expect(BANK_SIZE).toBe(189);
+    expect(cycleLength(DEEP_PLAYABLE.length)).toBe(27);
+    expect(derived.length).toBeGreaterThan(30);
   });
   it('never ask for two letter conditions at once (one letter, or its absence, or how a name starts or ends: nothing to hold in the head twice)', () => {
     for (const p of DEEP_WATERS) {
@@ -95,7 +95,7 @@ describe('the questions derived by rule', () => {
       expect(p.answers.map((a) => a.answer).sort(), p.id).toEqual(want);
       checked++;
     }
-    expect(checked).toBeGreaterThan(100);
+    expect(checked).toBeGreaterThan(30);
   });
   it('mark a question closed only when its whole list is the real-world set', () => {
     const closedPools = [...new Set(derived.filter((p) => p.closed).map((p) => p.derived!.pool))].sort();

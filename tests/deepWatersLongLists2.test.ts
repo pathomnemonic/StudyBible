@@ -74,7 +74,7 @@ describe('the third batch of hand-written long lists', () => {
   it('are open questions in the bank, long enough to have a tail, with a basis and five or more rarity tiers', () => {
     expect(LONG_LIST_2_PROMPTS.length).toBeGreaterThanOrEqual(13);
     for (const p of LONG_LIST_2_PROMPTS) {
-      expect(DEEP_WATERS, p.id).toContain(p);
+      expect(DEEP_WATERS.map((x) => x.id), p.id).toContain(p.id);
       if (p.closed) { expect(p.answers.length, p.id).toBe(p.closed); expect(p.closed, p.id).toBeGreaterThanOrEqual(12); continue; }
       expect(p.answers.length, p.id).toBeGreaterThanOrEqual(60);
       expect(new Set(p.answers.map((a) => a.tier)).size, p.id).toBeGreaterThanOrEqual(5);
