@@ -13035,4 +13035,1789 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-saints-mexico",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with Mexico.",
+    "context": "Mexico’s saints and blesseds include early missionaries, Indigenous converts, Cristero martyrs, founders and modern witnesses. This open list is not complete.",
+    "basis": "GCatholic, Saints and Blesseds of Mexico (35 saints and 26 blesseds): https://gcatholic.org/saints/data/country-MX.htm . Association is based on birthplace and/or death place.",
+    "answers": [
+      {
+        "answer": "Juan Diego Cuauhtlatoatzin",
+        "tier": 1
+      },
+      {
+        "answer": "Felipe de Jesús",
+        "tier": 1
+      },
+      {
+        "answer": "Sebastián de Aparicio",
+        "tier": 1
+      },
+      {
+        "answer": "Rafael Guízar y Valencia",
+        "tier": 1
+      },
+      {
+        "answer": "José Luis Sánchez del Río",
+        "tier": 1
+      },
+      {
+        "answer": "Cristóbal Magallanes Jara",
+        "tier": 2
+      },
+      {
+        "answer": "José María de Yermo y Parres",
+        "tier": 2
+      },
+      {
+        "answer": "María Concepción Cabrera de Armida",
+        "tier": 2
+      },
+      {
+        "answer": "María de Jesús Sacramentado",
+        "tier": 2
+      },
+      {
+        "answer": "María Inés Teresa del Santísimo Sacramento",
+        "tier": 2
+      },
+      {
+        "answer": "Moisés Lira Serafín",
+        "tier": 2
+      },
+      {
+        "answer": "Miguel Gómez Loza",
+        "tier": 2
+      },
+      {
+        "answer": "David Galván Bermúdez",
+        "tier": 3
+      },
+      {
+        "answer": "David Roldán Lara",
+        "tier": 3
+      },
+      {
+        "answer": "Luis Batis Sáinz",
+        "tier": 3
+      },
+      {
+        "answer": "Manuel Morales",
+        "tier": 3
+      },
+      {
+        "answer": "Salvador Lara Puente",
+        "tier": 3
+      },
+      {
+        "answer": "Agustín Caloca Cortés",
+        "tier": 3
+      },
+      {
+        "answer": "David Uribe Velasco",
+        "tier": 3
+      },
+      {
+        "answer": "Jenaro Sánchez Delgadillo",
+        "tier": 3
+      },
+      {
+        "answer": "José Isabel Flores Varela",
+        "tier": 3
+      },
+      {
+        "answer": "José María Robles Hurtado",
+        "tier": 3
+      },
+      {
+        "answer": "Julio Álvarez Mendoza",
+        "tier": 3
+      },
+      {
+        "answer": "Margarito Flores García",
+        "tier": 3
+      },
+      {
+        "answer": "Mateo Correa Magallanes",
+        "tier": 4
+      },
+      {
+        "answer": "Miguel de la Mora y de la Mora",
+        "tier": 4
+      },
+      {
+        "answer": "Pedro Esqueda Ramírez",
+        "tier": 4
+      },
+      {
+        "answer": "Rodrigo Aguilar Alemán",
+        "tier": 4
+      },
+      {
+        "answer": "Román Adame Rosales",
+        "tier": 4
+      },
+      {
+        "answer": "Sabás Reyes Salazar",
+        "tier": 4
+      },
+      {
+        "answer": "Anacleto González Flores",
+        "tier": 4
+      },
+      {
+        "answer": "Andrés Solá Molist",
+        "tier": 4
+      },
+      {
+        "answer": "Antonio Pérez Larios",
+        "tier": 4
+      },
+      {
+        "answer": "Ezequiel Huerta Gutiérrez",
+        "tier": 4
+      },
+      {
+        "answer": "Jorge Vargas González",
+        "tier": 4
+      },
+      {
+        "answer": "José Ramón Miguel Agustín Pro Juárez",
+        "tier": 4
+      },
+      {
+        "answer": "José Trinidad Rangel Montaño",
+        "tier": 4
+      },
+      {
+        "answer": "Luis Padilla Gómez",
+        "tier": 4
+      },
+      {
+        "answer": "Ramón Vargas González",
+        "tier": 4
+      },
+      {
+        "answer": "Salvador Huerta Gutiérrez",
+        "tier": 5
+      },
+      {
+        "answer": "Atilano Cruz Alvarado",
+        "tier": 5
+      },
+      {
+        "answer": "Jesús Méndez Montoya",
+        "tier": 5
+      },
+      {
+        "answer": "Justino Orona Madrigal",
+        "tier": 5
+      },
+      {
+        "answer": "Toribio Romo González",
+        "tier": 5
+      },
+      {
+        "answer": "Tranquilino Ubiarco Robles",
+        "tier": 5
+      },
+      {
+        "answer": "Elías del Socorro",
+        "tier": 5
+      },
+      {
+        "answer": "Luis Magaña Servín",
+        "tier": 5
+      },
+      {
+        "answer": "Ángel Darío Acosta Zurita",
+        "tier": 5
+      },
+      {
+        "answer": "José María Escoto Ruiz",
+        "tier": 5
+      },
+      {
+        "answer": "Reginaldo Hernández Ramírez",
+        "tier": 5
+      },
+      {
+        "answer": "Pedro de Jesús Maldonado Lucero",
+        "tier": 5
+      },
+      {
+        "answer": "María Vicenta de Santa Dorotea",
+        "tier": 5
+      },
+      {
+        "answer": "María Guadalupe",
+        "tier": 5
+      },
+      {
+        "answer": "María del Carmen",
+        "tier": 5
+      },
+      {
+        "answer": "Antonio",
+        "tier": 6
+      },
+      {
+        "answer": "Juan",
+        "tier": 6
+      },
+      {
+        "answer": "Bartolomé Díaz Laurel",
+        "tier": 6
+      },
+      {
+        "answer": "Bartolomé Gutiérrez Rodríguez",
+        "tier": 6
+      },
+      {
+        "answer": "Jacinto de los Ángeles",
+        "tier": 6
+      },
+      {
+        "answer": "Juan Bautista",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Juan Diego Cuauhtlatoatzin",
+        "accepted": true
+      },
+      {
+        "guess": "Felipe de Jesús",
+        "accepted": true
+      },
+      {
+        "guess": "Sebastián de Aparicio",
+        "accepted": true
+      },
+      {
+        "guess": "Rafael Guízar y Valencia",
+        "accepted": true
+      },
+      {
+        "guess": "José Luis Sánchez del Río",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      }
+    ],
+    "reviewFlags": []
+  },
+  {
+    "id": "longtail-saints-belgium",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with Belgium.",
+    "context": "Belgium’s saints and blesseds include missionaries, bishops, abbesses, martyrs and medieval religious figures. This open list is not complete.",
+    "basis": "GCatholic, Saints and Blesseds of Belgium: https://gcatholic.org/saints/data/country-BE.htm . Association is based on birthplace and/or death place.",
+    "answers": [
+      {
+        "answer": "Martin de Tongres",
+        "tier": 1
+      },
+      {
+        "answer": "Piat de Tournai",
+        "tier": 1
+      },
+      {
+        "answer": "Chrysolius the Armenian",
+        "tier": 1
+      },
+      {
+        "answer": "Maternus of Cologne",
+        "tier": 1
+      },
+      {
+        "answer": "Servais de Tongres",
+        "tier": 1
+      },
+      {
+        "answer": "Bavo of Ghent",
+        "tier": 2
+      },
+      {
+        "answer": "Gertrude of Nivelles",
+        "tier": 2
+      },
+      {
+        "answer": "Dymphna",
+        "tier": 2
+      },
+      {
+        "answer": "Hubert of Liège",
+        "tier": 2
+      },
+      {
+        "answer": "Rumoldus of Mechelen",
+        "tier": 2
+      },
+      {
+        "answer": "Landelin of Lobbes",
+        "tier": 2
+      },
+      {
+        "answer": "Vincent Madelgaire",
+        "tier": 2
+      },
+      {
+        "answer": "Agricola of Tongeren",
+        "tier": 3
+      },
+      {
+        "answer": "Ursicinus of Tongeren",
+        "tier": 3
+      },
+      {
+        "answer": "Designatus",
+        "tier": 3
+      },
+      {
+        "answer": "Resignatus",
+        "tier": 3
+      },
+      {
+        "answer": "Sulpitius",
+        "tier": 3
+      },
+      {
+        "answer": "Quirillus",
+        "tier": 3
+      },
+      {
+        "answer": "Eucherius of Maastricht",
+        "tier": 3
+      },
+      {
+        "answer": "Falco",
+        "tier": 3
+      },
+      {
+        "answer": "Eucharius of Maastricht",
+        "tier": 3
+      },
+      {
+        "answer": "Éleuthère de Tournai",
+        "tier": 3
+      },
+      {
+        "answer": "Domitien",
+        "tier": 3
+      },
+      {
+        "answer": "Helier",
+        "tier": 3
+      },
+      {
+        "answer": "Monon",
+        "tier": 4
+      },
+      {
+        "answer": "Achaire de Noyon",
+        "tier": 4
+      },
+      {
+        "answer": "Monon de Nassogne",
+        "tier": 4
+      },
+      {
+        "answer": "Landelin de Lobbes",
+        "tier": 4
+      },
+      {
+        "answer": "Foillan",
+        "tier": 4
+      },
+      {
+        "answer": "Livinus of Ghent",
+        "tier": 4
+      },
+      {
+        "answer": "Éloi de Noyon",
+        "tier": 4
+      },
+      {
+        "answer": "Landoaldus of Maastricht",
+        "tier": 4
+      },
+      {
+        "answer": "Remacle de Stavelot",
+        "tier": 4
+      },
+      {
+        "answer": "Trudo",
+        "tier": 4
+      },
+      {
+        "answer": "Bertuin de Malonne",
+        "tier": 4
+      },
+      {
+        "answer": "Truiden",
+        "tier": 4
+      },
+      {
+        "answer": "Tillo of Solignac",
+        "tier": 4
+      },
+      {
+        "answer": "Goedele of Brussels",
+        "tier": 4
+      },
+      {
+        "answer": "Ursmer of Lobbes",
+        "tier": 4
+      },
+      {
+        "answer": "Bérégise d’Andage",
+        "tier": 5
+      },
+      {
+        "answer": "Ermin de Lobbes",
+        "tier": 5
+      },
+      {
+        "answer": "Frédegand de Deurne",
+        "tier": 5
+      },
+      {
+        "answer": "Eucher d’Orléans",
+        "tier": 5
+      },
+      {
+        "answer": "Harlindis of Maaseik",
+        "tier": 5
+      },
+      {
+        "answer": "Floribert",
+        "tier": 5
+      },
+      {
+        "answer": "Gerulf of Drongen",
+        "tier": 5
+      },
+      {
+        "answer": "Relindis of Maaseik",
+        "tier": 5
+      },
+      {
+        "answer": "Théodulphe de Lobbes",
+        "tier": 5
+      },
+      {
+        "answer": "Dodon de Wallers",
+        "tier": 5
+      },
+      {
+        "answer": "Hilduard",
+        "tier": 5
+      },
+      {
+        "answer": "Amelberga of Temse",
+        "tier": 5
+      },
+      {
+        "answer": "Gummarus of Lier",
+        "tier": 5
+      },
+      {
+        "answer": "Hiltrude de Liesse",
+        "tier": 5
+      },
+      {
+        "answer": "Theodard of Liège",
+        "tier": 5
+      },
+      {
+        "answer": "Amandus of Maastricht",
+        "tier": 6
+      },
+      {
+        "answer": "Wiro of Roermond",
+        "tier": 6
+      },
+      {
+        "answer": "Plechelmus",
+        "tier": 6
+      },
+      {
+        "answer": "Adelbert of Egmond",
+        "tier": 6
+      },
+      {
+        "answer": "Lebuinus of Deventer",
+        "tier": 6
+      },
+      {
+        "answer": "Radbod of Utrecht",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Martin de Tongres",
+        "accepted": true
+      },
+      {
+        "guess": "Piat de Tournai",
+        "accepted": true
+      },
+      {
+        "guess": "Chrysolius the Armenian",
+        "accepted": true
+      },
+      {
+        "guess": "Maternus of Cologne",
+        "accepted": true
+      },
+      {
+        "guess": "Servais de Tongres",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      }
+    ],
+    "reviewFlags": []
+  },
+  {
+    "id": "longtail-saints-netherlands",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with the Netherlands.",
+    "context": "The Netherlands’ saints and blesseds include early missionaries, bishops, martyrs and modern witnesses. This open list is not complete.",
+    "basis": "GCatholic, Saints and Blesseds of the Netherlands: https://gcatholic.org/saints/data/country-NL.htm . Association is based on birthplace and/or death place.",
+    "answers": [
+      {
+        "answer": "Willibrord",
+        "tier": 1
+      },
+      {
+        "answer": "Boniface",
+        "tier": 1
+      },
+      {
+        "answer": "Peter Canisius",
+        "tier": 1
+      },
+      {
+        "answer": "Servais de Tongres",
+        "tier": 1
+      },
+      {
+        "answer": "Lambert of Maastricht",
+        "tier": 1
+      },
+      {
+        "answer": "Lebuinus of Deventer",
+        "tier": 2
+      },
+      {
+        "answer": "Radbod of Utrecht",
+        "tier": 2
+      },
+      {
+        "answer": "Ansfried of Utrecht",
+        "tier": 2
+      },
+      {
+        "answer": "Bernold of Utrecht",
+        "tier": 2
+      },
+      {
+        "answer": "Frederik of Utrecht",
+        "tier": 2
+      },
+      {
+        "answer": "Gerlach of Houthem",
+        "tier": 2
+      },
+      {
+        "answer": "Lidwina of Schiedam",
+        "tier": 2
+      },
+      {
+        "answer": "Monulphe of Maastricht",
+        "tier": 3
+      },
+      {
+        "answer": "Benignus of Utrecht",
+        "tier": 3
+      },
+      {
+        "answer": "Gondulphe",
+        "tier": 3
+      },
+      {
+        "answer": "Perpète de Maastricht",
+        "tier": 3
+      },
+      {
+        "answer": "Jean L’Agneau",
+        "tier": 3
+      },
+      {
+        "answer": "Remacle of Stavelot",
+        "tier": 3
+      },
+      {
+        "answer": "Théodard of Maastricht",
+        "tier": 3
+      },
+      {
+        "answer": "Amandus of Maastricht",
+        "tier": 3
+      },
+      {
+        "answer": "Wiro of Roermond",
+        "tier": 3
+      },
+      {
+        "answer": "Tillo of Solignac",
+        "tier": 3
+      },
+      {
+        "answer": "Oda of Scotland",
+        "tier": 3
+      },
+      {
+        "answer": "Otger",
+        "tier": 3
+      },
+      {
+        "answer": "Plechelmus",
+        "tier": 4
+      },
+      {
+        "answer": "Adelbert of Egmond",
+        "tier": 4
+      },
+      {
+        "answer": "Adalar of Erfurt",
+        "tier": 4
+      },
+      {
+        "answer": "Bosa of York",
+        "tier": 4
+      },
+      {
+        "answer": "Eoban of Utrecht",
+        "tier": 4
+      },
+      {
+        "answer": "Gundekar",
+        "tier": 4
+      },
+      {
+        "answer": "Hamund",
+        "tier": 4
+      },
+      {
+        "answer": "Hathawulf",
+        "tier": 4
+      },
+      {
+        "answer": "Scirebald",
+        "tier": 4
+      },
+      {
+        "answer": "Waccar",
+        "tier": 4
+      },
+      {
+        "answer": "Walter of Utrecht",
+        "tier": 4
+      },
+      {
+        "answer": "Wintrung",
+        "tier": 4
+      },
+      {
+        "answer": "Marcellinus of Deventer",
+        "tier": 4
+      },
+      {
+        "answer": "Gregory of Utrecht",
+        "tier": 4
+      },
+      {
+        "answer": "Odrada of Alem",
+        "tier": 4
+      },
+      {
+        "answer": "Odulfus of Utrecht",
+        "tier": 5
+      },
+      {
+        "answer": "Jeroen of Noordwijk",
+        "tier": 5
+      },
+      {
+        "answer": "Odwulf of Evesham",
+        "tier": 5
+      },
+      {
+        "answer": "Hunger of Utrecht",
+        "tier": 5
+      },
+      {
+        "answer": "Gerulf of Drongen",
+        "tier": 5
+      },
+      {
+        "answer": "Siard of Friesland",
+        "tier": 5
+      },
+      {
+        "answer": "Ida of Louvain",
+        "tier": 5
+      },
+      {
+        "answer": "Adrianus of Hilvarenbeek",
+        "tier": 5
+      },
+      {
+        "answer": "Andreas Wouters",
+        "tier": 5
+      },
+      {
+        "answer": "Antonius van Hoornaar",
+        "tier": 5
+      },
+      {
+        "answer": "Antonius van Weert",
+        "tier": 5
+      },
+      {
+        "answer": "Cornelius van Wijk",
+        "tier": 5
+      },
+      {
+        "answer": "Franciscus de Roye",
+        "tier": 5
+      },
+      {
+        "answer": "Godefried of Duynen",
+        "tier": 5
+      },
+      {
+        "answer": "Godefried of Melveren",
+        "tier": 5
+      },
+      {
+        "answer": "Hieronymus van Weert",
+        "tier": 6
+      },
+      {
+        "answer": "Jacobus Lacops",
+        "tier": 6
+      },
+      {
+        "answer": "Joannes Lenaerts",
+        "tier": 6
+      },
+      {
+        "answer": "Johannes Heer",
+        "tier": 6
+      },
+      {
+        "answer": "Leonardus van Veghel",
+        "tier": 6
+      },
+      {
+        "answer": "Nicasius Janssen van Heeze",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Willibrord",
+        "accepted": true
+      },
+      {
+        "guess": "Boniface",
+        "accepted": true
+      },
+      {
+        "guess": "Peter Canisius",
+        "accepted": true
+      },
+      {
+        "guess": "Servais de Tongres",
+        "accepted": true
+      },
+      {
+        "guess": "Lambert of Maastricht",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      }
+    ],
+    "reviewFlags": []
+  },
+  {
+    "id": "longtail-saints-england",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with England.",
+    "context": "England’s saints and blesseds include early British Christians, Anglo-Saxon kings, missionaries, abbesses and martyrs. This open list is not complete.",
+    "basis": "GCatholic, Saints and Blesseds of England: https://gcatholic.org/saints/data/country-QE.htm . Association is based on birthplace and/or death place.",
+    "answers": [
+      {
+        "answer": "Alban",
+        "tier": 1
+      },
+      {
+        "answer": "Augustine of Canterbury",
+        "tier": 1
+      },
+      {
+        "answer": "Bede the Venerable",
+        "tier": 1
+      },
+      {
+        "answer": "Cuthbert",
+        "tier": 1
+      },
+      {
+        "answer": "Etheldreda",
+        "tier": 1
+      },
+      {
+        "answer": "Patrick",
+        "tier": 2
+      },
+      {
+        "answer": "Aidan of Lindisfarne",
+        "tier": 2
+      },
+      {
+        "answer": "Benedict Biscop",
+        "tier": 2
+      },
+      {
+        "answer": "Wilfrid",
+        "tier": 2
+      },
+      {
+        "answer": "Edmund of East Anglia",
+        "tier": 2
+      },
+      {
+        "answer": "Swithun",
+        "tier": 2
+      },
+      {
+        "answer": "Margaret of Scotland",
+        "tier": 2
+      },
+      {
+        "answer": "Lucius of Britain",
+        "tier": 3
+      },
+      {
+        "answer": "Augulus",
+        "tier": 3
+      },
+      {
+        "answer": "Aaron of Caerleon",
+        "tier": 3
+      },
+      {
+        "answer": "Julius of Caerleon",
+        "tier": 3
+      },
+      {
+        "answer": "Gwinear",
+        "tier": 3
+      },
+      {
+        "answer": "Illtud",
+        "tier": 3
+      },
+      {
+        "answer": "Dyfrig",
+        "tier": 3
+      },
+      {
+        "answer": "Petroc",
+        "tier": 3
+      },
+      {
+        "answer": "Constantine of Dumnonia",
+        "tier": 3
+      },
+      {
+        "answer": "Teilo",
+        "tier": 3
+      },
+      {
+        "answer": "Æthelberht of Kent",
+        "tier": 3
+      },
+      {
+        "answer": "Laurence of Canterbury",
+        "tier": 3
+      },
+      {
+        "answer": "Mellitus of Canterbury",
+        "tier": 4
+      },
+      {
+        "answer": "Justus of Canterbury",
+        "tier": 4
+      },
+      {
+        "answer": "Malo of Brittany",
+        "tier": 4
+      },
+      {
+        "answer": "Oswald of Northumbria",
+        "tier": 4
+      },
+      {
+        "answer": "Paulinus of York",
+        "tier": 4
+      },
+      {
+        "answer": "Felix of Burgundy",
+        "tier": 4
+      },
+      {
+        "answer": "Birinus of Dorchester",
+        "tier": 4
+      },
+      {
+        "answer": "Oswine of Deira",
+        "tier": 4
+      },
+      {
+        "answer": "Honorius of Canterbury",
+        "tier": 4
+      },
+      {
+        "answer": "Ithamar of Rochester",
+        "tier": 4
+      },
+      {
+        "answer": "Finan of Lindisfarne",
+        "tier": 4
+      },
+      {
+        "answer": "Cedd",
+        "tier": 4
+      },
+      {
+        "answer": "Deusdedit of Canterbury",
+        "tier": 4
+      },
+      {
+        "answer": "Tudda",
+        "tier": 4
+      },
+      {
+        "answer": "Chad of Mercia",
+        "tier": 4
+      },
+      {
+        "answer": "Colmán of Lindisfarne",
+        "tier": 5
+      },
+      {
+        "answer": "Mildgyth",
+        "tier": 5
+      },
+      {
+        "answer": "Kyneburgha",
+        "tier": 5
+      },
+      {
+        "answer": "Bega",
+        "tier": 5
+      },
+      {
+        "answer": "Eata of Hexham",
+        "tier": 5
+      },
+      {
+        "answer": "Æthelburh of Barking",
+        "tier": 5
+      },
+      {
+        "answer": "Theodore of Tarsus",
+        "tier": 5
+      },
+      {
+        "answer": "Ywi of Lindisfarne",
+        "tier": 5
+      },
+      {
+        "answer": "Erkenwald",
+        "tier": 5
+      },
+      {
+        "answer": "Sæbbi of Essex",
+        "tier": 5
+      },
+      {
+        "answer": "Eadberht of Lindisfarne",
+        "tier": 5
+      },
+      {
+        "answer": "Werburgh",
+        "tier": 5
+      },
+      {
+        "answer": "Osgyth",
+        "tier": 5
+      },
+      {
+        "answer": "Bosa of York",
+        "tier": 5
+      },
+      {
+        "answer": "Hædde of Winchester",
+        "tier": 5
+      },
+      {
+        "answer": "Aldhelm of Sherborne",
+        "tier": 6
+      },
+      {
+        "answer": "Suitbert of Kaiserswerth",
+        "tier": 6
+      },
+      {
+        "answer": "Guthlac of Crowland",
+        "tier": 6
+      },
+      {
+        "answer": "Hildelith of Barking",
+        "tier": 6
+      },
+      {
+        "answer": "Egwin of Evesham",
+        "tier": 6
+      },
+      {
+        "answer": "Frithuswith of Oxford",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Alban",
+        "accepted": true
+      },
+      {
+        "guess": "Augustine of Canterbury",
+        "accepted": true
+      },
+      {
+        "guess": "Bede the Venerable",
+        "accepted": true
+      },
+      {
+        "guess": "Cuthbert",
+        "accepted": true
+      },
+      {
+        "guess": "Etheldreda",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      }
+    ],
+    "reviewFlags": []
+  },
+  {
+    "id": "longtail-chinese-martyrs",
+    "theme": "saints",
+    "prompt": "Name a martyr of China.",
+    "context": "The Catholic martyrs of China include Chinese laypeople, priests and religious as well as foreign missionaries. This open list samples the canonized 120 Martyrs of China; it is not complete.",
+    "basis": "The named roll of the 120 Martyrs of China, canonized together on 1 October 2000: https://miraculousmiracles.org/martyrs/ . Names follow the published roll; transliteration variants are normalized in aliases where appropriate.",
+    "answers": [
+      {
+        "answer": "Augustine Zhao Rong",
+        "tier": 1
+      },
+      {
+        "answer": "Agnes Cao Guiying",
+        "tier": 1
+      },
+      {
+        "answer": "John of Triora",
+        "tier": 1
+      },
+      {
+        "answer": "Paul Liu Hanzuo",
+        "tier": 1
+      },
+      {
+        "answer": "John Gabriel Perboyre",
+        "tier": 1
+      },
+      {
+        "answer": "Francis Regis Clet",
+        "tier": 2
+      },
+      {
+        "answer": "Peter Sanz",
+        "tier": 2
+      },
+      {
+        "answer": "Francis Serrano",
+        "tier": 2
+      },
+      {
+        "answer": "Joachim Royo",
+        "tier": 2
+      },
+      {
+        "answer": "John Alcober",
+        "tier": 2
+      },
+      {
+        "answer": "Francis Diaz",
+        "tier": 2
+      },
+      {
+        "answer": "Peter Wu Guosheng",
+        "tier": 2
+      },
+      {
+        "answer": "Joseph Zhang Dapeng",
+        "tier": 3
+      },
+      {
+        "answer": "Gabriel-Taurin Dufresse",
+        "tier": 3
+      },
+      {
+        "answer": "Joseph Yuan",
+        "tier": 3
+      },
+      {
+        "answer": "Thaddeus Liu",
+        "tier": 3
+      },
+      {
+        "answer": "Peter Liu",
+        "tier": 3
+      },
+      {
+        "answer": "Joachim Ho",
+        "tier": 3
+      },
+      {
+        "answer": "Auguste Chapdelaine",
+        "tier": 3
+      },
+      {
+        "answer": "Lawrence Bai Xiaoman",
+        "tier": 3
+      },
+      {
+        "answer": "Jerome Lu Tingmei",
+        "tier": 3
+      },
+      {
+        "answer": "Laurence Wang Bing",
+        "tier": 3
+      },
+      {
+        "answer": "Agatha Lin",
+        "tier": 3
+      },
+      {
+        "answer": "Joseph Zhang Wenlan",
+        "tier": 3
+      },
+      {
+        "answer": "Paul Chen Changpin",
+        "tier": 4
+      },
+      {
+        "answer": "John Baptist Luo Tingyin",
+        "tier": 4
+      },
+      {
+        "answer": "Martha Wang Luo Mande",
+        "tier": 4
+      },
+      {
+        "answer": "Jean-Pierre Néel",
+        "tier": 4
+      },
+      {
+        "answer": "Martin Wu Xuesheng",
+        "tier": 4
+      },
+      {
+        "answer": "John Zhang Tianshen",
+        "tier": 4
+      },
+      {
+        "answer": "John Chen Xianheng",
+        "tier": 4
+      },
+      {
+        "answer": "Lucy Yi Zhenmei",
+        "tier": 4
+      },
+      {
+        "answer": "Gregorio Grassi",
+        "tier": 4
+      },
+      {
+        "answer": "Francis Fogolla",
+        "tier": 4
+      },
+      {
+        "answer": "Elias Facchini",
+        "tier": 4
+      },
+      {
+        "answer": "Théodoric Balat",
+        "tier": 4
+      },
+      {
+        "answer": "Andrew Bauer",
+        "tier": 4
+      },
+      {
+        "answer": "Anthony Fantosati",
+        "tier": 4
+      },
+      {
+        "answer": "Joseph Mary Gambaro",
+        "tier": 4
+      },
+      {
+        "answer": "Cesidio Giacomantonio",
+        "tier": 5
+      },
+      {
+        "answer": "Mary Hermina of Jesus",
+        "tier": 5
+      },
+      {
+        "answer": "Marie de la Paix Giuliani",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Chiara Nanetti",
+        "tier": 5
+      },
+      {
+        "answer": "Marie of Saint Natalie",
+        "tier": 5
+      },
+      {
+        "answer": "Marie of Saint Just",
+        "tier": 5
+      },
+      {
+        "answer": "Marie-Adolphine",
+        "tier": 5
+      },
+      {
+        "answer": "Mary Amandina",
+        "tier": 5
+      },
+      {
+        "answer": "John Zhang Huan",
+        "tier": 5
+      },
+      {
+        "answer": "Patrick Dong Bodi",
+        "tier": 5
+      },
+      {
+        "answer": "John Wang Rui",
+        "tier": 5
+      },
+      {
+        "answer": "Philip Zhang Zhihe",
+        "tier": 5
+      },
+      {
+        "answer": "John Zhang Jingguang",
+        "tier": 5
+      },
+      {
+        "answer": "Thomas Shen Jihe",
+        "tier": 5
+      },
+      {
+        "answer": "Simon Qin Chunfu",
+        "tier": 5
+      },
+      {
+        "answer": "Peter Wu Anbang",
+        "tier": 6
+      },
+      {
+        "answer": "Chi Zhuzi",
+        "tier": 6
+      },
+      {
+        "answer": "Francis Zhang Rong",
+        "tier": 6
+      },
+      {
+        "answer": "Matthew Feng De",
+        "tier": 6
+      },
+      {
+        "answer": "Peter Zhang Banniu",
+        "tier": 6
+      },
+      {
+        "answer": "James Yan Guodong",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Augustine Zhao Rong",
+        "accepted": true
+      },
+      {
+        "guess": "Agnes Cao Guiying",
+        "accepted": true
+      },
+      {
+        "guess": "John of Triora",
+        "accepted": true
+      },
+      {
+        "guess": "Paul Liu Hanzuo",
+        "accepted": true
+      },
+      {
+        "guess": "John Gabriel Perboyre",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      }
+    ],
+    "reviewFlags": []
+  },
+  {
+    "id": "longtail-eucharistic-miracles",
+    "theme": "devotion",
+    "prompt": "Name a reported Eucharistic miracle.",
+    "context": "Reports of extraordinary events associated with the Eucharist appear in Catholic devotional history around the world. This open list samples the Carlo Acutis exhibition catalogue; inclusion in a catalogue does not imply that every report has the same ecclesiastical status.",
+    "basis": "Carlo Acutis, “The Eucharistic Miracles of the World” exhibition catalogue: https://www.miracolieucaristici.org/en/Liste/list.html ; Archdiocese of Sydney, Eucharistic Miracles: https://www.sydneycatholic.org/eucharistic-miracles/ .",
+    "answers": [
+      {
+        "answer": "Lanciano",
+        "tier": 1
+      },
+      {
+        "answer": "Bolsena-Orvieto",
+        "tier": 1
+      },
+      {
+        "answer": "Santarém",
+        "tier": 1
+      },
+      {
+        "answer": "Buenos Aires",
+        "tier": 1
+      },
+      {
+        "answer": "Sokółka",
+        "tier": 1
+      },
+      {
+        "answer": "Legnica",
+        "tier": 2
+      },
+      {
+        "answer": "Tixtla",
+        "tier": 2
+      },
+      {
+        "answer": "Ludbreg",
+        "tier": 2
+      },
+      {
+        "answer": "Turin",
+        "tier": 2
+      },
+      {
+        "answer": "Siena",
+        "tier": 2
+      },
+      {
+        "answer": "Rimini",
+        "tier": 2
+      },
+      {
+        "answer": "Ferrara",
+        "tier": 2
+      },
+      {
+        "answer": "Alatri",
+        "tier": 3
+      },
+      {
+        "answer": "Offida",
+        "tier": 3
+      },
+      {
+        "answer": "Macerata",
+        "tier": 3
+      },
+      {
+        "answer": "Morrovalle",
+        "tier": 3
+      },
+      {
+        "answer": "Gruaro",
+        "tier": 3
+      },
+      {
+        "answer": "Veroli",
+        "tier": 3
+      },
+      {
+        "answer": "Trani",
+        "tier": 3
+      },
+      {
+        "answer": "Florence",
+        "tier": 3
+      },
+      {
+        "answer": "Bagno di Romagna",
+        "tier": 3
+      },
+      {
+        "answer": "Canosio",
+        "tier": 3
+      },
+      {
+        "answer": "Dronero",
+        "tier": 3
+      },
+      {
+        "answer": "Fiecht",
+        "tier": 3
+      },
+      {
+        "answer": "Seefeld",
+        "tier": 4
+      },
+      {
+        "answer": "Blanot",
+        "tier": 4
+      },
+      {
+        "answer": "Paris",
+        "tier": 4
+      },
+      {
+        "answer": "La Rochelle",
+        "tier": 4
+      },
+      {
+        "answer": "Douai",
+        "tier": 4
+      },
+      {
+        "answer": "Avignon",
+        "tier": 4
+      },
+      {
+        "answer": "Dijon",
+        "tier": 4
+      },
+      {
+        "answer": "Pressac",
+        "tier": 4
+      },
+      {
+        "answer": "Bordeaux",
+        "tier": 4
+      },
+      {
+        "answer": "Les Ulmes",
+        "tier": 4
+      },
+      {
+        "answer": "Faverney",
+        "tier": 4
+      },
+      {
+        "answer": "Walldürn",
+        "tier": 4
+      },
+      {
+        "answer": "Wilsnack",
+        "tier": 4
+      },
+      {
+        "answer": "Bettbrunn",
+        "tier": 4
+      },
+      {
+        "answer": "Erding",
+        "tier": 4
+      },
+      {
+        "answer": "Kranenburg",
+        "tier": 5
+      },
+      {
+        "answer": "Regensburg",
+        "tier": 5
+      },
+      {
+        "answer": "Augsburg",
+        "tier": 5
+      },
+      {
+        "answer": "Herkenrode",
+        "tier": 5
+      },
+      {
+        "answer": "Bois-Seigneur-Isaac",
+        "tier": 5
+      },
+      {
+        "answer": "Brussels",
+        "tier": 5
+      },
+      {
+        "answer": "Herentals",
+        "tier": 5
+      },
+      {
+        "answer": "Middleburg",
+        "tier": 5
+      },
+      {
+        "answer": "Cologne",
+        "tier": 5
+      },
+      {
+        "answer": "Prague",
+        "tier": 5
+      },
+      {
+        "answer": "Ziteil",
+        "tier": 5
+      },
+      {
+        "answer": "Ettiswil",
+        "tier": 5
+      },
+      {
+        "answer": "Rorschach",
+        "tier": 5
+      },
+      {
+        "answer": "Amsterdam",
+        "tier": 5
+      },
+      {
+        "answer": "O Cebreiro",
+        "tier": 5
+      },
+      {
+        "answer": "Tumaco",
+        "tier": 6
+      },
+      {
+        "answer": "Caravaca",
+        "tier": 6
+      },
+      {
+        "answer": "Cava de’ Tirreni",
+        "tier": 6
+      },
+      {
+        "answer": "Macerata di Macerata",
+        "tier": 6
+      },
+      {
+        "answer": "Patierno",
+        "tier": 6
+      },
+      {
+        "answer": "Milan",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Lanciano",
+        "accepted": true
+      },
+      {
+        "guess": "Bolsena-Orvieto",
+        "accepted": true
+      },
+      {
+        "guess": "Santarém",
+        "accepted": true
+      },
+      {
+        "guess": "Buenos Aires",
+        "accepted": true
+      },
+      {
+        "guess": "Sokółka",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A valid Catholic figure or term, but not included in this prompt’s source-backed answer sample."
+      }
+    ],
+    "reviewFlags": [
+      "Some catalogue entries refer to places and some to named reports; the list uses familiar place-based names.",
+      "Inclusion in an exhibition catalogue is not a claim of uniform ecclesiastical approval."
+    ]
+  }
 ];
