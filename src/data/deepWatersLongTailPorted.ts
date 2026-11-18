@@ -50,7 +50,7 @@ export const LONG_TAIL_PORTED: DeepPrompt[] = LONG_TAIL_PROMPTS.filter((p) => KE
   const answers = p.answers.filter((a) => !drop.has(norm(a.answer)));
   const have = new Set(answers.map((a) => norm(a.answer)));
   for (const a of ADD[p.id] ?? []) if (!have.has(norm(a.answer))) answers.push(a);
-  const { commonGuesses: _g, reviewFlags: _r, ...rest } = p as DeepPrompt & { commonGuesses?: unknown; reviewFlags?: unknown };
-  void _g; void _r;
-  return { ...rest, id: `ported-${p.id.replace('longtail-', '')}`, answers } as DeepPrompt;
+  // Preserve editorial QA metadata (source-specific common guesses and review flags)
+  // on the imported data object; the game type intentionally ignores these fields.
+  return { ...p, id: `ported-${p.id.replace('longtail-', '')}`, answers } as DeepPrompt;
 });
