@@ -205,7 +205,7 @@ html .deep-waters.bas [class^='dw-'], html .deep-waters.bas [class*=' dw-'] { fo
 html .deep-waters.bas .dw-entry input, html .deep-waters.bas input#dw-answer { font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 1.45rem; font-weight: 600; color: #2b1d10; }
 html .deep-waters.bas .dw-title h1::before, html .deep-waters.bas .dw-title h1::after { content: none; display: none; }
 html .deep-waters.bas .dw-title { position: relative; }
-html .deep-waters.bas .dw-title::before { content: ''; position: absolute; inset: 0 -14px; z-index: -1; border-radius: 28px; background: radial-gradient(ellipse at 50% 38%, rgba(30, 14, 52, 0.78) 0%, rgba(30, 14, 52, 0.5) 58%, transparent 78%); }
+html .deep-waters.bas .dw-title::before { content: ''; position: absolute; inset: 0 -14px; z-index: -1; border-radius: 28px; background: radial-gradient(closest-side, rgba(30, 14, 52, 0.7) 0%, rgba(30, 14, 52, 0.46) 62%, transparent 100%); }
 html .deep-waters.bas .dw-card { background: radial-gradient(ellipse at 50% 0%, rgba(255, 250, 240, 0.97) 0%, rgba(251, 244, 226, 0.94) 45%, rgba(242, 230, 200, 0.92) 100%); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
 html .deep-waters.bas .dw-correct-answer, html .deep-waters.bas .dw-depth, html .deep-waters.bas .dw-rank { text-shadow: none; }
 
@@ -214,3 +214,6 @@ html .deep-waters.bas .dw-round-count, html .deep-waters.bas .dw-microcopy, html
   width: fit-content; margin-inline: auto; padding: 4px 16px; border-radius: 99px; background: rgba(26, 18, 48, 0.74); border: 1px solid rgba(241, 207, 107, 0.4); text-shadow: none; }
 html .deep-waters.bas .dw-round-count { margin-inline: 0; }
 html .deep-waters.bas .dw-microcopy { margin-block: 10px; }
+
+/* the 3D picture: a canvas the size of the screen behind everything */
+.bas-3d { position: fixed; inset: 0; width: 100vw; height: 100vh; height: 100dvh; z-index: -1; pointer-events: none; display: block; background: #1a1230; }

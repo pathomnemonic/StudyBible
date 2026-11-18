@@ -1,5 +1,5 @@
 /**
- * Small, dependency-free game effects: a confetti burst, a ring where you tap, and optional sound blips (off until the player turns them on).
+ * Small, dependency-free game effects: a confetti burst, a ring where you tap, and sound blips (on unless the player turns them off).
  * Nothing here runs under reduced motion, and the sounds are synthesized, so there are no audio files.
  */
 import { buzz } from '../lib/haptics';
@@ -34,7 +34,8 @@ export function ring(x: number, y: number) {
 
 /* ---- sound ---- */
 const SOUND_KEY = 'sb:arcade:sound';
-export const soundOn = () => { try { return localStorage.getItem(SOUND_KEY) === '1'; } catch { return false; } };
+/** on by default: only an explicit choice to turn it off (stored as '0') silences the games */
+export const soundOn = () => { try { return localStorage.getItem(SOUND_KEY) !== '0'; } catch { return true; } };
 export const setSound = (on: boolean) => { try { localStorage.setItem(SOUND_KEY, on ? '1' : '0'); } catch { /* private mode */ } };
 let ctx: AudioContext | null = null;
 function tone(freq: number, start: number, dur: number, type: OscillatorType = 'triangle', gain = 0.12) {

@@ -7,7 +7,8 @@ import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAM
 import { clearDeepSession, deepDiveStreak, loadDeepLogbook, loadDeepSession, recordDeepDive, saveDeepSession } from '../../lib/deepWatersSession';
 import { clearDeepMisses, deepMissesText, loadDeepMisses, recordDeepMiss } from '../../lib/deepWatersMisses';
 import { Art } from '../../arcade/art';
-import BasilicaScene, { MiniBasilica, SUMMIT_M, levelAt, miniPct } from '../../arcade/BasilicaScene';
+import { MiniBasilica, SUMMIT_M, levelAt, miniPct } from '../../arcade/BasilicaScene';
+import BasilicaStage from '../../arcade/BasilicaStage';
 import '@fontsource/cormorant-garamond/500.css';
 import '@fontsource/cormorant-garamond/600.css';
 import '@fontsource/cormorant-garamond/700.css';
@@ -155,7 +156,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
   const accepted = useMemo(() => [...prompt.answers].sort((a, b) => b.tier - a.tier || a.answer.localeCompare(b.answer)), [prompt]);
   const SHOWN_MAX = 15;
   const shownAnswers = prompt.closed || showAllAnswers ? accepted : accepted.slice(0, SHOWN_MAX);
-  const timerTone = seconds <= 7 ? 'urgent' : seconds <= 15 ? 'warm' : 'calm';
+  const timerTone = seconds <= 10 ? 'urgent' : seconds <= 25 ? 'warm' : 'calm';
   const suggestions = useMemo(() => guess.trim() && !locked ? suggestDeepAnswers(prompt, guess) : [], [prompt, guess, locked]);
 
   const depth = score * 10;
@@ -165,7 +166,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
 
   return (
     <div className="page deep-waters bas">
-      <BasilicaScene height={begun ? depth : 0} begun={begun} />
+      <BasilicaStage height={begun ? depth : 0} begun={begun} />
       {begun && !done && (
         <div className="dw-gauge" aria-hidden="true">
           <MiniBasilica height={depth} />
@@ -176,7 +177,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
         <header className="dw-head dw-title">
           <p className="dw-kicker">{practice ? 'Practice ascent' : 'The daily ascent'}</p>
           <h1>Basilion <em>climb the basilica</em></h1>
-          <p className="dw-title-sub">Seven questions. Twenty-five seconds each. The rarer the answer, the higher you climb.</p>
+          <p className="dw-title-sub">Seven questions. Forty-five seconds each. The rarer the answer, the higher you climb.</p>
           <div className="dw-title-stats">
             <span><b>{streak}</b><small>DAY STREAK</small></span>
             <span><b>{(best * 10).toLocaleString()}</b><small>BEST HEIGHT (M)</small></span>
@@ -187,7 +188,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
         </header>
       )}
       <GameHelp how={[
-        'Each round gives you a Catholic or biblical category. Enter one answer from the curated key before the 25-second timer runs out.',
+        'Each round gives you a Catholic or biblical category. Enter one answer from the curated key before the 45-second timer runs out.',
         'A recognized answer earns more points when it is a rarer one: 10, 15, 30, 60, 85 or 100 points, so a full climb can reach 700. Every point takes you 10 metres higher up the basilica.',
         'Use the optional hint if you get stuck. Rarity is curated for the game, not calculated from player surveys.',
         'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
