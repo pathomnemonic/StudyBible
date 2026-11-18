@@ -1507,4 +1507,304 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "The source catalogue's category is followed even where a text is also discussed as a broader pastoral or doctrinal document."
     ]
   }
+  ,{
+    "id": "longtail-curial-notes",
+    "theme": "church-history",
+    "prompt": "Name a note, explanatory note, or responsum published by a Roman Curia office.",
+    "context": "Curial notes and responsa clarify doctrine, discipline, liturgy and pastoral questions. This open list samples published catalogue entries and is not exhaustive.",
+    "basis": "GCatholic, Documents by Type → Notes from the Roman Curia (100 catalogue entries): https://gcatholic.org/documents/data/type-CNT . Titles are transcribed from the catalogue; recurring subjects are distinguished by their individual published title.",
+    "answers": [
+      {
+        "answer": "Explanatory Note on the decree of excommunication of the bishops of the Priestly Fraternity of Saint Pius X",
+        "tier": 6
+      },
+      {
+        "answer": "On the future episcopal ordinations of the Priestly Fraternity of Saint Pius X",
+        "tier": 6
+      },
+      {
+        "answer": "On the Value of Matrimony as an Exclusive Union and Mutual Belonging",
+        "tier": 5
+      },
+      {
+        "answer": "Mater Populi Fidelis",
+        "tier": 2
+      },
+      {
+        "answer": "Press Release regarding the Writings of Maria Valtorta",
+        "tier": 5
+      },
+      {
+        "answer": "Antiqua et nova",
+        "tier": 1
+      },
+      {
+        "answer": "On the obligation to attend Mass when a holyday of obligation is transferred",
+        "tier": 5
+      },
+      {
+        "answer": "False Mysticism and Spiritual Abuse",
+        "tier": 4
+      },
+      {
+        "answer": "The Queen of Peace: About the Spiritual Experience connected with Medjugorje",
+        "tier": 3
+      },
+      {
+        "answer": "On the administration of the Eucharist to divorcees living in a new union",
+        "tier": 4
+      },
+      {
+        "answer": "On the celebration of Holy Week 2022",
+        "tier": 2
+      },
+      {
+        "answer": "Responsa ad dubia on certain provisions of Traditionis custodes",
+        "tier": 3
+      },
+      {
+        "answer": "On the organization of the Eucharistic Celebrations in St. Peter’s Basilica",
+        "tier": 5
+      },
+      {
+        "answer": "Explanatory note on the decree on international associations of the faithful",
+        "tier": 5
+      },
+      {
+        "answer": "On the 16th Ordinary General Assembly of the Synod of Bishops",
+        "tier": 3
+      },
+      {
+        "answer": "Commentary on the Responsum ad dubium",
+        "tier": 4
+      },
+      {
+        "answer": "On the celebration of Holy Week 2021",
+        "tier": 2
+      },
+      {
+        "answer": "On distribution of ashes in time of pandemic",
+        "tier": 3
+      },
+      {
+        "answer": "On the morality of using some anti-Covid-19 vaccines",
+        "tier": 2
+      },
+      {
+        "answer": "On the Sunday of the Word of God",
+        "tier": 2
+      },
+      {
+        "answer": "On the Sacrament of Reconciliation in the current pandemic",
+        "tier": 4
+      },
+      {
+        "answer": "Approving seven Eucharistic Prefaces for the Extraordinary Form of the Roman Rite",
+        "tier": 5
+      },
+      {
+        "answer": "On the liturgical celebration in honour of Saints in the Extraordinary Form of the Roman Rite",
+        "tier": 5
+      },
+      {
+        "answer": "On the importance of the internal forum and the inviolability of the sacramental seal",
+        "tier": 4
+      },
+      {
+        "answer": "Notification on the Memorial of the Blessed Virgin Mary, Mother of the Church",
+        "tier": 3
+      },
+      {
+        "answer": "On the worship for the pilgrimage of relics of the Blesseds",
+        "tier": 5
+      },
+      {
+        "answer": "Pastoral recommendations for the Year of Faith",
+        "tier": 3
+      },
+      {
+        "answer": "Christian Witness in a Multi-Religious World: Recommendations for Conduct",
+        "tier": 2
+      },
+      {
+        "answer": "Towards reforming the international financial and monetary systems in the context of global public authority",
+        "tier": 5
+      },
+      {
+        "answer": "On the banalization of sexuality and certain interpretations of Light of the World",
+        "tier": 6
+      },
+      {
+        "answer": "On the 8th Assembly of Chinese Catholic Representatives",
+        "tier": 5
+      },
+      {
+        "answer": "A brief introduction to the modifications made in the Normae de gravioribus delictis",
+        "tier": 5
+      },
+      {
+        "answer": "The norms of the Motu Proprio Sacramentorum sanctitatis tutela: Historical introduction",
+        "tier": 6
+      },
+      {
+        "answer": "Statement on the Murphy Case in response to a New York Times article",
+        "tier": 5
+      },
+      {
+        "answer": "On personal ordinariates for Anglicans entering the Catholic Church",
+        "tier": 3
+      },
+      {
+        "answer": "Clarification on procured abortion",
+        "tier": 4
+      },
+      {
+        "answer": "Concerning the four prelates of the Society of Saint Pius X",
+        "tier": 5
+      },
+      {
+        "answer": "On poverty, trade and development to the member States of the UN Conference on Trade and Development",
+        "tier": 6
+      },
+      {
+        "answer": "On the prayer used on Good Friday",
+        "tier": 3
+      },
+      {
+        "answer": "Explanatory note on the increase in dioceses of continual Eucharistic adoration for priests and vocations",
+        "tier": 5
+      },
+      {
+        "answer": "Doctrinal note on some aspects of evangelization",
+        "tier": 4
+      },
+      {
+        "answer": "Commentary on responses to questions on artificial nutrition and hydration",
+        "tier": 5
+      },
+      {
+        "answer": "Commentary on responses to questions regarding certain aspects of the doctrine on the Church",
+        "tier": 5
+      },
+      {
+        "answer": "On cluster munitions",
+        "tier": 6
+      },
+      {
+        "answer": "Notification on the Insertion of Saints in the General Roman Calendar",
+        "tier": 4
+      },
+      {
+        "answer": "On the liturgy of the beginning of the Petrine ministry of the Bishop of Rome",
+        "tier": 4
+      },
+      {
+        "answer": "Explanatory Note on the Notification on the works of Father Jon Sobrino, S.J.",
+        "tier": 6
+      },
+      {
+        "answer": "On pontifical master of papal ceremonies, custodians and promoters of Roman liturgy",
+        "tier": 6
+      },
+      {
+        "answer": "On the international trade in conventional weapons",
+        "tier": 6
+      },
+      {
+        "answer": "The juridical nature and extension of the recognitio of the Holy See",
+        "tier": 6
+      },
+      {
+        "answer": "Actus formalis defectionis ab Ecclesia catholica",
+        "tier": 5
+      },
+      {
+        "answer": "Adhesion of the Holy See to the protocol on explosive remnants of war",
+        "tier": 6
+      },
+      {
+        "answer": "Communique on new procedures in the rite of Beatification",
+        "tier": 4
+      },
+      {
+        "answer": "On the rites of the Vacant See",
+        "tier": 4
+      },
+      {
+        "answer": "Answer to 3 questions concerning the interpretation of the clause de consensum partium of canon 1681 CIC",
+        "tier": 6
+      },
+      {
+        "answer": "Note regarding the Minister of the Sacrament of Anointing of the Sick",
+        "tier": 4
+      },
+      {
+        "answer": "On iconography and liturgy",
+        "tier": 4
+      },
+      {
+        "answer": "Introductive note to Apostolorum Successores",
+        "tier": 5
+      },
+      {
+        "answer": "Elements to establish the area of canonical responsibility of the diocesan Bishop on clerics incardinated within the diocese",
+        "tier": 6
+      },
+      {
+        "answer": "The function of ecclesiastical authority on temporal goods",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Antiqua et nova",
+        "accepted": true
+      },
+      {
+        "guess": "Mater Populi Fidelis",
+        "accepted": true
+      },
+      {
+        "guess": "Responsa ad dubia on certain provisions of Traditionis custodes",
+        "accepted": true
+      },
+      {
+        "guess": "Christian Witness in a Multi-Religious World",
+        "accepted": true
+      },
+      {
+        "guess": "Actus formalis defectionis ab Ecclesia catholica",
+        "accepted": true
+      },
+      {
+        "guess": "Traditionis custodes",
+        "accepted": false,
+        "reason": "A motu proprio rather than a curial note."
+      },
+      {
+        "guess": "Laudato si’",
+        "accepted": false,
+        "reason": "An encyclical."
+      },
+      {
+        "guess": "Redemptionis sacramentum",
+        "accepted": false,
+        "reason": "A curial instruction."
+      },
+      {
+        "guess": "Pastor Bonus",
+        "accepted": false,
+        "reason": "An apostolic constitution."
+      },
+      {
+        "guess": "Dei Verbum",
+        "accepted": false,
+        "reason": "A Vatican II dogmatic constitution."
+      }
+    ],
+    "reviewFlags": [
+      "Some entries are responsa or explanatory notes; the prompt names those forms explicitly.",
+      "The answer bank follows the source catalogue's document category."
+    ]
+  }
 ];
