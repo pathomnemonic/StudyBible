@@ -8882,4 +8882,1188 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-father-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was a father.",
+    "context": "Many holy men were husbands and fathers before or during lives of service, and several are remembered for the way they raised their families. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Fathers,” 263 profiles: https://catholicsaints.info/saints-who-were-fathers/ . Names in this key are selected from the directory; biblical patriarchs in the same index are included.",
+    "answers": [
+      {
+        "answer": "Joseph, husband of Mary",
+        "tier": 1
+      },
+      {
+        "answer": "Abraham",
+        "tier": 1
+      },
+      {
+        "answer": "Adam",
+        "tier": 1
+      },
+      {
+        "answer": "Joachim",
+        "tier": 1
+      },
+      {
+        "answer": "Louis Martin",
+        "tier": 1
+      },
+      {
+        "answer": "Thomas More",
+        "tier": 2
+      },
+      {
+        "answer": "Louis IX of France",
+        "tier": 2
+      },
+      {
+        "answer": "Zélie and Louis Martin",
+        "tier": 2
+      },
+      {
+        "answer": "Edmund Rice",
+        "tier": 2
+      },
+      {
+        "answer": "Franz Jägerstätter",
+        "tier": 2
+      },
+      {
+        "answer": "Ceferino Jiménez Malla",
+        "tier": 2
+      },
+      {
+        "answer": "Anacleto González Flores",
+        "tier": 2
+      },
+      {
+        "answer": "Charlemagne",
+        "tier": 3
+      },
+      {
+        "answer": "Charles of Austria",
+        "tier": 3
+      },
+      {
+        "answer": "Erik IV of Denmark",
+        "tier": 3
+      },
+      {
+        "answer": "Giuseppe Antonio Tovini",
+        "tier": 3
+      },
+      {
+        "answer": "John of God",
+        "tier": 3
+      },
+      {
+        "answer": "Aquila",
+        "tier": 3
+      },
+      {
+        "answer": "Philemon",
+        "tier": 3
+      },
+      {
+        "answer": "Zechariah",
+        "tier": 3
+      },
+      {
+        "answer": "John Amias",
+        "tier": 3
+      },
+      {
+        "answer": "John Bretton",
+        "tier": 3
+      },
+      {
+        "answer": "John Colombini",
+        "tier": 3
+      },
+      {
+        "answer": "John de Montmirail",
+        "tier": 3
+      },
+      {
+        "answer": "Adalbert of Ostrevant",
+        "tier": 4
+      },
+      {
+        "answer": "Adrian Fortescue",
+        "tier": 4
+      },
+      {
+        "answer": "Alexius Sato Seisuke",
+        "tier": 4
+      },
+      {
+        "answer": "Amadeus of Clermont",
+        "tier": 4
+      },
+      {
+        "answer": "Antero Mateo García",
+        "tier": 4
+      },
+      {
+        "answer": "Antoni Tort Rexachs",
+        "tier": 4
+      },
+      {
+        "answer": "Archan of Etting",
+        "tier": 4
+      },
+      {
+        "answer": "Arturo Ros Montalt",
+        "tier": 4
+      },
+      {
+        "answer": "Augustinus Jeong Yak-jong",
+        "tier": 4
+      },
+      {
+        "answer": "Balthasar Kagayama Hanzaemon",
+        "tier": 4
+      },
+      {
+        "answer": "Bartlomiej Osypiuk",
+        "tier": 4
+      },
+      {
+        "answer": "Bartolomeo Pucci-Franceschi",
+        "tier": 4
+      },
+      {
+        "answer": "Bernard of Vienne",
+        "tier": 4
+      },
+      {
+        "answer": "Carlos Díaz Gandía",
+        "tier": 4
+      },
+      {
+        "answer": "Cosmas of Kyoto",
+        "tier": 4
+      },
+      {
+        "answer": "Cosmas Takeya Sozaburo",
+        "tier": 5
+      },
+      {
+        "answer": "Daniel of Ungrispach",
+        "tier": 5
+      },
+      {
+        "answer": "Dionisius Saeki Zenka",
+        "tier": 5
+      },
+      {
+        "answer": "Emilian Kovch",
+        "tier": 5
+      },
+      {
+        "answer": "Filip Geryluk",
+        "tier": 5
+      },
+      {
+        "answer": "Filip Siphong Onphithakt",
+        "tier": 5
+      },
+      {
+        "answer": "Francis Taylor",
+        "tier": 5
+      },
+      {
+        "answer": "Franciszek Stryjas",
+        "tier": 5
+      },
+      {
+        "answer": "Gaspar Nishi Genka",
+        "tier": 5
+      },
+      {
+        "answer": "Gerricus of Gerresheim",
+        "tier": 5
+      },
+      {
+        "answer": "Gilbert of Neufontaines",
+        "tier": 5
+      },
+      {
+        "answer": "Gregorio Díez Blanco",
+        "tier": 5
+      },
+      {
+        "answer": "Henry of Treviso",
+        "tier": 5
+      },
+      {
+        "answer": "Hroznata of Bohemia",
+        "tier": 5
+      },
+      {
+        "answer": "Ignacy Franczuk",
+        "tier": 5
+      },
+      {
+        "answer": "Ioannes Ariie Kiemon",
+        "tier": 6
+      },
+      {
+        "answer": "Ioannes Hashimoto Tahyoe",
+        "tier": 6
+      },
+      {
+        "answer": "Ioannes Hattori Jingoro",
+        "tier": 6
+      },
+      {
+        "answer": "Ioannes Kyusaku",
+        "tier": 6
+      },
+      {
+        "answer": "Ioannes Onizuka Naizen",
+        "tier": 6
+      },
+      {
+        "answer": "Ioannes Tomachi",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Joseph, husband of Mary",
+        "accepted": true
+      },
+      {
+        "guess": "Abraham",
+        "accepted": true
+      },
+      {
+        "guess": "Louis Martin",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas More",
+        "accepted": true
+      },
+      {
+        "guess": "Joachim",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Dominican priest who did not marry or father children."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A Jesuit priest who did not marry or father children."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Carmelite nun, not a father."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A laywoman who did not marry or have children."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A diocesan priest who did not marry or father children."
+      }
+    ]
+  },
+  {
+    "id": "longtail-mother-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was a mother.",
+    "context": "Many holy women were mothers before or during lives of prayer, charity and service. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Mothers,” 255 profiles: https://catholicsaints.info/saints-who-were-mothers/ . Names in this key are selected from the directory.",
+    "answers": [
+      {
+        "answer": "Monica",
+        "tier": 1
+      },
+      {
+        "answer": "Anne, mother of Mary",
+        "tier": 1
+      },
+      {
+        "answer": "Mary, mother of Jesus",
+        "tier": 1
+      },
+      {
+        "answer": "Elizabeth",
+        "tier": 1
+      },
+      {
+        "answer": "Zélie Martin",
+        "tier": 1
+      },
+      {
+        "answer": "Gianna Beretta Molla",
+        "tier": 2
+      },
+      {
+        "answer": "Concepcion Cabrera de Armida",
+        "tier": 2
+      },
+      {
+        "answer": "Anne Marie Taigi",
+        "tier": 2
+      },
+      {
+        "answer": "Rita of Cascia",
+        "tier": 2
+      },
+      {
+        "answer": "Elizabeth of Hungary",
+        "tier": 2
+      },
+      {
+        "answer": "Frances of Rome",
+        "tier": 2
+      },
+      {
+        "answer": "Jane Frances de Chantal",
+        "tier": 2
+      },
+      {
+        "answer": "Juana de Aza",
+        "tier": 3
+      },
+      {
+        "answer": "Emilie Tavernier Gamelin",
+        "tier": 3
+      },
+      {
+        "answer": "Eurosia Fabris",
+        "tier": 3
+      },
+      {
+        "answer": "Gaetana Sterni",
+        "tier": 3
+      },
+      {
+        "answer": "Elisabetta Canori Mora",
+        "tier": 3
+      },
+      {
+        "answer": "Dorothy of Montau",
+        "tier": 3
+      },
+      {
+        "answer": "Margaret Pole",
+        "tier": 3
+      },
+      {
+        "answer": "Marcelina Darowska",
+        "tier": 3
+      },
+      {
+        "answer": "Anna Rosa Gattorno",
+        "tier": 3
+      },
+      {
+        "answer": "Maria Corsini Beltrame Quattrocchi",
+        "tier": 3
+      },
+      {
+        "answer": "Maria Cristina di Savoia",
+        "tier": 3
+      },
+      {
+        "answer": "Margaret of Lorraine",
+        "tier": 3
+      },
+      {
+        "answer": "Adela",
+        "tier": 4
+      },
+      {
+        "answer": "Aldara Ériz de Lugo",
+        "tier": 4
+      },
+      {
+        "answer": "Alruna of Cham",
+        "tier": 4
+      },
+      {
+        "answer": "Amalia Abad Casasempere de Maestre",
+        "tier": 4
+      },
+      {
+        "answer": "Anna Kajiya",
+        "tier": 4
+      },
+      {
+        "answer": "Antonia of Florence",
+        "tier": 4
+      },
+      {
+        "answer": "Barbara Sim Jo-i",
+        "tier": 4
+      },
+      {
+        "answer": "Bertrada of Laon",
+        "tier": 4
+      },
+      {
+        "answer": "Bézela of Göda",
+        "tier": 4
+      },
+      {
+        "answer": "Christina of Spoleto",
+        "tier": 4
+      },
+      {
+        "answer": "Ela of Lacock",
+        "tier": 4
+      },
+      {
+        "answer": "Émilie d’Oultremont d’Hoogvorst",
+        "tier": 4
+      },
+      {
+        "answer": "Gerardesca of Pisa",
+        "tier": 4
+      },
+      {
+        "answer": "Helen del Cavalcanti",
+        "tier": 4
+      },
+      {
+        "answer": "Helen of Poland",
+        "tier": 4
+      },
+      {
+        "answer": "Herminia Martínez Amigó de Martínez",
+        "tier": 5
+      },
+      {
+        "answer": "Hildegard the Empress",
+        "tier": 5
+      },
+      {
+        "answer": "Ioanna Takeda",
+        "tier": 5
+      },
+      {
+        "answer": "Irene of Hungary",
+        "tier": 5
+      },
+      {
+        "answer": "Isabella Fernandes",
+        "tier": 5
+      },
+      {
+        "answer": "Ivetta of Huy",
+        "tier": 5
+      },
+      {
+        "answer": "Jacoba de Settesoli",
+        "tier": 5
+      },
+      {
+        "answer": "Louise degli Albertoni",
+        "tier": 5
+      },
+      {
+        "answer": "Lucia Sato",
+        "tier": 5
+      },
+      {
+        "answer": "Lucia Yakichi",
+        "tier": 5
+      },
+      {
+        "answer": "Magdalena Kyusaku",
+        "tier": 5
+      },
+      {
+        "answer": "Magdalena of Hokusanbara",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Alvarez Marco",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Gengoro",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Ito",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Mancini",
+        "tier": 6
+      },
+      {
+        "answer": "Maria of Kyoto",
+        "tier": 6
+      },
+      {
+        "answer": "María Teresa Ferragud Roig de Masiá",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Yi Seong",
+        "tier": 6
+      },
+      {
+        "answer": "Marianna Biernacka",
+        "tier": 6
+      },
+      {
+        "answer": "Marie of the Incarnation",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Monica",
+        "accepted": true
+      },
+      {
+        "guess": "Anne, mother of Mary",
+        "accepted": true
+      },
+      {
+        "guess": "Mary, mother of Jesus",
+        "accepted": true
+      },
+      {
+        "guess": "Zélie Martin",
+        "accepted": true
+      },
+      {
+        "guess": "Gianna Beretta Molla",
+        "accepted": true
+      },
+      {
+        "guess": "Clare of Assisi",
+        "accepted": false,
+        "reason": "A religious sister, not a mother."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Carmelite nun, not a mother."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A laywoman who did not marry or have children."
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accepted": false,
+        "reason": "A lay Dominican who did not marry or have children."
+      },
+      {
+        "guess": "Bernadette Soubirous",
+        "accepted": false,
+        "reason": "A religious sister, not a mother."
+      }
+    ]
+  },
+  {
+    "id": "longtail-abbot-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was an abbot.",
+    "context": "Abbeys were led by abbots across many centuries of Christian history. This open list includes monastic founders and later abbots; it is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Abbots,” 1,025 profiles: https://catholicsaints.info/saints-who-were-abbots/ . Names follow the directory’s saint, blessed and venerable entries.",
+    "answers": [
+      {
+        "answer": "Benedict of Nursia",
+        "tier": 1
+      },
+      {
+        "answer": "Bernard of Clairvaux",
+        "tier": 1
+      },
+      {
+        "answer": "Anthony the Great",
+        "tier": 1
+      },
+      {
+        "answer": "Columba of Iona",
+        "tier": 1
+      },
+      {
+        "answer": "Stephen Harding",
+        "tier": 1
+      },
+      {
+        "answer": "Benedict of Aniane",
+        "tier": 2
+      },
+      {
+        "answer": "Dunstan of Canterbury",
+        "tier": 2
+      },
+      {
+        "answer": "Odo of Cluny",
+        "tier": 2
+      },
+      {
+        "answer": "Romuald",
+        "tier": 2
+      },
+      {
+        "answer": "Bernard of Menthon",
+        "tier": 2
+      },
+      {
+        "answer": "Peter the Venerable",
+        "tier": 2
+      },
+      {
+        "answer": "Hugh of Cluny",
+        "tier": 2
+      },
+      {
+        "answer": "Acardo of Avranches",
+        "tier": 3
+      },
+      {
+        "answer": "Adalbert of Tegernsee",
+        "tier": 3
+      },
+      {
+        "answer": "Adam of Guglionesi",
+        "tier": 3
+      },
+      {
+        "answer": "Adam of San Sabine",
+        "tier": 3
+      },
+      {
+        "answer": "Adelelmo of Engelberg",
+        "tier": 3
+      },
+      {
+        "answer": "Alan de Solminihac",
+        "tier": 3
+      },
+      {
+        "answer": "Albert of Bologna",
+        "tier": 3
+      },
+      {
+        "answer": "Albert of Pontida",
+        "tier": 3
+      },
+      {
+        "answer": "Albert of Sassovivo",
+        "tier": 3
+      },
+      {
+        "answer": "Albert of Steinfeld",
+        "tier": 3
+      },
+      {
+        "answer": "Alexander of Cîteaux",
+        "tier": 3
+      },
+      {
+        "answer": "Alfredo Ildefonso Schuster",
+        "tier": 3
+      },
+      {
+        "answer": "Almus of Balmerino",
+        "tier": 4
+      },
+      {
+        "answer": "Amadeus of Lausanne",
+        "tier": 4
+      },
+      {
+        "answer": "Andreas Ebersbach",
+        "tier": 4
+      },
+      {
+        "answer": "Angelus Sinesius",
+        "tier": 4
+      },
+      {
+        "answer": "Anselm of Anchin",
+        "tier": 4
+      },
+      {
+        "answer": "Anselm of Rot an der Rot",
+        "tier": 4
+      },
+      {
+        "answer": "Archinrico of Montmajour",
+        "tier": 4
+      },
+      {
+        "answer": "Arnold of Gemblours",
+        "tier": 4
+      },
+      {
+        "answer": "Arnold of Hildesheim",
+        "tier": 4
+      },
+      {
+        "answer": "Arnold of Padua",
+        "tier": 4
+      },
+      {
+        "answer": "Arnold Wala",
+        "tier": 4
+      },
+      {
+        "answer": "Arnulf of Leuven",
+        "tier": 4
+      },
+      {
+        "answer": "Arnulf of Saint-Père-en-Vallée",
+        "tier": 4
+      },
+      {
+        "answer": "Balduino of Rieti",
+        "tier": 4
+      },
+      {
+        "answer": "Balsamus of Cava",
+        "tier": 4
+      },
+      {
+        "answer": "Bartolomeo of Simeri",
+        "tier": 5
+      },
+      {
+        "answer": "Beaudoin of Beaumont",
+        "tier": 5
+      },
+      {
+        "answer": "Benedict Cerretani",
+        "tier": 5
+      },
+      {
+        "answer": "Benedict d’Alignan",
+        "tier": 5
+      },
+      {
+        "answer": "Benedict of Cassino",
+        "tier": 5
+      },
+      {
+        "answer": "Benigno of Vallumbrosa",
+        "tier": 5
+      },
+      {
+        "answer": "Benincasa of Cava",
+        "tier": 5
+      },
+      {
+        "answer": "Berchtold of Engelberg",
+        "tier": 5
+      },
+      {
+        "answer": "Berengar de Alenys",
+        "tier": 5
+      },
+      {
+        "answer": "Bernard of Fountains",
+        "tier": 5
+      },
+      {
+        "answer": "Bernard of Rodez",
+        "tier": 5
+      },
+      {
+        "answer": "Bernard of Vienne",
+        "tier": 5
+      },
+      {
+        "answer": "Bernhard of Rodez",
+        "tier": 5
+      },
+      {
+        "answer": "Bertarius of Vallombrosa",
+        "tier": 5
+      },
+      {
+        "answer": "Berthold of Garsten",
+        "tier": 5
+      },
+      {
+        "answer": "Bertrand of Grand-Selve",
+        "tier": 6
+      },
+      {
+        "answer": "Bruno of Rommersdorf",
+        "tier": 6
+      },
+      {
+        "answer": "Burchard of Mallersdorf",
+        "tier": 6
+      },
+      {
+        "answer": "Cadwgan of Bangor",
+        "tier": 6
+      },
+      {
+        "answer": "Sacerdos of Limoges",
+        "tier": 6
+      },
+      {
+        "answer": "Salvius of Albelda",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Benedict of Nursia",
+        "accepted": true
+      },
+      {
+        "guess": "Bernard of Clairvaux",
+        "accepted": true
+      },
+      {
+        "guess": "Anthony the Great",
+        "accepted": true
+      },
+      {
+        "guess": "Columba of Iona",
+        "accepted": true
+      },
+      {
+        "guess": "Stephen Harding",
+        "accepted": true
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A laywoman and military leader, not an abbot."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A parish priest, not an abbot."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A nun, not an abbot."
+      },
+      {
+        "guess": "Thomas More",
+        "accepted": false,
+        "reason": "A lay statesman, not an abbot."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A missionary priest, not an abbot."
+      }
+    ]
+  },
+  {
+    "id": "longtail-royal-saints",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed who was a prince, princess, king, or queen.",
+    "context": "The Church’s saints and blesseds include monarchs, royal heirs, princes and princesses from many countries. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Princes,” 94 profiles; “Saints who were Princesses,” 118 profiles; related kings and queens indexes: https://catholicsaints.info/saints-who-were-princes/ ; https://catholicsaints.info/saints-who-were-princesses/ ; https://catholicsaints.info/saints-who-were-kings/ ; https://catholicsaints.info/saints-who-were-queens/ .",
+    "answers": [
+      {
+        "answer": "Louis IX of France",
+        "tier": 1
+      },
+      {
+        "answer": "Edward the Confessor",
+        "tier": 1
+      },
+      {
+        "answer": "Stephen of Hungary",
+        "tier": 1
+      },
+      {
+        "answer": "Elizabeth of Hungary",
+        "tier": 1
+      },
+      {
+        "answer": "Margaret of Scotland",
+        "tier": 1
+      },
+      {
+        "answer": "Casimir of Poland",
+        "tier": 2
+      },
+      {
+        "answer": "Wenceslaus of Bohemia",
+        "tier": 2
+      },
+      {
+        "answer": "Olaf II of Norway",
+        "tier": 2
+      },
+      {
+        "answer": "Ferdinand III of Castile",
+        "tier": 2
+      },
+      {
+        "answer": "Canute IV of Denmark",
+        "tier": 2
+      },
+      {
+        "answer": "Henry II",
+        "tier": 2
+      },
+      {
+        "answer": "Olga of Kiev",
+        "tier": 2
+      },
+      {
+        "answer": "Alfred the Great",
+        "tier": 3
+      },
+      {
+        "answer": "Clotilde",
+        "tier": 3
+      },
+      {
+        "answer": "Bathilde",
+        "tier": 3
+      },
+      {
+        "answer": "Cunegundes",
+        "tier": 3
+      },
+      {
+        "answer": "Pulcheria",
+        "tier": 3
+      },
+      {
+        "answer": "Helena of Constantinople",
+        "tier": 3
+      },
+      {
+        "answer": "Hedwig of Silesia",
+        "tier": 3
+      },
+      {
+        "answer": "Ethelburga of Kent",
+        "tier": 3
+      },
+      {
+        "answer": "Ethelburga of Wessex",
+        "tier": 3
+      },
+      {
+        "answer": "Bertha of Kent",
+        "tier": 3
+      },
+      {
+        "answer": "Theodelinda",
+        "tier": 3
+      },
+      {
+        "answer": "Margaret of Hungary",
+        "tier": 3
+      },
+      {
+        "answer": "Adelaide of Trebnitz",
+        "tier": 4
+      },
+      {
+        "answer": "Edigna of Puch",
+        "tier": 4
+      },
+      {
+        "answer": "Gisella of Hungary",
+        "tier": 4
+      },
+      {
+        "answer": "Helen of Poland",
+        "tier": 4
+      },
+      {
+        "answer": "Irene of Hungary",
+        "tier": 4
+      },
+      {
+        "answer": "Irmengard",
+        "tier": 4
+      },
+      {
+        "answer": "Isabella of France",
+        "tier": 4
+      },
+      {
+        "answer": "Jane of Portugal",
+        "tier": 4
+      },
+      {
+        "answer": "Mafalda of Portugal",
+        "tier": 4
+      },
+      {
+        "answer": "Maria Cristina of Savoy",
+        "tier": 4
+      },
+      {
+        "answer": "Salomea of Galicia",
+        "tier": 4
+      },
+      {
+        "answer": "Sancha of Majorca",
+        "tier": 4
+      },
+      {
+        "answer": "Theodolinda the Queen",
+        "tier": 4
+      },
+      {
+        "answer": "Abdela",
+        "tier": 4
+      },
+      {
+        "answer": "Adela of Blois",
+        "tier": 4
+      },
+      {
+        "answer": "Adela of Messines",
+        "tier": 5
+      },
+      {
+        "answer": "Adela of Pfalzel",
+        "tier": 5
+      },
+      {
+        "answer": "Adelaide of Burgundy",
+        "tier": 5
+      },
+      {
+        "answer": "Adeloga of Kitzingen",
+        "tier": 5
+      },
+      {
+        "answer": "Agnes of Prague",
+        "tier": 5
+      },
+      {
+        "answer": "Alburga of Wilton",
+        "tier": 5
+      },
+      {
+        "answer": "Alena of Brussels",
+        "tier": 5
+      },
+      {
+        "answer": "Alkelda of Middleham",
+        "tier": 5
+      },
+      {
+        "answer": "Almedha",
+        "tier": 5
+      },
+      {
+        "answer": "Althryda",
+        "tier": 5
+      },
+      {
+        "answer": "Angelina of Serbia",
+        "tier": 5
+      },
+      {
+        "answer": "Antusa of Constantinople",
+        "tier": 5
+      },
+      {
+        "answer": "Arianell",
+        "tier": 5
+      },
+      {
+        "answer": "Aurelia of Strasbourg",
+        "tier": 5
+      },
+      {
+        "answer": "Bega",
+        "tier": 5
+      },
+      {
+        "answer": "Benedicta of Lorraine",
+        "tier": 6
+      },
+      {
+        "answer": "Bertille of Thuringia",
+        "tier": 6
+      },
+      {
+        "answer": "Bova of Rheims",
+        "tier": 6
+      },
+      {
+        "answer": "Canna",
+        "tier": 6
+      },
+      {
+        "answer": "Cecilia of Lorraine",
+        "tier": 6
+      },
+      {
+        "answer": "Aelfflaed of Whitby",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Louis IX of France",
+        "accepted": true
+      },
+      {
+        "guess": "Edward the Confessor",
+        "accepted": true
+      },
+      {
+        "guess": "Stephen of Hungary",
+        "accepted": true
+      },
+      {
+        "guess": "Elizabeth of Hungary",
+        "accepted": true
+      },
+      {
+        "guess": "Margaret of Scotland",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas More",
+        "accepted": false,
+        "reason": "A statesman and martyr, not a royal."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not a member of a royal family."
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accepted": false,
+        "reason": "A lay Dominican, not a royal."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A religious founder, not a royal."
+      },
+      {
+        "guess": "John Henry Newman",
+        "accepted": false,
+        "reason": "A priest and cardinal, not a royal."
+      }
+    ]
+  }
 ];
