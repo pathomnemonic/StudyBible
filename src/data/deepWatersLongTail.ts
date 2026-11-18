@@ -421,13 +421,13 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Basilica of St Paul Outside the Walls': 'Basilica of Saint Paul Outside the Walls|San Paolo fuori le Mura'
     }),
     commonGuesses: [
-      { guess: 'Lourdes', accepted: true }, { guess: 'Fatima', accepted: true },
-      { guess: 'Montserrat', accepted: true }, { guess: 'Walsingham', accepted: true }, { guess: 'Santiago de Compostela', accepted: true },
+      { guess: 'San Giovanni Rotondo', accepted: true }, { guess: 'Assisi', accepted: true },
+      { guess: 'Padua', accepted: true }, { guess: 'Lanciano', accepted: true }, { guess: 'Santiago de Compostela', accepted: true },
       { guess: 'Vatican Museums', accepted: false, reason: 'A museum complex, not a shrine or pilgrimage sanctuary.' },
       { guess: 'Mount Sinai', accepted: false, reason: 'A biblical holy mountain, not a Catholic shrine.' },
       { guess: 'Westminster Abbey', accepted: false, reason: 'An Anglican church, not a Catholic shrine.' },
-      { guess: 'Church of the Holy Sepulchre', accepted: false, reason: 'A shared Christian pilgrimage site not included in this Catholic shrine directory selection.' },
-      { guess: 'Mount Athos', accepted: false, reason: 'An Orthodox monastic peninsula, not a Catholic shrine.' }
+      { guess: 'Mount Athos', accepted: false, reason: 'An Orthodox monastic peninsula, not a Catholic shrine.' },
+      { guess: 'Stonehenge', accepted: false, reason: 'A prehistoric monument, not a Catholic shrine.' }
     ]
   },
   {
@@ -547,13 +547,13 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'Our Lady of Aparecida': 'Aparecida'
     }),
     commonGuesses: [
-      { guess: 'Margaret of Scotland', accepted: true }, { guess: 'Lawrence Ruiz', accepted: true },
-      { guess: 'Peter Claver', accepted: true }, { guess: 'John Nepomucene', accepted: true }, { guess: 'Wenceslaus', accepted: true },
+      { guess: 'Patrick', accepted: true }, { guess: 'George', accepted: true },
+      { guess: 'Andrew', accepted: true }, { guess: 'Joan of Arc', accepted: true }, { guess: 'Francis Xavier', accepted: true },
       { guess: 'Christopher', accepted: false, reason: 'A patron of travellers, not a country patron in the cited country directory.' },
-      { guess: 'Francis of Assisi', accepted: false, reason: 'Not a country patron in the selected source list.' },
-      { guess: 'Joan of Arc', accepted: false, reason: 'A national heroine, but not one of the patron entries in the source directory.' },
-      { guess: 'Peter the Apostle', accepted: false, reason: 'Not listed as a national patron in the cited catalogue.' },
-      { guess: 'Therese of Lisieux', accepted: false, reason: 'Not listed as a country patron in the selected source.' }
+      { guess: 'Francis of Assisi', accepted: true },
+      { guess: 'Peter the Apostle', accepted: false, reason: 'This wording is not a distinct answer in the country-patron key.' },
+      { guess: 'Therese of Lisieux', accepted: false, reason: 'Not listed as a country patron in the selected source.' },
+      { guess: 'Michael the Archangel', accepted: false, reason: 'An archangel, not a canonized human saint in this answer set.' }
     ]
   },
   {
