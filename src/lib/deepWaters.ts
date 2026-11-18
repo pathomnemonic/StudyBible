@@ -7,7 +7,7 @@ export const DEEP_ROUNDS = 7;
 export const DEEP_SECONDS = 25;
 export const DEEP_POINTS: Record<DeepAnswer['tier'], number> = { 1: 10, 2: 15, 3: 30, 4: 60, 5: 85, 6: 100 };
 export const DEEP_TIER_NAMES: Record<DeepAnswer['tier'], string> = {
-  1: 'Surface', 2: 'Shallows', 3: 'Midwater', 4: 'Deep', 5: 'Abyss', 6: 'Trench'
+  1: 'The doors', 2: 'The nave', 3: 'The loggia', 4: 'The drum', 5: 'The dome', 6: 'The cross'
 };
 
 /* ---------- matching ---------- */

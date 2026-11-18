@@ -38,9 +38,6 @@ describe('the games artwork', () => {
       const t = read(f);
       for (const m of t.matchAll(/arcade\/pixel\/([a-z0-9-]+)\.png/g)) names.add(m[1]);
     }
-    const scene = read('src/arcade/DiveScene.tsx');
-    for (const m of scene.slice(scene.indexOf('const CREATURES'), scene.indexOf('const base')).matchAll(/'([a-z0-9-]+)'/g)) names.add(m[1]);
-    expect(names.size).toBeGreaterThan(8);
     expect([...names].filter((n) => !existsSync(`public/arcade/pixel/${n}.png`))).toEqual([]);
   });
   it('every animated emoji the code names is bundled', () => {

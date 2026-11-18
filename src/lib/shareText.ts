@@ -2,7 +2,7 @@
  * The text a player shares after a game, in the manner of the daily word games: a title with the puzzle number, one emoji per round or answer, and nothing that gives an answer away.
  * Kept as plain functions so they can be tested and so every game is shared the same way.
  */
-const TIER_EMOJI: Record<number, string> = { 1: '🐟', 2: '🐢', 3: '🐬', 4: '🐋', 5: '🐙', 6: '💎' };
+const TIER_EMOJI: Record<number, string> = { 1: '🕯️', 2: '🔔', 3: '🕊️', 4: '👼', 5: '⭐', 6: '✝️' };
 export const CAT_EMOJI: Record<string, string> = { scripture: '📖', saints: '🕊️', history: '🏰', doctrine: '💡', liturgy: '🔔', prayer: '🙏' };
 
 /** a short code for the exact set of questions in the game, so two friends can see they played the same dive */
@@ -13,12 +13,12 @@ export function bankSignature(ids: readonly string[]): string {
 }
 
 export function deepWatersShare(o: { day: number; practice: boolean; score: number; rounds: { tier: number | null; points: number }[]; zone: string; pearl: boolean; bank: string }): string {
-  const row = o.rounds.map((r) => (r.tier ? TIER_EMOJI[r.tier] ?? '🐟' : '⬛')).join('');
+  const row = o.rounds.map((r) => (r.tier ? TIER_EMOJI[r.tier] ?? '🕯️' : '⬛')).join('');
   const metres = (o.score * 10).toLocaleString('en-US');
   return [
     `Basilion ${o.practice ? 'practice' : `#${o.day}`}  ${o.score} pts · ${metres} m`,
     row + (o.pearl ? ' ✨' : ''),
-    `🌊 ${o.zone}${o.practice ? '' : ` · set ${o.bank}`}`,
+    `⛪ ${o.zone}${o.practice ? '' : ` · set ${o.bank}`}`,
   ].join('\n');
 }
 

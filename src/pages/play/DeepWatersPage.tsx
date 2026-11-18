@@ -7,20 +7,22 @@ import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAM
 import { clearDeepSession, deepDiveStreak, loadDeepLogbook, loadDeepSession, recordDeepDive, saveDeepSession } from '../../lib/deepWatersSession';
 import { clearDeepMisses, deepMissesText, loadDeepMisses, recordDeepMiss } from '../../lib/deepWatersMisses';
 import { Art } from '../../arcade/art';
-import DiveScene, { FLOOR_M, TITANIC_M, zoneAt } from '../../arcade/DiveScene';
-import '@fontsource/pixelify-sans/500.css';
-import '@fontsource/pixelify-sans/700.css';
-import '../../styles/deepwaters-pixel.css';
+import BasilicaScene, { MiniBasilica, SUMMIT_M, levelAt, miniPct } from '../../arcade/BasilicaScene';
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/600.css';
+import '@fontsource/cormorant-garamond/700.css';
+import '@fontsource/cormorant-garamond/500-italic.css';
+import '../../styles/basilion.css';
 import { blip, burst } from '../../arcade/fx';
 import { DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
 interface RoundResult { prompt: string; guess: string; answer: string | null; tier: DeepAnswer['tier'] | null; points: number; timedOut: boolean; pearlBonus?: number }
-/** the creature that stands for each depth */
-const TIER_ART: Record<number, string> = { 1: 'fish', 2: 'turtle', 3: 'dolphin', 4: 'whale', 5: 'octopus', 6: 'gem-stone' };
+/** the thing that stands for each rung: a candle for the nearest answer, the cross for the rarest */
+const TIER_ART: Record<number, string> = { 1: 'candle', 2: 'bell', 3: 'dove', 4: 'baby-angel', 5: 'glowing-star', 6: 'latin-cross' };
 /** a title for a finished dive, by points (our own names) */
-const rankOf = (pts: number) => (pts >= 600 ? 'Pearl of the deep' : pts >= 450 ? 'Trench explorer' : pts >= 300 ? 'Deep diver' : pts >= 150 ? 'Scuba diver' : 'Snorkeler');
-const PEARL_BONUS = 50; // our own addition: the original's pearl bonus, if it has one, is not documented
+const rankOf = (pts: number) => (pts >= 600 ? 'Keeper of the Lantern' : pts >= 450 ? 'Dome climber' : pts >= 300 ? 'Bell ringer' : pts >= 150 ? 'Sacristan' : 'Pilgrim at the door');
+const PEARL_BONUS = 50; // our own addition: the keystone bonus (kept under its old name in the code)
 const newPracticeSeed = () => Math.floor(Math.random() * 1_000_000);
 
 export default function DeepWatersPage() {
@@ -148,8 +150,8 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
     setFeedback(''); setResult(null); setShowAnswers(false); setShowHint(false); setShowAllAnswers(false);
   };
 
-  // the result as a row of creatures (one per question, deeper is rarer) so it can be shared without giving the answers away
-  const share = deepWatersShare({ day: today, practice, score, rounds: history, zone: zoneAt(score * 10).name, pearl: pearlFound, bank: bankSignature(DEEP_WATERS.map((p) => p.id)) });
+  // the result as a row of symbols (one per question, a higher one is rarer) so it can be shared without giving the answers away
+  const share = deepWatersShare({ day: today, practice, score, rounds: history, zone: levelAt(score * 10).name, pearl: pearlFound, bank: bankSignature(DEEP_WATERS.map((p) => p.id)) });
   const accepted = useMemo(() => [...prompt.answers].sort((a, b) => b.tier - a.tier || a.answer.localeCompare(b.answer)), [prompt]);
   const SHOWN_MAX = 15;
   const shownAnswers = prompt.closed || showAllAnswers ? accepted : accepted.slice(0, SHOWN_MAX);
@@ -157,48 +159,46 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
   const suggestions = useMemo(() => guess.trim() && !locked ? suggestDeepAnswers(prompt, guess) : [], [prompt, guess, locked]);
 
   const depth = score * 10;
-  const zone = zoneAt(depth);
-  const pct = (m: number) => `${(Math.min(FLOOR_M, m) / FLOOR_M) * 100}%`;
+  const zone = levelAt(depth);
+  const pct = (m: number) => `${(Math.min(SUMMIT_M, m) / SUMMIT_M) * 100}%`;
   const best = logbook.reduce((m, e) => Math.max(m, e.score), 0);
 
   return (
-    <div className="page deep-waters">
-      <DiveScene depth={begun ? depth : 0} sub={begun} />
+    <div className="page deep-waters bas">
+      <BasilicaScene height={begun ? depth : 0} begun={begun} />
       {begun && !done && (
         <div className="dw-gauge" aria-hidden="true">
-          <i className="dw-gauge-fill" style={{ height: pct(depth) }} />
-          {[0, 1000, 2000, 3000, 4000, 5000, 6000, 7000].map((m) => <span key={m} className="dw-tick" style={{ top: pct(m) }}>{m / 1000}</span>)}
-          <span className="dw-wreck" style={{ top: pct(TITANIC_M) }}><img src={`${(import.meta as unknown as { env: { BASE_URL: string } }).env.BASE_URL}arcade/pixel/sailboat.png`} width={18} height={18} alt="" /></span>
-          <b className="dw-gauge-marker" style={{ top: pct(depth) }} />
+          <MiniBasilica height={depth} />
+          <b className="dw-gauge-marker" style={{ bottom: `${miniPct(depth)}%` }}><Art n="dove" size={26} /></b>
         </div>
       )}
       {!begun && !done && (
         <header className="dw-head dw-title">
-          <p className="dw-kicker">{practice ? 'Practice dive' : 'The daily dive'}</p>
-          <h1>Deep <em>Waters</em></h1>
-          <p className="dw-title-sub">Seven questions. Twenty-five seconds each. Every rare answer takes you deeper.</p>
+          <p className="dw-kicker">{practice ? 'Practice ascent' : 'The daily ascent'}</p>
+          <h1>Basilion <em>climb the basilica</em></h1>
+          <p className="dw-title-sub">Seven questions. Twenty-five seconds each. The rarer the answer, the higher you climb.</p>
           <div className="dw-title-stats">
             <span><b>{streak}</b><small>DAY STREAK</small></span>
-            <span><b>{(best * 10).toLocaleString()}</b><small>BEST DEPTH (M)</small></span>
-            <span><b>{logbook.length}</b><small>DIVES</small></span>
+            <span><b>{(best * 10).toLocaleString()}</b><small>BEST HEIGHT (M)</small></span>
+            <span><b>{logbook.length}</b><small>CLIMBS</small></span>
           </div>
-          <button type="button" className="dw-begin" onClick={begin}>Begin descent <span aria-hidden="true">▶</span></button>
-          <p className="dw-title-note">{practice ? 'Practice dives are not counted.' : `Dive #${today}. The same seven questions for everyone today.`}</p>
+          <button type="button" className="dw-begin" onClick={begin}>Begin ascent <span aria-hidden="true">▶</span></button>
+          <p className="dw-title-note">{practice ? 'Practice climbs are not counted.' : `Climb #${today}. The same seven questions for everyone today.`}</p>
         </header>
       )}
       <GameHelp how={[
         'Each round gives you a Catholic or biblical category. Enter one answer from the curated key before the 25-second timer runs out.',
-        'A recognized answer earns more points when it is a deeper cut: 10, 15, 30, 60, 85 or 100 points, so a full dive can reach 700. Every point takes you 10 metres deeper.',
+        'A recognized answer earns more points when it is a rarer one: 10, 15, 30, 60, 85 or 100 points, so a full climb can reach 700. Every point takes you 10 metres higher up the basilica.',
         'Use the optional hint if you get stuck. Rarity is curated for the game, not calculated from player surveys.',
         'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
-        'One hidden pearl is worth a 50-point bonus (our own addition). It is selected from the deepest accepted answers in today’s set.',
+        'One hidden keystone is worth a 50-point bonus (our own addition). It is selected from the rarest accepted answers in today’s set.',
         'The daily set is shared by everyone using the same local calendar date. Practice runs do not count.'
       ]} onPractice={onPractice} />
       {!begun && !done ? null : !done ? (
         <>
-          <div className="dw-depthbar"><small>DEPTH</small><b>{depth.toLocaleString()}<i> m</i></b><span>{zone.name}</span></div>
+          <div className="dw-depthbar"><small>HEIGHT</small><b>{depth.toLocaleString()}<i> m</i></b><span>{zone.name}</span></div>
           <div className="dw-status">
-            <span className="dw-round-count">DIVE <b>{String(round + 1).padStart(2, '0')}</b><i> / 07</i></span>
+            <span className="dw-round-count">STEP <b>{String(round + 1).padStart(2, '0')}</b><i> / 07</i></span>
             <span className="dw-score"><b>{score}</b><small>POINTS</small></span>
             <div className={`dw-clock ${timerTone}`} role="timer" aria-label={`${seconds} seconds remaining`} style={{ ['--o2' as string]: `${(seconds / DEEP_SECONDS) * 100}%` }}>
               <span>{seconds}</span><small>SEC</small><i className="dw-o2"><b /></i>
@@ -208,7 +208,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
             {Array.from({ length: DEEP_ROUNDS }, (_, i) => <span key={i} className={i < round ? 'past' : i === round ? 'current' : ''}><i /></span>)}
           </div>
           <section className="dw-card">
-            <div className="dw-card-top"><span className="dw-round-label">THE QUESTION</span><span className="dw-daily-tag">{practice ? 'PRACTICE DIVE' : 'TODAY’S DIVE'}</span></div>
+            <div className="dw-card-top"><span className="dw-round-label">THE QUESTION</span><span className="dw-daily-tag">{practice ? 'PRACTICE CLIMB' : 'TODAY’S CLIMB'}</span></div>
             <h2>{prompt.prompt}</h2>
             {!locked && <div className="dw-hint-wrap">
               <button className="dw-hint-button" type="button" onClick={() => setShowHint((v) => !v)} aria-expanded={showHint}>
@@ -234,16 +234,16 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
             {locked && result && (
               <div className={`dw-reveal ${result.points ? 'scored' : ''}`} data-tier={result.tier ?? undefined}>
                 <div className="dw-reveal-heading">
-                  <span className="dw-reveal-symbol" aria-hidden="true" />
+                  <span className="dw-reveal-symbol" aria-hidden="true">{result.tier ? <Art n={TIER_ART[result.tier]} size={52} /> : null}</span>
                   <div><strong>{result.points ? `+${result.points} points` : result.timedOut ? 'Time is up' : 'No score this round'}</strong><small>{result.points ? DEEP_TIER_NAMES[result.tier!] : 'Keep exploring the answer key'}</small></div>
                 </div>
                 {result.answer && <span className="dw-correct-answer">{result.answer}</span>}
-                {(result.pearlBonus ?? 0) > 0 && <strong className="dw-pearl-bonus"><Art n="gem-stone" size={36} className="dw-pearl-gem" /> Pearl found · +{result.pearlBonus} bonus</strong>}
+                {(result.pearlBonus ?? 0) > 0 && <strong className="dw-pearl-bonus"><Art n="gem-stone" size={36} className="dw-pearl-gem" /> Keystone found · +{result.pearlBonus} bonus</strong>}
                 <p className="dw-context">{prompt.context}</p>
                 <button type="button" className="dw-hint-button" onClick={() => setShowAnswers((v) => !v)}>{showAnswers ? 'Hide answer key' : `Explore all ${accepted.length} accepted answers`}</button>
                 {showAnswers && <ul className="dw-answer-list">{shownAnswers.map((a) => <li key={a.answer}><span>{a.answer}</span><b>{DEEP_POINTS[a.tier]} pts</b></li>)}</ul>}
                 {showAnswers && shownAnswers.length < accepted.length && <button type="button" className="dw-hint-button" onClick={() => setShowAllAnswers(true)}>…and {accepted.length - shownAnswers.length} more. Show all</button>}
-                <button type="button" ref={nextRef} className="dw-next" onClick={advance}>{round + 1 === DEEP_ROUNDS ? 'View dive summary' : 'Next round'} <span aria-hidden="true">→</span></button>
+                <button type="button" ref={nextRef} className="dw-next" onClick={advance}>{round + 1 === DEEP_ROUNDS ? 'View your climb' : 'Next round'} <span aria-hidden="true">→</span></button>
               </div>
             )}
           </section>
@@ -251,15 +251,15 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
         </>
       ) : (
         <section className="dw-card dw-results">
-          <p className="dw-kicker">DIVE COMPLETE</p>
+          <p className="dw-kicker">CLIMB COMPLETE</p>
           <Art n="trophy" size={104} className="dw-trophy" />
           <h2>{score}<small> pts</small></h2>
           <p className="dw-rank">{rankOf(score)}</p>
-          <p className="dw-depth">{(score * 10).toLocaleString()} metres down · {zone.name}{score * 10 >= TITANIC_M ? ' · past the Titanic wreck (3,800 m)' : ''}</p>
-          <p>{score >= 450 ? 'You know your way around the deep end.' : score >= 200 ? 'A strong dive. There is more beneath the surface.' : 'The deep end rewards curiosity. Try another dive.'}</p>
-          {!practice && <p className="dw-streak">Current streak: <strong>{streak}</strong> day{streak === 1 ? '' : 's'} · {logbook.length} logged dives</p>}
+          <p className="dw-depth">{(score * 10).toLocaleString()} metres up · {zone.name}{score * 10 >= SUMMIT_M ? ' · you reached the Cross' : ''}</p>
+          <p>{score >= 450 ? 'You know your way around the whole building.' : score >= 200 ? 'A strong climb. There are more floors to reach.' : 'The upper floors reward curiosity. Try another climb.'}</p>
+          {!practice && <p className="dw-streak">Current streak: <strong>{streak}</strong> day{streak === 1 ? '' : 's'} · {logbook.length} logged climbs</p>}
           {!practice && logbook.length > 1 && (
-            <div className="dw-log" aria-label="Your last dives">
+            <div className="dw-log" aria-label="Your last climbs">
               <ol>{logbook.slice(-7).map((e) => (
                 <li key={e.day} className={e.day === today ? 'today' : ''} title={`${e.score} points`}>
                   <b>{e.score}</b>
@@ -269,7 +269,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
               </ol>
             </div>
           )}
-          {pearlFound && <p className="dw-pearl-bonus">You found the pearl of the day.</p>}
+          {pearlFound && <p className="dw-pearl-bonus">You found the keystone of the day.</p>}
           <div className="dw-result-stats"><span><b>{history.filter((r) => r.points > 0).length}</b><small>ROUNDS SCORED</small></span><span><b>{Math.max(...history.map((r) => r.points), 0)}</b><small>BEST ROUND</small></span><span><b>{history.filter((r) => r.timedOut).length}</b><small>TIMEOUTS</small></span></div>
           <ol>{history.map((r, i) => <li key={i}><span>{r.prompt}</span><b>{r.points ? `+${r.points}` : '—'}</b><small>{r.answer ?? (r.timedOut ? 'Time expired' : 'No recognized answer')}</small></li>)}</ol>
           {misses.length > 0 && <div className="dw-misses">
@@ -278,11 +278,11 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
             <button type="button" className="dw-hint-button" onClick={() => { clearDeepMisses(); setMisses([]); setCopied(false); }}>Clear</button>
           </div>}
           <div className="dw-actions"><ShareButton text={share} path="/play/deepwaters" label="Share result" className="btn" />{practice
-            ? <button className="dw-submit" onClick={reset}>Dive again ↗</button>
-            : <button className="dw-submit" onClick={() => { setPractice(true); onPractice(true); }}>Practice dive ↗</button>}</div>
+            ? <button className="dw-submit" onClick={reset}>Climb again ↗</button>
+            : <button className="dw-submit" onClick={() => { setPractice(true); onPractice(true); }}>Practice climb ↗</button>}</div>
         </section>
       )}
-      <p className="dw-foot">{practice ? 'PRACTICE RUN · NOT COUNTED' : 'DAILY DIVE · ONE COUNTED FINISH PER DAY'}</p>
+      <p className="dw-foot">{practice ? 'PRACTICE CLIMB · NOT COUNTED' : 'DAILY CLIMB · ONE COUNTED FINISH PER DAY'}</p>
     </div>
   );
 }

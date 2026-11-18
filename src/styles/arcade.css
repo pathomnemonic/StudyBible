@@ -330,7 +330,7 @@ html[data-arcade] .gp-bot { display: inline-grid; place-items: center; width: 64
 
 /* ---------- each game's emblem beside its title ---------- */
 html[data-arcade] .page h1:not(.gp-title)::before { content: ''; display: inline-block; width: 56px; height: 56px; margin: -8px 10px -8px 0; vertical-align: middle; background: var(--emblem, none) center / contain no-repeat; filter: drop-shadow(0 5px 4px rgba(0, 0, 0, 0.35)); animation: arc-bob 3s ease-in-out infinite; }
-html[data-game='deepwaters'] { --emblem: url(/arcade/3d/whale.webp); }
+html[data-game='deepwaters'] { --emblem: url(/arcade/3d/church.webp); }
 html[data-game='verbum'] { --emblem: url(/arcade/3d/scroll.webp); }
 html[data-game='whichbook'] { --emblem: url(/arcade/3d/open-book.webp); }
 html[data-game='whosaid'] { --emblem: url(/arcade/3d/speech-balloon.webp); }
@@ -361,7 +361,6 @@ html[data-game='trophies'] { --emblem: url(/arcade/3d/trophy.webp); }
 @keyframes arc-win { 0% { opacity: 0; transform: translate(-50%, -30%) scale(0.5); } 14% { opacity: 1; transform: translate(-50%, -50%) scale(1.12); } 22% { transform: translate(-50%, -50%) scale(1); } 82% { opacity: 1; } 100% { opacity: 0; transform: translate(-50%, -62%) scale(0.95); } }
 
 /* ---------- Deep Waters: an underwater scene ---------- */
-html[data-game='deepwaters'] body { background: linear-gradient(180deg, #19a8c9 0%, #0c6fa8 22%, #0a3d86 52%, #0a1f5c 80%, #060d33 100%) fixed; }
 html[data-game='deepwaters'] .arc-bg .arc-blob.b1 { background: #7df3ff; opacity: 0.35; }
 html[data-game='deepwaters'] .arc-bg .arc-shape { display: none; }
 .arc-sea { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }

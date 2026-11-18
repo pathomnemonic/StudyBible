@@ -68,14 +68,14 @@ for (let r = 2; r <= 7; r++) {
 await p.waitForSelector('.dw-results');
 await p.waitForTimeout(1400); // the score counts up on arrival
 const total = (await p.locator('.dw-results h2').innerText()).trim();
-// the finished daily dive cannot be replayed: no "Dive again", and a return shows the same result
-if (await p.locator('button:has-text("Dive again")').count()) fail('a finished daily dive must not offer Dive again');
+// the finished daily dive cannot be replayed: no "Climb again", and a return shows the same result
+if (await p.locator('button:has-text("Climb again")').count()) fail('a finished daily dive must not offer Climb again');
 await open();
 await p.waitForSelector('.dw-results');
 await p.waitForTimeout(1400);
 if ((await p.locator('.dw-results h2').innerText()).trim() !== total) fail('the finished daily result changed');
 // only a practice dive is offered, and it starts a fresh one
-await p.locator('button:has-text("Practice dive")').click();
+await p.locator('button:has-text("Practice climb")').click();
 await p.waitForSelector('.dw-begin');
 await p.click('.dw-begin');
 await p.waitForSelector('#dw-answer:not([disabled])');

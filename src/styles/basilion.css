@@ -1,0 +1,216 @@
+/*
+ * Basilion, as a basilica: the player climbs the front of a great church. The picture (src/arcade/BasilicaScene.tsx) is a fixed layer behind the page; the camera
+ * rises with the score. Cards are parchment with gold borders, type is Cormorant Garamond. Everything is scoped to .deep-waters.bas so no other game changes.
+ */
+/* the picture sits between the page background and the content, so the body must not paint over it */
+html[data-game='deepwaters'] body, html body:has(.deep-waters.bas) { background: transparent !important; }
+html[data-game='deepwaters'] .arc-bg, html[data-game='deepwaters'] .arc-sea, html:has(.deep-waters.bas) .arc-bg, html:has(.deep-waters.bas) .arc-sea { display: none; }
+
+/* ---------------------------------------------------------------- the scene */
+.bas-scene { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; --sw: min(100vw, 640px); }
+.bas-sky {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, #2b2054 0%, #6b3f7d 14%, #c2597a 28%, #f08a5d 42%, #ffc479 58%, #ffe8a8 74%, #fff7da 90%, #ffffff 100%);
+  background-size: 100% 420%; background-position: 50% calc(100% - var(--p) * 100%); background-repeat: no-repeat;
+  transition: background-position 1.9s cubic-bezier(0.22, 0.9, 0.24, 1);
+}
+.bas-sun { position: absolute; left: 50%; width: 120vmax; height: 120vmax; margin-left: -60vmax; bottom: -68vmax; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 235, 170, 0.95) 0%, rgba(255, 190, 110, 0.55) 22%, rgba(255, 140, 90, 0.18) 45%, transparent 68%);
+  transform: translateY(calc(var(--p) * -34vmax)); transition: transform 1.9s cubic-bezier(0.22, 0.9, 0.24, 1); }
+.bas-rays { position: absolute; left: 50%; top: -10vh; width: 160vmax; height: 160vmax; margin-left: -80vmax; opacity: calc(var(--p) * 1.25 - 0.18); transition: opacity 1.9s;
+  background: repeating-conic-gradient(from 0deg at 50% 50%, rgba(255, 246, 205, 0.34) 0deg 4deg, transparent 4deg 15deg);
+  -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 56%); mask-image: radial-gradient(circle, #000 0%, transparent 56%);
+  animation: bas-spin 160s linear infinite; }
+.bas-stars { position: absolute; inset: 0; opacity: calc(1 - var(--p) * 2.4); transition: opacity 1.9s; }
+.bas-stars i { position: absolute; width: var(--s, 2px); height: var(--s, 2px); border-radius: 50%; background: #fff7d6; box-shadow: 0 0 6px 1px rgba(255, 244, 200, 0.8); animation: bas-twinkle 3.2s ease-in-out infinite; }
+.bas-clouds { position: absolute; inset: 0; transform: translateY(calc(var(--p) * 46vh)); transition: transform 1.9s cubic-bezier(0.22, 0.9, 0.24, 1); }
+.bas-clouds b { position: absolute; display: block; height: 7vh; min-height: 34px; border-radius: 99px; filter: blur(5px);
+  background: radial-gradient(ellipse at 50% 60%, rgba(255, 255, 255, 0.92), rgba(255, 238, 214, 0.55) 55%, transparent 72%); animation: bas-drift 70s linear infinite; }
+.bas-clouds .c1 { width: 46vw; top: 56%; left: -10vw; animation-duration: 90s; }
+.bas-clouds .c2 { width: 34vw; top: 30%; left: 55vw; opacity: 0.8; animation-duration: 120s; animation-delay: -40s; }
+.bas-clouds .c3 { width: 58vw; top: 12%; left: 10vw; opacity: 0.7; animation-duration: 150s; animation-delay: -90s; }
+.bas-clouds .c4 { width: 40vw; top: 74%; left: 40vw; opacity: 0.85; animation-duration: 110s; animation-delay: -20s; }
+.bas-stage { position: absolute; inset: 0; overflow: hidden; }
+.bas-svg {
+  position: absolute; left: 50%; bottom: 0; width: var(--sw); height: calc(var(--sw) * 4); margin-left: calc(var(--sw) / -2);
+  transform: translateY(max(0px, calc(var(--p) * (var(--sw) * 4 - 100vh)))); transition: transform 1.9s cubic-bezier(0.22, 0.9, 0.24, 1);
+  filter: drop-shadow(0 20px 30px rgba(40, 20, 50, 0.45));
+}
+@supports (height: 100dvh) { .bas-svg { transform: translateY(max(0px, calc(var(--p) * (var(--sw) * 4 - 100dvh)))); } }
+.bas-window { animation: bas-glow 5s ease-in-out infinite alternate; }
+.bas-cross { animation: bas-cross 3.4s ease-in-out infinite alternate; transform-origin: 200px 224px; }
+.bas-halo { animation: bas-halo 4.5s ease-in-out infinite alternate; transform-origin: 200px 250px; }
+.bas-dust { position: absolute; inset: 0; }
+.bas-dust i { position: absolute; bottom: -8px; width: 4px; height: 4px; border-radius: 50%; background: #ffe9a8; box-shadow: 0 0 8px 2px rgba(255, 226, 140, 0.85); opacity: 0; animation: bas-rise 12s linear infinite; }
+.bas-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 42%, transparent 52%, rgba(26, 14, 40, 0.5) 100%); }
+@keyframes bas-spin { to { transform: rotate(360deg); } }
+@keyframes bas-twinkle { 50% { opacity: 0.25; transform: scale(0.7); } }
+@keyframes bas-drift { from { transform: translateX(0); } to { transform: translateX(130vw); } }
+@keyframes bas-glow { from { filter: brightness(0.92); } to { filter: brightness(1.18) saturate(1.1); } }
+@keyframes bas-cross { to { filter: drop-shadow(0 0 8px #fff2b0) brightness(1.15); } }
+@keyframes bas-halo { to { transform: scale(1.12); opacity: 0.8; } }
+@keyframes bas-rise { 0% { transform: translateY(0) translateX(0); opacity: 0; } 12% { opacity: 0.9; } 100% { transform: translateY(-105vh) translateX(26px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .bas-clouds b, .bas-rays, .bas-stars i, .bas-window, .bas-cross, .bas-halo, .bas-dust i { animation: none; }
+  .bas-svg, .bas-sky, .bas-sun, .bas-clouds { transition-duration: 0.01s; }
+}
+html[data-motion='none'] .bas-clouds b, html[data-motion='none'] .bas-rays, html[data-motion='none'] .bas-stars i, html[data-motion='none'] .bas-window, html[data-motion='none'] .bas-cross,
+html[data-motion='none'] .bas-halo, html[data-motion='none'] .bas-dust i { animation: none; }
+
+/* ---------------------------------------------------------------- the page */
+html .deep-waters.bas {
+  --ink: #2b1d10; --muted: #6f5a3d; --parch: #fbf4e2; --parch2: #f2e6c8; --gold: #c9962f; --gold2: #f1cf6b; --gold3: #8a5e10; --crim: #8f1f2e; --night: #1a1230;
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; position: relative; z-index: 1; padding: 0 0 2.5rem 44px; max-width: 680px; margin-inline: auto; color: var(--ink); background: transparent; overflow: visible;
+}
+html .deep-waters.bas .dw-atmosphere { display: none; }
+html .deep-waters.bas h1, html .deep-waters.bas h2, html .deep-waters.bas strong, html .deep-waters.bas .dw-kicker, html .deep-waters.bas button { font-family: 'Cormorant Garamond', Georgia, serif; }
+html .deep-waters.bas input { font-family: var(--font-sans, system-ui, sans-serif); }
+
+/* the title */
+html .deep-waters.bas .dw-title { text-align: center; padding: 3.2rem 0.6rem 1rem; }
+html .deep-waters.bas .dw-title .dw-kicker { display: inline-block; padding: 5px 18px; border-radius: 99px; background: rgba(26, 18, 48, 0.78); color: var(--gold2); letter-spacing: 0.32em; font-size: 0.78rem; font-weight: 700; border: 1px solid rgba(241, 207, 107, 0.6); box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35); }
+html .deep-waters.bas .dw-title h1 { font-weight: 700; font-size: clamp(3.4rem, 15vw, 5.6rem); line-height: 0.95; letter-spacing: 0.02em; margin: 14px 0 6px; color: #fff8e3; text-shadow: 0 2px 0 #8a5e10, 0 6px 24px rgba(60, 20, 70, 0.7), 0 0 44px rgba(255, 220, 130, 0.55); }
+html .deep-waters.bas .dw-title h1 em { display: block; font-style: italic; font-weight: 500; font-size: 0.42em; letter-spacing: 0.12em; color: var(--gold2); text-shadow: 0 2px 10px rgba(60, 20, 70, 0.8); margin-top: 4px; }
+html .deep-waters.bas .dw-title-sub { color: #fff9e8; font-size: 1.25rem; max-width: 24em; margin: 14px auto; text-shadow: 0 2px 10px rgba(40, 14, 60, 0.85); font-weight: 500; }
+html .deep-waters.bas .dw-title-stats { display: flex; gap: 10px; justify-content: center; margin: 18px 4px; }
+html .deep-waters.bas .dw-title-stats span { flex: 1; display: grid; gap: 2px; padding: 10px 4px; border-radius: 14px; background: rgba(251, 244, 226, 0.93); border: 1px solid var(--gold); box-shadow: 0 8px 22px rgba(30, 10, 50, 0.35), inset 0 0 0 3px rgba(201, 150, 47, 0.18); }
+html .deep-waters.bas .dw-title-stats b { font-size: 1.9rem; color: var(--crim); font-weight: 700; line-height: 1; }
+html .deep-waters.bas .dw-title-stats small { font-size: 0.66rem; letter-spacing: 0.16em; color: var(--muted); font-weight: 700; }
+html .deep-waters.bas .dw-title-note { color: #fff4d4; font-size: 0.98rem; text-shadow: 0 2px 8px rgba(40, 14, 60, 0.9); font-style: italic; }
+
+/* buttons: gilded, with a bevel */
+html .deep-waters.bas .dw-begin, html .deep-waters.bas .dw-submit, html .deep-waters.bas .dw-next {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 8px 26px; border: 1px solid #7a520e; border-radius: 12px; cursor: pointer;
+  font-weight: 700; font-size: 1.28rem; letter-spacing: 0.08em; text-transform: uppercase; color: #2a1700; text-shadow: 0 1px 0 rgba(255, 245, 190, 0.8);
+  background: linear-gradient(180deg, #fff1a8 0%, #f1cf6b 36%, #d9a63a 64%, #b98121 100%);
+  box-shadow: 0 6px 0 #7a520e, 0 12px 22px rgba(40, 20, 10, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 -3px 6px rgba(138, 94, 16, 0.4); transition: transform 0.08s, box-shadow 0.08s, filter 0.2s;
+}
+html .deep-waters.bas .dw-begin:hover, html .deep-waters.bas .dw-submit:hover, html .deep-waters.bas .dw-next:hover { filter: brightness(1.07); }
+html .deep-waters.bas .dw-begin:active, html .deep-waters.bas .dw-submit:active, html .deep-waters.bas .dw-next:active { transform: translateY(5px); box-shadow: 0 1px 0 #7a520e, 0 4px 10px rgba(40, 20, 10, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.85); }
+html .deep-waters.bas .dw-begin { width: calc(100% - 8px); margin: 22px 4px 18px; min-height: 66px; font-size: 1.6rem; animation: bas-beg 2.6s ease-in-out infinite; }
+@keyframes bas-beg { 50% { box-shadow: 0 6px 0 #7a520e, 0 12px 34px rgba(255, 210, 110, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.85), inset 0 -3px 6px rgba(138, 94, 16, 0.4); } }
+html .deep-waters.bas .dw-next { margin-top: 12px; }
+
+/* the climb gauge: the same building in miniature, gilded as far as you have climbed, with a dove at your height */
+html .deep-waters.bas .dw-gauge { position: fixed; left: 8px; bottom: 15vh; height: 38vh; min-height: 240px; width: 54px; z-index: 5; pointer-events: none; filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.45)); }
+html .deep-waters.bas .dw-gauge .bas-mini { position: absolute; inset: 0; width: 100%; height: 100%; }
+html .deep-waters.bas .bas-mini-lit { transition: y 1.5s cubic-bezier(0.22, 0.9, 0.24, 1), height 1.5s cubic-bezier(0.22, 0.9, 0.24, 1); filter: drop-shadow(0 0 4px #ffe9a0); }
+html .deep-waters.bas .bas-mini-dove { display: none; }
+html .deep-waters.bas .dw-gauge-marker { position: absolute; left: 50%; margin-left: -19px; width: 38px; height: 38px; margin-bottom: -19px; border-radius: 50%; background: radial-gradient(circle, #fff8d6 0%, rgba(255, 220, 130, 0.65) 45%, transparent 72%); transition: bottom 1.5s cubic-bezier(0.22, 0.9, 0.24, 1); animation: bas-bob 2.4s ease-in-out infinite; display: grid; place-items: center; }
+html .deep-waters.bas .dw-gauge-marker img { width: 26px; height: 26px; }
+@keyframes bas-bob { 50% { transform: translateY(-4px); } }
+
+/* the HUD */
+html .deep-waters.bas .dw-depthbar { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; padding: 8px 18px; margin: 12px 4px; border-radius: 14px; background: rgba(26, 18, 48, 0.82); border: 1px solid rgba(241, 207, 107, 0.7); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35); color: #fff4d4; }
+html .deep-waters.bas .dw-depthbar small { font-size: 0.72rem; letter-spacing: 0.24em; color: var(--gold2); font-weight: 700; }
+html .deep-waters.bas .dw-depthbar b { font-size: 2.1rem; color: #fff; font-weight: 700; text-shadow: 0 0 18px rgba(255, 214, 120, 0.7); }
+html .deep-waters.bas .dw-depthbar b i { font-style: normal; font-size: 1rem; color: var(--gold2); }
+html .deep-waters.bas .dw-depthbar span { color: var(--gold2); font-size: 1.1rem; font-style: italic; text-align: right; }
+html .deep-waters.bas .dw-status { display: grid; grid-template-columns: 1fr auto 1fr; gap: 10px; align-items: center; margin: 12px 4px; padding: 0; }
+html .deep-waters.bas .dw-round-count { font-size: 0.82rem; letter-spacing: 0.16em; color: #fff4d4; font-weight: 700; text-shadow: 0 2px 8px #000; }
+html .deep-waters.bas .dw-round-count b { color: #fff; font-size: 1.55rem; letter-spacing: 0; }
+html .deep-waters.bas .dw-score { justify-self: center; display: flex; align-items: baseline; gap: 6px; padding: 5px 20px; border-radius: 99px; border: 1px solid #7a520e; background: linear-gradient(180deg, #fff1a8, #e6b43c 55%, #b98121); box-shadow: 0 4px 0 #7a520e, 0 8px 18px rgba(40, 20, 10, 0.4); color: #2a1700; }
+html .deep-waters.bas .dw-score b { font-size: 1.5rem; color: #2a1700; text-shadow: none; }
+html .deep-waters.bas .dw-score small { color: #5b3300; letter-spacing: 0.16em; font-weight: 700; }
+html .deep-waters.bas .dw-clock { justify-self: end; position: relative; width: 62px; height: 62px; border-radius: 50%; display: grid; place-content: center; text-align: center; border: 0;
+  background: conic-gradient(var(--clock-color, #e6b43c) var(--o2, 100%), rgba(26, 18, 48, 0.55) 0); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), 0 0 0 3px rgba(26, 18, 48, 0.8); }
+html .deep-waters.bas .dw-clock::before { content: ''; position: absolute; inset: 6px; border-radius: 50%; background: var(--parch); }
+html .deep-waters.bas .dw-clock::after { content: none; }
+html .deep-waters.bas .dw-clock span { position: relative; z-index: 1; font-size: 1.45rem; font-weight: 700; color: var(--ink); line-height: 1; }
+html .deep-waters.bas .dw-clock small { position: relative; z-index: 1; font-size: 0.55rem; letter-spacing: 0.14em; color: var(--muted); font-weight: 700; }
+html .deep-waters.bas .dw-clock .dw-o2 { display: none; }
+html .deep-waters.bas .dw-clock.warm { --clock-color: #e08a1c; }
+html .deep-waters.bas .dw-clock.urgent { --clock-color: #c9302c; animation: bas-tick 0.7s ease-in-out infinite alternate; }
+@keyframes bas-tick { to { transform: scale(1.08); } }
+html .deep-waters.bas .dw-progress { display: grid; grid-template-columns: repeat(7, 1fr); gap: 7px; margin: 12px 4px; }
+html .deep-waters.bas .dw-progress span { height: 12px; border-radius: 6px 6px 3px 3px; background: rgba(26, 18, 48, 0.65); border: 1px solid rgba(241, 207, 107, 0.55); overflow: hidden; }
+html .deep-waters.bas .dw-progress span i { display: block; height: 100%; width: 0; background: linear-gradient(180deg, #fff1a8, #d9a63a); transition: width 0.4s; }
+html .deep-waters.bas .dw-progress span.past i { width: 100%; }
+html .deep-waters.bas .dw-progress span.current i { width: 50%; background: #fff; animation: bas-bob 1.6s ease-in-out infinite; }
+
+/* the question card: parchment with a gilt frame */
+html .deep-waters.bas .dw-card {
+  position: relative; margin: 14px 4px; padding: clamp(1.1rem, 4.5vw, 1.9rem); border-radius: 18px; color: var(--ink);
+  background: radial-gradient(ellipse at 50% 0%, #fffaf0 0%, var(--parch) 45%, var(--parch2) 100%);
+  border: 1px solid var(--gold); box-shadow: 0 0 0 5px rgba(251, 244, 226, 0.55), 0 0 0 6px rgba(201, 150, 47, 0.75), 0 18px 44px rgba(30, 10, 50, 0.5), inset 0 0 40px rgba(201, 150, 47, 0.16);
+}
+html .deep-waters.bas .dw-card::before { content: '✠'; position: absolute; top: -17px; left: 50%; transform: translateX(-50%); width: 36px; height: 30px; display: grid; place-items: center; font-size: 1.1rem; color: var(--gold3); background: var(--parch); border: 1px solid var(--gold); border-radius: 50% 50% 8px 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); }
+html .deep-waters.bas .dw-card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+html .deep-waters.bas .dw-round-label, html .deep-waters.bas .dw-daily-tag { font-size: 0.72rem; letter-spacing: 0.2em; font-weight: 700; color: var(--muted); }
+html .deep-waters.bas .dw-daily-tag { padding: 3px 10px; border-radius: 99px; background: rgba(143, 31, 46, 0.1); color: var(--crim); }
+html .deep-waters.bas .dw-card h2 { font-weight: 700; font-size: clamp(1.8rem, 6vw, 2.5rem); line-height: 1.08; letter-spacing: -0.005em; margin: 0.7rem 0 0.5rem; color: #2b1d10; }
+html .deep-waters.bas .dw-context { color: #5c4a30; font-size: 1.12rem; line-height: 1.5; margin: 0.4rem 0 1rem; }
+html .deep-waters.bas .dw-hint-button, html .deep-waters.bas .dw-suggestions button { display: inline-flex; align-items: center; gap: 6px; border: 1px solid rgba(143, 31, 46, 0.35); border-radius: 99px; background: rgba(143, 31, 46, 0.06); color: var(--crim); font-size: 1.02rem; font-weight: 700; padding: 4px 14px; cursor: pointer; }
+html .deep-waters.bas .dw-hint-button:hover, html .deep-waters.bas .dw-suggestions button:hover { background: rgba(143, 31, 46, 0.14); }
+html .deep-waters.bas .dw-hint { margin: 8px 0 0; padding: 10px 14px; border-left: 3px solid var(--gold); border-radius: 0 10px 10px 0; background: rgba(201, 150, 47, 0.14); font-size: 1.08rem; color: #4a3a22; }
+html .deep-waters.bas .dw-answer-label { display: block; font-size: 0.72rem; letter-spacing: 0.2em; font-weight: 700; color: var(--muted); margin: 8px 0 6px; }
+html .deep-waters.bas .dw-entry { display: flex; gap: 10px; flex-wrap: wrap; }
+html .deep-waters.bas .dw-entry input { flex: 1; min-width: 0; padding: 0.85rem 1rem; font-size: 1.12rem; color: #2b1d10; background: #fffdf6; border: 1.5px solid #c9a65a; border-radius: 12px; box-shadow: inset 0 2px 5px rgba(120, 80, 20, 0.14); outline: none; }
+html .deep-waters.bas .dw-entry input:focus { border-color: var(--crim); box-shadow: 0 0 0 4px rgba(143, 31, 46, 0.16), inset 0 2px 5px rgba(120, 80, 20, 0.14); }
+html .deep-waters.bas .dw-feedback { min-height: 1.4em; margin: 8px 0 0; color: var(--crim); font-size: 1.05rem; font-style: italic; }
+html .deep-waters.bas .dw-suggestions { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+html .deep-waters.bas .dw-suggestions small { width: 100%; color: var(--muted); }
+html .deep-waters.bas .dw-scoring-key { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; align-items: stretch; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(201, 150, 47, 0.45); }
+html .deep-waters.bas .dw-scoring-key > span { width: 100%; text-align: center; font-size: 0.7rem; letter-spacing: 0.22em; font-weight: 700; color: var(--muted); }
+html .deep-waters.bas .dw-scoring-key i { display: inline-flex; flex-direction: column; align-items: center; min-width: 52px; padding: 6px 6px 4px; border-radius: 12px; background: rgba(201, 150, 47, 0.14); border: 1px solid rgba(201, 150, 47, 0.5); font-style: normal; }
+html .deep-waters.bas .dw-scoring-key i b { font-size: 0.98rem; color: var(--crim); font-weight: 700; }
+html .deep-waters.bas .dw-microcopy { text-align: center; color: #fff4d4; font-style: italic; text-shadow: 0 2px 8px rgba(40, 14, 60, 0.9); font-size: 1.05rem; }
+
+/* the reveal: how far up that answer took you */
+html .deep-waters.bas .dw-reveal { margin-top: 14px; padding: 14px; border-radius: 14px; background: rgba(201, 150, 47, 0.12); border: 1px solid rgba(201, 150, 47, 0.45); }
+html .deep-waters.bas .dw-reveal.scored { background: linear-gradient(180deg, rgba(255, 241, 168, 0.5), rgba(241, 207, 107, 0.2)); animation: bas-pop 0.55s cubic-bezier(0.2, 1.4, 0.4, 1) both; }
+@keyframes bas-pop { from { transform: scale(0.94); opacity: 0.2; } to { transform: scale(1); opacity: 1; } }
+html .deep-waters.bas .dw-reveal-heading { display: flex; align-items: center; gap: 12px; }
+html .deep-waters.bas .dw-reveal-symbol { display: inline-grid; place-items: center; width: 56px; height: 56px; flex: none; background: none; }
+html .deep-waters.bas .dw-reveal-symbol .arc-art { animation: bas-bob 2.2s ease-in-out infinite; filter: drop-shadow(0 4px 8px rgba(120, 60, 0, 0.45)); }
+html .deep-waters.bas .dw-reveal-heading strong { display: block; font-size: 2.1rem; font-weight: 700; color: var(--crim); line-height: 1; }
+html .deep-waters.bas .dw-reveal-heading small { color: var(--muted); font-size: 1.05rem; font-style: italic; }
+html .deep-waters.bas .dw-correct-answer { display: inline-block; margin: 8px 0 2px; font-size: 1.8rem; font-weight: 700; color: var(--ink); }
+html .deep-waters.bas .dw-pearl-bonus { display: inline-flex; align-items: center; gap: 8px; color: var(--gold3); font-size: 1.2rem; }
+html .deep-waters.bas .dw-answer-list { list-style: none; margin: 8px 0; padding: 0; max-height: 260px; overflow: auto; display: grid; gap: 4px; }
+html .deep-waters.bas .dw-answer-list li { display: flex; justify-content: space-between; gap: 10px; padding: 5px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.5); font-size: 1.05rem; }
+html .deep-waters.bas .dw-answer-list li b { color: var(--crim); }
+
+/* the end: the summit */
+html .deep-waters.bas .dw-results { text-align: center; }
+html .deep-waters.bas .dw-results .dw-kicker { color: var(--crim); letter-spacing: 0.3em; font-weight: 700; }
+html .deep-waters.bas .dw-results h2 { font-size: clamp(4rem, 18vw, 6rem); line-height: 0.95; margin: 4px 0 0; color: var(--crim); text-shadow: 0 3px 0 #e6c26a, 0 10px 30px rgba(143, 31, 46, 0.3); }
+html .deep-waters.bas .dw-results h2 small { font-size: 0.32em; color: var(--muted); text-shadow: none; }
+html .deep-waters.bas .dw-rank { font-size: 1.7rem; font-style: italic; font-weight: 600; color: var(--gold3); margin: 2px 0; }
+html .deep-waters.bas .dw-depth { font-size: 1.15rem; color: var(--muted); }
+html .deep-waters.bas .dw-trophy { display: block; margin: 0 auto -4px; filter: drop-shadow(0 10px 14px rgba(120, 60, 0, 0.5)); animation: bas-bob 2.8s ease-in-out infinite; }
+html .deep-waters.bas .dw-result-stats { display: flex; gap: 8px; justify-content: center; margin: 12px 0; }
+html .deep-waters.bas .dw-result-stats span { flex: 1; display: grid; padding: 8px 4px; border-radius: 12px; background: rgba(201, 150, 47, 0.14); border: 1px solid rgba(201, 150, 47, 0.45); }
+html .deep-waters.bas .dw-result-stats b { font-size: 1.7rem; color: var(--crim); }
+html .deep-waters.bas .dw-result-stats small { font-size: 0.62rem; letter-spacing: 0.14em; color: var(--muted); font-weight: 700; }
+html .deep-waters.bas .dw-results ol { text-align: left; padding-left: 1.2rem; font-size: 1.05rem; }
+html .deep-waters.bas .dw-log ol { display: flex; align-items: flex-end; gap: 6px; list-style: none; padding: 0; height: 110px; }
+html .deep-waters.bas .dw-log li { flex: 1; display: grid; justify-items: center; align-content: end; height: 100%; }
+html .deep-waters.bas .dw-log li i { display: block; width: 100%; height: calc((100% - 38px) * var(--p, 0.1)); border-radius: 6px 6px 2px 2px; background: linear-gradient(180deg, #e6b43c, #b98121); }
+html .deep-waters.bas .dw-log li.today i { background: linear-gradient(180deg, #fff1a8, #e6b43c); box-shadow: 0 0 12px rgba(255, 210, 110, 0.9); }
+html .deep-waters.bas .dw-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+html .deep-waters.bas .dw-misses { margin-top: 12px; font-size: 1rem; color: var(--muted); }
+html .deep-waters.bas .dw-foot { text-align: center; color: #fff4d4; font-size: 0.78rem; letter-spacing: 0.22em; text-shadow: 0 2px 8px rgba(40, 14, 60, 0.9); }
+html .deep-waters.bas .game-help { margin: 8px 4px; padding: 8px 14px; border-radius: 12px; background: rgba(26, 18, 48, 0.72); border: 1px solid rgba(241, 207, 107, 0.45); color: #fff4d4; font-family: var(--font-sans, system-ui, sans-serif); }
+html .deep-waters.bas .game-help summary { cursor: pointer; font-weight: 700; color: var(--gold2); }
+html .deep-waters.bas .game-help .muted { color: #e8dcc0; }
+
+@media (max-width: 520px) {
+  html .deep-waters.bas { padding-left: 44px; }
+  html .deep-waters.bas .dw-gauge { left: 3px; width: 38px; height: 42vh; }
+}
+
+/* one face for the whole page */
+html .deep-waters.bas [class^='dw-'], html .deep-waters.bas [class*=' dw-'] { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; }
+html .deep-waters.bas .dw-entry input, html .deep-waters.bas input#dw-answer { font-family: 'Cormorant Garamond', Georgia, serif !important; font-size: 1.45rem; font-weight: 600; color: #2b1d10; }
+html .deep-waters.bas .dw-title h1::before, html .deep-waters.bas .dw-title h1::after { content: none; display: none; }
+html .deep-waters.bas .dw-title { position: relative; }
+html .deep-waters.bas .dw-title::before { content: ''; position: absolute; inset: 0 -14px; z-index: -1; border-radius: 28px; background: radial-gradient(ellipse at 50% 38%, rgba(30, 14, 52, 0.78) 0%, rgba(30, 14, 52, 0.5) 58%, transparent 78%); }
+html .deep-waters.bas .dw-card { background: radial-gradient(ellipse at 50% 0%, rgba(255, 250, 240, 0.97) 0%, rgba(251, 244, 226, 0.94) 45%, rgba(242, 230, 200, 0.92) 100%); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+html .deep-waters.bas .dw-correct-answer, html .deep-waters.bas .dw-depth, html .deep-waters.bas .dw-rank { text-shadow: none; }
+
+/* words that sit straight on the sky get a dark pill, so they stay readable when the sky turns to gold */
+html .deep-waters.bas .dw-round-count, html .deep-waters.bas .dw-microcopy, html .deep-waters.bas .dw-foot, html .deep-waters.bas .dw-title-note {
+  width: fit-content; margin-inline: auto; padding: 4px 16px; border-radius: 99px; background: rgba(26, 18, 48, 0.74); border: 1px solid rgba(241, 207, 107, 0.4); text-shadow: none; }
+html .deep-waters.bas .dw-round-count { margin-inline: 0; }
+html .deep-waters.bas .dw-microcopy { margin-block: 10px; }
