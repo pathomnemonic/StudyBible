@@ -16,7 +16,10 @@ import '@fontsource/cormorant-garamond/600.css';
 import '@fontsource/cormorant-garamond/700.css';
 import '@fontsource/cormorant-garamond/500-italic.css';
 import '../../styles/basilion.css';
-import { burst, cue, reduced as motionOff } from '../../arcade/fx';
+import { burst, cue, countUp, reduced as motionOff } from '../../arcade/fx';
+
+/** the colour of each rarity, shared by the answer, the landing sparks and the flash */
+const RARE_HEX: Record<number, string[]> = { 1: ['#9aa1ab', '#d7dbe0'], 2: ['#3f8cff', '#9cc4ff', '#ffffff'], 3: ['#2fb36b', '#8be0b0', '#ffffff'], 4: ['#e0443e', '#ff9a8f', '#ffd23f'], 5: ['#a04bff', '#d3a8ff', '#ffffff', '#ff4fa3'], 6: ['#f0b429', '#ffe08a', '#ffffff', '#ffd23f'] };
 import { DEEP_PLAYABLE, DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
@@ -74,6 +77,10 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   // each round opens with the question alone in a glass box (no input, no clock), and a locked-in answer rises up the basilica before its points are shown
   const [reading, setReading] = useState(false);
   const [rising, setRising] = useState(false);
+  const [flash, setFlash] = useState(0);
+  const [shake, setShake] = useState(false);
+  const ptsRef = useRef<HTMLSpanElement>(null);
+  useEffect(() => { if (locked && !rising && ptsRef.current) countUp(ptsRef.current, 700); }, [locked, rising]);
   const [showHint, setShowHint] = useState(false);
   const [misses, setMisses] = useState(loadDeepMisses);
   const [copied, setCopied] = useState(false);
@@ -88,7 +95,13 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   }, [reading]);
   useEffect(() => {
     if (!rising) return;
-    const t = window.setTimeout(() => { setRising(false); cue('land', result?.tier ?? 1); }, motionOff() ? 500 : 2100);
+    const t = window.setTimeout(() => {
+      setRising(false); cue('land', result?.tier ?? 1);
+      const tier = result?.tier ?? 0;
+      if (tier >= 2) burst(window.innerWidth / 2, window.innerHeight * 0.42, 14 + tier * 12, RARE_HEX[tier]);
+      if (tier >= 4 && !motionOff()) { setFlash(tier); window.setTimeout(() => setFlash(0), 700); }
+      if (tier >= 5 && !motionOff()) { setShake(true); window.setTimeout(() => setShake(false), 450); }
+    }, motionOff() ? 500 : 2100);
     return () => window.clearTimeout(t);
   }, [rising]); // eslint-disable-line react-hooks/exhaustive-deps
   const prompt: DeepPrompt = prompts[round];
@@ -192,7 +205,8 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   const best = logbook.reduce((m, e) => Math.max(m, e.score), 0);
 
   return (
-    <div className="page deep-waters bas">
+    <div className={`page deep-waters bas${shake ? ' dw-shake' : ''}`}>
+      {flash > 0 && <div className="dw-flash" data-tier={flash} aria-hidden="true" />}
       <BasilicaStage height={begun ? depth : 0} begun={begun} />
       {begun && !done && (
         <div className="dw-gauge" aria-hidden="true">
@@ -250,6 +264,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
           <section className={`dw-card${reading ? ' reading' : ''}${rising ? ' rising' : ''}`}>
             {rising && result ? (
               <div className="dw-rise" data-tier={result.tier ?? undefined} aria-live="polite">
+                <span className="dw-rise-streaks" aria-hidden="true">{Array.from({ length: 9 }, (_, i) => <i key={i} style={{ left: `${6 + i * 11}%`, animationDelay: `${(i % 4) * 0.18}s` }} />)}</span>
                 <span className="dw-rise-chip">{result.answer}</span>
                 <small>climbing…</small>
               </div>
@@ -278,7 +293,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
               <div className={`dw-reveal ${result.points ? 'scored' : ''}`} data-tier={result.tier ?? undefined}>
                 <div className="dw-reveal-heading">
                   <span className="dw-reveal-symbol" aria-hidden="true">{result.tier ? <Art n={TIER_ART[result.tier]} size={52} /> : null}</span>
-                  <div><strong>{result.points ? `+${result.points} points` : result.timedOut ? 'Time is up' : 'No score this round'}</strong><small>{result.points ? DEEP_TIER_NAMES[result.tier!] : 'Keep exploring the answer key'}</small></div>
+                  <div><strong>{result.points ? <>+<span ref={ptsRef}>{result.points}</span> points</> : result.timedOut ? 'Time is up' : 'No score this round'}</strong><small>{result.points ? DEEP_TIER_NAMES[result.tier!] : 'Keep exploring the answer key'}</small></div>
                 </div>
                 {result.answer && <span className="dw-correct-answer">{result.answer}</span>}
                 {(result.pearlBonus ?? 0) > 0 && <strong className="dw-pearl-bonus"><Art n="gem-stone" size={36} className="dw-pearl-gem" /> Keystone found · +{result.pearlBonus} bonus</strong>}

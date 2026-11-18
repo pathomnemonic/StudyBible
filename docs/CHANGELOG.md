@@ -4,6 +4,12 @@
 
 
 
+
+## Basilion: more motion to match the feel of the genre
+- Streaks of light rush past a rising answer so the climb feels fast.
+- A landing now pops: rarity-coloured sparks (more for a rarer answer), a bouncing result card, a spinning rarity badge and the points counting up. Red, purple and gold answers also flash the screen in their colour; purple and gold shake it and the card glows.
+- All of this is skipped under reduced motion or when animation is turned off, and the sounds and layout are unchanged.
+
 ## Basilion: no scoring table during a round
 - The "Explore all accepted answers" list, which showed every answer with its points, no longer appears after a round. Each question's answer key (with points) is now an expandable entry on the results screen instead.
 

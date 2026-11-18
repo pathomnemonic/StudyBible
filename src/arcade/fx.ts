@@ -7,7 +7,7 @@ import { buzz } from '../lib/haptics';
 export const reduced = () => typeof window !== 'undefined' && (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches || document.documentElement.dataset.motion === 'none');
 const COLORS = ['#ffd23f', '#ff4fa3', '#2ee6d6', '#ff8a2b', '#8bea3a', '#7b5cff', '#ffffff'];
 
-export function burst(x = window.innerWidth / 2, y = window.innerHeight * 0.35, count = 70) {
+export function burst(x = window.innerWidth / 2, y = window.innerHeight * 0.35, count = 70, colors: readonly string[] = COLORS) {
   if (reduced()) return;
   const layer = document.createElement('div');
   layer.className = 'arc-confetti';
@@ -16,7 +16,7 @@ export function burst(x = window.innerWidth / 2, y = window.innerHeight * 0.35, 
     const p = document.createElement('i');
     const angle = Math.random() * Math.PI * 2;
     const power = 120 + Math.random() * 260;
-    p.style.cssText = `left:${x}px;top:${y}px;background:${COLORS[i % COLORS.length]};--dx:${Math.cos(angle) * power}px;--dy:${Math.sin(angle) * power - 160}px;--r:${Math.random() * 900 - 450}deg;--t:${900 + Math.random() * 900}ms;width:${6 + Math.random() * 7}px;height:${8 + Math.random() * 10}px;border-radius:${Math.random() < 0.4 ? '50%' : '2px'}`;
+    p.style.cssText = `left:${x}px;top:${y}px;background:${colors[i % colors.length]};--dx:${Math.cos(angle) * power}px;--dy:${Math.sin(angle) * power - 160}px;--r:${Math.random() * 900 - 450}deg;--t:${900 + Math.random() * 900}ms;width:${6 + Math.random() * 7}px;height:${8 + Math.random() * 10}px;border-radius:${Math.random() < 0.4 ? '50%' : '2px'}`;
     layer.appendChild(p);
   }
   document.body.appendChild(layer);
