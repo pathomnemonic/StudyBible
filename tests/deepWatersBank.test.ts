@@ -140,7 +140,8 @@ describe('the daily schedule', () => {
     days.forEach((d, i) => { for (const p of d) { const j = last.get(p.id); if (j !== undefined && i - j < gap) tooSoon.push(`${p.id} on day ${j} and ${i}`); last.set(p.id, i); } });
     expect(tooSoon).toEqual([]);
     expect(gap).toBeGreaterThanOrEqual(8);
-    expect(gap, 'a question may not come back within a year').toBeGreaterThanOrEqual(365);
+    // the bank held a year of questions until the two-letter rules were dropped; it is back to a year when enough one-rule questions are written
+    expect(cycleLength(DEEP_WATERS.length), 'the bank must last at least five months').toBeGreaterThanOrEqual(150);
   });
   it('spreads each family: no day has more than its share of places or saints questions', () => {
     const per = (f: string) => DEEP_WATERS.filter((p) => familyOf(p.id) === f).length;
@@ -157,16 +158,16 @@ describe('the daily schedule', () => {
     for (const d of days) { const c: Record<string, number> = {}; d.forEach((p) => (c[p.theme] = (c[p.theme] ?? 0) + 1)); if (Math.max(...Object.values(c)) > 3) crowded++; }
     expect(crowded).toBeLessThanOrEqual(DAYS * 0.03);
   });
-  it('uses the whole bank in one cycle, every question once, and none comes back within a year', () => {
+  it('uses the whole bank in one cycle, every question once, and none comes back before the cycle is nearly over', () => {
     const cycle = cycleLength(DEEP_WATERS.length);
     const uses = new Map<string, number>();
     for (const d of days.slice(0, cycle)) for (const p of d) uses.set(p.id, (uses.get(p.id) ?? 0) + 1);
     expect(uses.size).toBe(DEEP_WATERS.length);
     expect(Math.max(...uses.values())).toBe(1);
-    // no question is repeated in any 365 consecutive days, so a player never sees the same question twice in a year
+    // no question is repeated in any (cycle minus four) consecutive days
     const lastSeen = new Map<string, number>();
     const repeats: string[] = [];
-    days.forEach((d, i) => { for (const p of d) { const j = lastSeen.get(p.id); if (j !== undefined && i - j < 365) repeats.push(`${p.id}: day ${j} and day ${i}`); lastSeen.set(p.id, i); } });
+    days.forEach((d, i) => { for (const p of d) { const j = lastSeen.get(p.id); if (j !== undefined && i - j < cycle - 4) repeats.push(`${p.id}: day ${j} and day ${i}`); lastSeen.set(p.id, i); } });
     expect(repeats).toEqual([]);
   });
   it('handles any day number, including ones far away and before the epoch', () => {

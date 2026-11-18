@@ -66,30 +66,14 @@ const art = (noun: string) => `${/^[aeiou]/i.test(noun) ? 'an' : 'a'} ${noun}`;
 const inThe = (part: Part) => (part === 'word' ? 'in it' : `in the ${part}`);
 const whose = (part: Part, what: string) => (part === 'word' ? `that ${what}` : `whose ${part} ${what}`);
 
-/** every letter rule, in the order the bank interleaves them */
+/** every letter rule, in the order the bank interleaves them. Each asks for ONE thing (a letter in the name, a letter missing from it, how it starts or ends, how long it is): players cannot hold two letter conditions in their head at once, so there are no "both A and B" or "A but no B" rules. */
 function letterRules(): Raw[] {
   const out: Raw[] = [];
   for (const x of ALPHA) out.push({ kind: 'has', key: x, text: (n, pt) => `Name ${art(n)} with the letter ${U(x)} ${inThe(pt)}.`, test: (f) => has(f, x) });
   for (const x of ALPHA) out.push({ kind: 'start', key: x, text: (n, pt) => `Name ${art(n)} ${whose(pt, `starts with ${U(x)}`)}.`, test: (f) => f.l[0] === x });
   for (const x of ALPHA) out.push({ kind: 'end', key: x, text: (n, pt) => `Name ${art(n)} ${whose(pt, `ends with ${U(x)}`)}.`, test: (f) => f.l.endsWith(x) });
-  for (const x of ALPHA) out.push({ kind: 'twice', key: x, text: (n, pt) => `Name ${art(n)} with the letter ${U(x)} twice ${inThe(pt)}.`, test: (f) => f.cnt[x.charCodeAt(0) - 97] >= 2 });
-  for (let i = 0; i < 26; i++) for (let j = i + 1; j < 26; j++) {
-    const x = ALPHA[i], y = ALPHA[j], m = BIT(x) | BIT(y);
-    out.push({ kind: 'both', key: x + y, text: (n, pt) => `Name ${art(n)} with both ${U(x)} and ${U(y)} ${inThe(pt)}.`, test: (f) => (f.mask & m) === m });
-  }
-  for (const x of ALPHA) for (const y of ALPHA) if (x !== y && 'aeioutrsnlhdm'.includes(y)) {
-    out.push({ kind: 'notin', key: x + y, text: (n, pt) => `Name ${art(n)} with ${U(x)} but no ${U(y)} ${inThe(pt)}.`, test: (f) => has(f, x) && !has(f, y) });
-  }
-  for (const x of ALPHA) for (const y of ALPHA) if (x !== y && VOWELS.includes(y)) {
-    out.push({ kind: 'startwith', key: x + y, text: (n, pt) => `Name ${art(n)} ${whose(pt, `starts with ${U(x)} and has ${U(y)} in it`)}.`, test: (f) => f.l[0] === x && f.l.slice(1).includes(y) });
-  }
-  for (const x of ALPHA) for (const y of ALPHA) {
-    out.push({ kind: 'startend', key: x + y, text: (n, pt) => `Name ${art(n)} ${whose(pt, `starts with ${U(x)} and ends with ${U(y)}`)}.`, test: (f) => f.len > 1 && f.l[0] === x && f.l.endsWith(y) });
-  }
-  for (const x of ALPHA) out.push({ kind: 'second', key: x, text: (n, pt) => `Name ${art(n)} ${whose(pt, `has ${U(x)} as its second letter`)}.`, test: (f) => f.l[1] === x });
   for (const x of ALPHA) out.push({ kind: 'without', key: x, text: (n, pt) => `Name ${art(n)} with no ${U(x)} ${inThe(pt)}.`, test: (f) => !has(f, x) });
   for (let n = 3; n <= 24; n++) {
-    out.push({ kind: 'length', key: String(n), text: (nn, pt) => `Name ${art(nn)} with exactly ${n} letters ${inThe(pt)}.`, test: (f) => f.len === n });
     out.push({ kind: 'atleast', key: String(n), text: (nn, pt) => `Name ${art(nn)} with ${n} or more letters ${inThe(pt)}.`, test: (f) => f.len >= n });
     out.push({ kind: 'atmost', key: String(n), text: (nn, pt) => `Name ${art(nn)} with ${n} letters or fewer ${inThe(pt)}.`, test: (f) => f.len <= n });
   }
@@ -98,16 +82,13 @@ function letterRules(): Raw[] {
   for (const w of ['of', 'the', 'and', 'in', 'to', 'for', 'on']) out.push({ kind: 'hasword', key: w, text: (n, pt) => `Name ${art(n)} with the word “${w}” ${inThe(pt)}.`, test: (f) => f.words.slice(1).includes(w) || (w !== 'the' && f.words.includes(w)) });
   const RANGES: [string, string][] = [['a', 'f'], ['g', 'm'], ['n', 's'], ['t', 'z'], ['a', 'm'], ['n', 'z']];
   for (const [lo, hi] of RANGES) out.push({ kind: 'range', key: lo + hi, text: (n, pt) => `Name ${art(n)} ${whose(pt, `starts with a letter from ${U(lo)} to ${U(hi)}`)}.`, test: (f) => { const c = f.l[0] ?? ''; return c >= lo && c <= hi; } });
-  for (let v = 1; v <= 8; v++) out.push({ kind: 'vowels', key: String(v), text: (n, pt) => `Name ${art(n)} with exactly ${v} vowel${v === 1 ? '' : 's'} ${inThe(pt)}.`, test: (f) => f.vowels === v });
   out.push({ kind: 'digit', key: 'any', text: (n, pt) => `Name ${art(n)} with a number ${inThe(pt)}.`, test: (f) => f.digit });
-  out.push({ kind: 'doubled', key: 'any', text: (n, pt) => `Name ${art(n)} with a double letter ${inThe(pt)}.`, test: (f) => f.dbl });
-  out.push({ kind: 'same', key: 'any', text: (n, pt) => `Name ${art(n)} ${whose(pt, 'starts and ends with the same letter')}.`, test: (f) => f.len > 1 && f.l[0] === f.l[f.len - 1] });
   out.push({ kind: 'vowelstart', key: 'any', text: (n, pt) => `Name ${art(n)} ${whose(pt, 'starts with a vowel')}.`, test: (f) => VOWELS.includes(f.l[0] ?? '') });
   out.push({ kind: 'vowelend', key: 'any', text: (n, pt) => `Name ${art(n)} ${whose(pt, 'ends with a vowel')}.`, test: (f) => VOWELS.includes(f.l.slice(-1)) });
   out.push({ kind: 'consstart', key: 'any', text: (n, pt) => `Name ${art(n)} ${whose(pt, 'starts with a consonant')}.`, test: (f) => { const c = f.l[0] ?? ''; return !!c && !VOWELS.includes(c); } });
   return out;
 }
-export const LETTER_KINDS = ['hasword', 'range', 'vowels', 'digit', 'has', 'start', 'end', 'twice', 'both', 'notin', 'startwith', 'startend', 'second', 'without', 'length', 'atleast', 'atmost', 'words', 'doubled', 'same', 'vowelstart', 'vowelend', 'consstart'];
+export const LETTER_KINDS = ['hasword', 'range', 'digit', 'has', 'start', 'end', 'without', 'atleast', 'atmost', 'words', 'vowelstart', 'vowelend', 'consstart'];
 const RULES = letterRules();
 
 

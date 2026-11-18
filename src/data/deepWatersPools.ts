@@ -378,6 +378,11 @@ const SPECS: Spec[] = [
   { id: 'rites', from: 'rites', noun: 'Church in full communion with Rome', theme: 'church-history' },
   { id: 'mysteries', from: 'mysteries', noun: 'mystery of the Rosary', theme: 'devotion' },
   { id: 'apostles', from: 'apostles', noun: 'apostle', theme: 'scripture' },
+  { id: 'saint-first-names', from: 'authored4-saint-first-names', noun: 'first name that a saint has had', theme: 'saints' },
+  { id: 'saint-cities', from: 'authored4-cities-named-for-saints', noun: 'city or town named after a saint', theme: 'places' },
+  { id: 'catholic-countries', from: 'authored4-catholic-countries', noun: 'country where Catholics are the largest group', theme: 'places' },
+  { id: 'italy-cities', from: 'authored4-italian-cities', noun: 'city or town in Italy', theme: 'places' },
+  { id: 'spain-cities', from: 'authored4-spanish-cities', noun: 'city or town in Spain', theme: 'places' },
 ];
 
 function unionOf(base: DeepPrompt[], from: string | RegExp): DeepAnswer[] {
