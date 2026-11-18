@@ -907,4 +907,304 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "Some modern apostolic letters are descriptive English titles; only the title field shown in the source is used."
     ]
   }
+  ,{
+    "id": "longtail-curial-decrees",
+    "theme": "church-history",
+    "prompt": "Name a decree issued by a Roman Curia dicastery or office.",
+    "context": "The Roman Curia publishes decrees on liturgy, indulgences, ecclesiastical governance and other matters. This open list samples the source catalogue and is not exhaustive.",
+    "basis": "GCatholic, Documents by Type → Decrees from the Roman Curia (132 catalogue entries): https://gcatholic.org/documents/data/type-CDC . Titles are transcribed from catalogue headings; recurring observances are dated to distinguish entries.",
+    "answers": [
+      {
+        "answer": "On the excommunication of the bishops of the Priestly Fraternity of Saint Pius X",
+        "tier": 1
+      },
+      {
+        "answer": "Rescript on the establishment of the Interdicastery Commission on Artificial Intelligence",
+        "tier": 6
+      },
+      {
+        "answer": "Special Jubilee Year for the 8th centenary of the death of Saint Francis of Assisi",
+        "tier": 3
+      },
+      {
+        "answer": "Rescript on placing the Pontifical Committee for the World Day of Children within the Dicastery for Laity, Family and Life",
+        "tier": 6
+      },
+      {
+        "answer": "Regulation for the implementation of Per meglio armonizzare",
+        "tier": 6
+      },
+      {
+        "answer": "Rescript on provisions regarding family benefits",
+        "tier": 6
+      },
+      {
+        "answer": "On the Formulary and Biblical Readings for the Mass for the Care of Creation",
+        "tier": 5
+      },
+      {
+        "answer": "On the discipline of Mass Intentions",
+        "tier": 4
+      },
+      {
+        "answer": "Inscribing the Optional Memorial of St. Teresa of Calcutta in the General Roman Calendar",
+        "tier": 2
+      },
+      {
+        "answer": "Granting of the Indulgence for World Day for Grandparents and the Elderly (2024)",
+        "tier": 4
+      },
+      {
+        "answer": "Declaration of excommunication of Archbishop Carlo Maria Viganò",
+        "tier": 3
+      },
+      {
+        "answer": "Rescript on the Transitional Norms of the Chapter of the Papal Basilica of Saint Peter",
+        "tier": 6
+      },
+      {
+        "answer": "Indulgences conceded for the Ordinary Jubilee Year 2025",
+        "tier": 2
+      },
+      {
+        "answer": "Rescript on the Canons and Coadjutor Canons of Saint Mary Major",
+        "tier": 6
+      },
+      {
+        "answer": "Indulgences conceded for the National Eucharistic Pilgrimage and National Eucharistic Congress in USA",
+        "tier": 4
+      },
+      {
+        "answer": "Derogation from Articles 15 and 65 of Regolamento proprio",
+        "tier": 6
+      },
+      {
+        "answer": "Indulgences conceded for World Day for Grandparents and the Elderly (2023)",
+        "tier": 4
+      },
+      {
+        "answer": "Rescript on the duties of the Office of the Auditor General",
+        "tier": 6
+      },
+      {
+        "answer": "On readings for Mass ad postulandam continentiam",
+        "tier": 6
+      },
+      {
+        "answer": "Rescript on the implementation of Traditionis custodes",
+        "tier": 3
+      },
+      {
+        "answer": "Rescript on the transfer of competence of the pastoral care of tourism",
+        "tier": 6
+      },
+      {
+        "answer": "Rescript on the regulation of the Control Commission for the renewal of the Pontifical Swiss Guard barracks",
+        "tier": 6
+      },
+      {
+        "answer": "Rescript on the administration and management of financial activities and liquidity",
+        "tier": 6
+      },
+      {
+        "answer": "Rescript for the offices of adjunct secretaries in the Second Section of the Dicastery for Evangelisation",
+        "tier": 6
+      },
+      {
+        "answer": "Rescript on the erection of public associations of the faithful",
+        "tier": 5
+      },
+      {
+        "answer": "Indulgences conceded for World Day for Grandparents and the Elderly (2022)",
+        "tier": 5
+      },
+      {
+        "answer": "Rescript allowing the conferment of the office of Major Superior to a non-clerical member",
+        "tier": 6
+      },
+      {
+        "answer": "On the office of the President and Vice-President of Episcopal Conferences",
+        "tier": 5
+      },
+      {
+        "answer": "Plenary Indulgences for the deceased faithful",
+        "tier": 4
+      },
+      {
+        "answer": "Giving effect to the dispositions of canon 838 of the Code of Canon Law",
+        "tier": 5
+      },
+      {
+        "answer": "Requiring all visitors to the Vatican to have COVID Green Pass",
+        "tier": 6
+      },
+      {
+        "answer": "On the regulations for the implementation of the Motu Proprio dated 19 May 2020",
+        "tier": 6
+      },
+      {
+        "answer": "On international associations of the faithful",
+        "tier": 4
+      },
+      {
+        "answer": "Restricting the private celebration of the Holy Mass in St. Peter’s Basilica",
+        "tier": 4
+      },
+      {
+        "answer": "On the celebration of Saints Martha, Mary and Lazarus in the General Roman Calendar",
+        "tier": 3
+      },
+      {
+        "answer": "Inscribing the Optional Memorials of Sts. Gregory of Narek, John de Avila and Hildegard of Bingen",
+        "tier": 4
+      },
+      {
+        "answer": "Permitting priests to say four Masses on Christmas, Mary Mother of God and Epiphany",
+        "tier": 5
+      },
+      {
+        "answer": "For the celebration of Triduum in time of Covid-19",
+        "tier": 4
+      },
+      {
+        "answer": "Granting of special Indulgences to the faithful in the current pandemic",
+        "tier": 3
+      },
+      {
+        "answer": "Cum sanctissima",
+        "tier": 3
+      },
+      {
+        "answer": "Quo magis",
+        "tier": 3
+      },
+      {
+        "answer": "Inscribing the Optional Memorial of the Blessed Virgin Mary of Loreto in the General Roman Calendar",
+        "tier": 4
+      },
+      {
+        "answer": "Inscribing the Optional Memorial of St. Paul VI in the General Roman Calendar",
+        "tier": 3
+      },
+      {
+        "answer": "Indulgences conceded for the World Meeting of Families 2018",
+        "tier": 4
+      },
+      {
+        "answer": "Lætitiæ plena",
+        "tier": 5
+      },
+      {
+        "answer": "Indulgences conceded for the Jubilee Year of St. Aloysius Gonzaga",
+        "tier": 5
+      },
+      {
+        "answer": "Allowing the celebration of a votive Mass of the Immaculate Heart on 13 May 2017",
+        "tier": 5
+      },
+      {
+        "answer": "The Gift of the Priestly Vocation",
+        "tier": 2
+      },
+      {
+        "answer": "Resurrectionis Dominicæ",
+        "tier": 3
+      },
+      {
+        "answer": "Rescript on the changes to the statutes of Financial Security Committee",
+        "tier": 6
+      },
+      {
+        "answer": "Rite of Washing of Feet",
+        "tier": 3
+      },
+      {
+        "answer": "Rescript establishing the Pontifical Commission for the Activities of the Health Sector of Public Jurists of the Church",
+        "tier": 6
+      },
+      {
+        "answer": "Indulgences conceded for the Year of Consecrated Life",
+        "tier": 4
+      },
+      {
+        "answer": "Inscribing the Optional Memorials of Sts. John XXIII and John Paul II in the General Roman Calendar",
+        "tier": 3
+      },
+      {
+        "answer": "Indulgences conceded for the 28th World Youth Day",
+        "tier": 4
+      },
+      {
+        "answer": "Paternas vices",
+        "tier": 3
+      },
+      {
+        "answer": "Special Indulgences conceded for the 21st World Day of the Sick",
+        "tier": 4
+      },
+      {
+        "answer": "Indulgences for the Year of Faith",
+        "tier": 3
+      },
+      {
+        "answer": "Granting a Plenary Indulgence for the 7th World Meeting of Families",
+        "tier": 4
+      },
+      {
+        "answer": "Erection of the Personal Ordinariate of the Chair of Saint Peter",
+        "tier": 3
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Quo magis",
+        "accepted": true
+      },
+      {
+        "guess": "Cum sanctissima",
+        "accepted": true
+      },
+      {
+        "guess": "Lætitiæ plena",
+        "accepted": true
+      },
+      {
+        "guess": "Paternas vices",
+        "accepted": true
+      },
+      {
+        "guess": "Rite of Washing of Feet",
+        "accepted": true
+      },
+      {
+        "guess": "Traditionis custodes",
+        "accepted": false,
+        "reason": "A papal motu proprio, not a curial decree."
+      },
+      {
+        "guess": "Pastor Bonus",
+        "accepted": false,
+        "reason": "A papal apostolic constitution."
+      },
+      {
+        "guess": "Laudato si’",
+        "accepted": false,
+        "reason": "A papal encyclical."
+      },
+      {
+        "guess": "Rosarium Virginis Mariæ",
+        "accepted": false,
+        "reason": "A papal apostolic letter."
+      },
+      {
+        "guess": "Dei Verbum",
+        "accepted": false,
+        "reason": "A Vatican II dogmatic constitution."
+      }
+    ],
+    "reviewFlags": [
+      "The source catalogue classifies some rescripts and indulgence grants as decrees; the prompt follows the catalogue classification.",
+      "Recurring annual observances include the year in the answer key to keep individual entries distinct."
+    ]
+  }
 ];
