@@ -2072,21 +2072,2127 @@
    "status": "unreviewed"
   },
   {
+   "id": "authored7-saint-with-an-animal",
+   "sha256": "324a600c58f774ef711e38bcab1d58b66b546d77235782409599d61310799c70",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-priest-saint",
+   "sha256": "feb09928f18820d88e35a4b18e69c37550d8c1e8a3b6a4c72a0305801a5810e4",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-jesuit-saint",
+   "sha256": "6cd5d8d9b2ff172f40f933922cf834d7a8427ce1745b1f6ddcdb4d3e596a2237",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-franciscan-saint",
+   "sha256": "398afa959fc12927b7faf738cfd75a6bab9bb987247841295eaaea2990cbb742",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-from-italy",
+   "sha256": "50970aa0ae76f7986bfe8023d08a7c5b5c90c0717528264dae17923d661a1333",
+   "answers": 48,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-from-spain",
+   "sha256": "48f3bd384965acf5f3ee12a563ee9cc656b8baf8b2fee78837f0490b51633fc7",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-from-france",
+   "sha256": "fa0a9e2e2e5f97f20ed7dc6f9ac98f0f266032d1100db65d5a00d007dc4780f1",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-latin-america",
+   "sha256": "ee6a35d1fd0e98f65831346aba9929f9d5a683cc06eb6b64ce37f7d46abd7f53",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-canonized-since-2000",
+   "sha256": "c0efd02ba67df2fbb656e00a9fb37bb4fbe9317d65e9626db1476ae6c6299ec5",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-nickname-or-title",
+   "sha256": "bc41ebd7767019a6c9aef68317a5cc0d53192622dd716b9cfd4a950996a30992",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-shown-with-saint-in-art",
+   "sha256": "d217a58028a628eb59c0e7574163e757629a50a31a1ceb9b9b70fcd2eeccba74",
+   "answers": 53,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-virgin-martyr",
+   "sha256": "f554a7b41fb38d6f73f3bcf037de7119ee3e7be9110c84739ca87fa65e0da92b",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-hermit-saint",
+   "sha256": "6df674c8b10e409ce42e132dde5e41b2286bd5649ed2fa1a38ff7de70bf056fe",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-in-the-new-testament",
+   "sha256": "b18ecfd7fcdd6fe71a0a8e1baa2af133ee84fdebfd2fa4014a6fa9a6a3a8e4ad",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-church-father",
+   "sha256": "c317434136c078c85582bab248170e7396ae4e2b1e5ed015b3c57f1687b349e9",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-who-served-the-poor-or-sick",
+   "sha256": "d1bb9c8be8f6fa49e6aaec3eb51cf09ba3bee09bf321199bf0973030d6da1bf1",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-invoked-for-illness",
+   "sha256": "d268d9bb328038c7ca6bc44d4143bfc94b583fc5071cade3dc7ee367ae6e53d1",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-patron-saint-of-a-country",
+   "sha256": "3da7de441e00b5f86b0b944ae587d67e848a9d3c70ed711567824711facca974",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-patron-saint-of-a-city",
+   "sha256": "0d2a02e0bbb58ff1d7f4acd521f2b2c41a2c3bb52ed325ee180a9f1fae881716",
+   "answers": 46,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-hospital-named-for-saint",
+   "sha256": "d9005fdecde2d6a37a3d6b2a164f3120b52897705797732059333925e5523d43",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-way-a-martyr-died",
+   "sha256": "ec84a37e540e6c804832602116f919c5e08825a96b8ea51e3f23345f90fcadea",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-words-for-becoming-a-saint",
+   "sha256": "cb892bc525f657dc956b1dd2b6767805d1e70dede524d9260bcac4c8dca1f723",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-from-eastern-europe",
+   "sha256": "88382131dbcbae07b1546b04315ecf6426c2137504632838c0c25ce261af8baa",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-from-german-lands",
+   "sha256": "13529b9dfcd5fe04924c3529333fcd0668cd25949d5c6e89b63ce591abb44678",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-from-africa-or-middle-east",
+   "sha256": "d5c7f6c6a97d9ed9869c8db0b6972819e3a059ec2aa10b40f793b339a6319d5a",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-named-john",
+   "sha256": "60583a1e457b815f76f58743ce0f9545ae74fc4b1133967cc06f7d3f6997d259",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-who-was-a-teacher",
+   "sha256": "8e367d31516dad769cbd77a7d3e550c2fe40566b875c700a771d9906dd80fc6b",
+   "answers": 26,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-named-in-the-mass",
+   "sha256": "29352eaaa381d2e14c13be7561ab7b8b0709806087bb4dc3e405a7cb7634823c",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-in-the-litany-of-saints",
+   "sha256": "419ef4b5cdf3166f600bb943590add8af64d6cb1f628fb69a019f269e2c74d79",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-order-named-for-a-saint",
+   "sha256": "7c47fc90ea836bcb6d08bbe45a466611b88b6d9eb22c833e231308ae74ef5d80",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-day-named-for-a-saint",
+   "sha256": "d7871c049797af192f2ff30d1d31a8f9859adf343fe4242a256b927ac44f4230",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-with-a-saint-in-the-family",
+   "sha256": "e3735458b9234657035312b8e54d8fc11e153af5bea50eadfde577dc1412f107",
+   "answers": 47,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-who-was-an-abbot-or-abbess",
+   "sha256": "b2e4493bea9ac68641c6b3d39fd7e9d27f09b97fc9fd1854fb30a91c9c4b6d23",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-statue-in-a-church",
+   "sha256": "7f03cc4e5f7ed200e41d83516b1a040e4c91d64f1291da554099e5e9419f8e9a",
+   "answers": 54,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-something-about-francis-of-assisi",
+   "sha256": "5da38baa642dadb932fca3b4cc8b0e808d8f37afc50857d930bc22f812a37d67",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-something-about-joan-of-arc",
+   "sha256": "f5967c521dcdf75ba4684b0c3016cde0e0eb609ecda980537d26cad563c0d315",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-something-about-therese-of-lisieux",
+   "sha256": "1adba077bd6c98062e81bd37c4dedd83bdc49cb0b86a3ee422d4f707c5d04e1c",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-something-about-saint-patrick",
+   "sha256": "0b4f6793ade2c5231ffa9c44daedef81cd48dbb844c21f5fdb175abe1611b0f3",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-something-about-saint-nicholas",
+   "sha256": "d1e775874dd435a54e63a4a991035a55500a0d080fd8cb932651eab80eaa643f",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-something-about-ignatius-of-loyola",
+   "sha256": "7d946e06fbda8740323d0c4ebb7f98221aabfac28c97200546240a0777385dcf",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-something-about-anthony-of-padua",
+   "sha256": "e8459533a7f0ce762e67c85506aa4e9d3e476e6a5b1127d79f2b75a12ba4f4d6",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-something-about-padre-pio",
+   "sha256": "34a670d9f447e4a2070fcf834018e988e92788c7fb4dd7d1242430efc50e0a19",
+   "answers": 26,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-something-about-mother-teresa",
+   "sha256": "92165936c71056907bc51650948566d4f066f2728ecd6891b7d8125eb9de156d",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-noah-flood-story",
+   "sha256": "2a03dcffad7378580bdec81454651f3b7efda9bdc76e7f6e43d68c921e3eb08a",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-garden-of-eden-story",
+   "sha256": "a2400e33fd9270fd1ab2de076c8539b9cda3918272d481c0295e4dc8c4e74533",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-abraham-story",
+   "sha256": "79c7aa8bc2e1b0b86173b3e50fd0a8ef1744da89be09657514ef7c210d879557",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-joseph-and-brothers",
+   "sha256": "84b191196fe150e7d070193d7762717c1c071964f81a7fe9aa5ee33256e5026d",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-david-and-goliath",
+   "sha256": "f3d13516ed0796a7f21bd083badf59f3b9d2248a09f1e959e3c40ea635d3adbc",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-daniel-book",
+   "sha256": "603aee9cc834876beb4cccc1da81675476fcc5987b3e4129dbd00c519d7fb0bb",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-jonah-story",
+   "sha256": "79d1c912f830a4da8123231e2ad632cf48bbaa64ccf0420af7ff09c043c9b0d5",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-samson-story",
+   "sha256": "4e7472fe03df67b6c6e1d1890c3ecfffb6af86f0c5f9a478495f443fd0ef615f",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-esther-book",
+   "sha256": "35c44c1f6e372e3fc78e910e419c83ff53cedb0691e957ebef0cede6701b1809",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ruth-book",
+   "sha256": "627ed96cb3070d139d43c61f0ecd246664a5d737ed3615fdd364b242bb6defa0",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-job-book",
+   "sha256": "c1c84532222ce76bdf4f3d6986fc57a3b1e4154b7b68631110121b6303cfa84b",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-elijah-story",
+   "sha256": "39fd2b64e86a67fb2711b858a8789bbd740c7eec84807843a2492a57884a62fe",
+   "answers": 46,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-elisha-story",
+   "sha256": "1f25b42d864121e0b5ee6c36296cfac74964ffde3264c36310a226df5b5f02d3",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-offering-or-sacrifice-ot",
+   "sha256": "2fd2cd2aca792ddda3ee0e484d5f7e53eb2efe1bd254677b36e472bb42e0dd7a",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-tabernacle-temple-things",
+   "sha256": "768d356c3742b9101f66cc1326891c9de712ca8e97fd225730d46f51e68222b1",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-clothing-in-bible",
+   "sha256": "3b32ad5d35ba2608b0d737be7c9dd58bf9e54332828e67dad6b764193e64a349",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-precious-stone-or-metal-bible",
+   "sha256": "ef83ce7d7f7d101cb6c75d57515dc8a9b8f3b96d5e14c41641f6ea300cb3f6b3",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-thing-made-of-metal-bible",
+   "sha256": "7a2658a670443c0e9bd2f4b011fee78260f54639239b76b36e640cb964aecd50",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-weapon-in-bible",
+   "sha256": "1622925be3eeffba66d397d2e50211b9c12c3159c1729b47c4f7a784e3737edc",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-psalm-by-number",
+   "sha256": "6c1796590d12102b874fff064955eaffb589ce825a12b859a83323ea12d9c015",
+   "answers": 45,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-god-promised-ot",
+   "sha256": "767e7920c3cbc5f8b3b2d0d7168e4cc27481a03c3b10d1e633b64de15621b4ba",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-names-of-god-ot",
+   "sha256": "a85428efa1a84ccf249c783b834982c50c8d1f7cf37a4d82d7766cd900e14d0b",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-law-of-moses-practice",
+   "sha256": "76371ab2fac1695f7c03ac1017493951a5137445ff4fd920766b6df6ddc6492c",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ten-commandments",
+   "sha256": "dcf9c5ae1771bcb7f4473e599ccb131eda320ec48e6dbaf4ae3590182856b082",
+   "answers": 10,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-priest-in-bible",
+   "sha256": "91049d99dd938f35a1e70ef746a55634d70249f3aba5a133fc4f416dd7438466",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-battle-or-war-ot",
+   "sha256": "6c1b1a55888105694389e0e167bfedd087a0475e012dec916ab703b0d0ac3853",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-enemy-of-israel",
+   "sha256": "a4b1a216b8194c7ead1491d7b375cf47708e63a6acad56c42d33e2d3c215753d",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-miracle-in-ot",
+   "sha256": "705f77283e6840e2f8ab09afeda1a6ad7dfcc801a96648768fc37854bf91abfb",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-brothers-in-bible",
+   "sha256": "66e05129576731e57f34b5f86bf5b40d16cd581bb74f0b04d1ade600241e7cf8",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-structure-in-ot",
+   "sha256": "2a9b18d52592d95872bfd78966ddebb9dbfed33387a7bc79fa00628066420be2",
+   "answers": 26,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-villain-in-ot",
+   "sha256": "d39b2f784a597e8bff1781d1b5457e8678ff8c51aa81695000654f981294c6e7",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-king-solomon",
+   "sha256": "dca66fe80f6183d8a16769825f1decd52bc5f469750cfea8e2c83dae2b6059be",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-messianic-prophecy-ot",
+   "sha256": "a69967285bdae1972bd55e9a107c01f7f813b1aee5a199527fca39a6ed64934c",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-proverbs-topic",
+   "sha256": "26a27dadfd24a1b1972b678aed77238f0ccc159504b650f78bd1e69b8b922fae",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-pentateuch-book",
+   "sha256": "2b18849f2bdb6b1aa86f4f58a5c0bb35926e6d3ac1abe66b866f087729846722",
+   "answers": 5,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-wisdom-book-ot",
+   "sha256": "ef8060eb2fc12b3ed3e9fb34383a926c0a50b57233aa98542abd4d581f374261",
+   "answers": 7,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-hebrew-word-bible",
+   "sha256": "756c2fdabb40b50e9c1b351571de4f28fbcb755ce05625a1b65f2d9d0f3a44d1",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-jacob-and-esau-story",
+   "sha256": "7a44922024e701daf0f0e7e6527de8c8be07b94e4ce3080e318e240fd145d5e9",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-gideon-story",
+   "sha256": "68b3d8cc1767738af4f368e48e691f5aae976f0bdd071fe0517b5037b0177774",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-joshua-jericho-story",
+   "sha256": "8c81ba8d2212e427c14caa5ea4b28528993348a548d74796b31efe6a8dade374",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-maccabees-books",
+   "sha256": "b646e5c912922526b92a6286e025ec958a509cc25fe61d1eb58525c531a35319",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-deuterocanonical-person",
+   "sha256": "f375f920d0e3cadd0550d843634bf0d5888ed3aa39cea229e6ae83ed3bcb29d9",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-tobit-story",
+   "sha256": "e0427e60516084839bb446d90713967f5d72a9349ac918a30b57028fa1b10508",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-false-god-bible",
+   "sha256": "ec08429fe902bb9d7ded406066acda727db4cfe3278a0ff0de7e4b69e4102e24",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-mother-in-bible",
+   "sha256": "1ecfcaa03c3ed7b9d938577b601e7df1d830d7b3d6fa312d54e9fb82ff144f79",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-rescued-by-god-ot",
+   "sha256": "31ae70c674a2053dd053dac4fe6b231f82df3acf5b2139e3f18ce1d71344afcb",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-foreign-king-ot",
+   "sha256": "008a12f0b6e4d7632185895370024f61271fdb82939ea6cc2f87b629f4eb89e6",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-bird-in-bible",
+   "sha256": "23c2fa4759f6ea2f56d423e58c75f1f181e1e4fb0a8b5ad384336bd0230c50a4",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ark-of-covenant-things",
+   "sha256": "1a82a389f3c43604e31b233be0e2f30c590dca92704bec2c600d13c7f3d3eb9a",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-parable-item",
+   "sha256": "ff6db56686914b0e8341d3d21192cd2ff3d426e5bd7bf5e019ed64a75bbecd94",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-sermon-on-the-mount",
+   "sha256": "2a0856daeb13818ac20b01d40fd90b3323e503150c1e41c893f876694e7cb6c0",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-parable-character",
+   "sha256": "73f7a6eeeb12562de6ecfb7333b8395ea6c07ea0032fdc93a94eb1ec00889174",
+   "answers": 42,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-last-supper",
+   "sha256": "8b707bc91745c0fec5541591737b0a35df8483df55bfa0451d004a7b2146b23e",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-family-of-jesus",
+   "sha256": "ffc283db2c12b93e4739e7afb078e9ec71ca3af4a6d4c0e01a1ca2121f7e81fa",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-follower-of-jesus",
+   "sha256": "33269bc5276fe5607ebbbea38d242f9e4f0669cb4b3b55750374a43637873e7d",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-woman-who-met-jesus",
+   "sha256": "4db5ea90cc68e7fd3a3af96c17b45cdf1715ffd843f28a602dffb131621cbf02",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-opposed-jesus",
+   "sha256": "f9195e02aeee2564f60d3c417314021f27196743f7bb4d5b2dc2a61dae37293a",
+   "answers": 26,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-jesus-hands",
+   "sha256": "d9368b90ddcae72869d37dcec88dbc220bb759dbb527a3879afd47da9a9c77aa",
+   "answers": 26,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-sea-of-galilee",
+   "sha256": "ac7254005a6848feca4853dc9d2b402fc391be7ef36bd91f8ad78bc5d7657b3e",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-john-the-baptist",
+   "sha256": "c44bc5b64d078d56cc20c69ac50a7cc6816cd3ea243329cc20530e165d45aaed",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-pentecost",
+   "sha256": "7a6e1e2a20ffc33e33544334838a9aff60c23fe34ded958b22763bb1625770b3",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-paul-travel",
+   "sha256": "126e0fc7d724efb925c1b35f85dd7a860d4e7f44c2f4fa2dfce89ba5dc5bc9b9",
+   "answers": 49,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-gift-of-spirit",
+   "sha256": "e5f3be4c905ea96e5b161b881e21c162bbcc544415ebae9560b3c53228e4ba39",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-revelation",
+   "sha256": "35ec63a1e75f9a07afc48d30cde82a643422a518eb43f984cee89949debacd6b",
+   "answers": 55,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-letters-do",
+   "sha256": "926fe00fead8ff1694055c19ce04007c304731f5dbe9bfbaa43c4ae2530cea35",
+   "answers": 43,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-acts-event",
+   "sha256": "6d3e44e310673bc78215b33c6decb5280afd593691896e561c59390fad4ac03d",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-paul-companion",
+   "sha256": "5da271c5640eb1f6a3f8626b0ca2eb4394d40e8c6d7211beab40500346f44445",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-peter",
+   "sha256": "62fff41fd1cfc62a85d957d8d45f1efb69ee4dcda9899cce7279e91f64f68e05",
+   "answers": 48,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-paul",
+   "sha256": "025d9b2e4462aee8c33eaecb212d0fa8c4c4e5a50e49ca09c53e390a2516375e",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-jesus-taught",
+   "sha256": "c604484f47b3442fb7e9e7bdeedd69b7ba0f03c1321fc068f69853345a7b6113",
+   "answers": 42,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-nature-jesus-mentioned",
+   "sha256": "5cac23cca431269ab4d79ae3181c250894a4c9b771e1b33be7df2da6d7b55af9",
+   "answers": 48,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-money-gospels",
+   "sha256": "f47cf655574baf44f0f0f5c8e5a3051078aa9e516ff472e78e4a85b838cae57e",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-gospel-groups",
+   "sha256": "06ba8cfaee137974f49937e618d9247c59bb71226a4cb69e26ba3f07c6256acd",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-paul-image",
+   "sha256": "71954fa6bd52e6b1bdf6971cc3360930db5de84f6daf5ddb7ce1a8db4efbc609",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-nt-times-saint",
+   "sha256": "45e9b6a33ffdc05f0c8d69e0e27864a362817ed38580147459290de0190a1088",
+   "answers": 48,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-temple-jerusalem",
+   "sha256": "46cd1c0e9a21615c41f17e8a9c89813ed0a1706a30ad67cab37e0017fe2f65dc",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-jewish-custom-gospels",
+   "sha256": "a9f8eac94b68b085dc74e09ef110fa923374fcd868345bd5e4a2e09d6da9ae37",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-john-only-scene",
+   "sha256": "8b139e41e08e50f6eb80d083f4993a1ee3502064a76d4a3e9ed14a3470c12e4c",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-matthew-only",
+   "sha256": "d99a4f060fbe86d3a33596e409f0ff8497e7eef1e6d65240b8006966aa6f2ff3",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-luke-only",
+   "sha256": "eea34f1518262350a4ef5eb1f132ac600f4195b81ba18f4ca963a35a2839f692",
+   "answers": 43,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-nt-ruler",
+   "sha256": "3c7247bde6c3222bf05ea91a68538c98aac6a5de11e748b440f71de90481fc0b",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-jesus-promised",
+   "sha256": "bf45490ebab7967967ca4fda4c77720bc81aae3e10e4613a92f8849a38901e6c",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-mary-gospels",
+   "sha256": "43ad10a4e8bba5b8cd37701884402e38b71423fd8cdbce7299f763f91e162ce1",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ot-figure-in-gospels",
+   "sha256": "cbae87f34f8940d2def1b88e829b754adcec3f7010e3f5d8c7d7d843586bbd10",
+   "answers": 42,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-letters-dont",
+   "sha256": "e47e9df9399292e1367af849a07a5fce373b037663b0a9ceeba55c7647766ce2",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-gospel-clothing",
+   "sha256": "87b74609d5a7f925c417c2cf98a38581984d129a9e8cb65030b2e089ea348ebe",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-jesus-welcomed",
+   "sha256": "8f9d6be6293462b702b95fe4e5ae0be86db618e00ab4c885942b9e1665ead404",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-nt-big-word",
+   "sha256": "5a10ec8c15bfd27c267c1e47101e59d31e56344ce939042ab8623f0b8d32f14c",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-nt-prayer-cry",
+   "sha256": "017d16603c5c2caf95f32957ece548834a7c30bc5fe275e10dde1cc3c74d8efa",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-foreshadowing-christ",
+   "sha256": "9357b24067c334dfa223b81a1c55202d340513d67a2daf25a2a9ddb438a33a50",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-john-apostle",
+   "sha256": "5680de9398e8c85e05241ad1c44cd471557fc79054b9f1c2f1142635387db256",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-altar-server-duties",
+   "sha256": "5b47fed9e62db61dc4de5134283b5f639e0ae339f49e33bed7eb841c5eba3451",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-priest-or-deacon-wears",
+   "sha256": "908412ba56c373aa6491bbe7bf2b0e05c438e08049a5a41e3e921e113efdaf0e",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-bishop-or-pope-wears",
+   "sha256": "b778eff1cf7b3e8dd0b0564a19cb107fc542648aafb5d7d6448135eefd28acd1",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-part-of-the-mass",
+   "sha256": "dad07781e890db7d50a4442d9760035464ad088e2f349ace1d3617e4b9772ce0",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-gesture-or-posture-at-mass",
+   "sha256": "2430fb8268e7f2c9284db0db18953d3eb63ff20fbb3b1cb9f7c29339eea75607",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-sung-at-mass",
+   "sha256": "fe48218e3469e059358a986e4a89ba7ebd23a10cead97a9b9a4982d52a5c3517",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-person-with-role-at-mass",
+   "sha256": "f76a9d8e7a251c0c95c36b018c1ef38c8af75f9b3697040d4343107e50974e79",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-found-in-the-sanctuary",
+   "sha256": "bd78aecc0461c58178c22f6823d35809f099dba6b18c87bc2d98e36d1d79ce9f",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-statue-or-image-in-church",
+   "sha256": "502981c03d4ec034f2d90115066d41c5dff786fa4e3c1017d112fd79adb96514",
+   "answers": 43,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-connected-with-advent",
+   "sha256": "0fd06915b220e61086f84bfff5b5cfc13bc5babe0c561e996a9b3ee94beb7768",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-connected-with-lent",
+   "sha256": "67bfa48443af4cedcdad6e06cf05346a9ae110caa3135c31cbb60e3401ecf177",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-connected-with-easter",
+   "sha256": "c34f3b0f649d3b22da460d2e6a76c65c3905ed6e1d08d3397fd59e5e0a626517",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-at-the-easter-vigil",
+   "sha256": "db33245c12a36dc1e8cc2580d15dc28751c66a1e31af89279c330fce6c94cb9d",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-at-confirmation",
+   "sha256": "267e09653f0a8c2d40489aeb5cc8091be5158d7132c7e1e6e474f8d9a6f1d77d",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-associated-with-first-communion",
+   "sha256": "f8c2e73337adc14b25cbfe23f8e3ae34218fc7da3754e7b1b09d591e03273753",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-at-a-priestly-ordination",
+   "sha256": "766fa91618932a02b504cb9d71d3704a88b297519ce8ff15eb815d8ed05d5a8a",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-at-the-anointing-of-the-sick",
+   "sha256": "eb082260f4df025f357e4f075c3d61b545c3650f7999f69cb062a122672daa75",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-in-a-parish-bulletin",
+   "sha256": "6f9e3d7f53fdc7c1159a6bb02e47265017650db815ae026ad504f2789bb99ba8",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-parish-event",
+   "sha256": "f513d4377021b83f54915591e0dc2a1f532e7e0a8434b43f256fe6e43c6f8725",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-at-a-catholic-school",
+   "sha256": "56ee6e80ff1b919652daa6c20b984cbe28c5018c4ff9bce7ecc4470b431bc9b0",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-procession-catholics-hold",
+   "sha256": "9350f909794cced1004c4836352b2339921ab6acda234d62ee073d4fcb5f52a9",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-feast-day-of-mary",
+   "sha256": "afb83af9ef52d6384fcf14911abe0c328608066f8ad1594d536c83810c0e0d19",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-in-the-month-of-november",
+   "sha256": "145b7ec0f8da2ca20ac036388fc18caba9a67caf32ef668491465e7fe2e4ba73",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-liturgical-or-prayer-book",
+   "sha256": "824259ab00702e2c3777f52a663985890ca56f6f1b0f7625213c3a0bf2226572",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-church-service-other-than-mass",
+   "sha256": "a0f50a072de3cd59b078eceb0cf47ff25c7ce9faf55d1314df047a952cfc6792",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-kind-of-mass",
+   "sha256": "72e3a6f8c25786cf8744323ac081d43a88816499c4893b920ed704e087e51928",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-at-eucharistic-adoration",
+   "sha256": "cbc03630b73ffe57ba0ef946fcd781f5e48600474b2eea4c79062068ab3bbf5a",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-nun-or-monk-wears",
+   "sha256": "239332377e92f69b573c49b60866230fa59fb14538e3ad12deeb3e6e20e3fc39",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-in-the-creed",
+   "sha256": "9c00be37e8645dd01902430ea9abb711fb808a6067e827ded7a42079936c09ac",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-special-sunday-in-church-year",
+   "sha256": "daadf296c88f3b7fcb2f26ad92189cf1eb796555936e06477f65037259e21515",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-in-the-rcia",
+   "sha256": "8ff31399531dbbd0b5b8d6322547964b4e76c4caa3df0a8ebc5063f835e40661",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-kept-in-a-catholic-home",
+   "sha256": "398ec1499e398089435484b11a7c75e93d2ecaa7900a8325c23276aa756d66c9",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholics-wear-or-carry",
+   "sha256": "f7c6a11c74de11aab7cecb67ba502c2fc68ccc4a915fd1e3dfd2c944c9257358",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-in-a-stained-glass-window",
+   "sha256": "f2c087d5601aa19cdf5faaa5394a81ba800b69c8d13fbfead87620a8bb851275",
+   "answers": 46,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-kind-of-catholic-church-or-chapel",
+   "sha256": "f5606778728bbf520748a57ba8175a5a25bd158275a4794f22e64a716453833a",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-type-of-cross",
+   "sha256": "ae33e3c7a6772e491961d4a7dfe5f41615a6655dce4cb20156fdf0f5a036fd22",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-priest-does-at-mass",
+   "sha256": "382a4661e19861b6495131cf77c36892aaced631ead50d24fe14cd9e561cf076",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-connected-with-holy-communion",
+   "sha256": "6a130ad45a75628967ae0a64aa74b8b6fc84c0c4321b17c89b93cb1a6325d80a",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-piece-of-church-furniture",
+   "sha256": "2607d7b496973e4d90b4d93217313957de30e1a08659f26e7b6bf2fc5ae1b3c8",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-sold-in-a-catholic-gift-shop",
+   "sha256": "87772607f29a54a61f0570e9febad8870253e0f4af124b84ea9493fabe7876cc",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-custom-for-a-saints-day",
+   "sha256": "bfa0af5a089d70acb8d7eedfa9402e43f4e6e5b98698c0ab8e288a10301815f8",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-decorating-a-church-for-christmas",
+   "sha256": "7808f8eed4cd2f00262db9c18366b5f34d35847bb5278cc4a544fa221a6502ed",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-on-a-pilgrimage",
+   "sha256": "29ef79262123c987be56587e3edb0f1d42282bb73ebeb542dbe9d161c088e117",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-catholics-keep-at-home",
+   "sha256": "fa144e4d47e1ade57382bfd4a92924d430d23bca646f1130772d0650254de861",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-marian-feasts",
+   "sha256": "f4f5fb414827e5fa44e092ba7028934aa75b69f8d3b952e53c505095b5b64ad6",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-flowers-church-and-mary",
+   "sha256": "1d6d1e56efea7e8774a965eb2778caa85fbde8dd3c859235994e4b6ed9335039",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-catholics-say",
+   "sha256": "3dc7e12e7abad309f29ec933a6bec3a592414d413ab490561b775e93afe67286",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-family-traditions",
+   "sha256": "30c2a9e48aa8fa3f56073a1f749c6c13de5fc1d728daa12f236efdd97b68a9e1",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-catholics-wear",
+   "sha256": "5f451141feb020a67bcf839968a45dfcd55a0baa296ed53522db2ee0b44a47e3",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-school-things",
+   "sha256": "e2193ca7ab8c4dce31dba6e33c184a4c9948957e54d3ff9528e290ca4b0758e6",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-spiritual-works-of-mercy",
+   "sha256": "7a0c53ab016d92f1d6d9a148b6efcda5955c6c221ed4fa71c9c2adfb305c0567",
+   "answers": 7,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-novena-prayed-to",
+   "sha256": "b8490c672cbc6536d57932b0ce87b80e5f8e1db21caf0ab27b812c5226c1d925",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-prayer-or-devotion-to-mary",
+   "sha256": "93d02b1a1729e8331f7b434e29e73941a1023fc0bac46d79f39fc9ad2f51863c",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-fatima-connections",
+   "sha256": "7a5ee17172c716e9ee7d4dfb5c81d72b6d26d9dc911439b158d090f3c37f41d9",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-lourdes-connections",
+   "sha256": "8e75c019adfe34bfc77d0e2b706a23785506f5cfcdb3e69ac926163e398bc1dc",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-guadalupe-connections",
+   "sha256": "932f55ddfcf5d4757f1e0eb8062f1a109ddfb03d0cca9e2cd53563e9a98b9a5d",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-advent-things",
+   "sha256": "3e27aa0856dc2cf021778d14703ad79316ff3c589fd556d7c005320ffffd357f",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-easter-things",
+   "sha256": "625c3f5995b61acc321146e1f7154e91db7eaa11e7224e24f0305a7d844a4f51",
+   "answers": 42,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-all-saints-all-souls-things",
+   "sha256": "b5393100a1c011a794a4aabe4dfb0df54fb8d549d439096f0591d1c8d20d4985",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-friday-lent-foods",
+   "sha256": "3b7504fec5b8ed43108d849759bca2fd532a532bbe8687e42fcc7519fbbe1bfe",
+   "answers": 49,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-in-a-catholic-church",
+   "sha256": "d59aec53e99befc668fd09aaf345fc5e2bc1456ce6f310d27a3263266a802862",
+   "answers": 42,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-parish-events",
+   "sha256": "a15830bd0f80a432157237bf531a363714d14c3d60351a2700171b0694609d7b",
+   "answers": 45,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-parish-ministries",
+   "sha256": "f1bcb6c48cda1dde725be426ded0587346d2498366aa532642e93a8209b5b64f",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-someone-catholics-pray-for",
+   "sha256": "861833f007ba5293c70895d922f0c01effbce3f6ee9e799578124efc8a4f657c",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-something-catholics-pray-for",
+   "sha256": "f41f6b0887d89269b78c5d5f86be1c722512dbeee9103e6b0a3b3f7de8041620",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-place-catholics-pray",
+   "sha256": "2f3d22ddbe14edacdaeff58cc4fb7de018d707644a80ad818b2f81f6dddac4ae",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-time-catholics-pray",
+   "sha256": "103ce9d2ed9057582ebb4db8fd7d65926d0ce814ddc45e6804c97563ae7c912a",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-milestones",
+   "sha256": "1f4f9f374e252c632feb35b160b6a13d6bc4ffd67d4359dc8264fb169b45e98d",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-gestures-in-catholic-worship",
+   "sha256": "c113dce7a4fd2952ce6e3eff21ee03d37b83f8e0dd3e486c4d634dab990ddba3",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-sacred-heart-connections",
+   "sha256": "54585a148d90e9ed74e88e5c55e281fe49e6ee374ca12f978ded5dd39f0afd34",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-divine-mercy-connections",
+   "sha256": "030d5a5fd366e4afacff5c7cb66af4893a1e8f59393a5a6b2619b0ad6eb4eb10",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-first-communion-things",
+   "sha256": "d2c1968905434aed40225dbf28b4e0b2d110ec2dd18e822e1607ae9bdd3bcec1",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-confirmation-things",
+   "sha256": "30a79df385ebe57ffe0a19a9a39a52a203af7776bc602df5dc3b8bbc7c8be8c4",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-eucharistic-adoration-things",
+   "sha256": "a7ced3d8f34c334a730c603be96efdc21491b6f0105453d67dc75990bdd9ece5",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-pilgrimage-things",
+   "sha256": "1306d2f0bfac6c277bae2708aca737be33999ec709137d3b3dfe46871450bb6f",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-media",
+   "sha256": "7d1ed020b478680176c64abf89b25447b5dcae5d6f442126099629a3a4626bef",
+   "answers": 46,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-spiritual-books",
+   "sha256": "b91ec17bc37c3eee3a0819ca92320330d46073d7377ea7a58ef45ad54a9cc0e1",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-sunday-things",
+   "sha256": "2bc2a120a218c4fb2c7a1b688b32310852482edd95b168cc46fcc52340e15100",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-lent-things-besides-giving-up",
+   "sha256": "9cdf7c79bbb45a41968312211479ebf40c89b2c449b237ec2043a56494d9e90d",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-gifts-for-communion-or-confirmation",
+   "sha256": "dd842cef8d1dfea5c55dd8d2f2f27615cd72922fae9f04a425adc35ee48c71d0",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ways-catholics-help-the-poor",
+   "sha256": "6119f4e0a97ba64882adb88e251f2fa51f4da8004fc114ae7f62665e391e7bc1",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-what-priests-do",
+   "sha256": "a8020c82062dc62bfab5e541494f73694a78ffcfb9a643dc50cac369e026e55b",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-what-nuns-do",
+   "sha256": "1822c55587ee9829fad4bb2b4a383cd49cbe5725d46bc05a25946d8851decb68",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-what-monks-do",
+   "sha256": "c16515c8ae3a23894096d2f9aa9c9a21ed37f2193234458e28e23c49f30da659",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-seven-sorrows-of-mary",
+   "sha256": "73be8a9216b4cf5ca4831e877fede778a060a8f7ca18171439da349f0dcfc056",
+   "answers": 7,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-modern-popes",
+   "sha256": "73285af2d2eb9ade5dce12b102cd589d3d8c7cdc9d520bab7e57670e1c717a9f",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-medieval-popes",
+   "sha256": "363f3a19f6dcf32825888a5595bd6a5ea5ed5836ad5f799c5a62ccd15a63e2b4",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-renaissance-popes",
+   "sha256": "3592e00abf48afba05a9e70f810c171969a302a02add6e12cfa731348497e8b1",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-scientist",
+   "sha256": "8b5faffaeaa6eea961a9354fee9c2b824683d62f351e2f18616a47415adb05bf",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-renaissance-art",
+   "sha256": "e61bd7f0ec23d789c6be3d6cb0beaf9bb242c1235454784b06f71add5fab74c2",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-monarch",
+   "sha256": "fe3d534997bda17e2d9f2f94d4c6ab9e09c9e7c518a820867d837ea8177479a4",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-explorer",
+   "sha256": "c602e4ec45acacada8ed0bc185ac924ece4c47783f437b1bde4257d9d4efed2f",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-church-council",
+   "sha256": "c4f011b7ffd4cf44319019d39ff095e7a5d53415ebfd96daa946117989b337ca",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-heresy",
+   "sha256": "2ad345ec57c4dbe4796cecee9fc4a807a62d37ef75527e8a3fb6afd6611c48dd",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-reformation-person",
+   "sha256": "d02093f7c955f1bbb0bebbe664f002b77d9c6a45e94b46baa431a66913c74fd5",
+   "answers": 58,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-church-history-event",
+   "sha256": "dc40d95af41e82edeade1c2da2e3b0e541f75d696876384ee8dad9b46eab42cc",
+   "answers": 61,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-crusades-thing",
+   "sha256": "2868e20c89e10e61d2f8d8f99cec578d81fcfe355eb1cfb400935724287d219a",
+   "answers": 54,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-foreign-catholic-custom",
+   "sha256": "cec3121ee1a2e084e673f949772024ce99a5ba9f4e3b5c45f4c61b60cbde86d5",
+   "answers": 43,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-pope-wears",
+   "sha256": "f1a4aa7ae7442edc46a82bc6eb750e58d93562f87cd77a5abb55d04ec9ebb25a",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-papal-document",
+   "sha256": "c50724786bf201d86f0303f8b36befe741b5e6d3a94a417d5c64021250bf935a",
+   "answers": 72,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-college-team",
+   "sha256": "6a143fe4662af4f1cb7598d147846e17b521b04219767db31dd346483c498380",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-movie-tv",
+   "sha256": "b5a617b3c9a6d4ea9c9dc75728d0758e4e065601fa396fef3d1428c3e9be3f97",
+   "answers": 55,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-church-history-city",
+   "sha256": "9b30c56bbd5d8d10307fd1bec1dd38250a55997fadb104626117dbff36c3c3ea",
+   "answers": 52,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-famous-convert",
+   "sha256": "1b3fa2bc6ae7c50883a82990c49de26c976ac3cf4322608d2213b5669ff75bae",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-philosopher",
+   "sha256": "026f8d6c78a78ca2f18910767645db17b45538b0e9f90e5a360d512a08b041cf",
+   "answers": 55,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-jesuit",
+   "sha256": "f24698d5d3febcef95adeebab5dd7bfe77237b9359716c36effe3a2f4b2bf0d9",
+   "answers": 57,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-franciscan",
+   "sha256": "659c35ccf8a9cd95ac0123179a814c9135edeb9b253c5f9bc6360e6b3374573e",
+   "answers": 48,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-dominican",
+   "sha256": "2f4a0460cfe571050da911618a4e3e76fb4b68c1d09e313ad7cae2a055df0c26",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-rome-landmark",
+   "sha256": "dbdec29bc9cf24e40b088c1be7548b907a4768b9a35b3e40972b61ab1bf0ccf8",
+   "answers": 48,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-monastery-abbey",
+   "sha256": "cc8bb0a372bcc9e674aa6d44c6e385588c34a5d733d8fc980dc092ab8153477b",
+   "answers": 60,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-family",
+   "sha256": "fcaa0bc7c95adce650a659530780966a46c3fee7027b2d15c95e5c457e40e4db",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-sistine-chapel",
+   "sha256": "4a610571759cd60b4369e8b9203f1429b18cecb0de49027c1e681b9c2a1aeba3",
+   "answers": 54,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-dante-divine-comedy",
+   "sha256": "ecbe4e8212efe630807375311d45d421355516ac6e2c3cd2561c4eab2bc37f8a",
+   "answers": 73,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-associated-with-catholics",
+   "sha256": "ab7facf6e6e75e5fe0f155d2d581d698a053a2f5c0474904b4018058a566a249",
+   "answers": 65,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-eastern-church-rite",
+   "sha256": "93fcc52ffbf48697458f4dcaa9cae51761d4fa056711c216324e4c210532efc0",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-famous-cardinal",
+   "sha256": "33e55e08529c9aff7740cf5dca46fd90544c93581135b4e1da89bb6f5bedf8b8",
+   "answers": 70,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-famous-relic",
+   "sha256": "adcdcd3a33e3ee4c9e121574851fb55342d10d828fda0c6c0cb1d616aaa9f465",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-classic-catholic-book",
+   "sha256": "9607b9f8aeb3621281a6aaadd29d30d690e6c67bfbceede9733e7426ddac2674",
+   "answers": 63,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-john-paul-ii-thing",
+   "sha256": "59ebebda027a66859666311e545a5ebb587eaa26588b6419bee2a6b064a501f4",
+   "answers": 56,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-francis-thing",
+   "sha256": "e671cfc0f440a25b50f253ae09a738edb0aef38af40fad4ec13e967e7844ea08",
+   "answers": 49,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-pope-visited-country",
+   "sha256": "dc9e9a1c8c327cc132b8f64a050ce1c61d55715701d1244fc39b2e33145b22b8",
+   "answers": 90,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-priest-nun-in-fiction",
+   "sha256": "a9b2b227df5462db8dff57684b8defa5e036dff08cd17f43faefdc2b8c590c23",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-us-archdiocese",
+   "sha256": "a02974a1322c5bb7e189fe3a91c172dd25dd76a7546cf91b3e239b5bb1853fc6",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-italian-saint",
+   "sha256": "7895d3c6526439b99ecd3a909b1b542cf76dd13bdd190b56462794db9b7ff846",
+   "answers": 56,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-french-saint",
+   "sha256": "30f148ce025f6723e2d80971b06103167757af1a45ac928a6082b649465b1738",
+   "answers": 49,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-spanish-saint",
+   "sha256": "581d78809affefed5c240c54af1c63e3fb1e27dbd81e12a021115aa47e28b1f8",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-americas-saint",
+   "sha256": "d8eb55fe9da66ff8c966057a3481fa22629707732fa4a63ff4c00abc0008c4bb",
+   "answers": 43,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-africa-asia-oceania-saint",
+   "sha256": "4901d5717ffed8ff655ac68dd76bd9c18187943ade24e46ba4016e02d364ffdb",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-medieval-catholic-life",
+   "sha256": "6fe9d0752d7958e14dbe5ff17c15996ee48d1e4bba5528f116b404c755898970",
+   "answers": 57,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-qualities-of-god",
+   "sha256": "864393677c19f7c873fa49782ecd5c86bb8e0627524a28fb9e09df67680fdb93",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-names-for-god",
+   "sha256": "6a0e59111c494c3520a2e9f3265662474138783b9cd1b1e6932141ba9083c04a",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-in-the-creed",
+   "sha256": "ea8954c9f04bbd7e6cf3737412810c71805a0f0d453364402eda48180b41ac3e",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-heaven-is",
+   "sha256": "4d90698b56f84ef6cd120ae36fbd36c06e00817a4b011f80790c264fac193db0",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-purgatory-is",
+   "sha256": "c23e9165d6bf8e1f406c2518031aa5b53fd8fe2c2b3bcde9b2c36b640115d4e8",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-hell-is",
+   "sha256": "0ac9c9dfcc58011ee6a902b987d004608b6f3b51d17fd8b7927844ab4df2fd3b",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-soul-teaching",
+   "sha256": "470725941df7dfbe7a89445af98b878b0a3e547fa634b5721a369ccb83676eba",
+   "answers": 26,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-after-death",
+   "sha256": "6ce9681a0d0c635f291f98dda98aac1b0b801e56462106f56ff36b297e45890b",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-gifts-from-god",
+   "sha256": "50082329ad1cada9aba791c37d022475753e75f82b1df8cf34d4f1748f93fe9c",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ways-to-grow-in-faith",
+   "sha256": "c47a51e12cf623399a4e178d09401f8cf840fb4041556aa2332a17d0a7bf699e",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-helps-you-pray",
+   "sha256": "060322d8b33b6fa783c64bccecce2b795fc7d9053bbd5b5caf314a83f207e12c",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-holy-things",
+   "sha256": "15fefe55691010b68bc4457b528cf9a112725d13dc1b9cbe1b30ff164c5d6cc5",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-words-for-the-church",
+   "sha256": "6f58f5554abbbceff5226c43aba54535d3a94c14a0d71a5fe29cabf0c89adb73",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholic-words",
+   "sha256": "2e73b2fd865392ccd9d8e152af588d24fe187c636a39722efea0ca54db9cb214",
+   "answers": 75,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-vocations",
+   "sha256": "e101e7d945bf3a87134a31b3c41fdf64a6bd3728047495a0350666100c390c5b",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-vows-and-promises",
+   "sha256": "d87a26e4288826357713b5fe51a5996954678eb3e7b2a69e45e3068b1b994e98",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-reasons-to-go-to-mass",
+   "sha256": "81bc2f425cbefae641b78efbc650bb6aee167b9ad4d2ec7f1352c2c45114e18c",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholics-known-for",
+   "sha256": "a9b276f9eb90dfcff8249c44d662dd748fbb66ae8c0fb7cb0f66639768426537",
+   "answers": 48,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-well-known-bible-verses",
+   "sha256": "3758dddcb924dfc3780967ae670f524e537f8af350d95175f1f09e8482729342",
+   "answers": 54,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-people-to-pray-for",
+   "sha256": "1542c937fb826d341e400d979f8ff48fb5e85cc04c2e88faee3ac3e5b759c00f",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-required-of-catholics",
+   "sha256": "7a7a13e574d4f37c08a0d09d2a3a8b1d896f94789acff0d56cfb553eb1bd333d",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ways-to-hurt-someone",
+   "sha256": "faa1f3759ee3d1d3303cd98ac8e3f8182146b0cdc743c42dc1777bd2f553b38c",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ways-to-be-dishonest",
+   "sha256": "50b4d6b7a0be262c40bfdc4ceea3691c89e7d67e245c31072a401102ee7204a5",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-put-before-god",
+   "sha256": "6d69deb7a150cfd3212e6be9236790a041c99896ae96f756c19a0ba2a219c548",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-keeping-sunday-holy",
+   "sha256": "6b752eafc192093711eecd251a6c678f0e319e4e3dbdc3e860662f96123f0ecf",
+   "answers": 28,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ways-to-honor-parents",
+   "sha256": "e105aa8981dc3962c47a3d6b28d6e8601d183cb679d40fde5469029aafc83f0b",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-basic-human-rights",
+   "sha256": "14f13cdeadfdcb16a99d8e52cb80cfe2c767a45d99c353358e83c5574fe669ac",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ways-to-respect-life",
+   "sha256": "7b1e4e79bd343957f6e7bb99c8207d7c5ad8c72d72d09b8adb12a1eb6f57f867",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-protection-from-evil",
+   "sha256": "e43a9775c588d1dd58c13e6063ec5bca47f853c21c6752194d58ed8127708d7e",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-catholics-believe",
+   "sha256": "0bd27ee467ff6de77d1f0bbb5711d5ce6e699ba0a7f51dbd41673f12ea7f1553",
+   "answers": 49,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ways-to-love-your-neighbor",
+   "sha256": "4f4688582db470e0da497074f40c6f62f24cded39d77abd67dc961eafcf96269",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-qualities-of-a-good-marriage",
+   "sha256": "dd43ed1ce06d3ae61b234c7d0e1ea0941d5a62fadf275c53b75d44ee34610677",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-a-priest-does",
+   "sha256": "901c25a6c91bdbd3e890168ba554ddcd568be660c48d33befb99b28732d0969c",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-a-pope-does",
+   "sha256": "a008454b1a167297c6f96bf8885fa63781edf0976f5615ec4da4092bcd65f753",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-the-holy-spirit-does",
+   "sha256": "34e80e1d5ce018251efb30461feb04bc8c59e61fedc7b28c8d574dd09a30d271",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-jesus-gave-us",
+   "sha256": "5cb9e0685965f8acf3042fea12a2e770801cd031ef61c0d4ae8a9fce96f7f444",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-end-of-the-world",
+   "sha256": "dec1c7b46c6874fad826224f7dfe1c80864e3064aff1301f1252347edbca1264",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ways-god-speaks",
+   "sha256": "72977b04cd8ea52e7d655f5632b084dcb671be1658e45d57cdf6dc189a164a28",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-times-to-pray",
+   "sha256": "7efcc5574ad29f4fa2c3e4c94d314f45384dc134c4839d766daf3d509a6fd4a1",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-places-to-pray",
+   "sha256": "cffd99331e8f2a9ab0e59f5d92d6b5d9bc8a3468582c2481d7d42d0ba4e17df3",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-to-ask-god-for",
+   "sha256": "7bf5633369bf1de7040c272dc641b6b32654fb7383a37523bdbfcdff46960696",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-reasons-people-become-catholic",
+   "sha256": "9b9455eb8649f3f14725cb3fe3102b57a40c6972e97927c3fbff4ae50119147a",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-ways-to-care-for-creation",
+   "sha256": "7b56736f085886e181348332e8eaf17a806cc8c061c52899bd37ff08f73437f5",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-things-catholics-believe-about-the-eucharist",
+   "sha256": "8a5baf2cd8b3e73e253ea14c82b93a96264a09305fbed708e0c4c744b6872265",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-holy-land-site",
+   "sha256": "0be00c9cf0976a6191de5fd7191575c60df0630428b75ca83e7c1481c8a4bdcf",
+   "answers": 45,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-us-shrine",
+   "sha256": "8366f07e5143737f607ff085f372ad9e533b5148618937e57dc6d4d7fe18928d",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-shrine-canada-latin-america",
+   "sha256": "cc5cfcc38cc9a83d7fcbb6335c3377840fda98eeb1dd1947f4ffa3237c25f2c4",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-cathedral-city",
+   "sha256": "52571813813f740c20c504df6a57a5014999ae0a2a843e47a1d82de7b5577386",
+   "answers": 74,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-saint-town",
+   "sha256": "a25d7ba1bc08e331f2652924e99c700b444ff6adba70e35e7bb7b43f3316986c",
+   "answers": 43,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-mountain-holy",
+   "sha256": "514cba5eac58025eabf7bceae7e3eb20905e1c08c7c7b531a6b9324a97db8fef",
+   "answers": 26,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-festival-europe",
+   "sha256": "1def2ab83cf058e1c004448acca434c805e6d0963fb20ddd32f9ef69b3f76944",
+   "answers": 39,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-custom-latin-america",
+   "sha256": "4bfd12e1322b82090b8acb426e60132f79f854193d24b28079e5c4c1e497ace6",
+   "answers": 36,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-easter-hymn",
+   "sha256": "6ed555fa1e4f868478cdf4c8f70bb369d042efab135858e78cd4d4a6df8a2101",
+   "answers": 27,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-marian-hymn",
+   "sha256": "459f2484ec99492a8a9a83806e5c127bcb3b071e919fa91cb3e5ad80226cd308",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-latin-hymn-chant",
+   "sha256": "d9dedbd1c73939672da38ebeb4267e60f6c6664010bead372fe99e05857ed94a",
+   "answers": 55,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-lent-hymn",
+   "sha256": "101cbb2ec34fb32026ea1967ea0ef3d3042c2cf726c66eae6cd0f7223a44f15d",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-eucharistic-hymn",
+   "sha256": "7385d435ff4d3dc8f79df7882840a2a838cb220b8e44b420af667ffabe3a5e38",
+   "answers": 26,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-church-instrument",
+   "sha256": "f0143fd44a0c4cc5c8ee9a07babeb25d9fea7e156dcababc19acebb9b00a9486",
+   "answers": 45,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-painting-of-mary",
+   "sha256": "44027061d2c7bf2fdb903f3b4b685bc877d6dc470573b8d909ed5330013d1a81",
+   "answers": 40,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-statue-in-church",
+   "sha256": "a4d38a996adb05bcb20b45c727bfa09901ccf244e5e4a457d63613f3fa7c331f",
+   "answers": 59,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-stained-glass-subject",
+   "sha256": "478c4d7d39c85bbf0e05c3059ea76c9066a198b23c60c07bd20c3f6e713aece8",
+   "answers": 63,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-rome-place-visit",
+   "sha256": "1c73c84fb36c6289064a8df32d8aec0379073d95dbb10383513664f6ac954566",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-holy-place-ireland",
+   "sha256": "c8ce79c3d9ad616d231cd09538efbd16fd430444a28fbf2f58131ecb00ad55af",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-holy-place-britain",
+   "sha256": "8c4f743f845650680383d704645e7bfcacc93a0aa49085779bf4ba48395a5f03",
+   "answers": 42,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-holy-place-france",
+   "sha256": "547711ad96ecb789bc00716714da21479e15b779102ca85769eba1e4ce18d48b",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-holy-place-german-speaking",
+   "sha256": "b634bc96b823bda86807547814fe896002974506afe68207787601e2f4ce000d",
+   "answers": 42,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-holy-place-italy",
+   "sha256": "b1aeb88449c33069b269792d7601183e1fa3a1439e37cd5bd989745754a10db2",
+   "answers": 47,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-holy-place-iberia",
+   "sha256": "8cc93b54b54b68a1a69f0793c09f4b69dd89309230ca46fb18869965a03173f3",
+   "answers": 43,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-painting-jesus-bible",
+   "sha256": "81a944c818c8c01338c1354a82503b325988aa701a65f2ee7234fd5e78f44354",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-religious-sculpture",
+   "sha256": "b2e13e3b7bfa4bc30a2e57dc527625a05c3788ffb60d3781dc47d5bebfdc3a35",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-sistine-chapel-subject",
+   "sha256": "93689dad445a1b20795043ccec4671adf729cba1a9e40976b337ef31e7469d15",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-shrine-asia-africa",
+   "sha256": "9f0fd180f92edc1d56cbe4e43af8200d3d0219ddb5d6767ed0aecba39a436c0c",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-holy-place-central-eastern-europe",
+   "sha256": "2e46df8c6b5e583c9c1bb5947dfd04bb8dff659db3beaa564e381d512976d9f5",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-advent-hymn",
+   "sha256": "2908d0ff1b244932347b29c419f7983ae3135e803334cddc7bd1a4836ad92643",
+   "answers": 25,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-relic-holy-object",
+   "sha256": "d307ed603f30d6ea78cd57cd4d267725ee30fb25d515c186f4983d6071eb5d99",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-jerusalem-place",
+   "sha256": "c375915681afe257ceb8b193335891500c36fbc513afaefb82ec49219b656b58",
+   "answers": 41,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-mass-or-choral-work",
+   "sha256": "9aa9bc7813395582998dce5e476da535d9772752d48c6eef9505bbc0d3f875d0",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-church-architect",
+   "sha256": "c07325539b2dfd55d82c7c1160582bea305272e582d46e487e79b8f4b7c06c19",
+   "answers": 44,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-church-architecture-style",
+   "sha256": "ba5f9c4402471fb69f2c84aea08b7dc5e0a92708a6b16945599f96a3747e9228",
+   "answers": 37,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-custom-ireland",
+   "sha256": "e3c46e49f4e8df0d35fa329713288fbb34ef3ef54e0db7a9b0b83486acbf20f3",
+   "answers": 32,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-custom-poland",
+   "sha256": "cea47cbb86c9cb60e0ed5555bcd6e83453ab4d48b0a0183da45b096e0443592d",
+   "answers": 33,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-custom-german-speaking",
+   "sha256": "3b165fcf876157dfefcc679e9c768453a7fa6b7304afbce2909f1c5cb652dfeb",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-custom-iberia",
+   "sha256": "4d14719321af73a3233cc5a054412fc3627ec8a011162f73a2d14887a7ba9485",
+   "answers": 34,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-paris-church",
+   "sha256": "00c49b0c690ded9e29600078f71c0913f32f275b303e9e1f44d80a586ad961c8",
+   "answers": 30,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-holy-building-type",
+   "sha256": "64ddda19279a0339b4bfc299c7433e49e04546a4f9a4222565695337eb9dda28",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-us-festival-tradition",
+   "sha256": "686a9a0e5d56e3456ebbee5e4805fd8fb2663b83c639b1b0f8e33d536a684500",
+   "answers": 35,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-michelangelo-work",
+   "sha256": "1f228d01fcffa6f31950ff7a525c432342238909e8997013ceeac6d1a9111e43",
+   "answers": 29,
+   "status": "unreviewed"
+  },
+  {
+   "id": "authored7-bernini-work",
+   "sha256": "858eb65dcc50b3599fad6010223fd70693fae20f7c1c88e50b236a58d70de905",
+   "answers": 31,
+   "status": "unreviewed"
+  },
+  {
    "id": "derived:bible-books",
-   "sha256": "2f3fac42694980ef5f42bc7e0a7459a53446da4de0538334e49c0e973eacfe18",
-   "answers": 2,
+   "sha256": "efee98b9275545d1c7ce2bb76e27677f60fb60ac28d2e0b6128447df541e9ee3",
+   "answers": 3,
    "status": "unreviewed"
   },
   {
    "id": "derived:bible-people",
-   "sha256": "e6a42e6543ca45f6dc3b8b7f2475b6f18ab81495c8d0153fd18a71386bf3e090",
-   "answers": 6,
+   "sha256": "a580a52ec7102a9e2f0aeac84e8279faa473bd1ba9c28f93b6daa420f5d81224",
+   "answers": 9,
    "status": "unreviewed"
   },
   {
    "id": "derived:bible-places",
-   "sha256": "6dc172a6da2cc2409531f239571b2a6f80336b1dc3336ca9e3ed0ad8ed566ab2",
-   "answers": 6,
+   "sha256": "ecf7ff507c1c9e820a37b3eae092d2834b4fba1dc76906fb852e34f3aeb8d25e",
+   "answers": 9,
    "status": "unreviewed"
   },
   {
@@ -2097,8 +4203,8 @@
   },
   {
    "id": "derived:calendar-saints",
-   "sha256": "f3d17c5c1b9009fef6bd7da062dc5fb3552a871b623ddf0d8cc1f5cda57364ea",
-   "answers": 5,
+   "sha256": "5237c586046e65a9a9df999e2f485c41baf031e7d9e53f8ebb1c823172a170f3",
+   "answers": 6,
    "status": "unreviewed"
   },
   {
@@ -2109,8 +4215,8 @@
   },
   {
    "id": "derived:italy-cities",
-   "sha256": "a590adcfb91382fbd1e085a3f0b03edb8aa357d12e28d1489f827d789fcbe2af",
-   "answers": 2,
+   "sha256": "b79d8e87cac2fcec3068a7455447bce636ee4ed322acd02a5a8be1a74051b741",
+   "answers": 3,
    "status": "unreviewed"
   },
   {
@@ -2139,14 +4245,14 @@
   },
   {
    "id": "derived:saint-cities",
-   "sha256": "6e4fe2dfaeeef99cdeacc8f1fdf416b3d61829191f0004689cf79d70495dda8b",
-   "answers": 2,
+   "sha256": "34cbe11032d593813284d1b9a54e81a31f1c49dd5a567e202d49fa9f7f402117",
+   "answers": 3,
    "status": "unreviewed"
   },
   {
    "id": "derived:saint-first-names",
-   "sha256": "c0aae7cb18dd03536cdc72640e3a7cf8c15dbc7bafaff1514766abf3654e7578",
-   "answers": 2,
+   "sha256": "bc1e1e86dad47a7b7deff5123aab72458cd02d9c32137a7ed78ffee8d7b03ea2",
+   "answers": 3,
    "status": "unreviewed"
   },
   {
@@ -2157,8 +4263,8 @@
   },
   {
    "id": "derived:shrines",
-   "sha256": "c0d39c98ae11025f7a9b046494d869c8f7c6a859477df4e4afee64d9045c9169",
-   "answers": 2,
+   "sha256": "d8183042d5aa9fd54a9c4fde176ec34edc840f9417587f3e98daa1a2732950d9",
+   "answers": 3,
    "status": "unreviewed"
   },
   {

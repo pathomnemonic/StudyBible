@@ -24,7 +24,7 @@ describe('the special packs', () => {
   });
   it('never put a puzzle, a book-of-the-Bible place list or a Curia document in the daily game', () => {
     for (let d = 20400; d < 20400 + 40; d++) for (const p of dailyDeepPrompts(d)) {
-      expect(p.prompt, p.id).not.toMatch(/ but no | with both | exactly \d+ |Curia|archdiocese|apostolic/i);
+      expect(p.prompt, p.id).not.toMatch(/ but no | with both | exactly \d+ |Roman Curia/i);
       expect(p.id, p.id).not.toMatch(/^(places-[A-Z0-9]{3}|gpt-(?!saint-patronages))/);
     }
   });

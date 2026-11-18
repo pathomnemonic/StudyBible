@@ -293,10 +293,10 @@ const RAW_PROMPTS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS
 export const BASE_PROMPTS: DeepPrompt[] = RAW_PROMPTS.map((p) => (SIMPLER_PROMPTS[bareId(p.id)] ? { ...p, prompt: SIMPLER_PROMPTS[bareId(p.id)] } : p));
 
 /**
- * How many questions the bank holds: 27 days of seven (it was 378 until the letter rules that asked for two conditions at once were dropped, and the lists cannot yet fill a year with one-rule questions). A question comes back no sooner than a whole cycle (27 days) minus four days. The questions after the hand-written and generated ones are derived by rule (see
+ * How many questions the bank holds: 77 days of seven (it was 378 until the letter rules that asked for two conditions at once were dropped, and the lists cannot yet fill a year with one-rule questions). A question comes back no sooner than a whole cycle (77 days) minus four days. The questions after the hand-written and generated ones are derived by rule (see
  * src/lib/deepWatersDerive.ts and src/data/deepWatersPools.ts) up to this size, with no theme holding more than a quarter of the bank.
  */
-export const BANK_SIZE = 27 * 7;
+export const BANK_SIZE = 77 * 7;
 const THEME_SHARE = 0.31;
 export const themeCaps = (() => {
   const held: Record<string, number> = {};
