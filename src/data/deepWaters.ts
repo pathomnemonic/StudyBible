@@ -47,6 +47,7 @@ import { PATRON_SAINTS } from './deepWatersPatrons';
 import { BATCH_PROMPTS } from './deepWatersBatch';
 import { SIMPLER_PROMPTS, isEverydayList } from './deepWatersEveryday';
 import { materialize, type DerivedEntry } from '../lib/deepWatersDerive';
+import { spreadTiers } from '../lib/deepWaters';
 import DERIVED_ENTRIES from './deepWaters.derived.json';
 import { buildPools } from './deepWatersPools';
 
@@ -290,7 +291,13 @@ const core: DeepPrompt[] = CORE_PROMPTS.map((p) => ({ ...p, theme: CORE_THEMES[p
 /** the hand-written and generated questions, before the derived ones */
 const bareId = (id: string) => id.replace(/^(authored\d?-|ported-)/, '');
 const RAW_PROMPTS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...LONG_LIST_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[]), ...(REGION_PROMPTS as DeepPrompt[]), ...LONG_LIST_2_PROMPTS, ...LONG_TAIL_PORTED, ...EASY_LIST_PROMPTS, ...EVERYDAY_PROMPTS, ...BROAD_PROMPTS, PATRON_SAINTS, ...BATCH_PROMPTS];
-export const BASE_PROMPTS: DeepPrompt[] = RAW_PROMPTS.map((p) => (SIMPLER_PROMPTS[bareId(p.id)] ? { ...p, prompt: SIMPLER_PROMPTS[bareId(p.id)] } : p));
+/** the hand lists as authored (their own tiers): the rule-derived questions are worked out from these */
+export const HAND_PROMPTS: DeepPrompt[] = RAW_PROMPTS.map((p) => (SIMPLER_PROMPTS[bareId(p.id)] ? { ...p, prompt: SIMPLER_PROMPTS[bareId(p.id)] } : p));
+/** the hand lists as played: the same answers, scored over all six tiers by rank (see spreadTiers) */
+export const BASE_PROMPTS: DeepPrompt[] = HAND_PROMPTS.map(spreadTiers);
+/** which hand lists are everyday ones is judged on the authored tiers (spreading would make every list look easy) */
+const EVERYDAY_IDS = new Set(HAND_PROMPTS.filter(isEverydayList).map((p) => p.id));
+export const isEverydayPrompt = (p: { id: string }) => EVERYDAY_IDS.has(p.id);
 
 /**
  * How many questions the bank holds: 72 days of seven (it was 378 until the letter rules that asked for two conditions at once were dropped, and the lists cannot yet fill a year with one-rule questions). A question comes back no sooner than a whole cycle (72 days) minus four days. The questions after the hand-written and generated ones are derived by rule (see
@@ -300,14 +307,14 @@ export const BANK_SIZE = 72 * 7;
 const THEME_SHARE = 0.31;
 export const themeCaps = (() => {
   const held: Record<string, number> = {};
-  for (const p of BASE_PROMPTS.filter(isEverydayList)) held[p.theme] = (held[p.theme] ?? 0) + 1;
+  for (const p of BASE_PROMPTS.filter(isEverydayPrompt)) held[p.theme] = (held[p.theme] ?? 0) + 1;
   const cap: Record<string, number> = {};
   for (const t of ['scripture', 'saints', 'church-history', 'liturgy', 'doctrine', 'devotion', 'places', 'art-music', 'people']) cap[t] = Math.floor(BANK_SIZE * THEME_SHARE) - (held[t] ?? 0);
   return cap;
 })();
 
 /** Every prompt: the hand-written groups, the groups generated from the app's own data (see scripts/deepwaters), and the questions derived by rule from complete lists. */
-export const DEEP_WATERS: DeepPrompt[] = [...BASE_PROMPTS, ...materialize(buildPools(BASE_PROMPTS), DERIVED_ENTRIES as DerivedEntry[])];
+export const DEEP_WATERS: DeepPrompt[] = [...BASE_PROMPTS, ...materialize(buildPools(HAND_PROMPTS), DERIVED_ENTRIES as DerivedEntry[])];
 
 /** The questions that are asked: the ones a player can answer at once (see src/data/deepWatersEveryday.ts). The rest of DEEP_WATERS is answer data for them and for the tests. */
-export const DEEP_PLAYABLE: DeepPrompt[] = DEEP_WATERS.filter((p) => p.derived || isEverydayList(p));
+export const DEEP_PLAYABLE: DeepPrompt[] = DEEP_WATERS.filter((p) => p.derived || isEverydayPrompt(p));

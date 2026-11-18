@@ -1,12 +1,12 @@
 import { execSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
-import { BANK_SIZE, DEEP_PLAYABLE, DEEP_WATERS } from '../src/data/deepWaters';
+import { HAND_PROMPTS, BANK_SIZE, DEEP_PLAYABLE, DEEP_WATERS } from '../src/data/deepWaters';
 import { TABLE_NAMES, buildPools } from '../src/data/deepWatersPools';
 import { matchDeepAnswer } from '../src/lib/deepWaters';
 import { cycleLength, familyOf } from '../src/lib/deepWatersSchedule';
 
 const derived = DEEP_WATERS.filter((p) => p.derived);
-const pools = new Map(buildPools(DEEP_WATERS.filter((p) => !p.derived)).map((p) => [p.id, p]));
+const pools = new Map(buildPools(HAND_PROMPTS).map((p) => [p.id, p]));
 
 // an independent reading of the letters of a name, written separately from the generator
 const clean = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/^the /, '');

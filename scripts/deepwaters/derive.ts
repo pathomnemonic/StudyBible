@@ -3,15 +3,15 @@
 //   npx tsx scripts/deepwaters/derive.ts --write    rewrite it (after changing a list, a rule or the bank size)
 // The choice is slow (every rule is tried on every list), so it is made here and the app only rebuilds the chosen questions from it.
 import { readFileSync, writeFileSync } from 'node:fs';
-import { BANK_SIZE, BASE_PROMPTS, themeCaps } from '../../src/data/deepWaters';
+import { HAND_PROMPTS, BANK_SIZE, BASE_PROMPTS, isEverydayPrompt, themeCaps } from '../../src/data/deepWaters';
 import { buildPools } from '../../src/data/deepWatersPools';
 import { chooseDerived, materialize } from '../../src/lib/deepWatersDerive';
-import { isEverydayList, isEverydayRule } from '../../src/data/deepWatersEveryday';
+import { isEverydayRule } from '../../src/data/deepWatersEveryday';
 
 const FILE = new URL('../../src/data/deepWaters.derived.json', import.meta.url).pathname;
 const PACK_FILE = new URL('../../src/data/deepWaters.packs.derived.json', import.meta.url).pathname;
-const pools = buildPools(BASE_PROMPTS);
-const entries = chooseDerived(pools, BANK_SIZE - BASE_PROMPTS.filter(isEverydayList).length, themeCaps, BASE_PROMPTS, isEverydayRule);
+const pools = buildPools(HAND_PROMPTS);
+const entries = chooseDerived(pools, BANK_SIZE - BASE_PROMPTS.filter(isEverydayPrompt).length, themeCaps, BASE_PROMPTS, isEverydayRule);
 // the questions that are not asked in the daily game go to the special packs: the same lists with the rules the daily game leaves out, then the hard letter puzzles
 const noCap = Object.fromEntries(Object.keys(themeCaps).map((k) => [k, 1e9]));
 const asked = [...BASE_PROMPTS, ...materialize(pools, entries)];

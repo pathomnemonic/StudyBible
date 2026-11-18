@@ -74,10 +74,68 @@ export function matchDeepAnswer(prompt: DeepPrompt, guess: string): DeepMatch {
   // names of people: the name everyone uses counts ("Bernadette" for Bernadette Soubirous, "Kolbe" for Maximilian Kolbe) when it can mean only one answer on the list.
   // Only for people a player would know by that name (the easier tiers): "Christopher" is not "Christopher Magallanes". A first name alone does not count for a name with an epithet ("John" for John of the Cross), because that is another John's name as much as his.
   if (part.length === 1 && g.length === 1 && NAME_THEMES.has(prompt.theme) && part[0].entry.tier <= 3 && isGivenAndFamily(part[0].entry.answer, g[0])) return { status: 'match', answer: part[0].entry, exact: false };
+  // actions and things (not names): the same words in another form ("visiting the sick"), or the key word of one easy answer ("pray" for "Pray the rosary")
+  if (!NAME_THEMES.has(prompt.theme)) {
+    const lg = looseTokens(guess, prompt.ignore);
+    if (lg.length) {
+      const lk = lg.join(' ');
+      const loose = looseKeyed(prompt);
+      const same = loose.filter((a) => a.keys.some((k) => k.join(' ') === lk));
+      if (same.length === 1) return { status: 'match', answer: same[0].entry, exact: false };
+      if (same.length > 1) return { status: 'ambiguous', options: same.map((a) => a.entry) };
+      const sub = loose.filter((a) => a.entry.tier <= 3 && a.keys.some((k) => k.length > lg.length && k.length <= 3 && lg.every((w) => k.includes(w))));
+      if (sub.length === 1) return { status: 'match', answer: sub[0].entry, exact: false };
+      if (sub.length > 1) return { status: 'ambiguous', options: sub.map((a) => a.entry) };
+    }
+  }
   return { status: 'none' };
 }
 
+/**
+ * Spreads a list's answers over all six scores by rank, keeping the order the authors gave them (rarer stays rarer). Hand-set tiers left most lists without a top score
+ * and bunched the rest; this gives every open list its easy, middling and rare answers. Lists with a fixed set of answers are left alone.
+ */
+const BAND_EDGES = [0.3, 0.52, 0.72, 0.86, 0.95, 1];
+export function spreadTiers<T extends DeepPrompt>(prompt: T): T {
+  const n = prompt.answers.length;
+  if (prompt.closed || n < 3) return prompt;
+  // a list whose tiers already reach the top and cover most of the scale (or were calibrated from a measured source) is left exactly as it is
+  const used = new Set(prompt.answers.map((a) => a.tier));
+  if (prompt.source || (used.has(6) && used.size >= 5)) return prompt;
+  const order = prompt.answers.map((a, i) => ({ a, i })).sort((x, y) => x.a.tier - y.a.tier || x.i - y.i);
+  const tierOf = new Map<DeepAnswer, DeepAnswer['tier']>();
+  order.forEach(({ a }, r) => {
+    const q = (r + 0.5) / n;
+    let t = (BAND_EDGES.findIndex((e) => q <= e) + 1) as DeepAnswer['tier'];
+    if (r === n - 1) t = 6; else if (r === n - 2 && n >= 5 && t < 5) t = 5;
+    tierOf.set(a, t);
+  });
+  return { ...prompt, answers: prompt.answers.map((a) => ({ ...a, tier: tierOf.get(a)! })) };
+}
+
 const NAME_THEMES = new Set(['saints', 'people', 'church-history']);
+
+/** Little words and verb endings that people vary when they type an action ("visiting the sick", "help the poor people", "pray for others"). */
+const LOOSE_IGNORED = new Set(['to', 'for', 'in', 'on', 'at', 'with', 'by', 'people', 'person', 'someone', 'others', 'other', 'those', 'your', 'my', 'their', 'who', 'is', 'are', 'be', 'it', 'them', 'all', 'some', 'more']);
+export function looseTokens(value: string, ignore: readonly string[] = []): string[] {
+  const out: string[] = [];
+  for (const w of deepTokens(value, ignore)) {
+    if (LOOSE_IGNORED.has(w)) continue;
+    let n = w;
+    if (n.length > 5 && n.endsWith('ing')) n = n.slice(0, -3);
+    else if (n.length > 4 && n.endsWith('ed')) n = n.slice(0, -2);
+    else if (n.length > 4 && n.endsWith('es')) n = n.slice(0, -2);
+    if (n.length > 3 && n.endsWith('e')) n = n.slice(0, -1);
+    out.push(n);
+  }
+  return out.sort();
+}
+const looseCache = new WeakMap<DeepPrompt, { entry: DeepAnswer; keys: string[][] }[]>();
+function looseKeyed(prompt: DeepPrompt) {
+  let k = looseCache.get(prompt);
+  if (!k) { k = prompt.answers.map((entry) => ({ entry, keys: [entry.answer, ...(entry.aliases ?? [])].map((a) => looseTokens(a, prompt.ignore)).filter((t) => t.length) })); looseCache.set(prompt, k); }
+  return k;
+}
 const EPITHET_WORDS = new Set(['of', 'the', 'de', 'da', 'di', 'del', 'della', 'des', 'du', 'von', 'van', 'der', 'la', 'le', 'el', 'al', 'ibn', 'bar', 'ben']);
 /** "Bernadette Soubirous", "Padre Pio": two words, no "of X" or "de X" epithet, and the guess is one of the two */
 function isGivenAndFamily(answer: string, token: string): boolean {
