@@ -1807,4 +1807,305 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "The answer bank follows the source catalogue's document category."
     ]
   }
+  ,{
+    "id": "longtail-curial-documents",
+    "theme": "church-history",
+    "prompt": "Name a document published by a Roman Curia dicastery, pontifical council, or commission.",
+    "context": "Curial offices publish doctrinal, pastoral, ecumenical, educational, social and bioethical documents. This open list samples the catalogue and is not exhaustive.",
+    "basis": "GCatholic, Documents by Type → Documents from the Roman Curia (213 catalogue entries): https://gcatholic.org/documents/data/type-CZZ . Titles are taken from catalogue records; repeated annual resources are distinguished by publication year.",
+    "answers": [
+      {
+        "answer": "On Christian anthropology in the face of some future scenarios for humanity",
+        "tier": 5
+      },
+      {
+        "answer": "The Bishop of Rome",
+        "tier": 3
+      },
+      {
+        "answer": "Primacy and synodality in ecumenical dialogues and responses to Ut unum sint",
+        "tier": 4
+      },
+      {
+        "answer": "Towards Full Presence: A Pastoral Reflection on Engagement with Social Media",
+        "tier": 2
+      },
+      {
+        "answer": "Vademecum on certain points of procedure in treating cases of sexual abuse of minors committed by clerics (2022)",
+        "tier": 2
+      },
+      {
+        "answer": "Pandemic and Challenges for Education: Children and adolescents dealing with COVID-19",
+        "tier": 4
+      },
+      {
+        "answer": "Children and COVID-19",
+        "tier": 5
+      },
+      {
+        "answer": "Pastoral Guidelines for the Celebration of World Youth Day in the Particular Churches",
+        "tier": 4
+      },
+      {
+        "answer": "Pastoral Orientations on Climate Displaced People",
+        "tier": 4
+      },
+      {
+        "answer": "Response to a dubium regarding the blessing of the unions of same-sex couples",
+        "tier": 2
+      },
+      {
+        "answer": "Report on the Holy See’s institutional knowledge and decision-making related to former Cardinal Theodore McCarrick",
+        "tier": 3
+      },
+      {
+        "answer": "Vademecum on certain points of procedure in treating cases of sexual abuse of minors committed by clerics (2020)",
+        "tier": 2
+      },
+      {
+        "answer": "Responses on the validity of baptism",
+        "tier": 3
+      },
+      {
+        "answer": "The Bishop and Christian Unity: An ecumenical vademecum",
+        "tier": 4
+      },
+      {
+        "answer": "Strong in the Face of Tribulation",
+        "tier": 4
+      },
+      {
+        "answer": "Directory for Catechesis",
+        "tier": 1
+      },
+      {
+        "answer": "Pastoral guidelines concerning the civil registration of clergy in China",
+        "tier": 5
+      },
+      {
+        "answer": "Towards a path of dialogue on the question of gender theory in education",
+        "tier": 5
+      },
+      {
+        "answer": "On the Christian perspective on sport and the human person",
+        "tier": 4
+      },
+      {
+        "answer": "Sinodality in the life and mission of the Church",
+        "tier": 3
+      },
+      {
+        "answer": "Œconomicæ et pecuniariæ quæstiones",
+        "tier": 2
+      },
+      {
+        "answer": "Educating to fraternal humanism—Building a civilization of love 50 years after Populorum progressio",
+        "tier": 4
+      },
+      {
+        "answer": "Instructions for Compiling the Annual Report on the State and Activity of Tribunals",
+        "tier": 6
+      },
+      {
+        "answer": "Final Report on the Apostolic Visitation of Institutes of Women Religious in the United States of America",
+        "tier": 5
+      },
+      {
+        "answer": "Guide for large celebrations",
+        "tier": 5
+      },
+      {
+        "answer": "Sensus fidei in the life of the Church",
+        "tier": 3
+      },
+      {
+        "answer": "Resources for the Week of Prayer for Christian Unity 2014",
+        "tier": 4
+      },
+      {
+        "answer": "God the Trinity and the Unity of Humanity",
+        "tier": 3
+      },
+      {
+        "answer": "Enchiridion della Nuova Evangelizzazione",
+        "tier": 6
+      },
+      {
+        "answer": "Theology Today: Perspectives, Principles and Criteria",
+        "tier": 2
+      },
+      {
+        "answer": "Law concerning the prevention and countering of illegal activities in the financial and monetary sectors in Vatican City State and the Holy See",
+        "tier": 6
+      },
+      {
+        "answer": "Resources for the Week of Prayer for Christian Unity 2010",
+        "tier": 4
+      },
+      {
+        "answer": "In Search of a Universal Ethic: A New Look at the Natural Law",
+        "tier": 2
+      },
+      {
+        "answer": "Pastoral Recommendations of the Plenary Assembly of the Pontifical Commission for Latin America",
+        "tier": 5
+      },
+      {
+        "answer": "Why the Concept of Brain Death is Valid as a Definition of Death",
+        "tier": 3
+      },
+      {
+        "answer": "Resources for the Week of Prayer for Christian Unity 2009",
+        "tier": 4
+      },
+      {
+        "answer": "Guidelines for the Use of Psychology in the Admission and Formation of Candidates for the Priesthood",
+        "tier": 4
+      },
+      {
+        "answer": "Reform of the Higher Institutes of Religious Sciences",
+        "tier": 6
+      },
+      {
+        "answer": "Responses to questions on the validity of baptism with certain formulas",
+        "tier": 4
+      },
+      {
+        "answer": "The role of the national delegate for the International Eucharistic Congresses",
+        "tier": 5
+      },
+      {
+        "answer": "Foundational theological document for the International Eucharistic Congress of Quebec",
+        "tier": 6
+      },
+      {
+        "answer": "Educating Together in Catholic Schools: Shared Mission of Consecrated Persons and Lay Faithful",
+        "tier": 4
+      },
+      {
+        "answer": "Responses to questions on artificial nutrition and hydration",
+        "tier": 3
+      },
+      {
+        "answer": "Booklets published in preparation for the Week of Prayer for Christian Unity 2008",
+        "tier": 5
+      },
+      {
+        "answer": "Responses to some questions regarding certain aspects of the Church",
+        "tier": 2
+      },
+      {
+        "answer": "Explanatory Note on the Letter of Pope Benedict XVI to Chinese Catholics",
+        "tier": 4
+      },
+      {
+        "answer": "Guidelines for the Pastoral Care of the Road-Street",
+        "tier": 6
+      },
+      {
+        "answer": "The Hope of Salvation for Infants Who Die Without Being Baptised",
+        "tier": 2
+      },
+      {
+        "answer": "Manual for chaplains and pastoral agents of the Apostleship of the Sea",
+        "tier": 6
+      },
+      {
+        "answer": "Notification on the works of Father Jon Sobrino, S.J.",
+        "tier": 4
+      },
+      {
+        "answer": "The Fight Against Corruption",
+        "tier": 5
+      },
+      {
+        "answer": "Booklets published in preparation for the Week of Prayer for Christian Unity 2007",
+        "tier": 5
+      },
+      {
+        "answer": "The Via Pulchritudinis: Privileged Pathway for Evangelisation and Dialogue",
+        "tier": 4
+      },
+      {
+        "answer": "Final Document of the 2nd World Congress for the Pastoral Care of Foreign Students",
+        "tier": 6
+      },
+      {
+        "answer": "Guidelines for the Pastoral Care of Gypsies",
+        "tier": 5
+      },
+      {
+        "answer": "Final Document of the 2nd Asian Congress on Pilgrimages and Shrines",
+        "tier": 5
+      },
+      {
+        "answer": "Catholic Cultural Centres (4th edition)",
+        "tier": 5
+      },
+      {
+        "answer": "Final Document of the 1st International Meeting of Pastoral Care for the Liberation of Women of the Street",
+        "tier": 6
+      },
+      {
+        "answer": "Booklets published in preparation for the Week of Prayer for Christian Unity 2006",
+        "tier": 5
+      },
+      {
+        "answer": "Final Document of the 12th International Seminar for Catholic Civil Aviation Chaplains and Chaplaincy Members",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Directory for Catechesis",
+        "accepted": true
+      },
+      {
+        "guess": "Theology Today: Perspectives, Principles and Criteria",
+        "accepted": true
+      },
+      {
+        "guess": "In Search of a Universal Ethic",
+        "accepted": true
+      },
+      {
+        "guess": "The Bishop and Christian Unity",
+        "accepted": true
+      },
+      {
+        "guess": "Antiqua et nova",
+        "accepted": false,
+        "reason": "A note from the Roman Curia, not a document in this catalogue category."
+      },
+      {
+        "guess": "Laudato si’",
+        "accepted": false,
+        "reason": "A papal encyclical."
+      },
+      {
+        "guess": "Redemptionis sacramentum",
+        "accepted": false,
+        "reason": "A Roman Curia instruction."
+      },
+      {
+        "guess": "Pastor Bonus",
+        "accepted": false,
+        "reason": "A papal apostolic constitution."
+      },
+      {
+        "guess": "Dei Verbum",
+        "accepted": false,
+        "reason": "A Vatican II dogmatic constitution."
+      },
+      {
+        "guess": "Traditionis custodes",
+        "accepted": false,
+        "reason": "A papal motu proprio."
+      }
+    ],
+    "reviewFlags": [
+      "The catalogue includes some vademecums and directories under Documents; category membership follows the source index.",
+      "A recurring Week of Prayer resource is distinguished by publication year."
+    ]
+  }
 ];
