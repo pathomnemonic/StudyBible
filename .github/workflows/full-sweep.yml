@@ -15,7 +15,7 @@ jobs:
       matrix:
         sizes: ['320,320-big', '360,390', '390-big,412', '768,1024', '1280,1280-big']
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v4
         with:
           node-version: 22
