@@ -10362,4 +10362,892 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-saints-spain",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with Spain.",
+    "context": "Spain has a long Christian history, and its saints and blesseds include martyrs, bishops, religious, mystics and laypeople. This open list is not complete.",
+    "basis": "GCatholic, “Saints and Blesseds of Spain” (380 saints and 2,567 blesseds; association is based on birthplace and/or death place): https://gcatholic.org/saints/data/country-ES.htm . Names follow the catalogue.",
+    "answers": [
+      {
+        "answer": "Teresa of Ávila",
+        "tier": 1
+      },
+      {
+        "answer": "John of the Cross",
+        "tier": 1
+      },
+      {
+        "answer": "Ignatius of Loyola",
+        "tier": 1
+      },
+      {
+        "answer": "Francis Xavier",
+        "tier": 1
+      },
+      {
+        "answer": "Dominic of Osma",
+        "tier": 1
+      },
+      {
+        "answer": "Isidore the Farmer",
+        "tier": 2
+      },
+      {
+        "answer": "John of God",
+        "tier": 2
+      },
+      {
+        "answer": "Isidore of Seville",
+        "tier": 2
+      },
+      {
+        "answer": "Leocadia of Toledo",
+        "tier": 2
+      },
+      {
+        "answer": "Eulalia of Mérida",
+        "tier": 2
+      },
+      {
+        "answer": "John of Ávila",
+        "tier": 2
+      },
+      {
+        "answer": "Josemaría Escrivá",
+        "tier": 2
+      },
+      {
+        "answer": "Torcuato",
+        "tier": 3
+      },
+      {
+        "answer": "Cecilio de Granada",
+        "tier": 3
+      },
+      {
+        "answer": "Geroncio de Italica",
+        "tier": 3
+      },
+      {
+        "answer": "Eufrasio de Iliturgi",
+        "tier": 3
+      },
+      {
+        "answer": "Hesiquio de Cazorla",
+        "tier": 3
+      },
+      {
+        "answer": "Indaletio de Almería",
+        "tier": 3
+      },
+      {
+        "answer": "Segundo de Abula",
+        "tier": 3
+      },
+      {
+        "answer": "Tesifonte de Vergium",
+        "tier": 3
+      },
+      {
+        "answer": "Orentius",
+        "tier": 3
+      },
+      {
+        "answer": "Patientia",
+        "tier": 3
+      },
+      {
+        "answer": "Leto de Lezuza",
+        "tier": 3
+      },
+      {
+        "answer": "Vicente de Lezuza",
+        "tier": 3
+      },
+      {
+        "answer": "Augurio de Tarragona",
+        "tier": 4
+      },
+      {
+        "answer": "Eulogio de Tarragona",
+        "tier": 4
+      },
+      {
+        "answer": "Fructuoso de Tarragona",
+        "tier": 4
+      },
+      {
+        "answer": "Mauro de Valencia",
+        "tier": 4
+      },
+      {
+        "answer": "Justa",
+        "tier": 4
+      },
+      {
+        "answer": "Rufina",
+        "tier": 4
+      },
+      {
+        "answer": "Celedonio",
+        "tier": 4
+      },
+      {
+        "answer": "Emeterio",
+        "tier": 4
+      },
+      {
+        "answer": "Facundo",
+        "tier": 4
+      },
+      {
+        "answer": "Germán de Gerona",
+        "tier": 4
+      },
+      {
+        "answer": "Justo de Gerona",
+        "tier": 4
+      },
+      {
+        "answer": "Paulino de Gerona",
+        "tier": 4
+      },
+      {
+        "answer": "Primitivo",
+        "tier": 4
+      },
+      {
+        "answer": "Sicio de Gerona",
+        "tier": 4
+      },
+      {
+        "answer": "Centola",
+        "tier": 4
+      },
+      {
+        "answer": "Severo de Barcelona",
+        "tier": 5
+      },
+      {
+        "answer": "Engracia de Zaragoza",
+        "tier": 5
+      },
+      {
+        "answer": "Eulalia de Barcelona",
+        "tier": 5
+      },
+      {
+        "answer": "Apodemo de Zaragoza",
+        "tier": 5
+      },
+      {
+        "answer": "Cayo de Zaragoza",
+        "tier": 5
+      },
+      {
+        "answer": "Ceciliano de Zaragoza",
+        "tier": 5
+      },
+      {
+        "answer": "Claudio",
+        "tier": 5
+      },
+      {
+        "answer": "Cremencio de Zaragoza",
+        "tier": 5
+      },
+      {
+        "answer": "Cristeta de Talavera",
+        "tier": 5
+      },
+      {
+        "answer": "Cucuphas",
+        "tier": 5
+      },
+      {
+        "answer": "Evencio de Zaragoza",
+        "tier": 5
+      },
+      {
+        "answer": "Faustus",
+        "tier": 5
+      },
+      {
+        "answer": "Félix de Gerona",
+        "tier": 5
+      },
+      {
+        "answer": "Félix de Zaragoza",
+        "tier": 5
+      },
+      {
+        "answer": "Frontón de Zaragoza",
+        "tier": 5
+      },
+      {
+        "answer": "Januarius",
+        "tier": 6
+      },
+      {
+        "answer": "Julia de Mérida",
+        "tier": 6
+      },
+      {
+        "answer": "Julia de Zaragoza",
+        "tier": 6
+      },
+      {
+        "answer": "Juliana",
+        "tier": 6
+      },
+      {
+        "answer": "Justo",
+        "tier": 6
+      },
+      {
+        "answer": "Lucrecia de Mérida",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": true
+      },
+      {
+        "guess": "John of the Cross",
+        "accepted": true
+      },
+      {
+        "guess": "Ignatius of Loyola",
+        "accepted": true
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": true
+      },
+      {
+        "guess": "Dominic of Osma",
+        "accepted": true
+      },
+      {
+        "guess": "Patrick",
+        "accepted": false,
+        "reason": "A saint associated with Ireland, not a Spain entry in the source catalogue."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "An Italian saint, not a Spain entry in the source catalogue."
+      },
+      {
+        "guess": "Benedict of Nursia",
+        "accepted": false,
+        "reason": "An Italian saint, not a Spain entry in the source catalogue."
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accepted": false,
+        "reason": "An Italian saint, not a Spain entry in the source catalogue."
+      },
+      {
+        "guess": "Thomas More",
+        "accepted": false,
+        "reason": "An English saint, not a Spain entry in the source catalogue."
+      }
+    ]
+  },
+  {
+    "id": "longtail-saints-germany",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with Germany.",
+    "context": "Germany’s Christian history includes early martyrs, missionaries, abbesses, bishops, theologians and modern witnesses. This open list is not complete.",
+    "basis": "GCatholic, “Saints and Blesseds of Germany” (183 saints and 179 blesseds; association is based on birthplace and/or death place): https://gcatholic.org/saints/data/country-DE . Names follow the catalogue.",
+    "answers": [
+      {
+        "answer": "Boniface",
+        "tier": 1
+      },
+      {
+        "answer": "Hildegard of Bingen",
+        "tier": 1
+      },
+      {
+        "answer": "Albert the Great",
+        "tier": 1
+      },
+      {
+        "answer": "Elizabeth of Hungary",
+        "tier": 1
+      },
+      {
+        "answer": "Edith Stein",
+        "tier": 1
+      },
+      {
+        "answer": "Afra of Augsburg",
+        "tier": 2
+      },
+      {
+        "answer": "Gereon of Cologne",
+        "tier": 2
+      },
+      {
+        "answer": "Ursula",
+        "tier": 2
+      },
+      {
+        "answer": "Marcellina",
+        "tier": 2
+      },
+      {
+        "answer": "Radegund of Poitiers",
+        "tier": 2
+      },
+      {
+        "answer": "Ansgar",
+        "tier": 2
+      },
+      {
+        "answer": "Fidelis of Sigmaringen",
+        "tier": 2
+      },
+      {
+        "answer": "Martin of Trier",
+        "tier": 3
+      },
+      {
+        "answer": "Eucharius of Trier",
+        "tier": 3
+      },
+      {
+        "answer": "Valerius of Trier",
+        "tier": 3
+      },
+      {
+        "answer": "Mallosus",
+        "tier": 3
+      },
+      {
+        "answer": "Viktor of Xanten",
+        "tier": 3
+      },
+      {
+        "answer": "Ferrutius",
+        "tier": 3
+      },
+      {
+        "answer": "Cassius",
+        "tier": 3
+      },
+      {
+        "answer": "Florentius",
+        "tier": 3
+      },
+      {
+        "answer": "Valentine of Trier",
+        "tier": 3
+      },
+      {
+        "answer": "Maternus of Cologne",
+        "tier": 3
+      },
+      {
+        "answer": "Agritius of Trier",
+        "tier": 3
+      },
+      {
+        "answer": "Maximinus of Trier",
+        "tier": 3
+      },
+      {
+        "answer": "Paulinus of Trier",
+        "tier": 4
+      },
+      {
+        "answer": "Lubentius",
+        "tier": 4
+      },
+      {
+        "answer": "Bonosus of Trier",
+        "tier": 4
+      },
+      {
+        "answer": "Britto of Trier",
+        "tier": 4
+      },
+      {
+        "answer": "Felix of Trier",
+        "tier": 4
+      },
+      {
+        "answer": "Kastor of Karden",
+        "tier": 4
+      },
+      {
+        "answer": "Felicius",
+        "tier": 4
+      },
+      {
+        "answer": "Odilia of Cologne",
+        "tier": 4
+      },
+      {
+        "answer": "Potentinus",
+        "tier": 4
+      },
+      {
+        "answer": "Quiriacus of Trier",
+        "tier": 4
+      },
+      {
+        "answer": "Simplicius",
+        "tier": 4
+      },
+      {
+        "answer": "Severin of Cologne",
+        "tier": 4
+      },
+      {
+        "answer": "Alban of Mainz",
+        "tier": 4
+      },
+      {
+        "answer": "Aureus of Mainz",
+        "tier": 4
+      },
+      {
+        "answer": "Severus of Trier",
+        "tier": 4
+      },
+      {
+        "answer": "Valentin of Rhaetia",
+        "tier": 5
+      },
+      {
+        "answer": "Modestus of Trier",
+        "tier": 5
+      },
+      {
+        "answer": "Justina of Mainz",
+        "tier": 5
+      },
+      {
+        "answer": "Fibicius of Trier",
+        "tier": 5
+      },
+      {
+        "answer": "Fridolin of Säckingen",
+        "tier": 5
+      },
+      {
+        "answer": "Nicetius of Trier",
+        "tier": 5
+      },
+      {
+        "answer": "Rusticus of Trier",
+        "tier": 5
+      },
+      {
+        "answer": "Magnerich of Trier",
+        "tier": 5
+      },
+      {
+        "answer": "Everigisil of Cologne",
+        "tier": 5
+      },
+      {
+        "answer": "Bertoare",
+        "tier": 5
+      },
+      {
+        "answer": "Wendelin of Trier",
+        "tier": 5
+      },
+      {
+        "answer": "Landelin of Ettenheimmünster",
+        "tier": 5
+      },
+      {
+        "answer": "Moduald of Trier",
+        "tier": 5
+      },
+      {
+        "answer": "Goar of the Rhineland",
+        "tier": 5
+      },
+      {
+        "answer": "Emmeram of Regensburg",
+        "tier": 5
+      },
+      {
+        "answer": "Modesta of Oeren",
+        "tier": 6
+      },
+      {
+        "answer": "Kunibert of Cologne",
+        "tier": 6
+      },
+      {
+        "answer": "Germanus of Granfelden",
+        "tier": 6
+      },
+      {
+        "answer": "Kilian",
+        "tier": 6
+      },
+      {
+        "answer": "Colmán",
+        "tier": 6
+      },
+      {
+        "answer": "Totnan",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Boniface",
+        "accepted": true
+      },
+      {
+        "guess": "Hildegard of Bingen",
+        "accepted": true
+      },
+      {
+        "guess": "Albert the Great",
+        "accepted": true
+      },
+      {
+        "guess": "Elizabeth of Hungary",
+        "accepted": true
+      },
+      {
+        "guess": "Edith Stein",
+        "accepted": true
+      },
+      {
+        "guess": "Patrick",
+        "accepted": false,
+        "reason": "A saint associated with Ireland, not a Germany entry in the source catalogue."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "An Italian saint, not a Germany entry in the source catalogue."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Spanish saint, not a Germany entry in the source catalogue."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A French saint, not a Germany entry in the source catalogue."
+      },
+      {
+        "guess": "Thomas More",
+        "accepted": false,
+        "reason": "An English saint, not a Germany entry in the source catalogue."
+      }
+    ]
+  },
+  {
+    "id": "longtail-saints-poland",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with Poland.",
+    "context": "Poland’s saints and blesseds include early missionaries, medieval rulers, religious, priests, laypeople and witnesses of the twentieth century. This open list is not complete.",
+    "basis": "GCatholic, “Saints and Blesseds of Poland” (36 saints and 283 blesseds; association is based on birthplace and/or death place): https://gcatholic.org/saints/data/country-PL . Names follow the catalogue.",
+    "answers": [
+      {
+        "answer": "John Paul II",
+        "tier": 1
+      },
+      {
+        "answer": "Faustina Kowalska",
+        "tier": 1
+      },
+      {
+        "answer": "Maximilian Kolbe",
+        "tier": 1
+      },
+      {
+        "answer": "Stanislaus of Szczepanów",
+        "tier": 1
+      },
+      {
+        "answer": "Hyacinth of Poland",
+        "tier": 1
+      },
+      {
+        "answer": "Hedwig of Silesia",
+        "tier": 2
+      },
+      {
+        "answer": "John Cantius",
+        "tier": 2
+      },
+      {
+        "answer": "Casimir",
+        "tier": 2
+      },
+      {
+        "answer": "Stanisław Kostka",
+        "tier": 2
+      },
+      {
+        "answer": "Andrzej Bobola",
+        "tier": 2
+      },
+      {
+        "answer": "Josaphat Kuntsevich",
+        "tier": 2
+      },
+      {
+        "answer": "Teresa Benedicta of the Cross",
+        "tier": 2
+      },
+      {
+        "answer": "Adalbert of Prague",
+        "tier": 3
+      },
+      {
+        "answer": "Andrew Zorard",
+        "tier": 3
+      },
+      {
+        "answer": "Wincenty Kadłubek",
+        "tier": 3
+      },
+      {
+        "answer": "Czesław Odrowąż",
+        "tier": 3
+      },
+      {
+        "answer": "Bronisława",
+        "tier": 3
+      },
+      {
+        "answer": "Salomea Piastówna",
+        "tier": 3
+      },
+      {
+        "answer": "Kinga",
+        "tier": 3
+      },
+      {
+        "answer": "Yolanda of Poland",
+        "tier": 3
+      },
+      {
+        "answer": "Dorothea of Montau",
+        "tier": 3
+      },
+      {
+        "answer": "Hedwig of Poland",
+        "tier": 3
+      },
+      {
+        "answer": "Szymon of Lipnica",
+        "tier": 3
+      },
+      {
+        "answer": "John of Dukla",
+        "tier": 3
+      },
+      {
+        "answer": "Michał Giedrojć",
+        "tier": 4
+      },
+      {
+        "answer": "Stanisław Kazimierczyk",
+        "tier": 4
+      },
+      {
+        "answer": "Władysław of Gielniow",
+        "tier": 4
+      },
+      {
+        "answer": "Jan Chojeński",
+        "tier": 4
+      },
+      {
+        "answer": "Regina Protmann",
+        "tier": 4
+      },
+      {
+        "answer": "Melichar Grodecki",
+        "tier": 4
+      },
+      {
+        "answer": "Jan Sarkander",
+        "tier": 4
+      },
+      {
+        "answer": "Zofia Czeska-Maciejowska",
+        "tier": 4
+      },
+      {
+        "answer": "Stanisław Papczyński",
+        "tier": 4
+      },
+      {
+        "answer": "Raffaele Chyliński",
+        "tier": 4
+      },
+      {
+        "answer": "Edmund Bojanowski",
+        "tier": 4
+      },
+      {
+        "answer": "Maria Merkert",
+        "tier": 4
+      },
+      {
+        "answer": "Zygmunt Szczęsny Feliński",
+        "tier": 4
+      },
+      {
+        "answer": "Maria Angela Truszkowska",
+        "tier": 4
+      },
+      {
+        "answer": "Maria Karłowska",
+        "tier": 4
+      },
+      {
+        "answer": "Maria Ursula of Jesus",
+        "tier": 5
+      },
+      {
+        "answer": "Alicja Kotowska",
+        "tier": 5
+      },
+      {
+        "answer": "Leon Nowakowski",
+        "tier": 5
+      },
+      {
+        "answer": "Marian Skrzypczak",
+        "tier": 5
+      },
+      {
+        "answer": "Bernardina Jabłońska",
+        "tier": 5
+      },
+      {
+        "answer": "Bronisław Komorowski",
+        "tier": 5
+      },
+      {
+        "answer": "Franciszek Rogaczewski",
+        "tier": 5
+      },
+      {
+        "answer": "Józef Kurzawa",
+        "tier": 5
+      },
+      {
+        "answer": "Marian Górecki",
+        "tier": 5
+      },
+      {
+        "answer": "Michał Piaszczyński",
+        "tier": 5
+      },
+      {
+        "answer": "Stanisław Kubista",
+        "tier": 5
+      },
+      {
+        "answer": "Wincenty Matuszewski",
+        "tier": 5
+      },
+      {
+        "answer": "Władysław Demski",
+        "tier": 5
+      },
+      {
+        "answer": "Włodzimierz Laskowski",
+        "tier": 5
+      },
+      {
+        "answer": "Zygmunt Sajna",
+        "tier": 5
+      },
+      {
+        "answer": "Anicet Hryciuk",
+        "tier": 6
+      },
+      {
+        "answer": "Antoni Julian Nowowiejski",
+        "tier": 6
+      },
+      {
+        "answer": "Bolesław Strzelecki",
+        "tier": 6
+      },
+      {
+        "answer": "Franciszek Harazim",
+        "tier": 6
+      },
+      {
+        "answer": "Henryk Hlebowicz",
+        "tier": 6
+      },
+      {
+        "answer": "Ignacy Antonowicz",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "John Paul II",
+        "accepted": true
+      },
+      {
+        "guess": "Faustina Kowalska",
+        "accepted": true
+      },
+      {
+        "guess": "Maximilian Kolbe",
+        "accepted": true
+      },
+      {
+        "guess": "Stanislaus of Szczepanów",
+        "accepted": true
+      },
+      {
+        "guess": "Hyacinth of Poland",
+        "accepted": true
+      },
+      {
+        "guess": "Patrick",
+        "accepted": false,
+        "reason": "A saint associated with Ireland, not a Poland entry in the source catalogue."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "An Italian saint, not a Poland entry in the source catalogue."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Spanish saint, not a Poland entry in the source catalogue."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A French saint, not a Poland entry in the source catalogue."
+      },
+      {
+        "guess": "Thomas More",
+        "accepted": false,
+        "reason": "An English saint, not a Poland entry in the source catalogue."
+      }
+    ]
+  }
 ];
