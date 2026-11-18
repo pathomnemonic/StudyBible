@@ -2,10 +2,27 @@ import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import { readFileSync } from 'node:fs';
+import { previewTags, sharePageHtml } from './scripts/sharePages';
+import { SHARE_GAMES } from './src/lib/shareGames';
 
-const brand = JSON.parse(readFileSync(new URL('./brand.json', import.meta.url), 'utf8')) as { name: string; description: string };
+const brand = JSON.parse(readFileSync(new URL('./brand.json', import.meta.url), 'utf8')) as { name: string; tagline: string; description: string };
 /** puts the app name from brand.json into index.html */
 const brandHtml = () => ({ name: 'brand-html', transformIndexHtml: (html: string) => html.replace(/%BRAND_NAME%/g, brand.name).replace(/%BRAND_DESCRIPTION%/g, brand.description) });
+
+/**
+ * Link previews. WhatsApp and other message apps read the Open Graph tags of the page behind a link, and they need an absolute address for the picture, so the
+ * public address of the site comes from VITE_SITE_URL (set by the Pages workflow) and is used for the front page and for one small page per shared game
+ * (share/<game>.html, which then opens the game). Without it the tags still exist but point at relative addresses and a message app will ignore the picture.
+ */
+const siteUrl = (process.env.VITE_SITE_URL || '').replace(/\/?$/, '/').replace(/^\/$/, '');
+const abs = (p: string) => (siteUrl ? siteUrl + p : './' + p);
+const linkPreview = () => ({
+  name: 'link-preview',
+  transformIndexHtml: (html: string) => html.replace('<!--OG_TAGS-->', previewTags({ siteName: brand.name, title: `${brand.name}: ${brand.tagline}`, description: brand.description, url: siteUrl || './', image: abs('og/default.jpg') })),
+  generateBundle(this: { emitFile: (f: { type: 'asset'; fileName: string; source: string }) => void }) {
+    for (const game of SHARE_GAMES) this.emitFile({ type: 'asset', fileName: `share/${game.slug}.html`, source: sharePageHtml({ siteUrl, siteName: brand.name, game }) });
+  },
+});
 
 // `base: './'` keeps the build relocatable (GitHub Pages sub-paths, file hosting, Capacitor wrappers).
 export default defineConfig({
@@ -14,6 +31,7 @@ export default defineConfig({
   plugins: [
     react(),
     brandHtml(),
+    linkPreview(),
     VitePWA({
       registerType: 'prompt',
       includeAssets: ['icon.svg'],
@@ -55,8 +73,9 @@ export default defineConfig({
         // the games' 3D icons (about 0.6 MB) are part of the shell so the games look right offline
         globPatterns: ['**/*.{js,css,html,svg,woff2}', 'arcade/3d/*.webp'],
         // the 3D galaxy (three.js) and the map are large and used occasionally: cached the first time they are opened
-        globIgnores: ['**/assets/scene-*.js', '**/assets/leaflet-*.js'],
+        globIgnores: ['**/assets/scene-*.js', '**/assets/leaflet-*.js', 'share/**'],
         navigateFallback: 'index.html',
+        navigateFallbackDenylist: [/\/share\//], // the link-preview pages are real pages, not the app
         runtimeCaching: [
           {
             urlPattern: ({ url }) => /\/assets\/(scene|leaflet)-.*\.js$/.test(url.pathname),
