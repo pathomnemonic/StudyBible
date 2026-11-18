@@ -6519,4 +6519,297 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-psalms",
+    "theme": "scripture",
+    "prompt": "Name a psalm.",
+    "context": "The Psalter contains 150 psalms. Some are known by memorable lines or themes; others are easier to recall by number. This open answer key samples 60 distinct psalms.",
+    "basis": "The 150 psalms in the Catholic Book of Psalms; numbering follows the Hebrew/modern English numbering used in most contemporary Catholic Bible editions. Psalm numbers are the identifying titles.",
+    "answers": [
+      {
+        "answer": "Psalm 23",
+        "tier": 1
+      },
+      {
+        "answer": "Psalm 51",
+        "tier": 1
+      },
+      {
+        "answer": "Psalm 91",
+        "tier": 1
+      },
+      {
+        "answer": "Psalm 121",
+        "tier": 1
+      },
+      {
+        "answer": "Psalm 139",
+        "tier": 1
+      },
+      {
+        "answer": "Psalm 1",
+        "tier": 2
+      },
+      {
+        "answer": "Psalm 22",
+        "tier": 2
+      },
+      {
+        "answer": "Psalm 27",
+        "tier": 2
+      },
+      {
+        "answer": "Psalm 46",
+        "tier": 2
+      },
+      {
+        "answer": "Psalm 100",
+        "tier": 2
+      },
+      {
+        "answer": "Psalm 117",
+        "tier": 2
+      },
+      {
+        "answer": "Psalm 150",
+        "tier": 2
+      },
+      {
+        "answer": "Psalm 2",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 8",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 16",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 19",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 24",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 32",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 34",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 37",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 42",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 63",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 84",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 103",
+        "tier": 3
+      },
+      {
+        "answer": "Psalm 3",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 4",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 6",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 12",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 13",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 15",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 20",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 25",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 29",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 30",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 40",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 43",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 47",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 48",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 65",
+        "tier": 4
+      },
+      {
+        "answer": "Psalm 67",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 68",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 72",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 74",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 80",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 85",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 89",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 92",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 96",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 98",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 104",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 110",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 116",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 118",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 130",
+        "tier": 5
+      },
+      {
+        "answer": "Psalm 136",
+        "tier": 6
+      },
+      {
+        "answer": "Psalm 145",
+        "tier": 6
+      },
+      {
+        "answer": "Psalm 5",
+        "tier": 6
+      },
+      {
+        "answer": "Psalm 9",
+        "tier": 6
+      },
+      {
+        "answer": "Psalm 14",
+        "tier": 6
+      },
+      {
+        "answer": "Psalm 18",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Psalm 23",
+        "accepted": true
+      },
+      {
+        "guess": "Psalm 51",
+        "accepted": true
+      },
+      {
+        "guess": "Psalm 91",
+        "accepted": true
+      },
+      {
+        "guess": "Psalm 121",
+        "accepted": true
+      },
+      {
+        "guess": "Psalm 139",
+        "accepted": true
+      },
+      {
+        "guess": "Psalm 119",
+        "accepted": false,
+        "reason": "A valid psalm, but it is not in this 60-answer sample."
+      },
+      {
+        "guess": "Psalm 150",
+        "accepted": true
+      },
+      {
+        "guess": "Psalm 1",
+        "accepted": true
+      },
+      {
+        "guess": "Psalm 42",
+        "accepted": true
+      },
+      {
+        "guess": "Psalm 88",
+        "accepted": false,
+        "reason": "A valid psalm, but not included in this answer key."
+      }
+    ]
+  }
 ];
