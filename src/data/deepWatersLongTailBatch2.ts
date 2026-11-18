@@ -11851,4 +11851,1188 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "Two distinct water-from-rock events are retained because Exodus 17 and Numbers 20 are separate episodes."
     ]
   }
+  ,{
+    "id": "longtail-saints-ireland",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with Ireland.",
+    "context": "The Church’s saints and blesseds have lived, served or died in Ireland across many centuries. This open list is not complete.",
+    "basis": "GCatholic, Saints and Blesseds of Ireland (126 saints and 24 blesseds): https://gcatholic.org/saints/data/country-IE . Association is based on birthplace and/or death place.",
+    "answers": [
+      {
+        "answer": "Patrick",
+        "tier": 1
+      },
+      {
+        "answer": "Brigid of Kildare",
+        "tier": 1
+      },
+      {
+        "answer": "Columba of Iona",
+        "tier": 1
+      },
+      {
+        "answer": "Kevin of Glendalough",
+        "tier": 1
+      },
+      {
+        "answer": "Ciarán of Clonmacnoise",
+        "tier": 1
+      },
+      {
+        "answer": "Declan of Ardmore",
+        "tier": 2
+      },
+      {
+        "answer": "Palladius",
+        "tier": 2
+      },
+      {
+        "answer": "Ailbe of Emly",
+        "tier": 2
+      },
+      {
+        "answer": "Enda of Aran",
+        "tier": 2
+      },
+      {
+        "answer": "Brendan of Clonfert",
+        "tier": 2
+      },
+      {
+        "answer": "Canice of Aghaboe",
+        "tier": 2
+      },
+      {
+        "answer": "Ita of Killeedy",
+        "tier": 2
+      },
+      {
+        "answer": "Sechnall",
+        "tier": 3
+      },
+      {
+        "answer": "Benignus of Armagh",
+        "tier": 3
+      },
+      {
+        "answer": "Mél of Ardagh",
+        "tier": 3
+      },
+      {
+        "answer": "Asicus of Elphin",
+        "tier": 3
+      },
+      {
+        "answer": "Muredach of Killala",
+        "tier": 3
+      },
+      {
+        "answer": "Macartan of Clogher",
+        "tier": 3
+      },
+      {
+        "answer": "Colmán of Dromore",
+        "tier": 3
+      },
+      {
+        "answer": "Mac Nisse of Connor",
+        "tier": 3
+      },
+      {
+        "answer": "Conleth of Kildare",
+        "tier": 3
+      },
+      {
+        "answer": "Kieran of Saigir",
+        "tier": 3
+      },
+      {
+        "answer": "Tigernach of Clogher",
+        "tier": 3
+      },
+      {
+        "answer": "Fachtna of Ross",
+        "tier": 3
+      },
+      {
+        "answer": "Luman",
+        "tier": 4
+      },
+      {
+        "answer": "Forcherne",
+        "tier": 4
+      },
+      {
+        "answer": "Gwinear",
+        "tier": 4
+      },
+      {
+        "answer": "Ausilio",
+        "tier": 4
+      },
+      {
+        "answer": "Kenan",
+        "tier": 4
+      },
+      {
+        "answer": "Milchuo",
+        "tier": 4
+      },
+      {
+        "answer": "Mawgan of Man",
+        "tier": 4
+      },
+      {
+        "answer": "Gibrian",
+        "tier": 4
+      },
+      {
+        "answer": "Moninne of Killeavy",
+        "tier": 4
+      },
+      {
+        "answer": "Beaidh",
+        "tier": 4
+      },
+      {
+        "answer": "Jarlath of Tuam",
+        "tier": 4
+      },
+      {
+        "answer": "Lughadh",
+        "tier": 4
+      },
+      {
+        "answer": "Senán of Inis Cathaigh",
+        "tier": 4
+      },
+      {
+        "answer": "Finnian of Clonard",
+        "tier": 4
+      },
+      {
+        "answer": "Sinell of Clogher",
+        "tier": 4
+      },
+      {
+        "answer": "Fedlimid of Clogher",
+        "tier": 5
+      },
+      {
+        "answer": "Fachanan of Ross",
+        "tier": 5
+      },
+      {
+        "answer": "Athracht of Killaraght",
+        "tier": 5
+      },
+      {
+        "answer": "Davnet of Sliabh Beagh",
+        "tier": 5
+      },
+      {
+        "answer": "Comgall of Bangor",
+        "tier": 5
+      },
+      {
+        "answer": "Moluag of Lismore",
+        "tier": 5
+      },
+      {
+        "answer": "Fridolin of Säckingen",
+        "tier": 5
+      },
+      {
+        "answer": "Budoc de Dol",
+        "tier": 5
+      },
+      {
+        "answer": "Fiacre",
+        "tier": 5
+      },
+      {
+        "answer": "Gobain",
+        "tier": 5
+      },
+      {
+        "answer": "Dympna",
+        "tier": 5
+      },
+      {
+        "answer": "Eunan (Adomnán of Iona)",
+        "tier": 5
+      },
+      {
+        "answer": "Máel Ruba",
+        "tier": 5
+      },
+      {
+        "answer": "Fergus of Scotland",
+        "tier": 5
+      },
+      {
+        "answer": "Plechelmus",
+        "tier": 5
+      },
+      {
+        "answer": "Meldan",
+        "tier": 6
+      },
+      {
+        "answer": "Duchonna",
+        "tier": 6
+      },
+      {
+        "answer": "Catald of Taranto",
+        "tier": 6
+      },
+      {
+        "answer": "Disibod",
+        "tier": 6
+      },
+      {
+        "answer": "Fintan of Rheinau",
+        "tier": 6
+      },
+      {
+        "answer": "Maimbod",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Patrick",
+        "accepted": true
+      },
+      {
+        "guess": "Brigid of Kildare",
+        "accepted": true
+      },
+      {
+        "guess": "Columba of Iona",
+        "accepted": true
+      },
+      {
+        "guess": "Kevin of Glendalough",
+        "accepted": true
+      },
+      {
+        "guess": "Ciarán of Clonmacnoise",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      }
+    ]
+  },
+  {
+    "id": "longtail-saints-france",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with France.",
+    "context": "The Church’s saints and blesseds have lived, served or died in France across many centuries. This open list is not complete.",
+    "basis": "GCatholic, Saints and Blesseds of France (1,110 saints and 665 blesseds): https://gcatholic.org/saints/data/country-FR . Association is based on birthplace and/or death place.",
+    "answers": [
+      {
+        "answer": "Mary Magdalene",
+        "tier": 1
+      },
+      {
+        "answer": "Martin of Tours",
+        "tier": 1
+      },
+      {
+        "answer": "Joan of Arc",
+        "tier": 1
+      },
+      {
+        "answer": "Bernard of Clairvaux",
+        "tier": 1
+      },
+      {
+        "answer": "Thérèse of Lisieux",
+        "tier": 1
+      },
+      {
+        "answer": "Genevieve of Paris",
+        "tier": 2
+      },
+      {
+        "answer": "Blandine of Lyon",
+        "tier": 2
+      },
+      {
+        "answer": "Irenaeus of Lyons",
+        "tier": 2
+      },
+      {
+        "answer": "Denis of Paris",
+        "tier": 2
+      },
+      {
+        "answer": "Vincent de Paul",
+        "tier": 2
+      },
+      {
+        "answer": "Louise de Marillac",
+        "tier": 2
+      },
+      {
+        "answer": "John Eudes",
+        "tier": 2
+      },
+      {
+        "answer": "Hilaire of Poitiers",
+        "tier": 3
+      },
+      {
+        "answer": "Remigius of Rheims",
+        "tier": 3
+      },
+      {
+        "answer": "Clotilde",
+        "tier": 3
+      },
+      {
+        "answer": "Radegund",
+        "tier": 3
+      },
+      {
+        "answer": "Hugh of Cluny",
+        "tier": 3
+      },
+      {
+        "answer": "Bernadette Soubirous",
+        "tier": 3
+      },
+      {
+        "answer": "Marguerite-Marie Alacoque",
+        "tier": 3
+      },
+      {
+        "answer": "Jean-Baptiste de La Salle",
+        "tier": 3
+      },
+      {
+        "answer": "Louis-Marie Grignion de Montfort",
+        "tier": 3
+      },
+      {
+        "answer": "Francis de Sales",
+        "tier": 3
+      },
+      {
+        "answer": "John of the Cross",
+        "tier": 3
+      },
+      {
+        "answer": "Jane Frances de Chantal",
+        "tier": 3
+      },
+      {
+        "answer": "Maximin d’Aix",
+        "tier": 4
+      },
+      {
+        "answer": "Front of Périgueux",
+        "tier": 4
+      },
+      {
+        "answer": "Démèter de Gap",
+        "tier": 4
+      },
+      {
+        "answer": "Estelle de Saintes",
+        "tier": 4
+      },
+      {
+        "answer": "Ruf d’Avignon",
+        "tier": 4
+      },
+      {
+        "answer": "Crescent de Vienne",
+        "tier": 4
+      },
+      {
+        "answer": "Exupère de Vienne",
+        "tier": 4
+      },
+      {
+        "answer": "Félicien de Vienne",
+        "tier": 4
+      },
+      {
+        "answer": "Séverin de Vienne",
+        "tier": 4
+      },
+      {
+        "answer": "Zacharie de Vienne",
+        "tier": 4
+      },
+      {
+        "answer": "Marcel of Chalon",
+        "tier": 4
+      },
+      {
+        "answer": "Pothin de Lyon",
+        "tier": 4
+      },
+      {
+        "answer": "Alexandre de Lyon",
+        "tier": 4
+      },
+      {
+        "answer": "Bénigne de Dijon",
+        "tier": 4
+      },
+      {
+        "answer": "Épipode de Lyon",
+        "tier": 4
+      },
+      {
+        "answer": "Symphorien of Autun",
+        "tier": 5
+      },
+      {
+        "answer": "Valérien de Tournus",
+        "tier": 5
+      },
+      {
+        "answer": "Andoche de Saulieu",
+        "tier": 5
+      },
+      {
+        "answer": "Félix de Saulieu",
+        "tier": 5
+      },
+      {
+        "answer": "Thyrse de Saulieu",
+        "tier": 5
+      },
+      {
+        "answer": "Andéol",
+        "tier": 5
+      },
+      {
+        "answer": "Ferjeux de Besançon",
+        "tier": 5
+      },
+      {
+        "answer": "Ferréol de Besançon",
+        "tier": 5
+      },
+      {
+        "answer": "Aphrodise de Béziers",
+        "tier": 5
+      },
+      {
+        "answer": "Éleuthère de Tournai",
+        "tier": 5
+      },
+      {
+        "answer": "Martial de Limoges",
+        "tier": 5
+      },
+      {
+        "answer": "Rustique de Narbonne",
+        "tier": 5
+      },
+      {
+        "answer": "Savinien de Sens",
+        "tier": 5
+      },
+      {
+        "answer": "Trophime d’Arles",
+        "tier": 5
+      },
+      {
+        "answer": "Paul de Narbonne",
+        "tier": 5
+      },
+      {
+        "answer": "Ilpide de Brioude",
+        "tier": 6
+      },
+      {
+        "answer": "Ilpize de Brioude",
+        "tier": 6
+      },
+      {
+        "answer": "Pons de Cimiez",
+        "tier": 6
+      },
+      {
+        "answer": "Saturnin de Toulouse",
+        "tier": 6
+      },
+      {
+        "answer": "Dévote",
+        "tier": 6
+      },
+      {
+        "answer": "Foy d’Agen",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Mary Magdalene",
+        "accepted": true
+      },
+      {
+        "guess": "Martin of Tours",
+        "accepted": true
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": true
+      },
+      {
+        "guess": "Bernard of Clairvaux",
+        "accepted": true
+      },
+      {
+        "guess": "Thérèse of Lisieux",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      }
+    ]
+  },
+  {
+    "id": "longtail-saints-italy",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with Italy.",
+    "context": "The Church’s saints and blesseds have lived, served or died in Italy across many centuries. This open list is not complete.",
+    "basis": "GCatholic, Saints and Blesseds of Italy (1,386 saints and 599 blesseds): https://gcatholic.org/saints/data/country-IT . Association is based on birthplace and/or death place.",
+    "answers": [
+      {
+        "answer": "Francis of Assisi",
+        "tier": 1
+      },
+      {
+        "answer": "Catherine of Siena",
+        "tier": 1
+      },
+      {
+        "answer": "Anthony of Padua",
+        "tier": 1
+      },
+      {
+        "answer": "Benedict of Nursia",
+        "tier": 1
+      },
+      {
+        "answer": "Rita of Cascia",
+        "tier": 1
+      },
+      {
+        "answer": "Francis Xavier",
+        "tier": 2
+      },
+      {
+        "answer": "Clare of Assisi",
+        "tier": 2
+      },
+      {
+        "answer": "Padre Pio",
+        "tier": 2
+      },
+      {
+        "answer": "John Bosco",
+        "tier": 2
+      },
+      {
+        "answer": "Philip Neri",
+        "tier": 2
+      },
+      {
+        "answer": "Maria Goretti",
+        "tier": 2
+      },
+      {
+        "answer": "Carlo Acutis",
+        "tier": 2
+      },
+      {
+        "answer": "Peter",
+        "tier": 3
+      },
+      {
+        "answer": "Paul",
+        "tier": 3
+      },
+      {
+        "answer": "Linus",
+        "tier": 3
+      },
+      {
+        "answer": "Anacletus (Cletus)",
+        "tier": 3
+      },
+      {
+        "answer": "Agnes of Rome",
+        "tier": 3
+      },
+      {
+        "answer": "Cecilia",
+        "tier": 3
+      },
+      {
+        "answer": "Lucy of Syracuse",
+        "tier": 3
+      },
+      {
+        "answer": "Sebastian",
+        "tier": 3
+      },
+      {
+        "answer": "Lawrence of Rome",
+        "tier": 3
+      },
+      {
+        "answer": "Agatha of Catania",
+        "tier": 3
+      },
+      {
+        "answer": "Ambrose of Milan",
+        "tier": 3
+      },
+      {
+        "answer": "Thomas Aquinas",
+        "tier": 3
+      },
+      {
+        "answer": "Edisto di Roma",
+        "tier": 4
+      },
+      {
+        "answer": "Torpes of Pisa",
+        "tier": 4
+      },
+      {
+        "answer": "Martiniano",
+        "tier": 4
+      },
+      {
+        "answer": "Processo",
+        "tier": 4
+      },
+      {
+        "answer": "Costanza",
+        "tier": 4
+      },
+      {
+        "answer": "Felice",
+        "tier": 4
+      },
+      {
+        "answer": "Marciano di Siracusa",
+        "tier": 4
+      },
+      {
+        "answer": "Ermacora di Aquileia",
+        "tier": 4
+      },
+      {
+        "answer": "Fortunato di Aquileia",
+        "tier": 4
+      },
+      {
+        "answer": "Celso",
+        "tier": 4
+      },
+      {
+        "answer": "Nazario",
+        "tier": 4
+      },
+      {
+        "answer": "Sinoto di Capua",
+        "tier": 4
+      },
+      {
+        "answer": "Rufo di Capua",
+        "tier": 4
+      },
+      {
+        "answer": "Avendrace",
+        "tier": 4
+      },
+      {
+        "answer": "Nicomede di Roma",
+        "tier": 4
+      },
+      {
+        "answer": "Rufus of Rome",
+        "tier": 5
+      },
+      {
+        "answer": "Domitilla",
+        "tier": 5
+      },
+      {
+        "answer": "Felice di Nola",
+        "tier": 5
+      },
+      {
+        "answer": "Titus Flavius Clemens",
+        "tier": 5
+      },
+      {
+        "answer": "Flavia Domitilla",
+        "tier": 5
+      },
+      {
+        "answer": "Marco Galileo di Atina",
+        "tier": 5
+      },
+      {
+        "answer": "Vittorino di Amiterno",
+        "tier": 5
+      },
+      {
+        "answer": "Ponzio di Cimiez",
+        "tier": 5
+      },
+      {
+        "answer": "Saturnino di Cagliari",
+        "tier": 5
+      },
+      {
+        "answer": "Eusebio di Vercelli",
+        "tier": 5
+      },
+      {
+        "answer": "Massimo di Torino",
+        "tier": 5
+      },
+      {
+        "answer": "Gaudenzio di Novara",
+        "tier": 5
+      },
+      {
+        "answer": "Massimo di Pavia",
+        "tier": 5
+      },
+      {
+        "answer": "Siro di Pavia",
+        "tier": 5
+      },
+      {
+        "answer": "Costanzo di Perugia",
+        "tier": 5
+      },
+      {
+        "answer": "Secondo of Asti",
+        "tier": 6
+      },
+      {
+        "answer": "Gaudenzio of Brescia",
+        "tier": 6
+      },
+      {
+        "answer": "Vigilius of Trent",
+        "tier": 6
+      },
+      {
+        "answer": "Zeno of Verona",
+        "tier": 6
+      },
+      {
+        "answer": "Prospero of Reggio",
+        "tier": 6
+      },
+      {
+        "answer": "Apollinaris of Ravenna",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Francis of Assisi",
+        "accepted": true
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accepted": true
+      },
+      {
+        "guess": "Anthony of Padua",
+        "accepted": true
+      },
+      {
+        "guess": "Benedict of Nursia",
+        "accepted": true
+      },
+      {
+        "guess": "Rita of Cascia",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      }
+    ]
+  },
+  {
+    "id": "longtail-saints-portugal",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed associated with Portugal.",
+    "context": "The Church’s saints and blesseds have lived, served or died in Portugal across many centuries. This open list is not complete.",
+    "basis": "GCatholic, Saints and Blesseds of Portugal (41 saints and 56 blesseds): https://gcatholic.org/saints/data/country-PT . Association is based on birthplace and/or death place.",
+    "answers": [
+      {
+        "answer": "Anthony of Padua",
+        "tier": 1
+      },
+      {
+        "answer": "Elizabeth of Portugal",
+        "tier": 1
+      },
+      {
+        "answer": "Francisco and Jacinta Marto",
+        "tier": 1
+      },
+      {
+        "answer": "Nuno Álvares Pereira",
+        "tier": 1
+      },
+      {
+        "answer": "John of God",
+        "tier": 1
+      },
+      {
+        "answer": "Damasus I",
+        "tier": 2
+      },
+      {
+        "answer": "Beatriz da Silva",
+        "tier": 2
+      },
+      {
+        "answer": "Alexandrina Maria da Costa",
+        "tier": 2
+      },
+      {
+        "answer": "Teotónio of Coimbra",
+        "tier": 2
+      },
+      {
+        "answer": "Rita Amada de Jesus",
+        "tier": 2
+      },
+      {
+        "answer": "Joana of Portugal",
+        "tier": 2
+      },
+      {
+        "answer": "Mafalda of Portugal",
+        "tier": 2
+      },
+      {
+        "answer": "Pedro de Rates",
+        "tier": 3
+      },
+      {
+        "answer": "Manços de Évora",
+        "tier": 3
+      },
+      {
+        "answer": "Ovídio",
+        "tier": 3
+      },
+      {
+        "answer": "Librada (Vilgeforte)",
+        "tier": 3
+      },
+      {
+        "answer": "Victor de Braga",
+        "tier": 3
+      },
+      {
+        "answer": "Ercolano",
+        "tier": 3
+      },
+      {
+        "answer": "Taurino",
+        "tier": 3
+      },
+      {
+        "answer": "Engracia de Zaragoza",
+        "tier": 3
+      },
+      {
+        "answer": "Júlia",
+        "tier": 3
+      },
+      {
+        "answer": "Máxima",
+        "tier": 3
+      },
+      {
+        "answer": "Veríssimo",
+        "tier": 3
+      },
+      {
+        "answer": "Anominata do Alentejo",
+        "tier": 3
+      },
+      {
+        "answer": "Comba do Alentejo",
+        "tier": 4
+      },
+      {
+        "answer": "Jordão de Évora",
+        "tier": 4
+      },
+      {
+        "answer": "Potâmio",
+        "tier": 4
+      },
+      {
+        "answer": "Apollonius of Portugal",
+        "tier": 4
+      },
+      {
+        "answer": "Leontius of Portugal",
+        "tier": 4
+      },
+      {
+        "answer": "Apríngio",
+        "tier": 4
+      },
+      {
+        "answer": "Martinho de Dume e Braga",
+        "tier": 4
+      },
+      {
+        "answer": "Iria de Tomar",
+        "tier": 4
+      },
+      {
+        "answer": "Frutuoso de Dume e Braga",
+        "tier": 4
+      },
+      {
+        "answer": "Félix Torcato",
+        "tier": 4
+      },
+      {
+        "answer": "Vítor de Braga",
+        "tier": 4
+      },
+      {
+        "answer": "Elías de Córdoba",
+        "tier": 4
+      },
+      {
+        "answer": "Rosendo",
+        "tier": 4
+      },
+      {
+        "answer": "Senhorinha de Basto",
+        "tier": 4
+      },
+      {
+        "answer": "Geraldo de Moissac",
+        "tier": 4
+      },
+      {
+        "answer": "Gonzalo of Amarante",
+        "tier": 5
+      },
+      {
+        "answer": "Sancha de Portugal",
+        "tier": 5
+      },
+      {
+        "answer": "Teresa de Portugal",
+        "tier": 5
+      },
+      {
+        "answer": "Gil Rodrigues de Valadares",
+        "tier": 5
+      },
+      {
+        "answer": "Lorenço de Lisboa",
+        "tier": 5
+      },
+      {
+        "answer": "Gonçalo de Lagos",
+        "tier": 5
+      },
+      {
+        "answer": "Amadeu of Portugal",
+        "tier": 5
+      },
+      {
+        "answer": "Aleixo Delgado",
+        "tier": 5
+      },
+      {
+        "answer": "Álvaro Borralho Mendes",
+        "tier": 5
+      },
+      {
+        "answer": "Amaro Vaz",
+        "tier": 5
+      },
+      {
+        "answer": "André Gonçalves",
+        "tier": 5
+      },
+      {
+        "answer": "António Correia",
+        "tier": 5
+      },
+      {
+        "answer": "Antônio Fernandes",
+        "tier": 5
+      },
+      {
+        "answer": "António Soares",
+        "tier": 5
+      },
+      {
+        "answer": "Bento de Castro",
+        "tier": 5
+      },
+      {
+        "answer": "Brás Ribeiro",
+        "tier": 6
+      },
+      {
+        "answer": "Diogo de Andrade",
+        "tier": 6
+      },
+      {
+        "answer": "Diogo Pires Mimoso",
+        "tier": 6
+      },
+      {
+        "answer": "Domingos Fernandes",
+        "tier": 6
+      },
+      {
+        "answer": "Francisco Alvares",
+        "tier": 6
+      },
+      {
+        "answer": "Manuel Fernández-Herba Pereira",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Anthony of Padua",
+        "accepted": true
+      },
+      {
+        "guess": "Elizabeth of Portugal",
+        "accepted": true
+      },
+      {
+        "guess": "Francisco and Jacinta Marto",
+        "accepted": true
+      },
+      {
+        "guess": "Nuno Álvares Pereira",
+        "accepted": true
+      },
+      {
+        "guess": "John of God",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A Catholic saint, but not in this country's answer-key sample."
+      }
+    ]
+  }
 ];
