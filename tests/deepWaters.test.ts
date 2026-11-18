@@ -229,3 +229,20 @@ describe('Basilion Scripture lists', () => {
     expect(matchDeepAnswer(find('bible-instruments'), 'Guitar').status).not.toBe('match');
   });
 });
+
+describe('Basilion is generous with the names people really use', () => {
+  const saints = { id: 't', theme: 'saints', prompt: 'Name a saint.', context: '', answers: [{ answer: 'Bernadette Soubirous', tier: 2 }, { answer: 'Maximilian Kolbe', tier: 3 }, { answer: 'John of the Cross', tier: 2 }, { answer: 'Thomas Aquinas', tier: 1 }, { answer: 'Thomas More', tier: 2 }, { answer: 'Francis of Assisi', tier: 1 }] } as const;
+  const st = (g: string) => matchDeepAnswer(saints as never, g).status;
+  it('accepts the name everyone uses when it can mean only one answer', () => {
+    expect(st('Bernadette')).toBe('match');
+    expect(st('Soubirous')).toBe('match');
+    expect(st('Kolbe')).toBe('match');
+    expect(st('Aquinas')).toBe('match');
+    expect(st('St Bernadette')).toBe('match');
+  });
+  it('does not accept a first name that belongs to an epithet name, or that fits two answers', () => {
+    expect(st('John')).toBe('none');
+    expect(st('Francis')).toBe('none');
+    expect(st('Thomas')).toBe('ambiguous');
+  });
+});

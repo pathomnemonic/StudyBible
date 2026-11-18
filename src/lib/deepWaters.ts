@@ -71,7 +71,19 @@ export function matchDeepAnswer(prompt: DeepPrompt, guess: string): DeepMatch {
   // part of several answers ("Lateran", "Mary"): say it is not specific enough, never pick one
   const part = all.filter((a) => a.keys.some((k) => k.length > g.length && g.every((w) => k.includes(w))));
   if (part.length > 1) return { status: 'ambiguous', options: part.map((a) => a.entry) };
+  // names of people: the name everyone uses counts ("Bernadette" for Bernadette Soubirous, "Kolbe" for Maximilian Kolbe) when it can mean only one answer on the list.
+  // Only for people a player would know by that name (the easier tiers): "Christopher" is not "Christopher Magallanes". A first name alone does not count for a name with an epithet ("John" for John of the Cross), because that is another John's name as much as his.
+  if (part.length === 1 && g.length === 1 && NAME_THEMES.has(prompt.theme) && part[0].entry.tier <= 3 && isGivenAndFamily(part[0].entry.answer, g[0])) return { status: 'match', answer: part[0].entry, exact: false };
   return { status: 'none' };
+}
+
+const NAME_THEMES = new Set(['saints', 'people', 'church-history']);
+const EPITHET_WORDS = new Set(['of', 'the', 'de', 'da', 'di', 'del', 'della', 'des', 'du', 'von', 'van', 'der', 'la', 'le', 'el', 'al', 'ibn', 'bar', 'ben']);
+/** "Bernadette Soubirous", "Padre Pio": two words, no "of X" or "de X" epithet, and the guess is one of the two */
+function isGivenAndFamily(answer: string, token: string): boolean {
+  const words = answer.split(/\s+/).filter((w) => !/^(saint|st\.?|blessed|bl\.?)$/i.test(w));
+  if (words.length !== 2 || words.some((w) => EPITHET_WORDS.has(w.toLowerCase()))) return false;
+  return words.some((w) => deepTokens(w)[0] === token);
 }
 
 /** The scored answer for a guess, or null. Kept for callers that only need the answer. */
