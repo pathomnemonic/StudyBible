@@ -1,7 +1,7 @@
 import { execSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
-import { DEEP_WATERS, type DeepPrompt } from '../src/data/deepWaters';
+import { DEEP_PLAYABLE, DEEP_WATERS, type DeepPrompt } from '../src/data/deepWaters';
 import { countMentions, tiersByFamiliarity, TIER_CUTS } from '../src/lib/deepWatersRarity';
 import { cycleLength, DAILY_SIZE, dailySchedule, familyOf, WINDOW } from '../src/lib/deepWatersSchedule';
 import { dailyDeepPrompts, matchDeepAnswer, practiceDeepPrompts } from '../src/lib/deepWaters';
@@ -122,30 +122,30 @@ describe('the bank as a whole', () => {
 });
 
 describe('the daily schedule', () => {
-  const DAYS = 2 * cycleLength(DEEP_WATERS.length) + 10; // two full cycles and a few days over, so a question's second appearance is seen
+  const DAYS = 2 * cycleLength(DEEP_PLAYABLE.length) + 10; // two full cycles and a few days over, so a question's second appearance is seen
   // start on a cycle boundary, so the first cycle is one whole cycle (a window that straddles two cycles can miss a question whose home day moved)
-  const START = Math.ceil(20000 / cycleLength(DEEP_WATERS.length)) * cycleLength(DEEP_WATERS.length);
+  const START = Math.ceil(20000 / cycleLength(DEEP_PLAYABLE.length)) * cycleLength(DEEP_PLAYABLE.length);
   const days = Array.from({ length: DAYS }, (_, i) => dailyDeepPrompts(START + i));
   it('gives seven different questions every day', () => {
     for (const [i, d] of days.entries()) { expect(d, `day ${i}`).toHaveLength(DAILY_SIZE); expect(new Set(d.map((p) => p.id)).size, `day ${i}`).toBe(DAILY_SIZE); }
   });
   it('is the same on every call and every device (no state, no clock, no randomness)', () => {
     expect(dailyDeepPrompts(20123).map((p) => p.id)).toEqual(dailyDeepPrompts(20123).map((p) => p.id));
-    expect(dailySchedule(DEEP_WATERS, 20123).map((p) => p.id)).toEqual(dailyDeepPrompts(20123).map((p) => p.id));
+    expect(dailySchedule(DEEP_PLAYABLE, 20123).map((p) => p.id)).toEqual(dailyDeepPrompts(20123).map((p) => p.id));
   });
   it('never brings a question back sooner than a cycle minus four days (its home day, give or take two, either side)', () => {
-    const gap = cycleLength(DEEP_WATERS.length) - 2 * WINDOW;
+    const gap = cycleLength(DEEP_PLAYABLE.length) - 2 * WINDOW;
     const last = new Map<string, number>();
     const tooSoon: string[] = [];
     days.forEach((d, i) => { for (const p of d) { const j = last.get(p.id); if (j !== undefined && i - j < gap) tooSoon.push(`${p.id} on day ${j} and ${i}`); last.set(p.id, i); } });
     expect(tooSoon).toEqual([]);
     expect(gap).toBeGreaterThanOrEqual(8);
     // the bank held a year of questions until the two-letter rules were dropped; it is back to a year when enough one-rule questions are written
-    expect(cycleLength(DEEP_WATERS.length), 'the bank must last at least five months').toBeGreaterThanOrEqual(150);
+    expect(cycleLength(DEEP_PLAYABLE.length), 'the bank must last at least five weeks').toBeGreaterThanOrEqual(35);
   });
   it('spreads each family: no day has more than its share of places or saints questions', () => {
-    const per = (f: string) => DEEP_WATERS.filter((p) => familyOf(p.id) === f).length;
-    const D = cycleLength(DEEP_WATERS.length);
+    const per = (f: string) => DEEP_PLAYABLE.filter((p) => familyOf(p.id) === f).length;
+    const D = cycleLength(DEEP_PLAYABLE.length);
     for (const [i, d] of days.entries()) {
       for (const f of ['places', 'saints']) {
         const n = d.filter((p) => familyOf(p.id) === f).length;
@@ -159,10 +159,10 @@ describe('the daily schedule', () => {
     expect(crowded).toBeLessThanOrEqual(DAYS * 0.03);
   });
   it('uses the whole bank in one cycle, every question once, and none comes back before the cycle is nearly over', () => {
-    const cycle = cycleLength(DEEP_WATERS.length);
+    const cycle = cycleLength(DEEP_PLAYABLE.length);
     const uses = new Map<string, number>();
     for (const d of days.slice(0, cycle)) for (const p of d) uses.set(p.id, (uses.get(p.id) ?? 0) + 1);
-    expect(uses.size).toBe(DEEP_WATERS.length);
+    expect(uses.size).toBe(DEEP_PLAYABLE.length);
     expect(Math.max(...uses.values())).toBe(1);
     // no question is repeated in any (cycle minus four) consecutive days
     const lastSeen = new Map<string, number>();

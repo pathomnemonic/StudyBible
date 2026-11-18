@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
 import { describe, expect, it } from 'vitest';
-import { BANK_SIZE, DEEP_WATERS } from '../src/data/deepWaters';
+import { BANK_SIZE, DEEP_PLAYABLE, DEEP_WATERS } from '../src/data/deepWaters';
 import { TABLE_NAMES, buildPools } from '../src/data/deepWatersPools';
 import { matchDeepAnswer } from '../src/lib/deepWaters';
 import { cycleLength, familyOf } from '../src/lib/deepWatersSchedule';
@@ -49,11 +49,11 @@ describe('the questions derived by rule', () => {
   it('are the ones the rules choose now (the stored choice in deepWaters.derived.json is not out of date)', () => {
     expect(() => execSync('npx tsx scripts/deepwaters/derive.ts', { stdio: 'pipe', timeout: 120000 })).not.toThrow();
   }, 130000);
-  it('fill the bank to a whole number of days, 159 days of seven', () => {
-    expect(DEEP_WATERS).toHaveLength(BANK_SIZE);
-    expect(BANK_SIZE).toBe(1113);
-    expect(cycleLength(DEEP_WATERS.length)).toBe(159);
-    expect(derived.length).toBeGreaterThan(800);
+  it('fill the bank to a whole number of days, 36 days of seven', () => {
+    expect(DEEP_PLAYABLE).toHaveLength(BANK_SIZE);
+    expect(BANK_SIZE).toBe(252);
+    expect(cycleLength(DEEP_PLAYABLE.length)).toBe(36);
+    expect(derived.length).toBeGreaterThan(100);
   });
   it('never ask for two letter conditions at once (one letter, or its absence, or how a name starts or ends: nothing to hold in the head twice)', () => {
     for (const p of DEEP_WATERS) {
@@ -95,11 +95,11 @@ describe('the questions derived by rule', () => {
       expect(p.answers.map((a) => a.answer).sort(), p.id).toEqual(want);
       checked++;
     }
-    expect(checked).toBeGreaterThan(700);
+    expect(checked).toBeGreaterThan(100);
   });
   it('mark a question closed only when its whole list is the real-world set', () => {
     const closedPools = [...new Set(derived.filter((p) => p.closed).map((p) => p.derived!.pool))].sort();
-    expect(closedPools).toEqual(['act-of-contrition', 'angel-of-god', 'anima-christi', 'apostles-creed', 'beatitudes', 'bible-books', 'councils', 'doctors', 'glory-be', 'hail-holy-queen', 'hail-mary', 'magnificat', 'memorare', 'mysteries', 'our-father', 'popes-since-1500', 'psalm-23', 'rites', 'st-michael', 'ten-commandments'].sort());
+    expect(closedPools).toEqual(['bible-books', 'doctors', 'popes-since-1500']);
   });
   it('are accepted when a player types any of their answers, in any case', () => {
     const sample = derived.filter((_, i) => i % 37 === 0);
@@ -110,9 +110,9 @@ describe('the questions derived by rule', () => {
   });
   it('spread over the nine themes, none holding more than 31 in 100 of the bank (places is the largest, since the hand-written place lists are many)', () => {
     const by: Record<string, number> = {};
-    for (const p of DEEP_WATERS) by[p.theme] = (by[p.theme] ?? 0) + 1;
+    for (const p of DEEP_PLAYABLE) by[p.theme] = (by[p.theme] ?? 0) + 1;
     expect(Object.keys(by).sort()).toEqual(['art-music', 'church-history', 'devotion', 'doctrine', 'liturgy', 'people', 'places', 'saints', 'scripture']);
-    for (const [t, n] of Object.entries(by)) expect(n / DEEP_WATERS.length, t).toBeLessThanOrEqual(0.31);
+    for (const [t, n] of Object.entries(by)) expect(n / DEEP_PLAYABLE.length, t).toBeLessThanOrEqual(0.31);
   });
   it('keep each list to one family, so a day never holds two questions about the same list', () => {
     expect(familyOf('d.saints.has.a')).toBe('d.saints');
@@ -142,4 +142,16 @@ describe('the questions about facts', () => {
     }
   });
 
+});
+
+describe('the questions that are asked come to mind at once', () => {
+  it('never ask about the places in one book of the Bible, feast months, the words of a prayer or other things nobody can recall', () => {
+    for (const p of DEEP_PLAYABLE) {
+      expect(p.id, p.id).not.toMatch(/^(places-[A-Z0-9]{3}|places-x-|saints-\d\d|saints-letter-|people-[A-Z]+)$|^d\.(places-in-|magnificat|psalm-23|our-father|hail-|memorare|act-of|st-michael|anima|angel-of|glory-be|beatitudes|ten-commandments|apostles-creed)/);
+    }
+  });
+  it('have several answers that nearly everyone would name (first tier), nearly always', () => {
+    const weak = DEEP_PLAYABLE.filter((p) => p.answers.filter((a) => a.tier === 1).length < 3);
+    expect(weak.length / DEEP_PLAYABLE.length, weak.map((p) => p.id).join(' ')).toBeLessThanOrEqual(0.1);
+  });
 });

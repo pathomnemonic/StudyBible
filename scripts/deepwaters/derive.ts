@@ -6,9 +6,10 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { BANK_SIZE, BASE_PROMPTS, themeCaps } from '../../src/data/deepWaters';
 import { buildPools } from '../../src/data/deepWatersPools';
 import { chooseDerived } from '../../src/lib/deepWatersDerive';
+import { isEverydayList, isEverydayRule } from '../../src/data/deepWatersEveryday';
 
 const FILE = new URL('../../src/data/deepWaters.derived.json', import.meta.url).pathname;
-const entries = chooseDerived(buildPools(BASE_PROMPTS), BANK_SIZE - BASE_PROMPTS.length, themeCaps, BASE_PROMPTS);
+const entries = chooseDerived(buildPools(BASE_PROMPTS), BANK_SIZE - BASE_PROMPTS.filter(isEverydayList).length, themeCaps, BASE_PROMPTS, isEverydayRule);
 const text = JSON.stringify(entries) + '\n';
 if (process.argv.includes('--write')) { writeFileSync(FILE, text); console.log(`wrote ${entries.length} derived questions`); }
 else if (readFileSync(FILE, 'utf8') !== text) { console.error('src/data/deepWaters.derived.json is not what the rules choose now. Run: npx tsx scripts/deepwaters/derive.ts --write'); process.exit(1); }

@@ -1,4 +1,4 @@
-import { DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../data/deepWaters';
+import { DEEP_PLAYABLE, DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../data/deepWaters';
 import { dailySchedule } from './deepWatersSchedule';
 import { deepTokens } from './deepWatersTokens';
 export { deepTokens };
@@ -104,11 +104,11 @@ export function deepMissMessage(prompt: DeepPrompt, match: DeepMatch): string {
 
 /** The seven prompts for a local calendar day, the same on every device. See src/lib/deepWatersSchedule.ts for how they are dealt. */
 export function dailyDeepPrompts(day: number): DeepPrompt[] {
-  return dailySchedule(DEEP_WATERS, day);
+  return dailySchedule(DEEP_PLAYABLE, day);
 }
 /** A practice run: its own deal, chosen by `seed`, that never reproduces a daily set. */
 export function practiceDeepPrompts(seed: number): DeepPrompt[] {
-  return dailySchedule(DEEP_WATERS, seed, 99173);
+  return dailySchedule(DEEP_PLAYABLE, seed, 99173);
 }
 
 /* ---------- suggestions and hints ---------- */

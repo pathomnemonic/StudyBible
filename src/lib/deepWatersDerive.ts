@@ -188,8 +188,8 @@ export type DerivedEntry = [pool: string, kind: string, key: string];
  * (or every candidate is used). Returns the chosen entries; `materialize` turns them back into questions. This is the slow part, so the build script runs it
  * and stores the entries (src/data/deepWaters.derived.json); the app only materializes them.
  */
-export function chooseDerived(pools: Pool[], want: number, themeCap: Record<string, number>, existing: DeepPrompt[] = []): DerivedEntry[] {
-  const lists = pools.map((p) => ({ p, c: candidatesOf(p), i: 0 }));
+export function chooseDerived(pools: Pool[], want: number, themeCap: Record<string, number>, existing: DeepPrompt[] = [], allow: (pool: string, kind: string) => boolean = () => true): DerivedEntry[] {
+  const lists = pools.map((p) => ({ p, c: candidatesOf(p).filter((c) => allow(p.id, c.kind)), i: 0 }));
   const taken = new Set(existing.map((p) => sig(p.answers)));
   const perTheme = new Map<string, number>();
   const out: DerivedEntry[] = [];
