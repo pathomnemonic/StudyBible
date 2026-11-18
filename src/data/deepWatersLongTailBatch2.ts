@@ -6812,4 +6812,298 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-old-testament-places",
+    "theme": "places",
+    "prompt": "Name a place in the Old Testament.",
+    "context": "The Old Testament names cities, towns, wildernesses, valleys, fortresses and places of exile. This open list is not complete; some places also appear later in Scripture.",
+    "basis": "Hand-curated from the Catholic Old Testament, cross-checked against Bible book texts and biblical atlases. Answer key uses 60 distinct named places.",
+    "answers": [
+      {
+        "answer": "Jerusalem",
+        "tier": 1
+      },
+      {
+        "answer": "Bethlehem",
+        "tier": 1
+      },
+      {
+        "answer": "Jericho",
+        "tier": 1
+      },
+      {
+        "answer": "Hebron",
+        "tier": 1
+      },
+      {
+        "answer": "Mount Sinai",
+        "tier": 1
+      },
+      {
+        "answer": "Bethel",
+        "tier": 2
+      },
+      {
+        "answer": "Beersheba",
+        "tier": 2
+      },
+      {
+        "answer": "Shiloh",
+        "tier": 2
+      },
+      {
+        "answer": "Shechem",
+        "tier": 2
+      },
+      {
+        "answer": "Samaria",
+        "tier": 2
+      },
+      {
+        "answer": "Nineveh",
+        "tier": 2
+      },
+      {
+        "answer": "Susa",
+        "tier": 2
+      },
+      {
+        "answer": "Ur",
+        "tier": 3
+      },
+      {
+        "answer": "Haran",
+        "tier": 3
+      },
+      {
+        "answer": "Ai",
+        "tier": 3
+      },
+      {
+        "answer": "Gibeon",
+        "tier": 3
+      },
+      {
+        "answer": "Gilgal",
+        "tier": 3
+      },
+      {
+        "answer": "Mizpah",
+        "tier": 3
+      },
+      {
+        "answer": "Ramah",
+        "tier": 3
+      },
+      {
+        "answer": "Dan",
+        "tier": 3
+      },
+      {
+        "answer": "Hazor",
+        "tier": 3
+      },
+      {
+        "answer": "Megiddo",
+        "tier": 3
+      },
+      {
+        "answer": "Lachish",
+        "tier": 3
+      },
+      {
+        "answer": "En Gedi",
+        "tier": 3
+      },
+      {
+        "answer": "Hobah",
+        "tier": 4
+      },
+      {
+        "answer": "Dothan",
+        "tier": 4
+      },
+      {
+        "answer": "Succoth",
+        "tier": 4
+      },
+      {
+        "answer": "Penuel",
+        "tier": 4
+      },
+      {
+        "answer": "Mahanaim",
+        "tier": 4
+      },
+      {
+        "answer": "Jabesh-Gilead",
+        "tier": 4
+      },
+      {
+        "answer": "Tirzah",
+        "tier": 4
+      },
+      {
+        "answer": "Tappuah",
+        "tier": 4
+      },
+      {
+        "answer": "Azekah",
+        "tier": 4
+      },
+      {
+        "answer": "Adullam",
+        "tier": 4
+      },
+      {
+        "answer": "Engannim",
+        "tier": 4
+      },
+      {
+        "answer": "Shunem",
+        "tier": 4
+      },
+      {
+        "answer": "Zarephath",
+        "tier": 4
+      },
+      {
+        "answer": "Aphek",
+        "tier": 4
+      },
+      {
+        "answer": "Rimmon",
+        "tier": 4
+      },
+      {
+        "answer": "Kadesh-barnea",
+        "tier": 5
+      },
+      {
+        "answer": "Hormah",
+        "tier": 5
+      },
+      {
+        "answer": "Ezion-geber",
+        "tier": 5
+      },
+      {
+        "answer": "Ecbatana",
+        "tier": 5
+      },
+      {
+        "answer": "Shur",
+        "tier": 5
+      },
+      {
+        "answer": "Luz",
+        "tier": 5
+      },
+      {
+        "answer": "Ophrah",
+        "tier": 5
+      },
+      {
+        "answer": "Ophir",
+        "tier": 5
+      },
+      {
+        "answer": "Pithom",
+        "tier": 5
+      },
+      {
+        "answer": "Rameses",
+        "tier": 5
+      },
+      {
+        "answer": "Migdol",
+        "tier": 5
+      },
+      {
+        "answer": "Kiriath-jearim",
+        "tier": 5
+      },
+      {
+        "answer": "Anathoth",
+        "tier": 5
+      },
+      {
+        "answer": "Beth-horon",
+        "tier": 5
+      },
+      {
+        "answer": "Gath-hepher",
+        "tier": 5
+      },
+      {
+        "answer": "En-rogel",
+        "tier": 6
+      },
+      {
+        "answer": "Geba",
+        "tier": 6
+      },
+      {
+        "answer": "Ziklag",
+        "tier": 6
+      },
+      {
+        "answer": "Makkedah",
+        "tier": 6
+      },
+      {
+        "answer": "Goshen",
+        "tier": 6
+      },
+      {
+        "answer": "Etham",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Jerusalem",
+        "accepted": true
+      },
+      {
+        "guess": "Bethlehem",
+        "accepted": true
+      },
+      {
+        "guess": "Jericho",
+        "accepted": true
+      },
+      {
+        "guess": "Hebron",
+        "accepted": true
+      },
+      {
+        "guess": "Mount Sinai",
+        "accepted": true
+      },
+      {
+        "guess": "Capernaum",
+        "accepted": false,
+        "reason": "A New Testament Galilean town, not an Old Testament place."
+      },
+      {
+        "guess": "Nazareth",
+        "accepted": false,
+        "reason": "A New Testament town, not an Old Testament place."
+      },
+      {
+        "guess": "Nineveh",
+        "accepted": true
+      },
+      {
+        "guess": "Susa",
+        "accepted": true
+      },
+      {
+        "guess": "Golgotha",
+        "accepted": false,
+        "reason": "A New Testament place associated with the crucifixion."
+      }
+    ]
+  }
 ];
