@@ -2671,4 +2671,596 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-cardinal-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was a cardinal.",
+    "context": "The Church has recognized cardinals as saints, blesseds and venerables, including bishops, theologians, reformers and popes. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Cardinals,” 67 profiles: https://catholicsaints.info/saints-who-were-cardinals/ . All answer names are selected from this directory.",
+    "answers": [
+      {
+        "answer": "John Henry Newman",
+        "tier": 1
+      },
+      {
+        "answer": "John Fisher",
+        "tier": 1
+      },
+      {
+        "answer": "Charles Borromeo",
+        "tier": 1
+      },
+      {
+        "answer": "Robert Bellarmine",
+        "tier": 1
+      },
+      {
+        "answer": "Gregory Barbarigo",
+        "tier": 1
+      },
+      {
+        "answer": "John Paul II",
+        "tier": 2
+      },
+      {
+        "answer": "John XXIII",
+        "tier": 2
+      },
+      {
+        "answer": "Paul VI",
+        "tier": 2
+      },
+      {
+        "answer": "Pius V",
+        "tier": 2
+      },
+      {
+        "answer": "Pius X",
+        "tier": 2
+      },
+      {
+        "answer": "Pius IX",
+        "tier": 2
+      },
+      {
+        "answer": "Bonaventure",
+        "tier": 2
+      },
+      {
+        "answer": "Peter Damian",
+        "tier": 3
+      },
+      {
+        "answer": "Nicholas Albergati",
+        "tier": 3
+      },
+      {
+        "answer": "Stefan Wyszyński",
+        "tier": 3
+      },
+      {
+        "answer": "Iuliu Hossu",
+        "tier": 3
+      },
+      {
+        "answer": "Clemens August von Galen",
+        "tier": 3
+      },
+      {
+        "answer": "Andrea Carlo Ferrari",
+        "tier": 3
+      },
+      {
+        "answer": "Bernardo degli Uberti",
+        "tier": 3
+      },
+      {
+        "answer": "Galdinus of Milan",
+        "tier": 3
+      },
+      {
+        "answer": "Callistus II",
+        "tier": 3
+      },
+      {
+        "answer": "Urban II",
+        "tier": 3
+      },
+      {
+        "answer": "Benedict XI",
+        "tier": 3
+      },
+      {
+        "answer": "Innocent XI",
+        "tier": 3
+      },
+      {
+        "answer": "Gelasius II",
+        "tier": 4
+      },
+      {
+        "answer": "Leo III",
+        "tier": 4
+      },
+      {
+        "answer": "Leo IV",
+        "tier": 4
+      },
+      {
+        "answer": "Sergius I",
+        "tier": 4
+      },
+      {
+        "answer": "Innocent V",
+        "tier": 4
+      },
+      {
+        "answer": "Victor III",
+        "tier": 4
+      },
+      {
+        "answer": "Alojzije Viktor Stepinac",
+        "tier": 4
+      },
+      {
+        "answer": "Berardo dei Marsi",
+        "tier": 4
+      },
+      {
+        "answer": "Bernhard of Rodez",
+        "tier": 4
+      },
+      {
+        "answer": "Ciriaco María Sancha Hervás",
+        "tier": 4
+      },
+      {
+        "answer": "Claudio di Portaceli",
+        "tier": 4
+      },
+      {
+        "answer": "Conrad of Urach",
+        "tier": 4
+      },
+      {
+        "answer": "Cristoforo Amerio",
+        "tier": 4
+      },
+      {
+        "answer": "Francis Ronci",
+        "tier": 4
+      },
+      {
+        "answer": "Giovanni Dominici",
+        "tier": 4
+      },
+      {
+        "answer": "Giovanni Orsini",
+        "tier": 5
+      },
+      {
+        "answer": "Giuseppe Benedetto Dusmet",
+        "tier": 5
+      },
+      {
+        "answer": "Henry of Albano",
+        "tier": 5
+      },
+      {
+        "answer": "Henry of Segusio",
+        "tier": 5
+      },
+      {
+        "answer": "Hugh of Ostia",
+        "tier": 5
+      },
+      {
+        "answer": "Louis Allemand",
+        "tier": 5
+      },
+      {
+        "answer": "Marcelo Spínola y Maestre",
+        "tier": 5
+      },
+      {
+        "answer": "Matthew of Albano",
+        "tier": 5
+      },
+      {
+        "answer": "Paul Burali d’Arezzo",
+        "tier": 5
+      },
+      {
+        "answer": "Peter Igneus",
+        "tier": 5
+      },
+      {
+        "answer": "Peter of Luxembourg",
+        "tier": 5
+      },
+      {
+        "answer": "Pierre de Barellis",
+        "tier": 5
+      },
+      {
+        "answer": "Raymond of Toulouse",
+        "tier": 5
+      },
+      {
+        "answer": "Stephen of Palestrina",
+        "tier": 5
+      },
+      {
+        "answer": "Vincent of Cologne",
+        "tier": 5
+      },
+      {
+        "answer": "August Józef Hlond",
+        "tier": 5
+      },
+      {
+        "answer": "Cesare Baronio",
+        "tier": 6
+      },
+      {
+        "answer": "Elia dalla Costa",
+        "tier": 6
+      },
+      {
+        "answer": "François-Xavier Nguyên Van Thuán",
+        "tier": 6
+      },
+      {
+        "answer": "Pietro Marcellino Corradini",
+        "tier": 6
+      },
+      {
+        "answer": "Sisto Riario Sforza",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "John Henry Newman",
+        "accepted": true
+      },
+      {
+        "guess": "John Fisher",
+        "accepted": true
+      },
+      {
+        "guess": "Charles Borromeo",
+        "accepted": true
+      },
+      {
+        "guess": "Robert Bellarmine",
+        "accepted": true
+      },
+      {
+        "guess": "John Paul II",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Dominican friar, not a cardinal."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A religious founder, not a cardinal."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A parish priest, not a cardinal."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Carmelite nun, not a cardinal."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A laywoman and military leader, not a cardinal."
+      }
+    ]
+  },
+  {
+    "id": "longtail-deacon-saints",
+    "theme": "saints",
+    "prompt": "Name a saint or blessed who was a deacon.",
+    "context": "Deacons served the early Church and later communities as preachers, administrators, missionaries and martyrs. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Deacons,” a directory of 237 profiles: https://catholicsaints.info/saints-who-were-deacons/ . Names follow the source index.",
+    "answers": [
+      {
+        "answer": "Stephen",
+        "tier": 1
+      },
+      {
+        "answer": "Lawrence",
+        "tier": 1
+      },
+      {
+        "answer": "Vincent of Saragossa",
+        "tier": 1
+      },
+      {
+        "answer": "Ephrem the Syrian",
+        "tier": 1
+      },
+      {
+        "answer": "Francis of Assisi",
+        "tier": 1
+      },
+      {
+        "answer": "Philip the Deacon",
+        "tier": 2
+      },
+      {
+        "answer": "Phoebe",
+        "tier": 2
+      },
+      {
+        "answer": "Alcuin",
+        "tier": 2
+      },
+      {
+        "answer": "Romanus the Melodist",
+        "tier": 2
+      },
+      {
+        "answer": "Peter the Deacon",
+        "tier": 2
+      },
+      {
+        "answer": "Arsenius the Great",
+        "tier": 2
+      },
+      {
+        "answer": "Andrew of Crete",
+        "tier": 2
+      },
+      {
+        "answer": "Prochorus",
+        "tier": 3
+      },
+      {
+        "answer": "Nicanor",
+        "tier": 3
+      },
+      {
+        "answer": "Timothy",
+        "tier": 3
+      },
+      {
+        "answer": "Titus",
+        "tier": 3
+      },
+      {
+        "answer": "Agapitus I",
+        "tier": 3
+      },
+      {
+        "answer": "Boniface IV",
+        "tier": 3
+      },
+      {
+        "answer": "Leo IX",
+        "tier": 3
+      },
+      {
+        "answer": "Nicholas I",
+        "tier": 3
+      },
+      {
+        "answer": "Silverius",
+        "tier": 3
+      },
+      {
+        "answer": "Siricius",
+        "tier": 3
+      },
+      {
+        "answer": "Zachary",
+        "tier": 3
+      },
+      {
+        "answer": "Gregory X",
+        "tier": 3
+      },
+      {
+        "answer": "Abdiesus",
+        "tier": 4
+      },
+      {
+        "answer": "Abibus of Alexandria",
+        "tier": 4
+      },
+      {
+        "answer": "Abibus of Edessa",
+        "tier": 4
+      },
+      {
+        "answer": "Abundantius of Rome",
+        "tier": 4
+      },
+      {
+        "answer": "Abundius",
+        "tier": 4
+      },
+      {
+        "answer": "Aceolus of Amiens",
+        "tier": 4
+      },
+      {
+        "answer": "Achilleus of Vienne",
+        "tier": 4
+      },
+      {
+        "answer": "Acius of Amiens",
+        "tier": 4
+      },
+      {
+        "answer": "Adalbert of Egmond",
+        "tier": 4
+      },
+      {
+        "answer": "Agapitus the Deacon",
+        "tier": 4
+      },
+      {
+        "answer": "Agathangelus",
+        "tier": 4
+      },
+      {
+        "answer": "Agathopodes of Antioch",
+        "tier": 4
+      },
+      {
+        "answer": "Agathopus the Deacon",
+        "tier": 4
+      },
+      {
+        "answer": "Alypius Stylites",
+        "tier": 4
+      },
+      {
+        "answer": "Amantius of Wintershoven",
+        "tier": 4
+      },
+      {
+        "answer": "Ammon of Heraclea",
+        "tier": 5
+      },
+      {
+        "answer": "Ammonius the Deacon",
+        "tier": 5
+      },
+      {
+        "answer": "Andeolus of Smyrna",
+        "tier": 5
+      },
+      {
+        "answer": "Andrew of Fiesole",
+        "tier": 5
+      },
+      {
+        "answer": "Anianus of Wilparting",
+        "tier": 5
+      },
+      {
+        "answer": "Anianus the Deacon",
+        "tier": 5
+      },
+      {
+        "answer": "Apollinare of Trieste",
+        "tier": 5
+      },
+      {
+        "answer": "Apseus of Arbela",
+        "tier": 5
+      },
+      {
+        "answer": "Archelaus of Ostia",
+        "tier": 5
+      },
+      {
+        "answer": "Arialdus of Milan",
+        "tier": 5
+      },
+      {
+        "answer": "Arsenius of Scetis",
+        "tier": 5
+      },
+      {
+        "answer": "Athanasius of Jerusalem",
+        "tier": 5
+      },
+      {
+        "answer": "Augebert of Champagne",
+        "tier": 5
+      },
+      {
+        "answer": "Augurius the Martyr",
+        "tier": 5
+      },
+      {
+        "answer": "Avertinus of Tours",
+        "tier": 5
+      },
+      {
+        "answer": "Avitus of Auxerre",
+        "tier": 6
+      },
+      {
+        "answer": "Azadanes the Deacon",
+        "tier": 6
+      },
+      {
+        "answer": "Baldomerus of Saint Justus",
+        "tier": 6
+      },
+      {
+        "answer": "Baldwin",
+        "tier": 6
+      },
+      {
+        "answer": "Barhadbescialas",
+        "tier": 6
+      },
+      {
+        "answer": "Basil of Tiberiopolis",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Stephen",
+        "accepted": true
+      },
+      {
+        "guess": "Lawrence",
+        "accepted": true
+      },
+      {
+        "guess": "Vincent of Saragossa",
+        "accepted": true
+      },
+      {
+        "guess": "Ephrem the Syrian",
+        "accepted": true
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A priest and friar, not a deacon."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A priest, not a deacon."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A laywoman, not a deacon."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A nun, not a deacon."
+      },
+      {
+        "guess": "Dominic",
+        "accepted": false,
+        "reason": "A priest and founder, not a deacon."
+      }
+    ]
+  }
 ];
