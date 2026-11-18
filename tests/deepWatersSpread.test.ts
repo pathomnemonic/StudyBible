@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { DEEP_PLAYABLE } from '../src/data/deepWaters';
-import { matchDeepAnswer, spreadTiers, type DeepPrompt } from '../src/lib/deepWaters';
+import { matchDeepAnswer, spreadTiers } from '../src/lib/deepWaters';
+import type { DeepPrompt } from '../src/data/deepWaters';
 
 const find = (id: string) => DEEP_PLAYABLE.find((p) => p.id === id)!;
 
@@ -21,7 +22,7 @@ describe('scores spread over every open list', () => {
     expect(s.answers[7].tier).toBe(6);
   });
   it('leaves a list with a fixed set of answers alone', () => {
-    const p: DeepPrompt = { id: 't', theme: 'bible', prompt: 'x', context: '', basis: '', closed: 4, answers: ['a', 'b', 'c', 'd'].map((answer) => ({ answer, tier: 1 as const })) };
+    const p: DeepPrompt = { id: 't', theme: 'scripture', prompt: 'x', context: '', basis: '', closed: 4, answers: ['a', 'b', 'c', 'd'].map((answer) => ({ answer, tier: 1 as const })) };
     expect(spreadTiers(p)).toBe(p);
   });
 });

@@ -3,7 +3,8 @@ import { materialize, type DerivedEntry } from '../lib/deepWatersDerive';
 import { buildPools } from './deepWatersPools';
 import { CHATGPT_PROMPTS } from './deepWatersChatGPT';
 import PACK_ENTRIES from './deepWaters.packs.derived.json';
-import { DEEP_ROUNDS, spreadTiers } from '../lib/deepWaters';
+import { DEEP_ROUNDS } from '../lib/deepWaters';
+import { spreadTiers } from '../lib/deepWatersSpread';
 import { dailySchedule, familyOf } from '../lib/deepWatersSchedule';
 import { seeded, shuffled } from '../lib/dailyGame';
 

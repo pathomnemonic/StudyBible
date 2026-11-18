@@ -47,7 +47,7 @@ import { PATRON_SAINTS } from './deepWatersPatrons';
 import { BATCH_PROMPTS } from './deepWatersBatch';
 import { SIMPLER_PROMPTS, isEverydayList } from './deepWatersEveryday';
 import { materialize, type DerivedEntry } from '../lib/deepWatersDerive';
-import { spreadTiers } from '../lib/deepWaters';
+import { spreadTiers } from '../lib/deepWatersSpread';
 import DERIVED_ENTRIES from './deepWaters.derived.json';
 import { buildPools } from './deepWatersPools';
 

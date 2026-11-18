@@ -9,12 +9,14 @@ import { clearDeepMisses, deepMissesText, loadDeepMisses, recordDeepMiss } from 
 import { Art } from '../../arcade/art';
 import { HEAVEN_M, MiniBasilica, SUMMIT_M, levelAt, miniPct } from '../../arcade/BasilicaScene';
 import BasilicaStage from '../../arcade/BasilicaStage';
+import '@fontsource/atkinson-hyperlegible/400.css';
+import '@fontsource/atkinson-hyperlegible/700.css';
 import '@fontsource/cormorant-garamond/500.css';
 import '@fontsource/cormorant-garamond/600.css';
 import '@fontsource/cormorant-garamond/700.css';
 import '@fontsource/cormorant-garamond/500-italic.css';
 import '../../styles/basilion.css';
-import { blip, burst } from '../../arcade/fx';
+import { burst, cue, reduced as motionOff } from '../../arcade/fx';
 import { DEEP_PLAYABLE, DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
@@ -69,6 +71,9 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   const [done, setDone] = useState(canResume && snapshot!.phase === 'done');
   // a dive begins when the player says so: the questions are not shown, and no clock runs, until then (a dive already under way resumes at once)
   const [begun, setBegun] = useState(canResume);
+  // each round opens with the question alone in a glass box (no input, no clock), and a locked-in answer rises up the basilica before its points are shown
+  const [reading, setReading] = useState(false);
+  const [rising, setRising] = useState(false);
   const [showAnswers, setShowAnswers] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [showAllAnswers, setShowAllAnswers] = useState(false);
@@ -76,8 +81,18 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   const [copied, setCopied] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
-  useEffect(() => { if (begun && !locked && !done) inputRef.current?.focus(); }, [begun, round, locked, done]);
-  useEffect(() => { if (locked && !done) nextRef.current?.focus(); }, [locked, done]);
+  useEffect(() => { if (begun && !locked && !done && !reading) inputRef.current?.focus(); }, [begun, round, locked, done, reading]);
+  useEffect(() => { if (locked && !done && !rising) nextRef.current?.focus(); }, [locked, done, rising]);
+  useEffect(() => {
+    if (!reading) return;
+    const t = window.setTimeout(() => { deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000; setSeconds(DEEP_SECONDS); setReading(false); }, motionOff() ? 700 : 1500);
+    return () => window.clearTimeout(t);
+  }, [reading]);
+  useEffect(() => {
+    if (!rising) return;
+    const t = window.setTimeout(() => { setRising(false); cue('land', result?.tier ?? 1); }, motionOff() ? 500 : 2100);
+    return () => window.clearTimeout(t);
+  }, [rising]); // eslint-disable-line react-hooks/exhaustive-deps
   const prompt: DeepPrompt = prompts[round];
   const deadlineRef = useRef<number>(snapshot?.deadlineAt ?? Date.now() + restoredRemaining);
   const remainingRef = useRef<number>(restoredRemaining);
@@ -89,21 +104,21 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   const pearlFound = history.some((item) => (item.pearlBonus ?? 0) > 0);
 
   useEffect(() => {
-    if (!begun || done || locked) return;
+    if (!begun || done || locked || reading) return;
     // the clock runs against a fixed deadline: leaving the page, switching tabs or reloading does not stop it, so a question cannot be looked up elsewhere or reset
     const update = () => setSeconds(Math.max(0, Math.ceil((deadlineRef.current - Date.now()) / 1000)));
     const timer = window.setInterval(update, 200);
     document.addEventListener('visibilitychange', update);
     update();
     return () => { window.clearInterval(timer); document.removeEventListener('visibilitychange', update); };
-  }, [begun, done, locked, round]);
+  }, [begun, done, locked, round, reading]);
 
   useEffect(() => {
-    if (!begun || seconds !== 0 || locked || done || !prompt) return;
+    if (!begun || seconds !== 0 || locked || done || reading || !prompt) return;
     const missed: RoundResult = { prompt: prompt.prompt, guess: '', answer: null, tier: null, points: 0, timedOut: true };
     deadlineRef.current = 0;
-    setLocked(true); setResult(missed); setHistory((h) => [...h, missed]);
-  }, [begun, seconds, locked, done, prompt]);
+    setLocked(true); setResult(missed); setHistory((h) => [...h, missed]); cue('miss');
+  }, [begun, seconds, locked, done, reading, prompt]);
 
   useEffect(() => {
     if (done && pack && !restoredDone.current) savePackBest(pack, score);
@@ -120,21 +135,21 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
       version: 1, day: today, practice, practiceSeed, pack, promptIds: prompts.map((p) => p.id),
       round, phase: done ? 'done' : locked ? 'locked' : 'playing', score,
       history: history.map((entry, index) => ({ promptId: prompts[index]?.id ?? '', prompt: entry.prompt, guess: entry.guess, answer: entry.answer, tier: entry.tier, points: entry.points, timedOut: entry.timedOut, pearlBonus: entry.pearlBonus })),
-      guess, deadlineAt: done || locked ? null : deadlineRef.current,
+      guess, deadlineAt: done || locked || reading ? null : deadlineRef.current,
       remainingMs: seconds * 1000,
       paused: false, pearlAnswer,
       pearlFound,
     });
-  }, [begun, today, practice, pack, practiceSeed, prompts, round, done, locked, score, history, guess, seconds]);
+  }, [begun, today, practice, pack, practiceSeed, prompts, round, done, locked, reading, score, history, guess, seconds]);
 
-  const begin = () => { deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000; setSeconds(DEEP_SECONDS); setBegun(true); };
+  const begin = () => { setSeconds(DEEP_SECONDS); setReading(true); setBegun(true); cue('next'); };
 
   // only a practice dive can be restarted; a daily dive is final once begun
   const reset = () => {
     if (!practice) return;
     clearDeepSession(true);
     setPracticeSeed(newPracticeSeed());
-    deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000;
+    setReading(false); setRising(false);
     setRound(0); setSeconds(DEEP_SECONDS); setGuess(''); setLocked(false); setFeedback('');
     setResult(null); setHistory([]); setScore(0); setDone(false); setShowAnswers(false); setShowHint(false); setShowAllAnswers(false); setBegun(false);
   };
@@ -153,14 +168,16 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
     const pearlBonus = pearlAnswer && normalizeDeepAnswer(found.answer) === normalizeDeepAnswer(pearlAnswer) ? PEARL_BONUS : 0;
     const points = basePoints + pearlBonus;
     const entry: RoundResult = { prompt: prompt.prompt, guess: trimmed, answer: found.answer, tier: found.tier, points, timedOut: false, pearlBonus };
-    if (pearlBonus > 0) { burst(); blip('win'); }
+    if (pearlBonus > 0) burst();
     setScore((s) => s + points); setResult(entry); setHistory((h) => [...h, entry]);
-    setLocked(true); deadlineRef.current = 0; setFeedback('');
+    setLocked(true); deadlineRef.current = 0; setFeedback(''); setRising(true); cue('submit');
+    window.setTimeout(() => cue('rise'), 260);
   };
 
   const advance = () => {
-    if (round + 1 >= DEEP_ROUNDS) { setDone(true); return; }
-    setRound((n) => n + 1); deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000; setSeconds(DEEP_SECONDS); setGuess(''); setLocked(false);
+    if (round + 1 >= DEEP_ROUNDS) { setDone(true); cue('final'); return; }
+    cue('next');
+    setRound((n) => n + 1); setSeconds(DEEP_SECONDS); setReading(true); setGuess(''); setLocked(false);
     setFeedback(''); setResult(null); setShowAnswers(false); setShowHint(false); setShowAllAnswers(false);
   };
 
@@ -172,6 +189,8 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   const timerTone = seconds <= 10 ? 'urgent' : seconds <= 25 ? 'warm' : 'calm';
   const suggestions = useMemo(() => guess.trim() && !locked ? suggestDeepAnswers(prompt, guess) : [], [prompt, guess, locked]);
 
+  // what the player sees counts a locked-in answer only once it has landed
+  const shownScore = rising && result ? score - result.points : score;
   const depth = score * 10;
   const zone = levelAt(depth);
   const pct = (m: number) => `${(Math.min(SUMMIT_M, m) / SUMMIT_M) * 100}%`;
@@ -222,10 +241,10 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
       ]} onPractice={onPractice} />
       {!begun && !done ? null : !done ? (
         <>
-          <div className="dw-depthbar"><small>HEIGHT</small><b>{depth.toLocaleString()}<i> m</i></b><span>{zone.name}</span></div>
+          <div className="dw-depthbar"><small>HEIGHT</small><b>{(shownScore * 10).toLocaleString()}<i> m</i></b><span>{levelAt(shownScore * 10).name}</span></div>
           <div className="dw-status">
             <span className="dw-round-count">STEP <b>{String(round + 1).padStart(2, '0')}</b><i> / 07</i></span>
-            <span className="dw-score"><b>{score}</b><small>POINTS</small></span>
+            <span className="dw-score"><b>{shownScore}</b><small>POINTS</small></span>
             <div className={`dw-clock ${timerTone}`} role="timer" aria-label={`${seconds} seconds remaining`} style={{ ['--o2' as string]: `${(seconds / DEEP_SECONDS) * 100}%` }}>
               <span>{seconds}</span><small>SEC</small><i className="dw-o2"><b /></i>
             </div>
@@ -233,29 +252,36 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
           <div className="dw-progress" role="group" aria-label={`Round ${round + 1} of ${DEEP_ROUNDS}`}>
             {Array.from({ length: DEEP_ROUNDS }, (_, i) => <span key={i} className={i < round ? 'past' : i === round ? 'current' : ''}><i /></span>)}
           </div>
-          <section className="dw-card">
+          <section className={`dw-card${reading ? ' reading' : ''}${rising ? ' rising' : ''}`}>
+            {rising && result ? (
+              <div className="dw-rise" data-tier={result.tier ?? undefined} aria-live="polite">
+                <span className="dw-rise-chip">{result.answer}</span>
+                <small>climbing…</small>
+              </div>
+            ) : <>
             <div className="dw-card-top"><span className="dw-round-label">THE QUESTION</span><span className="dw-daily-tag">{practice ? 'PRACTICE CLIMB' : 'TODAY’S CLIMB'}</span></div>
             <h2>{prompt.prompt}</h2>
-            {!locked && <div className="dw-hint-wrap">
+            {reading && <p className="dw-ready" aria-live="polite">Read the question…</p>}
+            {!locked && !reading && <div className="dw-hint-wrap">
               <button className="dw-hint-button" type="button" onClick={() => setShowHint((v) => !v)} aria-expanded={showHint}>
                 <span aria-hidden="true">✧</span> {showHint ? 'Hide hint' : 'Need a nudge? Reveal a hint'}
               </button>
               {showHint && <p className="dw-hint">{deepHint(prompt)}</p>}
             </div>}
-            <form onSubmit={(e) => { e.preventDefault(); submit(); }}>
+            {!reading && <form onSubmit={(e) => { e.preventDefault(); submit(); }}>
               <label className="dw-answer-label" htmlFor="dw-answer">YOUR ANSWER</label>
               <div className="dw-entry">
                 <input id="dw-answer" ref={inputRef} value={guess} onChange={(e) => { setGuess(e.target.value); setFeedback(''); }} disabled={locked} autoComplete="off" autoCapitalize="words" placeholder="Type a name, place, prayer…" />
                 {!locked && <button className="dw-submit" type="submit">Lock it in <span aria-hidden="true">↗</span></button>}
               </div>
-            </form>
+            </form>}
             <p className="dw-feedback" aria-live="polite">{feedback}</p>
             {suggestions.length > 0 && <div className="dw-suggestions" aria-label="Possible spelling corrections">
               <small>Did you mean? Choose a suggestion, then lock it in yourself.</small>
               {suggestions.map((item) => <button key={item.answer} type="button" onClick={() => { setGuess(item.answer); setFeedback(''); }}>{item.answer}</button>)}
             </div>}
-            {!locked && <div className="dw-scoring-key" aria-label="Scoring guide">
-              <span>SCORING</span>{([1,2,3,4,5,6] as const).map((tier) => <i key={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><Art n={TIER_ART[tier]} size={26} /><b>{DEEP_POINTS[tier]}</b></i>)}<small>rarer answers score more</small>
+            {!locked && !reading && <div className="dw-scoring-key" aria-label="Scoring guide">
+              <span>SCORING</span>{([1,2,3,4,5,6] as const).map((tier) => <i key={tier} data-tier={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><Art n={TIER_ART[tier]} size={26} /><b>{DEEP_POINTS[tier]}</b></i>)}<small>rarer answers score more</small>
             </div>}
             {locked && result && (
               <div className={`dw-reveal ${result.points ? 'scored' : ''}`} data-tier={result.tier ?? undefined}>
@@ -272,6 +298,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
                 <button type="button" ref={nextRef} className="dw-next" onClick={advance}>{round + 1 === DEEP_ROUNDS ? 'View your climb' : 'Next round'} <span aria-hidden="true">→</span></button>
               </div>
             )}
+            </>}
           </section>
           <p className="dw-microcopy">No penalty for a wrong attempt. Find an answer that fits before the clock runs out.</p>
         </>

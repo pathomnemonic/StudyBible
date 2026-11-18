@@ -60,10 +60,11 @@ export default function ArcadeMode() {
       for (const m of muts) m.addedNodes.forEach((n) => {
         if (!(n instanceof HTMLElement)) return;
         const el = n.matches(finish) ? n : n.querySelector(finish);
-        if (el && !seen.has(el)) { seen.add(el); burst(); blip('win'); setWin(Math.floor(Math.random() * WINS.length)); el.querySelectorAll<HTMLElement>('.ws-score, h2').forEach((n) => { if (n.childNodes.length && n.firstChild?.nodeType === 3) countUp(n); }); }
+        if (el && !seen.has(el)) { seen.add(el); burst(); if (!el.closest('.deep-waters')) blip('win'); setWin(Math.floor(Math.random() * WINS.length)); el.querySelectorAll<HTMLElement>('.ws-score, h2').forEach((n) => { if (n.childNodes.length && n.firstChild?.nodeType === 3) countUp(n); }); }
       });
       // right and wrong answers: a sound when a choice turns green or red
       for (const m of muts) if (m.type === 'attributes' && m.target instanceof HTMLElement) {
+        if (m.target.closest('.deep-waters')) continue; // Basilion plays its own sounds
         const c = m.target.classList;
         if (c.contains('right') || c.contains('hit') && m.target.classList.contains('vb-cell')) blip('good');
         else if (c.contains('wrong') || c.contains('bad')) blip('bad');
@@ -72,7 +73,7 @@ export default function ArcadeMode() {
     obs.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class'] });
     const tap = (e: PointerEvent) => {
       const t = e.target as HTMLElement | null;
-      if (t?.closest('button, a, [role=button], .q-tile, .ws-cell, .cw-cell, .vb-key, label')) { ring(e.clientX, e.clientY); blip('tap'); }
+      if (t?.closest('button, a, [role=button], .q-tile, .ws-cell, .cw-cell, .vb-key, label')) { ring(e.clientX, e.clientY); if (!t.closest('.deep-waters')) blip('tap'); }
     };
     document.addEventListener('pointerdown', tap, true);
     return () => { obs.disconnect(); document.removeEventListener('pointerdown', tap, true); };

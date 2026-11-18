@@ -1,6 +1,13 @@
 # What changed
 
 
+
+## Basilion: a visible rise, rarity colours, new sounds, a readable face
+- Each round opens with the question alone in a see-through glass box for about a second and a half. The entry box and the clock start only after that.
+- A locked-in answer now floats up as the basilica scrolls, and its points and height are counted only when it lands. The answer takes the colour of its rarity: gray for the most obvious, then blue, green, red, purple and gold for the rarest (the six scores need six colours, so green sits between blue and red). The scoring key uses the same colours.
+- New sounds in the order they happen: lock in, a rising glide while the answer climbs, a landing sound that is brighter for a rarer answer, a sound when the next question appears, and one for the end of the climb. The random tap, right and wrong sounds no longer play on this page. Reduced motion shortens the reading time and skips the float.
+- The page face is now Atkinson Hyperlegible for everything people read (the large title keeps its display face), and offset text shadows were removed, which is what made the type look doubled.
+
 ## Scores spread over every list, and everyday answers accepted
 - Every open list now uses all six scores. Answers keep the order the authors gave them (rarer stays rarer) and are spread by rank, so a list that had no top score now has one. Lists with a fixed set of answers, lists calibrated from a measured source and lists that already cover the scale are left as they were. Which lists count as everyday ones is still judged on the authored tiers, so the daily bank did not change.
 - "What can Catholics do to help the poor" refused "pray" and "feed the hungry" because the list simply did not have them. Added those and other obvious ones (pray for the poor, give to charity, clothe the naked, share). The matcher also now accepts the same action in another form ("visiting the sick", "volunteering") and the key word of one easy answer ("pray" for "pray the rosary"), but never when that word fits two answers.
