@@ -32,11 +32,11 @@ html[data-game='deepwaters'] .arc-bg, html[data-game='deepwaters'] .arc-sea, htm
 .bas-clouds .c4 { width: 40vw; top: 74%; left: 40vw; opacity: 0.85; animation-duration: 110s; animation-delay: -20s; }
 .bas-stage { position: absolute; inset: 0; overflow: hidden; }
 .bas-svg {
-  position: absolute; left: 50%; bottom: 0; width: var(--sw); height: calc(var(--sw) * 4); margin-left: calc(var(--sw) / -2);
-  transform: translateY(max(0px, calc(var(--p) * (var(--sw) * 4 - 100vh)))); transition: transform 1.9s cubic-bezier(0.22, 0.9, 0.24, 1);
+  position: absolute; left: 50%; bottom: 0; width: var(--sw); height: calc(var(--sw) * var(--ar, 4)); margin-left: calc(var(--sw) / -2);
+  transform: translateY(max(0px, calc(var(--p) * (var(--sw) * var(--ar, 4) - 100vh)))); transition: transform 1.9s cubic-bezier(0.22, 0.9, 0.24, 1);
   filter: drop-shadow(0 20px 30px rgba(40, 20, 50, 0.45));
 }
-@supports (height: 100dvh) { .bas-svg { transform: translateY(max(0px, calc(var(--p) * (var(--sw) * 4 - 100dvh)))); } }
+@supports (height: 100dvh) { .bas-svg { transform: translateY(max(0px, calc(var(--p) * (var(--sw) * var(--ar, 4) - 100dvh)))); } }
 .bas-window { animation: bas-glow 5s ease-in-out infinite alternate; }
 .bas-cross { animation: bas-cross 3.4s ease-in-out infinite alternate; transform-origin: 200px 224px; }
 .bas-halo { animation: bas-halo 4.5s ease-in-out infinite alternate; transform-origin: 200px 250px; }

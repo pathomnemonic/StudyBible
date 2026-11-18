@@ -10,12 +10,15 @@ export const SUMMIT_M = 7000;
 export interface Level { name: string; from: number }
 /** the storeys of the building, bottom to top */
 export const LEVELS: Level[] = [
-  { name: 'The Piazza', from: 0 }, { name: 'The Portico', from: 400 }, { name: 'The Nave', from: 1400 }, { name: 'The Loggia', from: 2600 },
-  { name: 'The Attic of Saints', from: 3600 }, { name: 'The Drum', from: 4400 }, { name: 'The Dome', from: 5400 }, { name: 'The Lantern', from: 6400 }, { name: 'The Cross', from: 7000 },
+  { name: 'The Piazza', from: 0 }, { name: 'The Portico', from: 300 }, { name: 'The First Loggia', from: 700 }, { name: 'The Second Loggia', from: 1200 }, { name: 'The Upper Galleries', from: 1800 },
+  { name: 'The Windows of Light', from: 2500 }, { name: 'The Clerestory', from: 3200 }, { name: 'The Attic of Saints', from: 4000 }, { name: 'The Drum', from: 4900 }, { name: 'The Dome', from: 5700 },
+  { name: 'The Lantern', from: 6400 }, { name: 'The Cross', from: 7000 },
 ];
 export const levelAt = (m: number) => [...LEVELS].reverse().find((z) => m >= z.from) ?? LEVELS[0];
 
 const W = 400, H = 1600;
+/** how many extra storeys are stacked above the first, to make the building tall; each is a copy of the loggia */
+const EXTRA_TIERS = 8, TIER_H = 238, EXTRA = EXTRA_TIERS * TIER_H;
 const range = (n: number, from = 0) => Array.from({ length: n }, (_, i) => i + from);
 const ROSE = ['#b3202f', '#1f4e9c', '#e7a21b', '#1f8a5b', '#7a2a8c', '#d4531e'];
 
@@ -60,13 +63,39 @@ function Saint({ x, y, s = 1, id, tall = false }: { x: number; y: number; s?: nu
 export default function BasilicaScene({ height, begun }: { height: number; begun: boolean }) {
   const id = useId().replace(/:/g, '');
   const p = Math.max(0, Math.min(1, height / SUMMIT_M));
-  const style = { '--p': p.toFixed(4) } as CSSProperties;
+  const style = { '--p': p.toFixed(4), '--ar': ((H + EXTRA) / W).toFixed(3) } as CSSProperties;
   const g = (s: string) => `url(#${id}-${s})`;
   const lowerPil = range(9).map((i) => 52 + i * 37);
   const midWin = range(7).map((i) => 74 + i * 42);
   const drumWin = range(7).map((i) => 150 + i * 16);
   const attic = range(13).map((i) => 68 + i * 22.2);
   // drawn straight into <body>: the page that holds the game is moved by its transitions, and a fixed picture inside it would only cover its own column
+  const loggia = (
+<g>
+            <rect x="46" y="1012" width="308" height="238" fill={g('stone')} />
+            <rect x="46" y="1012" width="308" height="238" fill={g('shade')} />
+            <rect x="42" y="1008" width="316" height="9" fill={g('gold')} />
+            {range(8).map((i) => <g key={i}><rect x={52 + i * 40.4} y="1026" width="10" height="212" fill="#fff4da" stroke="#c4aa78" strokeWidth="0.5" /><rect x={50 + i * 40.4} y="1022" width="14" height="6" fill="#e2cfa3" /></g>)}
+            {midWin.map((x, i) => i === 3 ? null : (
+              <g key={x}>
+                <path d={`M${x},1150 v-72 a14,14 0 0 1 28,0 v72 Z`} className="bas-window" fill={g('glow')} stroke="#6d5636" strokeWidth="1.2" />
+                <line x1={x + 14} y1="1064" x2={x + 14} y2="1150" stroke="#6d5636" strokeWidth="0.8" /><line x1={x} y1="1106" x2={x + 28} y2="1106" stroke="#6d5636" strokeWidth="0.8" />
+                <path d={`M${x - 5},1062 L${x + 14},1040 L${x + 33},1062 Z`} fill="#efe0bd" stroke="#b49a69" strokeWidth="0.8" />
+                <rect x={x - 3} y="1150" width="34" height="6" fill="#d4bf92" />
+              </g>
+            ))}
+            <g>
+              <path d="M172,1176 v-96 a28,28 0 0 1 56,0 v96 Z" fill="#2a1a0d" stroke={g('gold')} strokeWidth="3" />
+              <path d="M178,1176 v-90 a22,22 0 0 1 44,0 v90 Z" className="bas-window" fill={g('glow')} opacity="0.9" />
+              <ellipse cx="200" cy="1140" rx="20" ry="30" fill="#fff6c8" opacity="0.4" />
+              <rect x="160" y="1168" width="80" height="9" fill={g('gold')} />
+              {range(12).map((i) => <rect key={i} x={163 + i * 6.4} y="1174" width="3" height="14" fill="#fff4da" stroke="#c4aa78" strokeWidth="0.4" />)}
+              <rect x="160" y="1186" width="80" height="5" fill="#d4bf92" />
+              <path d="M168,1052 L200,1022 L232,1052 Z" fill="#f4e7c6" stroke={g('gold')} strokeWidth="2" /><circle cx="200" cy="1044" r="5" fill={g('gold')} />
+            </g>
+            <rect x="46" y="1244" width="308" height="8" fill="#d4bf92" />
+          </g>
+  );
   const scene = (
     <div className={`bas-scene${begun ? ' begun' : ''}`} style={style} aria-hidden="true">
       <div className="bas-sky" />
@@ -75,7 +104,7 @@ export default function BasilicaScene({ height, begun }: { height: number; begun
       <div className="bas-stars">{range(26).map((i) => <i key={i} style={{ left: `${(i * 37 + 11) % 100}%`, top: `${(i * 53 + 7) % 62}%`, animationDelay: `${(i % 7) * 0.45}s`, ['--s' as string]: `${2 + (i % 3)}px` }} />)}</div>
       <div className="bas-clouds"><b className="c1" /><b className="c2" /><b className="c3" /><b className="c4" /></div>
       <div className="bas-stage">
-        <svg className="bas-svg" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="xMidYMax meet" role="presentation" focusable="false">
+        <svg className="bas-svg" viewBox={`0 ${-EXTRA} ${W} ${H + EXTRA}`} preserveAspectRatio="xMidYMax meet" role="presentation" focusable="false">
           <defs>
             <linearGradient id={`${id}-stone`} x1="0" y1="0" x2="1" y2="0"><stop offset="0" stopColor="#e9d8b4" /><stop offset="0.55" stopColor="#f6ead0" /><stop offset="1" stopColor="#d4bf92" /></linearGradient>
             <linearGradient id={`${id}-stoneLit`} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#fff6dc" /><stop offset="1" stopColor="#d9c397" /></linearGradient>
@@ -90,6 +119,7 @@ export default function BasilicaScene({ height, begun }: { height: number; begun
             <filter id={`${id}-grain`} x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4" result="n" /><feColorMatrix in="n" type="matrix" values="0 0 0 0 0.35  0 0 0 0 0.27  0 0 0 0 0.15  0 0 0 0.16 0" /></filter>
           </defs>
 
+          <g transform={`translate(0 ${-EXTRA})`}>
           {/* far flanks: two small domes and the roof of the nave behind the front */}
           <g opacity="0.96">
             {[72, 328].map((cx) => (
@@ -144,31 +174,9 @@ export default function BasilicaScene({ height, begun }: { height: number; begun
             <rect x="52" y="1006" width="296" height="6" fill="#d4bf92" />
           </g>
 
-          {/* the Loggia: seven arched windows and the central balcony of blessings */}
-          <g>
-            <rect x="46" y="1012" width="308" height="238" fill={g('stone')} />
-            <rect x="46" y="1012" width="308" height="238" fill={g('shade')} />
-            <rect x="42" y="1008" width="316" height="9" fill={g('gold')} />
-            {range(8).map((i) => <g key={i}><rect x={52 + i * 40.4} y="1026" width="10" height="212" fill="#fff4da" stroke="#c4aa78" strokeWidth="0.5" /><rect x={50 + i * 40.4} y="1022" width="14" height="6" fill="#e2cfa3" /></g>)}
-            {midWin.map((x, i) => i === 3 ? null : (
-              <g key={x}>
-                <path d={`M${x},1150 v-72 a14,14 0 0 1 28,0 v72 Z`} className="bas-window" fill={g('glow')} stroke="#6d5636" strokeWidth="1.2" />
-                <line x1={x + 14} y1="1064" x2={x + 14} y2="1150" stroke="#6d5636" strokeWidth="0.8" /><line x1={x} y1="1106" x2={x + 28} y2="1106" stroke="#6d5636" strokeWidth="0.8" />
-                <path d={`M${x - 5},1062 L${x + 14},1040 L${x + 33},1062 Z`} fill="#efe0bd" stroke="#b49a69" strokeWidth="0.8" />
-                <rect x={x - 3} y="1150" width="34" height="6" fill="#d4bf92" />
-              </g>
-            ))}
-            <g>
-              <path d="M172,1176 v-96 a28,28 0 0 1 56,0 v96 Z" fill="#2a1a0d" stroke={g('gold')} strokeWidth="3" />
-              <path d="M178,1176 v-90 a22,22 0 0 1 44,0 v90 Z" className="bas-window" fill={g('glow')} opacity="0.9" />
-              <ellipse cx="200" cy="1140" rx="20" ry="30" fill="#fff6c8" opacity="0.4" />
-              <rect x="160" y="1168" width="80" height="9" fill={g('gold')} />
-              {range(12).map((i) => <rect key={i} x={163 + i * 6.4} y="1174" width="3" height="14" fill="#fff4da" stroke="#c4aa78" strokeWidth="0.4" />)}
-              <rect x="160" y="1186" width="80" height="5" fill="#d4bf92" />
-              <path d="M168,1052 L200,1022 L232,1052 Z" fill="#f4e7c6" stroke={g('gold')} strokeWidth="2" /><circle cx="200" cy="1044" r="5" fill={g('gold')} />
-            </g>
-            <rect x="46" y="1244" width="308" height="8" fill="#d4bf92" />
           </g>
+          {loggia}
+          {range(EXTRA_TIERS).map((j) => <g key={j} transform={`translate(0 ${-(j + 1) * TIER_H})`}>{loggia}</g>)}
 
           {/* the Portico: nine columns, three doors and the great rose window */}
           <g>

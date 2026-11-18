@@ -66,7 +66,7 @@ export class BasilicaScene3D {
   private renderer: THREE.WebGLRenderer;
   private composer: EffectComposer;
   private scene = new THREE.Scene();
-  private camera = new THREE.PerspectiveCamera(48, 1, 0.5, 2200);
+  private camera = new THREE.PerspectiveCamera(48, 1, 0.5, 3200);
   private clock = new THREE.Clock();
   private raf = 0;
   private disposed = false;
@@ -89,6 +89,7 @@ export class BasilicaScene3D {
   private hemi: THREE.HemisphereLight;
   private textures: THREE.Texture[] = [];
   private bloom: UnrealBloomPass;
+  private top = 120;
 
   constructor(private canvas: HTMLCanvasElement, still: boolean) {
     this.still = still;
@@ -116,14 +117,14 @@ export class BasilicaScene3D {
         }
         void main(){ float h = clamp(vP.y, 0.0, 1.0); gl_FragColor = vec4(ramp(h, uP), 1.0); }`,
     });
-    const sky = new THREE.Mesh(new THREE.SphereGeometry(1800, 32, 24), this.skyMat); sky.renderOrder = -10; this.scene.add(sky);
+    const sky = new THREE.Mesh(new THREE.SphereGeometry(2800, 32, 24), this.skyMat); sky.renderOrder = -10; this.scene.add(sky);
     this.fog = new THREE.FogExp2(0xc78aa0, 0.0021); this.scene.fog = this.fog;
 
     /* lights */
     this.hemi = new THREE.HemisphereLight(0xffe2c4, 0x5a4660, 0.9); this.scene.add(this.hemi);
-    this.dir = new THREE.DirectionalLight(0xffd9a0, 2.6); this.dir.position.set(-60, 70, 110); this.dir.target.position.set(0, 40, 0);
+    this.dir = new THREE.DirectionalLight(0xffd9a0, 2.6); this.dir.position.set(-60, 170, 130); this.dir.target.position.set(0, 120, 0);
     this.dir.castShadow = true; this.dir.shadow.mapSize.set(coarse ? 1024 : 2048, coarse ? 1024 : 2048);
-    Object.assign(this.dir.shadow.camera, { left: -90, right: 90, top: 130, bottom: -20, near: 10, far: 400 }); this.dir.shadow.bias = -0.0006; this.dir.shadow.normalBias = 0.4;
+    Object.assign(this.dir.shadow.camera, { left: -90, right: 90, top: 330, bottom: -20, near: 10, far: 700 }); this.dir.shadow.bias = -0.0006; this.dir.shadow.normalBias = 0.4;
     this.scene.add(this.dir, this.dir.target);
 
     /* materials */
@@ -138,7 +139,7 @@ export class BasilicaScene3D {
     const box = (w: number, h: number, d: number) => new THREE.BoxGeometry(w, h, d);
 
     /* the piazza and the steps */
-    const plaza = new THREE.Mesh(new THREE.CircleGeometry(1700, 64), new THREE.MeshStandardMaterial({ color: 0xe3d5b5, roughness: 1, map: (() => { const t = T(stoneTexture()); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(70, 70); return t; })() }));
+    const plaza = new THREE.Mesh(new THREE.CircleGeometry(2600, 64), new THREE.MeshStandardMaterial({ color: 0xe3d5b5, roughness: 1, map: (() => { const t = T(stoneTexture()); t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(70, 70); return t; })() }));
     plaza.rotation.x = -Math.PI / 2; plaza.receiveShadow = true; this.scene.add(plaza);
     for (let i = 0; i < 6; i++) add(box(74 + (5 - i) * 4, 0.55, 14 + (5 - i) * 2.2), trim, 0, 0.28 + i * 0.55, 22 - (5 - i) * 1.2);
 
@@ -154,19 +155,25 @@ export class BasilicaScene3D {
       add(box(w + 1.2, 0.8, 0.8), gold, x, base0 + h + 0.4, 8.2, false);
     }
 
-    /* the loggia, with arched windows that glow and a rose window in the middle */
-    const logY = base0 + porH + 3.6, logH = 17;
-    add(box(60, logH, 13), stoneAt(5, 2), 0, logY + logH / 2, -1);
+    /* the loggias: a tall stack of storeys, each with seven arched windows that glow; a rose window on the first and the last */
+    const logH = 17, TIERS = 9; let logY = base0 + porH + 3.6;
     const win = T(archWindowTex(true));
-    for (let i = 0; i < 7; i++) {
-      const x = -24 + i * 8; if (i === 3) continue;
-      const w = new THREE.Mesh(new THREE.PlaneGeometry(4.4, 9.4), new THREE.MeshBasicMaterial({ map: win, toneMapped: false })); w.position.set(x, logY + 8.4, 5.6); this.scene.add(w); this.windows.push(w.material as THREE.MeshBasicMaterial);
-      add(new THREE.ConeGeometry(3.4, 1.8, 3), trim, x, logY + 14, 5.7, false).rotation.y = Math.PI / 2 * 0; add(box(5.2, 0.6, 1.2), trim, x, logY + 3.3, 6, false);
+    for (let t = 0; t < TIERS; t++) {
+      const wd = 60 - t * 0.8;
+      add(box(wd, logH, 13), stoneAt(5, 2), 0, logY + logH / 2, -1);
+      for (let i = 0; i < 7; i++) {
+        const x = -24 + i * 8; if (i === 3 && (t === 0 || t === TIERS - 1)) continue;
+        const w = new THREE.Mesh(new THREE.PlaneGeometry(4.4, 9.4), new THREE.MeshBasicMaterial({ map: win, toneMapped: false })); w.position.set(x, logY + 8.4, 5.6); this.scene.add(w); this.windows.push(w.material as THREE.MeshBasicMaterial);
+        add(new THREE.ConeGeometry(3.4, 1.8, 3), trim, x, logY + 14, 5.7, false); add(box(5.2, 0.6, 1.2), trim, x, logY + 3.3, 6, false);
+      }
+      for (let i = 0; i < 8; i++) add(box(1.4, logH - 1, 1.2), trim, -28 + i * 8, logY + logH / 2, 5.9);
+      if (t === 0 || t === TIERS - 1) {
+        const rose = new THREE.Mesh(new THREE.CircleGeometry(5.6, 48), new THREE.MeshBasicMaterial({ map: T(roseTex()), transparent: true, toneMapped: false })); rose.position.set(0, logY + 9, 5.75); this.scene.add(rose);
+        add(new THREE.TorusGeometry(5.7, 0.42, 8, 48), gold, 0, logY + 9, 5.8, false);
+      }
+      add(box(wd + 2, 1.6, 15), trim, 0, logY + logH + 0.6, -0.4);
+      if (t < TIERS - 1) { add(box(wd + 2.4, 0.5, 15.4), gold, 0, logY + logH + 1.5, -0.4, false); logY += logH + 1.6; }
     }
-    for (let i = 0; i < 8; i++) add(box(1.4, logH - 1, 1.2), trim, -28 + i * 8, logY + logH / 2, 5.9);
-    const rose = new THREE.Mesh(new THREE.CircleGeometry(5.6, 48), new THREE.MeshBasicMaterial({ map: T(roseTex()), transparent: true, toneMapped: false })); rose.position.set(0, logY + 9, 5.75); this.scene.add(rose);
-    add(new THREE.TorusGeometry(5.7, 0.42, 8, 48), gold, 0, logY + 9, 5.8, false);
-    add(box(62, 1.6, 15), trim, 0, logY + logH + 0.6, -0.4);
 
     /* the attic: a balustrade and the saints who stand on it, Christ in the middle */
     const atY = logY + logH + 1.4;
@@ -213,25 +220,28 @@ export class BasilicaScene3D {
     add(box(46, 30, 84), stoneAt(8, 4), 0, 28, -58);
     const roof = new THREE.Mesh(new THREE.CylinderGeometry(26, 26, 84, 3).rotateX(-Math.PI / 2), lead); roof.position.set(0, 56, -58); roof.castShadow = true; roof.receiveShadow = true; this.scene.add(roof);
 
+    this.top = lanY + 24;
+
     /* sun, rays, stars, clouds, doves and dust */
     this.sun = new THREE.Sprite(new THREE.SpriteMaterial({ map: T(glowTex('rgba(255,248,210,1)', 'rgba(255,190,110,0.55)')), blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, fog: false }));
     this.sun.scale.set(520, 520, 1); this.sun.position.set(-40, 20, -700); this.scene.add(this.sun);
     this.rays = new THREE.Sprite(new THREE.SpriteMaterial({ map: T(raysTex()), blending: THREE.AdditiveBlending, depthWrite: false, transparent: true, opacity: 0, fog: false })); this.rays.scale.set(1500, 1500, 1); this.rays.position.copy(this.sun.position).add(new THREE.Vector3(0, 0, 40)); this.scene.add(this.rays);
-    const sp = new Float32Array(420 * 3); const r = rnd(5); for (let i = 0; i < 420; i++) { const th = r() * Math.PI * 2, ph = Math.acos(0.15 + r() * 0.85); sp.set([Math.sin(ph) * Math.cos(th) * 1700, Math.cos(ph) * 1700, Math.sin(ph) * Math.sin(th) * 1700], i * 3); }
+    const sp = new Float32Array(420 * 3); const r = rnd(5); for (let i = 0; i < 420; i++) { const th = r() * Math.PI * 2, ph = Math.acos(0.15 + r() * 0.85); sp.set([Math.sin(ph) * Math.cos(th) * 2600, Math.cos(ph) * 2600, Math.sin(ph) * Math.sin(th) * 2600], i * 3); }
     const dotT = T(glowTex('rgba(255,250,225,1)', 'rgba(255,230,160,0.35)'));
     const sg = new THREE.BufferGeometry(); sg.setAttribute('position', new THREE.BufferAttribute(sp, 3)); this.stars = new THREE.Points(sg, new THREE.PointsMaterial({ color: 0xfff3cf, map: dotT, size: 7, sizeAttenuation: false, transparent: true, opacity: 0.9, depthWrite: false, fog: false })); this.scene.add(this.stars);
     const cT = T(cloudTex());
-    for (let i = 0; i < 16; i++) { const c = new THREE.Sprite(new THREE.SpriteMaterial({ map: cT, transparent: true, opacity: 0.55 + r() * 0.3, depthWrite: false, color: 0xffe6d2 })); const s = 80 + r() * 140; c.scale.set(s * 2, s, 1); c.position.set((r() - 0.5) * 520, 10 + r() * 150, -150 - r() * 520); (c as THREE.Sprite & { vx: number }).vx = 0.6 + r() * 1.6; this.clouds.push(c); this.scene.add(c); }
+    for (let i = 0; i < 16; i++) { const c = new THREE.Sprite(new THREE.SpriteMaterial({ map: cT, transparent: true, opacity: 0.55 + r() * 0.3, depthWrite: false, color: 0xffe6d2 })); const s = 80 + r() * 140; c.scale.set(s * 2, s, 1); c.position.set((r() - 0.5) * 520, 10 + r() * (this.top + 60), -150 - r() * 520); (c as THREE.Sprite & { vx: number }).vx = 0.6 + r() * 1.6; this.clouds.push(c); this.scene.add(c); }
     const dT = T(doveTex());
-    for (let i = 0; i < 9; i++) { const d = new THREE.Sprite(new THREE.SpriteMaterial({ map: dT, transparent: true, depthWrite: false, fog: false })); d.scale.set(3.4, 2.5, 1); this.scene.add(d); this.doves.push({ s: d, r: 24 + r() * 30, h: 22 + r() * 90, a: r() * 6.28, v: (0.12 + r() * 0.2) * (i % 2 ? 1 : -1) }); }
-    const dp = new Float32Array(160 * 3); for (let i = 0; i < 160; i++) dp.set([(r() - 0.5) * 120, r() * 130, 8 + r() * 50], i * 3);
+    for (let i = 0; i < 9; i++) { const d = new THREE.Sprite(new THREE.SpriteMaterial({ map: dT, transparent: true, depthWrite: false, fog: false })); d.scale.set(3.4, 2.5, 1); this.scene.add(d); this.doves.push({ s: d, r: 24 + r() * 30, h: 22 + r() * (this.top - 20), a: r() * 6.28, v: (0.12 + r() * 0.2) * (i % 2 ? 1 : -1) }); }
+    const dp = new Float32Array(320 * 3); for (let i = 0; i < 320; i++) dp.set([(r() - 0.5) * 120, r() * this.top, 8 + r() * 50], i * 3);
     const dg = new THREE.BufferGeometry(); dg.setAttribute('position', new THREE.BufferAttribute(dp, 3)); this.dust = new THREE.Points(dg, new THREE.PointsMaterial({ color: 0xffe9a8, map: dotT, size: 1.3, transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false })); this.scene.add(this.dust);
 
     /* the climb: a smooth path for the camera and for what it looks at */
-    this.path = {
-      pos: new THREE.CatmullRomCurve3([[0, 9, 118], [22, 30, 112], [-16, 52, 110], [-24, 74, 108], [14, 96, 104], [6, 110, 100], [0, 122, 104]].map(([x, y, z]) => new THREE.Vector3(x, y, z))),
-      look: new THREE.CatmullRomCurve3([[0, 24, 0], [0, 38, 0], [0, 54, -4], [0, 74, -8], [0, 92, -8], [0, 104, -8], [0, 104, -8]].map(([x, y, z]) => new THREE.Vector3(x, y, z))),
-    };
+    {
+      const top = this.top, n = 12, posPts: THREE.Vector3[] = [], lookPts: THREE.Vector3[] = [];
+      for (let i = 0; i <= n; i++) { const t = i / n, y = 8 + t * (top - 26), sway = Math.sin(t * 7.5) * 20 * (1 - t * 0.3); posPts.push(new THREE.Vector3(sway, y, 112 + Math.sin(t * 3) * 6 + t * 10)); lookPts.push(new THREE.Vector3(0, y + 14 + t * 6, -6 * t)); }
+      this.path = { pos: new THREE.CatmullRomCurve3(posPts), look: new THREE.CatmullRomCurve3(lookPts) };
+    }
 
     this.composer = new EffectComposer(this.renderer);
     this.composer.addPass(new RenderPass(this.scene, this.camera));
@@ -257,7 +267,7 @@ export class BasilicaScene3D {
     this.hemi.intensity = 0.75 + p * 0.25; this.dir.intensity = 2.3 + p * 0.5; this.dir.color.setHSL(0.09, 0.8, 0.7 + p * 0.15);
     (this.stars.material as THREE.PointsMaterial).opacity = Math.max(0, 0.95 - p * 2.6);
     (this.rays.material as THREE.SpriteMaterial).opacity = Math.max(0, Math.min(0.42, p * 0.6 - 0.1));
-    this.sun.position.y = 10 + p * 190; this.rays.position.y = this.sun.position.y; (this.sun.material as THREE.SpriteMaterial).opacity = 0.75 - p * 0.3;
+    this.sun.position.y = 10 + p * (this.top + 60); this.rays.position.y = this.sun.position.y; (this.sun.material as THREE.SpriteMaterial).opacity = 0.75 - p * 0.3;
     (this.halo.material as THREE.SpriteMaterial).opacity = 0.35 + p * 0.65; this.bloom.strength = 0.36 + p * 0.22; this.renderer.toneMappingExposure = 1.08 - p * 0.2;
     const win = 0.55 + (1 - p) * 0.5; this.windows.forEach((m) => m.color.setScalar(win + 0.55));
     const pos = this.path.pos.getPoint(p), look = this.path.look.getPoint(p);
@@ -274,7 +284,7 @@ export class BasilicaScene3D {
     if (!this.still) {
       for (const c of this.clouds) { c.position.x += (c as THREE.Sprite & { vx: number }).vx * dt; if (c.position.x > 420) c.position.x = -420; }
       for (const d of this.doves) { d.a += d.v * dt; const wing = 1 + Math.sin(t * 9 + d.r) * 0.28; d.s.position.set(Math.cos(d.a) * d.r, d.h + Math.sin(t * 0.7 + d.r) * 2 + this.cur * 6, Math.sin(d.a) * d.r * 0.6 + 14); d.s.scale.set(3.4, 2.5 * wing, 1); (d.s.material as THREE.SpriteMaterial).opacity = 0.9; }
-      const pos2 = this.dust.geometry.getAttribute('position') as THREE.BufferAttribute; for (let i = 0; i < pos2.count; i++) { let y = pos2.getY(i) + dt * (1.1 + (i % 5) * 0.3); if (y > 130) y = 0; pos2.setY(i, y); pos2.setX(i, pos2.getX(i) + Math.sin(t + i) * dt * 0.4); } pos2.needsUpdate = true;
+      const pos2 = this.dust.geometry.getAttribute('position') as THREE.BufferAttribute; for (let i = 0; i < pos2.count; i++) { let y = pos2.getY(i) + dt * (1.1 + (i % 5) * 0.3); if (y > this.top) y = 0; pos2.setY(i, y); pos2.setX(i, pos2.getX(i) + Math.sin(t + i) * dt * 0.4); } pos2.needsUpdate = true;
       this.rays.material.rotation += dt * 0.012; this.cross.rotation.y = Math.sin(t * 0.4) * 0.12;
       const pulse = 1 + Math.sin(t * 1.6) * 0.06; this.halo.scale.set(46 * pulse, 46 * pulse, 1);
     }
