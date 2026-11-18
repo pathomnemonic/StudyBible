@@ -2,6 +2,12 @@
 
 
 
+
+## Basilion: a quieter screen during a round
+- Once a round starts the how-to-play banner, practice switch, sound button, scoring key, hints about penalties and the footer line are gone. The screen is one thin line (step, height, points, clock; a small tag when practising), a slim progress strip and the question. The explanations stay on the title and results screens.
+- The question card is now close to opaque, and the reading box is dark glass with white text, so the question reads clearly against the scene.
+- The two Basilion browser tests were updated for the new structure (top line instead of the old status block; the mid-round practice switch is no longer reachable, so that step now checks the banner is absent).
+
 ## Basilion: a visible rise, rarity colours, new sounds, a readable face
 - Each round opens with the question alone in a see-through glass box for about a second and a half. The entry box and the clock start only after that.
 - A locked-in answer now floats up as the basilica scrolls, and its points and height are counted only when it lands. The answer takes the colour of its rarity: gray for the most obvious, then blue, green, red, purple and gold for the rarest (the six scores need six colours, so green sits between blue and red). The scoring key uses the same colours.

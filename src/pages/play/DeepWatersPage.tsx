@@ -231,22 +231,22 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
           )}
         </header>
       )}
-      <GameHelp how={[
+      {(!begun || done) && (<GameHelp how={[
         'Each round gives you a Catholic or biblical category. Enter one answer from the curated key before the 45-second timer runs out.',
         'A recognized answer earns more points when it is a rarer one: 10, 15, 30, 60, 85 or 100 points, so a full climb can reach 700. Every point takes you 10 metres higher up the basilica.',
         'Use the optional hint if you get stuck. Rarity is curated for the game, not calculated from player surveys.',
         'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
         'One hidden keystone is worth a 50-point bonus (our own addition). It is selected from the rarest accepted answers in today’s set.',
         'The daily set is shared by everyone using the same local calendar date. Practice runs do not count.'
-      ]} onPractice={onPractice} />
+      ]} onPractice={onPractice} />)}
       {!begun && !done ? null : !done ? (
         <>
-          <div className="dw-depthbar"><small>HEIGHT</small><b>{(shownScore * 10).toLocaleString()}<i> m</i></b><span>{levelAt(shownScore * 10).name}</span></div>
-          <div className="dw-status">
-            <span className="dw-round-count">STEP <b>{String(round + 1).padStart(2, '0')}</b><i> / 07</i></span>
-            <span className="dw-score"><b>{shownScore}</b><small>POINTS</small></span>
+          <div className="dw-topline">
+            <span className="dw-round-count">STEP <b>{round + 1}</b><i> / {DEEP_ROUNDS}</i>{practice && <em className="dw-mode">{pack ? 'PACK' : 'PRACTICE'}</em>}</span>
+            <span className="dw-height"><b>{(shownScore * 10).toLocaleString()}</b> m</span>
+            <span className="dw-score"><b>{shownScore}</b><small>PTS</small></span>
             <div className={`dw-clock ${timerTone}`} role="timer" aria-label={`${seconds} seconds remaining`} style={{ ['--o2' as string]: `${(seconds / DEEP_SECONDS) * 100}%` }}>
-              <span>{seconds}</span><small>SEC</small><i className="dw-o2"><b /></i>
+              <span>{seconds}</span>
             </div>
           </div>
           <div className="dw-progress" role="group" aria-label={`Round ${round + 1} of ${DEEP_ROUNDS}`}>
@@ -259,8 +259,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
                 <small>climbing…</small>
               </div>
             ) : <>
-            <div className="dw-card-top"><span className="dw-round-label">THE QUESTION</span><span className="dw-daily-tag">{practice ? 'PRACTICE CLIMB' : 'TODAY’S CLIMB'}</span></div>
-            <h2>{prompt.prompt}</h2>
+                        <h2>{prompt.prompt}</h2>
             {reading && <p className="dw-ready" aria-live="polite">Read the question…</p>}
             {!locked && !reading && <div className="dw-hint-wrap">
               <button className="dw-hint-button" type="button" onClick={() => setShowHint((v) => !v)} aria-expanded={showHint}>
@@ -280,9 +279,6 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
               <small>Did you mean? Choose a suggestion, then lock it in yourself.</small>
               {suggestions.map((item) => <button key={item.answer} type="button" onClick={() => { setGuess(item.answer); setFeedback(''); }}>{item.answer}</button>)}
             </div>}
-            {!locked && !reading && <div className="dw-scoring-key" aria-label="Scoring guide">
-              <span>SCORING</span>{([1,2,3,4,5,6] as const).map((tier) => <i key={tier} data-tier={tier} title={`${DEEP_TIER_NAMES[tier]}: ${DEEP_POINTS[tier]} points`}><Art n={TIER_ART[tier]} size={26} /><b>{DEEP_POINTS[tier]}</b></i>)}<small>rarer answers score more</small>
-            </div>}
             {locked && result && (
               <div className={`dw-reveal ${result.points ? 'scored' : ''}`} data-tier={result.tier ?? undefined}>
                 <div className="dw-reveal-heading">
@@ -300,7 +296,6 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
             )}
             </>}
           </section>
-          <p className="dw-microcopy">No penalty for a wrong attempt. Find an answer that fits before the clock runs out.</p>
         </>
       ) : (
         <section className="dw-card dw-results">
@@ -335,7 +330,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
             : <button className="dw-submit" onClick={() => { setPractice(true); onPractice(true); }}>Practice climb ↗</button>}</div>
         </section>
       )}
-      <p className="dw-foot">{pack ? 'SPECIAL PACK · NOT COUNTED' : practice ? 'PRACTICE CLIMB · NOT COUNTED' : 'DAILY CLIMB · ONE COUNTED FINISH PER DAY'}</p>
+      {(!begun || done) && <p className="dw-foot">{pack ? 'SPECIAL PACK · NOT COUNTED' : practice ? 'PRACTICE CLIMB · NOT COUNTED' : 'DAILY CLIMB · ONE COUNTED FINISH PER DAY'}</p>}
     </div>
   );
 }

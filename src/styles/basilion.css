@@ -280,3 +280,23 @@ html .deep-waters.bas .dw-scoring-key i[data-tier] b { color: var(--rare); filte
 /* no offset copies of text: they read as double vision, so card text is drawn once */
 html .deep-waters.bas .dw-reveal strong, html .deep-waters.bas .dw-reveal small, html .deep-waters.bas .dw-results h2, html .deep-waters.bas .dw-results strong, html .deep-waters.bas .dw-card strong, html .deep-waters.bas .dw-card b, html .deep-waters.bas .dw-next, html .deep-waters.bas .dw-submit, html .deep-waters.bas .dw-begin { text-shadow: none; }
 html .deep-waters.bas .dw-depthbar b, html .deep-waters.bas .dw-round-count b { text-shadow: 0 1px 2px rgba(20, 8, 40, 0.9); }
+
+/* during a round: one thin line of the facts that matter, then the question */
+html .deep-waters.bas .dw-topline { position: sticky; top: 6px; z-index: 5; display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 8px 4px 14px; padding: 6px 10px 6px 16px; border-radius: 99px; background: rgba(20, 12, 40, 0.82); border: 1px solid rgba(241, 207, 107, 0.45); color: #fff4d4; font-weight: 700; }
+html .deep-waters.bas .dw-topline .dw-round-count { font-size: 0.8rem; letter-spacing: 0.12em; text-shadow: none; }
+html .deep-waters.bas .dw-topline .dw-round-count b { font-size: 1.1rem; }
+html .deep-waters.bas .dw-topline .dw-height { font-size: 0.9rem; color: var(--gold2); }
+html .deep-waters.bas .dw-topline .dw-height b { font-size: 1.1rem; color: #fff; }
+html .deep-waters.bas .dw-topline .dw-score { padding: 2px 12px; gap: 4px; }
+html .deep-waters.bas .dw-topline .dw-score b { font-size: 1.1rem; }
+html .deep-waters.bas .dw-topline .dw-clock { width: 38px; height: 38px; box-shadow: 0 0 0 2px rgba(20, 12, 40, 0.9); }
+html .deep-waters.bas .dw-topline .dw-clock::before { inset: 4px; }
+html .deep-waters.bas .dw-topline .dw-clock span { font-size: 1rem; }
+/* the question must be easy to read against the scene */
+html .deep-waters.bas .dw-card { background: rgba(255, 250, 238, 0.98); }
+html .deep-waters.bas .dw-card.reading { background: rgba(20, 12, 40, 0.88); border-color: rgba(241, 207, 107, 0.6); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+html .deep-waters.bas .dw-card.reading h2 { color: #fffaf0; font-size: clamp(1.6rem, 6vw, 2.2rem); text-shadow: none; }
+html .deep-waters.bas .dw-card.reading .dw-ready { text-shadow: none; }
+html .deep-waters.bas .dw-card.rising { background: transparent; }
+html .deep-waters.bas .dw-topline + .dw-progress { margin: -6px 18px 12px; gap: 5px; }
+html .deep-waters.bas .dw-mode { font-style: normal; margin-left: 8px; padding: 1px 8px; border-radius: 99px; background: rgba(241, 207, 107, 0.2); color: var(--gold2); font-size: 0.62rem; letter-spacing: 0.1em; }

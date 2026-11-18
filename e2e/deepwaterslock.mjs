@@ -13,7 +13,7 @@ p.setDefaultTimeout(15000);
 const errors = [];
 p.on('pageerror', (e) => errors.push(e.message));
 const open = async () => { await p.goto(`${BASE}/#/play/deepwaters`); await p.waitForSelector('.dw-card, .dw-begin, .dw-results'); if (await p.locator('.dw-begin').count()) { await p.click('.dw-begin'); await p.waitForSelector('.dw-card'); } await p.waitForTimeout(300); };
-const dive = async () => (await p.locator('.dw-status').innerText()).replace(/\s+/g, ' ');
+const dive = async () => (await p.locator('.dw-topline').innerText()).replace(/\s+/g, ' ');
 const secs = async () => parseInt((await p.locator('.dw-clock span').first().innerText()).trim(), 10);
 const score = async () => parseInt((await p.locator('.dw-score b').innerText()).trim(), 10);
 
@@ -47,14 +47,10 @@ await open();
 const after = await secs();
 if (!(after <= before - 3)) fail(`the clock should have kept running while away (${before} then ${after})`);
 
-// switching to practice and back does not reset the daily dive
-await p.locator('.game-help input[type=checkbox]').check();
-await p.waitForSelector('.dw-begin'); // a practice dive starts on its own title screen
-if (await p.locator('.dw-card').count()) fail('the practice title screen must not show a question');
-await p.locator('.game-help input[type=checkbox]').uncheck();
-await p.waitForFunction(() => /TODAY/i.test(document.querySelector('.dw-card-top')?.textContent ?? ''));
-if (!/0?2\b/.test(await dive())) fail('switching to practice and back must not reset the daily dive: ' + await dive());
-if ((await score()) !== afterOne) fail('score lost after the practice switch');
+// a round is just the question: no how-to-play banner or practice switch while playing
+if (await p.locator('.game-help').count()) fail('the help banner must not show during a round');
+if (!/0?2\b/.test(await dive())) fail('the dive must still be on round 2: ' + await dive());
+if ((await score()) !== afterOne) fail('score changed unexpectedly');
 
 // finish the dive
 for (let r = 2; r <= 7; r++) {
@@ -79,7 +75,7 @@ await p.locator('button:has-text("Practice climb")').click();
 await p.waitForSelector('.dw-begin');
 await p.click('.dw-begin');
 await p.waitForSelector('#dw-answer:not([disabled])');
-if (!/PRACTICE/i.test(await p.locator('.dw-card-top').innerText())) fail('should be a practice dive');
+if (!/PRACTICE/i.test(await p.locator('.dw-topline').innerText())) fail('should be a practice dive');
 if (errors.length) fail(errors.join('; '));
 await b.close();
 console.log('deep waters lock e2e ok');
