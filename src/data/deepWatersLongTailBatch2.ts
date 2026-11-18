@@ -307,4 +307,304 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "The two English descriptive titles at the end are listed as entries in the source catalogue; review their canonical title formatting before release."
     ]
   }
+  ,{
+    "id": "longtail-motu-proprio",
+    "theme": "church-history",
+    "prompt": "Name a papal motu proprio.",
+    "context": "A motu proprio is a papal document issued on the pope's own initiative. This open list samples titles catalogued as motu proprio; it is not a complete list.",
+    "basis": "GCatholic, Documents by Type → Motu Proprio (catalogue reports 232 entries): https://gcatholic.org/documents/data/type-PMP . Answer titles are transcribed from catalogue headings; descriptive English titles are retained where no Latin incipit is displayed.",
+    "answers": [
+      {
+        "answer": "Motu proprio Amending Canons 106 and 126 of the Codex Canonum Ecclesiarum Orientalium",
+        "tier": 6
+      },
+      {
+        "answer": "Confirma fratres tuos",
+        "tier": 6
+      },
+      {
+        "answer": "Immota manet",
+        "tier": 6
+      },
+      {
+        "answer": "Coniuncta cura",
+        "tier": 6
+      },
+      {
+        "answer": "Munus Tribunalis",
+        "tier": 6
+      },
+      {
+        "answer": "Ad theologiam promovendam",
+        "tier": 5
+      },
+      {
+        "answer": "Iam Pridem",
+        "tier": 5
+      },
+      {
+        "answer": "Vos estis lux mundi",
+        "tier": 2
+      },
+      {
+        "answer": "Vocare peccatores",
+        "tier": 6
+      },
+      {
+        "answer": "Il Diritto Nativo",
+        "tier": 6
+      },
+      {
+        "answer": "Ad charisma tuendum",
+        "tier": 3
+      },
+      {
+        "answer": "Recognitum Librum VI",
+        "tier": 5
+      },
+      {
+        "answer": "Assegnare alcune competenze",
+        "tier": 5
+      },
+      {
+        "answer": "Fidem servare",
+        "tier": 5
+      },
+      {
+        "answer": "Traditionis custodes",
+        "tier": 1
+      },
+      {
+        "answer": "Antiquum ministerium",
+        "tier": 3
+      },
+      {
+        "answer": "Spiritus Domini",
+        "tier": 3
+      },
+      {
+        "answer": "Ab initio",
+        "tier": 4
+      },
+      {
+        "answer": "Authenticum charismatis",
+        "tier": 5
+      },
+      {
+        "answer": "Communis Vita",
+        "tier": 4
+      },
+      {
+        "answer": "Aperuit illis",
+        "tier": 2
+      },
+      {
+        "answer": "Magnum Principium",
+        "tier": 3
+      },
+      {
+        "answer": "Maiorem hac dilectionem",
+        "tier": 5
+      },
+      {
+        "answer": "Sanctuarium in Ecclesia",
+        "tier": 5
+      },
+      {
+        "answer": "Humanam progressionem",
+        "tier": 4
+      },
+      {
+        "answer": "Sedula mater",
+        "tier": 5
+      },
+      {
+        "answer": "Come una madre amorevole",
+        "tier": 4
+      },
+      {
+        "answer": "De concordia inter Codices",
+        "tier": 5
+      },
+      {
+        "answer": "Mitis et misericors Iesus",
+        "tier": 4
+      },
+      {
+        "answer": "Mitis Iudex Dominus Iesus",
+        "tier": 2
+      },
+      {
+        "answer": "Fidelis dispensator et prudens",
+        "tier": 4
+      },
+      {
+        "answer": "Normas nonnullas",
+        "tier": 4
+      },
+      {
+        "answer": "Ministrorum institutio",
+        "tier": 5
+      },
+      {
+        "answer": "Fides per doctrinam",
+        "tier": 5
+      },
+      {
+        "answer": "Intima Ecclesiæ natura",
+        "tier": 5
+      },
+      {
+        "answer": "Latina lingua",
+        "tier": 5
+      },
+      {
+        "answer": "Porta fidei",
+        "tier": 2
+      },
+      {
+        "answer": "Quærit semper",
+        "tier": 5
+      },
+      {
+        "answer": "Ubicumque et semper",
+        "tier": 4
+      },
+      {
+        "answer": "Omnium in mentem",
+        "tier": 4
+      },
+      {
+        "answer": "Ecclesiæ unitatem",
+        "tier": 5
+      },
+      {
+        "answer": "Antiqua ordinatione",
+        "tier": 6
+      },
+      {
+        "answer": "Summorum Pontificum",
+        "tier": 2
+      },
+      {
+        "answer": "Totius orbis",
+        "tier": 6
+      },
+      {
+        "answer": "Misericordia Dei",
+        "tier": 3
+      },
+      {
+        "answer": "Sacramentorum sanctitatis tutela",
+        "tier": 4
+      },
+      {
+        "answer": "Spes ædificandi",
+        "tier": 5
+      },
+      {
+        "answer": "Inter munera academiarum",
+        "tier": 6
+      },
+      {
+        "answer": "Apostolos suos",
+        "tier": 4
+      },
+      {
+        "answer": "Ad tuendam fidem",
+        "tier": 4
+      },
+      {
+        "answer": "Stella Maris",
+        "tier": 4
+      },
+      {
+        "answer": "Vitæ mysterium",
+        "tier": 5
+      },
+      {
+        "answer": "Socialium scientiarum",
+        "tier": 6
+      },
+      {
+        "answer": "Inde a Pontificatus",
+        "tier": 6
+      },
+      {
+        "answer": "Europæ Orientalis",
+        "tier": 6
+      },
+      {
+        "answer": "Ecclesia Dei",
+        "tier": 3
+      },
+      {
+        "answer": "Iusti iudicis",
+        "tier": 6
+      },
+      {
+        "answer": "Decessores nostri",
+        "tier": 6
+      },
+      {
+        "answer": "Sollicita cura",
+        "tier": 6
+      },
+      {
+        "answer": "Quo civium iura",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Traditionis custodes",
+        "accepted": true
+      },
+      {
+        "guess": "Vos estis lux mundi",
+        "accepted": true
+      },
+      {
+        "guess": "Summorum Pontificum",
+        "accepted": true
+      },
+      {
+        "guess": "Mitis Iudex Dominus Iesus",
+        "accepted": true
+      },
+      {
+        "guess": "Aperuit illis",
+        "accepted": true
+      },
+      {
+        "guess": "Laudato si’",
+        "accepted": false,
+        "reason": "An encyclical, not a motu proprio."
+      },
+      {
+        "guess": "Evangelii gaudium",
+        "accepted": false,
+        "reason": "An apostolic exhortation, not a motu proprio."
+      },
+      {
+        "guess": "Pastor Bonus",
+        "accepted": false,
+        "reason": "An apostolic constitution, not a motu proprio."
+      },
+      {
+        "guess": "Dei Verbum",
+        "accepted": false,
+        "reason": "A Vatican II dogmatic constitution, not a motu proprio."
+      },
+      {
+        "guess": "Familiaris consortio",
+        "accepted": false,
+        "reason": "An apostolic exhortation, not a motu proprio."
+      }
+    ],
+    "reviewFlags": [
+      "Titles are transcribed from the GCatholic Motu Proprio catalogue; the catalogue includes some records with descriptive English headings rather than a Latin incipit.",
+      "The first descriptive heading is shortened to its identifying subject in the answer key; confirm preferred title normalization before release."
+    ]
+  }
 ];
