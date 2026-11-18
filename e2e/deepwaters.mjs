@@ -13,7 +13,7 @@ p.on('pageerror', (e) => errors.push(e.message));
 
 await p.goto(`${BASE}/#/play`);
 await p.waitForSelector('.pf-tile');
-if (!(await p.locator('.pf-tile:has-text("Basilion")').count())) fail('Basilion missing from Games home');
+if (!(await p.locator('a[href$="/play/deepwaters"]:has-text("Basilion")').count())) fail('Basilion missing from Games home');
 
 // a true answer for every question the game can ask, read from the game's own data
 import { execSync } from 'node:child_process';
