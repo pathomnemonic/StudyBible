@@ -56,11 +56,11 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       },
       {
         "answer": "Divinus Perfectionis Magister",
-        "tier": 3
+        "tier": 1
       },
       {
         "answer": "Sacri Canones",
-        "tier": 3
+        "tier": 2
       },
       {
         "answer": "Sapientia Christiana",
@@ -72,7 +72,7 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       },
       {
         "answer": "Romano Pontifici Eligendo",
-        "tier": 3
+        "tier": 1
       },
       {
         "answer": "Sacram Unctionem Infirmorum",
@@ -120,15 +120,15 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       },
       {
         "answer": "Magnum Matrimonii Sacramentum",
-        "tier": 4
+        "tier": 3
       },
       {
         "answer": "Laudis Canticum",
-        "tier": 4
+        "tier": 3
       },
       {
         "answer": "Pontificalis Romani Recognitio",
-        "tier": 4
+        "tier": 3
       },
       {
         "answer": "Regimini Ecclesiae Universae",
@@ -204,19 +204,19 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       },
       {
         "answer": "Suburbicariae Sabinae",
-        "tier": 5
+        "tier": 6
       },
       {
         "answer": "Etsi Nos In",
-        "tier": 5
+        "tier": 6
       },
       {
         "answer": "Commisum Nobis",
-        "tier": 5
+        "tier": 6
       },
       {
         "answer": "Reversurus",
-        "tier": 5
+        "tier": 6
       },
       {
         "answer": "Nelle Istituzioni",
