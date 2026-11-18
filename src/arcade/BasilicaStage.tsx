@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import BasilicaScene, { SUMMIT_M } from './BasilicaScene';
+import BasilicaScene from './BasilicaScene';
+import { HEAVEN_M } from './basilicaHeights';
 import type { BasilicaScene3D } from './basilica3d';
 
 /**
@@ -23,7 +24,7 @@ export default function BasilicaStage({ height, begun }: { height: number; begun
   const [mode, setMode] = useState<'pending' | '3d' | 'flat'>('pending');
   const ref = useRef<HTMLCanvasElement>(null);
   const scene = useRef<BasilicaScene3D | null>(null);
-  const p = Math.max(0, Math.min(1, height / SUMMIT_M));
+  const p = Math.max(0, Math.min(1, height / HEAVEN_M));
   useEffect(() => { setMode(canWebGL() ? '3d' : 'flat'); }, []);
   useEffect(() => {
     if (mode !== '3d') return;

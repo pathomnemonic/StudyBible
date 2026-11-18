@@ -3,6 +3,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
+import { SPLIT } from './basilicaHeights';
 
 /**
  * The 3D basilica behind Basilion (three.js, already used by the galaxy). Everything is built here from boxes, cylinders, lathes and extruded arches, with every
@@ -65,6 +66,15 @@ const doveTex = () => tex((g, w, h) => {
   g.beginPath(); g.moveTo(-8, 4); g.quadraticCurveTo(-30, -26, -52, -8); g.quadraticCurveTo(-30, -6, -18, 8); g.quadraticCurveTo(-4, 16, 14, 6); g.quadraticCurveTo(30, -2, 40, 2); g.quadraticCurveTo(26, 14, 8, 16); g.closePath(); g.fill();
   g.beginPath(); g.moveTo(-8, 4); g.quadraticCurveTo(0, -34, 26, -30); g.quadraticCurveTo(10, -12, 8, 6); g.closePath(); g.fill();
 }, 128, 96);
+/** an angel with spread wings and a halo, a soft glow behind it */
+const angelTex = () => tex((g, w, h) => {
+  const cx = w / 2; const gl = g.createRadialGradient(cx, h * 0.5, 0, cx, h * 0.5, w * 0.5); gl.addColorStop(0, 'rgba(255,240,190,0.55)'); gl.addColorStop(1, 'rgba(255,240,190,0)'); g.fillStyle = gl; g.fillRect(0, 0, w, h);
+  g.fillStyle = '#fffaf0'; g.shadowColor = 'rgba(255,225,150,0.9)'; g.shadowBlur = 10;
+  for (const s of [-1, 1]) { g.beginPath(); g.moveTo(cx + s * 6, h * 0.46); g.bezierCurveTo(cx + s * 30, h * 0.1, cx + s * 58, h * 0.12, cx + s * 60, h * 0.3); g.bezierCurveTo(cx + s * 52, h * 0.36, cx + s * 48, h * 0.4, cx + s * 40, h * 0.46); g.bezierCurveTo(cx + s * 40, h * 0.54, cx + s * 30, h * 0.6, cx + s * 14, h * 0.62); g.closePath(); g.fill(); }
+  g.beginPath(); g.moveTo(cx - 7, h * 0.42); g.lineTo(cx + 7, h * 0.42); g.lineTo(cx + 13, h * 0.9); g.lineTo(cx - 13, h * 0.9); g.closePath(); g.fill();
+  g.beginPath(); g.arc(cx, h * 0.33, 7, 0, Math.PI * 2); g.fill();
+  g.shadowBlur = 0; g.strokeStyle = '#e9b743'; g.lineWidth = 2.4; g.beginPath(); g.ellipse(cx, h * 0.23, 8, 2.6, 0, 0, Math.PI * 2); g.stroke();
+}, 128, 128);
 /** the paving of the piazza: rings and rays of pale and warm stone around the obelisk */
 const pavingTex = () => tex((g, w, h) => {
   const r = rnd(3); g.fillStyle = '#e4d6b4'; g.fillRect(0, 0, w, h);
@@ -121,8 +131,11 @@ export class BasilicaScene3D {
   private rays: THREE.Sprite;
   private glory: THREE.Sprite;
   private stars: THREE.Points;
+  private heavenStars!: THREE.Points;
   private dust: THREE.Points;
   private clouds: (THREE.Sprite & { vx: number })[] = [];
+  private angels: { s: THREE.Sprite; r: number; y: number; a: number; v: number; z: number }[] = [];
+  private hClouds: THREE.Sprite[] = [];
   private doves: { s: THREE.Sprite; r: number; h: number; a: number; v: number }[] = [];
   private winMats: THREE.MeshBasicMaterial[] = [];
   private winInst: Inst[] = [];
@@ -148,9 +161,9 @@ export class BasilicaScene3D {
     /* sky: a big inside-out sphere whose gradient follows the climb */
     this.skyMat = new THREE.ShaderMaterial({
       side: THREE.BackSide, depthWrite: false, fog: false,
-      uniforms: { uP: { value: 0 } },
+      uniforms: { uP: { value: 0 }, uH: { value: 0 } },
       vertexShader: 'varying vec3 vP; void main(){ vP = normalize(position); gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0); }',
-      fragmentShader: `varying vec3 vP; uniform float uP;
+      fragmentShader: `varying vec3 vP; uniform float uP; uniform float uH;
         vec3 ramp(float h, float p){
           vec3 night = mix(vec3(0.07,0.05,0.2), vec3(0.17,0.12,0.38), smoothstep(-0.1,0.6,h));
           vec3 dusk  = mix(vec3(0.95,0.5,0.35), vec3(0.35,0.2,0.55), smoothstep(0.0,0.7,h));
@@ -160,7 +173,12 @@ export class BasilicaScene3D {
           c = mix(c, gold, smoothstep(0.25,0.62,p));
           return mix(c, holy, smoothstep(0.62,1.0,p));
         }
-        void main(){ float h = clamp(vP.y, 0.0, 1.0); gl_FragColor = vec4(ramp(h, uP), 1.0); }`,
+        void main(){
+          float h = clamp(vP.y, 0.0, 1.0); vec3 c = ramp(h, uP);
+          vec3 deep = mix(vec3(0.5,0.6,0.9), vec3(0.06,0.09,0.3), smoothstep(0.1,0.9,h));
+          c = mix(c, deep, smoothstep(0.0,0.45,uH));
+          c = mix(c, mix(vec3(1.0,0.9,0.62), vec3(1.0,0.97,0.86), h), smoothstep(0.6,1.0,uH) * (0.55 + 0.45 * h));
+          gl_FragColor = vec4(c, 1.0); }`,
     });
     const sky = new THREE.Mesh(new THREE.SphereGeometry(2800, 32, 24), this.skyMat); sky.renderOrder = -10; this.scene.add(sky);
     this.fog = new THREE.FogExp2(0xc78aa0, 0.0021); this.scene.fog = this.fog;
@@ -363,6 +381,12 @@ export class BasilicaScene3D {
     }
     const dT = T(doveTex());
     for (let i = 0; i < 14; i++) { const d = new THREE.Sprite(new THREE.SpriteMaterial({ map: dT, transparent: true, depthWrite: false, fog: false })); d.scale.set(3.4, 2.5, 1); this.scene.add(d); this.doves.push({ s: d, r: 22 + r() * 40, h: 22 + r() * (this.top - 20), a: r() * 6.28, v: (0.12 + r() * 0.2) * (i % 2 ? 1 : -1) }); }
+    /* the heavens past the cross: banks of bright cloud, rings of angels circling, and more stars; they sit high above the building and come into view as the climb goes on */
+    const aT = T(angelTex());
+    for (let i = 0; i < 44; i++) { const a = new THREE.Sprite(new THREE.SpriteMaterial({ map: aT, transparent: true, depthWrite: false, fog: false, opacity: 0.95 })); const sz = 16 + r() * 14; a.scale.set(sz, sz, 1); const ar = 55 + r() * 110, ay = this.top + 110 + (i / 44) * 760 + r() * 40, aa = r() * 6.28; a.position.set(Math.cos(aa) * ar, ay, Math.sin(aa) * ar * 0.55 - 10); this.scene.add(a); this.angels.push({ s: a, r: ar, y: ay, a: aa, v: (0.05 + r() * 0.06) * (i % 2 ? 1 : -1), z: -10 }); }
+    for (let i = 0; i < 70; i++) { const c = new THREE.Sprite(new THREE.SpriteMaterial({ map: cT, transparent: true, opacity: 0.16 + r() * 0.26, depthWrite: false, color: i % 3 ? 0xfff2dc : 0xd8e2ff })) as THREE.Sprite & { vx: number }; const s2 = 60 + r() * 120; c.scale.set(s2 * 2, s2, 1); c.position.set((r() - 0.5) * 560, this.top + 30 + r() * 900, -300 + r() * 220); c.vx = 0.6 + r() * 1.2; this.clouds.push(c); this.hClouds.push(c); this.scene.add(c); }
+    const hs = new Float32Array(500 * 3); for (let i = 0; i < 500; i++) { const th = r() * Math.PI * 2, ph = Math.acos(0.05 + r() * 0.95); hs.set([Math.sin(ph) * Math.cos(th) * 2500, Math.cos(ph) * 2500, Math.sin(ph) * Math.sin(th) * 2500], i * 3); }
+    const hg = new THREE.BufferGeometry(); hg.setAttribute('position', new THREE.BufferAttribute(hs, 3)); this.heavenStars = new THREE.Points(hg, new THREE.PointsMaterial({ color: 0xfff6dc, map: dotT, size: 8, sizeAttenuation: false, transparent: true, opacity: 0, depthWrite: false, fog: false })); this.scene.add(this.heavenStars);
     const dp = new Float32Array(380 * 3); for (let i = 0; i < 380; i++) dp.set([(r() - 0.5) * 140, r() * this.top, 8 + r() * 60], i * 3);
     const dg = new THREE.BufferGeometry(); dg.setAttribute('position', new THREE.BufferAttribute(dp, 3)); this.dust = new THREE.Points(dg, new THREE.PointsMaterial({ color: 0xffe9a8, map: dotT, size: 1.3, transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false })); this.scene.add(this.dust);
     // slanting shafts of light across the front
@@ -398,18 +422,22 @@ export class BasilicaScene3D {
     this.camera.aspect = w / h; this.camera.fov = h > w ? 54 : 40; this.camera.updateProjectionMatrix();
   }
 
-  private apply(p: number) {
-    this.skyMat.uniforms.uP.value = p;
-    this.fog.color.copy(horizon(p)); this.fog.density = 0.0015 - p * 0.0007;
+  private apply(q: number) {
+    const p = Math.min(1, q / SPLIT), h = Math.max(0, (q - SPLIT) / (1 - SPLIT)), hh = h * h * (3 - 2 * h); // p: up the building; h: on through the heavens
+    this.skyMat.uniforms.uP.value = p; this.skyMat.uniforms.uH.value = h;
+    this.fog.color.copy(horizon(p).lerp(new THREE.Color(0.2, 0.3, 0.65), Math.min(1, h * 2.2)).lerp(new THREE.Color(1, 0.93, 0.74), sm(0.5, 1, h))); this.fog.density = 0.0015 - p * 0.0007 - hh * 0.0004;
+    (this.heavenStars.material as THREE.PointsMaterial).opacity = sm(0.05, 0.4, h) * (1 - sm(0.8, 1, h) * 0.6);
     this.hemi.intensity = 0.55 + p * 0.15; this.dir.intensity = 2.0 + p * 0.25; this.dir.color.setHSL(0.09, 0.8, 0.7 + p * 0.15);
-    (this.stars.material as THREE.PointsMaterial).opacity = Math.max(0, 0.95 - p * 2.6);
+    (this.stars.material as THREE.PointsMaterial).opacity = Math.max(0, 0.95 - p * 2.6) + sm(0.05, 0.4, h) * 0.5;
     (this.rays.material as THREE.SpriteMaterial).opacity = Math.max(0, Math.min(0.42, p * 0.6 - 0.1));
-    this.sun.position.y = 10 + p * (this.top + 60); this.rays.position.y = this.sun.position.y; (this.sun.material as THREE.SpriteMaterial).opacity = 0.75 - p * 0.3;
+    this.sun.position.y = 10 + p * (this.top + 60) + h * (this.top + 1100); this.rays.position.y = this.sun.position.y; (this.sun.material as THREE.SpriteMaterial).opacity = 0.75 - p * 0.3;
     (this.halo.material as THREE.SpriteMaterial).opacity = 0.35 + p * 0.65; (this.glory.material as THREE.SpriteMaterial).opacity = 0.18 + p * 0.5;
-    this.bloom.strength = 0.34 + p * 0.16; this.renderer.toneMappingExposure = 1.0 - p * 0.2;
+    this.bloom.strength = 0.34 + p * 0.16 + h * 0.1; this.renderer.toneMappingExposure = 1.0 - p * 0.2 - h * 0.2;
     const win = 0.55 + (1 - p) * 0.5; this.winMats.forEach((m) => m.color.setScalar(win + 0.55));
     for (const s of this.shafts) (s.material as THREE.MeshBasicMaterial).opacity = Math.max(0, 0.05 + p * 0.1);
-    return { pos: this.path.pos.getPoint(p), look: this.path.look.getPoint(p) };
+    const pos = this.path.pos.getPoint(p), look = this.path.look.getPoint(p);
+    pos.y += hh * 820; pos.z += hh * 26; look.y += hh * 820 + hh * 190; look.z -= hh * 60; // the camera goes on rising past the cross and tilts up to the light
+    return { pos, look };
   }
 
   private frame(dt: number, instant = false) {
@@ -422,6 +450,7 @@ export class BasilicaScene3D {
     if (!this.still) {
       for (const c of this.clouds) { c.position.x += c.vx * dt; if (c.position.x > 420) c.position.x = -420; }
       for (const d of this.doves) { d.a += d.v * dt; const wing = 1 + Math.sin(t * 9 + d.r) * 0.28; d.s.position.set(Math.cos(d.a) * d.r, d.h + Math.sin(t * 0.7 + d.r) * 2 + this.cur * 6, Math.sin(d.a) * d.r * 0.6 + 14); d.s.scale.set(3.4, 2.5 * wing, 1); (d.s.material as THREE.SpriteMaterial).opacity = 0.9; }
+      for (const g of this.angels) { g.a += g.v * dt; g.s.position.set(Math.cos(g.a) * g.r, g.y + Math.sin(t * 0.6 + g.r) * 3, Math.sin(g.a) * g.r * 0.55 + g.z); }
       const pos2 = this.dust.geometry.getAttribute('position') as THREE.BufferAttribute; for (let i = 0; i < pos2.count; i++) { let y = pos2.getY(i) + dt * (1.1 + (i % 5) * 0.3); if (y > this.top) y = 0; pos2.setY(i, y); pos2.setX(i, pos2.getX(i) + Math.sin(t + i) * dt * 0.4); } pos2.needsUpdate = true;
       this.rays.material.rotation += dt * 0.012; this.glory.material.rotation -= dt * 0.02; this.cross.rotation.y = Math.sin(t * 0.4) * 0.12;
       const pulse = 1 + Math.sin(t * 1.6) * 0.06; this.halo.scale.set(46 * pulse, 46 * pulse, 1);

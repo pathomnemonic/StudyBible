@@ -3,16 +3,18 @@ import { createPortal } from 'react-dom';
 
 /**
  * The picture behind Basilion: a basilica seen from the piazza, tall enough that the camera climbs it as the player scores. Height is in metres: every point
- * is ten metres, so a full set of seven questions (700 points) reaches the cross at 7,000 m. Everything here is drawn as vector art, is bundled with the app
+ * is ten metres, so the cross is reached at 3,000 m (300 points) and the climb goes on past it into the heavens, to 7,000 m for a perfect set of seven. Everything here is drawn as vector art, is bundled with the app
  * and works offline. Nothing in it is needed to play; it is a picture. Under reduced motion the camera still moves but nothing else animates.
  */
-export const SUMMIT_M = 7000;
+import { HEAVEN_M, SUMMIT_M } from './basilicaHeights';
+export { HEAVEN_M, SUMMIT_M };
 export interface Level { name: string; from: number }
 /** the storeys of the building, bottom to top */
 export const LEVELS: Level[] = [
-  { name: 'The Piazza', from: 0 }, { name: 'The Portico', from: 300 }, { name: 'The First Loggia', from: 700 }, { name: 'The Second Loggia', from: 1200 }, { name: 'The Upper Galleries', from: 1800 },
-  { name: 'The Windows of Light', from: 2500 }, { name: 'The Clerestory', from: 3200 }, { name: 'The Attic of Saints', from: 4000 }, { name: 'The Drum', from: 4900 }, { name: 'The Dome', from: 5700 },
-  { name: 'The Lantern', from: 6400 }, { name: 'The Cross', from: 7000 },
+  { name: 'The Piazza', from: 0 }, { name: 'The Portico', from: 150 }, { name: 'The First Loggia', from: 300 }, { name: 'The Second Loggia', from: 500 }, { name: 'The Upper Galleries', from: 800 },
+  { name: 'The Windows of Light', from: 1100 }, { name: 'The Clerestory', from: 1400 }, { name: 'The Attic of Saints', from: 1700 }, { name: 'The Spires', from: 2100 }, { name: 'The Lantern', from: 2450 },
+  { name: 'The Great Spire', from: 2750 }, { name: 'The Cross', from: 3000 },
+  { name: 'The Clouds', from: 3400 }, { name: 'The Choirs of Angels', from: 4300 }, { name: 'The Company of Saints', from: 5200 }, { name: 'The Starry Heavens', from: 6000 }, { name: 'The Gates of Paradise', from: 6600 }, { name: 'The Light of Heaven', from: 7000 },
 ];
 export const levelAt = (m: number) => [...LEVELS].reverse().find((z) => m >= z.from) ?? LEVELS[0];
 
@@ -63,7 +65,8 @@ function Saint({ x, y, s = 1, id, tall = false }: { x: number; y: number; s?: nu
 export default function BasilicaScene({ height, begun }: { height: number; begun: boolean }) {
   const id = useId().replace(/:/g, '');
   const p = Math.max(0, Math.min(1, height / SUMMIT_M));
-  const style = { '--p': p.toFixed(4), '--ar': ((H + EXTRA) / W).toFixed(3) } as CSSProperties;
+  const hv = Math.max(0, Math.min(1, (height - SUMMIT_M) / (HEAVEN_M - SUMMIT_M)));
+  const style = { '--p': p.toFixed(4), '--hv': hv.toFixed(4), '--ar': ((H + EXTRA) / W).toFixed(3) } as CSSProperties;
   const g = (s: string) => `url(#${id}-${s})`;
   const lowerPil = range(9).map((i) => 52 + i * 37);
   const midWin = range(7).map((i) => 74 + i * 42);
@@ -207,6 +210,7 @@ export default function BasilicaScene({ height, begun }: { height: number; begun
         </svg>
       </div>
       <div className="bas-dust">{range(16).map((i) => <i key={i} style={{ left: `${(i * 61 + 9) % 100}%`, animationDelay: `${(i % 8) * 0.9}s`, animationDuration: `${9 + (i % 5) * 2.2}s` }} />)}</div>
+      <div className="bas-heaven" />
       <div className="bas-vignette" />
     </div>
   );

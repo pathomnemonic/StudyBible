@@ -7,7 +7,7 @@ import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAM
 import { clearDeepSession, deepDiveStreak, loadDeepLogbook, loadDeepSession, recordDeepDive, saveDeepSession } from '../../lib/deepWatersSession';
 import { clearDeepMisses, deepMissesText, loadDeepMisses, recordDeepMiss } from '../../lib/deepWatersMisses';
 import { Art } from '../../arcade/art';
-import { MiniBasilica, SUMMIT_M, levelAt, miniPct } from '../../arcade/BasilicaScene';
+import { HEAVEN_M, MiniBasilica, SUMMIT_M, levelAt, miniPct } from '../../arcade/BasilicaScene';
 import BasilicaStage from '../../arcade/BasilicaStage';
 import '@fontsource/cormorant-garamond/500.css';
 import '@fontsource/cormorant-garamond/600.css';
@@ -177,7 +177,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
         <header className="dw-head dw-title">
           <p className="dw-kicker">{practice ? 'Practice ascent' : 'The daily ascent'}</p>
           <h1>Basilion <em>climb the basilica</em></h1>
-          <p className="dw-title-sub">Seven questions. Forty-five seconds each. The rarer the answer, the higher you climb.</p>
+          <p className="dw-title-sub">Seven questions. Forty-five seconds each. The rarer the answer, the higher you climb. Reach the Cross and the climb goes on, into the heavens.</p>
           <div className="dw-title-stats">
             <span><b>{streak}</b><small>DAY STREAK</small></span>
             <span><b>{(best * 10).toLocaleString()}</b><small>BEST HEIGHT (M)</small></span>
@@ -256,7 +256,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
           <Art n="trophy" size={104} className="dw-trophy" />
           <h2>{score}<small> pts</small></h2>
           <p className="dw-rank">{rankOf(score)}</p>
-          <p className="dw-depth">{(score * 10).toLocaleString()} metres up · {zone.name}{score * 10 >= SUMMIT_M ? ' · you reached the Cross' : ''}</p>
+          <p className="dw-depth">{(score * 10).toLocaleString()} metres up · {zone.name}{score * 10 >= HEAVEN_M ? ' · you reached the light of Heaven' : score * 10 > SUMMIT_M ? ' · you climbed past the Cross' : score * 10 >= SUMMIT_M ? ' · you reached the Cross' : ''}</p>
           <p>{score >= 450 ? 'You know your way around the whole building.' : score >= 200 ? 'A strong climb. There are more floors to reach.' : 'The upper floors reward curiosity. Try another climb.'}</p>
           {!practice && <p className="dw-streak">Current streak: <strong>{streak}</strong> day{streak === 1 ? '' : 's'} · {logbook.length} logged climbs</p>}
           {!practice && logbook.length > 1 && (
