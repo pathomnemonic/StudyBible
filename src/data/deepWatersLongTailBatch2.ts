@@ -3855,4 +3855,300 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-farmer-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who worked as a farmer or gardener.",
+    "context": "The Church’s calendar includes farm workers, gardeners and people whose holiness grew out of ordinary rural life. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Farmers,” 63 profiles: https://catholicsaints.info/saints-who-were-farmers/ . All entries are drawn from the source index.",
+    "answers": [
+      {
+        "answer": "Isidore the Farmer",
+        "tier": 1
+      },
+      {
+        "answer": "André Bessette",
+        "tier": 1
+      },
+      {
+        "answer": "Juan Diego",
+        "tier": 1
+      },
+      {
+        "answer": "Felix of Nola",
+        "tier": 1
+      },
+      {
+        "answer": "Nicholas of Flüe",
+        "tier": 1
+      },
+      {
+        "answer": "Edmund Rice",
+        "tier": 2
+      },
+      {
+        "answer": "Franz Jägerstätter",
+        "tier": 2
+      },
+      {
+        "answer": "Sebastian of Aparicio",
+        "tier": 2
+      },
+      {
+        "answer": "Pope Fabian",
+        "tier": 2
+      },
+      {
+        "answer": "Guy of Anderlecht",
+        "tier": 2
+      },
+      {
+        "answer": "Ignatius of Laconi",
+        "tier": 2
+      },
+      {
+        "answer": "John Saziari",
+        "tier": 2
+      },
+      {
+        "answer": "Albert of Bergamo",
+        "tier": 3
+      },
+      {
+        "answer": "Everard of Villers",
+        "tier": 3
+      },
+      {
+        "answer": "Giles of Laurenzana",
+        "tier": 3
+      },
+      {
+        "answer": "Gratia of Cattaro",
+        "tier": 3
+      },
+      {
+        "answer": "John Finch",
+        "tier": 3
+      },
+      {
+        "answer": "Marianna Biernacka",
+        "tier": 3
+      },
+      {
+        "answer": "Ralph Milner",
+        "tier": 3
+      },
+      {
+        "answer": "Auguste Chapdelaine",
+        "tier": 3
+      },
+      {
+        "answer": "Bertrand of Le Mans",
+        "tier": 3
+      },
+      {
+        "answer": "Conon of Pamphylia",
+        "tier": 3
+      },
+      {
+        "answer": "Gaudericus of Mirepoix",
+        "tier": 3
+      },
+      {
+        "answer": "Magnus of Anagni",
+        "tier": 3
+      },
+      {
+        "answer": "Fran Mirakaj",
+        "tier": 4
+      },
+      {
+        "answer": "Isidore of Saint Joseph",
+        "tier": 4
+      },
+      {
+        "answer": "Sebastià Llorens Telarroja",
+        "tier": 4
+      },
+      {
+        "answer": "Stanislaw Kostka Starowieyski",
+        "tier": 4
+      },
+      {
+        "answer": "Adolofu Mukasa Ludigo",
+        "tier": 4
+      },
+      {
+        "answer": "Anatoli Kiriggwajjo",
+        "tier": 4
+      },
+      {
+        "answer": "Anna Wang",
+        "tier": 4
+      },
+      {
+        "answer": "Anrê Tuong",
+        "tier": 4
+      },
+      {
+        "answer": "Antôn Nguyen Ðích",
+        "tier": 4
+      },
+      {
+        "answer": "Ðaminh Nguyen Ðuc Mao",
+        "tier": 4
+      },
+      {
+        "answer": "Ðaminh Nhi",
+        "tier": 4
+      },
+      {
+        "answer": "Daminh Ninh",
+        "tier": 4
+      },
+      {
+        "answer": "Giovanni Battista Clemente Saggio",
+        "tier": 4
+      },
+      {
+        "answer": "Giuse Tuân",
+        "tier": 4
+      },
+      {
+        "answer": "Giuse Túc",
+        "tier": 4
+      },
+      {
+        "answer": "John Yi Yun-on",
+        "tier": 5
+      },
+      {
+        "answer": "Joseph Luu",
+        "tier": 5
+      },
+      {
+        "answer": "Lambert of Saragossa",
+        "tier": 5
+      },
+      {
+        "answer": "Leobinus of Chartres",
+        "tier": 5
+      },
+      {
+        "answer": "Leolucas of Corleone",
+        "tier": 5
+      },
+      {
+        "answer": "Luke the Younger",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Mazzarello",
+        "tier": 5
+      },
+      {
+        "answer": "Michael Garicoïts",
+        "tier": 5
+      },
+      {
+        "answer": "Myron the Wonder Worker",
+        "tier": 5
+      },
+      {
+        "answer": "Paul the Simple",
+        "tier": 5
+      },
+      {
+        "answer": "Paulinus of Aquileia",
+        "tier": 5
+      },
+      {
+        "answer": "Paulus Ge Tingzhu",
+        "tier": 5
+      },
+      {
+        "answer": "Peter Cho Hwa-so",
+        "tier": 5
+      },
+      {
+        "answer": "Peter the Farmer",
+        "tier": 5
+      },
+      {
+        "answer": "Phocas the Gardener",
+        "tier": 5
+      },
+      {
+        "answer": "Raymond Nonnatus",
+        "tier": 6
+      },
+      {
+        "answer": "Rocco González",
+        "tier": 6
+      },
+      {
+        "answer": "Stêphanô Nguyen Van Vinh",
+        "tier": 6
+      },
+      {
+        "answer": "Vinh Son Tuong",
+        "tier": 6
+      },
+      {
+        "answer": "Vinh-Son Duong",
+        "tier": 6
+      },
+      {
+        "answer": "Walstan of Bawburgh",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Isidore the Farmer",
+        "accepted": true
+      },
+      {
+        "guess": "André Bessette",
+        "accepted": true
+      },
+      {
+        "guess": "Juan Diego",
+        "accepted": true
+      },
+      {
+        "guess": "Nicholas of Flüe",
+        "accepted": true
+      },
+      {
+        "guess": "Felix of Nola",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Dominican friar and theologian, not a farmer in the source directory."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not a farmer."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A parish priest, not a farmer."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Carmelite nun, not a farmer."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A missionary, not a farmer."
+      }
+    ]
+  }
 ];
