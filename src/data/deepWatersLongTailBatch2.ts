@@ -2108,4 +2108,602 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "A recurring Week of Prayer resource is distinguished by publication year."
     ]
   }
+  ,{
+    "id": "longtail-archdioceses",
+    "theme": "places",
+    "prompt": "Name a Catholic archdiocese in the world.",
+    "context": "The Catholic Church includes archdioceses of different rites and jurisdictions. This open list samples the archiepiscopal sees catalogued by GCatholic; it is not exhaustive.",
+    "basis": "GCatholic, Catholic Dioceses in the World → Archiepiscopal Sees (Archdioceses), 77 entries: https://gcatholic.org/dioceses/data/type-arch . Rite labels are added where the catalogue lists multiple archdioceses with the same city-name.",
+    "answers": [
+      {
+        "answer": "Acerenza",
+        "tier": 6
+      },
+      {
+        "answer": "Ahvaz",
+        "tier": 6
+      },
+      {
+        "answer": "Aix-en-Provence",
+        "tier": 4
+      },
+      {
+        "answer": "Akka (Greek-Melkite)",
+        "tier": 6
+      },
+      {
+        "answer": "Alba Iulia",
+        "tier": 5
+      },
+      {
+        "answer": "Albi",
+        "tier": 5
+      },
+      {
+        "answer": "Aleppo (Maronite)",
+        "tier": 4
+      },
+      {
+        "answer": "Aleppo (Syriac)",
+        "tier": 5
+      },
+      {
+        "answer": "Aleppo (Armenian)",
+        "tier": 6
+      },
+      {
+        "answer": "Amalfi–Cava de’ Tirreni",
+        "tier": 5
+      },
+      {
+        "answer": "Antélias",
+        "tier": 6
+      },
+      {
+        "answer": "Athens",
+        "tier": 3
+      },
+      {
+        "answer": "Auch",
+        "tier": 6
+      },
+      {
+        "answer": "Avignon",
+        "tier": 4
+      },
+      {
+        "answer": "Baalbek (Greek-Melkite)",
+        "tier": 6
+      },
+      {
+        "answer": "Baghdad (Roman)",
+        "tier": 3
+      },
+      {
+        "answer": "Baghdad (Syriac)",
+        "tier": 5
+      },
+      {
+        "answer": "Baghdad (Armenian)",
+        "tier": 6
+      },
+      {
+        "answer": "Bāniyās (Greek-Melkite)",
+        "tier": 6
+      },
+      {
+        "answer": "Bar",
+        "tier": 6
+      },
+      {
+        "answer": "Bassorah",
+        "tier": 6
+      },
+      {
+        "answer": "Beirut (Maronite)",
+        "tier": 4
+      },
+      {
+        "answer": "Bourges",
+        "tier": 5
+      },
+      {
+        "answer": "Brindisi–Ostuni",
+        "tier": 5
+      },
+      {
+        "answer": "Cambrai",
+        "tier": 4
+      },
+      {
+        "answer": "Camerino–San Severino Marche–Matelica",
+        "tier": 6
+      },
+      {
+        "answer": "Canberra and Goulburn",
+        "tier": 4
+      },
+      {
+        "answer": "Capua",
+        "tier": 5
+      },
+      {
+        "answer": "Chambéry–Saint-Jean-de-Maurienne–Tarentaise",
+        "tier": 6
+      },
+      {
+        "answer": "Crotone–Santa Severina",
+        "tier": 6
+      },
+      {
+        "answer": "Cyprus (Maronite)",
+        "tier": 6
+      },
+      {
+        "answer": "Damascus (Maronite)",
+        "tier": 5
+      },
+      {
+        "answer": "Diarbekir (Chaldean)",
+        "tier": 6
+      },
+      {
+        "answer": "Erbil (Chaldean)",
+        "tier": 4
+      },
+      {
+        "answer": "Ferrara–Comacchio",
+        "tier": 6
+      },
+      {
+        "answer": "Gaeta",
+        "tier": 5
+      },
+      {
+        "answer": "Haifa and Holy Land (Maronite)",
+        "tier": 5
+      },
+      {
+        "answer": "Hassaké–Nisibi (Syriac)",
+        "tier": 6
+      },
+      {
+        "answer": "Hobart",
+        "tier": 4
+      },
+      {
+        "answer": "Istanbul (Armenian)",
+        "tier": 4
+      },
+      {
+        "answer": "Lanciano–Ortona",
+        "tier": 6
+      },
+      {
+        "answer": "Latakia (Greek-Melkite)",
+        "tier": 5
+      },
+      {
+        "answer": "Lucca",
+        "tier": 4
+      },
+      {
+        "answer": "Luxembourg",
+        "tier": 2
+      },
+      {
+        "answer": "Lviv (Armenian)",
+        "tier": 5
+      },
+      {
+        "answer": "Manfredonia–Vieste–San Giovanni Rotondo",
+        "tier": 5
+      },
+      {
+        "answer": "Matera–Irsina",
+        "tier": 4
+      },
+      {
+        "answer": "Monaco",
+        "tier": 3
+      },
+      {
+        "answer": "Monreale",
+        "tier": 5
+      },
+      {
+        "answer": "Mossul (Syriac)",
+        "tier": 6
+      },
+      {
+        "answer": "Mossul–Aqrā (Chaldean)",
+        "tier": 6
+      },
+      {
+        "answer": "Otranto",
+        "tier": 4
+      },
+      {
+        "answer": "Petra and Philadelphia (Greek-Melkite)",
+        "tier": 5
+      },
+      {
+        "answer": "Rabat",
+        "tier": 3
+      },
+      {
+        "answer": "Rhodes",
+        "tier": 4
+      },
+      {
+        "answer": "Rossano–Cariati",
+        "tier": 6
+      },
+      {
+        "answer": "Saïdā (Greek-Melkite)",
+        "tier": 6
+      },
+      {
+        "answer": "Sant’Angelo dei Lombardi–Conza–Nusco–Bisaccia",
+        "tier": 6
+      },
+      {
+        "answer": "Santiago del Estero",
+        "tier": 3
+      },
+      {
+        "answer": "Sens",
+        "tier": 5
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Acerenza",
+        "accepted": true
+      },
+      {
+        "guess": "Ahvaz",
+        "accepted": true
+      },
+      {
+        "guess": "Athens",
+        "accepted": true
+      },
+      {
+        "guess": "Beirut",
+        "accepted": true
+      },
+      {
+        "guess": "Rabat",
+        "accepted": true
+      },
+      {
+        "guess": "Rome",
+        "accepted": false,
+        "reason": "The Roman see is a metropolitan archdiocese, not one of the catalogue's 77 archiepiscopal sees."
+      },
+      {
+        "guess": "New York",
+        "accepted": false,
+        "reason": "A metropolitan archdiocese."
+      },
+      {
+        "guess": "Los Angeles",
+        "accepted": false,
+        "reason": "A metropolitan archdiocese."
+      },
+      {
+        "guess": "Canterbury",
+        "accepted": false,
+        "reason": "Not a Catholic archdiocese."
+      },
+      {
+        "guess": "Constantinople",
+        "accepted": false,
+        "reason": "The current Latin Catholic archdiocese is not listed under this type; use the specific Catholic jurisdiction."
+      }
+    ],
+    "reviewFlags": [
+      "Same-name sees are distinguished by rite in parentheses."
+    ]
+  },
+  {
+    "id": "longtail-apostolic-vicariates",
+    "theme": "places",
+    "prompt": "Name a Catholic apostolic vicariate.",
+    "context": "An apostolic vicariate is a particular Church governed by a vicar apostolic, usually in mission territories. This open list samples the current Roman-Rite apostolic vicariates in the catalogue.",
+    "basis": "GCatholic, Catholic Dioceses in the World → Apostolic Vicariates (79 entries): https://gcatholic.org/dioceses/data/type-apvc . Place-names follow the catalogue; alternative spellings are not separate answers.",
+    "answers": [
+      {
+        "answer": "Aguarico",
+        "tier": 4
+      },
+      {
+        "answer": "Aleppo",
+        "tier": 3
+      },
+      {
+        "answer": "Alexandria of Egypt",
+        "tier": 3
+      },
+      {
+        "answer": "Anatolia",
+        "tier": 4
+      },
+      {
+        "answer": "Archipelago of the Comores",
+        "tier": 6
+      },
+      {
+        "answer": "Awasa",
+        "tier": 5
+      },
+      {
+        "answer": "Aysén",
+        "tier": 5
+      },
+      {
+        "answer": "Beirut",
+        "tier": 3
+      },
+      {
+        "answer": "Benghazi",
+        "tier": 5
+      },
+      {
+        "answer": "Bontoc–Lagawe",
+        "tier": 6
+      },
+      {
+        "answer": "Brunei",
+        "tier": 4
+      },
+      {
+        "answer": "Camiri",
+        "tier": 5
+      },
+      {
+        "answer": "Caroní",
+        "tier": 5
+      },
+      {
+        "answer": "Chaco Paraguayo",
+        "tier": 6
+      },
+      {
+        "answer": "Darién",
+        "tier": 5
+      },
+      {
+        "answer": "Derna",
+        "tier": 6
+      },
+      {
+        "answer": "El Beni",
+        "tier": 5
+      },
+      {
+        "answer": "El Petén",
+        "tier": 5
+      },
+      {
+        "answer": "Esmeraldas",
+        "tier": 4
+      },
+      {
+        "answer": "Galápagos",
+        "tier": 4
+      },
+      {
+        "answer": "Gambella",
+        "tier": 6
+      },
+      {
+        "answer": "Guapi",
+        "tier": 6
+      },
+      {
+        "answer": "Harar",
+        "tier": 5
+      },
+      {
+        "answer": "Hosanna",
+        "tier": 6
+      },
+      {
+        "answer": "Ingwavuma",
+        "tier": 6
+      },
+      {
+        "answer": "Inírida",
+        "tier": 6
+      },
+      {
+        "answer": "Iquitos",
+        "tier": 3
+      },
+      {
+        "answer": "Istanbul",
+        "tier": 3
+      },
+      {
+        "answer": "Izabal",
+        "tier": 5
+      },
+      {
+        "answer": "Jaén en Perú (San Francisco Javier)",
+        "tier": 6
+      },
+      {
+        "answer": "Jimma–Bonga",
+        "tier": 6
+      },
+      {
+        "answer": "Jolo",
+        "tier": 4
+      },
+      {
+        "answer": "Leticia",
+        "tier": 5
+      },
+      {
+        "answer": "Luang Prabang",
+        "tier": 5
+      },
+      {
+        "answer": "Makokou",
+        "tier": 6
+      },
+      {
+        "answer": "Meki",
+        "tier": 6
+      },
+      {
+        "answer": "Méndez",
+        "tier": 6
+      },
+      {
+        "answer": "Mitú",
+        "tier": 6
+      },
+      {
+        "answer": "Mongo",
+        "tier": 6
+      },
+      {
+        "answer": "Napo",
+        "tier": 6
+      },
+      {
+        "answer": "Nekemte",
+        "tier": 6
+      },
+      {
+        "answer": "Nepal",
+        "tier": 4
+      },
+      {
+        "answer": "Northern Arabia",
+        "tier": 2
+      },
+      {
+        "answer": "Ñuflo de Chávez",
+        "tier": 6
+      },
+      {
+        "answer": "Pakse",
+        "tier": 6
+      },
+      {
+        "answer": "Pando",
+        "tier": 6
+      },
+      {
+        "answer": "Phnom Penh",
+        "tier": 2
+      },
+      {
+        "answer": "Pilcomayo",
+        "tier": 6
+      },
+      {
+        "answer": "Pucallpa",
+        "tier": 5
+      },
+      {
+        "answer": "Puerto Ayacucho",
+        "tier": 5
+      },
+      {
+        "answer": "Puerto Carreño",
+        "tier": 6
+      },
+      {
+        "answer": "Puerto Gaitán",
+        "tier": 6
+      },
+      {
+        "answer": "Puerto Leguízamo–Solano",
+        "tier": 6
+      },
+      {
+        "answer": "Puerto Maldonado",
+        "tier": 4
+      },
+      {
+        "answer": "Puerto Princesa",
+        "tier": 5
+      },
+      {
+        "answer": "Puyo",
+        "tier": 5
+      },
+      {
+        "answer": "Quetta",
+        "tier": 5
+      },
+      {
+        "answer": "Requena",
+        "tier": 6
+      },
+      {
+        "answer": "Reyes",
+        "tier": 6
+      },
+      {
+        "answer": "Rodrigues",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Northern Arabia",
+        "accepted": true
+      },
+      {
+        "guess": "Aguarico",
+        "accepted": true
+      },
+      {
+        "guess": "Iquitos",
+        "accepted": true
+      },
+      {
+        "guess": "Phnom Penh",
+        "accepted": true
+      },
+      {
+        "guess": "Puerto Maldonado",
+        "accepted": true
+      },
+      {
+        "guess": "Apostolic Vicariate of Nepal",
+        "accepted": false,
+        "reason": "The accepted short-form answer is Nepal; the list is of named jurisdictions, not title phrases."
+      },
+      {
+        "guess": "Apostolic Prefecture of Ulaanbaatar",
+        "accepted": false,
+        "reason": "Apostolic prefecture, not vicariate."
+      },
+      {
+        "guess": "Diocese of Rome",
+        "accepted": false,
+        "reason": "A diocese, not an apostolic vicariate."
+      },
+      {
+        "guess": "Archdiocese of Manila",
+        "accepted": false,
+        "reason": "An archdiocese."
+      },
+      {
+        "guess": "Military Ordinariate of the United States",
+        "accepted": false,
+        "reason": "A military ordinariate."
+      }
+    ],
+    "reviewFlags": [
+      "The source catalogue's 79 entries are apostolic vicariates; only the Roman-Rite list is used here."
+    ]
+  }
 ];
