@@ -11250,4 +11250,304 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-catholic-devotions",
+    "theme": "devotion",
+    "prompt": "Name a Catholic devotional practice.",
+    "context": "Catholics express devotion through visits, processions, pilgrimages, blessings, acts of veneration and recurring devotional observances. This open list is not complete; it focuses on practices rather than the words of individual prayers.",
+    "basis": "USCCB, “Popular Devotional Practices: Basic Questions and Answers,” and the Vatican’s Directory on Popular Piety and the Liturgy: https://www.usccb.org/prayer-and-worship/prayers-and-devotions/prayers/popular-devotional-practices-basic-questions-and-answers ; https://www.vatican.va/roman_curia/congregations/ccdds/documents/rc_con_ccdds_doc_20020513_vers-direttorio_en.html .",
+    "answers": [
+      {
+        "answer": "The Rosary",
+        "tier": 1
+      },
+      {
+        "answer": "Stations of the Cross",
+        "tier": 1
+      },
+      {
+        "answer": "Eucharistic adoration",
+        "tier": 1
+      },
+      {
+        "answer": "Sacred Heart devotion",
+        "tier": 1
+      },
+      {
+        "answer": "Divine Mercy devotion",
+        "tier": 1
+      },
+      {
+        "answer": "First Friday devotion",
+        "tier": 2
+      },
+      {
+        "answer": "First Saturday devotion",
+        "tier": 2
+      },
+      {
+        "answer": "Corpus Christi procession",
+        "tier": 2
+      },
+      {
+        "answer": "May crowning of Mary",
+        "tier": 2
+      },
+      {
+        "answer": "Brown Scapular devotion",
+        "tier": 2
+      },
+      {
+        "answer": "Miraculous Medal devotion",
+        "tier": 2
+      },
+      {
+        "answer": "Perpetual adoration",
+        "tier": 2
+      },
+      {
+        "answer": "Holy Hour",
+        "tier": 3
+      },
+      {
+        "answer": "Forty Hours Devotion",
+        "tier": 3
+      },
+      {
+        "answer": "Eucharistic procession",
+        "tier": 3
+      },
+      {
+        "answer": "Pilgrimage to a shrine",
+        "tier": 3
+      },
+      {
+        "answer": "Veneration of relics",
+        "tier": 3
+      },
+      {
+        "answer": "Visit to the Seven Churches",
+        "tier": 3
+      },
+      {
+        "answer": "Blessing of homes",
+        "tier": 3
+      },
+      {
+        "answer": "Blessing of throats",
+        "tier": 3
+      },
+      {
+        "answer": "Via Lucis",
+        "tier": 3
+      },
+      {
+        "answer": "Via Matris",
+        "tier": 3
+      },
+      {
+        "answer": "Pentecost novena",
+        "tier": 3
+      },
+      {
+        "answer": "May devotion to Mary",
+        "tier": 3
+      },
+      {
+        "answer": "Enthronement of the Sacred Heart in the home",
+        "tier": 4
+      },
+      {
+        "answer": "Consecration to the Sacred Heart",
+        "tier": 4
+      },
+      {
+        "answer": "Consecration to the Immaculate Heart of Mary",
+        "tier": 4
+      },
+      {
+        "answer": "Consecration to Saint Joseph",
+        "tier": 4
+      },
+      {
+        "answer": "Enrollment in the Brown Scapular",
+        "tier": 4
+      },
+      {
+        "answer": "Green Scapular devotion",
+        "tier": 4
+      },
+      {
+        "answer": "Devotion to the Infant Jesus of Prague",
+        "tier": 4
+      },
+      {
+        "answer": "Devotion to the Holy Face",
+        "tier": 4
+      },
+      {
+        "answer": "Devotion to the Precious Blood",
+        "tier": 4
+      },
+      {
+        "answer": "Devotion to the Holy Wounds",
+        "tier": 4
+      },
+      {
+        "answer": "Devotion to the Seven Sorrows of Mary",
+        "tier": 4
+      },
+      {
+        "answer": "Devotion to the Seven Joys of Mary",
+        "tier": 4
+      },
+      {
+        "answer": "Devotion to the Holy Family",
+        "tier": 4
+      },
+      {
+        "answer": "Devotion to the Holy Angels",
+        "tier": 4
+      },
+      {
+        "answer": "Devotion to the Guardian Angels",
+        "tier": 4
+      },
+      {
+        "answer": "Devotion to the Five First Saturdays",
+        "tier": 5
+      },
+      {
+        "answer": "Devotion to the Nine First Fridays",
+        "tier": 5
+      },
+      {
+        "answer": "Pilgrimage to Lourdes",
+        "tier": 5
+      },
+      {
+        "answer": "Pilgrimage to Fatima",
+        "tier": 5
+      },
+      {
+        "answer": "Pilgrimage to Guadalupe",
+        "tier": 5
+      },
+      {
+        "answer": "Pilgrimage to the Holy Land",
+        "tier": 5
+      },
+      {
+        "answer": "Pilgrimage to Rome",
+        "tier": 5
+      },
+      {
+        "answer": "Pilgrimage to Santiago de Compostela",
+        "tier": 5
+      },
+      {
+        "answer": "Pilgrimage to Knock",
+        "tier": 5
+      },
+      {
+        "answer": "Pilgrimage to Czestochowa",
+        "tier": 5
+      },
+      {
+        "answer": "Visit to a cemetery in November",
+        "tier": 5
+      },
+      {
+        "answer": "Procession on Palm Sunday",
+        "tier": 5
+      },
+      {
+        "answer": "Procession on Good Friday",
+        "tier": 5
+      },
+      {
+        "answer": "Blessing of animals on Saint Francis’ feast",
+        "tier": 5
+      },
+      {
+        "answer": "Blessing of candles on Candlemas",
+        "tier": 5
+      },
+      {
+        "answer": "Blessing of Easter food",
+        "tier": 6
+      },
+      {
+        "answer": "Blessing of homes on Epiphany",
+        "tier": 6
+      },
+      {
+        "answer": "Blessing of throats on Saint Blaise’s feast",
+        "tier": 6
+      },
+      {
+        "answer": "Blessing of the sick with relics",
+        "tier": 6
+      },
+      {
+        "answer": "Rogation procession",
+        "tier": 6
+      },
+      {
+        "answer": "Stational church visit",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "The Rosary",
+        "accepted": true
+      },
+      {
+        "guess": "Stations of the Cross",
+        "accepted": true
+      },
+      {
+        "guess": "Eucharistic adoration",
+        "accepted": true
+      },
+      {
+        "guess": "Sacred Heart devotion",
+        "accepted": true
+      },
+      {
+        "guess": "Divine Mercy devotion",
+        "accepted": true
+      },
+      {
+        "guess": "Hail Mary",
+        "accepted": false,
+        "reason": "A prayer, not a devotional practice."
+      },
+      {
+        "guess": "Our Father",
+        "accepted": false,
+        "reason": "A prayer, not a devotional practice."
+      },
+      {
+        "guess": "Nicene Creed",
+        "accepted": false,
+        "reason": "A profession of faith, not a devotional practice."
+      },
+      {
+        "guess": "Psalm 23",
+        "accepted": false,
+        "reason": "A biblical psalm, not a devotional practice."
+      },
+      {
+        "guess": "Quo Primum",
+        "accepted": false,
+        "reason": "A papal document, not a devotional practice."
+      }
+    ],
+    "reviewFlags": [
+      "Pilgrimage, procession, blessing and veneration practices are included where they function as Catholic popular piety; some are also liturgical or sacramental observances.",
+      "The answer list excludes individual prayer formulas because the core bank already asks “Name a prayer.”"
+    ]
+  }
 ];
