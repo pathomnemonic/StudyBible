@@ -10066,4 +10066,300 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-founders-of-congregations",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who founded a religious congregation.",
+    "context": "Many Catholic religious communities began through the work of a founder or foundress. This open list includes people who founded congregations, institutes or religious families; it is not complete.",
+    "basis": "CatholicSaints.info, “Saints who Founded Religious Congregations,” 571 profiles: https://catholicsaints.info/saints-who-founded-religious-congregations/ . Answer examples are selected from the source index, with familiar founders in the common tiers and less familiar founders in the long tail.",
+    "answers": [
+      {
+        "answer": "Benedict of Nursia",
+        "tier": 1
+      },
+      {
+        "answer": "Francis of Assisi",
+        "tier": 1
+      },
+      {
+        "answer": "Dominic",
+        "tier": 1
+      },
+      {
+        "answer": "Ignatius of Loyola",
+        "tier": 1
+      },
+      {
+        "answer": "Teresa of Ávila",
+        "tier": 1
+      },
+      {
+        "answer": "John Bosco",
+        "tier": 2
+      },
+      {
+        "answer": "John Baptist de La Salle",
+        "tier": 2
+      },
+      {
+        "answer": "Vincent de Paul",
+        "tier": 2
+      },
+      {
+        "answer": "Philip Neri",
+        "tier": 2
+      },
+      {
+        "answer": "Camillus de Lellis",
+        "tier": 2
+      },
+      {
+        "answer": "Peter Nolasco",
+        "tier": 2
+      },
+      {
+        "answer": "Angela Merici",
+        "tier": 2
+      },
+      {
+        "answer": "John of God",
+        "tier": 3
+      },
+      {
+        "answer": "Alphonsus Liguori",
+        "tier": 3
+      },
+      {
+        "answer": "Norbert of Xanten",
+        "tier": 3
+      },
+      {
+        "answer": "Peter Fourier",
+        "tier": 3
+      },
+      {
+        "answer": "John Eudes",
+        "tier": 3
+      },
+      {
+        "answer": "Mary Ward",
+        "tier": 3
+      },
+      {
+        "answer": "Jeanne Jugan",
+        "tier": 3
+      },
+      {
+        "answer": "Marcellin Champagnat",
+        "tier": 3
+      },
+      {
+        "answer": "Louise de Marillac",
+        "tier": 3
+      },
+      {
+        "answer": "Elizabeth Ann Seton",
+        "tier": 3
+      },
+      {
+        "answer": "Don Bosco",
+        "tier": 3
+      },
+      {
+        "answer": "Joseph Calasanz",
+        "tier": 3
+      },
+      {
+        "answer": "Luigi Biraghi",
+        "tier": 4
+      },
+      {
+        "answer": "Luigi Boccardo",
+        "tier": 4
+      },
+      {
+        "answer": "Luigi Caburlotto",
+        "tier": 4
+      },
+      {
+        "answer": "Luigi Maria Monti",
+        "tier": 4
+      },
+      {
+        "answer": "Luigi Monza",
+        "tier": 4
+      },
+      {
+        "answer": "Luigi Novarese",
+        "tier": 4
+      },
+      {
+        "answer": "Luigi Talamoni",
+        "tier": 4
+      },
+      {
+        "answer": "Luigi Variara",
+        "tier": 4
+      },
+      {
+        "answer": "Luigia Poloni",
+        "tier": 4
+      },
+      {
+        "answer": "Malgorzata Szewczyk",
+        "tier": 4
+      },
+      {
+        "answer": "Manuel Domingo y Sol",
+        "tier": 4
+      },
+      {
+        "answer": "Manuela de Jesús Arias Espinosa",
+        "tier": 4
+      },
+      {
+        "answer": "Marcelina Darowska",
+        "tier": 4
+      },
+      {
+        "answer": "Marcelo Spínola y Maestre",
+        "tier": 4
+      },
+      {
+        "answer": "Marco Antonio Durando",
+        "tier": 4
+      },
+      {
+        "answer": "Margaret of Savoy",
+        "tier": 5
+      },
+      {
+        "answer": "Margaretha Flesch",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Anna Blondin",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Anna Rosa Caiani",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Bárbara Maix",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Caridad Brader",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Catalina Troiani",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Clara of the Child Jesus",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Crocifissa Curcio",
+        "tier": 5
+      },
+      {
+        "answer": "Maria del Carmen of the Child Jesus",
+        "tier": 5
+      },
+      {
+        "answer": "Maria del Carmen Rendiles Martinez",
+        "tier": 5
+      },
+      {
+        "answer": "María del Tránsito de Jesús Sacramentado",
+        "tier": 5
+      },
+      {
+        "answer": "María Dolores Rodríguez Sopeña",
+        "tier": 5
+      },
+      {
+        "answer": "María Emilia Riquelme y Zayas",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Franciszka Siedliska",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Gargani",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Karłowska",
+        "tier": 6
+      },
+      {
+        "answer": "María Lorenza Requenses de Longo",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Louise Merkert",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Luigia Velotti",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Pilar Izquierdo Albero",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Francis of Assisi",
+        "accepted": true
+      },
+      {
+        "guess": "Benedict of Nursia",
+        "accepted": true
+      },
+      {
+        "guess": "Dominic",
+        "accepted": true
+      },
+      {
+        "guess": "Ignatius of Loyola",
+        "accepted": true
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Dominican theologian, not a founder of a religious congregation."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A diocesan priest, not a founder of a religious congregation."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not a religious founder."
+      },
+      {
+        "guess": "Bernadette Soubirous",
+        "accepted": false,
+        "reason": "A religious sister and visionary, not a congregational founder."
+      },
+      {
+        "guess": "Carlo Acutis",
+        "accepted": false,
+        "reason": "A lay saint, not a founder of a religious congregation."
+      }
+    ]
+  }
 ];
