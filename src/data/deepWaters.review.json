@@ -2066,6 +2066,12 @@
    "status": "unreviewed"
   },
   {
+   "id": "gpt-saint-patronages",
+   "sha256": "aa61b3743af151d79edad82854dd6e48a38e5bfbd6b99ed6ee88b5328e47beef",
+   "answers": 38,
+   "status": "unreviewed"
+  },
+  {
    "id": "derived:bible-books",
    "sha256": "2f3fac42694980ef5f42bc7e0a7459a53446da4de0538334e49c0e973eacfe18",
    "answers": 2,
@@ -2091,8 +2097,8 @@
   },
   {
    "id": "derived:calendar-saints",
-   "sha256": "5237c586046e65a9a9df999e2f485c41baf031e7d9e53f8ebb1c823172a170f3",
-   "answers": 6,
+   "sha256": "f3d17c5c1b9009fef6bd7da062dc5fb3552a871b623ddf0d8cc1f5cda57364ea",
+   "answers": 5,
    "status": "unreviewed"
   },
   {

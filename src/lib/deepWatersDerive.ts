@@ -90,6 +90,34 @@ function letterRules(): Raw[] {
 }
 export const LETTER_KINDS = ['hasword', 'range', 'digit', 'has', 'start', 'end', 'without', 'atleast', 'atmost', 'words', 'vowelstart', 'vowelend', 'consstart'];
 const RULES = letterRules();
+/** The harder letter rules, kept for the Letter Puzzles pack (see src/data/deepWatersPacks.ts): two conditions at once, counting letters or vowels, doubles. They are
+ *  never asked in the daily game, where a question has to come to mind at once. */
+function puzzleRules(): Raw[] {
+  const out: Raw[] = [];
+  for (const x of ALPHA) out.push({ kind: 'twice', key: x, text: (n, pt) => `Name ${art(n)} with the letter ${U(x)} twice ${inThe(pt)}.`, test: (f) => f.cnt[x.charCodeAt(0) - 97] >= 2 });
+  for (let i = 0; i < 26; i++) for (let j = i + 1; j < 26; j++) {
+    const x = ALPHA[i], y = ALPHA[j], m = BIT(x) | BIT(y);
+    out.push({ kind: 'both', key: x + y, text: (n, pt) => `Name ${art(n)} with both ${U(x)} and ${U(y)} ${inThe(pt)}.`, test: (f) => (f.mask & m) === m });
+  }
+  for (const x of ALPHA) for (const y of ALPHA) if (x !== y && 'aeioutrsnlhdm'.includes(y)) {
+    out.push({ kind: 'notin', key: x + y, text: (n, pt) => `Name ${art(n)} with ${U(x)} but no ${U(y)} ${inThe(pt)}.`, test: (f) => has(f, x) && !has(f, y) });
+  }
+  for (const x of ALPHA) for (const y of ALPHA) if (x !== y && VOWELS.includes(y)) {
+    out.push({ kind: 'startwith', key: x + y, text: (n, pt) => `Name ${art(n)} ${whose(pt, `starts with ${U(x)} and has ${U(y)} in it`)}.`, test: (f) => f.l[0] === x && f.l.slice(1).includes(y) });
+  }
+  for (const x of ALPHA) for (const y of ALPHA) {
+    out.push({ kind: 'startend', key: x + y, text: (n, pt) => `Name ${art(n)} ${whose(pt, `starts with ${U(x)} and ends with ${U(y)}`)}.`, test: (f) => f.len > 1 && f.l[0] === x && f.l.endsWith(y) });
+  }
+  for (const x of ALPHA) out.push({ kind: 'second', key: x, text: (n, pt) => `Name ${art(n)} ${whose(pt, `has ${U(x)} as its second letter`)}.`, test: (f) => f.l[1] === x });
+  for (let n = 3; n <= 24; n++) out.push({ kind: 'length', key: String(n), text: (nn, pt) => `Name ${art(nn)} with exactly ${n} letters ${inThe(pt)}.`, test: (f) => f.len === n });
+  for (let v = 1; v <= 8; v++) out.push({ kind: 'vowels', key: String(v), text: (n, pt) => `Name ${art(n)} with exactly ${v} vowel${v === 1 ? '' : 's'} ${inThe(pt)}.`, test: (f) => f.vowels === v });
+  out.push({ kind: 'doubled', key: 'any', text: (n, pt) => `Name ${art(n)} with a double letter ${inThe(pt)}.`, test: (f) => f.dbl });
+  out.push({ kind: 'same', key: 'any', text: (n, pt) => `Name ${art(n)} ${whose(pt, 'starts and ends with the same letter')}.`, test: (f) => f.len > 1 && f.l[0] === f.l[f.len - 1] });
+  return out;
+}
+export const PUZZLE_KINDS = ['both', 'notin', 'startwith', 'startend', 'twice', 'second', 'length', 'vowels', 'doubled', 'same'];
+const PUZZLE = puzzleRules();
+
 
 
 /** how a question's answers are tested for "easy": enough of them are ones almost everyone would name */
@@ -109,7 +137,7 @@ const similar = (a: Set<string>, b: Set<string>) => { let both = 0; for (const x
 
 /** all candidate questions of one pool, interleaved by kind so the first few are all different in style */
 const PER_POOL_LIMIT = 400;
-export function candidatesOf(pool: Pool): Candidate[] {
+export function candidatesOf(pool: Pool, puzzle = false): Candidate[] {
   const total = pool.answers.length;
   const per = new Map<string, Candidate[]>();
   const chosen: Set<string>[] = [];
@@ -133,14 +161,14 @@ export function candidatesOf(pool: Pool): Candidate[] {
     else (per.get(kind) ?? per.set(kind, []).get(kind)!).push(cand);
   };
   // the questions about facts come first (they are the least like each other); then the letter rules, interleaved by kind
-  for (const fr of pool.factRules ?? []) {
+  for (const fr of puzzle ? [] : pool.factRules ?? []) {
     const answers = pool.answers.filter((a) => pool.facts?.[a.answer] && fr.test(pool.facts[a.answer]));
     consider(fr.kind, fr.key, fr.text, answers, fr.min, true);
   }
   // a trailing Roman numeral ("XII" in "Pius XII") is part of how the answer is written, not of the name, so letters are counted without it
   const feats = pool.answers.map((a) => featOf(a.answer, pool.numerals ? a.answer.replace(/\s+[IVXL]+$/, '') : a.answer));
   const raw: { r: Raw; answers: DeepAnswer[] }[] = [];
-  for (const r of pool.noLetters ? [] : RULES) {
+  for (const r of pool.noLetters ? [] : puzzle ? PUZZLE : RULES) {
     if (pool.part === 'word' && r.kind === 'words') continue;
     const answers: DeepAnswer[] = [];
     for (let i = 0; i < feats.length; i++) if (r.test(feats[i])) answers.push(pool.answers[i]);
@@ -155,7 +183,7 @@ export function candidatesOf(pool: Pool): Candidate[] {
   const ordered: Candidate[] = [...factFirst];
   for (let i = 0; ; i++) {
     let any = false;
-    for (const k of LETTER_KINDS) { const list = per.get(k); if (list && list[i]) { ordered.push(list[i]); any = true; } }
+    for (const k of puzzle ? PUZZLE_KINDS : LETTER_KINDS) { const list = per.get(k); if (list && list[i]) { ordered.push(list[i]); any = true; } }
     if (!any) break;
   }
   return ordered;
@@ -188,8 +216,8 @@ export type DerivedEntry = [pool: string, kind: string, key: string];
  * (or every candidate is used). Returns the chosen entries; `materialize` turns them back into questions. This is the slow part, so the build script runs it
  * and stores the entries (src/data/deepWaters.derived.json); the app only materializes them.
  */
-export function chooseDerived(pools: Pool[], want: number, themeCap: Record<string, number>, existing: DeepPrompt[] = [], allow: (pool: string, kind: string) => boolean = () => true): DerivedEntry[] {
-  const lists = pools.map((p) => ({ p, c: candidatesOf(p).filter((c) => allow(p.id, c.kind)), i: 0 }));
+export function chooseDerived(pools: Pool[], want: number, themeCap: Record<string, number>, existing: DeepPrompt[] = [], allow: (pool: string, kind: string) => boolean = () => true, puzzle = false): DerivedEntry[] {
+  const lists = pools.map((p) => ({ p, c: candidatesOf(p, puzzle).filter((c) => allow(p.id, c.kind)), i: 0 }));
   const taken = new Set(existing.map((p) => sig(p.answers)));
   const perTheme = new Map<string, number>();
   const out: DerivedEntry[] = [];
@@ -215,7 +243,7 @@ export function chooseDerived(pools: Pool[], want: number, themeCap: Record<stri
   return out;
 }
 
-const RULE_BY = new Map(RULES.map((r) => [`${r.kind}|${r.key}`, r] as const));
+const RULE_BY = new Map([...RULES, ...PUZZLE].map((r) => [`${r.kind}|${r.key}`, r] as const));
 const featCache = new WeakMap<Pool, Feat[]>();
 const featsOf = (pool: Pool) => {
   let f = featCache.get(pool);

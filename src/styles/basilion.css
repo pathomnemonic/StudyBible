@@ -220,3 +220,14 @@ html .deep-waters.bas .dw-microcopy { margin-block: 10px; }
 
 /* the flat fallback when the climb passes the Cross: the sky deepens to blue and warms to gold */
 .bas-heaven { position: absolute; inset: 0; pointer-events: none; opacity: calc(var(--hv, 0) * 0.85); background: radial-gradient(ellipse at 50% 18%, rgba(255, 246, 205, 0.9), rgba(255, 246, 205, 0) 62%), linear-gradient(180deg, rgba(24, 38, 110, 0.75), rgba(255, 228, 160, 0.5)); }
+
+/* the special packs on the title screen */
+.dw-packs { margin: 1.6rem auto 0; max-width: 34rem; text-align: left; }
+.dw-packs h2 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; margin: 0 0 0.2rem; color: #f1cf6b; text-align: center; }
+.dw-packs > p { margin: 0 0 0.8rem; font-size: 0.9rem; opacity: 0.85; text-align: center; }
+.dw-packs ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.dw-packs button { width: 100%; text-align: left; display: grid; gap: 0.15rem; padding: 0.7rem 0.9rem; border-radius: 12px; border: 1px solid rgba(241, 207, 107, 0.55); background: rgba(250, 240, 214, 0.92); color: #2b1d33; cursor: pointer; font: inherit; }
+.dw-packs button:hover, .dw-packs button:focus-visible { background: #fff6dc; border-color: #c28a1c; }
+.dw-packs button b { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem; }
+.dw-packs button small { font-size: 0.85rem; opacity: 0.85; }
+.dw-packs button i { font-style: normal; font-size: 0.75rem; letter-spacing: 0.04em; color: #7a5a14; }

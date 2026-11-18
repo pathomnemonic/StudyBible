@@ -43,6 +43,7 @@ import { LONG_TAIL_PORTED } from './deepWatersLongTailPorted';
 import { EASY_LIST_PROMPTS } from './deepWatersEasyLists';
 import { EVERYDAY_PROMPTS } from './deepWatersEveryday2';
 import { BROAD_PROMPTS } from './deepWatersEveryday3';
+import { PATRON_SAINTS } from './deepWatersPatrons';
 import { SIMPLER_PROMPTS, isEverydayList } from './deepWatersEveryday';
 import { materialize, type DerivedEntry } from '../lib/deepWatersDerive';
 import DERIVED_ENTRIES from './deepWaters.derived.json';
@@ -287,7 +288,7 @@ const core: DeepPrompt[] = CORE_PROMPTS.map((p) => ({ ...p, theme: CORE_THEMES[p
 
 /** the hand-written and generated questions, before the derived ones */
 const bareId = (id: string) => id.replace(/^(authored\d?-|ported-)/, '');
-const RAW_PROMPTS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...LONG_LIST_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[]), ...(REGION_PROMPTS as DeepPrompt[]), ...LONG_LIST_2_PROMPTS, ...LONG_TAIL_PORTED, ...EASY_LIST_PROMPTS, ...EVERYDAY_PROMPTS, ...BROAD_PROMPTS];
+const RAW_PROMPTS: DeepPrompt[] = [...core, ...MORE_PROMPTS, ...AUTHORED_PROMPTS, ...LONG_LIST_PROMPTS, ...(GENERATED_PROMPTS as DeepPrompt[]), ...(REGION_PROMPTS as DeepPrompt[]), ...LONG_LIST_2_PROMPTS, ...LONG_TAIL_PORTED, ...EASY_LIST_PROMPTS, ...EVERYDAY_PROMPTS, ...BROAD_PROMPTS, PATRON_SAINTS];
 export const BASE_PROMPTS: DeepPrompt[] = RAW_PROMPTS.map((p) => (SIMPLER_PROMPTS[bareId(p.id)] ? { ...p, prompt: SIMPLER_PROMPTS[bareId(p.id)] } : p));
 
 /**

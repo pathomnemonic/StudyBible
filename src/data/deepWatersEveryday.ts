@@ -6,6 +6,7 @@
  * leaves you with nothing to type.
  */
 const OBSCURE: RegExp[] = [
+  /^gpt-(?!saint-patronages)/,
   /^places-[A-Z0-9]{3}$/, /^places-x-/, /^saints-\d\d$/, /^saints-abbot$/, /^saints-letter-/, /^people-[A-Z]+$/,
   /^(spiritual-works|deuterocanon|councils|heresies|catholic-classics|fathers-works|augustine-works|aquinas-works|encyclicals|patron-countries|theology-terms|italian-saints|ancient-sees|late-medieval-theologians|martyrdom-texts|francis-canonizations|vatican-ii-documents|abbeys|english-martyrs|pius|seven-churches|pauline-coworkers|romans16-women|marian-litany|early-martyrs|prophets-before-kings|women-in-acts|johannine-titles|revelation-images|pauls-first-journey|foreign-rulers|minor-prophets|rites|patron-illnesses)$/,
 ];
@@ -24,7 +25,7 @@ export const SIMPLER_PROMPTS: Record<string, string> = {
   'bible-objects': 'Name an object in the Bible.', 'church-titles': 'Name a title or role in the Catholic Church.', 'church-architecture': 'Name a part of a church building.',
   'catholic-films': 'Name a movie or show about Jesus, the Bible or the saints.', 'old-masters': 'Name an artist who made art for the Church.', 'sacred-composers': 'Name a composer of sacred music.',
   denominations: 'Name a Christian church or denomination.', orders: 'Name a Catholic religious order.', 'resurrection-witnesses': 'Name someone who met the risen Jesus.', 'pauline-letters': 'Name a letter of Paul.',
-  'luke-parables': 'Name a parable from Luke\'s Gospel.', apostles: 'Name one of the twelve apostles.', 'cities-named-for-saints': 'Name a city or town named after a saint.', 'saint-first-names': "Name a saint's first name.",
+  'luke-parables': 'Name a parable from Luke\'s Gospel.', apostles: 'Name one of the twelve apostles.', 'cities-named-for-saints': 'Name a city or town named after a saint.', 'gpt-saint-patronages': 'Name a patron saint.', 'saint-first-names': "Name a saint's first name.",
 };
 /** the lists that questions worked out by a letter rule may be built from, and the rules that stay: the ones a player can hold in the head ("starts with J", "has an R") */
 export const LETTER_POOLS: Record<string, string[]> = {

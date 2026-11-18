@@ -15,7 +15,7 @@ import '@fontsource/cormorant-garamond/700.css';
 import '@fontsource/cormorant-garamond/500-italic.css';
 import '../../styles/basilion.css';
 import { blip, burst } from '../../arcade/fx';
-import { DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../../data/deepWaters';
+import { DEEP_PLAYABLE, DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../../data/deepWaters';
 import './DeepWatersPage.css';
 
 interface RoundResult { prompt: string; guess: string; answer: string | null; tier: DeepAnswer['tier'] | null; points: number; timedOut: boolean; pearlBonus?: number }
@@ -28,23 +28,35 @@ const newPracticeSeed = () => Math.floor(Math.random() * 1_000_000);
 
 export default function DeepWatersPage() {
   const [practice, setPracticeMode] = useState(isPractice());
+  const [pack, setPackId] = useState<string | null>(() => { try { return isPractice() ? localStorage.getItem(PACK_KEY) : null; } catch { return null; } });
+  const choosePack = (id: string | null) => { try { if (id) localStorage.setItem(PACK_KEY, id); else localStorage.removeItem(PACK_KEY); } catch { /* local storage may be unavailable */ } if (id) { setPractice(true); setPracticeMode(true); } setPackId(id); };
+  const [packs, setPacks] = useState<PackMod | null>(null);
+  useEffect(() => { let dead = false; void import('../../data/deepWatersPacks').then((m) => { if (!dead) setPacks(m); }); return () => { dead = true; }; }, []);
+  if (pack && !packs) return <div className="page deep-waters bas"><p className="dw-title-note">Opening the pack…</p></div>;
   // each mode is its own dive: switching remounts it, and it loads that mode's own saved state
-  return <DeepDive key={practice ? 'practice' : 'daily'} practice={practice} onPractice={(on) => setPracticeMode((cur) => (cur === on ? cur : on))} />;
+  return <DeepDive packs={packs} key={practice ? `practice:${pack ?? ''}` : 'daily'} practice={practice} pack={practice ? pack : null} onPack={choosePack} onPractice={(on) => { if (!on) choosePack(null); setPracticeMode((cur) => (cur === on ? cur : on)); }} />;
 }
 
-function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on: boolean) => void }) {
+/** the special packs are a separate chunk, loaded when the page opens, so the daily game does not carry them */
+type PackMod = typeof import('../../data/deepWatersPacks');
+const PACK_KEY = 'cathology.deepwaters.pack';
+const PACK_BEST = 'cathology.deepwaters.packbest';
+const loadPackBest = (): Record<string, number> => { try { return JSON.parse(localStorage.getItem(PACK_BEST) ?? '{}') as Record<string, number>; } catch { return {}; } };
+const savePackBest = (id: string, score: number) => { try { const b = loadPackBest(); if (score > (b[id] ?? 0)) { b[id] = score; localStorage.setItem(PACK_BEST, JSON.stringify(b)); } } catch { /* local storage may be unavailable */ } };
+
+function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMod | null; practice: boolean; pack: string | null; onPack: (id: string | null) => void; onPractice: (on: boolean) => void }) {
   const today = dayIndex();
   const [snapshot] = useState(() => loadDeepSession(today, practice));
   const [practiceSeed, setPracticeSeed] = useState(snapshot?.practiceSeed ?? newPracticeSeed);
-  const canResume = Boolean(snapshot && snapshot.practice === practice && snapshot.practiceSeed === practiceSeed);
+  const canResume = Boolean(snapshot && snapshot.practice === practice && snapshot.practiceSeed === practiceSeed && (snapshot.pack ?? null) === pack);
   const prompts = useMemo(() => {
     if (canResume && snapshot) {
-      const byId = new Map(DEEP_WATERS.map((p) => [p.id, p]));
+      const byId = new Map((packs?.DEEP_ALL ?? DEEP_WATERS).map((p) => [p.id, p]));
       const restored = snapshot.promptIds.map((id) => byId.get(id)).filter((p): p is DeepPrompt => Boolean(p));
       if (restored.length === DEEP_ROUNDS) return restored;
     }
-    return practice ? practiceDeepPrompts(practiceSeed) : dailyDeepPrompts(today);
-  }, [practice, practiceSeed, today, canResume, snapshot]);
+    return practice ? (pack && packs ? packs.packDeepPrompts(pack, practiceSeed) : practiceDeepPrompts(practiceSeed)) : dailyDeepPrompts(today);
+  }, [practice, pack, packs, practiceSeed, today, canResume, snapshot]);
   const restoredRemaining = snapshot?.deadlineAt ? Math.max(0, snapshot.deadlineAt - Date.now()) : DEEP_SECONDS * 1000;
   const [round, setRound] = useState(canResume ? snapshot!.round : 0);
   const [seconds, setSeconds] = useState(canResume ? Math.ceil(restoredRemaining / 1000) : DEEP_SECONDS);
@@ -94,6 +106,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
   }, [begun, seconds, locked, done, prompt]);
 
   useEffect(() => {
+    if (done && pack && !restoredDone.current) savePackBest(pack, score);
     if (done && !practice && !restoredDone.current) {
       markDailyDone('deepwaters', `${score} pts`, score >= 200);
       const entries = recordDeepDive({ day: today, score, scoredRounds: history.filter((r) => r.points > 0).length, totalRounds: DEEP_ROUNDS, pearlFound: history.some((r) => (r.pearlBonus ?? 0) > 0), practice: false });
@@ -104,7 +117,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
   useEffect(() => {
     if (!begun) return;
     saveDeepSession({
-      version: 1, day: today, practice, practiceSeed, promptIds: prompts.map((p) => p.id),
+      version: 1, day: today, practice, practiceSeed, pack, promptIds: prompts.map((p) => p.id),
       round, phase: done ? 'done' : locked ? 'locked' : 'playing', score,
       history: history.map((entry, index) => ({ promptId: prompts[index]?.id ?? '', prompt: entry.prompt, guess: entry.guess, answer: entry.answer, tier: entry.tier, points: entry.points, timedOut: entry.timedOut, pearlBonus: entry.pearlBonus })),
       guess, deadlineAt: done || locked ? null : deadlineRef.current,
@@ -112,7 +125,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
       paused: false, pearlAnswer,
       pearlFound,
     });
-  }, [begun, today, practice, practiceSeed, prompts, round, done, locked, score, history, guess, seconds]);
+  }, [begun, today, practice, pack, practiceSeed, prompts, round, done, locked, score, history, guess, seconds]);
 
   const begin = () => { deadlineRef.current = Date.now() + DEEP_SECONDS * 1000; remainingRef.current = DEEP_SECONDS * 1000; setSeconds(DEEP_SECONDS); setBegun(true); };
 
@@ -152,7 +165,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
   };
 
   // the result as a row of symbols (one per question, a higher one is rarer) so it can be shared without giving the answers away
-  const share = deepWatersShare({ day: today, practice, score, rounds: history, zone: levelAt(score * 10).name, pearl: pearlFound, bank: bankSignature(DEEP_WATERS.map((p) => p.id)) });
+  const share = deepWatersShare({ day: today, practice, score, rounds: history, zone: levelAt(score * 10).name, pearl: pearlFound, bank: bankSignature(DEEP_PLAYABLE.map((p) => p.id)) });
   const accepted = useMemo(() => [...prompt.answers].sort((a, b) => b.tier - a.tier || a.answer.localeCompare(b.answer)), [prompt]);
   const SHOWN_MAX = 15;
   const shownAnswers = prompt.closed || showAllAnswers ? accepted : accepted.slice(0, SHOWN_MAX);
@@ -175,7 +188,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
       )}
       {!begun && !done && (
         <header className="dw-head dw-title">
-          <p className="dw-kicker">{practice ? 'Practice ascent' : 'The daily ascent'}</p>
+          <p className="dw-kicker">{pack ? `Special pack · ${packs?.packById(pack)?.name ?? ''}` : practice ? 'Practice ascent' : 'The daily ascent'}</p>
           <h1>Basilion <em>climb the basilica</em></h1>
           <p className="dw-title-sub">Seven questions. Forty-five seconds each. The rarer the answer, the higher you climb. Reach the Cross and the climb goes on, into the heavens.</p>
           <div className="dw-title-stats">
@@ -184,7 +197,19 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
             <span><b>{logbook.length}</b><small>CLIMBS</small></span>
           </div>
           <button type="button" className="dw-begin" onClick={begin}>Begin ascent <span aria-hidden="true">▶</span></button>
-          <p className="dw-title-note">{practice ? 'Practice climbs are not counted.' : `Climb #${today}. The same seven questions for everyone today.`}</p>
+          <p className="dw-title-note">{pack ? 'A pack climb is not counted in your streak. Each time is a fresh deal.' : practice ? 'Practice climbs are not counted.' : `Climb #${today}. The same seven questions for everyone today.`}</p>
+          {(pack || practice) && <button type="button" className="dw-hint-button" onClick={() => (pack ? onPack(null) : onPractice(false))}>{pack ? '← All packs and practice' : '← Back to the daily climb'}</button>}
+          {!pack && packs && (
+            <section className="dw-packs" aria-label="Special packs">
+              <h2>Special packs</h2>
+              <p>The daily climb asks things that come to mind at once. These are the deeper lists, for when you want a harder climb.</p>
+              <ul>
+                {packs.PACKS.filter((k) => packs.packPrompts(k.id).length >= 12).map((k) => { const best = loadPackBest()[k.id]; return (
+                  <li key={k.id}><button type="button" onClick={() => onPack(k.id)}><b>{k.name}</b><small>{k.blurb}</small><i>{packs.packPrompts(k.id).length.toLocaleString()} questions{k.hard ? ' · hard' : ''}{best ? ` · best ${best}` : ''}</i></button></li>
+                ); })}
+              </ul>
+            </section>
+          )}
         </header>
       )}
       <GameHelp how={[
@@ -283,7 +308,7 @@ function DeepDive({ practice, onPractice }: { practice: boolean; onPractice: (on
             : <button className="dw-submit" onClick={() => { setPractice(true); onPractice(true); }}>Practice climb ↗</button>}</div>
         </section>
       )}
-      <p className="dw-foot">{practice ? 'PRACTICE CLIMB · NOT COUNTED' : 'DAILY CLIMB · ONE COUNTED FINISH PER DAY'}</p>
+      <p className="dw-foot">{pack ? 'SPECIAL PACK · NOT COUNTED' : practice ? 'PRACTICE CLIMB · NOT COUNTED' : 'DAILY CLIMB · ONE COUNTED FINISH PER DAY'}</p>
     </div>
   );
 }

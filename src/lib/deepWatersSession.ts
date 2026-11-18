@@ -22,6 +22,8 @@ export interface DeepSession {
   day: number;
   practice: boolean;
   practiceSeed: number;
+  /** the special pack this dive is from, if any (a pack dive is a practice dive) */
+  pack?: string | null;
   promptIds: string[];
   round: number;
   phase: DeepPhase;
