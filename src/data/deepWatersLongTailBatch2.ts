@@ -607,4 +607,304 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "The first descriptive heading is shortened to its identifying subject in the answer key; confirm preferred title normalization before release."
     ]
   }
+  ,{
+    "id": "longtail-apostolic-letters",
+    "theme": "church-history",
+    "prompt": "Name a papal apostolic letter.",
+    "context": "Apostolic letters are a distinct category of papal document. This open list samples Latin incipits and titles catalogued as apostolic letters; it is not exhaustive.",
+    "basis": "GCatholic, Documents by Type → Apostolic Letters (155 catalogue entries): https://gcatholic.org/documents/data/type-PAL . Titles are retained as listed; duplicate records and entries whose type is unclear are excluded.",
+    "answers": [
+      {
+        "answer": "Rosarium Virginis Mariæ",
+        "tier": 1
+      },
+      {
+        "answer": "Novo millennio ineunte",
+        "tier": 1
+      },
+      {
+        "answer": "Mane nobiscum Domine",
+        "tier": 2
+      },
+      {
+        "answer": "Mulieris dignitatem",
+        "tier": 2
+      },
+      {
+        "answer": "Orientale lumen",
+        "tier": 2
+      },
+      {
+        "answer": "Tertio millennio adveniente",
+        "tier": 2
+      },
+      {
+        "answer": "Ordinatio sacerdotalis",
+        "tier": 2
+      },
+      {
+        "answer": "Dies Domini",
+        "tier": 2
+      },
+      {
+        "answer": "Divini amoris scientia",
+        "tier": 3
+      },
+      {
+        "answer": "Lætamur magnopere",
+        "tier": 3
+      },
+      {
+        "answer": "Operosam diem",
+        "tier": 3
+      },
+      {
+        "answer": "Vicesimus quintus annus",
+        "tier": 3
+      },
+      {
+        "answer": "Euntes in mundum universum",
+        "tier": 3
+      },
+      {
+        "answer": "Duodecimum sæculum",
+        "tier": 3
+      },
+      {
+        "answer": "Spiritus Domini",
+        "tier": 3
+      },
+      {
+        "answer": "Augustinum Hipponensem",
+        "tier": 3
+      },
+      {
+        "answer": "Dilecti amici",
+        "tier": 3
+      },
+      {
+        "answer": "Redemptionis anno",
+        "tier": 3
+      },
+      {
+        "answer": "Salvifici doloris",
+        "tier": 3
+      },
+      {
+        "answer": "Egregiæ Virtutis",
+        "tier": 3
+      },
+      {
+        "answer": "Sanctorum altrix",
+        "tier": 3
+      },
+      {
+        "answer": "Patres Ecclesiæ",
+        "tier": 3
+      },
+      {
+        "answer": "Rutilans agmen",
+        "tier": 4
+      },
+      {
+        "answer": "Lumen ecclesiæ",
+        "tier": 4
+      },
+      {
+        "answer": "Amoris officio",
+        "tier": 4
+      },
+      {
+        "answer": "Octogesima adveniens",
+        "tier": 4
+      },
+      {
+        "answer": "Africæ terrarum",
+        "tier": 4
+      },
+      {
+        "answer": "Sacrificium laudis",
+        "tier": 4
+      },
+      {
+        "answer": "In Spiritu Sancto",
+        "tier": 4
+      },
+      {
+        "answer": "Ambulate in dilectione",
+        "tier": 4
+      },
+      {
+        "answer": "Investigabiles divitias Christi",
+        "tier": 4
+      },
+      {
+        "answer": "Pacis nuntius",
+        "tier": 4
+      },
+      {
+        "answer": "Summi Dei Verbum",
+        "tier": 4
+      },
+      {
+        "answer": "Œcumenicum Concilium",
+        "tier": 4
+      },
+      {
+        "answer": "Inde a primis",
+        "tier": 4
+      },
+      {
+        "answer": "Dum mærenti animo",
+        "tier": 5
+      },
+      {
+        "answer": "Sacro vergente anno",
+        "tier": 5
+      },
+      {
+        "answer": "Veritatem facientes",
+        "tier": 5
+      },
+      {
+        "answer": "Cupimus Imprimis",
+        "tier": 5
+      },
+      {
+        "answer": "Impensiore caritate",
+        "tier": 5
+      },
+      {
+        "answer": "Nosti profecto",
+        "tier": 5
+      },
+      {
+        "answer": "Suavis agitata",
+        "tier": 5
+      },
+      {
+        "answer": "Commissum nobis",
+        "tier": 5
+      },
+      {
+        "answer": "Prædecessor noster",
+        "tier": 5
+      },
+      {
+        "answer": "Monasterii Sanctæ Mariæ",
+        "tier": 5
+      },
+      {
+        "answer": "Sagiensis diœcesis",
+        "tier": 5
+      },
+      {
+        "answer": "Leodiensis diœcesis",
+        "tier": 5
+      },
+      {
+        "answer": "Providentia opportuna",
+        "tier": 5
+      },
+      {
+        "answer": "Inter præstantiores",
+        "tier": 5
+      },
+      {
+        "answer": "Ex hac",
+        "tier": 5
+      },
+      {
+        "answer": "Per similes",
+        "tier": 6
+      },
+      {
+        "answer": "Quum ex Apostolico",
+        "tier": 6
+      },
+      {
+        "answer": "Cum tu",
+        "tier": 6
+      },
+      {
+        "answer": "Decessor Noster",
+        "tier": 6
+      },
+      {
+        "answer": "Dilectus filius",
+        "tier": 6
+      },
+      {
+        "answer": "Friburgensis archidiœcesis",
+        "tier": 6
+      },
+      {
+        "answer": "Singulare Illud",
+        "tier": 5
+      },
+      {
+        "answer": "Paterna Sane",
+        "tier": 5
+      },
+      {
+        "answer": "Christi nomen",
+        "tier": 5
+      },
+      {
+        "answer": "Bibliorum scientiam",
+        "tier": 5
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Rosarium Virginis Mariæ",
+        "accepted": true
+      },
+      {
+        "guess": "Novo millennio ineunte",
+        "accepted": true
+      },
+      {
+        "guess": "Mulieris dignitatem",
+        "accepted": true
+      },
+      {
+        "guess": "Dies Domini",
+        "accepted": true
+      },
+      {
+        "guess": "Ordinatio sacerdotalis",
+        "accepted": true
+      },
+      {
+        "guess": "Evangelium vitae",
+        "accepted": false,
+        "reason": "An encyclical, not an apostolic letter."
+      },
+      {
+        "guess": "Fides et ratio",
+        "accepted": false,
+        "reason": "An encyclical, not an apostolic letter."
+      },
+      {
+        "guess": "Pastor Bonus",
+        "accepted": false,
+        "reason": "An apostolic constitution."
+      },
+      {
+        "guess": "Summorum Pontificum",
+        "accepted": false,
+        "reason": "A motu proprio."
+      },
+      {
+        "guess": "Dei Verbum",
+        "accepted": false,
+        "reason": "A Vatican II dogmatic constitution."
+      }
+    ],
+    "reviewFlags": [
+      "Several older entries are short Latin legal incipits; retain catalogue spellings and diacritics.",
+      "Some modern apostolic letters are descriptive English titles; only the title field shown in the source is used."
+    ]
+  }
 ];
