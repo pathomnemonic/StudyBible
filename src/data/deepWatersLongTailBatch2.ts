@@ -2079,4 +2079,596 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-nurse-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was a nurse.",
+    "context": "Nurses and caregivers appear among the Church’s saints, blesseds and venerables, especially in hospital and charitable orders. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Nurses,” 68 profiles across saints, blesseds and venerables: https://catholicsaints.info/saints-who-were-nurses/ . All answer names are drawn from the 68 listed records.",
+    "answers": [
+      {
+        "answer": "Bartholomew Buonpedoni",
+        "tier": 1
+      },
+      {
+        "answer": "Benito Solana Ruiz",
+        "tier": 5
+      },
+      {
+        "answer": "Benvenutus of Gubbio",
+        "tier": 4
+      },
+      {
+        "answer": "Bonaventure of Barcelona",
+        "tier": 5
+      },
+      {
+        "answer": "Cecilia Schelingová",
+        "tier": 3
+      },
+      {
+        "answer": "Dénise Leclerc",
+        "tier": 5
+      },
+      {
+        "answer": "Dolores Úrsula Caro Martín",
+        "tier": 5
+      },
+      {
+        "answer": "Edward Joannes Maria Poppe",
+        "tier": 3
+      },
+      {
+        "answer": "Enrico Rebuschini",
+        "tier": 3
+      },
+      {
+        "answer": "Esther Paniagua Alonso",
+        "tier": 5
+      },
+      {
+        "answer": "Francisca Pons Sarda",
+        "tier": 6
+      },
+      {
+        "answer": "Francisco Gárate Aranguren",
+        "tier": 4
+      },
+      {
+        "answer": "Gertrude Prosperi",
+        "tier": 5
+      },
+      {
+        "answer": "Hanna Helena Chrzanowska",
+        "tier": 2
+      },
+      {
+        "answer": "Ismael Tajadura Marcos",
+        "tier": 6
+      },
+      {
+        "answer": "José Olallo Valdés",
+        "tier": 3
+      },
+      {
+        "answer": "Josefa Laborra Goyeneche",
+        "tier": 5
+      },
+      {
+        "answer": "Josep Tarrats Comaposada",
+        "tier": 6
+      },
+      {
+        "answer": "Juan Agustín Codera Marqués",
+        "tier": 6
+      },
+      {
+        "answer": "Juan Bautista Egozcuezábal Aldaz",
+        "tier": 6
+      },
+      {
+        "answer": "Juliana Kubitzki",
+        "tier": 5
+      },
+      {
+        "answer": "Juliana of Mont Cornillon",
+        "tier": 3
+      },
+      {
+        "answer": "Leonella Sgorbati",
+        "tier": 2
+      },
+      {
+        "answer": "Liduina Meneguzzi",
+        "tier": 3
+      },
+      {
+        "answer": "Luczja Heymann",
+        "tier": 6
+      },
+      {
+        "answer": "Luigi Maria Monti",
+        "tier": 3
+      },
+      {
+        "answer": "Lukarda of Oberweimar",
+        "tier": 6
+      },
+      {
+        "answer": "Marguerite Rutan",
+        "tier": 3
+      },
+      {
+        "answer": "María Angélica Pérez",
+        "tier": 4
+      },
+      {
+        "answer": "María Asunción Mayoral Peña",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Christophora Klomfass",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Corsini Beltrame Quattrocchi",
+        "tier": 3
+      },
+      {
+        "answer": "María Dolores Barroso Villaseñor",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Euthymia Üffing",
+        "tier": 2
+      },
+      {
+        "answer": "María Isabel López García",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Ludovica de Angelis",
+        "tier": 3
+      },
+      {
+        "answer": "María Pilar Gullón Yturriaga",
+        "tier": 3
+      },
+      {
+        "answer": "Maria Rafols-Bruna",
+        "tier": 3
+      },
+      {
+        "answer": "Maria Troncatti",
+        "tier": 2
+      },
+      {
+        "answer": "Marie-Catherine de Saint-Augustin",
+        "tier": 4
+      },
+      {
+        "answer": "Martina Vázquez Gordo",
+        "tier": 6
+      },
+      {
+        "answer": "Mary of Saint Joseph Alvarado Cardozo",
+        "tier": 5
+      },
+      {
+        "answer": "Mary Restituta Kafka",
+        "tier": 2
+      },
+      {
+        "answer": "Octavia Iglesias Blanco",
+        "tier": 6
+      },
+      {
+        "answer": "Olga Pérez-Monteserín Núñez",
+        "tier": 6
+      },
+      {
+        "answer": "Paul-Hélène Saint Raymond",
+        "tier": 6
+      },
+      {
+        "answer": "Teuzzo of Razzuolo",
+        "tier": 6
+      },
+      {
+        "answer": "Agostina Petrantoni",
+        "tier": 2
+      },
+      {
+        "answer": "Bertille",
+        "tier": 4
+      },
+      {
+        "answer": "Maria Bertilla Boscardin",
+        "tier": 1
+      },
+      {
+        "answer": "María Natividad Venegas de La Torre",
+        "tier": 2
+      },
+      {
+        "answer": "Maria Rosa Molas y Vallvé",
+        "tier": 3
+      },
+      {
+        "answer": "Martin de Porres",
+        "tier": 1
+      },
+      {
+        "answer": "Mary Elizabeth Hesselblad",
+        "tier": 2
+      },
+      {
+        "answer": "Michael Kozaki",
+        "tier": 5
+      },
+      {
+        "answer": "Alessandra Ghilardi",
+        "tier": 6
+      },
+      {
+        "answer": "Anna Maria Sorti",
+        "tier": 6
+      },
+      {
+        "answer": "Celeste Maria Ossoli",
+        "tier": 6
+      },
+      {
+        "answer": "Coloma Antònia Martí y Valls",
+        "tier": 6
+      },
+      {
+        "answer": "Edda Maria Caterina Roda",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Martin de Porres",
+        "accepted": true
+      },
+      {
+        "guess": "Maria Bertilla Boscardin",
+        "accepted": true
+      },
+      {
+        "guess": "Hanna Helena Chrzanowska",
+        "accepted": true
+      },
+      {
+        "guess": "José Olallo Valdés",
+        "accepted": true
+      },
+      {
+        "guess": "Mary Restituta Kafka",
+        "accepted": true
+      },
+      {
+        "guess": "Florence Nightingale",
+        "accepted": false,
+        "reason": "An Anglican nurse, not a Catholic saint, blessed or venerable."
+      },
+      {
+        "guess": "Clare of Assisi",
+        "accepted": false,
+        "reason": "A religious founder, not listed in this nurse directory."
+      },
+      {
+        "guess": "Teresa of Calcutta",
+        "accepted": false,
+        "reason": "A missionary sister, but not in this nurse directory."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A priest, not a nurse."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not a nurse."
+      }
+    ]
+  },
+  {
+    "id": "longtail-hermit-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who lived as a hermit.",
+    "context": "Some holy men and women lived in solitude or as hermits, while others began hermit lives before founding communities. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Hermits,” 896 profiles: https://catholicsaints.info/saints-who-were-hermits/ . The answer key uses named entries from the directory.",
+    "answers": [
+      {
+        "answer": "Anthony the Great",
+        "tier": 1
+      },
+      {
+        "answer": "Paul of Thebes",
+        "tier": 1
+      },
+      {
+        "answer": "Mary of Egypt",
+        "tier": 2
+      },
+      {
+        "answer": "Benedict of Nursia",
+        "tier": 1
+      },
+      {
+        "answer": "Romuald",
+        "tier": 2
+      },
+      {
+        "answer": "Bruno of Cologne",
+        "tier": 2
+      },
+      {
+        "answer": "Peter Damian",
+        "tier": 2
+      },
+      {
+        "answer": "Simon Stylites",
+        "tier": 2
+      },
+      {
+        "answer": "John the Baptist",
+        "tier": 1
+      },
+      {
+        "answer": "Jerome",
+        "tier": 1
+      },
+      {
+        "answer": "Hilarion",
+        "tier": 2
+      },
+      {
+        "answer": "Sabas",
+        "tier": 2
+      },
+      {
+        "answer": "Onuphrius",
+        "tier": 3
+      },
+      {
+        "answer": "Arsenius the Great",
+        "tier": 2
+      },
+      {
+        "answer": "Macarius of Egypt",
+        "tier": 2
+      },
+      {
+        "answer": "Pachomius",
+        "tier": 2
+      },
+      {
+        "answer": "Moses the Black",
+        "tier": 2
+      },
+      {
+        "answer": "Euthymius the Great",
+        "tier": 3
+      },
+      {
+        "answer": "Theodosius the Cenobiarch",
+        "tier": 3
+      },
+      {
+        "answer": "Alericus",
+        "tier": 5
+      },
+      {
+        "answer": "Adalbert of Caramaico",
+        "tier": 5
+      },
+      {
+        "answer": "Adam of Cantalupo in Sabina",
+        "tier": 6
+      },
+      {
+        "answer": "Adam of San Sabine",
+        "tier": 6
+      },
+      {
+        "answer": "Agapios of Vatopedi",
+        "tier": 5
+      },
+      {
+        "answer": "Alanus of Sassovivo",
+        "tier": 5
+      },
+      {
+        "answer": "Albert of Genoa",
+        "tier": 5
+      },
+      {
+        "answer": "Albert of Siena",
+        "tier": 5
+      },
+      {
+        "answer": "Alexander of Kouchta",
+        "tier": 5
+      },
+      {
+        "answer": "Alruna of Cham",
+        "tier": 4
+      },
+      {
+        "answer": "Ammon of Cyprus",
+        "tier": 4
+      },
+      {
+        "answer": "Andrea Caccioli",
+        "tier": 5
+      },
+      {
+        "answer": "Andrew of Segni",
+        "tier": 4
+      },
+      {
+        "answer": "Angela of Bohemia",
+        "tier": 5
+      },
+      {
+        "answer": "Angelo of Acquapagana",
+        "tier": 6
+      },
+      {
+        "answer": "Angelus of Foligno",
+        "tier": 5
+      },
+      {
+        "answer": "Angelus of Furci",
+        "tier": 5
+      },
+      {
+        "answer": "Angelus of Gualdo Tadino",
+        "tier": 6
+      },
+      {
+        "answer": "Angelus Sinesius",
+        "tier": 6
+      },
+      {
+        "answer": "Anselmo",
+        "tier": 5
+      },
+      {
+        "answer": "Anthony Manzi",
+        "tier": 6
+      },
+      {
+        "answer": "Antimo of Urbino",
+        "tier": 5
+      },
+      {
+        "answer": "Archan of Etting",
+        "tier": 6
+      },
+      {
+        "answer": "Augustine Novello",
+        "tier": 3
+      },
+      {
+        "answer": "Bartolomeo of Simeri",
+        "tier": 5
+      },
+      {
+        "answer": "Bellatanus of Perugia",
+        "tier": 6
+      },
+      {
+        "answer": "Benedict Revelli",
+        "tier": 5
+      },
+      {
+        "answer": "Benedict Ricasoli",
+        "tier": 5
+      },
+      {
+        "answer": "Benigno of Vallumbrosa",
+        "tier": 5
+      },
+      {
+        "answer": "Benincasa of Montepulciano",
+        "tier": 6
+      },
+      {
+        "answer": "Benno of Metz",
+        "tier": 5
+      },
+      {
+        "answer": "Bernard of Sithiu",
+        "tier": 6
+      },
+      {
+        "answer": "Berthold of Scheide",
+        "tier": 5
+      },
+      {
+        "answer": "Bertold of Mount Carmel",
+        "tier": 5
+      },
+      {
+        "answer": "Bertrada of Saint Gallen",
+        "tier": 6
+      },
+      {
+        "answer": "Bodard of Poitiers",
+        "tier": 6
+      },
+      {
+        "answer": "Bogumilus of Gniezno",
+        "tier": 5
+      },
+      {
+        "answer": "Bronislava of Poland",
+        "tier": 5
+      },
+      {
+        "answer": "Cherilde of Saint George",
+        "tier": 6
+      },
+      {
+        "answer": "Choulélaios of Cyprus",
+        "tier": 6
+      },
+      {
+        "answer": "Christian of Landais",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Anthony the Great",
+        "accepted": true
+      },
+      {
+        "guess": "Paul of Thebes",
+        "accepted": true
+      },
+      {
+        "guess": "Mary of Egypt",
+        "accepted": true
+      },
+      {
+        "guess": "Benedict of Nursia",
+        "accepted": true
+      },
+      {
+        "guess": "Romuald",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Dominican friar and theologian, not a hermit."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A missionary, not a hermit."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not a hermit."
+      },
+      {
+        "guess": "John Bosco",
+        "accepted": false,
+        "reason": "A priest and educator, not a hermit."
+      },
+      {
+        "guess": "Elizabeth Ann Seton",
+        "accepted": false,
+        "reason": "A religious sister and educator, not a hermit."
+      }
+    ]
+  }
 ];
