@@ -49,10 +49,10 @@ describe('the questions derived by rule', () => {
   it('are the ones the rules choose now (the stored choice in deepWaters.derived.json is not out of date)', () => {
     expect(() => execSync('npx tsx scripts/deepwaters/derive.ts', { stdio: 'pipe', timeout: 120000 })).not.toThrow();
   }, 130000);
-  it('fill the bank to a whole number of days, 77 days of seven', () => {
+  it('fill the bank to a whole number of days, 72 days of seven', () => {
     expect(DEEP_PLAYABLE).toHaveLength(BANK_SIZE);
-    expect(BANK_SIZE).toBe(539);
-    expect(cycleLength(DEEP_PLAYABLE.length)).toBe(77);
+    expect(BANK_SIZE).toBe(504);
+    expect(cycleLength(DEEP_PLAYABLE.length)).toBe(72);
     expect(derived.length).toBeGreaterThan(30);
   });
   it('never ask for two letter conditions at once (one letter, or its absence, or how a name starts or ends: nothing to hold in the head twice)', () => {

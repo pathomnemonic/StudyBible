@@ -66,6 +66,25 @@ for (const f of readdirSync(dir).filter((x) => /^out\d+\.txt$/.test(x)).sort()) 
     out.push({ id, theme, prompt, context: context || 'Any one of these counts. This list is not complete.', basis: basis || 'Hand-authored.', ...(closed !== undefined ? { closed } : {}), answers: fixed });
   }
 }
+// A second pass for near-duplicates: lists whose answers overlap a lot (or whose prompts say nearly the same words with a fair answer overlap) are the same question twice.
+// Against an existing list the new one goes; between two new lists the shorter one goes.
+const PROMPT_STOP = new Set(['name', 'a', 'an', 'the', 'of', 'in', 'that', 'who', 'was', 'is', 'one', 'something', 'someone', 'to', 'for', 'and', 'or', 'you', 'might', 'would', 'can']);
+const ptoks = (p: string) => new Set(p.toLowerCase().replace(/[^a-z ]/g, '').split(/\s+/).filter((w) => w && !PROMPT_STOP.has(w)).map((w) => w.replace(/(ian|ish|ch)$/, '').replace(/s$/, '')));
+const setOf = (answers: { answer: string; aliases?: string[] }[]) => new Set(answers.flatMap((a) => [a.answer, ...(a.aliases ?? [])]).map((x) => key(x)));
+const sim = (a: Set<string>, b: Set<string>) => { let both = 0; for (const x of a) if (b.has(x)) both++; return { jac: both / (a.size + b.size - both), cont: both / Math.min(a.size, b.size), both }; };
+const pj = (a: Set<string>, b: Set<string>) => { let n = 0; for (const x of a) if (b.has(x)) n++; return n / (a.size + b.size - n || 1); };
+const same = (x: { jac: number; cont: number; both: number }, p: number) => x.jac >= 0.4 || (p >= 0.5 && x.jac >= 0.25) || (p >= 0.7 && x.cont >= 0.5);
+type L = { id: string; prompt: string; answers: { answer: string; aliases?: string[] }[] };
+const kept = out as unknown as L[];
+const drop = new Set<string>();
+for (const k of [...kept].sort((a, b) => b.answers.length - a.answers.length)) {   // longer lists are looked at first and keep their place
+  const mine = setOf(k.answers), mp = ptoks(k.prompt);
+  const clash = BASE_PROMPTS.find((e) => same(sim(mine, setOf(e.answers)), pj(mp, ptoks(e.prompt))));
+  if (clash) { drop.add(k.id); report.push(`${k.id}: near-duplicate of existing "${clash.prompt}" (${clash.id}), skipped`); continue; }
+  const other = kept.find((o) => o !== k && !drop.has(o.id) && o.answers.length >= k.answers.length && o.id !== k.id && same(sim(mine, setOf(o.answers)), pj(mp, ptoks(o.prompt))) && (o.answers.length > k.answers.length || o.id < k.id));
+  if (other) { drop.add(k.id); report.push(`${k.id}: near-duplicate of new "${other.prompt}" (${other.id}), skipped`); }
+}
+for (let i = out.length - 1; i >= 0; i--) if (drop.has(out[i].id as string)) out.splice(i, 1);
 writeFileSync(new URL('../../src/data/deepWatersBatch.json', import.meta.url).pathname, JSON.stringify(out));
 console.log(`${out.length} lists kept of ${blocksSeen}; ${out.reduce((n, p) => n + (p.answers as unknown[]).length, 0)} answers`);
 writeFileSync(`${dir}/import-report.txt`, report.join('\n'));

@@ -2072,12 +2072,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-saint-with-an-animal",
-   "sha256": "324a600c58f774ef711e38bcab1d58b66b546d77235782409599d61310799c70",
-   "answers": 31,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-priest-saint",
    "sha256": "feb09928f18820d88e35a4b18e69c37550d8c1e8a3b6a4c72a0305801a5810e4",
    "answers": 44,
@@ -2090,39 +2084,15 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-franciscan-saint",
-   "sha256": "398afa959fc12927b7faf738cfd75a6bab9bb987247841295eaaea2990cbb742",
-   "answers": 37,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-saint-from-italy",
    "sha256": "50970aa0ae76f7986bfe8023d08a7c5b5c90c0717528264dae17923d661a1333",
    "answers": 48,
    "status": "unreviewed"
   },
   {
-   "id": "authored7-saint-from-spain",
-   "sha256": "48f3bd384965acf5f3ee12a563ee9cc656b8baf8b2fee78837f0490b51633fc7",
-   "answers": 36,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-saint-from-france",
-   "sha256": "fa0a9e2e2e5f97f20ed7dc6f9ac98f0f266032d1100db65d5a00d007dc4780f1",
-   "answers": 41,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-saint-latin-america",
    "sha256": "ee6a35d1fd0e98f65831346aba9929f9d5a683cc06eb6b64ce37f7d46abd7f53",
    "answers": 30,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-saint-canonized-since-2000",
-   "sha256": "c0efd02ba67df2fbb656e00a9fb37bb4fbe9317d65e9626db1476ae6c6299ec5",
-   "answers": 40,
    "status": "unreviewed"
   },
   {
@@ -2147,12 +2117,6 @@
    "id": "authored7-hermit-saint",
    "sha256": "6df674c8b10e409ce42e132dde5e41b2286bd5649ed2fa1a38ff7de70bf056fe",
    "answers": 28,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-saint-in-the-new-testament",
-   "sha256": "b18ecfd7fcdd6fe71a0a8e1baa2af133ee84fdebfd2fa4014a6fa9a6a3a8e4ad",
-   "answers": 44,
    "status": "unreviewed"
   },
   {
@@ -2228,12 +2192,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-saint-who-was-a-teacher",
-   "sha256": "8e367d31516dad769cbd77a7d3e550c2fe40566b875c700a771d9906dd80fc6b",
-   "answers": 26,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-saint-named-in-the-mass",
    "sha256": "29352eaaa381d2e14c13be7561ab7b8b0709806087bb4dc3e405a7cb7634823c",
    "answers": 40,
@@ -2267,12 +2225,6 @@
    "id": "authored7-saint-who-was-an-abbot-or-abbess",
    "sha256": "b2e4493bea9ac68641c6b3d39fd7e9d27f09b97fc9fd1854fb30a91c9c4b6d23",
    "answers": 38,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-saint-statue-in-a-church",
-   "sha256": "7f03cc4e5f7ed200e41d83516b1a040e4c91d64f1291da554099e5e9419f8e9a",
-   "answers": 54,
    "status": "unreviewed"
   },
   {
@@ -2453,12 +2405,6 @@
    "id": "authored7-god-promised-ot",
    "sha256": "767e7920c3cbc5f8b3b2d0d7168e4cc27481a03c3b10d1e633b64de15621b4ba",
    "answers": 33,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-names-of-god-ot",
-   "sha256": "a85428efa1a84ccf249c783b834982c50c8d1f7cf37a4d82d7766cd900e14d0b",
-   "answers": 35,
    "status": "unreviewed"
   },
   {
@@ -2648,12 +2594,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-family-of-jesus",
-   "sha256": "ffc283db2c12b93e4739e7afb078e9ec71ca3af4a6d4c0e01a1ca2121f7e81fa",
-   "answers": 34,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-follower-of-jesus",
    "sha256": "33269bc5276fe5607ebbbea38d242f9e4f0669cb4b3b55750374a43637873e7d",
    "answers": 30,
@@ -2696,18 +2636,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-paul-travel",
-   "sha256": "126e0fc7d724efb925c1b35f85dd7a860d4e7f44c2f4fa2dfce89ba5dc5bc9b9",
-   "answers": 49,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-gift-of-spirit",
-   "sha256": "e5f3be4c905ea96e5b161b881e21c162bbcc544415ebae9560b3c53228e4ba39",
-   "answers": 27,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-revelation",
    "sha256": "35ec63a1e75f9a07afc48d30cde82a643422a518eb43f984cee89949debacd6b",
    "answers": 55,
@@ -2723,12 +2651,6 @@
    "id": "authored7-acts-event",
    "sha256": "6d3e44e310673bc78215b33c6decb5280afd593691896e561c59390fad4ac03d",
    "answers": 44,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-paul-companion",
-   "sha256": "5da271c5640eb1f6a3f8626b0ca2eb4394d40e8c6d7211beab40500346f44445",
-   "answers": 38,
    "status": "unreviewed"
   },
   {
@@ -2888,12 +2810,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-bishop-or-pope-wears",
-   "sha256": "b778eff1cf7b3e8dd0b0564a19cb107fc542648aafb5d7d6448135eefd28acd1",
-   "answers": 28,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-part-of-the-mass",
    "sha256": "dad07781e890db7d50a4442d9760035464ad088e2f349ace1d3617e4b9772ce0",
    "answers": 41,
@@ -2921,12 +2837,6 @@
    "id": "authored7-found-in-the-sanctuary",
    "sha256": "bd78aecc0461c58178c22f6823d35809f099dba6b18c87bc2d98e36d1d79ce9f",
    "answers": 30,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-statue-or-image-in-church",
-   "sha256": "502981c03d4ec034f2d90115066d41c5dff786fa4e3c1017d112fd79adb96514",
-   "answers": 43,
    "status": "unreviewed"
   },
   {
@@ -2960,12 +2870,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-associated-with-first-communion",
-   "sha256": "f8c2e73337adc14b25cbfe23f8e3ae34218fc7da3754e7b1b09d591e03273753",
-   "answers": 32,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-at-a-priestly-ordination",
    "sha256": "766fa91618932a02b504cb9d71d3704a88b297519ce8ff15eb815d8ed05d5a8a",
    "answers": 31,
@@ -2990,21 +2894,9 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-at-a-catholic-school",
-   "sha256": "56ee6e80ff1b919652daa6c20b984cbe28c5018c4ff9bce7ecc4470b431bc9b0",
-   "answers": 32,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-procession-catholics-hold",
    "sha256": "9350f909794cced1004c4836352b2339921ab6acda234d62ee073d4fcb5f52a9",
    "answers": 29,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-feast-day-of-mary",
-   "sha256": "afb83af9ef52d6384fcf14911abe0c328608066f8ad1594d536c83810c0e0d19",
-   "answers": 27,
    "status": "unreviewed"
   },
   {
@@ -3062,21 +2954,9 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-kept-in-a-catholic-home",
-   "sha256": "398ec1499e398089435484b11a7c75e93d2ecaa7900a8325c23276aa756d66c9",
-   "answers": 35,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-catholics-wear-or-carry",
    "sha256": "f7c6a11c74de11aab7cecb67ba502c2fc68ccc4a915fd1e3dfd2c944c9257358",
    "answers": 33,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-in-a-stained-glass-window",
-   "sha256": "f2c087d5601aa19cdf5faaa5394a81ba800b69c8d13fbfead87620a8bb851275",
-   "answers": 46,
    "status": "unreviewed"
   },
   {
@@ -3176,18 +3056,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-spiritual-works-of-mercy",
-   "sha256": "7a0c53ab016d92f1d6d9a148b6efcda5955c6c221ed4fa71c9c2adfb305c0567",
-   "answers": 7,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-novena-prayed-to",
-   "sha256": "b8490c672cbc6536d57932b0ce87b80e5f8e1db21caf0ab27b812c5226c1d925",
-   "answers": 37,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-prayer-or-devotion-to-mary",
    "sha256": "93d02b1a1729e8331f7b434e29e73941a1023fc0bac46d79f39fc9ad2f51863c",
    "answers": 29,
@@ -3251,24 +3119,6 @@
    "id": "authored7-parish-ministries",
    "sha256": "f1bcb6c48cda1dde725be426ded0587346d2498366aa532642e93a8209b5b64f",
    "answers": 39,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-someone-catholics-pray-for",
-   "sha256": "861833f007ba5293c70895d922f0c01effbce3f6ee9e799578124efc8a4f657c",
-   "answers": 44,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-something-catholics-pray-for",
-   "sha256": "f41f6b0887d89269b78c5d5f86be1c722512dbeee9103e6b0a3b3f7de8041620",
-   "answers": 40,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-place-catholics-pray",
-   "sha256": "2f3d22ddbe14edacdaeff58cc4fb7de018d707644a80ad818b2f81f6dddac4ae",
-   "answers": 32,
    "status": "unreviewed"
   },
   {
@@ -3428,18 +3278,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-church-council",
-   "sha256": "c4f011b7ffd4cf44319019d39ff095e7a5d53415ebfd96daa946117989b337ca",
-   "answers": 38,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-heresy",
-   "sha256": "2ad345ec57c4dbe4796cecee9fc4a807a62d37ef75527e8a3fb6afd6611c48dd",
-   "answers": 35,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-reformation-person",
    "sha256": "d02093f7c955f1bbb0bebbe664f002b77d9c6a45e94b46baa431a66913c74fd5",
    "answers": 58,
@@ -3467,12 +3305,6 @@
    "id": "authored7-pope-wears",
    "sha256": "f1a4aa7ae7442edc46a82bc6eb750e58d93562f87cd77a5abb55d04ec9ebb25a",
    "answers": 31,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-papal-document",
-   "sha256": "c50724786bf201d86f0303f8b36befe741b5e6d3a94a417d5c64021250bf935a",
-   "answers": 72,
    "status": "unreviewed"
   },
   {
@@ -3527,12 +3359,6 @@
    "id": "authored7-rome-landmark",
    "sha256": "dbdec29bc9cf24e40b088c1be7548b907a4768b9a35b3e40972b61ab1bf0ccf8",
    "answers": 48,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-monastery-abbey",
-   "sha256": "cc8bb0a372bcc9e674aa6d44c6e385588c34a5d733d8fc980dc092ab8153477b",
-   "answers": 60,
    "status": "unreviewed"
   },
   {
@@ -3611,12 +3437,6 @@
    "id": "authored7-us-archdiocese",
    "sha256": "a02974a1322c5bb7e189fe3a91c172dd25dd76a7546cf91b3e239b5bb1853fc6",
    "answers": 34,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-italian-saint",
-   "sha256": "7895d3c6526439b99ecd3a909b1b542cf76dd13bdd190b56462794db9b7ff846",
-   "answers": 56,
    "status": "unreviewed"
   },
   {
@@ -3878,12 +3698,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-times-to-pray",
-   "sha256": "7efcc5574ad29f4fa2c3e4c94d314f45384dc134c4839d766daf3d509a6fd4a1",
-   "answers": 35,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-places-to-pray",
    "sha256": "cffd99331e8f2a9ab0e59f5d92d6b5d9bc8a3468582c2481d7d42d0ba4e17df3",
    "answers": 35,
@@ -3971,12 +3785,6 @@
    "id": "authored7-marian-hymn",
    "sha256": "459f2484ec99492a8a9a83806e5c127bcb3b071e919fa91cb3e5ad80226cd308",
    "answers": 31,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-latin-hymn-chant",
-   "sha256": "d9dedbd1c73939672da38ebeb4267e60f6c6664010bead372fe99e05857ed94a",
-   "answers": 55,
    "status": "unreviewed"
   },
   {
@@ -4179,8 +3987,8 @@
   },
   {
    "id": "derived:bible-books",
-   "sha256": "efee98b9275545d1c7ce2bb76e27677f60fb60ac28d2e0b6128447df541e9ee3",
-   "answers": 3,
+   "sha256": "2f3fac42694980ef5f42bc7e0a7459a53446da4de0538334e49c0e973eacfe18",
+   "answers": 2,
    "status": "unreviewed"
   },
   {
@@ -4215,8 +4023,8 @@
   },
   {
    "id": "derived:italy-cities",
-   "sha256": "b79d8e87cac2fcec3068a7455447bce636ee4ed322acd02a5a8be1a74051b741",
-   "answers": 3,
+   "sha256": "a590adcfb91382fbd1e085a3f0b03edb8aa357d12e28d1489f827d789fcbe2af",
+   "answers": 2,
    "status": "unreviewed"
   },
   {
@@ -4245,14 +4053,14 @@
   },
   {
    "id": "derived:saint-cities",
-   "sha256": "34cbe11032d593813284d1b9a54e81a31f1c49dd5a567e202d49fa9f7f402117",
-   "answers": 3,
+   "sha256": "6e4fe2dfaeeef99cdeacc8f1fdf416b3d61829191f0004689cf79d70495dda8b",
+   "answers": 2,
    "status": "unreviewed"
   },
   {
    "id": "derived:saint-first-names",
-   "sha256": "bc1e1e86dad47a7b7deff5123aab72458cd02d9c32137a7ed78ffee8d7b03ea2",
-   "answers": 3,
+   "sha256": "c0aae7cb18dd03536cdc72640e3a7cf8c15dbc7bafaff1514766abf3654e7578",
+   "answers": 2,
    "status": "unreviewed"
   },
   {
@@ -4263,8 +4071,8 @@
   },
   {
    "id": "derived:shrines",
-   "sha256": "d8183042d5aa9fd54a9c4fde176ec34edc840f9417587f3e98daa1a2732950d9",
-   "answers": 3,
+   "sha256": "c0d39c98ae11025f7a9b046494d869c8f7c6a859477df4e4afee64d9045c9169",
+   "answers": 2,
    "status": "unreviewed"
   },
   {
