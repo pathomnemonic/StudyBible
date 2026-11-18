@@ -7106,4 +7106,1188 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-bishop-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was a bishop.",
+    "context": "The Church’s bishops have included martyrs, missionaries, theologians and pastors from every century. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Bishops,” 2,397 profiles: https://catholicsaints.info/saints-who-were-bishops/ . The answer key samples named people in the directory.",
+    "answers": [
+      {
+        "answer": "Augustine of Hippo",
+        "tier": 1
+      },
+      {
+        "answer": "Ambrose of Milan",
+        "tier": 1
+      },
+      {
+        "answer": "Nicholas of Myra",
+        "tier": 1
+      },
+      {
+        "answer": "Patrick",
+        "tier": 1
+      },
+      {
+        "answer": "Francis de Sales",
+        "tier": 1
+      },
+      {
+        "answer": "John Chrysostom",
+        "tier": 2
+      },
+      {
+        "answer": "Basil the Great",
+        "tier": 2
+      },
+      {
+        "answer": "Athanasius of Alexandria",
+        "tier": 2
+      },
+      {
+        "answer": "Gregory the Great",
+        "tier": 2
+      },
+      {
+        "answer": "Charles Borromeo",
+        "tier": 2
+      },
+      {
+        "answer": "Martin of Tours",
+        "tier": 2
+      },
+      {
+        "answer": "Oscar Romero",
+        "tier": 2
+      },
+      {
+        "answer": "Cyril of Alexandria",
+        "tier": 3
+      },
+      {
+        "answer": "Cyril of Jerusalem",
+        "tier": 3
+      },
+      {
+        "answer": "Gregory of Nazianzus",
+        "tier": 3
+      },
+      {
+        "answer": "Gregory of Nyssa",
+        "tier": 3
+      },
+      {
+        "answer": "Irenaeus of Lyons",
+        "tier": 3
+      },
+      {
+        "answer": "Polycarp of Smyrna",
+        "tier": 3
+      },
+      {
+        "answer": "Ignatius of Antioch",
+        "tier": 3
+      },
+      {
+        "answer": "Cyprian of Carthage",
+        "tier": 3
+      },
+      {
+        "answer": "Eusebius of Vercelli",
+        "tier": 3
+      },
+      {
+        "answer": "Hilary of Poitiers",
+        "tier": 3
+      },
+      {
+        "answer": "Leo the Great",
+        "tier": 3
+      },
+      {
+        "answer": "Bonaventure",
+        "tier": 3
+      },
+      {
+        "answer": "Robert Bellarmine",
+        "tier": 4
+      },
+      {
+        "answer": "Peter Canisius",
+        "tier": 4
+      },
+      {
+        "answer": "John Fisher",
+        "tier": 4
+      },
+      {
+        "answer": "John Neumann",
+        "tier": 4
+      },
+      {
+        "answer": "John of Nepomuk",
+        "tier": 4
+      },
+      {
+        "answer": "Turibius of Mogrovejo",
+        "tier": 4
+      },
+      {
+        "answer": "Peter Claver",
+        "tier": 4
+      },
+      {
+        "answer": "John de Britto",
+        "tier": 4
+      },
+      {
+        "answer": "Daniel Comboni",
+        "tier": 4
+      },
+      {
+        "answer": "Joseph Freinademetz",
+        "tier": 4
+      },
+      {
+        "answer": "Alphonsus Liguori",
+        "tier": 4
+      },
+      {
+        "answer": "Paul of the Cross",
+        "tier": 4
+      },
+      {
+        "answer": "Norbert of Xanten",
+        "tier": 4
+      },
+      {
+        "answer": "Leander of Seville",
+        "tier": 4
+      },
+      {
+        "answer": "Francis Xavier",
+        "tier": 4
+      },
+      {
+        "answer": "Adalbert of Prague",
+        "tier": 5
+      },
+      {
+        "answer": "Ansgar",
+        "tier": 5
+      },
+      {
+        "answer": "Willibrord",
+        "tier": 5
+      },
+      {
+        "answer": "Remigius of Rheims",
+        "tier": 5
+      },
+      {
+        "answer": "Amandus of Maastricht",
+        "tier": 5
+      },
+      {
+        "answer": "Boniface",
+        "tier": 5
+      },
+      {
+        "answer": "Willigis of Mainz",
+        "tier": 5
+      },
+      {
+        "answer": "Ulrich of Augsburg",
+        "tier": 5
+      },
+      {
+        "answer": "Galdinus of Milan",
+        "tier": 5
+      },
+      {
+        "answer": "Godehard of Hildesheim",
+        "tier": 5
+      },
+      {
+        "answer": "Hugh of Grenoble",
+        "tier": 5
+      },
+      {
+        "answer": "Richard of Chichester",
+        "tier": 5
+      },
+      {
+        "answer": "William of York",
+        "tier": 5
+      },
+      {
+        "answer": "Ivo of Chartres",
+        "tier": 5
+      },
+      {
+        "answer": "John of Avila",
+        "tier": 5
+      },
+      {
+        "answer": "Adalbero of Liège",
+        "tier": 6
+      },
+      {
+        "answer": "Ado of Vienne",
+        "tier": 6
+      },
+      {
+        "answer": "Aldhelm of Sherborne",
+        "tier": 6
+      },
+      {
+        "answer": "Amalarius of Metz",
+        "tier": 6
+      },
+      {
+        "answer": "Anselm of Lucca",
+        "tier": 6
+      },
+      {
+        "answer": "Arnold of Soissons",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Augustine of Hippo",
+        "accepted": true
+      },
+      {
+        "guess": "Ambrose of Milan",
+        "accepted": true
+      },
+      {
+        "guess": "Nicholas of Myra",
+        "accepted": true
+      },
+      {
+        "guess": "Patrick",
+        "accepted": true
+      },
+      {
+        "guess": "Francis de Sales",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Dominican priest and theologian, not a bishop."
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": false,
+        "reason": "A deacon and religious founder, not a bishop."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A laywoman and military leader, not a bishop."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Carmelite nun, not a bishop."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A parish priest, not a bishop."
+      }
+    ]
+  },
+  {
+    "id": "longtail-monk-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was a monk.",
+    "context": "Monks have shaped Christian prayer, learning, missionary work and community life across the centuries. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Monks,” 2,273 profiles: https://catholicsaints.info/saints-who-were-monks/ . The answer bank samples names from the source index.",
+    "answers": [
+      {
+        "answer": "Benedict of Nursia",
+        "tier": 1
+      },
+      {
+        "answer": "Francis of Assisi",
+        "tier": 1
+      },
+      {
+        "answer": "Anthony the Great",
+        "tier": 1
+      },
+      {
+        "answer": "Bernard of Clairvaux",
+        "tier": 1
+      },
+      {
+        "answer": "Thomas Merton",
+        "tier": 1
+      },
+      {
+        "answer": "Dominic",
+        "tier": 2
+      },
+      {
+        "answer": "Bruno of Cologne",
+        "tier": 2
+      },
+      {
+        "answer": "Romuald",
+        "tier": 2
+      },
+      {
+        "answer": "Bede the Venerable",
+        "tier": 2
+      },
+      {
+        "answer": "John of the Cross",
+        "tier": 2
+      },
+      {
+        "answer": "Peter Damian",
+        "tier": 2
+      },
+      {
+        "answer": "John Cassian",
+        "tier": 2
+      },
+      {
+        "answer": "Pachomius",
+        "tier": 3
+      },
+      {
+        "answer": "Macarius of Egypt",
+        "tier": 3
+      },
+      {
+        "answer": "Moses the Black",
+        "tier": 3
+      },
+      {
+        "answer": "Sabas",
+        "tier": 3
+      },
+      {
+        "answer": "Hilarion",
+        "tier": 3
+      },
+      {
+        "answer": "Euthymius the Great",
+        "tier": 3
+      },
+      {
+        "answer": "Theodosius the Cenobiarch",
+        "tier": 3
+      },
+      {
+        "answer": "John Climacus",
+        "tier": 3
+      },
+      {
+        "answer": "Nilus of Sinai",
+        "tier": 3
+      },
+      {
+        "answer": "Isaac of Nineveh",
+        "tier": 3
+      },
+      {
+        "answer": "Maximus the Confessor",
+        "tier": 3
+      },
+      {
+        "answer": "Symeon the New Theologian",
+        "tier": 3
+      },
+      {
+        "answer": "Acardo of Avranches",
+        "tier": 4
+      },
+      {
+        "answer": "Adelelmo of Engelberg",
+        "tier": 4
+      },
+      {
+        "answer": "Adalbert of Tegernsee",
+        "tier": 4
+      },
+      {
+        "answer": "Adam of San Sabine",
+        "tier": 4
+      },
+      {
+        "answer": "Agapios of Vatopedi",
+        "tier": 4
+      },
+      {
+        "answer": "Alan the Great of Lille",
+        "tier": 4
+      },
+      {
+        "answer": "Albert of Pontida",
+        "tier": 4
+      },
+      {
+        "answer": "Alexander of Cîteaux",
+        "tier": 4
+      },
+      {
+        "answer": "Almus of Balmerino",
+        "tier": 4
+      },
+      {
+        "answer": "Anselm of Anchin",
+        "tier": 4
+      },
+      {
+        "answer": "Anselm of Rot an der Rot",
+        "tier": 4
+      },
+      {
+        "answer": "Arnold of Gemblours",
+        "tier": 4
+      },
+      {
+        "answer": "Arnulf of Leuven",
+        "tier": 4
+      },
+      {
+        "answer": "Balsamus of Cava",
+        "tier": 4
+      },
+      {
+        "answer": "Bartolomeo of Simeri",
+        "tier": 4
+      },
+      {
+        "answer": "Alberic of Cîteaux",
+        "tier": 5
+      },
+      {
+        "answer": "Alfred of Hildesheim",
+        "tier": 5
+      },
+      {
+        "answer": "Amadeus of Lausanne",
+        "tier": 5
+      },
+      {
+        "answer": "Andrew of Crete",
+        "tier": 5
+      },
+      {
+        "answer": "Angelus Sinesius",
+        "tier": 5
+      },
+      {
+        "answer": "Benedict of Aniane",
+        "tier": 5
+      },
+      {
+        "answer": "Benigno of Vallumbrosa",
+        "tier": 5
+      },
+      {
+        "answer": "Benincasa of Cava",
+        "tier": 5
+      },
+      {
+        "answer": "Berengar de Alenys",
+        "tier": 5
+      },
+      {
+        "answer": "Berthold of Garsten",
+        "tier": 5
+      },
+      {
+        "answer": "Bruno of Querfurt",
+        "tier": 5
+      },
+      {
+        "answer": "Cadfael of England",
+        "tier": 5
+      },
+      {
+        "answer": "Conon of Naso",
+        "tier": 5
+      },
+      {
+        "answer": "Frowin of Engelberg",
+        "tier": 5
+      },
+      {
+        "answer": "Gerlac of Obermarchtal",
+        "tier": 5
+      },
+      {
+        "answer": "Alericus",
+        "tier": 6
+      },
+      {
+        "answer": "Alramo of Niederaltaich",
+        "tier": 6
+      },
+      {
+        "answer": "Athanasius of Jerusalem",
+        "tier": 6
+      },
+      {
+        "answer": "Bertold of Mount Carmel",
+        "tier": 6
+      },
+      {
+        "answer": "Bogumilus of Gniezno",
+        "tier": 6
+      },
+      {
+        "answer": "Christian of Landais",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Benedict of Nursia",
+        "accepted": true
+      },
+      {
+        "guess": "Francis of Assisi",
+        "accepted": true
+      },
+      {
+        "guess": "Anthony the Great",
+        "accepted": true
+      },
+      {
+        "guess": "Bernard of Clairvaux",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Merton",
+        "accepted": true
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A laywoman and military leader, not a monk."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A diocesan priest, not a monk."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A nun, not a monk."
+      },
+      {
+        "guess": "Thomas More",
+        "accepted": false,
+        "reason": "A lay statesman, not a monk."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A Jesuit missionary priest, not a monk."
+      }
+    ]
+  },
+  {
+    "id": "longtail-lay-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who lived as a lay person.",
+    "context": "Not every holy person was a priest or religious. The Church also recognizes married people, workers, students and other lay men and women. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Lifelong Lay People,” 1,957 profiles: https://catholicsaints.info/saints-who-were-lifelong-lay-people/ . The answer key samples people from the directory.",
+    "answers": [
+      {
+        "answer": "Thomas More",
+        "tier": 1
+      },
+      {
+        "answer": "Joan of Arc",
+        "tier": 1
+      },
+      {
+        "answer": "Kateri Tekakwitha",
+        "tier": 1
+      },
+      {
+        "answer": "Pier Giorgio Frassati",
+        "tier": 1
+      },
+      {
+        "answer": "Carlo Acutis",
+        "tier": 1
+      },
+      {
+        "answer": "Gianna Beretta Molla",
+        "tier": 2
+      },
+      {
+        "answer": "Louis and Zélie Martin",
+        "tier": 2
+      },
+      {
+        "answer": "John Henry Newman",
+        "tier": 2
+      },
+      {
+        "answer": "Edith Stein",
+        "tier": 2
+      },
+      {
+        "answer": "Elizabeth Ann Seton",
+        "tier": 2
+      },
+      {
+        "answer": "Alberto Marvelli",
+        "tier": 2
+      },
+      {
+        "answer": "Chiara Badano",
+        "tier": 2
+      },
+      {
+        "answer": "Aldo Mei",
+        "tier": 3
+      },
+      {
+        "answer": "Aldo Puglisi",
+        "tier": 3
+      },
+      {
+        "answer": "Alexis Choemon",
+        "tier": 3
+      },
+      {
+        "answer": "Alexandria of Nagasaki",
+        "tier": 3
+      },
+      {
+        "answer": "Alphonse Mazurek",
+        "tier": 3
+      },
+      {
+        "answer": "Anacleto González Flores",
+        "tier": 3
+      },
+      {
+        "answer": "Andreas Gim Gwang-Ok",
+        "tier": 3
+      },
+      {
+        "answer": "Andrew Sushinda",
+        "tier": 3
+      },
+      {
+        "answer": "Angela Salawa",
+        "tier": 3
+      },
+      {
+        "answer": "Anna Kolesárová",
+        "tier": 3
+      },
+      {
+        "answer": "Anna of Hokusanbara",
+        "tier": 3
+      },
+      {
+        "answer": "Antoni Julian Nowowiejski",
+        "tier": 3
+      },
+      {
+        "answer": "Adalbert of Ostrevant",
+        "tier": 4
+      },
+      {
+        "answer": "Adrian Fortescue",
+        "tier": 4
+      },
+      {
+        "answer": "Agata Phutta Bi",
+        "tier": 4
+      },
+      {
+        "answer": "Agatha Han Sin-ae",
+        "tier": 4
+      },
+      {
+        "answer": "Agatha Yun Jeom-Hye",
+        "tier": 4
+      },
+      {
+        "answer": "Agnes Takeda",
+        "tier": 4
+      },
+      {
+        "answer": "Agnes Takeya",
+        "tier": 4
+      },
+      {
+        "answer": "Agustín Alcalá y Henke",
+        "tier": 4
+      },
+      {
+        "answer": "Agustín Fernández Vázquez",
+        "tier": 4
+      },
+      {
+        "answer": "Albert of Bergamo",
+        "tier": 4
+      },
+      {
+        "answer": "Albertina Berkenbrock",
+        "tier": 4
+      },
+      {
+        "answer": "Alda of Siena",
+        "tier": 4
+      },
+      {
+        "answer": "Alessandra Sabattini",
+        "tier": 4
+      },
+      {
+        "answer": "Alexander Blake",
+        "tier": 4
+      },
+      {
+        "answer": "Alexandre Planas Saurí",
+        "tier": 4
+      },
+      {
+        "answer": "Alexis Sanbashi Saburo",
+        "tier": 5
+      },
+      {
+        "answer": "Alexius Nakamura",
+        "tier": 5
+      },
+      {
+        "answer": "Alexius Sato Seisuke",
+        "tier": 5
+      },
+      {
+        "answer": "Alexius Sugi Shohachi",
+        "tier": 5
+      },
+      {
+        "answer": "Altrude of Rome",
+        "tier": 5
+      },
+      {
+        "answer": "Álvaro Santos Cejudo Moreno Chocano",
+        "tier": 5
+      },
+      {
+        "answer": "Amadeus of Savoy",
+        "tier": 5
+      },
+      {
+        "answer": "Amalia Abad Casasempere de Maestre",
+        "tier": 5
+      },
+      {
+        "answer": "Ana María Aranda Riera",
+        "tier": 5
+      },
+      {
+        "answer": "Andreas Murayama Tokuan",
+        "tier": 5
+      },
+      {
+        "answer": "Andreas Yamamoto Shichiemon",
+        "tier": 5
+      },
+      {
+        "answer": "Andrés Casinello Barroeta",
+        "tier": 5
+      },
+      {
+        "answer": "Andrés Rueda Rojas",
+        "tier": 5
+      },
+      {
+        "answer": "Andrew the Catechist",
+        "tier": 5
+      },
+      {
+        "answer": "Adriana Morales Solís",
+        "tier": 5
+      },
+      {
+        "answer": "Angelica of Milazzo",
+        "tier": 6
+      },
+      {
+        "answer": "Angelo da Pesche d’Isernia",
+        "tier": 6
+      },
+      {
+        "answer": "Anicet Hryciuk",
+        "tier": 6
+      },
+      {
+        "answer": "Anna Kajiya",
+        "tier": 6
+      },
+      {
+        "answer": "Anna Hamard",
+        "tier": 6
+      },
+      {
+        "answer": "Agatha of Kyoto",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Thomas More",
+        "accepted": true
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": true
+      },
+      {
+        "guess": "Kateri Tekakwitha",
+        "accepted": true
+      },
+      {
+        "guess": "Pier Giorgio Frassati",
+        "accepted": true
+      },
+      {
+        "guess": "Carlo Acutis",
+        "accepted": true
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A diocesan priest, not a lifelong lay person."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Carmelite nun, not a lifelong lay person."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A Jesuit priest, not a lifelong lay person."
+      },
+      {
+        "guess": "Benedict of Nursia",
+        "accepted": false,
+        "reason": "A monk, not a lifelong lay person."
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A Dominican priest and friar, not a lifelong lay person."
+      }
+    ]
+  },
+  {
+    "id": "longtail-visionary-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who had a vision.",
+    "context": "Many Catholics are known for reported visions of Christ, Mary, angels or the saints. This open list is not complete, and the Church’s judgment on individual claims varies.",
+    "basis": "CatholicSaints.info, “Saints who were Visionaries,” 259 profiles: https://catholicsaints.info/saints-who-were-visionaries/ . Inclusion in the index is not a claim that every vision has ecclesiastical approval.",
+    "answers": [
+      {
+        "answer": "Bernadette Soubirous",
+        "tier": 1
+      },
+      {
+        "answer": "Catherine of Siena",
+        "tier": 1
+      },
+      {
+        "answer": "Teresa of Ávila",
+        "tier": 1
+      },
+      {
+        "answer": "Faustina Kowalska",
+        "tier": 1
+      },
+      {
+        "answer": "John Bosco",
+        "tier": 1
+      },
+      {
+        "answer": "Anne Catherine Emmerich",
+        "tier": 2
+      },
+      {
+        "answer": "Anne Marie Taigi",
+        "tier": 2
+      },
+      {
+        "answer": "Alexandrina Maria da Costa",
+        "tier": 2
+      },
+      {
+        "answer": "Hildegard of Bingen",
+        "tier": 2
+      },
+      {
+        "answer": "Julian of Norwich",
+        "tier": 2
+      },
+      {
+        "answer": "Bridget of Sweden",
+        "tier": 2
+      },
+      {
+        "answer": "Catherine Labouré",
+        "tier": 2
+      },
+      {
+        "answer": "Alda of Siena",
+        "tier": 3
+      },
+      {
+        "answer": "Angela of Foligno",
+        "tier": 3
+      },
+      {
+        "answer": "Christina of Stommeln",
+        "tier": 3
+      },
+      {
+        "answer": "Christina Ebner",
+        "tier": 3
+      },
+      {
+        "answer": "Dorothy of Montau",
+        "tier": 3
+      },
+      {
+        "answer": "Mary of Agreda",
+        "tier": 3
+      },
+      {
+        "answer": "Mary of the Divine Heart",
+        "tier": 3
+      },
+      {
+        "answer": "Maria Valtorta",
+        "tier": 3
+      },
+      {
+        "answer": "Edvige Carboni",
+        "tier": 3
+      },
+      {
+        "answer": "Alexandrina of Balazar",
+        "tier": 3
+      },
+      {
+        "answer": "Gemma Galgani",
+        "tier": 3
+      },
+      {
+        "answer": "Padre Pio",
+        "tier": 3
+      },
+      {
+        "answer": "Abundus of Villers",
+        "tier": 4
+      },
+      {
+        "answer": "Adam of Saxony",
+        "tier": 4
+      },
+      {
+        "answer": "Agnes of Chatillon",
+        "tier": 4
+      },
+      {
+        "answer": "Agnès of Jesus",
+        "tier": 4
+      },
+      {
+        "answer": "Agostina of the Assumption",
+        "tier": 4
+      },
+      {
+        "answer": "Ambrose Sansedoni of Siena",
+        "tier": 4
+      },
+      {
+        "answer": "Andrea Caccioli",
+        "tier": 4
+      },
+      {
+        "answer": "Andrew Dotti",
+        "tier": 4
+      },
+      {
+        "answer": "Andrew of Segni",
+        "tier": 4
+      },
+      {
+        "answer": "Angelina of Spoleto",
+        "tier": 4
+      },
+      {
+        "answer": "Anne Mary Javouhey",
+        "tier": 4
+      },
+      {
+        "answer": "Archangela Girlani",
+        "tier": 4
+      },
+      {
+        "answer": "Bartholomew Buonpedoni",
+        "tier": 4
+      },
+      {
+        "answer": "Bartolomeo Pucci-Franceschi",
+        "tier": 4
+      },
+      {
+        "answer": "Bentivoglio de Bonis",
+        "tier": 4
+      },
+      {
+        "answer": "Benvenuta Bojani",
+        "tier": 5
+      },
+      {
+        "answer": "Benvenuto Mareni",
+        "tier": 5
+      },
+      {
+        "answer": "Bertold of Mount Carmel",
+        "tier": 5
+      },
+      {
+        "answer": "Candida of Como",
+        "tier": 5
+      },
+      {
+        "answer": "Catherine of Racconigi",
+        "tier": 5
+      },
+      {
+        "answer": "Christina Ciccarelli",
+        "tier": 5
+      },
+      {
+        "answer": "Christina of Retters",
+        "tier": 5
+      },
+      {
+        "answer": "Cisinandus of Tarouca",
+        "tier": 5
+      },
+      {
+        "answer": "Clara Isabella Fornari",
+        "tier": 5
+      },
+      {
+        "answer": "Columba of Rieti",
+        "tier": 5
+      },
+      {
+        "answer": "Conrad of Heisterbach",
+        "tier": 5
+      },
+      {
+        "answer": "Drogo of Baume",
+        "tier": 5
+      },
+      {
+        "answer": "Egbert of Villers",
+        "tier": 5
+      },
+      {
+        "answer": "Elia of San Clemente",
+        "tier": 5
+      },
+      {
+        "answer": "Élisabeth Eppinger",
+        "tier": 5
+      },
+      {
+        "answer": "Elizabeth Achler",
+        "tier": 6
+      },
+      {
+        "answer": "Erminia of Rheims",
+        "tier": 6
+      },
+      {
+        "answer": "Esperanza de Jesus",
+        "tier": 6
+      },
+      {
+        "answer": "Francinaina Cirer-Carbonell",
+        "tier": 6
+      },
+      {
+        "answer": "Francis Bruno",
+        "tier": 6
+      },
+      {
+        "answer": "Franco of Siena",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Bernadette Soubirous",
+        "accepted": true
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accepted": true
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": true
+      },
+      {
+        "guess": "Faustina Kowalska",
+        "accepted": true
+      },
+      {
+        "guess": "John Bosco",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A theologian, but not one of the visionaries in this answer key."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "Her voices and visions are well-known, but she is not included in this source sample."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A missionary, not listed in this visionary index."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A priest, not listed in this visionary sample."
+      },
+      {
+        "guess": "Carlo Acutis",
+        "accepted": false,
+        "reason": "A modern lay saint, not listed in this visionary index."
+      }
+    ]
+  }
 ];
