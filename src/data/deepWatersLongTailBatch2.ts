@@ -11550,4 +11550,305 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "The answer list excludes individual prayer formulas because the core bank already asks “Name a prayer.”"
     ]
   }
+  ,{
+    "id": "longtail-old-testament-miracles",
+    "theme": "scripture",
+    "prompt": "Name a miracle or supernatural sign in the Old Testament.",
+    "context": "The Old Testament recounts miracles, prophetic signs and extraordinary acts of divine protection or provision. This open list is not complete; it excludes the ten plagues of Egypt, which have their own prompt.",
+    "basis": "Hand-curated from the Catholic Old Testament, with references checked against the narrative accounts in Genesis, Exodus, Numbers, Joshua, Judges, 1–2 Samuel, 1–2 Kings, Daniel and Tobit. Titles are concise descriptions of individual events.",
+    "answers": [
+      {
+        "answer": "Parting of the Red Sea",
+        "tier": 1
+      },
+      {
+        "answer": "Manna in the wilderness",
+        "tier": 1
+      },
+      {
+        "answer": "Jericho’s walls fall",
+        "tier": 1
+      },
+      {
+        "answer": "Daniel in the lions’ den",
+        "tier": 1
+      },
+      {
+        "answer": "The three young men survive the fiery furnace",
+        "tier": 1
+      },
+      {
+        "answer": "Water from the rock at Horeb",
+        "tier": 2
+      },
+      {
+        "answer": "The Jordan River parts for Joshua",
+        "tier": 2
+      },
+      {
+        "answer": "Elijah raises the widow’s son",
+        "tier": 2
+      },
+      {
+        "answer": "Naaman is healed of leprosy",
+        "tier": 2
+      },
+      {
+        "answer": "Elisha raises the Shunammite woman’s son",
+        "tier": 2
+      },
+      {
+        "answer": "The sun stands still for Joshua",
+        "tier": 2
+      },
+      {
+        "answer": "Balaam’s donkey speaks",
+        "tier": 2
+      },
+      {
+        "answer": "The burning bush",
+        "tier": 3
+      },
+      {
+        "answer": "The pillar of cloud and fire",
+        "tier": 3
+      },
+      {
+        "answer": "Quail provided in the wilderness",
+        "tier": 3
+      },
+      {
+        "answer": "Aaron’s staff blossoms",
+        "tier": 3
+      },
+      {
+        "answer": "The earth swallows Korah’s company",
+        "tier": 3
+      },
+      {
+        "answer": "Gideon’s fleece sign",
+        "tier": 3
+      },
+      {
+        "answer": "Elijah fed by ravens",
+        "tier": 3
+      },
+      {
+        "answer": "The widow’s flour and oil do not run out",
+        "tier": 3
+      },
+      {
+        "answer": "Fire falls on Elijah’s sacrifice at Carmel",
+        "tier": 3
+      },
+      {
+        "answer": "Elisha makes an axe head float",
+        "tier": 3
+      },
+      {
+        "answer": "The angel strikes the Assyrian army",
+        "tier": 3
+      },
+      {
+        "answer": "Hezekiah’s life is extended",
+        "tier": 3
+      },
+      {
+        "answer": "The Flood and Noah’s preservation",
+        "tier": 4
+      },
+      {
+        "answer": "The rainbow covenant sign",
+        "tier": 4
+      },
+      {
+        "answer": "Lot’s wife becomes a pillar of salt",
+        "tier": 4
+      },
+      {
+        "answer": "Jacob’s ladder vision",
+        "tier": 4
+      },
+      {
+        "answer": "Jacob wrestles with the angel",
+        "tier": 4
+      },
+      {
+        "answer": "Moses’ staff becomes a serpent",
+        "tier": 4
+      },
+      {
+        "answer": "Moses’ hand becomes leprous and is healed",
+        "tier": 4
+      },
+      {
+        "answer": "The waters of Marah become sweet",
+        "tier": 4
+      },
+      {
+        "answer": "Water from the rock at Meribah",
+        "tier": 4
+      },
+      {
+        "answer": "The bronze serpent heals the Israelites",
+        "tier": 4
+      },
+      {
+        "answer": "The ark of the covenant returns from the Philistines",
+        "tier": 4
+      },
+      {
+        "answer": "Samuel’s thunderstorm at Mizpah",
+        "tier": 4
+      },
+      {
+        "answer": "Elijah calls down fire on the soldiers of Ahaziah",
+        "tier": 4
+      },
+      {
+        "answer": "Elijah is taken up in a whirlwind",
+        "tier": 4
+      },
+      {
+        "answer": "Elisha parts the Jordan with Elijah’s mantle",
+        "tier": 4
+      },
+      {
+        "answer": "Elisha purifies the spring at Jericho",
+        "tier": 5
+      },
+      {
+        "answer": "Elisha multiplies the widow’s oil",
+        "tier": 5
+      },
+      {
+        "answer": "Elisha purifies the poisoned stew",
+        "tier": 5
+      },
+      {
+        "answer": "Elisha multiplies the twenty barley loaves",
+        "tier": 5
+      },
+      {
+        "answer": "Elisha’s servant sees the heavenly army",
+        "tier": 5
+      },
+      {
+        "answer": "The Aramean army is struck with blindness",
+        "tier": 5
+      },
+      {
+        "answer": "A dead man revived by touching Elisha’s bones",
+        "tier": 5
+      },
+      {
+        "answer": "Jeroboam’s hand withers and is restored",
+        "tier": 5
+      },
+      {
+        "answer": "The altar at Bethel splits",
+        "tier": 5
+      },
+      {
+        "answer": "The shadow moves backward on Ahaz’s sundial",
+        "tier": 5
+      },
+      {
+        "answer": "Nebuchadnezzar is restored after his madness",
+        "tier": 5
+      },
+      {
+        "answer": "The writing appears on Belshazzar’s wall",
+        "tier": 5
+      },
+      {
+        "answer": "Jonah is preserved in the great fish",
+        "tier": 5
+      },
+      {
+        "answer": "Tobit’s blindness is healed with fish gall",
+        "tier": 5
+      },
+      {
+        "answer": "Fire from heaven consumes Solomon’s temple offering",
+        "tier": 5
+      },
+      {
+        "answer": "Sarah conceives Isaac in old age",
+        "tier": 6
+      },
+      {
+        "answer": "The Lord appears to Moses in the burning bush",
+        "tier": 6
+      },
+      {
+        "answer": "The angel frees Daniel from the lions",
+        "tier": 6
+      },
+      {
+        "answer": "The angel strengthens Elijah in the wilderness",
+        "tier": 6
+      },
+      {
+        "answer": "The angel rescues the three young men in the furnace",
+        "tier": 6
+      },
+      {
+        "answer": "Heavenly horsemen appear to Judas Maccabeus",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Parting of the Red Sea",
+        "accepted": true
+      },
+      {
+        "guess": "Manna in the wilderness",
+        "accepted": true
+      },
+      {
+        "guess": "Daniel in the lions’ den",
+        "accepted": true
+      },
+      {
+        "guess": "Jericho’s walls fall",
+        "accepted": true
+      },
+      {
+        "guess": "The three young men survive the fiery furnace",
+        "accepted": true
+      },
+      {
+        "guess": "Turning water into wine",
+        "accepted": false,
+        "reason": "A miracle of Jesus in the New Testament."
+      },
+      {
+        "guess": "Walking on water",
+        "accepted": false,
+        "reason": "A miracle of Jesus in the New Testament."
+      },
+      {
+        "guess": "The raising of Lazarus",
+        "accepted": false,
+        "reason": "A miracle of Jesus in the New Testament."
+      },
+      {
+        "guess": "The ten plagues of Egypt",
+        "accepted": false,
+        "reason": "A separate existing prompt covers the plagues of Egypt."
+      },
+      {
+        "guess": "The multiplication of the loaves by Jesus",
+        "accepted": false,
+        "reason": "A New Testament miracle of Jesus."
+      }
+    ],
+    "reviewFlags": [
+      "Some entries are prophetic signs or supernatural visions rather than healing miracles; the prompt explicitly includes supernatural signs.",
+      "The ten plagues of Egypt are excluded to avoid overlap with the existing plagues prompt.",
+      "Two distinct water-from-rock events are retained because Exodus 17 and Numbers 20 are separate episodes."
+    ]
+  }
 ];
