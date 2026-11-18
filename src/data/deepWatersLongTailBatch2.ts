@@ -1207,4 +1207,304 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "Recurring annual observances include the year in the answer key to keep individual entries distinct."
     ]
   }
+  ,{
+    "id": "longtail-curial-instructions",
+    "theme": "church-history",
+    "prompt": "Name an instruction issued by a Roman Curia dicastery or office.",
+    "context": "Curial instructions provide guidance on liturgy, doctrine, formation, ecclesiastical life and pastoral practice. This open list samples the catalogue and is not exhaustive.",
+    "basis": "GCatholic, Documents by Type → Instructions from the Roman Curia (78 catalogue entries): https://gcatholic.org/documents/data/type-CIN . Published catalogue titles are used, including Latin incipits and English titles.",
+    "answers": [
+      {
+        "answer": "The Identity of the Catholic School for a Culture of Dialogue",
+        "tier": 5
+      },
+      {
+        "answer": "On the Affiliation of Institutes of Higher Studies",
+        "tier": 6
+      },
+      {
+        "answer": "On the Aggregation of Institutes of Higher Studies",
+        "tier": 6
+      },
+      {
+        "answer": "On the Incorporation of Institutes of Higher Studies",
+        "tier": 6
+      },
+      {
+        "answer": "The pastoral conversion of the Parish community in the service of the evangelising mission of the Church",
+        "tier": 4
+      },
+      {
+        "answer": "Ecclesiæ Sponsæ Imago",
+        "tier": 5
+      },
+      {
+        "answer": "On studies of canon law in light of the reform of cases regarding the nullity of marriage",
+        "tier": 6
+      },
+      {
+        "answer": "Cor Orans",
+        "tier": 3
+      },
+      {
+        "answer": "Ad resurgendum cum Christo",
+        "tier": 3
+      },
+      {
+        "answer": "Universæ Ecclesiæ",
+        "tier": 2
+      },
+      {
+        "answer": "Dignitas Personæ",
+        "tier": 2
+      },
+      {
+        "answer": "The Word of God in the Life and Mission of the Church",
+        "tier": 4
+      },
+      {
+        "answer": "Sanctorum Mater",
+        "tier": 4
+      },
+      {
+        "answer": "On the criteria for the discernment of vocations with regard to persons in view of admission to the seminary",
+        "tier": 6
+      },
+      {
+        "answer": "Dignitas connubii",
+        "tier": 3
+      },
+      {
+        "answer": "Erga migrantes caritas Christi",
+        "tier": 3
+      },
+      {
+        "answer": "Redemptionis sacramentum",
+        "tier": 1
+      },
+      {
+        "answer": "The Priest, Pastor and Leader of the Parish Community",
+        "tier": 5
+      },
+      {
+        "answer": "Starting Afresh from Christ",
+        "tier": 3
+      },
+      {
+        "answer": "On the sending abroad and sojourn of diocesan priests from mission territories",
+        "tier": 6
+      },
+      {
+        "answer": "On the conferment of papal honours",
+        "tier": 5
+      },
+      {
+        "answer": "Liturgiam authenticam",
+        "tier": 2
+      },
+      {
+        "answer": "Ardens felicitatis",
+        "tier": 5
+      },
+      {
+        "answer": "Verbi Sponsa",
+        "tier": 5
+      },
+      {
+        "answer": "On Inter-Institute Collaboration for Formation",
+        "tier": 6
+      },
+      {
+        "answer": "Ecclesiæ de mysterio",
+        "tier": 3
+      },
+      {
+        "answer": "Instruction on Diocesan Synods",
+        "tier": 5
+      },
+      {
+        "answer": "On the admission to seminary of candidates coming from other seminaries or religious families",
+        "tier": 6
+      },
+      {
+        "answer": "Instruction for Applying the Liturgical Prescriptions of the Code of Canons of the Eastern Churches",
+        "tier": 6
+      },
+      {
+        "answer": "Varietates legitimæ",
+        "tier": 3
+      },
+      {
+        "answer": "On some aspects of the use of instruments of social communication in promoting the doctrine of the faith",
+        "tier": 6
+      },
+      {
+        "answer": "Ætatis novæ",
+        "tier": 3
+      },
+      {
+        "answer": "Donum veritatis",
+        "tier": 2
+      },
+      {
+        "answer": "Directives on Formation",
+        "tier": 5
+      },
+      {
+        "answer": "On the study of the Fathers of the Church in the formation of priests",
+        "tier": 5
+      },
+      {
+        "answer": "Donum vitæ",
+        "tier": 1
+      },
+      {
+        "answer": "Libertatis conscientia",
+        "tier": 3
+      },
+      {
+        "answer": "Libertatis nuntius",
+        "tier": 3
+      },
+      {
+        "answer": "Essential Elements in the Church’s Teaching on Religious Life",
+        "tier": 4
+      },
+      {
+        "answer": "Pastoralis actio",
+        "tier": 4
+      },
+      {
+        "answer": "Inæstimabile donum",
+        "tier": 4
+      },
+      {
+        "answer": "Postquam Apostoli",
+        "tier": 5
+      },
+      {
+        "answer": "On liturgical formation in seminaries",
+        "tier": 5
+      },
+      {
+        "answer": "Mutuæ relationes",
+        "tier": 3
+      },
+      {
+        "answer": "On the theological formation of future priests",
+        "tier": 5
+      },
+      {
+        "answer": "Secreta continere",
+        "tier": 5
+      },
+      {
+        "answer": "Instruction on the Solution of Marriage in Favour of the Faithful",
+        "tier": 6
+      },
+      {
+        "answer": "Immensæ caritatis",
+        "tier": 3
+      },
+      {
+        "answer": "In quibus rerum circumstantiis",
+        "tier": 5
+      },
+      {
+        "answer": "General Instruction of the Liturgy of the Hours",
+        "tier": 2
+      },
+      {
+        "answer": "Per Instructionem",
+        "tier": 6
+      },
+      {
+        "answer": "Liturgicæ instaurationes",
+        "tier": 3
+      },
+      {
+        "answer": "Sacramentali communione",
+        "tier": 4
+      },
+      {
+        "answer": "Calendaria Particularia",
+        "tier": 4
+      },
+      {
+        "answer": "On delaying the effective date for the Apostolic Constitution Missale Romanum",
+        "tier": 6
+      },
+      {
+        "answer": "Venite Seorsum",
+        "tier": 4
+      },
+      {
+        "answer": "Memoriale domini",
+        "tier": 3
+      },
+      {
+        "answer": "Actio pastoralis",
+        "tier": 4
+      },
+      {
+        "answer": "Fidei custos",
+        "tier": 5
+      },
+      {
+        "answer": "Ut sive sollicite",
+        "tier": 5
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Redemptionis sacramentum",
+        "accepted": true
+      },
+      {
+        "guess": "Dignitas personae",
+        "accepted": true
+      },
+      {
+        "guess": "Donum vitae",
+        "accepted": true
+      },
+      {
+        "guess": "Liturgiam authenticam",
+        "accepted": true
+      },
+      {
+        "guess": "Universae Ecclesiae",
+        "accepted": true
+      },
+      {
+        "guess": "Pastor Bonus",
+        "accepted": false,
+        "reason": "An apostolic constitution."
+      },
+      {
+        "guess": "Traditionis custodes",
+        "accepted": false,
+        "reason": "A motu proprio."
+      },
+      {
+        "guess": "Laudato si’",
+        "accepted": false,
+        "reason": "An encyclical."
+      },
+      {
+        "guess": "Rosarium Virginis Mariae",
+        "accepted": false,
+        "reason": "An apostolic letter."
+      },
+      {
+        "guess": "Dei Verbum",
+        "accepted": false,
+        "reason": "A Vatican II dogmatic constitution."
+      }
+    ],
+    "reviewFlags": [
+      "Some older records have both Latin incipits and descriptive English titles; the answer bank uses the page's primary title.",
+      "The source catalogue's category is followed even where a text is also discussed as a broader pastoral or doctrinal document."
+    ]
+  }
 ];
