@@ -6789,26 +6789,29 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "accepted": true
     },
     {
-      "guess": "Psalm 119",
+      "guess": "Magnificat",
       "accepted": false,
-      "reason": "A valid psalm, but it is not in this 60-answer sample."
+      "reason": "A biblical canticle from Luke 1, not a psalm."
     },
     {
-      "guess": "Psalm 150",
-      "accepted": true
-    },
-    {
-      "guess": "Psalm 1",
-      "accepted": true
-    },
-    {
-      "guess": "Psalm 42",
-      "accepted": true
-    },
-    {
-      "guess": "Psalm 88",
+      "guess": "Benedictus",
       "accepted": false,
-      "reason": "A valid psalm, but not included in this answer key."
+      "reason": "The canticle of Zechariah from Luke 1, not a psalm."
+    },
+    {
+      "guess": "Nunc Dimittis",
+      "accepted": false,
+      "reason": "The canticle of Simeon from Luke 2, not a psalm."
+    },
+    {
+      "guess": "Song of Songs",
+      "accepted": false,
+      "reason": "A biblical book, not a psalm."
+    },
+    {
+      "guess": "Proverbs 31",
+      "accepted": false,
+      "reason": "A chapter of Proverbs, not a psalm."
     }
   ]
 },
@@ -7084,25 +7087,27 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
     {
       "guess": "Capernaum",
       "accepted": false,
-      "reason": "A New Testament Galilean town, not an Old Testament place."
+      "reason": "A New Testament Galilean town."
     },
     {
       "guess": "Nazareth",
       "accepted": false,
-      "reason": "A New Testament town, not an Old Testament place."
-    },
-    {
-      "guess": "Nineveh",
-      "accepted": true
-    },
-    {
-      "guess": "Susa",
-      "accepted": true
+      "reason": "A New Testament town associated with Jesus’ childhood."
     },
     {
       "guess": "Golgotha",
       "accepted": false,
       "reason": "A New Testament place associated with the crucifixion."
+    },
+    {
+      "guess": "Bethsaida",
+      "accepted": false,
+      "reason": "A New Testament town in Galilee."
+    },
+    {
+      "guess": "Emmaus",
+      "accepted": false,
+      "reason": "A New Testament village associated with the risen Jesus."
     }
   ]
 },
@@ -13944,7 +13949,7 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       "tier": 1
     },
     {
-      "answer": "Buenos Aires, 1992–1996",
+      "answer": "Buenos Aires, 1992–1994–1996",
       "tier": 1
     },
     {
