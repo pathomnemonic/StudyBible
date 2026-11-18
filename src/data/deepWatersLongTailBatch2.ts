@@ -4151,4 +4151,596 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-servant-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who worked as a servant.",
+    "context": "Some saints spent part of their lives in domestic service, caregiving or humble work for others. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Servants,” 71 profiles: https://catholicsaints.info/saints-who-were-servants/ . The answer key samples 60 names from the directory.",
+    "answers": [
+      {
+        "answer": "Zita of Lucca",
+        "tier": 1
+      },
+      {
+        "answer": "Martin de Porres",
+        "tier": 1
+      },
+      {
+        "answer": "Maria Goretti",
+        "tier": 1
+      },
+      {
+        "answer": "Jeanne Jugan",
+        "tier": 1
+      },
+      {
+        "answer": "Notburga",
+        "tier": 1
+      },
+      {
+        "answer": "Isidore Bakanja",
+        "tier": 2
+      },
+      {
+        "answer": "Angela Salawa",
+        "tier": 2
+      },
+      {
+        "answer": "Faustina Kowalska",
+        "tier": 2
+      },
+      {
+        "answer": "Anne Catherine Emmerich",
+        "tier": 2
+      },
+      {
+        "answer": "Sebastian of Aparicio",
+        "tier": 2
+      },
+      {
+        "answer": "Radegund",
+        "tier": 2
+      },
+      {
+        "answer": "Rafqa",
+        "tier": 2
+      },
+      {
+        "answer": "Aimée-Adèle le Bouteiller",
+        "tier": 3
+      },
+      {
+        "answer": "Arnold of Stromberg",
+        "tier": 3
+      },
+      {
+        "answer": "Bartholomew Buonpedoni",
+        "tier": 3
+      },
+      {
+        "answer": "Catherine Soiron",
+        "tier": 3
+      },
+      {
+        "answer": "Eusebia Palomino Yenes",
+        "tier": 3
+      },
+      {
+        "answer": "Gertrude van Oosten",
+        "tier": 3
+      },
+      {
+        "answer": "Giselbert of Cappenberg",
+        "tier": 3
+      },
+      {
+        "answer": "John Carey",
+        "tier": 3
+      },
+      {
+        "answer": "John Mason",
+        "tier": 3
+      },
+      {
+        "answer": "John Roche",
+        "tier": 3
+      },
+      {
+        "answer": "John Shert",
+        "tier": 3
+      },
+      {
+        "answer": "Margherita of Verona",
+        "tier": 3
+      },
+      {
+        "answer": "Maria Fortunata Viti",
+        "tier": 4
+      },
+      {
+        "answer": "Oringa of the Cross",
+        "tier": 4
+      },
+      {
+        "answer": "Patrick Salmon",
+        "tier": 4
+      },
+      {
+        "answer": "Ralph Ashley",
+        "tier": 4
+      },
+      {
+        "answer": "Thérèse Soiron",
+        "tier": 4
+      },
+      {
+        "answer": "Ulrika Fransiska Nisch",
+        "tier": 4
+      },
+      {
+        "answer": "Walembert of Cambrai",
+        "tier": 4
+      },
+      {
+        "answer": "William Browne",
+        "tier": 4
+      },
+      {
+        "answer": "Adelelmus",
+        "tier": 4
+      },
+      {
+        "answer": "Agathodorus of Pergamus",
+        "tier": 4
+      },
+      {
+        "answer": "Apollo of Nicomedia",
+        "tier": 4
+      },
+      {
+        "answer": "Armogastes of Africa",
+        "tier": 4
+      },
+      {
+        "answer": "Asaph of Llanelwy",
+        "tier": 4
+      },
+      {
+        "answer": "Candida Maria de Jesus Cipitria y Barriola",
+        "tier": 4
+      },
+      {
+        "answer": "Charles Lwanga",
+        "tier": 4
+      },
+      {
+        "answer": "Cian of Wales",
+        "tier": 5
+      },
+      {
+        "answer": "Cronion Eunus",
+        "tier": 5
+      },
+      {
+        "answer": "Crotates of Nicomedia",
+        "tier": 5
+      },
+      {
+        "answer": "Cyneburga of Gloucester",
+        "tier": 5
+      },
+      {
+        "answer": "Dorotheus of Nicomedia",
+        "tier": 5
+      },
+      {
+        "answer": "Essuperanzio of Zurich",
+        "tier": 5
+      },
+      {
+        "answer": "Felicity of Carthage",
+        "tier": 5
+      },
+      {
+        "answer": "Gondolf of Saintes",
+        "tier": 5
+      },
+      {
+        "answer": "Gunthildis of Suffersheim",
+        "tier": 5
+      },
+      {
+        "answer": "Hermogenes of Melitene",
+        "tier": 5
+      },
+      {
+        "answer": "Hyacinth of Caesarea",
+        "tier": 5
+      },
+      {
+        "answer": "Hyacinth of Rome",
+        "tier": 5
+      },
+      {
+        "answer": "Indes of Nicomedia",
+        "tier": 5
+      },
+      {
+        "answer": "Ioannes Baptista Luo Tingyin",
+        "tier": 5
+      },
+      {
+        "answer": "Isacius of Nicomedia",
+        "tier": 5
+      },
+      {
+        "answer": "Ischyrion",
+        "tier": 6
+      },
+      {
+        "answer": "John of Rome",
+        "tier": 6
+      },
+      {
+        "answer": "John Rigby",
+        "tier": 6
+      },
+      {
+        "answer": "Juliana of Pavilly",
+        "tier": 6
+      },
+      {
+        "answer": "Lambert of Saragossa",
+        "tier": 6
+      },
+      {
+        "answer": "Leopardus the Slave",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Zita of Lucca",
+        "accepted": true
+      },
+      {
+        "guess": "Martin de Porres",
+        "accepted": true
+      },
+      {
+        "guess": "Maria Goretti",
+        "accepted": true
+      },
+      {
+        "guess": "Jeanne Jugan",
+        "accepted": true
+      },
+      {
+        "guess": "Notburga",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A theologian and friar, not listed as a servant."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A priest, not listed as a servant."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not a domestic servant."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A missionary, not listed as a servant."
+      },
+      {
+        "guess": "Catherine of Siena",
+        "accepted": false,
+        "reason": "A lay Dominican mystic, not listed as a servant."
+      }
+    ]
+  },
+  {
+    "id": "longtail-shepherd-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or biblical figure who was a shepherd.",
+    "context": "The shepherd’s life appears in Scripture and in the biographies of saints and blesseds. This open list includes biblical shepherds and later Christian figures; it is not complete.",
+    "basis": "CatholicSaints.info, “Saints who were Shepherds,” 70 profiles: https://catholicsaints.info/saints-who-were-shepherds/ . The answer bank follows the source index.",
+    "answers": [
+      {
+        "answer": "David",
+        "tier": 1
+      },
+      {
+        "answer": "Abraham",
+        "tier": 1
+      },
+      {
+        "answer": "Patrick",
+        "tier": 1
+      },
+      {
+        "answer": "Cuthbert of Lindisfarne",
+        "tier": 1
+      },
+      {
+        "answer": "Wendelin",
+        "tier": 1
+      },
+      {
+        "answer": "Amos",
+        "tier": 2
+      },
+      {
+        "answer": "Pope Pius V",
+        "tier": 2
+      },
+      {
+        "answer": "Dominic of Silos",
+        "tier": 2
+      },
+      {
+        "answer": "John of God",
+        "tier": 2
+      },
+      {
+        "answer": "Pascal Baylon",
+        "tier": 2
+      },
+      {
+        "answer": "Peter Chanel",
+        "tier": 2
+      },
+      {
+        "answer": "Pedro de San José Betancur",
+        "tier": 2
+      },
+      {
+        "answer": "Aldericus of Füssenich",
+        "tier": 3
+      },
+      {
+        "answer": "Atanasio Vidaurreta Labra",
+        "tier": 3
+      },
+      {
+        "answer": "Buenaventura García-Paredes Pallasá",
+        "tier": 3
+      },
+      {
+        "answer": "Dominic Barberi",
+        "tier": 3
+      },
+      {
+        "answer": "Eberhard of Tüntenhausen",
+        "tier": 3
+      },
+      {
+        "answer": "Francisco Sánchez Márquez",
+        "tier": 3
+      },
+      {
+        "answer": "Gezelin of Schlebusch",
+        "tier": 3
+      },
+      {
+        "answer": "José Xavier Gorosterratzu y Jaunarena",
+        "tier": 3
+      },
+      {
+        "answer": "Leopold of Gaiche",
+        "tier": 3
+      },
+      {
+        "answer": "Mariano of Roccacasale",
+        "tier": 3
+      },
+      {
+        "answer": "Tommaso Acerbis",
+        "tier": 3
+      },
+      {
+        "answer": "Vinebault",
+        "tier": 3
+      },
+      {
+        "answer": "Edward Joseph Flanagan",
+        "tier": 4
+      },
+      {
+        "answer": "Martyrs of Perga",
+        "tier": 4
+      },
+      {
+        "answer": "Agostino Roscelli",
+        "tier": 4
+      },
+      {
+        "answer": "Allucio of Campugliano",
+        "tier": 4
+      },
+      {
+        "answer": "Belina of Troyes",
+        "tier": 4
+      },
+      {
+        "answer": "Benezet the Bridge Builder",
+        "tier": 4
+      },
+      {
+        "answer": "Blasius of Armentarius",
+        "tier": 4
+      },
+      {
+        "answer": "Carloman",
+        "tier": 4
+      },
+      {
+        "answer": "Charles of Sezze",
+        "tier": 4
+      },
+      {
+        "answer": "Claudian of Perga",
+        "tier": 4
+      },
+      {
+        "answer": "Conon of Perga",
+        "tier": 4
+      },
+      {
+        "answer": "Cristobal Magallanes Jara",
+        "tier": 4
+      },
+      {
+        "answer": "Cuthman",
+        "tier": 4
+      },
+      {
+        "answer": "Diodorus of Perga",
+        "tier": 4
+      },
+      {
+        "answer": "Drogo",
+        "tier": 4
+      },
+      {
+        "answer": "Eberhard of Luzy",
+        "tier": 5
+      },
+      {
+        "answer": "Emilian Cucullatus",
+        "tier": 5
+      },
+      {
+        "answer": "Felix of Cantalice",
+        "tier": 5
+      },
+      {
+        "answer": "Gregory of Crete",
+        "tier": 5
+      },
+      {
+        "answer": "Juan Macías",
+        "tier": 5
+      },
+      {
+        "answer": "Leobinus of Chartres",
+        "tier": 5
+      },
+      {
+        "answer": "Lomer of Corbion",
+        "tier": 5
+      },
+      {
+        "answer": "Macarius of Egypt",
+        "tier": 5
+      },
+      {
+        "answer": "Magnus of Anagni",
+        "tier": 5
+      },
+      {
+        "answer": "Malchus of Syria",
+        "tier": 5
+      },
+      {
+        "answer": "Mamas",
+        "tier": 5
+      },
+      {
+        "answer": "Mark of Antioch",
+        "tier": 5
+      },
+      {
+        "answer": "Michael Garicoïts",
+        "tier": 5
+      },
+      {
+        "answer": "Papias of Perga",
+        "tier": 5
+      },
+      {
+        "answer": "Philaret of Calabria",
+        "tier": 5
+      },
+      {
+        "answer": "Potenzianus of Sens",
+        "tier": 6
+      },
+      {
+        "answer": "Quadragesimus of Policastro",
+        "tier": 6
+      },
+      {
+        "answer": "Raymond Nonnatus",
+        "tier": 6
+      },
+      {
+        "answer": "Sabinianus of Sens",
+        "tier": 6
+      },
+      {
+        "answer": "Salvator of Horta",
+        "tier": 6
+      },
+      {
+        "answer": "Serafino of Montegranar",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "David",
+        "accepted": true
+      },
+      {
+        "guess": "Abraham",
+        "accepted": true
+      },
+      {
+        "guess": "Amos",
+        "accepted": true
+      },
+      {
+        "guess": "Patrick",
+        "accepted": true
+      },
+      {
+        "guess": "Cuthbert of Lindisfarne",
+        "accepted": true
+      },
+      {
+        "guess": "Moses",
+        "accepted": false,
+        "reason": "A biblical leader, but not included in this shepherd answer bank."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not a shepherd."
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A theologian, not a shepherd."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A parish priest, not a shepherd in the source index."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A missionary, not a shepherd."
+      }
+    ]
+  }
 ];
