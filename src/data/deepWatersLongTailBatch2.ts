@@ -8290,4 +8290,596 @@ export const LONG_TAIL_BATCH_2_PROMPTS: ReviewedPrompt[] = [
       }
     ]
   }
+  ,{
+    "id": "longtail-musician-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who was a musician.",
+    "context": "Catholic holy people have composed, performed or preserved sacred music, from chant and hymnody to modern music ministry. This open list is drawn from a source index of 64 profiles.",
+    "basis": "CatholicSaints.info, “Saints who were Musicians,” 64 profiles: https://catholicsaints.info/saints-who-were-musicians/ . All answer names are drawn from the source index.",
+    "answers": [
+      {
+        "answer": "King David",
+        "tier": 1
+      },
+      {
+        "answer": "Pope Gregory the Great",
+        "tier": 1
+      },
+      {
+        "answer": "Hildegard of Bingen",
+        "tier": 1
+      },
+      {
+        "answer": "Bede the Venerable",
+        "tier": 1
+      },
+      {
+        "answer": "Gregory of Narek",
+        "tier": 1
+      },
+      {
+        "answer": "Alphonsus Maria de Liguori",
+        "tier": 2
+      },
+      {
+        "answer": "Ambrose of Milan",
+        "tier": 2
+      },
+      {
+        "answer": "Columba of Iona",
+        "tier": 2
+      },
+      {
+        "answer": "Dunstan of Canterbury",
+        "tier": 2
+      },
+      {
+        "answer": "Odo of Cluny",
+        "tier": 2
+      },
+      {
+        "answer": "Raymond Lull",
+        "tier": 2
+      },
+      {
+        "answer": "Tutilo of Saint Gall",
+        "tier": 2
+      },
+      {
+        "answer": "Aldhelm of Sherborne",
+        "tier": 3
+      },
+      {
+        "answer": "Benedict of Nursia",
+        "tier": 3
+      },
+      {
+        "answer": "Ephrem the Syrian",
+        "tier": 3
+      },
+      {
+        "answer": "Francis of Assisi",
+        "tier": 3
+      },
+      {
+        "answer": "John of the Cross",
+        "tier": 3
+      },
+      {
+        "answer": "Leo II",
+        "tier": 3
+      },
+      {
+        "answer": "Caradoc of Wales",
+        "tier": 3
+      },
+      {
+        "answer": "Godric of Finchale",
+        "tier": 3
+      },
+      {
+        "answer": "Hervé",
+        "tier": 3
+      },
+      {
+        "answer": "Benignus of Armagh",
+        "tier": 3
+      },
+      {
+        "answer": "Fulk of Toulouse",
+        "tier": 3
+      },
+      {
+        "answer": "Peter Casani",
+        "tier": 3
+      },
+      {
+        "answer": "Anne Catherine Emmerich",
+        "tier": 4
+      },
+      {
+        "answer": "Carlos Manuel Cecilio Rodriguez Santiago",
+        "tier": 4
+      },
+      {
+        "answer": "Edward Kazmierski",
+        "tier": 4
+      },
+      {
+        "answer": "Félix Echevarría Gorostiaga",
+        "tier": 4
+      },
+      {
+        "answer": "Francisco Bandrés Sánchez",
+        "tier": 4
+      },
+      {
+        "answer": "Fructuoso Pérez Márquez",
+        "tier": 4
+      },
+      {
+        "answer": "Giovanni Giovenale Ancina",
+        "tier": 4
+      },
+      {
+        "answer": "Giulio of Montevergine",
+        "tier": 4
+      },
+      {
+        "answer": "Hyacinth-Marie Cormier",
+        "tier": 4
+      },
+      {
+        "answer": "Jarogniew Wojciechowski",
+        "tier": 4
+      },
+      {
+        "answer": "Jose Tàpies y Sirvant",
+        "tier": 4
+      },
+      {
+        "answer": "Juan Otazua y Madariaga",
+        "tier": 4
+      },
+      {
+        "answer": "Lucien Botovasoa",
+        "tier": 4
+      },
+      {
+        "answer": "Manuel Fernández-Herba Pereira",
+        "tier": 4
+      },
+      {
+        "answer": "Maria Dina Bélanger",
+        "tier": 4
+      },
+      {
+        "answer": "María Romero Meneses",
+        "tier": 5
+      },
+      {
+        "answer": "María Severina Díaz-Pardo Gauna",
+        "tier": 5
+      },
+      {
+        "answer": "Marie-Elisabeth Pélissier",
+        "tier": 5
+      },
+      {
+        "answer": "Noël-Hilaire Le Conte",
+        "tier": 5
+      },
+      {
+        "answer": "Pacificus",
+        "tier": 5
+      },
+      {
+        "answer": "Rafał Chyliński",
+        "tier": 5
+      },
+      {
+        "answer": "Ranieri Scacceri",
+        "tier": 5
+      },
+      {
+        "answer": "Robert Montserrat Beliart",
+        "tier": 5
+      },
+      {
+        "answer": "Rosario Ciércoles Gascón",
+        "tier": 5
+      },
+      {
+        "answer": "Victor Chumillas-Fernández",
+        "tier": 5
+      },
+      {
+        "answer": "Arnold of Arnoldsweiler",
+        "tier": 5
+      },
+      {
+        "answer": "Benildus",
+        "tier": 5
+      },
+      {
+        "answer": "Benno of Meissen",
+        "tier": 5
+      },
+      {
+        "answer": "Colman of Cloyne",
+        "tier": 5
+      },
+      {
+        "answer": "Eugenius of Toledo",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Crucified Satellico",
+        "tier": 6
+      },
+      {
+        "answer": "Maria da Conceição Santos",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Giuseppina Benvenuti",
+        "tier": 6
+      },
+      {
+        "answer": "Maria Orsola Bussone",
+        "tier": 6
+      },
+      {
+        "answer": "Philip Evans",
+        "tier": 6
+      },
+      {
+        "answer": "Carlo Crespi Croci",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "King David",
+        "accepted": true
+      },
+      {
+        "guess": "Pope Gregory the Great",
+        "accepted": true
+      },
+      {
+        "guess": "Hildegard of Bingen",
+        "accepted": true
+      },
+      {
+        "guess": "Bede the Venerable",
+        "accepted": true
+      },
+      {
+        "guess": "Gregory of Narek",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "A theologian and hymn writer, but not included in this musician index."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "A military leader, not a musician in the source index."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "A parish priest, not listed as a musician."
+      },
+      {
+        "guess": "Francis Xavier",
+        "accepted": false,
+        "reason": "A missionary priest, not listed as a musician."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "A Carmelite nun and writer, not listed as a musician."
+      }
+    ]
+  },
+  {
+    "id": "longtail-child-saints",
+    "theme": "saints",
+    "prompt": "Name a saint, blessed, or venerable who died as a child.",
+    "context": "The Church remembers children and teenagers who died as martyrs, witnesses of faith or in lives of exceptional holiness. This open list is not complete.",
+    "basis": "CatholicSaints.info, “Saints who Died as Children,” 176 profiles: https://catholicsaints.info/saints-who-died-as-children/ . The answer key samples 60 names from the directory.",
+    "answers": [
+      {
+        "answer": "Carlo Acutis",
+        "tier": 1
+      },
+      {
+        "answer": "Dominic Savio",
+        "tier": 1
+      },
+      {
+        "answer": "Imelda Lambertini",
+        "tier": 1
+      },
+      {
+        "answer": "Laura Vicuña",
+        "tier": 1
+      },
+      {
+        "answer": "Maria Goretti",
+        "tier": 1
+      },
+      {
+        "answer": "Holy Innocents",
+        "tier": 2
+      },
+      {
+        "answer": "Agnes of Rome",
+        "tier": 2
+      },
+      {
+        "answer": "Panacea de’Muzzi",
+        "tier": 2
+      },
+      {
+        "answer": "Rolando Rivi",
+        "tier": 2
+      },
+      {
+        "answer": "Karoliny Kózkówny",
+        "tier": 2
+      },
+      {
+        "answer": "Benigna Cardoso da Silva",
+        "tier": 2
+      },
+      {
+        "answer": "Antonia Mesina",
+        "tier": 2
+      },
+      {
+        "answer": "Adilio Daronch",
+        "tier": 3
+      },
+      {
+        "answer": "Albertina Berkenbrock",
+        "tier": 3
+      },
+      {
+        "answer": "Andreas Yakichi",
+        "tier": 3
+      },
+      {
+        "answer": "Antoni Ulma",
+        "tier": 3
+      },
+      {
+        "answer": "Antonio Gaitán Perabad",
+        "tier": 3
+      },
+      {
+        "answer": "Benedictus of Kyoto",
+        "tier": 3
+      },
+      {
+        "answer": "Daudi Okelo",
+        "tier": 3
+      },
+      {
+        "answer": "Jildo Irwa",
+        "tier": 3
+      },
+      {
+        "answer": "Juan Barrera Méndez",
+        "tier": 3
+      },
+      {
+        "answer": "Lucia of Kyoto",
+        "tier": 3
+      },
+      {
+        "answer": "Anna Wang",
+        "tier": 3
+      },
+      {
+        "answer": "Agatha Yi",
+        "tier": 3
+      },
+      {
+        "answer": "Antonius Banzai Orusu",
+        "tier": 4
+      },
+      {
+        "answer": "Antonius Ono",
+        "tier": 4
+      },
+      {
+        "answer": "Barbara Ulma",
+        "tier": 4
+      },
+      {
+        "answer": "Bibiana Khamphai",
+        "tier": 4
+      },
+      {
+        "answer": "Catharina Hashimoto",
+        "tier": 4
+      },
+      {
+        "answer": "Cecilia Butsi",
+        "tier": 4
+      },
+      {
+        "answer": "Didacus Hayashida",
+        "tier": 4
+      },
+      {
+        "answer": "Dominic Nihachi",
+        "tier": 4
+      },
+      {
+        "answer": "Dominic Tomaki",
+        "tier": 4
+      },
+      {
+        "answer": "Elisabeth Sato",
+        "tier": 4
+      },
+      {
+        "answer": "Franciscus Hashimoto",
+        "tier": 4
+      },
+      {
+        "answer": "Franciscus Nihachi",
+        "tier": 4
+      },
+      {
+        "answer": "Franciscus Takeya",
+        "tier": 4
+      },
+      {
+        "answer": "Franciscus Yakichi",
+        "tier": 4
+      },
+      {
+        "answer": "Franciszek Ulma",
+        "tier": 4
+      },
+      {
+        "answer": "Iacobus Bunzo Gengoro",
+        "tier": 5
+      },
+      {
+        "answer": "Iacobus of Hiji",
+        "tier": 5
+      },
+      {
+        "answer": "Ignatius Jorge-Fernandes",
+        "tier": 5
+      },
+      {
+        "answer": "Ignatius Uchibori",
+        "tier": 5
+      },
+      {
+        "answer": "Ioannes Hamanomachi",
+        "tier": 5
+      },
+      {
+        "answer": "Ioannes Nishi Mataishi",
+        "tier": 5
+      },
+      {
+        "answer": "Iusta Amagasu",
+        "tier": 5
+      },
+      {
+        "answer": "Laurentius Yamada",
+        "tier": 5
+      },
+      {
+        "answer": "Lucia Kurogane",
+        "tier": 5
+      },
+      {
+        "answer": "Ludovica Hashimoto",
+        "tier": 5
+      },
+      {
+        "answer": "Ludovicus Minami",
+        "tier": 5
+      },
+      {
+        "answer": "Ludovicus Onizuka",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Phon",
+        "tier": 5
+      },
+      {
+        "answer": "Maria Ulma",
+        "tier": 5
+      },
+      {
+        "answer": "Martha of Hokusanbara",
+        "tier": 5
+      },
+      {
+        "answer": "Martha of Kyoto",
+        "tier": 6
+      },
+      {
+        "answer": "Michaël Tanda",
+        "tier": 6
+      },
+      {
+        "answer": "Michaël Tomachi",
+        "tier": 6
+      },
+      {
+        "answer": "Monica of Kyoto",
+        "tier": 6
+      },
+      {
+        "answer": "Paulus of Hokusanbara",
+        "tier": 6
+      },
+      {
+        "answer": "Paulus Tomachi",
+        "tier": 6
+      }
+    ],
+    "commonGuesses": [
+      {
+        "guess": "Carlo Acutis",
+        "accepted": true
+      },
+      {
+        "guess": "Dominic Savio",
+        "accepted": true
+      },
+      {
+        "guess": "Imelda Lambertini",
+        "accepted": true
+      },
+      {
+        "guess": "Laura Vicuña",
+        "accepted": true
+      },
+      {
+        "guess": "Maria Goretti",
+        "accepted": true
+      },
+      {
+        "guess": "Thomas Aquinas",
+        "accepted": false,
+        "reason": "He died as an adult, not as a child."
+      },
+      {
+        "guess": "Joan of Arc",
+        "accepted": false,
+        "reason": "She died as a young adult, not a child."
+      },
+      {
+        "guess": "Bernadette Soubirous",
+        "accepted": false,
+        "reason": "She died as an adult, not as a child."
+      },
+      {
+        "guess": "John Vianney",
+        "accepted": false,
+        "reason": "He died as an adult, not as a child."
+      },
+      {
+        "guess": "Teresa of Ávila",
+        "accepted": false,
+        "reason": "She died as an adult, not as a child."
+      }
+    ]
+  }
 ];
