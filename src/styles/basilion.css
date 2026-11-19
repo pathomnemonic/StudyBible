@@ -327,3 +327,18 @@ html .deep-waters.bas.dw-shake { animation: dw-shake 0.45s ease-in-out; }
 }
 html[data-motion='none'] .deep-waters.bas .dw-rise-streaks { display: none; }
 html[data-motion='none'] .deep-waters.bas .dw-reveal, html[data-motion='none'] .deep-waters.bas .dw-reveal-symbol { animation: none; }
+
+/* the answer key on the results screen: dark text on a plain light panel, searchable, with the rest one tap away */
+html .deep-waters.bas .dw-key { margin-top: 8px; }
+html .deep-waters.bas .dw-key-toggle, html .deep-waters.bas .dw-key-more { font: inherit; font-weight: 700; font-size: 0.95rem; cursor: pointer; padding: 8px 14px; border-radius: 10px; border: 2px solid #5b3300; background: #fff; color: #3a1d00; }
+html .deep-waters.bas .dw-key-body { margin-top: 8px; padding: 10px; border-radius: 12px; background: #fff; border: 2px solid #5b3300; color: #1d1204; }
+html .deep-waters.bas .dw-key-search { width: 100%; box-sizing: border-box; font: inherit; font-size: 1rem; padding: 9px 12px; border-radius: 10px; border: 2px solid #5b3300; background: #fffdf6; color: #1d1204; }
+html .deep-waters.bas .dw-key-list { list-style: none; margin: 8px 0 0; padding: 0; max-height: 340px; overflow: auto; display: grid; gap: 3px; }
+html .deep-waters.bas .dw-key-list li { display: flex; justify-content: space-between; gap: 12px; padding: 7px 10px; border-radius: 8px; background: #f6efdc; color: #1d1204; font-size: 1rem; line-height: 1.25; border-left: 6px solid var(--rare, #9aa1ab); }
+html .deep-waters.bas .dw-key-list li b { color: #3a1d00; white-space: nowrap; font-variant-numeric: tabular-nums; }
+html .deep-waters.bas .dw-key-list li.yours { background: #fff3c4; font-weight: 700; outline: 2px solid #5b3300; }
+html .deep-waters.bas .dw-key-list li.none { border-left-color: #5b3300; font-style: italic; }
+html .deep-waters.bas .dw-key-more { margin-top: 8px; width: 100%; }
+html .deep-waters.bas .dw-key-count { display: block; margin-top: 6px; color: #3a1d00; }
+html .deep-waters.bas .dw-results > ol > li > b { color: #7a1f1f; }
+html .deep-waters.bas .dw-results > ol > li > small { color: #3a1d00; }

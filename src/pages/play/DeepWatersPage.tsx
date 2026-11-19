@@ -3,7 +3,7 @@ import GameHelp from '../../components/GameHelp';
 import { bankSignature, deepWatersShare } from '../../lib/shareText';
 import ShareButton from '../../components/ShareButton';
 import { dayIndex, isPractice, markDailyDone, setPractice } from '../../lib/dailyGame';
-import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, deepHint, deepMissMessage, matchDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../../lib/deepWaters';
+import { dailyDeepPrompts, DEEP_POINTS, DEEP_ROUNDS, DEEP_SECONDS, DEEP_TIER_NAMES, deepHint, deepMissMessage, deepTokens, matchDeepAnswer, normalizeDeepAnswer, practiceDeepPrompts, suggestDeepAnswers } from '../../lib/deepWaters';
 import { clearDeepSession, deepDiveStreak, loadDeepLogbook, loadDeepSession, recordDeepDive, saveDeepSession } from '../../lib/deepWatersSession';
 import { clearDeepMisses, deepMissesText, loadDeepMisses, recordDeepMiss } from '../../lib/deepWatersMisses';
 import { Art } from '../../arcade/art';
@@ -48,6 +48,36 @@ const PACK_KEY = 'cathology.deepwaters.pack';
 const PACK_BEST = 'cathology.deepwaters.packbest';
 const loadPackBest = (): Record<string, number> => { try { return JSON.parse(localStorage.getItem(PACK_BEST) ?? '{}') as Record<string, number>; } catch { return {}; } };
 const savePackBest = (id: string, score: number) => { try { const b = loadPackBest(); if (score > (b[id] ?? 0)) { b[id] = score; localStorage.setItem(PACK_BEST, JSON.stringify(b)); } } catch { /* local storage may be unavailable */ } };
+
+const PREVIEW = 12;
+/** One question's answer key on the results screen: the best ones first, a search box, and a button to see them all. */
+function AnswerKey({ prompt, said }: { prompt: DeepPrompt; said: string | null }) {
+  const [open, setOpen] = useState(false);
+  const [all, setAll] = useState(false);
+  const [q, setQ] = useState('');
+  const sorted = useMemo(() => [...prompt.answers].sort((x, y) => y.tier - x.tier || x.answer.localeCompare(y.answer)), [prompt]);
+  const needle = deepTokens(q).join(' ');
+  const rows = useMemo(() => {
+    if (!q.trim()) return sorted;
+    const raw = q.trim().toLowerCase();
+    return sorted.filter((a) => [a.answer, ...(a.aliases ?? [])].some((n) => n.toLowerCase().includes(raw) || (needle && deepTokens(n).join(' ').includes(needle))));
+  }, [sorted, q, needle]);
+  const shown = all || q.trim() ? rows : rows.slice(0, PREVIEW);
+  return (
+    <div className="dw-key">
+      <button type="button" className="dw-key-toggle" aria-expanded={open} onClick={() => setOpen((v) => !v)}>{open ? 'Hide answer key' : `Answer key · ${prompt.answers.length} answers`}</button>
+      {open && <div className="dw-key-body">
+        <input className="dw-key-search" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search this answer key" aria-label="Search this answer key" />
+        <ul className="dw-key-list">
+          {shown.map((a) => <li key={a.answer} className={said && a.answer === said ? 'yours' : ''} data-tier={a.tier}><span>{a.answer}{said && a.answer === said ? ' · your answer' : ''}</span><b>{DEEP_POINTS[a.tier]} pts</b></li>)}
+          {!shown.length && <li className="none"><span>Nothing in the key matches “{q}”. The key is not exhaustive, so a valid answer may be missing.</span></li>}
+        </ul>
+        {!all && !q.trim() && rows.length > PREVIEW && <button type="button" className="dw-key-more" onClick={() => setAll(true)}>Show all {rows.length} answers</button>}
+        {(all || q.trim()) && rows.length > PREVIEW && <small className="dw-key-count">{rows.length} shown</small>}
+      </div>}
+    </div>
+  );
+}
 
 function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMod | null; practice: boolean; pack: string | null; onPack: (id: string | null) => void; onPractice: (on: boolean) => void }) {
   const today = dayIndex();
@@ -327,10 +357,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
           {pearlFound && <p className="dw-pearl-bonus">You found the keystone of the day.</p>}
           <div className="dw-result-stats"><span><b>{history.filter((r) => r.points > 0).length}</b><small>ROUNDS SCORED</small></span><span><b>{Math.max(...history.map((r) => r.points), 0)}</b><small>BEST ROUND</small></span><span><b>{history.filter((r) => r.timedOut).length}</b><small>TIMEOUTS</small></span></div>
           <ol>{history.map((r, i) => <li key={i}><span>{r.prompt}</span><b>{r.points ? `+${r.points}` : '—'}</b><small>{r.answer ?? (r.timedOut ? 'Time expired' : 'No recognized answer')}</small>
-            {prompts[i] && <details className="dw-key"><summary>Answer key ({prompts[i].answers.length})</summary>
-              <ul className="dw-answer-list">{[...prompts[i].answers].sort((x, y) => y.tier - x.tier || x.answer.localeCompare(y.answer)).slice(0, 40).map((a) => <li key={a.answer}><span>{a.answer}</span><b>{DEEP_POINTS[a.tier]} pts</b></li>)}</ul>
-              {prompts[i].answers.length > 40 && <small>…and {prompts[i].answers.length - 40} more</small>}
-            </details>}</li>)}</ol>
+            {prompts[i] && <AnswerKey prompt={prompts[i]} said={r.answer} />}</li>)}</ol>
           {misses.length > 0 && <div className="dw-misses">
             <p>{misses.length} answer{misses.length === 1 ? '' : 's'} you tried {misses.length === 1 ? 'is' : 'are'} not on our list. The list is not complete, so some may be right. They are kept only on this device.</p>
             <button type="button" className="dw-hint-button" onClick={() => { void navigator.clipboard?.writeText(deepMissesText(misses)).then(() => setCopied(true)).catch(() => setCopied(false)); }}>{copied ? 'Copied' : 'Copy the list to send us'}</button>

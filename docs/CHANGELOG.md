@@ -6,6 +6,11 @@
 
 
 
+
+## Basilion: a readable, searchable answer key
+- The answer key on the results screen is now dark text on a plain light panel with a coloured edge for each rarity, and your own answer is highlighted. The points shown beside each round are darker too.
+- It opens with the best twelve answers, has a search box (matching spellings and alternative names), and a button to show every answer, not only the first forty.
+
 ## Games menu: no game listed twice, and Basilion is no longer dive-themed
 - A game shown in the Featured block (Basilion, Trivia Chrism, Scriggle, Creedle) is no longer listed again in its group, and the "Play this next" card never picks one of them. The empty group header is hidden.
 - The Basilion banner and tile now use the church (not a whale or a wave), a dusk sky with drifting sparks (not bubbles), and say "Daily climb" and "Climb complete" and "Climb higher than everyone else". Its group is called "Climb".
