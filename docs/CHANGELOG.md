@@ -8,6 +8,13 @@
 
 
 
+
+## Basilion: two vague questions removed, and a guard against more
+- Removed "Name a big word or idea from the New Testament letters" and "Name a topic that the Book of Proverbs talks about": neither has a clear edge, so a player cannot tell what would count. "Name a word or step connected with making someone a saint" now reads "Name a title or step on the way to becoming a saint".
+- The bank was re-derived to stay at 72 days, so the daily deal shifts again (a climb already started keeps the questions it began with).
+- A test now fails if any question in the daily bank or the packs asks for an "idea", "concept" or "topic", or a "big/important/main/key word, thing or theme".
+- Not done: this catches the wording, not every vague question. The other lists that ask for "something connected with X" name a concrete subject, so they were kept.
+
 ## Basilion: higher scoring, and one 100-point answer per category
 - Points per tier are now 20, 35, 50, 65, 80 and 100 (they were 10, 15, 30, 60, 85 and 100). A full climb still tops out at 700, and a typical answer is worth about 50.
 - Exactly one answer in each open category is worth 100: the rarest. Lists that had several top answers keep the rarest one and the rest drop to 80. The tier bands for hand-written lists were re-cut so more answers land in the middle.

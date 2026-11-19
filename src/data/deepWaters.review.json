@@ -2163,7 +2163,7 @@
   },
   {
    "id": "authored7-words-for-becoming-a-saint",
-   "sha256": "711b4232ab517fe0e2ebc7234d68aafcfffe814ed0f0026fd790c0bc8f3c1d09",
+   "sha256": "f78cf355c33d658cfa50a154895329e92446cff6598f0474d984f9eeec6f9f4c",
    "answers": 30,
    "status": "unreviewed"
   },
@@ -2474,12 +2474,6 @@
    "status": "unreviewed"
   },
   {
-   "id": "authored7-proverbs-topic",
-   "sha256": "34469e09876c7f22073d62f3f0be18fb06676af3f20bc031dfe62e2745b18552",
-   "answers": 39,
-   "status": "unreviewed"
-  },
-  {
    "id": "authored7-pentateuch-book",
    "sha256": "2b18849f2bdb6b1aa86f4f58a5c0bb35926e6d3ac1abe66b866f087729846722",
    "answers": 5,
@@ -2771,12 +2765,6 @@
    "id": "authored7-jesus-welcomed",
    "sha256": "5a81fda15e9eb99ee2396bfdee4bd4b932c14951c4e56b6792df6cdc773fb004",
    "answers": 30,
-   "status": "unreviewed"
-  },
-  {
-   "id": "authored7-nt-big-word",
-   "sha256": "85b83c04fa88f21fac95f2b6c14cec614c63f65ebbc7d2129c9b9e794b5496dd",
-   "answers": 40,
    "status": "unreviewed"
   },
   {
@@ -4059,8 +4047,8 @@
   },
   {
    "id": "derived:saint-first-names",
-   "sha256": "5bdcae41ee3897a6adc121e1057b6deb9c7db992f9feb0c9449ba4e3794231b8",
-   "answers": 2,
+   "sha256": "04466efaf0f99ea0f5fadb3c6390bbfa9d949a40e798ac3b226f9b91f358ed61",
+   "answers": 3,
    "status": "unreviewed"
   },
   {
@@ -4071,8 +4059,8 @@
   },
   {
    "id": "derived:shrines",
-   "sha256": "776cc548b3746f6a63fc50a88c1d230d9230f3a4eb43ab0df31dd0aa2b5c8c89",
-   "answers": 2,
+   "sha256": "dd63b87bf2ff2ff951e7cda3509ac51bcbe620581fda9e544b893649e15396ee",
+   "answers": 3,
    "status": "unreviewed"
   },
   {

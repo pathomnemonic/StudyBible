@@ -51,3 +51,12 @@ describe('one top answer per category', () => {
     expect(mean).toBeGreaterThan(40);
   });
 });
+
+describe('no vague questions', () => {
+  // "Name a big word or idea from the New Testament letters" has no clear edge: anything could be argued. A question must name a kind of thing a player can picture.
+  const VAGUE = /\b(idea|ideas|concept|concepts|topic|topics)\b|\b(big|important|main|key|major) (word|thing|theme)\b/i;
+  it('asks nothing in the daily bank or the packs that is about an "idea", "concept" or "topic"', async () => {
+    const { DEEP_ALL } = await import('../src/data/deepWatersPacks');
+    expect([...DEEP_PLAYABLE, ...DEEP_ALL].filter((p) => VAGUE.test(p.prompt)).map((p) => `${p.id}: ${p.prompt}`)).toEqual([]);
+  });
+});
