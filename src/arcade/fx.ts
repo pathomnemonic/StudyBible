@@ -58,13 +58,13 @@ function sweep(f0: number, f1: number, start: number, dur: number, type: Oscilla
 }
 /** The sounds of a Basilion round, in the order they happen: the answer is locked in, rises, lands (brighter for a rarer answer), the next question appears, the climb ends. */
 export type Cue = 'submit' | 'rise' | 'land' | 'next' | 'final' | 'miss';
-export function cue(kind: Cue, tier = 1) {
+export function cue(kind: Cue, tier = 1, seconds = 1.9) {
   if (!soundOn()) return;
   try {
     ctx ??= new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
     if (ctx.state === 'suspended') void ctx.resume();
     if (kind === 'submit') { tone(392, 0, 0.09, 'triangle', 0.09); tone(587, 0.07, 0.14, 'triangle', 0.09); }
-    else if (kind === 'rise') { sweep(180, 760, 0, 1.9, 'sine', 0.085); sweep(270, 1140, 0.05, 1.8, 'triangle', 0.025); }
+    else if (kind === 'rise') { sweep(180, 760, 0, seconds, 'sine', 0.085); sweep(270, 1140, 0.05, seconds - 0.1, 'triangle', 0.025); }
     else if (kind === 'land') {
       tone(110, 0, 0.22, 'sine', 0.14); // the soft thud of arriving
       const notes = [[523], [523, 659], [523, 659, 784], [523, 659, 784, 988], [523, 659, 784, 1047, 1319], [523, 659, 784, 1047, 1319, 1568]][Math.max(1, Math.min(6, tier)) - 1];

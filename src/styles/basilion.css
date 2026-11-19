@@ -342,3 +342,10 @@ html .deep-waters.bas .dw-key-more { margin-top: 8px; width: 100%; }
 html .deep-waters.bas .dw-key-count { display: block; margin-top: 6px; color: #3a1d00; }
 html .deep-waters.bas .dw-results > ol > li > b { color: #7a1f1f; }
 html .deep-waters.bas .dw-results > ol > li > small { color: #3a1d00; }
+
+/* floor lines and landmarks that scroll with the climb, so distance and speed can be seen */
+.dw-ruler { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; background-image: repeating-linear-gradient(180deg, rgba(255, 244, 212, 0.35) 0 1px, transparent 1px 60px); background-size: 100% 60px; background-position: 0 var(--ry); }
+.dw-ruler span { position: absolute; right: 8px; transform: translateY(-100%); padding: 1px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; color: #fff4d4; background: rgba(20, 12, 40, 0.55); white-space: nowrap; }
+.dw-ruler span.major { font-size: 0.8rem; color: #ffe08a; background: rgba(20, 12, 40, 0.72); border: 1px solid rgba(241, 207, 107, 0.6); }
+.dw-ruler b { position: absolute; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, rgba(255, 224, 138, 0.75), transparent); }
+.dw-ruler-you { position: absolute; left: 0; width: 14px; height: 2px; background: #ffe08a; box-shadow: 0 0 8px 2px rgba(255, 224, 138, 0.7); }

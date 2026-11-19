@@ -9,6 +9,7 @@ import { clearDeepMisses, deepMissesText, loadDeepMisses, recordDeepMiss } from 
 import { Art } from '../../arcade/art';
 import { HEAVEN_M, MiniBasilica, SUMMIT_M, levelAt, miniPct } from '../../arcade/BasilicaScene';
 import BasilicaStage from '../../arcade/BasilicaStage';
+import ClimbRuler from '../../arcade/ClimbRuler';
 import '@fontsource/atkinson-hyperlegible/400.css';
 import '@fontsource/atkinson-hyperlegible/700.css';
 import '@fontsource/cormorant-garamond/500.css';
@@ -48,6 +49,24 @@ const PACK_KEY = 'cathology.deepwaters.pack';
 const PACK_BEST = 'cathology.deepwaters.packbest';
 const loadPackBest = (): Record<string, number> => { try { return JSON.parse(localStorage.getItem(PACK_BEST) ?? '{}') as Record<string, number>; } catch { return {}; } };
 const savePackBest = (id: string, score: number) => { try { const b = loadPackBest(); if (score > (b[id] ?? 0)) { b[id] = score; localStorage.setItem(PACK_BEST, JSON.stringify(b)); } } catch { /* local storage may be unavailable */ } };
+
+/** eases a number toward its target over `ms` (slow, fast, slow) when `animate` is on, so a climb can be watched; otherwise it jumps */
+function useTween(target: number, ms: number, animate: boolean) {
+  const [v, setV] = useState(target);
+  const cur = useRef(target);
+  useEffect(() => {
+    if (!animate || ms <= 0) { cur.current = target; setV(target); return; }
+    const from = cur.current, t0 = performance.now(); let raf = 0;
+    const step = (now: number) => {
+      const t = Math.min(1, (now - t0) / ms), e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      cur.current = from + (target - from) * e; setV(cur.current);
+      if (t < 1) raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, [target, ms, animate]);
+  return v;
+}
 
 const PREVIEW = 12;
 /** One question's answer key on the results screen: the best ones first, a search box, and a button to see them all. */
@@ -107,6 +126,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   // each round opens with the question alone in a glass box (no input, no clock), and a locked-in answer rises up the basilica before its points are shown
   const [reading, setReading] = useState(false);
   const [rising, setRising] = useState(false);
+  const [riseMs, setRiseMs] = useState(2100);
   const [flash, setFlash] = useState(0);
   const [shake, setShake] = useState(false);
   const ptsRef = useRef<HTMLSpanElement>(null);
@@ -131,7 +151,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
       if (tier >= 2) burst(window.innerWidth / 2, window.innerHeight * 0.42, 14 + tier * 12, RARE_HEX[tier]);
       if (tier >= 4 && !motionOff()) { setFlash(tier); window.setTimeout(() => setFlash(0), 700); }
       if (tier >= 5 && !motionOff()) { setShake(true); window.setTimeout(() => setShake(false), 450); }
-    }, motionOff() ? 500 : 2100);
+    }, motionOff() ? 500 : riseMs);
     return () => window.clearTimeout(t);
   }, [rising]); // eslint-disable-line react-hooks/exhaustive-deps
   const prompt: DeepPrompt = prompts[round];
@@ -211,8 +231,8 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
     const entry: RoundResult = { prompt: prompt.prompt, guess: trimmed, answer: found.answer, tier: found.tier, points, timedOut: false, pearlBonus };
     if (pearlBonus > 0) burst();
     setScore((s) => s + points); setResult(entry); setHistory((h) => [...h, entry]);
-    setLocked(true); deadlineRef.current = 0; setFeedback(''); setRising(true); cue('submit');
-    window.setTimeout(() => cue('rise'), 260);
+    setLocked(true); deadlineRef.current = 0; setFeedback(''); setRising(true); setRiseMs(Math.round(2000 + Math.min(points, 100) * 9)); cue('submit');
+    window.setTimeout(() => cue('rise', 1, (2000 + Math.min(points, 100) * 9) / 1000), 260);
   };
 
   const advance = () => {
@@ -230,6 +250,8 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   // what the player sees counts a locked-in answer only once it has landed
   const shownScore = rising && result ? score - result.points : score;
   const depth = score * 10;
+  // the height on screen climbs gradually while an answer rises, and floor lines and landmarks scroll past with it
+  const metres = useTween(depth, riseMs, rising && !motionOff());
   const zone = levelAt(depth);
   const pct = (m: number) => `${(Math.min(SUMMIT_M, m) / SUMMIT_M) * 100}%`;
   const best = logbook.reduce((m, e) => Math.max(m, e.score), 0);
@@ -237,11 +259,12 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   return (
     <div className={`page deep-waters bas${shake ? ' dw-shake' : ''}`}>
       {flash > 0 && <div className="dw-flash" data-tier={flash} aria-hidden="true" />}
-      <BasilicaStage height={begun ? depth : 0} begun={begun} />
+      <BasilicaStage height={begun ? metres : 0} begun={begun} />
+      {begun && !done && <ClimbRuler metres={metres} />}
       {begun && !done && (
         <div className="dw-gauge" aria-hidden="true">
-          <MiniBasilica height={depth} />
-          <b className="dw-gauge-marker" style={{ bottom: `${miniPct(depth)}%` }}><Art n="dove" size={26} /></b>
+          <MiniBasilica height={metres} />
+          <b className="dw-gauge-marker" style={{ bottom: `${miniPct(metres)}%` }}><Art n="dove" size={26} /></b>
         </div>
       )}
       {!begun && !done && (
@@ -282,7 +305,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
         <>
           <div className="dw-topline">
             <span className="dw-round-count">STEP <b>{round + 1}</b><i> / {DEEP_ROUNDS}</i>{practice && <em className="dw-mode">{pack ? 'PACK' : 'PRACTICE'}</em>}</span>
-            <span className="dw-height"><b>{(shownScore * 10).toLocaleString()}</b> m</span>
+            <span className="dw-height"><b>{Math.round(metres).toLocaleString()}</b> m</span>
             <span className="dw-score"><b>{shownScore}</b><small>PTS</small></span>
             <div className={`dw-clock ${timerTone}`} role="timer" aria-label={`${seconds} seconds remaining`} style={{ ['--o2' as string]: `${(seconds / DEEP_SECONDS) * 100}%` }}>
               <span>{seconds}</span>

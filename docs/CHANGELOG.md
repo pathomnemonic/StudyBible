@@ -9,6 +9,12 @@
 
 
 
+
+## Basilion: a climb you can see and measure
+- The height on screen now climbs gradually while an answer rises (slow, fast, slow) instead of jumping, and the basilica, the side gauge and the metres counter move together. A better answer rises for a little longer (2.0 to 2.9 seconds), and the rising sound is stretched to match.
+- Floor lines every 100 m and labelled landmarks (the Portico at 150 m, the Cross at 3,000 m, the Clouds, the Choirs of Angels and so on) are drawn across the whole screen and scroll with the height, so you can see how far you went and how big the building is. They stay faint behind the question.
+- Reduced motion and no-animation settings skip the gradual climb.
+
 ## Basilion: two vague questions removed, and a guard against more
 - Removed "Name a big word or idea from the New Testament letters" and "Name a topic that the Book of Proverbs talks about": neither has a clear edge, so a player cannot tell what would count. "Name a word or step connected with making someone a saint" now reads "Name a title or step on the way to becoming a saint".
 - The bank was re-derived to stay at 72 days, so the daily deal shifts again (a climb already started keeps the questions it began with).
