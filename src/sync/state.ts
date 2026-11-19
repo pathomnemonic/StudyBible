@@ -3,6 +3,7 @@ import { api, ApiError, type AccountUser, type SignInProvider } from './api';
 import { syncFlags } from '../db/db';
 import { getSettings, settingsChangeHooks } from '../lib/store';
 import { accountsEnabled, applyPreviewSwitch } from '../lib/accountsFlag';
+import { applyDriveSyncPreviewSwitch } from '../lib/driveSyncFlag';
 import { localDataCount, resetSyncState, runSync, touchSettings, wipeLocalUserData } from './engine';
 
 export type ServerState = 'unknown' | 'available' | 'unavailable';
@@ -115,7 +116,9 @@ const lastUser = () => {
 let started = false;
 export async function initSync() {
   // accounts are switched off unless the build turns them on (src/lib/accountsFlag.ts): never look for a server
-  applyPreviewSwitch(location.search + (location.hash.includes('?') ? location.hash.slice(location.hash.indexOf('?')) : ''));
+  const where = location.search + (location.hash.includes('?') ? location.hash.slice(location.hash.indexOf('?')) : '');
+  applyPreviewSwitch(where);
+  applyDriveSyncPreviewSwitch(where);
   if (!accountsEnabled()) { emit({ server: 'unavailable', status: 'signed-out' }); return; }
   // React's strict mode runs start-up twice in development; listeners and timers must only be installed once
   if (started) return;

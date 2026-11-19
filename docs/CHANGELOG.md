@@ -12,6 +12,13 @@
 
 
 
+
+## Sync through the reader's own Google Drive (built, off)
+- Notes, highlights, bookmarks, journal, plans, progress, folders and some settings can now sync between a person's devices through the hidden app folder of their own Google Drive, with no server, database or account of ours. It works from the plain GitHub Pages copy.
+- It reuses the existing sync engine unchanged (conflicts, deletions, the "unsent" bookkeeping): Drive stands in for the server through the same call. Each push is a small immutable file, so devices never write the same file; a device remembers which files it has read; a snapshot folds a long log into one file; unreadable or newer-format files are skipped and never deleted.
+- Off and invisible: a normal build shows nothing and sends nothing (switch: `VITE_DRIVE_SYNC=1`, or `VITE_DRIVE_SYNC_PREVIEW=1` with `?drivesync=on`). Needs the Google client id the Drive backup already uses. Exclusive with an account on a server.
+- Honest limits: Google's key lasts an hour, so sync stops with "sign in again" until one tap on Sync now; changes arrive when the other device next syncs, not live. Tested against a pretend Drive folder with the real engine (19 new tests); not yet run against the real Google Drive. See `docs/DRIVE_SYNC.md`.
+
 ## Sign in with Google, Microsoft or Apple (built, off)
 - The server can now sign people in through OpenID Connect providers: Google, Microsoft and Apple are built in. It uses the authorization-code flow with PKCE, a one-time state and a nonce, and checks each ID token itself (RS256 or ES256 signature against the provider's keys, issuer, audience, expiry, nonce) with no new library. Login attempts are kept for ten minutes in the existing SQLite file, so there is still no external database.
 - Off by default and invisible: the routes only exist with `OAUTH=on` and a provider's credentials, the Account page shows buttons only when the server lists a provider, and that page itself is behind the existing accounts switch. Start-up refuses a half-set provider or a `PUBLIC_URL` that is not https.

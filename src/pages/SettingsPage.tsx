@@ -15,6 +15,7 @@ import { LANGS, useT } from '../lib/i18n';
 import { NATIONS } from '../liturgy/litcal';
 import { enableReminders, scheduleReminder, PRESETS } from '../liturgy/reminders';
 import DriveBackup from '../components/DriveBackup';
+import DriveSyncCard from '../components/DriveSyncCard';
 import { deleteAllData, download, exportAll } from '../db/ops';
 
 /** Timings the browser already keeps, shown only here. Nothing is sent anywhere. */
@@ -136,6 +137,7 @@ export default function SettingsPage() {
       </Fold>
 
       <DriveBackup />
+      <DriveSyncCard />
 
       <Fold id="settings:Your data, sync and privacy" title="Your data, sync and privacy" open={false}>
         <ul className="small" style={{ lineHeight: 1.6 }}>

@@ -191,7 +191,10 @@ export async function pendingCount(userId: string): Promise<number> {
   return (await collect(userId, Number(get(lk(userId, 'lastPush')) ?? 0))).length;
 }
 
-export async function runSync(userId: string): Promise<{ pushed: number; pulled: number; rejected: number }> {
+/** What the engine needs from wherever the changes are kept: the account server (`api`) or the reader's Google Drive (see driveSyncBackend.ts). */
+export interface SyncBackend { sync(cursor: number, changes: WireChange[]): Promise<{ cursor: number; more: boolean; rejected: number; changes: WireChange[] }> }
+
+export async function runSync(userId: string, backend: SyncBackend = api): Promise<{ pushed: number; pulled: number; rejected: number }> {
   const startedAt = Date.now();
   const since = Number(get(lk(userId, 'lastPush')) ?? 0);
   let cursor = Number(get(lk(userId, 'cursor')) ?? 0);
@@ -211,7 +214,7 @@ export async function runSync(userId: string): Promise<{ pushed: number; pulled:
   }
   if (!batches.length) batches.push([]);
   for (const batch of batches) {
-    let res = await api.sync(cursor, batch);
+    let res = await backend.sync(cursor, batch);
     const refused = res.rejected ?? 0;
     rejected += refused;
     pushed += batch.length - refused;
@@ -220,7 +223,7 @@ export async function runSync(userId: string): Promise<{ pushed: number; pulled:
     // each page is applied whole, so the place reached can be kept at once: a sync cut short later carries on from here
     cursor = res.cursor; set(lk(userId, 'cursor'), String(cursor));
     while (res.more) {
-      res = await api.sync(cursor, []);
+      res = await backend.sync(cursor, []);
       pulled += res.changes.length;
       await applyRemote(userId, res.changes);
       cursor = res.cursor; set(lk(userId, 'cursor'), String(cursor));

@@ -177,7 +177,7 @@ export interface Settings {
   /** never contact a sync server: hides account prompts */
   localOnly: boolean;
   /** Google Drive backup: connected on this device, the OAuth client id to use (if not built in), when the nudge was last dismissed */
-  drive: { connected: boolean; clientId: string; lastOk: number; lastSnapshotAt: number; lastError: string; nudgeUntil: number };
+  drive: { connected: boolean; clientId: string; lastOk: number; lastSnapshotAt: number; lastError: string; nudgeUntil: number; sync?: boolean; syncOk?: number; syncError?: string };
   /** remind me to back up every N days (0 = never) and when I last did */
   backupEveryDays: number;
   lastBackup: number;

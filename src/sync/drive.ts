@@ -58,6 +58,9 @@ async function api(path: string, init: RequestInit & { interactive?: boolean } =
   return r;
 }
 
+/** One authorised request to Google Drive, for the other Drive features (sync). `interactive` allows the sign-in window and must come from a tap. */
+export const driveRequest = api;
+
 export interface BackupFile { id: string; name: string; modified: string; size: number }
 const stamp = (d = new Date()) => `${d.getFullYear()}${String(d.getMonth() + 1).padStart(2, '0')}${String(d.getDate()).padStart(2, '0')}-${String(d.getHours()).padStart(2, '0')}${String(d.getMinutes()).padStart(2, '0')}`;
 

@@ -16,6 +16,7 @@ import TrophyToast from './TrophyToast';
 import StickerToast from './StickerToast';
 import { installPrintPrep } from '../lib/printPrep';
 import { startDriveBackup } from '../sync/drive';
+import { driveSyncEnabled } from '../lib/driveSyncFlag';
 import { useSync } from '../sync/state';
 import { useT } from '../lib/i18n';
 import type { Key } from '../i18n/en';
@@ -124,7 +125,7 @@ export default function Shell({ children }: { children: ReactNode }) {
     if (hit) markSeen(`tab.${hit.to}`);
   }, [loc.pathname]);
   // ask the browser not to clear this site's data, and keep the Drive copy (if connected) up to date
-  useEffect(() => { void navigator.storage?.persist?.(); startDriveBackup(); const t = window.setTimeout(() => void snapshotIfDue().catch(() => {}), 20000); return () => window.clearTimeout(t); }, []);
+  useEffect(() => { void navigator.storage?.persist?.(); startDriveBackup(); if (driveSyncEnabled()) void import('../sync/driveSync').then((m) => m.startDriveSync()); const t = window.setTimeout(() => void snapshotIfDue().catch(() => {}), 20000); return () => window.clearTimeout(t); }, []);
   // a menu that is open closes when anything else is tapped, on touch screens too
   useEffect(() => {
     const h = (e: Event) => { const open = document.querySelector('.more-btn[aria-expanded="true"]') as HTMLElement | null; if (open && !(e.target as HTMLElement).closest('.more-wrap')) open.click(); };
