@@ -4,6 +4,7 @@ import { createApp } from './app';
 import { openDb } from './db';
 import { backupDatabase } from './backup';
 import { checkEnv } from './config';
+import { OFF, providersFromEnv } from './oauth';
 
 /**
  * Study Bible sync server: accounts + record sync + static hosting of the built app.
@@ -32,6 +33,8 @@ const server = createApp({
   registration: process.env.REGISTRATION === 'open' ? 'open' : 'closed',
   sessionDays: +(process.env.SESSION_DAYS ?? 60),
   allowedOrigins: (process.env.ALLOWED_ORIGINS ?? '').split(',').map((s) => s.trim()).filter(Boolean),
+  // sign in with Google etc.: off unless OAUTH=on (docs/SIGN_IN_PROVIDERS.md)
+  oauth: process.env.OAUTH === 'on' ? { enabled: true, publicUrl: process.env.PUBLIC_URL ?? '', providers: providersFromEnv(process.env).providers } : OFF,
   secureCookies: process.env.COOKIE_SECURE === 'true' ? true : process.env.COOKIE_SECURE === 'false' ? false : 'auto',
 });
 server.listen(port, host, () => console.log(`Study Bible server on http://${host}:${port}  (static: ${existsSync(staticDir) ? staticDir : 'none — run npm run build'})`));

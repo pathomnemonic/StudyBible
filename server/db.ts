@@ -62,6 +62,24 @@ export function openDb(path: string): DatabaseSync {
       used_by TEXT,
       note TEXT
     );
+    CREATE TABLE IF NOT EXISTS identities (
+      provider TEXT NOT NULL,
+      subject TEXT NOT NULL,
+      user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      email TEXT,
+      created_at INTEGER NOT NULL,
+      PRIMARY KEY (provider, subject)
+    );
+    CREATE INDEX IF NOT EXISTS identities_user ON identities(user_id);
+    CREATE TABLE IF NOT EXISTS oauth_states (
+      state_hash TEXT PRIMARY KEY,
+      provider TEXT NOT NULL,
+      verifier TEXT NOT NULL,
+      nonce TEXT NOT NULL,
+      link_user_id TEXT,
+      created_at INTEGER NOT NULL,
+      expires_at INTEGER NOT NULL
+    );
     CREATE TABLE IF NOT EXISTS reset_tokens (
       token_hash TEXT PRIMARY KEY,
       user_id TEXT NOT NULL REFERENCES users(id) ON DELETE CASCADE,

@@ -40,6 +40,11 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<T>
   return data as T;
 }
 
+/** A service the server lets people sign in with (empty until the operator turns it on). */
+export interface SignInProvider { id: string; name: string }
+/** Where the browser goes to start signing in with a provider (a full page visit, not a fetch: the provider takes over the page). */
+export const providerStartUrl = (id: string, link = false) => `${BASE}/api/auth/oauth/${encodeURIComponent(id)}/start${link ? '?link=1' : ''}`;
+
 export interface AccountUser {
   id: string;
   email: string;
@@ -65,7 +70,10 @@ export interface WireChange {
 }
 
 export const api = {
-  health: () => call<{ ok: boolean; registration: 'open' | 'closed' }>('GET', '/api/health'),
+  health: () => call<{ ok: boolean; registration: 'open' | 'closed'; oauth?: SignInProvider[] }>('GET', '/api/health'),
+  identities: () => call<{ identities: { provider: string; name: string; email: string | null; createdAt: number }[]; hasPassword: boolean; available: SignInProvider[] }>('GET', '/api/account/identities'),
+  unlinkIdentity: (provider: string) => call<{ ok: boolean }>('DELETE', `/api/account/identities/${encodeURIComponent(provider)}`),
+  setPassword: (password: string) => call<{ ok: boolean }>('POST', '/api/account/password/set', { password }),
   me: () => call<{ user: AccountUser }>('GET', '/api/auth/me'),
   register: (email: string, password: string, name?: string, invite?: string) => call<{ user: AccountUser }>('POST', '/api/auth/register', { email, password, name, invite }),
   login: (email: string, password: string, code?: string) => call<{ user: AccountUser }>('POST', '/api/auth/login', { email, password, code }),

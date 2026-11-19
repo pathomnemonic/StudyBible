@@ -11,6 +11,14 @@
 
 
 
+
+## Sign in with Google, Microsoft or Apple (built, off)
+- The server can now sign people in through OpenID Connect providers: Google, Microsoft and Apple are built in. It uses the authorization-code flow with PKCE, a one-time state and a nonce, and checks each ID token itself (RS256 or ES256 signature against the provider's keys, issuer, audience, expiry, nonce) with no new library. Login attempts are kept for ten minutes in the existing SQLite file, so there is still no external database.
+- Off by default and invisible: the routes only exist with `OAUTH=on` and a provider's credentials, the Account page shows buttons only when the server lists a provider, and that page itself is behind the existing accounts switch. Start-up refuses a half-set provider or a `PUBLIC_URL` that is not https.
+- Safety choices: a provider account is never joined to an existing account by email (it is added from the signed-in account page); an email the provider does not vouch for becomes a placeholder address; an account with a second step is not signed in by the provider alone; the last way to sign in cannot be removed; an account made with a provider can set a password when signed in.
+- Tested against a pretend provider that signs real tokens (29 new tests, including forged, expired and replayed tokens). Not yet run against the real Google, Microsoft or Apple.
+- `docs/SIGN_IN_PROVIDERS.md` lists exactly what to provide for each provider and answers the question about databases.
+
 ## Basilion: the camera pulls back and looks up while an answer rises
 - In the 3D scene the camera now drops a little and pulls back as an answer floats up, so the whole height of the building is in view from below, then eases back in as the answer lands. It follows the same slow-fast-slow curve as the height counter.
 - The flat fallback scene does not zoom (it would show its edges); it keeps the floor lines and landmarks. Reduced motion skips the pull-back.

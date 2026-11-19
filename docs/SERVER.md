@@ -21,6 +21,7 @@ npm start              # serves dist/ and the API on http://127.0.0.1:8787  (Nod
 | `DB_PATH` | `./server-data/studybible.sqlite` | SQLite file (`node:sqlite`) |
 | `STATIC_DIR` | `./dist` | web app to serve |
 | `ALLOWED_ORIGINS` | none | comma-separated extra origins for cross-origin development only |
+| `OAUTH`, `PUBLIC_URL`, `GOOGLE_*`, `MICROSOFT_*`, `APPLE_*` | off | sign in with Google, Microsoft or Apple. Off unless `OAUTH=on`; see [SIGN_IN_PROVIDERS.md](SIGN_IN_PROVIDERS.md) |
 | `BACKUP_DIR`, `BACKUP_KEEP` | off, `14` | write a verified snapshot at start-up and daily, keeping the newest N |
 
 At start-up the server checks these and **refuses to start** on an invalid value, and prints a warning for risky combinations (a public address with open registration or insecure cookies).

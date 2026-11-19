@@ -1,13 +1,14 @@
 import { getSettings } from '../lib/store';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { api, type DeviceSession } from '../sync/api';
-import { deleteAccount, retryDiscovery, signIn, signOut, signUp, syncNow, useSync, type AuthDecision } from '../sync/state';
+import { completeProviderSignIn, deleteAccount, retryDiscovery, signIn, signOut, signUp, syncNow, useSync, type AuthDecision } from '../sync/state';
 import { pendingCount } from '../sync/engine';
 import { download } from '../db/ops';
 import { useToast } from '../components/Toast';
 import { ForgotPassword, ProfileCard, SecurityLogCard, TwoFactorCard } from '../components/AccountSecurity';
 import { needsCode } from '../lib/securityLog';
+import { ProviderButtons, SignInMethodsCard, signInMessage } from '../components/SignInMethods';
 
 const decide = async (n: number): Promise<AuthDecision> =>
   confirm(`This device holds ${n} notes, highlights and other items from a different account.\n\nOK = remove them from this device before signing in (recommended on a shared device).\nCancel = merge them into the account you are signing in to.`) ? 'wipe' : 'merge';
@@ -57,6 +58,17 @@ export default function AccountPage() {
       setBusy(false);
     }
   };
+
+  // coming back from a sign-in provider: the address says how it went (#/account?signed_in=google or ?sign_in_error=expired)
+  const [params] = useSearchParams();
+  const nav = useNavigate();
+  const returned = params.get('signed_in'), returnedError = params.get('sign_in_error');
+  useEffect(() => {
+    if (!returned && !returnedError) return;
+    if (returnedError) { setErr(signInMessage(returnedError)); toast(signInMessage(returnedError)); nav('/account', { replace: true }); return; }
+    if (returned && !s.user) completeProviderSignIn(decide).then(() => { toast('Signed in. Your library is syncing.'); nav('/account', { replace: true }); }).catch((e: any) => setErr(e.message));
+    else nav('/account', { replace: true });
+  }, [returned, returnedError]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (s.server === 'unknown') return <div className="center-note">Checking for the sync server…</div>;
 
@@ -108,6 +120,7 @@ export default function AccountPage() {
           {err && <div className="notice" role="alert">{err}</div>}
           <button className="btn primary block" disabled={busy}>{busy ? 'One moment…' : mode === 'in' ? 'Sign in' : 'Create account'}</button>
           {mode === 'in' && <p className="small"><button type="button" className="linklike" onClick={() => setMode('forgot')}>Forgot your password?</button></p>}
+          <ProviderButtons providers={s.providers} />
           <p className="muted small">Your notes belong to you. They are stored on the server only so they can sync, are never shared or used for advertising, and you can export or permanently delete everything from this page.</p>
         </form>
       )}
@@ -132,6 +145,7 @@ export default function AccountPage() {
           </div>
 
           <ProfileCard />
+          <SignInMethodsCard />
           <TwoFactorCard />
           <SecurityLogCard />
 

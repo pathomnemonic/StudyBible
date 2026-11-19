@@ -1,5 +1,5 @@
 import { useSyncExternalStore } from 'react';
-import { api, ApiError, type AccountUser } from './api';
+import { api, ApiError, type AccountUser, type SignInProvider } from './api';
 import { syncFlags } from '../db/db';
 import { getSettings, settingsChangeHooks } from '../lib/store';
 import { accountsEnabled, applyPreviewSwitch } from '../lib/accountsFlag';
@@ -15,13 +15,15 @@ export interface SyncState {
   server: ServerState;
   session: SessionState;
   registration: 'open' | 'closed';
+  /** services the server offers for signing in (empty unless the operator turned that on) */
+  providers: SignInProvider[];
   user: AccountUser | null;
   status: SyncStatus;
   lastSyncAt: number | null;
   error: string | null;
 }
 
-let state: SyncState = { server: 'unknown', session: 'unknown', registration: 'open', user: null, status: 'signed-out', lastSyncAt: null, error: null };
+let state: SyncState = { server: 'unknown', session: 'unknown', registration: 'open', providers: [], user: null, status: 'signed-out', lastSyncAt: null, error: null };
 const listeners = new Set<() => void>();
 const emit = (patch: Partial<SyncState>) => {
   state = { ...state, ...patch };
@@ -192,7 +194,7 @@ async function discover() {
   try {
     const h = await api.health();
     failures = 0;
-    emit({ server: 'available', registration: h.registration });
+    emit({ server: 'available', registration: h.registration, providers: Array.isArray(h.oauth) ? h.oauth : [] });
     await checkSession();
   } catch {
     failures++;
@@ -226,6 +228,12 @@ async function afterAuth(user: AccountUser, decide: (n: number) => Promise<AuthD
 
 export async function signIn(email: string, password: string, decide: (n: number) => Promise<AuthDecision>, code?: string) {
   const { user } = await api.login(email, password, code);
+  await afterAuth(user, decide);
+}
+
+/** The browser came back from a provider with a session cookie already set: read who it is and finish exactly as a password sign-in does. */
+export async function completeProviderSignIn(decide: (n: number) => Promise<AuthDecision>) {
+  const { user } = await api.me();
   await afterAuth(user, decide);
 }
 

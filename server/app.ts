@@ -8,6 +8,7 @@ import { isIP } from 'node:net';
 import type { DatabaseSync } from 'node:sqlite';
 import { LiveHub, MAX_PLAYERS, sanitizeContent, sanitizeRoster, sanitizeSettings, type LiveRoom } from '../src/live/engine';
 import { hashRecovery, lockMs, newRecoveryCodes, newTotpSecret, otpauthUrl, verifyTotp } from './security';
+import { OFF, OAuthError, accountEmail, authorizationUrl, displayNameOf, exchangeCode, hashState, publicProviders, randomUrlToken, verifyIdToken, type OAuthConfig } from './oauth';
 import { RateLimiter, hashPassword, hashToken, newToken, passwordProblem, validateEmail, verifyPassword } from './auth';
 
 export interface Config {
@@ -21,6 +22,8 @@ export interface Config {
   secureCookies: 'auto' | boolean;
   /** sign-ups allowed per IP per hour (default 5) */
   registerLimitPerHour?: number;
+  /** sign in with Google and other providers; absent or disabled means none of its routes exist (see server/oauth.ts) */
+  oauth?: OAuthConfig;
 }
 
 /** Version of the sync wire format. Clients send theirs; a server that does not understand a newer one says so instead of guessing. */
@@ -89,6 +92,7 @@ const CSP = [
 export function createApp(cfg: Config): Server {
   const { db } = cfg;
   const loginLimit = new RateLimiter(10, 10 * 60_000);
+  const oauthLimit = new RateLimiter(30, 10 * 60_000);
   const registerLimit = new RateLimiter(cfg.registerLimitPerHour ?? 5, 60 * 60_000);
   // live classroom sessions (kept in memory; a session is meant to last one class)
   const hub = new LiveHub();
@@ -193,6 +197,8 @@ export function createApp(cfg: Config): Server {
 
   /** CSRF: state-changing requests must carry our header and, if an Origin is sent, come from this host or an allowed origin. */
   function csrfCheck(req: IncomingMessage) {
+    // a provider that posts the result back from its own site (Apple) cannot carry our header; the one-time state in the request is what protects that route
+    if (req.method === 'POST' && /^\/api\/auth\/oauth\/[a-z0-9-]+\/callback$/.test((req.url ?? '').split('?')[0])) return;
     if (req.method === 'GET' || req.method === 'HEAD' || req.method === 'OPTIONS') return;
     if (req.headers['x-studybible'] !== '1') throw new HttpError(403, 'Missing X-StudyBible header.');
     const origin = req.headers.origin;
@@ -238,12 +244,105 @@ export function createApp(cfg: Config): Server {
     q.delUser.run(userId);
   }
 
+  const oauth = cfg.oauth ?? OFF;
+  const PASSWORDLESS = 'oauth$none';
+  const hasPassword = (u: any) => typeof u.pass_hash === 'string' && !u.pass_hash.startsWith(PASSWORDLESS);
+
+  /** Sends the browser back to the app's account page (the app uses #/ routes) with a short result code. */
+  function backToApp(res: ServerResponse, query: string, headers: Record<string, string> = {}) {
+    res.writeHead(302, { Location: `${oauth.publicUrl.replace(/\/$/, '')}/#/account?${query}`, 'Cache-Control': 'no-store', ...headers });
+    res.end();
+  }
+
+  /** Sign in with a provider: /start sends the person to the provider, /callback is where the provider sends them back. */
+  async function oauthRoutes(req: IncomingMessage, res: ServerResponse, path: string, method: string): Promise<boolean> {
+    const m = path.match(/^\/api\/auth\/oauth\/([a-z0-9-]+)\/(start|callback)$/);
+    if (!m) return false;
+    const provider = oauth.enabled ? oauth.providers.find((p) => p.id === m[1]) : undefined;
+    if (!provider) throw new HttpError(404, 'Not found.');
+    const url = new URL(req.url ?? '/', 'http://x');
+
+    if (m[2] === 'start') {
+      if (method !== 'GET') throw new HttpError(405, 'Use GET.');
+      if (!oauthLimit.take(clientIp(req))) throw new HttpError(429, 'Too many attempts. Wait a few minutes and try again.');
+      const link = url.searchParams.get('link') === '1';
+      const who = link ? auth(req) : null;
+      if (link && !who) return backToApp(res, 'sign_in_error=not_signed_in'), true;
+      const state = randomUrlToken(), nonce = randomUrlToken(), verifier = randomUrlToken(48);
+      db.prepare('DELETE FROM oauth_states WHERE expires_at < ?').run(Date.now());
+      db.prepare('INSERT INTO oauth_states (state_hash, provider, verifier, nonce, link_user_id, created_at, expires_at) VALUES (?, ?, ?, ?, ?, ?, ?)').run(hashState(state), provider.id, verifier, nonce, who?.id ?? null, Date.now(), Date.now() + 10 * 60_000);
+      res.writeHead(302, { Location: authorizationUrl(oauth, provider, { state, nonce, verifier }), 'Cache-Control': 'no-store' });
+      res.end();
+      return true;
+    }
+
+    // the callback: a GET with the result in the address, or (Apple) a form post
+    let params = url.searchParams;
+    if (method === 'POST') {
+      const chunks: Buffer[] = []; let size = 0;
+      for await (const c of req) { size += (c as Buffer).length; if (size > 64 * 1024) throw new HttpError(413, 'Request too large.'); chunks.push(c as Buffer); }
+      params = new URLSearchParams(Buffer.concat(chunks).toString('utf8'));
+    } else if (method !== 'GET') throw new HttpError(405, 'Use GET or POST.');
+    const fail = (code: string) => (backToApp(res, `sign_in_error=${code}`), true);
+    const state = params.get('state') ?? '';
+    // the state is single-use: it is removed the moment it is looked up, so a replayed callback finds nothing
+    const row = state ? (db.prepare('SELECT * FROM oauth_states WHERE state_hash = ?').get(hashState(state)) as any) : null;
+    if (row) db.prepare('DELETE FROM oauth_states WHERE state_hash = ?').run(row.state_hash);
+    if (!row || row.expires_at < Date.now() || row.provider !== provider.id) return fail('expired');
+    if (params.get('error')) return fail(params.get('error') === 'access_denied' ? 'cancelled' : 'provider_error');
+    const code = params.get('code');
+    if (!code) return fail('provider_error');
+    try {
+      const { idToken } = await exchangeCode(oauth, provider, code, row.verifier);
+      const claims = await verifyIdToken(oauth, provider, idToken, row.nonce);
+      const subject = String(claims.sub);
+      const existing = db.prepare('SELECT user_id FROM identities WHERE provider = ? AND subject = ?').get(provider.id, subject) as any;
+      const mail = accountEmail(provider, claims);
+
+      // linking from an account that is already signed in
+      if (row.link_user_id) {
+        if (existing && existing.user_id !== row.link_user_id) return fail('already_linked_elsewhere');
+        if (!existing) {
+          db.prepare('INSERT INTO identities (provider, subject, user_id, email, created_at) VALUES (?, ?, ?, ?, ?)').run(provider.id, subject, row.link_user_id, mail.verified ? mail.email : null, Date.now());
+          logEvent(row.link_user_id, 'sign-in-method-added', provider.name);
+        }
+        return backToApp(res, `linked=${provider.id}`), true;
+      }
+
+      let userId: string;
+      if (existing) {
+        userId = existing.user_id;
+      } else {
+        // An account that already uses this email is never joined to a provider by email alone (that would let anyone who controls a similar address take it over):
+        // the owner signs in the usual way and adds the provider from their account page.
+        if (mail.verified && q.userByEmail.get(mail.email)) return fail('email_in_use');
+        if (!openForSignup()) return fail('registration_closed');
+        if (!registerLimit.take(clientIp(req))) return fail('too_many');
+        userId = randomUUID();
+        // such an account has no password until its owner sets one; the stored value can never match a typed password
+        q.insertUser.run(userId, mail.email, displayNameOf(claims), `${PASSWORDLESS}$${randomUrlToken(16)}`, Date.now());
+        db.prepare('INSERT INTO identities (provider, subject, user_id, email, created_at) VALUES (?, ?, ?, ?, ?)').run(provider.id, subject, userId, mail.verified ? mail.email : null, Date.now());
+        logEvent(userId, 'account-created', `with ${provider.name}`);
+      }
+      const u = db.prepare('SELECT * FROM users WHERE id = ?').get(userId) as any;
+      // a person who turned on a second step keeps it: the provider alone does not replace it, until a sign-in flow that asks for the code exists
+      if (u.totp_enabled) return fail('second_step_required');
+      logEvent(userId, 'signed-in', `with ${provider.name}`);
+      const token = newToken(), now = Date.now();
+      q.insertSession.run(hashToken(token), userId, now, now + cfg.sessionDays * 86400_000, String(req.headers['user-agent'] ?? '').slice(0, 200), now);
+      return backToApp(res, `signed_in=${provider.id}`, { 'Set-Cookie': sessionCookie(req, token, cfg.sessionDays * 86400) }), true;
+    } catch (e) {
+      if (e instanceof OAuthError) return fail(e.code);
+      throw e;
+    }
+  }
+
   async function api(req: IncomingMessage, res: ServerResponse, path: string) {
     csrfCheck(req);
     const method = req.method ?? 'GET';
 
     if (path === '/api/health' && method === 'GET') {
-      return json(res, 200, { ok: true, registration: openForSignup() ? 'open' : 'closed', name: 'studybible-sync', version: 1, protocol: PROTOCOL });
+      return json(res, 200, { ok: true, registration: openForSignup() ? 'open' : 'closed', name: 'studybible-sync', version: 1, protocol: PROTOCOL, oauth: publicProviders(oauth) });
     }
 
 
@@ -409,6 +508,8 @@ export function createApp(cfg: Config): Server {
       return json(res, 200, { ok: true }, { 'Set-Cookie': `sb_session=; HttpOnly; SameSite=Lax; Path=/; Max-Age=0${isSecure(req) ? '; Secure' : ''}` });
     }
 
+    if (await oauthRoutes(req, res, path, method)) return;
+
     const me = auth(req);
     if (!me) throw new HttpError(401, 'Not signed in.');
 
@@ -416,6 +517,32 @@ export function createApp(cfg: Config): Server {
 
     const full = () => db.prepare('SELECT * FROM users WHERE id = ?').get(me.id) as any;
     const needPassword = async (b: any) => { if (!(await verifyPassword(String(b.password ?? ''), full().pass_hash))) throw new HttpError(401, 'Password is incorrect.'); };
+
+    // sign-in methods linked to this account, and removing one (never the last way in)
+    if (path === '/api/account/identities' && method === 'GET') {
+      const rows = db.prepare('SELECT provider, email, created_at FROM identities WHERE user_id = ? ORDER BY created_at').all(me.id) as any[];
+      return json(res, 200, { identities: rows.map((r) => ({ provider: r.provider, name: oauth.providers.find((p) => p.id === r.provider)?.name ?? r.provider, email: r.email, createdAt: r.created_at })), hasPassword: hasPassword(full()), available: publicProviders(oauth) });
+    }
+    const idMatch = path.match(/^\/api\/account\/identities\/([a-z0-9-]+)$/);
+    if (idMatch && method === 'DELETE') {
+      const n = (db.prepare('SELECT COUNT(*) AS n FROM identities WHERE user_id = ?').get(me.id) as any).n;
+      if (!hasPassword(full()) && n <= 1) throw new HttpError(409, 'This is your only way to sign in. Set a password first, or add another sign-in method.');
+      const r = db.prepare('DELETE FROM identities WHERE user_id = ? AND provider = ?').run(me.id, idMatch[1]);
+      if (!r.changes) throw new HttpError(404, 'That sign-in method is not linked.');
+      logEvent(me.id, 'sign-in-method-removed', idMatch[1]);
+      return json(res, 200, { ok: true });
+    }
+    // an account made with a provider has no password; this lets its owner (already signed in) set one
+    if (path === '/api/account/password/set' && method === 'POST') {
+      const b = await readJson(req);
+      const u = full();
+      if (hasPassword(u)) throw new HttpError(409, 'This account already has a password. Use change password.');
+      const pp = passwordProblem(b.password, u.email);
+      if (pp) throw new HttpError(400, pp);
+      q.setPass.run(await hashPassword(b.password), u.id);
+      logEvent(u.id, 'password-set', 'on an account made with a sign-in provider');
+      return json(res, 200, { ok: true });
+    }
 
     if (path === '/api/account/profile' && method === 'PATCH') {
       const b = await readJson(req);

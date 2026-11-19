@@ -16,6 +16,7 @@ Accounts and sync are fully built but **off in every normal build**. A normal bu
 | Security log | the last 50 events (sign-in, wrong password, 2FA on/off, email or password change, reset); never passwords, codes or tokens | `security_log` table |
 | Sync | record-level, last-writer-wins, offline queue, conflict copies, limits per user | `src/sync/*`, `docs/SERVER.md` |
 | Your data | download everything, delete the account and every row | account page |
+| Sign in with Google, Microsoft or Apple | OpenID Connect with PKCE, off unless `OAUTH=on` and a provider's credentials are set; a provider is never joined to an existing account by email | `server/oauth.ts`, `docs/SIGN_IN_PROVIDERS.md` |
 | Operator tools | `list`, `invite`, `reset-code`, `reset-password`, `unlock`, `disable-2fa`, `delete-user` | `server/admin.ts` |
 
 ## The switch

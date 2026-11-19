@@ -1,4 +1,6 @@
 /** Checks the server's environment before it starts, so a bad setting stops it early instead of failing quietly later. */
+import { providersFromEnv } from './oauth';
+
 export interface EnvCheck { errors: string[]; warnings: string[] }
 
 export function checkEnv(env: Record<string, string | undefined>): EnvCheck {
@@ -19,5 +21,23 @@ export function checkEnv(env: Record<string, string | undefined>): EnvCheck {
   if (publicHost && env.REGISTRATION === 'open') warnings.push('Registration is open on a public address: anyone who finds the server can create an account. Set REGISTRATION=closed once your own account exists.');
   if (env.TRUST_PROXY === '1' && !publicHost) warnings.push('TRUST_PROXY=1 believes X-Forwarded-For. Only use it when a proxy you control sets that header.');
   if (!env.DB_PATH) warnings.push('DB_PATH is not set; the database will be at ./server-data/studybible.sqlite. Back that folder up (see docs/SERVER.md).');
+  // sign in with Google and other providers: off unless OAUTH=on
+  if (env.OAUTH && !['on', 'off'].includes(env.OAUTH)) errors.push(`OAUTH must be “on” or “off” (got “${env.OAUTH}”).`);
+  const configured = providersFromEnv(env);
+  if (env.OAUTH === 'on') {
+    errors.push(...configured.errors);
+    if (!env.PUBLIC_URL) errors.push('OAUTH=on needs PUBLIC_URL, the address people use to reach the app (for example https://study.example.org). Providers send people back to it.');
+    else {
+      try {
+        const u = new URL(env.PUBLIC_URL);
+        const local = ['localhost', '127.0.0.1'].includes(u.hostname);
+        if (u.protocol !== 'https:' && !local) errors.push('PUBLIC_URL must start with https:// (http is only allowed for localhost).');
+        if (u.pathname !== '/' || u.search || u.hash) errors.push('PUBLIC_URL must be just the address, with no path (for example https://study.example.org).');
+      } catch { errors.push(`PUBLIC_URL “${env.PUBLIC_URL}” is not a valid address.`); }
+    }
+    if (!configured.providers.length && !configured.errors.length) errors.push('OAUTH=on but no provider is configured. Set GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET (or another provider’s settings; see docs/SIGN_IN_PROVIDERS.md).');
+  } else if (configured.providers.length || configured.errors.length) {
+    warnings.push('Sign-in provider settings are present but OAUTH is not “on”, so they are ignored.');
+  }
   return { errors, warnings };
 }
