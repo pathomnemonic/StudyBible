@@ -20,7 +20,7 @@ const canWebGL = () => {
   } catch { return false; }
 };
 
-export default function BasilicaStage({ height, begun }: { height: number; begun: boolean }) {
+export default function BasilicaStage({ height, begun, pull = 0 }: { height: number; begun: boolean; pull?: number }) {
   const [mode, setMode] = useState<'pending' | '3d' | 'flat'>('pending');
   const ref = useRef<HTMLCanvasElement>(null);
   const scene = useRef<BasilicaScene3D | null>(null);
@@ -40,6 +40,7 @@ export default function BasilicaStage({ height, begun }: { height: number; begun
     return () => { dead = true; ro?.disconnect(); scene.current?.dispose(); scene.current = null; };
   }, [mode]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { scene.current?.setProgress(p); }, [p]);
+  useEffect(() => { scene.current?.setPull(pull); }, [pull]);
   if (mode === 'flat') return <BasilicaScene height={height} begun={begun} />;
   if (mode === 'pending') return null;
   return createPortal(<canvas ref={ref} className="bas-3d" aria-hidden="true" />, document.body);

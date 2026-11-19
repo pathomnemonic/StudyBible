@@ -51,21 +51,22 @@ const loadPackBest = (): Record<string, number> => { try { return JSON.parse(loc
 const savePackBest = (id: string, score: number) => { try { const b = loadPackBest(); if (score > (b[id] ?? 0)) { b[id] = score; localStorage.setItem(PACK_BEST, JSON.stringify(b)); } } catch { /* local storage may be unavailable */ } };
 
 /** eases a number toward its target over `ms` (slow, fast, slow) when `animate` is on, so a climb can be watched; otherwise it jumps */
-function useTween(target: number, ms: number, animate: boolean) {
+function useTween(target: number, ms: number, animate: boolean): [number, number] {
   const [v, setV] = useState(target);
+  const [prog, setProg] = useState(0);
   const cur = useRef(target);
   useEffect(() => {
-    if (!animate || ms <= 0) { cur.current = target; setV(target); return; }
+    if (!animate || ms <= 0) { cur.current = target; setV(target); setProg(0); return; }
     const from = cur.current, t0 = performance.now(); let raf = 0;
     const step = (now: number) => {
       const t = Math.min(1, (now - t0) / ms), e = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      cur.current = from + (target - from) * e; setV(cur.current);
+      cur.current = from + (target - from) * e; setV(cur.current); setProg(t >= 1 ? 0 : t);
       if (t < 1) raf = requestAnimationFrame(step);
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
   }, [target, ms, animate]);
-  return v;
+  return [v, prog];
 }
 
 const PREVIEW = 12;
@@ -251,7 +252,9 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   const shownScore = rising && result ? score - result.points : score;
   const depth = score * 10;
   // the height on screen climbs gradually while an answer rises, and floor lines and landmarks scroll past with it
-  const metres = useTween(depth, riseMs, rising && !motionOff());
+  const [metres, riseT] = useTween(depth, riseMs, rising && !motionOff());
+  // the camera pulls back and looks up at the building as the answer rises, then comes back in as it lands
+  const pull = riseT > 0 ? Math.pow(Math.sin(Math.PI * riseT), 0.7) : 0;
   const zone = levelAt(depth);
   const pct = (m: number) => `${(Math.min(SUMMIT_M, m) / SUMMIT_M) * 100}%`;
   const best = logbook.reduce((m, e) => Math.max(m, e.score), 0);
@@ -259,7 +262,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   return (
     <div className={`page deep-waters bas${shake ? ' dw-shake' : ''}`}>
       {flash > 0 && <div className="dw-flash" data-tier={flash} aria-hidden="true" />}
-      <BasilicaStage height={begun ? metres : 0} begun={begun} />
+      <BasilicaStage height={begun ? metres : 0} begun={begun} pull={pull} />
       {begun && !done && <ClimbRuler metres={metres} />}
       {begun && !done && (
         <div className="dw-gauge" aria-hidden="true">

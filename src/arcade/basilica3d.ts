@@ -122,6 +122,9 @@ export class BasilicaScene3D {
   private raf = 0;
   private disposed = false;
   private target = 0;
+  /** how far the camera has pulled back and dropped to look up at the building (0 near, 1 far), eased toward `pullTarget` */
+  private pull = 0;
+  private pullTarget = 0;
   private cur = 0;
   private still: boolean;
   private path!: { pos: THREE.CatmullRomCurve3; look: THREE.CatmullRomCurve3 };
@@ -414,6 +417,8 @@ export class BasilicaScene3D {
     this.raf = requestAnimationFrame(this.loop);
   }
 
+  setPull(v: number) { this.pullTarget = Math.max(0, Math.min(1, v)); if (this.still) this.frame(0.016, true); }
+
   setProgress(p: number) { this.target = Math.max(0, Math.min(1, p)); if (this.still) this.frame(0.016, true); }
 
   resize() {
@@ -444,6 +449,11 @@ export class BasilicaScene3D {
     this.cur += (this.target - this.cur) * (instant || this.still ? 1 : Math.min(1, dt * 1.7));
     const { pos, look } = this.apply(this.cur);
     pos.z *= this.camera.aspect < 1 ? 1 + (1 - this.camera.aspect) * 0.75 : 1;
+    this.pull += (this.pullTarget - this.pull) * (instant || this.still ? 1 : Math.min(1, dt * 5));
+    // pulled back, the camera stands lower and further off, so the whole height of the building is in view and the climb is seen from below
+    pos.z *= 1 + this.pull * 0.85; pos.y -= this.pull * 38; pos.x += this.pull * 10;
+    const fov = (this.camera.aspect < 1 ? 54 : 40) + this.pull * 8;
+    if (Math.abs(this.camera.fov - fov) > 0.01) { this.camera.fov = fov; this.camera.updateProjectionMatrix(); }
     const t = this.clock.elapsedTime;
     if (!this.still) { pos.x += Math.sin(t * 0.21) * 1.3; pos.y += Math.cos(t * 0.17) * 0.7; look.x += Math.sin(t * 0.13) * 0.8; }
     this.camera.position.copy(pos); this.camera.lookAt(look);

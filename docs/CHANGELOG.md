@@ -10,6 +10,12 @@
 
 
 
+
+## Basilion: the camera pulls back and looks up while an answer rises
+- In the 3D scene the camera now drops a little and pulls back as an answer floats up, so the whole height of the building is in view from below, then eases back in as the answer lands. It follows the same slow-fast-slow curve as the height counter.
+- The flat fallback scene does not zoom (it would show its edges); it keeps the floor lines and landmarks. Reduced motion skips the pull-back.
+- Checked by driving the 3D scene directly in a software-rendered browser (near and pulled-back views at two heights); the live animation was not timed on a real phone.
+
 ## Basilion: a climb you can see and measure
 - The height on screen now climbs gradually while an answer rises (slow, fast, slow) instead of jumping, and the basilica, the side gauge and the metres counter move together. A better answer rises for a little longer (2.0 to 2.9 seconds), and the rising sound is stretched to match.
 - Floor lines every 100 m and labelled landmarks (the Portico at 150 m, the Cross at 3,000 m, the Clouds, the Choirs of Angels and so on) are drawn across the whole screen and scroll with the height, so you can see how far you went and how big the building is. They stay faint behind the question.
