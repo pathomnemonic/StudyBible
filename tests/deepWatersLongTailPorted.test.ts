@@ -34,7 +34,7 @@ describe('the part of ChatGPT\'s long-tail batch that was kept', () => {
   it('are open, 60 answers or more, six tiers, with a basis naming the source', () => {
     expect(LONG_TAIL_PORTED.length).toBe(12);
     for (const p of LONG_TAIL_PORTED) {
-      expect(DEEP_WATERS, p.id).toContain(p);
+      expect(DEEP_WATERS.map((x) => x.id), p.id).toContain(p.id);
       expect(p.closed, p.id).toBeUndefined();
       expect(p.answers.length, p.id).toBeGreaterThanOrEqual(60);
       expect(new Set(p.answers.map((a) => a.tier)).size, p.id).toBeGreaterThanOrEqual(5);

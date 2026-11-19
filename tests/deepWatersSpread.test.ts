@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { DEEP_PLAYABLE } from '../src/data/deepWaters';
-import { matchDeepAnswer, spreadTiers } from '../src/lib/deepWaters';
+import { DEEP_POINTS, matchDeepAnswer, spreadTiers } from '../src/lib/deepWaters';
 import type { DeepPrompt } from '../src/data/deepWaters';
 
 const find = (id: string) => DEEP_PLAYABLE.find((p) => p.id === id)!;
@@ -34,5 +34,20 @@ describe('everyday answers people type are accepted', () => {
   });
   it('still refuses what is not an answer', () => {
     expect(matchDeepAnswer(poor, 'play video games').status).toBe('none');
+  });
+});
+
+describe('one top answer per category', () => {
+  it('has exactly one answer worth 100 in every open list that is played', async () => {
+    const { DEEP_ALL } = await import('../src/data/deepWatersPacks');
+    for (const p of [...DEEP_PLAYABLE, ...DEEP_ALL].filter((x) => !x.closed && x.answers.length >= 3)) {
+      expect(p.answers.filter((a) => a.tier === 6).length, p.id).toBe(1);
+    }
+  });
+  it('pays 20 to 100 points, with a typical answer worth about 50', () => {
+    expect(DEEP_POINTS).toEqual({ 1: 20, 2: 35, 3: 50, 4: 65, 5: 80, 6: 100 });
+    const pts = DEEP_PLAYABLE.filter((p) => !p.closed && p.answers.length >= 8 && !p.derived).flatMap((p) => p.answers.map((a) => DEEP_POINTS[a.tier]));
+    const mean = pts.reduce((x, y) => x + y, 0) / pts.length;
+    expect(mean).toBeGreaterThan(40);
   });
 });

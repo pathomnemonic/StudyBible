@@ -68,14 +68,14 @@
   {
     "prompt": "roles-women",
     "answer": "Noah",
-    "tier": 6,
-    "reason": "The woman Noah, a daughter of Zelophehad (Numbers 26:33), is a valid answer but very obscure; the count of mentions is the patriarch's."
+    "tier": 5,
+    "reason": "The woman Noah, a daughter of Zelophehad (Numbers 26:33), is a valid answer but very obscure; the count of mentions is the patriarch's. Held at the tier below the top because only one answer per list is worth the top score."
   },
   {
     "prompt": "roles-women",
     "answer": "Ephah",
-    "tier": 6,
-    "reason": "A concubine of Caleb (1 Chronicles 2:46); the mention count is mostly the measure and the man."
+    "tier": 5,
+    "reason": "A concubine of Caleb (1 Chronicles 2:46); the mention count is mostly the measure and the man. Held at the tier below the top because only one answer per list is worth the top score."
   },
   {
     "prompt": "roles-women",

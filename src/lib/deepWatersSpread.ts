@@ -2,23 +2,38 @@
 import type { DeepAnswer, DeepPrompt } from '../data/deepWaters';
 
 /**
- * Spreads a list's answers over all six scores by rank, keeping the order the authors gave them (rarer stays rarer). Hand-set tiers left most lists without a top score
- * and bunched the rest; this gives every open list its easy, middling and rare answers. Lists with a fixed set of answers are left alone.
+ * Exactly one answer per open list is worth the top score. If a list has several top-tier answers, the last one (the rarest, in the order the lists are written)
+ * keeps it and the others drop to the tier below; if it has none, its rarest answer takes it. Lists with a fixed set of answers are left alone.
  */
-const BAND_EDGES = [0.3, 0.52, 0.72, 0.86, 0.95, 1];
+export function singleTop<T extends DeepPrompt>(prompt: T): T {
+  const n = prompt.answers.length;
+  if (prompt.closed || n < 3) return prompt;
+  const tops = prompt.answers.map((a, i) => (a.tier === 6 ? i : -1)).filter((i) => i >= 0);
+  if (tops.length === 1) return prompt;
+  let keep = tops.length ? tops[tops.length - 1] : -1;
+  if (keep < 0) { // none yet: the rarest answer (highest tier, and the later one among equals)
+    let best = 0;
+    prompt.answers.forEach((a, i) => { if (a.tier >= prompt.answers[best].tier) best = i; });
+    keep = best;
+  }
+  return { ...prompt, answers: prompt.answers.map((a, i) => (i === keep ? { ...a, tier: 6 as const } : a.tier === 6 ? { ...a, tier: 5 as const } : a)) };
+}
+
+/**
+ * Spreads a list's answers over the scores by rank, keeping the order the authors gave them (rarer stays rarer), so every open list has its easy, middling and rare
+ * answers and exactly one top answer. Lists calibrated from a measured source keep their tiers (apart from the single top). Lists with a fixed set of answers are left alone.
+ */
+const BAND_EDGES = [0.18, 0.43, 0.68, 0.88]; // tiers 1 to 4; the rest is tier 5, and the single rarest answer is tier 6
 export function spreadTiers<T extends DeepPrompt>(prompt: T): T {
   const n = prompt.answers.length;
   if (prompt.closed || n < 3) return prompt;
-  // a list whose tiers already reach the top and cover most of the scale (or were calibrated from a measured source) is left exactly as it is
-  const used = new Set(prompt.answers.map((a) => a.tier));
-  if (prompt.source || (used.has(6) && used.size >= 5)) return prompt;
+  if (prompt.source) return singleTop(prompt);
   const order = prompt.answers.map((a, i) => ({ a, i })).sort((x, y) => x.a.tier - y.a.tier || x.i - y.i);
   const tierOf = new Map<DeepAnswer, DeepAnswer['tier']>();
   order.forEach(({ a }, r) => {
     const q = (r + 0.5) / n;
-    let t = (BAND_EDGES.findIndex((e) => q <= e) + 1) as DeepAnswer['tier'];
-    if (r === n - 1) t = 6; else if (r === n - 2 && n >= 5 && t < 5) t = 5;
-    tierOf.set(a, t);
+    const band = BAND_EDGES.findIndex((e) => q <= e);
+    tierOf.set(a, (r === n - 1 ? 6 : band < 0 ? 5 : band + 1) as DeepAnswer['tier']);
   });
   return { ...prompt, answers: prompt.answers.map((a) => ({ ...a, tier: tierOf.get(a)! })) };
 }

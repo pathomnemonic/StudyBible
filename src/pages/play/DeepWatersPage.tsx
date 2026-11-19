@@ -164,7 +164,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
   useEffect(() => {
     if (done && pack && !restoredDone.current) savePackBest(pack, score);
     if (done && !practice && !restoredDone.current) {
-      markDailyDone('deepwaters', `${score} pts`, score >= 200);
+      markDailyDone('deepwaters', `${score} pts`, score >= 300);
       const entries = recordDeepDive({ day: today, score, scoredRounds: history.filter((r) => r.points > 0).length, totalRounds: DEEP_ROUNDS, pearlFound: history.some((r) => (r.pearlBonus ?? 0) > 0), practice: false });
       setLogbook(entries);
     }
@@ -272,7 +272,7 @@ function DeepDive({ packs, practice, pack, onPack, onPractice }: { packs: PackMo
       )}
       {(!begun || done) && (<GameHelp how={[
         'Each round gives you a Catholic or biblical category. Enter one answer from the curated key before the 45-second timer runs out.',
-        'A recognized answer earns more points when it is a rarer one: 10, 15, 30, 60, 85 or 100 points, so a full climb can reach 700. Every point takes you 10 metres higher up the basilica.',
+        'A recognized answer earns more points when it is a rarer one: 20, 35, 50, 65, 80 or 100 points (only one answer in each category is worth 100), so a full climb can reach 700. Every point takes you 10 metres higher up the basilica.',
         'Use the optional hint if you get stuck. Rarity is curated for the game, not calculated from player surveys.',
         'The answer key is curated, not exhaustive. A valid answer may be missing; an unlisted answer does not mean it is wrong.',
         'One hidden keystone is worth a 50-point bonus (our own addition). It is selected from the rarest accepted answers in today’s set.',

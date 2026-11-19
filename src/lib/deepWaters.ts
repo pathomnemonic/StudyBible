@@ -1,13 +1,13 @@
 import { DEEP_PLAYABLE, DEEP_WATERS, type DeepAnswer, type DeepPrompt } from '../data/deepWaters';
 import { dailySchedule } from './deepWatersSchedule';
 import { deepTokens } from './deepWatersTokens';
-import { spreadTiers } from './deepWatersSpread';
-export { spreadTiers };
+import { singleTop, spreadTiers } from './deepWatersSpread';
+export { singleTop, spreadTiers };
 export { deepTokens };
 
 export const DEEP_ROUNDS = 7;
 export const DEEP_SECONDS = 45;
-export const DEEP_POINTS: Record<DeepAnswer['tier'], number> = { 1: 10, 2: 15, 3: 30, 4: 60, 5: 85, 6: 100 };
+export const DEEP_POINTS: Record<DeepAnswer['tier'], number> = { 1: 20, 2: 35, 3: 50, 4: 65, 5: 80, 6: 100 };
 export const DEEP_TIER_NAMES: Record<DeepAnswer['tier'], string> = {
   1: 'The doors', 2: 'The nave', 3: 'The loggia', 4: 'The drum', 5: 'The dome', 6: 'The cross'
 };

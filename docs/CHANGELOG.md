@@ -7,6 +7,13 @@
 
 
 
+
+## Basilion: higher scoring, and one 100-point answer per category
+- Points per tier are now 20, 35, 50, 65, 80 and 100 (they were 10, 15, 30, 60, 85 and 100). A full climb still tops out at 700, and a typical answer is worth about 50.
+- Exactly one answer in each open category is worth 100: the rarest. Lists that had several top answers keep the rarest one and the rest drop to 80. The tier bands for hand-written lists were re-cut so more answers land in the middle.
+- Two long-obscure answers in the women list (Noah and Ephah) were set to the tier below the top by the same rule, with the reason recorded.
+- Because points are higher, climbs reach the Cross (3,000 m, 300 points) more often, and the daily "good result" star now needs 300 points instead of 200.
+
 ## Basilion: a readable, searchable answer key
 - The answer key on the results screen is now dark text on a plain light panel with a coloured edge for each rarity, and your own answer is highlighted. The points shown beside each round are darker too.
 - It opens with the best twelve answers, has a search box (matching spellings and alternative names), and a button to show every answer, not only the first forty.

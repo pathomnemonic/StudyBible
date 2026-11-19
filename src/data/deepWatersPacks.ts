@@ -4,7 +4,7 @@ import { buildPools } from './deepWatersPools';
 import { CHATGPT_PROMPTS } from './deepWatersChatGPT';
 import PACK_ENTRIES from './deepWaters.packs.derived.json';
 import { DEEP_ROUNDS } from '../lib/deepWaters';
-import { spreadTiers } from '../lib/deepWatersSpread';
+import { singleTop, spreadTiers } from '../lib/deepWatersSpread';
 import { dailySchedule, familyOf } from '../lib/deepWatersSchedule';
 import { seeded, shuffled } from '../lib/dailyGame';
 
@@ -34,7 +34,7 @@ export const PACKS: Pack[] = [
 /** a question goes to the first of these that wants it (the hard puzzles first, the catch-all last) */
 const CLAIM_ORDER = ['puzzles', 'prayers', 'scholar', 'places', 'people', 'saints', 'letters', 'more'];
 /** Every question the game can deal: the daily bank, the hand-written lists the daily game leaves out, and the questions only the packs ask. Loaded only when a pack is opened. */
-export const DEEP_ALL: DeepPrompt[] = [...DEEP_WATERS, ...CHATGPT_PROMPTS.map(spreadTiers), ...materialize(buildPools(HAND_PROMPTS), PACK_ENTRIES as DerivedEntry[])];
+export const DEEP_ALL: DeepPrompt[] = [...DEEP_WATERS, ...CHATGPT_PROMPTS.map(spreadTiers), ...materialize(buildPools(HAND_PROMPTS), PACK_ENTRIES as DerivedEntry[]).map(singleTop)];
 const playable = new Set(DEEP_PLAYABLE.map((p) => p.id));
 const claimed = new Map<string, DeepPrompt[]>(PACKS.map((k) => [k.id, []]));
 for (const p of DEEP_ALL) {

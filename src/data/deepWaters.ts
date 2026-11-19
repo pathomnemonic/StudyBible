@@ -47,7 +47,7 @@ import { PATRON_SAINTS } from './deepWatersPatrons';
 import { BATCH_PROMPTS } from './deepWatersBatch';
 import { SIMPLER_PROMPTS, isEverydayList } from './deepWatersEveryday';
 import { materialize, type DerivedEntry } from '../lib/deepWatersDerive';
-import { spreadTiers } from '../lib/deepWatersSpread';
+import { singleTop, spreadTiers } from '../lib/deepWatersSpread';
 import DERIVED_ENTRIES from './deepWaters.derived.json';
 import { buildPools } from './deepWatersPools';
 
@@ -314,7 +314,7 @@ export const themeCaps = (() => {
 })();
 
 /** Every prompt: the hand-written groups, the groups generated from the app's own data (see scripts/deepwaters), and the questions derived by rule from complete lists. */
-export const DEEP_WATERS: DeepPrompt[] = [...BASE_PROMPTS, ...materialize(buildPools(HAND_PROMPTS), DERIVED_ENTRIES as DerivedEntry[])];
+export const DEEP_WATERS: DeepPrompt[] = [...BASE_PROMPTS, ...materialize(buildPools(HAND_PROMPTS), DERIVED_ENTRIES as DerivedEntry[]).map(singleTop)];
 
 /** The questions that are asked: the ones a player can answer at once (see src/data/deepWatersEveryday.ts). The rest of DEEP_WATERS is answer data for them and for the tests. */
 export const DEEP_PLAYABLE: DeepPrompt[] = DEEP_WATERS.filter((p) => p.derived || isEverydayPrompt(p));

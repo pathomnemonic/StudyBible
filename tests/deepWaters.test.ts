@@ -62,7 +62,7 @@ describe('Basilion content', () => {
   });
 
   it('uses an explicit increasing editorial score ladder', () => {
-    expect([1, 2, 3, 4, 5, 6].map((n) => DEEP_POINTS[n as 1 | 2 | 3 | 4 | 5 | 6])).toEqual([10, 15, 30, 60, 85, 100]);
+    expect([1, 2, 3, 4, 5, 6].map((n) => DEEP_POINTS[n as 1 | 2 | 3 | 4 | 5 | 6])).toEqual([20, 35, 50, 65, 80, 100]);
   });
 });
 
