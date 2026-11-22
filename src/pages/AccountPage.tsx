@@ -2,7 +2,7 @@ import { getSettings } from '../lib/store';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { api, type DeviceSession } from '../sync/api';
-import { completeProviderSignIn, deleteAccount, deleteMyStudyBibleData, retryDiscovery, signIn, signOut, signUp, syncNow, useSync, type AuthDecision } from '../sync/state';
+import { completeProviderSignIn, createStudyBibleAccount, deleteAccount, deleteStudyBibleAccount, retryDiscovery, signIn, signOut, signUp, syncNow, useSync, type AuthDecision } from '../sync/state';
 import { pendingCount } from '../sync/engine';
 import { download } from '../db/ops';
 import { useToast } from '../components/Toast';
@@ -129,7 +129,20 @@ export default function AccountPage() {
         </form>
       )}
 
-      {s.user && (
+      {s.user?.needsAccount && (
+        <div className="card">
+          <h2 className="card-title">Create your StudyBible account</h2>
+          <p className="muted small">You are signed in as {s.user.email}, but you do not have a StudyBible account yet. Accounts are separate for each app: this one keeps only your StudyBible notes, highlights and progress, and nothing of any other app. Nothing is sent until you create it.</p>
+          <label className="field"><span>Your name (optional)</span><input value={name} onChange={(e) => setName(e.target.value)} maxLength={80} autoComplete="name" /></label>
+          {err && <div className="notice" role="alert">{err}</div>}
+          <div className="row">
+            <button className="btn primary" disabled={busy} onClick={async () => { setBusy(true); setErr(''); try { await createStudyBibleAccount(name.trim() || undefined); toast('Your StudyBible account is ready. Your library is syncing.'); } catch (e: any) { setErr(e.message); } finally { setBusy(false); } }}>Create my StudyBible account</button>
+            <button className="btn ghost" onClick={() => signOut(false)}>Sign out</button>
+          </div>
+        </div>
+      )}
+
+      {s.user && !s.user.needsAccount && (
         <>
           <div className="card">
             <div className="row between">
@@ -192,15 +205,15 @@ export default function AccountPage() {
 
           {api.backend === 'supabase' && (
             <div className="card danger-zone">
-              <h2 className="card-title">Delete my StudyBible data</h2>
-              <p className="muted small">Removes your notes, highlights, bookmarks, journal, progress and settings from the account service. Your sign-in stays, so any other app that uses it is not affected. You can sync again afterwards. Copies on your own devices stay unless you choose to remove them. This cannot be undone.</p>
-              <button className="btn danger" onClick={async () => { if (!confirm('Before deleting: have you downloaded your account data (the button near the top of this page)?\n\nThis permanently removes everything StudyBible stores for you on the account service. Your sign-in is not deleted. Continue?')) return; try { await deleteMyStudyBibleData(confirm('Also remove the notes from this device?')); toast('Your StudyBible data was deleted from the account service.'); } catch (e: any) { toast(e.message, 'error'); } }}>Delete my StudyBible data</button>
+              <h2 className="card-title">Delete my StudyBible account</h2>
+              <p className="muted small">Deletes your StudyBible account and everything stored for it: notes, highlights, bookmarks, journal, progress and settings. Nothing else is touched: your sign-in stays, so any other app you use it with is not affected. You can create a new StudyBible account later. Copies on your own devices stay unless you choose to remove them. This cannot be undone.</p>
+              <button className="btn danger" onClick={async () => { if (!confirm('Before deleting: have you downloaded your account data (the button near the top of this page)?\n\nThis permanently deletes your StudyBible account and everything it stores on the account service. Your sign-in is not deleted. Continue?')) return; try { await deleteStudyBibleAccount(confirm('Also remove the notes from this device?')); toast('Your StudyBible account was deleted.'); } catch (e: any) { toast(e.message, 'error'); } }}>Delete my StudyBible account</button>
             </div>
           )}
 
           <div className="card danger-zone">
-            <h2 className="card-title">{api.backend === 'supabase' ? 'Delete my account everywhere' : 'Delete my account'}</h2>
-            {api.backend === 'supabase' && <p className="notice"><strong>This removes your sign-in for every app that uses it</strong>, including any other app by the same developer, and the data those apps keep for you. Cancel any subscription first. If you only want StudyBible\u2019s data gone, use \u201cDelete my StudyBible data\u201d instead.</p>}
+            <h2 className="card-title">{api.backend === 'supabase' ? 'Also remove my sign-in' : 'Delete my account'}</h2>
+            {api.backend === 'supabase' && <p className="notice"><strong>This removes your email sign-in itself.</strong> If you use the same email or Google sign-in in another app by the same developer, that app loses it too, and what it stores for you with it. Cancel any subscription first. If you only want your StudyBible account gone, use \u201cDelete my StudyBible account\u201d instead.</p>}
             <p className="muted small">Permanently deletes your account and every note, highlight and setting stored on the server. Copies on your own devices are not touched unless you choose so below. This cannot be undone.</p>
             <div className="row">
               <input type="password" placeholder="Confirm with your password" value={delPw} onChange={(e) => setDelPw(e.target.value)} autoComplete="current-password" />

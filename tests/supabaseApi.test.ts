@@ -25,7 +25,7 @@ function fake(over: Record<string, any> = {}) {
         unenroll: rec('unenroll', { error: null }),
       },
     },
-    schema: (name: string) => ({ rpc: (fn: string, args: any) => { calls.push({ fn: `${name}.${fn}`, args }); return Promise.resolve(over[`rpc:${fn}`] ?? { data: { ok: true }, error: null }); } }),
+    schema: (name: string) => ({ rpc: (fn: string, args: any) => { calls.push({ fn: `${name}.${fn}`, args }); return Promise.resolve(over[`rpc:${fn}`] ?? (fn === 'account_status' ? { data: { exists: true, name: null }, error: null } : { data: { ok: true }, error: null })); } }),
     functions: { invoke: (fn: string, o: any) => { calls.push({ fn: `functions.${fn}`, args: o }); return Promise.resolve(over.invoke ?? { data: { ok: true }, error: null }); } },
   };
   for (const [k, v] of Object.entries(over)) if (k.startsWith('auth.')) { const [, group, name] = k.split('.'); if (name) client.auth[group][name] = v; else client.auth[group] = v; }
@@ -42,7 +42,26 @@ describe('sign in and out', () => {
     const { api, calls } = fake();
     const r = await api.me();
     expect(r.user).toEqual({ id: 'u1', email: 'a@example.org', name: 'Alex', createdAt: Date.parse('2026-01-01T00:00:00Z') });
-    expect(names(calls)).toEqual(['getSession']);
+    expect(names(calls)).toEqual(['getSession', 'studybible.account_status']); // the only question put to the database
+    await api.me();
+    expect(names(calls)).toHaveLength(3); // once an account is known to exist it is not asked again
+  });
+  it('tells the app when someone is signed in through another app but has no StudyBible account yet, and makes none behind their back', async () => {
+    const f = fake({ 'rpc:account_status': { data: { exists: false }, error: null } });
+    const r = await f.api.me();
+    expect(r.user.needsAccount).toBe(true);
+    expect(names(f.calls)).not.toContain('studybible.create_account');
+  });
+  it('makes the account when the person signed up through StudyBible (it is part of signing up), but only then', async () => {
+    const mine = fake({ 'rpc:account_status': { data: { exists: false }, error: null }, 'auth.getSession': () => Promise.resolve({ data: { session: { user: { id: 'u9', email: 'n@example.org', created_at: '2026-01-01T00:00:00Z', user_metadata: { name: 'Nia', signed_up_via: 'studybible' } }, expires_at: 2e9 } }, error: null }) });
+    await mine.api.me();
+    expect(mine.calls.find((c) => c.fn === 'studybible.create_account')!.args).toEqual({ p_name: 'Nia' });
+  });
+  it('creates the account when the person chooses to', async () => {
+    const f = fake({ 'rpc:create_account': { data: { exists: true, name: 'Alex' }, error: null } });
+    const r = await f.api.createAccount('Alex');
+    expect(r.user.name).toBe('Alex');
+    expect(f.calls.find((c) => c.fn === 'studybible.create_account')!.args).toEqual({ p_name: 'Alex' });
   });
   it('says "not signed in" with the code the app already understands when there is no session', async () => {
     const { api } = fake({ 'auth.getSession': () => Promise.resolve({ data: { session: null }, error: null }) });
@@ -51,7 +70,7 @@ describe('sign in and out', () => {
   it('asks the person to confirm their email after sign-up instead of pretending they are signed in', async () => {
     const { api, calls } = fake({ 'auth.signUp': () => Promise.resolve({ data: { user: { id: 'u2', identities: [{}] }, session: null }, error: null }) });
     await expect(api.register('n@example.org', 'a long passphrase', 'Nia')).rejects.toThrow(/confirmation link/);
-    expect(true).toBe(true); expect(names(calls)).not.toContain('getSession');
+    expect(names(calls)).not.toContain('studybible.create_account'); // nothing is made until they are confirmed and signed in
   });
   it('sends the confirmation link back to this app’s own address', async () => {
     const calls: any[] = [];
@@ -59,6 +78,8 @@ describe('sign in and out', () => {
     const f = fake({ 'auth.signUp': (a: any) => { calls.push(a); return Promise.resolve({ data: { user: { id: 'u3', identities: [{}] }, session: { user: { id: 'u3' } } }, error: null }); } });
     await f.api.register('n@example.org', 'a long passphrase');
     expect(calls[0].options.emailRedirectTo).toBe('https://pathomnemonic.github.io/StudyBible/');
+    expect(calls[0].options.data.signed_up_via).toBe('studybible');
+    expect(names(f.calls)).toContain('studybible.create_account'); // an immediate session: the account is created as part of signing up
     vi.unstubAllGlobals();
   });
   it('treats an existing address as "may already exist", not as a new account', async () => {
@@ -102,6 +123,24 @@ describe('sensitive changes re-check the password', () => {
   });
 });
 
+describe('signing in with Google', () => {
+  it('offers only the services the project has switched on, from its public settings', async () => {
+    vi.stubGlobal('fetch', async () => new Response(JSON.stringify({ external: { google: true, apple: false, github: true } }), { status: 200 }));
+    expect((await fake().api.health()).oauth).toEqual([{ id: 'google', name: 'Google' }]);
+    vi.stubGlobal('fetch', async () => { throw new Error('offline'); });
+    expect((await fake().api.health()).oauth).toEqual([]);
+    vi.unstubAllGlobals();
+  });
+  it('sends the person to the provider and back to this app’s address', async () => {
+    vi.stubGlobal('location', { origin: 'https://pathomnemonic.github.io', pathname: '/StudyBible/' });
+    const got: any[] = [];
+    const f = fake({ 'auth.signInWithOAuth': (a: any) => { got.push(a); return Promise.resolve({ error: null }); } });
+    await f.api.signInWithProvider('google');
+    expect(got[0]).toEqual({ provider: 'google', options: { redirectTo: 'https://pathomnemonic.github.io/StudyBible/' } });
+    vi.unstubAllGlobals();
+  });
+});
+
 describe('data: sync, download and the two deletions', () => {
   it('calls the studybible sync function with the cursor and changes, and returns what it answers', async () => {
     const answer = { cursor: 7, more: false, rejected: 0, changes: [{ table: 'notes', uid: 'n', updatedAt: 1, payload: {} }] };
@@ -121,12 +160,12 @@ describe('data: sync, download and the two deletions', () => {
     await f.api.stats();
     expect(names(f.calls)).toEqual(['studybible.export_all', 'studybible.stats']);
   });
-  it('"delete my StudyBible data" calls only the data function: no sign-in is touched', async () => {
+  it('"delete my StudyBible account" calls only the account function: no sign-in is touched', async () => {
     const f = fake();
-    await f.api.deleteMyData();
-    expect(names(f.calls)).toEqual(['studybible.delete_my_data']);
+    await f.api.deleteStudyBibleAccount();
+    expect(names(f.calls)).toEqual(['studybible.delete_account']);
   });
-  it('"delete my account everywhere" re-checks the password, calls the server-side function with an explicit confirmation, and signs out here', async () => {
+  it('the separate "also remove my sign-in" re-checks the password, calls the server-side function with an explicit confirmation, and signs out here', async () => {
     const f = fake();
     await f.api.deleteAccount('right password');
     expect(names(f.calls)).toEqual(['getSession', 'signInWithPassword', 'functions.studybible-delete-account', 'signOut']);

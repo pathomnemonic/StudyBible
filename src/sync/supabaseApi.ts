@@ -25,6 +25,9 @@ const realClient: GetClient = (() => {
 /** the address Supabase's emails send people back to: this app's own address (it must be on the project's redirect list) */
 const here = () => (typeof location === 'undefined' ? '' : location.origin + location.pathname);
 
+/** the message the app recognises as "signed in, but no StudyBible account" */
+export const NO_ACCOUNT = 'You do not have a StudyBible account yet. Create one to sync.';
+
 /** plain wording for the messages Supabase sends, and an ApiError with a code the account screens already understand */
 function fail(e: any): never {
   if (e instanceof ApiError) throw e;
@@ -37,6 +40,8 @@ function fail(e: any): never {
   if (code === 'over_email_send_rate_limit' || /email rate limit/i.test(msg)) throw new ApiError(429, 'Too many emails have been sent just now. Try again in an hour.');
   if (code === 'over_request_rate_limit' || status === 429) throw new ApiError(429, 'Too many attempts. Wait a few minutes and try again.');
   if (/weak_password|password should be/i.test(code + msg)) throw new ApiError(400, 'Use a longer, less common password (at least 10 characters).');
+  // the account was deleted (for instance on another device) or never created: the app turns this into "create your StudyBible account"
+  if (code === 'P0002' || /no studybible account/i.test(msg)) throw new ApiError(409, NO_ACCOUNT);
   if (code === '28000' || /not signed in|jwt expired|invalid jwt|PGRST301/i.test(msg + code)) throw new ApiError(401, 'Not signed in.');
   if (code === '42501' || /sign in with an email/i.test(msg)) throw new ApiError(403, msg.includes('sign in with an email') ? 'Sign in with an email to use sync.' : 'Not allowed.');
   if (code === '22023') throw new ApiError(413, msg);
@@ -47,6 +52,8 @@ const mapUser = (u: any, name?: string | null): AccountUser => ({ id: u.id, emai
 
 export function createSupabaseApi(getClient: GetClient = realClient) {
   let pendingFactor: string | null = null;
+  /** the person whose StudyBible account was last seen to exist (so `me` does not ask the database every time) */
+  let accountKnown: string | null = null;
 
   async function rpc<T = any>(fn: string, args: Record<string, unknown> = {}): Promise<T> {
     let r: { data: T; error: any };
@@ -70,16 +77,49 @@ export function createSupabaseApi(getClient: GetClient = realClient) {
 
   return {
     backend: 'supabase' as 'server' | 'supabase',
-    /** nothing is contacted here: "available" means the app is configured for it */
-    health: async () => ({ ok: true, registration: 'open' as const, oauth: [] as SignInProvider[] }),
-    me: async () => { const s = await needSession(); return { user: mapUser(s.user) }; },
+    /** which sign-in services the project has switched on (the public settings page; no sign-in needed). Nothing else is contacted. */
+    health: async () => {
+      let oauth: SignInProvider[] = [];
+      try {
+        const r = await fetch(`${URL_}/auth/v1/settings`, { headers: { apikey: KEY_ } });
+        const ext = ((await r.json()) as { external?: Record<string, boolean> }).external ?? {};
+        oauth = (['google', 'apple'] as const).filter((id) => ext[id]).map((id) => ({ id, name: id === 'google' ? 'Google' : 'Apple' }));
+      } catch { /* none offered */ }
+      return { ok: true, registration: 'open' as const, oauth };
+    },
+    /** "Continue with Google": the browser leaves for the provider and comes back to this app's address (it must be on the project's redirect list) */
+    signInWithProvider: async (id: string) => {
+      const { error } = await (await auth()).signInWithOAuth({ provider: id, options: { redirectTo: here() } });
+      if (error) return fail(error);
+    },
+    /** who is signed in, and whether they have a StudyBible account yet (a person signed in through another app does not, until they create one) */
+    me: async () => {
+      const s = await needSession();
+      const user = mapUser(s.user);
+      if (accountKnown === s.user.id) return { user };
+      let status: { exists: boolean; name?: string | null };
+      try { status = await rpc('account_status'); } catch (e) { if (e instanceof ApiError && e.status === 0) return { user }; throw e; } // offline: carry on as before
+      if (!status.exists && s.user.user_metadata?.signed_up_via === 'studybible') status = await rpc('create_account', { p_name: s.user.user_metadata?.name ?? null }); // they signed up here: the account is part of signing up
+      if (!status.exists) return { user: { ...user, needsAccount: true } };
+      accountKnown = s.user.id;
+      return { user: { ...user, name: status.name ?? user.name } };
+    },
+    /** the person chose to create their StudyBible account */
+    createAccount: async (name?: string) => {
+      const s = await needSession();
+      const r = await rpc<{ exists: boolean; name?: string | null }>('create_account', { p_name: name ?? s.user.user_metadata?.name ?? null });
+      accountKnown = s.user.id;
+      return { user: { ...mapUser(s.user), name: r.name ?? mapUser(s.user).name } };
+    },
 
     register: async (email: string, password: string, name?: string, _invite?: string) => {
       let r;
-      try { r = await (await auth()).signUp({ email, password, options: { data: name ? { name } : {}, emailRedirectTo: here() } }); } catch (e) { return fail(e); }
+      try { r = await (await auth()).signUp({ email, password, options: { data: { ...(name ? { name } : {}), signed_up_via: 'studybible' }, emailRedirectTo: here() } }); } catch (e) { return fail(e); }
       if (r.error) return fail(r.error);
-      if (r.data.user && r.data.user.identities && r.data.user.identities.length === 0) throw new ApiError(409, 'An account with that email may already exist. Try signing in, or use “Forgot your password?”.');
+      if (r.data.user && r.data.user.identities && r.data.user.identities.length === 0) throw new ApiError(409, 'That email already has a sign-in. It may have been made in another app: sign in with the same password, then create your StudyBible account. Or use “Forgot your password?”.');
       if (!r.data.session) throw new ApiError(202, 'Check your email: we sent a confirmation link. Open it, then come back and sign in.');
+      await rpc('create_account', { p_name: name ?? null }); // signing up here includes creating the StudyBible account
+      accountKnown = r.data.user.id;
       return { user: mapUser(r.data.user) };
     },
 
@@ -186,9 +226,9 @@ export function createSupabaseApi(getClient: GetClient = realClient) {
     exportAccount: async () => rpc<any>('export_all'),
     stats: async () => rpc<{ tables: { table: string; records: number; deleted: number }[]; bytes: number; limits: { records: number; bytes: number } }>('stats'),
 
-    /** "Delete my StudyBible data": this app's records only. The shared sign-in, and every other app's data, are left alone. */
-    deleteMyData: async () => { await rpc('delete_my_data'); return { ok: true }; },
-    /** "Delete my account everywhere": the sign-in itself, through a function that holds the key the browser must never have */
+    /** "Delete my StudyBible account": the account and everything stored for it. The shared sign-in and every other app's data are left alone. */
+    deleteStudyBibleAccount: async () => { await rpc('delete_account'); accountKnown = null; return { ok: true }; },
+    /** Optional, and separate: also remove the shared sign-in itself, through a function that holds the key the browser must never have. Any other app that uses the same sign-in loses it too. */
     deleteAccount: async (password: string) => {
       await verifyPassword(password);
       const c = await getClient();

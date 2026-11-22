@@ -44,6 +44,8 @@ export interface SignInProvider { id: string; name: string }
 export const providerStartUrl = (id: string, link = false) => `${BASE}/api/auth/oauth/${encodeURIComponent(id)}/start${link ? '?link=1' : ''}`;
 
 export interface AccountUser {
+  /** true when the person is signed in but has not created a StudyBible account yet (the account is made on purpose, in StudyBible) */
+  needsAccount?: boolean;
   id: string;
   email: string;
   name: string | null;
@@ -97,7 +99,9 @@ const serverApi = {
   stats: () => call<{ tables: { table: string; records: number; deleted: number }[]; bytes: number; limits: { records: number; bytes: number } }>('GET', '/api/account/stats'),
   // only the Supabase backend has these (see supabaseApi.ts)
   backend: 'server' as 'server' | 'supabase',
-  deleteMyData: async (): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Not available on this server.'); },
+  deleteStudyBibleAccount: async (): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Not available on this server.'); },
+  createAccount: async (_name?: string): Promise<{ user: AccountUser }> => { throw new ApiError(404, 'Not available on this server.'); },
+  signInWithProvider: async (_id: string): Promise<void> => { throw new ApiError(404, 'Not available on this server.'); },
   requestPasswordReset: async (_email: string): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Not available on this server.'); },
   setNewPassword: async (_password: string): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Not available on this server.'); },
   onPasswordRecovery: (_cb: () => void): (() => void) => () => undefined,

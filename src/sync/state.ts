@@ -67,7 +67,7 @@ export function explain(e: any): string {
 
 export async function syncNow(): Promise<void> {
   const user = state.user;
-  if (!user) return;
+  if (!user || user.needsAccount) return; // signed in, but no StudyBible account yet: nothing is sent until they create one
   if (!navigator.onLine) return emit({ status: 'offline' });
   if (running) {
     again = true;
@@ -83,6 +83,9 @@ export async function syncNow(): Promise<void> {
     if (e instanceof ApiError && e.status === 401) {
       epoch++;
       emit({ session: 'none', user: null, status: 'signed-out', error: 'You were signed out (your session expired, or you signed out from another device). Everything is still on this device; sign in again to carry on syncing.' });
+    } else if (e instanceof ApiError && e.status === 409 && /StudyBible account yet/i.test(e.message)) {
+      // the account was deleted elsewhere: still signed in, and asked to create a new one (nothing on this device is lost)
+      emit({ user: { ...user, needsAccount: true }, status: 'idle', error: null });
     } else emit({ status: e instanceof ApiError && e.status === 0 ? 'offline' : 'error', error: explain(e) });
   } finally {
     running = false;
@@ -259,13 +262,21 @@ export async function signOut(clearLocal: boolean) {
   emit({ session: 'none', user: null, status: 'signed-out', lastSyncAt: null });
 }
 
-/** "Delete my StudyBible data": removes this app's records from the account service and stays signed in. The shared sign-in and other apps' data are untouched. */
-export async function deleteMyStudyBibleData(clearLocal: boolean) {
-  await api.deleteMyData();
+/** "Delete my StudyBible account": removes the account and its data from the account service. The person stays signed in to the shared sign-in (other apps may use it), and may create a new StudyBible account. */
+export async function deleteStudyBibleAccount(clearLocal: boolean) {
+  await api.deleteStudyBibleAccount();
   const u = state.user;
   if (u) resetSyncState(u.id); // nothing is left on the service, so the next sync sends everything on this device again unless it is removed here
   if (clearLocal) await wipeLocalUserData();
-  emit({ lastSyncAt: null, status: 'idle', error: null });
+  // the account is gone: the person is still signed in to the shared sign-in, and is asked to create a new account if they want one
+  if (state.user) emit({ user: { ...state.user, needsAccount: true }, lastSyncAt: null, status: 'idle', error: null });
+}
+
+/** The person chose to create their StudyBible account: make it, then sync everything on this device. */
+export async function createStudyBibleAccount(name: string | undefined) {
+  const { user } = await api.createAccount(name);
+  emit({ user, status: 'idle', error: null });
+  await syncNow();
 }
 
 export async function deleteAccount(password: string, clearLocal: boolean) {

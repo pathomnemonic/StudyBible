@@ -16,6 +16,13 @@
 
 
 
+
+## Per-app accounts on the shared Supabase project
+- A StudyBible account is now its own record (`studybible.accounts`), created on purpose in StudyBible. Signing in through another app does not create one, and no StudyBible function works without it. Signing up by email in StudyBible creates the sign-in and the account together; a person who already has a sign-in from another app, or who uses "Continue with Google", is asked to create their StudyBible account with one tap, and nothing is sent until they do. A second migration upgrades the first (`profiles` becomes `accounts`).
+- "Delete my StudyBible account" removes the account and its data and nothing else (tested to leave the sign-in and another app's data alone). "Also remove my sign-in" stays as a separate, optional action with a warning.
+- "Continue with Google" appears only when the project has the Google provider on. The limit of one project is spelled out in `docs/SUPABASE_PLAN.md`: separate accounts per app yes, separate passwords per app no (one email or Google identity is one sign-in in the pool).
+- If the account is deleted on another device, the next sync turns into the "create your StudyBible account" step instead of an error. 46 tests of the database, adapter and end-to-end path; still not run against the live project.
+
 ## Accounts and sync on the shared Supabase project (built, off)
 - Sign-in is Supabase Auth (PKCE flow, because the app uses `#` routes); data lives in a dedicated `studybible` schema with row-level security and no direct writes. Sync, download, usage and "delete my StudyBible data" are database functions that refuse anonymous visitors (anonymous sign-ins are on in the project) and keep the old server's rules: size and count limits, newer record wins, deletions, clock-skew cap. "Delete my account everywhere" is an Edge Function, because only a function holding the service key can remove a sign-in. The app holds only the public address and anon key.
 - The sync engine and almost all of the account screens are unchanged: a Supabase adapter exposes the same calls as the self-hosted server's client, and loads the Supabase library only when first used (its own chunk; the entry bundle did not grow beyond 2 KB).

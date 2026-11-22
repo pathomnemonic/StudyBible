@@ -1,9 +1,9 @@
-// "Delete my account everywhere" for StudyBible.
+// OPTIONAL "Also remove my sign-in" for StudyBible (a separate, secondary action: "Delete my StudyBible account" is the normal deletion and does not come here).
 //
 // A browser cannot delete a sign-in: that needs the project's service key, which must never be in the app. This function holds it (Supabase puts it in the
 // function's environment) and uses it for ONE thing, after checking who is asking: delete the caller's own sign-in. Because the sign-in is shared by every app
 // on the project, this removes it for all of them, and whatever those apps keep against it (their tables reference auth.users). The app warns about this and
-// asks for the password again before calling. "Delete my StudyBible data" (studybible.delete_my_data) is the separate, narrower action and does not come here.
+// asks for the password again before calling. "Delete my StudyBible account" (studybible.delete_account) is the separate, narrower action and does not come here.
 //
 // Deploy:  supabase functions deploy studybible-delete-account        (verify_jwt stays ON: the platform rejects calls with no valid token before this runs)
 // Optional secret: STUDYBIBLE_ORIGINS = comma-separated web addresses allowed to call it (default: https://pathomnemonic.github.io)

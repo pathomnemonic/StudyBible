@@ -21,8 +21,10 @@ export function ProviderButtons({ providers }: { providers: SignInProvider[] }) 
   if (!providers.length) return null;
   return (
     <div className="provider-buttons" aria-label="Other ways to sign in">
-      {providers.map((p) => <a key={p.id} className="btn block" href={providerStartUrl(p.id)}>Continue with {p.name}</a>)}
-      <p className="muted small">Signing in with another service only proves who you are. Your notes stay in your account on this server.</p>
+      {providers.map((p) => api.backend === 'supabase'
+        ? <button key={p.id} type="button" className="btn block" onClick={() => void api.signInWithProvider(p.id).catch(() => undefined)}>Continue with {p.name}</button>
+        : <a key={p.id} className="btn block" href={providerStartUrl(p.id)}>Continue with {p.name}</a>)}
+      <p className="muted small">Signing in with another service only proves who you are. Your notes stay in your StudyBible account.</p>
     </div>
   );
 }

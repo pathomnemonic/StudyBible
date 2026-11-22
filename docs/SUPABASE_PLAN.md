@@ -51,7 +51,7 @@ studybible.records     (user_id uuid references auth.users on delete cascade,
 
 * `studybible.sync(p_protocol int, p_cursor bigint, p_changes jsonb)` returns `{ cursor, more, rejected, changes }`: the same call and the same rules as `/api/sync` today (reject a shape that is wrong or a record too large, newer `updated_at` wins, a deletion is a row with `deleted = true`, page the answer, per-person limits of 200,000 records and 100 MB). The per-person `seq` is bumped by updating `sync_state` inside the call, which serializes one person's writes. A shared global sequence would not do: two writes could commit out of order and a device could skip a row for good.
 * `studybible.export_all()` returns everything the person has, as the download does today.
-* `studybible.delete_my_data()` deletes their `records`, `sync_state` and `profiles` rows.
+* `studybible.delete_my_data()` deletes their `records`, `sync_state` and `profiles` rows. (Superseded by the account model below: `profiles` became `accounts`, and this became `delete_account()`.)
 
 ## Deleting an account: the part to decide
 
@@ -117,4 +117,26 @@ Read by Orion, read-only. Public values only; no Management token or service key
 2. A small shared registry (`public.app_memberships(user_id, app)`) that every app writes to, so the Edge Function can ask it. This needs a change in the shared `public` schema, which is Mathews's call and affects the Dx family.
 
 Whether option 1 satisfies the Apple and Google account-deletion rule must be checked at store-launch time against their current wording; I have not verified it.
+
+## Account model, revised (Mathews, Nov 23): an account per app, not one login for all
+
+**What was asked:** one database for all the apps, but a person can make a separate account in each app, can use "Continue with Google", and subscriptions are separate per app.
+
+**What one Supabase project can and cannot do.** As I understand Supabase Auth (to be confirmed by the first check below), the project has **one sign-in pool** (`auth.users`) with one entry per email address and one per Google identity. So:
+
+* **Separate accounts per app: yes, at the app level.** A *StudyBible account* is a record of its own (`studybible.accounts`) that the person creates in StudyBible on purpose. Signing in through another app does **not** create one, and no StudyBible function works without it. It has its own name, its own data, and (if there ever were one) its own subscription. Deleting it removes that account and its data and nothing of any other app.
+* **Separate passwords per app: no.** The same email can have only one password in the pool, and the same Google identity is the same sign-in everywhere. A person who uses the same email in two apps uses the same password (or the same Google button) in both, while holding two independent accounts. This is the honest limit of one project.
+* **If a separate password per app is a requirement**, the only clean ways are separate Supabase projects (one per app, so not one database), or building our own sign-in system (large and risky; not recommended). Alias tricks such as `name+studybible@gmail.com` do not work for every email provider and do not work for Google, so I do not recommend them.
+
+**How it maps onto the shared pool:** `auth.users` = who you are (credentials only). `studybible.accounts(user_id → auth.users)` = your StudyBible account. Each app keeps its own account table the same way, and Dx's `user_id` columns already follow it. Nothing is added to `public`.
+
+**Sign-up and sign-in:**
+
+* Email sign-up *in StudyBible* creates the sign-in and the StudyBible account together (the app marks the sign-up so the account is made when the email is confirmed).
+* If the email already has a sign-in made in another app, StudyBible says so: sign in with the same password, then **create your StudyBible account** (one tap, shown when signed in without one).
+* "Continue with Google" is Supabase's own Google sign-in. A first Google sign-in in StudyBible lands on the same "create your StudyBible account" step, so nothing is created without a choice.
+
+**Deleting:** "Delete my StudyBible account" (the account and its data; nothing else is touched). The sign-in is left, because other apps may use it. An optional, separate "Also remove my sign-in" is kept for people who want the email sign-in itself erased; it warns that any other app using the same sign-in loses it. Mathews can remove that button if he prefers. **A privacy note for store review:** after deleting the account the email sign-in still exists in the shared pool until someone removes it, so the "also remove my sign-in" option, or a periodic clean-up of sign-ins with no account in any app, is what makes full erasure possible. Whether the store rules accept leaving the sign-in is not verified.
+
+**Subscriptions:** StudyBible has none. A subscription in another app is that app's own table and Stripe objects and cannot touch a StudyBible account.
 

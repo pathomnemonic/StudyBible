@@ -20,7 +20,8 @@ beforeAll(async () => {
     create function auth.uid() returns uuid language sql stable as $$ select nullif(auth.jwt() ->> 'sub', '')::uuid $$;
     grant usage on schema auth to anon, authenticated; grant execute on function auth.jwt(), auth.uid() to anon, authenticated;
     insert into auth.users (id, email) values ('${ME}', 'me@example.org');`);
-  await pg.exec(readFileSync('supabase/migrations/20261123000000_studybible_schema.sql', 'utf8'));
+  for (const f of ['20261123000000_studybible_schema.sql', '20261123010000_studybible_accounts.sql']) await pg.exec(readFileSync(`supabase/migrations/${f}`, 'utf8'));
+  await pg.exec(`set role authenticated; select set_config('request.jwt.claims', '${JSON.stringify({ sub: ME, is_anonymous: false })}', false); select studybible.create_account('Me'); reset role;`);
 }, 60_000);
 afterAll(async () => { await pg.close(); });
 
@@ -75,10 +76,12 @@ describe('the sync engine against the Supabase functions', () => {
       expect(await sync()).toMatchObject({ pushed: 0, pulled: 0 }); // nothing new: nothing sent, nothing received
     });
   });
-  it('after "delete my StudyBible data", a fresh device finds nothing, and the person can start again', async () => {
+  it('after deleting the StudyBible account, sync is refused until a new one is created, which starts empty', async () => {
     await pg.exec(asMe);
-    await pg.query('select studybible.delete_my_data()');
+    await pg.query('select studybible.delete_account()');
     await pg.exec('reset role');
+    await device(async ({ sync }) => { await expect(sync()).rejects.toThrow(/do not have a StudyBible account/); }); // no account: refused
+    await pg.exec(asMe); await pg.query("select studybible.create_account('Me again')"); await pg.exec('reset role');
     await device(async ({ db, sync }) => {
       expect((await sync()).pulled).toBe(0);
       expect(await db.notes.count()).toBe(0);
