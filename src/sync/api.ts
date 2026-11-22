@@ -1,11 +1,9 @@
 /** Thin client for the Study Bible sync server (see server/). Same-origin by default; set VITE_API_BASE for a separate origin. */
 const BASE: string = (import.meta.env.VITE_API_BASE as string | undefined)?.replace(/\/$/, '') ?? '';
 
-export class ApiError extends Error {
-  constructor(public status: number, message: string) {
-    super(message);
-  }
-}
+import { ApiError } from './errors';
+import { createSupabaseApi, supabaseConfigured } from './supabaseApi';
+export { ApiError };
 
 const TIMEOUT_MS = 20_000;
 
@@ -69,7 +67,8 @@ export interface WireChange {
   payload: any;
 }
 
-export const api = {
+/** the self-hosted server's API (server/); used unless the build is configured for Supabase */
+const serverApi = {
   health: () => call<{ ok: boolean; registration: 'open' | 'closed'; oauth?: SignInProvider[] }>('GET', '/api/health'),
   identities: () => call<{ identities: { provider: string; name: string; email: string | null; createdAt: number }[]; hasPassword: boolean; available: SignInProvider[] }>('GET', '/api/account/identities'),
   unlinkIdentity: (provider: string) => call<{ ok: boolean }>('DELETE', `/api/account/identities/${encodeURIComponent(provider)}`),
@@ -96,4 +95,13 @@ export const api = {
   revokeSession: (id: string) => call<{ ok: boolean }>('DELETE', `/api/auth/sessions/${id}`),
   revokeOthers: () => call<{ ok: boolean; revoked: number }>('POST', '/api/auth/sessions/revoke-others', {}),
   stats: () => call<{ tables: { table: string; records: number; deleted: number }[]; bytes: number; limits: { records: number; bytes: number } }>('GET', '/api/account/stats'),
+  // only the Supabase backend has these (see supabaseApi.ts)
+  backend: 'server' as 'server' | 'supabase',
+  deleteMyData: async (): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Not available on this server.'); },
+  requestPasswordReset: async (_email: string): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Not available on this server.'); },
+  setNewPassword: async (_password: string): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Not available on this server.'); },
+  onPasswordRecovery: (_cb: () => void): (() => void) => () => undefined,
 };
+
+/** The account and sync service in use: Supabase when the build has its address and public key, otherwise the self-hosted server. */
+export const api: typeof serverApi = supabaseConfigured() ? (createSupabaseApi() as unknown as typeof serverApi) : serverApi;

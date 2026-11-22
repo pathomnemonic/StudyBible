@@ -4,6 +4,7 @@ import { syncFlags } from '../db/db';
 import { getSettings, settingsChangeHooks } from '../lib/store';
 import { accountsEnabled, applyPreviewSwitch } from '../lib/accountsFlag';
 import { applyDriveSyncPreviewSwitch } from '../lib/driveSyncFlag';
+import { supabaseConfigured } from './supabaseApi';
 import { localDataCount, resetSyncState, runSync, touchSettings, wipeLocalUserData } from './engine';
 
 export type ServerState = 'unknown' | 'available' | 'unavailable';
@@ -124,7 +125,7 @@ export async function initSync() {
   if (started) return;
   started = true;
   // this build was made for a host with no sync server (GitHub Pages): never look for one
-  if (getSettings().localOnly || (import.meta.env.VITE_LOCAL_ONLY === '1' && !import.meta.env.VITE_API_BASE)) {
+  if (getSettings().localOnly || (import.meta.env.VITE_LOCAL_ONLY === '1' && !import.meta.env.VITE_API_BASE && !supabaseConfigured())) {
     // local-only mode: never contact a server
     emit({ server: 'unavailable', status: 'signed-out' });
     return;
@@ -256,6 +257,15 @@ export async function signOut(clearLocal: boolean) {
   if (u) resetSyncState(u.id);
   if (clearLocal) await wipeLocalUserData();
   emit({ session: 'none', user: null, status: 'signed-out', lastSyncAt: null });
+}
+
+/** "Delete my StudyBible data": removes this app's records from the account service and stays signed in. The shared sign-in and other apps' data are untouched. */
+export async function deleteMyStudyBibleData(clearLocal: boolean) {
+  await api.deleteMyData();
+  const u = state.user;
+  if (u) resetSyncState(u.id); // nothing is left on the service, so the next sync sends everything on this device again unless it is removed here
+  if (clearLocal) await wipeLocalUserData();
+  emit({ lastSyncAt: null, status: 'idle', error: null });
 }
 
 export async function deleteAccount(password: string, clearLocal: boolean) {

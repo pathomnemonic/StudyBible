@@ -2,11 +2,11 @@ import { getSettings } from '../lib/store';
 import { useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { api, type DeviceSession } from '../sync/api';
-import { completeProviderSignIn, deleteAccount, retryDiscovery, signIn, signOut, signUp, syncNow, useSync, type AuthDecision } from '../sync/state';
+import { completeProviderSignIn, deleteAccount, deleteMyStudyBibleData, retryDiscovery, signIn, signOut, signUp, syncNow, useSync, type AuthDecision } from '../sync/state';
 import { pendingCount } from '../sync/engine';
 import { download } from '../db/ops';
 import { useToast } from '../components/Toast';
-import { ForgotPassword, ProfileCard, SecurityLogCard, TwoFactorCard } from '../components/AccountSecurity';
+import { ForgotPassword, ProfileCard, SecurityLogCard, SetNewPassword, TwoFactorCard } from '../components/AccountSecurity';
 import { needsCode } from '../lib/securityLog';
 import { ProviderButtons, SignInMethodsCard, signInMessage } from '../components/SignInMethods';
 
@@ -41,6 +41,9 @@ export default function AccountPage() {
   const [cur, setCur] = useState('');
   const [next, setNext] = useState('');
   const [delPw, setDelPw] = useState('');
+  // the person followed the reset link in their email and is back here to choose a new password
+  const [recovering, setRecovering] = useState(false);
+  useEffect(() => api.onPasswordRecovery(() => setRecovering(true)), []);
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -81,6 +84,7 @@ export default function AccountPage() {
         </div>
       )}
 
+      {recovering && <SetNewPassword onDone={() => { setRecovering(false); toast('Password changed. You are signed in.'); }} />}
       {s.server === 'available' && !s.user && mode === 'forgot' && <ForgotPassword onDone={() => setMode('in')} />}
       {s.server === 'available' && !s.user && mode !== 'forgot' && (
         <form className="card auth" onSubmit={submit}>
@@ -186,8 +190,17 @@ export default function AccountPage() {
             </div>
           </div>
 
+          {api.backend === 'supabase' && (
+            <div className="card danger-zone">
+              <h2 className="card-title">Delete my StudyBible data</h2>
+              <p className="muted small">Removes your notes, highlights, bookmarks, journal, progress and settings from the account service. Your sign-in stays, so any other app that uses it is not affected. You can sync again afterwards. Copies on your own devices stay unless you choose to remove them. This cannot be undone.</p>
+              <button className="btn danger" onClick={async () => { if (!confirm('Before deleting: have you downloaded your account data (the button near the top of this page)?\n\nThis permanently removes everything StudyBible stores for you on the account service. Your sign-in is not deleted. Continue?')) return; try { await deleteMyStudyBibleData(confirm('Also remove the notes from this device?')); toast('Your StudyBible data was deleted from the account service.'); } catch (e: any) { toast(e.message, 'error'); } }}>Delete my StudyBible data</button>
+            </div>
+          )}
+
           <div className="card danger-zone">
-            <h2 className="card-title">Delete my account</h2>
+            <h2 className="card-title">{api.backend === 'supabase' ? 'Delete my account everywhere' : 'Delete my account'}</h2>
+            {api.backend === 'supabase' && <p className="notice"><strong>This removes your sign-in for every app that uses it</strong>, including any other app by the same developer, and the data those apps keep for you. Cancel any subscription first. If you only want StudyBible\u2019s data gone, use \u201cDelete my StudyBible data\u201d instead.</p>}
             <p className="muted small">Permanently deletes your account and every note, highlight and setting stored on the server. Copies on your own devices are not touched unless you choose so below. This cannot be undone.</p>
             <div className="row">
               <input type="password" placeholder="Confirm with your password" value={delPw} onChange={(e) => setDelPw(e.target.value)} autoComplete="current-password" />

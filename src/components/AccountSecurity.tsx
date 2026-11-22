@@ -46,7 +46,7 @@ export function TwoFactorCard() {
   return (
     <div className="card" aria-label="Two-factor sign-in">
       <h2 className="card-title">Two-factor sign-in</h2>
-      <p className="muted small">Adds a six-digit code from an authenticator app (any standard one) to signing in, so a stolen password is not enough. {info.enabled ? `On. ${info.recoveryCodesLeft} recovery codes left.` : 'Off.'}</p>
+      <p className="muted small">Adds a six-digit code from an authenticator app (any standard one) to signing in, so a stolen password is not enough. {info.enabled ? (api.backend === 'supabase' ? 'On.' : `On. ${info.recoveryCodesLeft} recovery codes left.`) : 'Off.'}{api.backend === 'supabase' && ' There are no recovery codes: if you lose your phone, reset your password by email and turn this off.'}</p>
       {codes && (
         <div className="notice" role="status">
           <strong>Save these recovery codes now.</strong> Each works once if you lose your phone. They will not be shown again.
@@ -67,14 +67,14 @@ export function TwoFactorCard() {
           <p><code style={{ userSelect: 'all', wordBreak: 'break-all' }}>{setup.secret}</code></p>
           <p className="muted small">Or open this link on the phone that has the app: <a href={setup.otpauth}>add to authenticator</a></p>
           <label className="field"><span>Six-digit code from the app</span><input inputMode="numeric" value={code} onChange={(e) => setCode(e.target.value)} autoComplete="one-time-code" /></label>
-          <button className="btn primary" disabled={code.replace(/\s/g, '').length !== 6} onClick={() => run(async () => { const r = await api.twoFactorConfirm(code); setCodes(r.recoveryCodes); setSetup(null); setCode(''); })}>Turn on</button>
+          <button className="btn primary" disabled={code.replace(/\s/g, '').length !== 6} onClick={() => run(async () => { const r = await api.twoFactorConfirm(code); setCodes(r.recoveryCodes.length ? r.recoveryCodes : null); setSetup(null); setCode(''); })}>Turn on</button>
         </>
       )}
       {info.enabled && (
         <>
           <label className="field"><span>Your password</span><input type="password" value={pw} onChange={(e) => setPw(e.target.value)} autoComplete="current-password" /></label>
           <div className="row">
-            <button className="btn" disabled={!pw} onClick={() => run(async () => { setCodes((await api.twoFactorRecovery(pw)).recoveryCodes); setPw(''); })}>Get new recovery codes</button>
+            {api.backend !== 'supabase' && <button className="btn" disabled={!pw} onClick={() => run(async () => { setCodes((await api.twoFactorRecovery(pw)).recoveryCodes); setPw(''); })}>Get new recovery codes</button>}
           </div>
           <label className="field"><span>To turn it off: a current code or a recovery code</span><input value={code} onChange={(e) => setCode(e.target.value)} autoComplete="one-time-code" /></label>
           <button className="btn danger" disabled={!pw || !code} onClick={() => run(async () => { await api.twoFactorDisable(pw, code); setPw(''); setCode(''); })}>Turn off</button>
@@ -91,7 +91,7 @@ export function SecurityLogCard() {
   const [tick, setTick] = useState(0);
   useEffect(() => { const f = () => setTick((n) => n + 1); window.addEventListener('sb:security-changed', f); return () => window.removeEventListener('sb:security-changed', f); }, []);
   useEffect(() => { if (s.user) api.securityLog().then((r) => setEvents(r.events)).catch(() => setEvents(null)); }, [s.user?.id, s.lastSyncAt, tick]);
-  if (!s.user || !events) return null;
+  if (!s.user || !events || api.backend === 'supabase') return null; // the shared account service keeps no per-app security log
   return (
     <div className="card" aria-label="Security log">
       <h2 className="card-title">Recent security activity</h2>
@@ -101,8 +101,43 @@ export function SecurityLogCard() {
   );
 }
 
-/** For someone who forgot their password: the operator gives them a one-time code (nothing is emailed). */
+/** For someone who forgot their password. On the shared account service an email link is sent; on a self-hosted server the operator gives a one-time code. */
 export function ForgotPassword({ onDone }: { onDone: () => void }) {
+  if (api.backend === 'supabase') return <EmailReset onDone={onDone} />;
+  return <OperatorCodeReset onDone={onDone} />;
+}
+
+function EmailReset({ onDone }: { onDone: () => void }) {
+  const [email, setEmail] = useState('');
+  const [sent, setSent] = useState(false);
+  const [err, setErr] = useState('');
+  return (
+    <div className="card" aria-label="Forgot your password">
+      <h2 className="card-title">Forgot your password?</h2>
+      <p className="muted small">Enter your email and we will send a link to choose a new one. Open it on this device. If nothing arrives within a few minutes, check your spam folder; only a few emails can be sent each hour, so try again later.</p>
+      <label className="field"><span>Email</span><input type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" /></label>
+      {err && <div className="notice" role="alert">{err}</div>}
+      {sent ? <p role="status">If that address has an account, a link is on its way. <button className="btn small" onClick={onDone}>Back to sign in</button></p>
+        : <button className="btn primary" disabled={!email.includes('@')} onClick={async () => { setErr(''); try { await api.requestPasswordReset(email.trim()); setSent(true); } catch (e: any) { setErr(e.message); } }}>Email me a link</button>}
+    </div>
+  );
+}
+
+/** Shown after someone follows the reset link back to the app: they choose the new password. */
+export function SetNewPassword({ onDone }: { onDone: () => void }) {
+  const [pw, setPw] = useState('');
+  const [err, setErr] = useState('');
+  return (
+    <div className="card" aria-label="Choose a new password">
+      <h2 className="card-title">Choose a new password</h2>
+      <label className="field"><span>New password</span><input type="password" value={pw} minLength={10} onChange={(e) => setPw(e.target.value)} autoComplete="new-password" /></label>
+      {err && <div className="notice" role="alert">{err}</div>}
+      <button className="btn primary" disabled={pw.length < 10} onClick={async () => { setErr(''); try { await api.setNewPassword(pw); setPw(''); onDone(); } catch (e: any) { setErr(e.message); } }}>Save new password</button>
+    </div>
+  );
+}
+
+function OperatorCodeReset({ onDone }: { onDone: () => void }) {
   const [code, setCode] = useState('');
   const [pw, setPw] = useState('');
   const [err, setErr] = useState('');

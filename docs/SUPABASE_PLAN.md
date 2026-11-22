@@ -1,6 +1,6 @@
 # Moving accounts and sync to the shared Supabase project: proposal
 
-**Status: a proposal. Nothing here has been built or applied.** It needs a yes from Mathews on the open decisions at the end, and some facts about the shared project that only Orion can read (the checklist for that is at the bottom).
+**Status: decided and built, off, not yet applied to the live project** (see `SUPABASE_SETUP.md` for what exists and the order to turn it on). Decisions taken: the `studybible` schema; remove the self-hosted server once the port is verified live; recovery codes and the security log accepted as lost; two deletion actions (StudyBible's data only, and the sign-in everywhere with a warning); no registry table in the shared schema; retire Drive sync once Supabase sync is verified. It needs a yes from Mathews on the open decisions at the end, and some facts about the shared project that only Orion can read (the checklist for that is at the bottom).
 
 ## What stays and what is replaced
 

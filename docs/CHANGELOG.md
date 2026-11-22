@@ -15,6 +15,15 @@
 
 
 
+
+## Accounts and sync on the shared Supabase project (built, off)
+- Sign-in is Supabase Auth (PKCE flow, because the app uses `#` routes); data lives in a dedicated `studybible` schema with row-level security and no direct writes. Sync, download, usage and "delete my StudyBible data" are database functions that refuse anonymous visitors (anonymous sign-ins are on in the project) and keep the old server's rules: size and count limits, newer record wins, deletions, clock-skew cap. "Delete my account everywhere" is an Edge Function, because only a function holding the service key can remove a sign-in. The app holds only the public address and anon key.
+- The sync engine and almost all of the account screens are unchanged: a Supabase adapter exposes the same calls as the self-hosted server's client, and loads the Supabase library only when first used (its own chunk; the entry bundle did not grow beyond 2 KB).
+- Screens: two separate deletion actions (StudyBible's data only, or the sign-in everywhere with a clear warning to cancel subscriptions first), email password reset with a "choose a new password" step, no recovery codes and no security log (accepted), a confirm-your-email message after sign-up.
+- A build that reaches Supabase is no longer treated as local-only on Pages; the deploy passes `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` from repository variables (empty means unchanged).
+- Tested: 17 tests of the SQL in a real Postgres (PGlite), 18 of the adapter, 2 of the whole path from the sync engine through the adapter into the SQL. **Not tested against the live project**: the email flow, the redirect and password-recovery handling, the Edge Function (Deno) and Supabase's second-step calls. `docs/SUPABASE_SETUP.md` has the order to turn it on and the eight live checks.
+- The self-hosted server code and Google Drive sync stay until those checks pass, then they are removed, as decided.
+
 ## Supabase plan updated with what was read from the project
 - Anonymous sign-ins are on, so every StudyBible function must refuse them and have a test for it. Email is limited to 2 an hour for the whole project (a real provider is a launch blocker). No sign-in providers are configured. The redirect list lacks StudyBible's address, and because the app uses `#/` routes it must use the PKCE flow. Account deletion: recommend deleting StudyBible's data only, with a separate "everywhere" action. See `docs/SUPABASE_PLAN.md`.
 
