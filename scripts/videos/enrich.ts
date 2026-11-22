@@ -32,11 +32,12 @@ for (let i = 0; i < todo.length; i += 50) {
   const url = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,snippet&id=${ids.join(',')}&key=${KEY}`;
   const r = await fetch(url);
   if (!r.ok) { console.error('API error', r.status, (await r.text()).slice(0, 300)); save(); process.exit(1); }
-  const j = (await r.json()) as { items: { id: string; contentDetails: { duration: string }; snippet: { publishedAt: string } }[] };
+  const j = (await r.json()) as { items: { id: string; contentDetails?: { duration?: string }; snippet?: { publishedAt?: string } }[] };
   const found = new Set<string>();
-  for (const it of j.items) {
+  for (const it of j.items ?? []) {
     found.add(it.id);
-    have.d[it.id] = [isoSeconds(it.contentDetails.duration), +it.snippet.publishedAt.slice(0, 10).replace(/-/g, '')];
+    // some items arrive without contentDetails.duration or snippet.publishedAt (an upcoming premiere, a removed live stream): they are kept as 0, never allowed to stop the run
+    have.d[it.id] = [isoSeconds(it.contentDetails?.duration), +(it.snippet?.publishedAt ?? '').slice(0, 10).replace(/-/g, '') || 0];
   }
   for (const id of ids) if (!found.has(id)) have.d[id] = [0, 0]; // private or removed: remember so we do not ask again
   if ((i / 50) % 20 === 0) { save(); console.log(`${Math.min(i + 50, todo.length)} / ${todo.length}`); }

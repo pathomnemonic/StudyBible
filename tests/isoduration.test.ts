@@ -8,4 +8,9 @@ describe('YouTube durations', () => {
     expect(isoSeconds('P0D')).toBe(0);
     expect(isoSeconds('junk')).toBe(0);
   });
+  it('treats a missing duration as 0 instead of throwing (YouTube sends none for some items)', () => {
+    expect(isoSeconds(undefined)).toBe(0);
+    expect(isoSeconds(null)).toBe(0);
+    expect(isoSeconds('')).toBe(0);
+  });
 });
