@@ -14,6 +14,10 @@
 
 
 
+
+## Supabase plan updated with what was read from the project
+- Anonymous sign-ins are on, so every StudyBible function must refuse them and have a test for it. Email is limited to 2 an hour for the whole project (a real provider is a launch blocker). No sign-in providers are configured. The redirect list lacks StudyBible's address, and because the app uses `#/` routes it must use the PKCE flow. Account deletion: recommend deleting StudyBible's data only, with a separate "everywhere" action. See `docs/SUPABASE_PLAN.md`.
+
 ## An optional tip link, and a plan for moving accounts to Supabase
 - Settings has a "Leave a tip" card that links to https://ko-fi.com/pathomnemonic. It is the only money-related thing in the app: everything else stays free, with no paywall, locked feature or paid tier. It is a plain link (nothing sent, nothing tracked) and is hidden inside a native store app until the stores' rules on tips and outside payment links have been checked. The Ko-fi page itself could not be opened from the build machine (it refuses automated requests), so the address is as given and not checked.
 - `docs/SUPABASE_PLAN.md` proposes moving accounts and sync to the shared Supabase project: a dedicated `studybible` schema, row-level security with no direct writes, the sync rules as a database function behind the existing sync-engine interface, and an in-app account-deletion path. Nothing is built or applied yet; it lists the decisions needed and what has to be read from the project first.

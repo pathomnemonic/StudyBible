@@ -95,3 +95,26 @@ The stores require an in-app way to delete the account once accounts exist. With
 4. The RLS pattern already used, so StudyBible's matches it.
 5. Which schemas the API currently exposes, and the Edge Functions already deployed.
 6. The anon key and project URL (public values, for the build setting only). **Not** the Management token or any service key.
+
+## What was read from the live project (Nov 22), and what it changes
+
+Read by Orion, read-only. Public values only; no Management token or service key was shared.
+
+* **Project** `replaqmcwynrxclunkck` (ca-central-1, Free plan). Schemas: `public` (the Dx family, about 171 tables and views), `old_game` (the frozen v1; **not to be touched**), plus system schemas. No `studybible` schema yet. **No trigger on `auth.users`**, so the "no trigger" rule above costs nothing.
+* **Anonymous sign-ins are enabled.** Those people hold the same `authenticated` role as everyone else, so a rule that only checks "signed in" would let an anonymous visitor store up to 100 MB in `studybible.records`. **Every StudyBible function must refuse them**: check `(auth.jwt() ->> 'is_anonymous')::boolean is not true` as well as `auth.uid() is not null`, and the tests must cover it. Sign-up is also open, so the per-person limits in the functions matter.
+* **Email**: confirmation is ON, there is no custom SMTP, and the limit is **2 emails per hour for the whole project**. A real email provider is a **launch blocker**, not a nicety, and it will also affect every other app sharing the project.
+* **No sign-in providers are configured.** Google and Apple sign-in (Apple's is required in the iOS app if Google is offered) each need their own client credentials set up in the project. Until then, accounts are email and password only.
+* **Redirect allow list** holds only Dx addresses, `http://localhost:5173/**` and the Dx native scheme. StudyBible's address, `https://pathomnemonic.github.io/StudyBible/`, must be added or confirmation and reset links fail. The native store apps will need their own scheme added later.
+* **This app uses `#/` routes, and Supabase returns its result in the address.** The default way returns the tokens in the `#` part, which would collide with the router. The app must use the **PKCE flow**, which comes back as `?code=…` before the `#`, and call `exchangeCodeForSession` on load, then move on to `#/account`. This is a design requirement, not a detail.
+* **Rows in the Dx tables carry a `user_id` that references the shared auth user**, with RLS written as `auth.uid() = user_id`. StudyBible's policies use the same form on `studybible.records`.
+* **The two existing Edge Functions** (`pro-checkout`, `stripe-webhook`) belong to Dx's paid tier. StudyBible has no paid tier and must not call or depend on them.
+
+### Deleting an account, after seeing how Dx stores data
+
+"Does this person have data in another app" would mean checking about 28 Dx tables that carry a `user_id`, and any other app's tables, from inside a StudyBible function. That check would break whenever another app adds a table. Two simpler ways, for Mathews to choose between:
+
+1. **Recommended: StudyBible deletes only its own data**, and says plainly that the shared sign-in remains because other apps may use it. Removing the sign-in itself is a separate, clearly labelled "delete my account everywhere" action.
+2. A small shared registry (`public.app_memberships(user_id, app)`) that every app writes to, so the Edge Function can ask it. This needs a change in the shared `public` schema, which is Mathews's call and affects the Dx family.
+
+Whether option 1 satisfies the Apple and Google account-deletion rule must be checked at store-launch time against their current wording; I have not verified it.
+
