@@ -13,6 +13,11 @@
 
 
 
+
+## An optional tip link, and a plan for moving accounts to Supabase
+- Settings has a "Leave a tip" card that links to https://ko-fi.com/pathomnemonic. It is the only money-related thing in the app: everything else stays free, with no paywall, locked feature or paid tier. It is a plain link (nothing sent, nothing tracked) and is hidden inside a native store app until the stores' rules on tips and outside payment links have been checked. The Ko-fi page itself could not be opened from the build machine (it refuses automated requests), so the address is as given and not checked.
+- `docs/SUPABASE_PLAN.md` proposes moving accounts and sync to the shared Supabase project: a dedicated `studybible` schema, row-level security with no direct writes, the sync rules as a database function behind the existing sync-engine interface, and an in-app account-deletion path. Nothing is built or applied yet; it lists the decisions needed and what has to be read from the project first.
+
 ## Sync through the reader's own Google Drive (built, off)
 - Notes, highlights, bookmarks, journal, plans, progress, folders and some settings can now sync between a person's devices through the hidden app folder of their own Google Drive, with no server, database or account of ours. It works from the plain GitHub Pages copy.
 - It reuses the existing sync engine unchanged (conflicts, deletions, the "unsent" bookkeeping): Drive stands in for the server through the same call. Each push is a small immutable file, so devices never write the same file; a device remembers which files it has read; a snapshot folds a long log into one file; unreadable or newer-format files are skipped and never deleted.
