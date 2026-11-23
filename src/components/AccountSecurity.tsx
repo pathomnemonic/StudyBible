@@ -127,12 +127,15 @@ function EmailReset({ onDone }: { onDone: () => void }) {
 export function SetNewPassword({ onDone }: { onDone: () => void }) {
   const [pw, setPw] = useState('');
   const [err, setErr] = useState('');
+  const [busy, setBusy] = useState(false);
+  const [saved, setSaved] = useState(false);
   return (
     <div className="card" aria-label="Choose a new password">
       <h2 className="card-title">Choose a new password</h2>
       <label className="field"><span>New password</span><input type="password" value={pw} minLength={10} onChange={(e) => setPw(e.target.value)} autoComplete="new-password" /></label>
       {err && <div className="notice" role="alert">{err}</div>}
-      <button className="btn primary" disabled={pw.length < 10} onClick={async () => { setErr(''); try { await api.setNewPassword(pw); setPw(''); onDone(); } catch (e: any) { setErr(e.message); } }}>Save new password</button>
+      {saved && <p role="status"><strong>Password changed.</strong> Signing you in…</p>}
+      <button className="btn primary" disabled={pw.length < 10 || busy || saved} onClick={async () => { setErr(''); setBusy(true); try { await api.setNewPassword(pw); setPw(''); setSaved(true); onDone(); } catch (e: any) { setErr(e.message); } finally { setBusy(false); } }}>{busy ? 'Saving…' : 'Save new password'}</button>
     </div>
   );
 }

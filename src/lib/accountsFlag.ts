@@ -17,6 +17,9 @@ export function accountsEnabled(): boolean {
   try { return localStorage.getItem(KEY) === 'on'; } catch { return false; }
 }
 
+/** the switch is read as soon as this file loads, before the router decides whether the account page exists (reading it later, in a start-up effect, sent a first visit to ?accounts=on#/account back to the home page and stripped the hash) */
+export const applyPreviewSwitchNow = () => { if (typeof location !== 'undefined') applyPreviewSwitch(location.search + (location.hash.includes('?') ? location.hash.slice(location.hash.indexOf('?')) : '')); };
+
 /** reads ?accounts=on|off from the address (only honoured in a preview build) and remembers it on this device */
 export function applyPreviewSwitch(search: string): void {
   if (import.meta.env.VITE_ACCOUNTS_PREVIEW !== '1') return;
@@ -27,3 +30,4 @@ export function applyPreviewSwitch(search: string): void {
   const returning = supabaseConfigured() && params.has('code');
   try { if (v === 'on' || returning) localStorage.setItem(KEY, 'on'); else if (v === 'off') localStorage.removeItem(KEY); } catch { /* storage blocked */ }
 }
+applyPreviewSwitchNow();

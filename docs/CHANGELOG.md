@@ -21,6 +21,14 @@
 
 
 
+
+## Accounts preview: four more fixes from the live checks
+- **First visit to `?accounts=on#/account` went home with the hash stripped** (and the Account page "would not open until Update now", which was not the service worker). The switch was read in a start-up effect, after the router had already seen the account page as off and redirected. It is now read when the file loads, before the router decides. Checked in a browser: the first visit and a reload both stay on `#/account` and show the page.
+- The warning on "Also remove my sign-in" showed the literal text `\u201c` and `\u201d`: escape sequences had been written into page text. Fixed, and no other such text remains in the screens.
+- That card said "unless you choose so below" about a control that is not there; it now says copies on your devices are kept unless you choose to remove them when asked (which is what happens).
+- Saving a new password now shows "Saving…", then "Password changed. Signing you in…", and the button cannot be pressed twice.
+- Not reproduced: one reload of `#/account` giving a permanently blank page. The first-visit fix above is the likeliest cause; if it appears again, the browser console message is what is needed.
+
 ## Accounts preview, second fix; three launch bugs
 - **Google and reset returns, root cause.** The app deliberately refuses to adopt a leftover session after someone has signed out on a device. A return from Google, a confirmation or a reset (`?code=…`) is the person choosing to sign in, but that guard still blocked it, so nothing finished in a browser that had signed out earlier (every one of the live test browsers). Returning with a code now clears that guard. The redirect to the Account page also no longer looks once and gives up: it waits for the sign-in or the recovery event, up to 30 seconds. Reproduced and checked in a browser against a faked Supabase: a fresh browser that had signed out earlier returns from Google, the code is exchanged, and the page lands on "Create your StudyBible account".
 - The Account page's "How your data is handled" no longer describes the self-hosted server (scrypt, cookies) when the app uses the shared account service.
