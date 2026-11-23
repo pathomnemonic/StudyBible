@@ -17,7 +17,7 @@ YOURS: notes, highlights, journal and memorization stay on your device. No ads, 
 Works offline. Backups are a file you keep. Optional sync only if you set up your own server.
 
 ## Data safety form (answers)
-* Data collected: **None.** Data shared: **None.** Everything stays on the device.
+* Data collected: **None.** Data shared: **None.** Everything stays on the device. **(True only while accounts are switched off. If accounts ship, replace this with the answers in docs/LAUNCH.md.)**
 * Optional features that contact third parties only when the person uses them (word look-ups, podcasts, videos, maps): disclosed in the in-app Privacy page. Declare "No data collected" and add the privacy URL.
 * Encrypted in transit: yes (HTTPS only). Deletion: clear the app's data or uninstall.
 * Ads: none. Account creation: not offered. Target audience: all ages; the Kid mode is for parents and teachers to use with children (Families policy: no ads, no analytics, no sign-in, so it complies).

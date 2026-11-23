@@ -35,7 +35,17 @@ The app is already an installable **PWA** (manifest, service worker, offline, up
 
 ## Pre-flight checklist (all verified in this repo unless marked)
 - [x] Works offline after first load; update prompt never interrupts typing.
-- [x] No accounts, ads, analytics or tracking SDKs; privacy page matches behaviour.
+- [x] No accounts, ads, analytics or tracking SDKs; privacy page matches behaviour. **This is true only while the accounts switch is off** (`VITE_ACCOUNTS`). The moment accounts ship in a store build, every item in the next section applies and the listings' "no data collected" answers must change first.
+- [ ] If accounts ship in the store build (Supabase, see SUPABASE_SETUP.md):
+  - Google Play data safety: collected = email address and user content (notes, highlights, progress); linked to the person; not shared; encrypted in transit; deletion available in the app ("Delete my StudyBible account") and on the web.
+  - Apple App Privacy: Contact Info (email) and User Content, linked to the user, not used for tracking. The listing's "Data Not Collected" must go.
+  - Account deletion must be reachable inside the app (it is: Account page). The shared email sign-in outlives it unless "Also remove my sign-in" is used; confirm the store wording accepts that.
+  - **Sign in with Apple** is required in the iOS app if Google sign-in is offered (set up Apple as a provider in the project first).
+  - The privacy policy address to enter in both stores: https://pathomnemonic.github.io/StudyBible/privacy.html (kept by Orion; it names the accounts, Drive backup, third-party content and children wording).
+  - The tip link is hidden inside the native app on purpose; check each store's current rules on tips and outside payment pages before showing it there.
+  - The lessons for younger learners (Kindergarten to Grade 8) affect the age rating and, on Google Play, the audience and Families questions: decide the target audience deliberately.
+  - Re-read the in-app sentences that say "there is no account" (Passport page, Widgets page, Help "Where is my data kept?") when accounts ship; they are true now and must stay true.
+- [ ] The native wrappers are not installed yet: `@capacitor/*` is not in package.json (the steps above add them), so no store build has been made or tested from this repo.
 - [x] Icons: maskable safe zone respected; iOS icon has no alpha channel.
 - [x] `tests/launch.test.ts` checks manifest fields, icon files and listing limits (name ≤30, short description ≤80, keywords ≤100).
 - [ ] Real-device pass on a low-end Android phone and an older iPhone (cannot be done here).

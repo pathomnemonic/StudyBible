@@ -10,7 +10,7 @@
 **Copyright:** the owner's name and year.
 
 ## App Privacy ("nutrition label")
-**Data Not Collected.** The app has no accounts, ads, analytics or tracking SDKs. Tracking: No.
+**Data Not Collected.** The app has no accounts, ads, analytics or tracking SDKs. Tracking: No. **(True only while accounts are switched off. If accounts ship, replace this with the App Privacy answers in docs/LAUNCH.md.)**
 
 ## Review notes (paste into "Notes")
 No sign-in is needed. All Bible text, the Catechism index, lessons and prayers ship inside the app and work offline. Optional features (podcast search, word look-ups, maps, YouTube/Vimeo embeds) contact third-party services only when the user opens them; the in-app Privacy page lists each. The RSV Second Catholic Edition text is included with the rights holder's permission (owner to supply the licence reference if asked).
