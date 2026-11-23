@@ -23,6 +23,12 @@
 
 
 
+
+## A deleted StudyBible account no longer comes back; a link that was already used now says so
+- **Root cause of the "resurrected" account:** after an email sign-up, a marker on the sign-in told the app to create the StudyBible account automatically (that is how sign-up and account creation happen together). The marker was never removed, so every later start that found no account quietly made one again, including after the person had deliberately deleted it. The marker is now removed right after the account is first created (at sign-up, on first sign-in after confirming, or when the person chooses to create it) and again when the account is deleted. Tests cover creating once, not recreating after a deletion, and clearing the marker on each path.
+- **A used or unusable link** (it comes back with `?code=` but nothing is signed in and no reset is waiting) now lands on the Account page with "That link was already used, or has expired. Request a new one." instead of a silent home page.
+- Not changed, and unknown: whether Supabase itself accepts a reset link a second time from another browser. In the retest the second click arrived in a browser that was already signed in, so the sign-in could have come from that session and not the link.
+
 ## Account page: delete buttons that work everywhere, expired links, and a few play-through fixes
 - **The delete buttons did nothing** in the live retest: they asked their question with the browser's own confirm box, which some browsers (and automated ones) suppress, so the button silently did nothing. Every question on the Account page (delete the StudyBible account, also remove the sign-in, sign out, data from another account on this device) is now asked in the page. Checked in a browser: pressing "Delete my StudyBible account" opens the page's own dialog.
 - **An expired or already-used email link** (`/?error=…&error_code=otp_expired#error=…`) was read by the router as a page that does not exist. It now lands on the Account page with "That link has expired or was already used. Request a new one."

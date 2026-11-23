@@ -32,6 +32,8 @@ function takeAuthErrorFromAddress() {
   const msg = code === 'otp_expired' ? 'That link has expired or was already used. Request a new one.' : 'That sign-in link did not work. Try again, or request a new link.';
   try { sessionStorage.setItem(AUTH_ERROR_KEY, msg); localStorage.setItem(KEY, 'on'); history.replaceState(null, '', location.pathname + '#/account'); } catch { /* storage blocked */ }
 }
+/** leaves a message for the Account page to show once (used when a link did not sign anyone in) */
+export function setAuthError(msg: string) { try { sessionStorage.setItem(AUTH_ERROR_KEY, msg); } catch { /* storage blocked */ } }
 /** the message left by a failed email-link return (shown once) */
 export function consumeAuthError(): string | null {
   try { const m = sessionStorage.getItem(AUTH_ERROR_KEY); if (m) sessionStorage.removeItem(AUTH_ERROR_KEY); return m; } catch { return null; }

@@ -57,6 +57,21 @@ describe('sign in and out', () => {
     const mine = fake({ 'rpc:account_status': { data: { exists: false }, error: null }, 'auth.getSession': () => Promise.resolve({ data: { session: { user: { id: 'u9', email: 'n@example.org', created_at: '2026-01-01T00:00:00Z', user_metadata: { name: 'Nia', signed_up_via: 'studybible' } }, expires_at: 2e9 } }, error: null }) });
     await mine.api.me();
     expect(mine.calls.find((c) => c.fn === 'studybible.create_account')!.args).toEqual({ p_name: 'Nia' });
+    // and only once: the marker is removed straight afterwards, so a later deletion is not undone by the next start
+    const cleared = mine.calls.filter((c) => c.fn === 'updateUser');
+    expect(cleared).toHaveLength(1); expect(cleared[0].args).toEqual({ data: { signed_up_via: null } });
+  });
+  it('does not bring back an account the person deleted, even though they once signed up here', async () => {
+    // a session whose marker was already removed (as it is after the first creation or after a deletion) and no account: they are asked, nothing is made
+    const f = fake({ 'rpc:account_status': { data: { exists: false }, error: null } });
+    expect((await f.api.me()).user.needsAccount).toBe(true);
+    expect(names(f.calls)).not.toContain('studybible.create_account');
+  });
+  it('removes the sign-up marker when the account is deleted and when it is created by choice', async () => {
+    const del = fake(); await del.api.deleteStudyBibleAccount();
+    expect(del.calls.filter((c) => c.fn === 'updateUser').map((c) => c.args)).toEqual([{ data: { signed_up_via: null } }]);
+    const made = fake({ 'rpc:create_account': { data: { exists: true, name: null }, error: null } }); await made.api.createAccount('Alex');
+    expect(made.calls.filter((c) => c.fn === 'updateUser').map((c) => c.args)).toEqual([{ data: { signed_up_via: null } }]);
   });
   it('creates the account when the person chooses to', async () => {
     const f = fake({ 'rpc:create_account': { data: { exists: true, name: 'Alex' }, error: null } });
@@ -81,6 +96,7 @@ describe('sign in and out', () => {
     expect(calls[0].options.emailRedirectTo).toBe('https://pathomnemonic.github.io/StudyBible/');
     expect(calls[0].options.data.signed_up_via).toBe('studybible');
     expect(names(f.calls)).toContain('studybible.create_account'); // an immediate session: the account is created as part of signing up
+    expect(f.calls.some((c) => c.fn === 'updateUser' && c.args?.data?.signed_up_via === null)).toBe(true); // and the marker is removed
     vi.unstubAllGlobals();
   });
   it('treats an existing address as "may already exist", not as a new account', async () => {
@@ -182,7 +198,7 @@ describe('data: sync, download and the two deletions', () => {
   it('"delete my StudyBible account" calls only the account function: no sign-in is touched', async () => {
     const f = fake();
     await f.api.deleteStudyBibleAccount();
-    expect(names(f.calls)).toEqual(['studybible.delete_account']);
+    expect(names(f.calls).filter((n) => n.startsWith('studybible.'))).toEqual(['studybible.delete_account']); // (the sign-up marker is also removed, which changes only a note on the sign-in, never the sign-in itself)
   });
   it('the separate "also remove my sign-in" re-checks the password, calls the server-side function with an explicit confirmation, and signs out here', async () => {
     const f = fake();

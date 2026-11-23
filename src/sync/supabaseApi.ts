@@ -64,6 +64,8 @@ export function createSupabaseApi(getClient: GetClient = realClient) {
     }
     return c;
   };
+  /** removes the "signed up through StudyBible" marker (best effort: if it fails the worst case is the one extra creation it was meant to prevent, so it is also removed when the account is deleted) */
+  const clearSignupMarker = async () => { try { await (await auth()).updateUser({ data: { signed_up_via: null } }); } catch { /* not critical */ } };
   /** the person whose StudyBible account was last seen to exist (so `me` does not ask the database every time) */
   let accountKnown: string | null = null;
 
@@ -111,7 +113,8 @@ export function createSupabaseApi(getClient: GetClient = realClient) {
       if (accountKnown === s.user.id) return { user };
       let status: { exists: boolean; name?: string | null };
       try { status = await rpc('account_status'); } catch (e) { if (e instanceof ApiError && e.status === 0) return { user }; throw e; } // offline: carry on as before
-      if (!status.exists && s.user.user_metadata?.signed_up_via === 'studybible') status = await rpc('create_account', { p_name: s.user.user_metadata?.name ?? null }); // they signed up here: the account is part of signing up
+      // they signed up here: the account is part of signing up. This happens ONCE: the marker is removed straight after, so an account the person later deletes is never quietly made again
+      if (!status.exists && s.user.user_metadata?.signed_up_via === 'studybible') { status = await rpc('create_account', { p_name: s.user.user_metadata?.name ?? null }); await clearSignupMarker(); }
       if (!status.exists) return { user: { ...user, needsAccount: true } };
       accountKnown = s.user.id;
       return { user: { ...user, name: status.name ?? user.name } };
@@ -121,6 +124,7 @@ export function createSupabaseApi(getClient: GetClient = realClient) {
       const s = await needSession();
       const r = await rpc<{ exists: boolean; name?: string | null }>('create_account', { p_name: name ?? s.user.user_metadata?.name ?? null });
       accountKnown = s.user.id;
+      await clearSignupMarker();
       return { user: { ...mapUser(s.user), name: r.name ?? mapUser(s.user).name } };
     },
 
@@ -131,6 +135,7 @@ export function createSupabaseApi(getClient: GetClient = realClient) {
       if (r.data.user && r.data.user.identities && r.data.user.identities.length === 0) throw new ApiError(409, 'That email already has a sign-in. It may have been made in another app: sign in with the same password, then create your StudyBible account. Or use “Forgot your password?”.');
       if (!r.data.session) throw new ApiError(202, 'Check your email: we sent a confirmation link. Open it, then come back and sign in.');
       await rpc('create_account', { p_name: name ?? null }); // signing up here includes creating the StudyBible account
+      await clearSignupMarker();
       accountKnown = r.data.user.id;
       return { user: mapUser(r.data.user) };
     },
@@ -239,7 +244,7 @@ export function createSupabaseApi(getClient: GetClient = realClient) {
     stats: async () => rpc<{ tables: { table: string; records: number; deleted: number }[]; bytes: number; limits: { records: number; bytes: number } }>('stats'),
 
     /** "Delete my StudyBible account": the account and everything stored for it. The shared sign-in and every other app's data are left alone. */
-    deleteStudyBibleAccount: async () => { await rpc('delete_account'); accountKnown = null; return { ok: true }; },
+    deleteStudyBibleAccount: async () => { await rpc('delete_account'); accountKnown = null; await clearSignupMarker(); return { ok: true }; },
     /** Optional, and separate: also remove the shared sign-in itself, through a function that holds the key the browser must never have. Any other app that uses the same sign-in loses it too. */
     deleteAccount: async (password: string) => {
       await verifyPassword(password);

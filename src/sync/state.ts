@@ -4,6 +4,7 @@ import { syncFlags } from '../db/db';
 import { getSettings, settingsChangeHooks } from '../lib/store';
 import { accountsEnabled, applyPreviewSwitch } from '../lib/accountsFlag';
 import { applyDriveSyncPreviewSwitch } from '../lib/driveSyncFlag';
+import { setAuthError } from '../lib/accountsFlag';
 import { supabaseConfigured } from './supabaseApi';
 import { localDataCount, resetSyncState, runSync, touchSettings, wipeLocalUserData } from './engine';
 
@@ -159,6 +160,8 @@ export async function initSync() {
     }
   }
   await discover();
+  // came back with a code but nobody is signed in and no reset is waiting: the link was already used (or is not for this browser), so say so instead of leaving a silent home page
+  if (cameBack && !state.user && !api.recoveryPending()) { setAuthError('That link was already used, or has expired. Request a new one.'); location.hash = '#/account'; }
 }
 
 let discovering = false;
