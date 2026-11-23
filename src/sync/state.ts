@@ -120,6 +120,7 @@ const lastUser = () => {
 let started = false;
 export async function initSync() {
   // accounts are switched off unless the build turns them on (src/lib/accountsFlag.ts): never look for a server
+  const cameBack = /(^|[?&])code=/.test(location.search); // returning from a sign-in, confirmation or reset link
   const where = location.search + (location.hash.includes('?') ? location.hash.slice(location.hash.indexOf('?')) : '');
   applyPreviewSwitch(where);
   applyDriveSyncPreviewSwitch(where);
@@ -143,6 +144,8 @@ export async function initSync() {
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') { sessionNextTry = 0; if (sessionKnown === 'none') sessionKnown = 'unknown'; void discover(); } });
   window.setInterval(() => document.visibilityState === 'visible' && void discover(), 90_000);
   await discover();
+  // arrived from an email or Google link: land on the account page, where they are signed in, asked to create the account, or asked for a new password
+  if (cameBack && (state.user || api.recoveryPending())) location.hash = '#/account';
 }
 
 let discovering = false;

@@ -42,7 +42,7 @@ export default function AccountPage() {
   const [next, setNext] = useState('');
   const [delPw, setDelPw] = useState('');
   // the person followed the reset link in their email and is back here to choose a new password
-  const [recovering, setRecovering] = useState(false);
+  const [recovering, setRecovering] = useState(() => api.recoveryPending());
   useEffect(() => api.onPasswordRecovery(() => setRecovering(true)), []);
 
   const submit = async (e: React.FormEvent) => {
@@ -84,7 +84,7 @@ export default function AccountPage() {
         </div>
       )}
 
-      {recovering && <SetNewPassword onDone={() => { setRecovering(false); toast('Password changed. You are signed in.'); }} />}
+      {recovering && <SetNewPassword onDone={() => { api.recoveryDone(); setRecovering(false); void completeProviderSignIn(decide).then(() => toast('Password changed. You are signed in.')).catch((e: any) => toast(e.message, 'error')); }} />}
       {s.server === 'available' && !s.user && mode === 'forgot' && <ForgotPassword onDone={() => setMode('in')} />}
       {s.server === 'available' && !s.user && mode !== 'forgot' && (
         <form className="card auth" onSubmit={submit}>

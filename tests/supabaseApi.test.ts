@@ -5,6 +5,7 @@ import { ApiError } from '../src/sync/errors';
 /** a stand-in for the Supabase client that records what it is asked and answers from a script */
 function fake(over: Record<string, any> = {}) {
   const calls: { fn: string; args: any }[] = [];
+  const hooks: ((event: string) => void)[] = []; // listeners registered with onAuthStateChange (kept apart from the calls the tests count)
   const user = { id: 'u1', email: 'a@example.org', created_at: '2026-01-01T00:00:00Z', user_metadata: { name: 'Alex' }, last_sign_in_at: '2026-02-01T00:00:00Z', identities: [{}] };
   const sess = { user, expires_at: 2_000_000_000 };
   const rec = <T>(fn: string, out: T) => (args?: any) => { calls.push({ fn, args }); return Promise.resolve(out); };
@@ -16,7 +17,7 @@ function fake(over: Record<string, any> = {}) {
       signOut: rec('signOut', { error: null }),
       updateUser: rec('updateUser', { data: { user }, error: null }),
       resetPasswordForEmail: rec('resetPasswordForEmail', { error: null }),
-      onAuthStateChange: (cb: any) => { calls.push({ fn: 'onAuthStateChange', args: cb }); return { data: { subscription: { unsubscribe() {} } } }; },
+      onAuthStateChange: (cb: any) => { hooks.push(cb); return { data: { subscription: { unsubscribe() {} } } }; },
       mfa: {
         getAuthenticatorAssuranceLevel: rec('aal', { data: { currentLevel: 'aal1', nextLevel: 'aal1' } }),
         listFactors: rec('listFactors', { data: { totp: [], all: [] } }),
@@ -29,7 +30,7 @@ function fake(over: Record<string, any> = {}) {
     functions: { invoke: (fn: string, o: any) => { calls.push({ fn: `functions.${fn}`, args: o }); return Promise.resolve(over.invoke ?? { data: { ok: true }, error: null }); } },
   };
   for (const [k, v] of Object.entries(over)) if (k.startsWith('auth.')) { const [, group, name] = k.split('.'); if (name) client.auth[group][name] = v; else client.auth[group] = v; }
-  return { api: createSupabaseApi(async () => client), calls, client };
+  return { api: createSupabaseApi(async () => client), calls, client, hooks };
 }
 const names = (calls: { fn: string }[]) => calls.map((c) => c.fn);
 
@@ -120,6 +121,24 @@ describe('sensitive changes re-check the password', () => {
     const bad = fake({ 'auth.signInWithPassword': () => Promise.resolve({ data: {}, error: { message: 'Invalid login credentials' } }) });
     await expect(bad.api.deleteAccount('wrong')).rejects.toThrow('Password is incorrect.');
     expect(names(bad.calls).some((n) => n.startsWith('functions.'))).toBe(false);
+  });
+});
+
+describe('coming back from a reset link', () => {
+  it('remembers the password-recovery event even if no screen was listening when it fired', async () => {
+    const f = fake();
+    await f.api.me(); // the app's start-up looks for a session, which is what creates the client and starts listening
+    const hook = f.hooks.map((fn) => ({ args: fn }));
+    expect(hook).toHaveLength(1);
+    expect(f.api.recoveryPending()).toBe(false);
+    hook[0].args('PASSWORD_RECOVERY'); // Supabase reports it during the code exchange, before the account page exists
+    expect(f.api.recoveryPending()).toBe(true);
+    const seen = vi.fn(); const off = f.api.onPasswordRecovery(seen); // the account page opens afterwards
+    expect(f.api.recoveryPending()).toBe(true); // and still finds out
+    hook[0].args('PASSWORD_RECOVERY'); expect(seen).toHaveBeenCalledTimes(1); off();
+    f.api.recoveryDone(); expect(f.api.recoveryPending()).toBe(false);
+    hook[0].args('SIGNED_IN'); expect(f.api.recoveryPending()).toBe(false); // other events do not count
+    await f.api.me(); expect(f.hooks).toHaveLength(1); // listening is set up once
   });
 });
 

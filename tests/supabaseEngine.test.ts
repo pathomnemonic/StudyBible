@@ -27,7 +27,7 @@ afterAll(async () => { await pg.close(); });
 
 const asMe = `reset role; select set_config('request.jwt.claims', '${JSON.stringify({ sub: ME, is_anonymous: false })}', false); set role authenticated;`;
 const client = {
-  auth: { getSession: async () => ({ data: { session: { user: { id: ME, email: 'me@example.org', created_at: '2026-01-01T00:00:00Z' }, expires_at: 2e9 } }, error: null }) },
+  auth: { onAuthStateChange: () => ({ data: { subscription: { unsubscribe() {} } } }), getSession: async () => ({ data: { session: { user: { id: ME, email: 'me@example.org', created_at: '2026-01-01T00:00:00Z' }, expires_at: 2e9 } }, error: null }) },
   schema: () => ({
     rpc: async (fn: string, args: Record<string, unknown>) => {
       const names = Object.keys(args);

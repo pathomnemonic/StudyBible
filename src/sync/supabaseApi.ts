@@ -52,16 +52,28 @@ const mapUser = (u: any, name?: string | null): AccountUser => ({ id: u.id, emai
 
 export function createSupabaseApi(getClient: GetClient = realClient) {
   let pendingFactor: string | null = null;
+  /** set when the person arrives from a password-reset link (the event can fire before any screen is listening, so it is remembered) */
+  let recovery = false;
+  const recoveryListeners = new Set<() => void>();
+  let hooked = false;
+  const client: GetClient = async () => {
+    const c = await getClient();
+    if (!hooked) {
+      hooked = true;
+      c.auth.onAuthStateChange((event: string) => { if (event === 'PASSWORD_RECOVERY') { recovery = true; recoveryListeners.forEach((f) => f()); } });
+    }
+    return c;
+  };
   /** the person whose StudyBible account was last seen to exist (so `me` does not ask the database every time) */
   let accountKnown: string | null = null;
 
   async function rpc<T = any>(fn: string, args: Record<string, unknown> = {}): Promise<T> {
     let r: { data: T; error: any };
-    try { r = await (await getClient()).schema('studybible').rpc(fn, args); } catch (e) { return fail(e); }
+    try { r = await (await client()).schema('studybible').rpc(fn, args); } catch (e) { return fail(e); }
     if (r.error) return fail(r.error);
     return r.data;
   }
-  const auth = async () => (await getClient()).auth;
+  const auth = async () => (await client()).auth;
   const session = async () => {
     const { data, error } = await (await auth()).getSession();
     if (error) fail(error);
@@ -173,11 +185,11 @@ export function createSupabaseApi(getClient: GetClient = realClient) {
       if (error) return fail(error);
       return { ok: true };
     },
-    onPasswordRecovery: (cb: () => void) => {
-      let off = () => undefined as void;
-      void getClient().then((c) => { const { data } = c.auth.onAuthStateChange((event: string) => { if (event === 'PASSWORD_RECOVERY') cb(); }); off = () => data.subscription.unsubscribe(); });
-      return () => off();
-    },
+    onPasswordRecovery: (cb: () => void) => { recoveryListeners.add(cb); void client(); return () => { recoveryListeners.delete(cb); }; },
+    /** true if the person came back from a reset link and has not yet chosen a new password */
+    recoveryPending: () => recovery,
+    /** the new password is saved: the reset is over */
+    recoveryDone: () => { recovery = false; },
     /** the operator-code reset belongs to the self-hosted server and does not exist here */
     resetPassword: async (_code: string, _password: string): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Use the email link instead.'); },
 
@@ -231,7 +243,7 @@ export function createSupabaseApi(getClient: GetClient = realClient) {
     /** Optional, and separate: also remove the shared sign-in itself, through a function that holds the key the browser must never have. Any other app that uses the same sign-in loses it too. */
     deleteAccount: async (password: string) => {
       await verifyPassword(password);
-      const c = await getClient();
+      const c = await client();
       const { error, data } = await c.functions.invoke('studybible-delete-account', { body: { confirm: 'delete-everywhere' } });
       if (error) return fail(error);
       if (data && data.ok === false) throw new ApiError(500, data.error ?? 'The account could not be deleted.');

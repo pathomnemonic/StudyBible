@@ -105,6 +105,8 @@ const serverApi = {
   requestPasswordReset: async (_email: string): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Not available on this server.'); },
   setNewPassword: async (_password: string): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Not available on this server.'); },
   onPasswordRecovery: (_cb: () => void): (() => void) => () => undefined,
+  recoveryPending: (): boolean => false,
+  recoveryDone: (): void => undefined,
 };
 
 /** The account and sync service in use: Supabase when the build has its address and public key, otherwise the self-hosted server. */

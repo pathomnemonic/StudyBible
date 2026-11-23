@@ -19,6 +19,12 @@
 
 
 
+
+## Accounts preview: sign-in, confirmation and reset links now complete from a fresh browser
+- Live checks found that the Google, confirmation and password-reset links return to the site with `?code=…` and that, in a browser where the preview switch had never been turned on, the account code did not run, so the sign-in was not finished. Arriving with `?code=` now turns the account code on (only in a build that has the preview switch and the account service address), finishes the exchange, and lands on the Account page. An ordinary visitor still makes no request to the account service (checked in a browser).
+- The "choose a new password" step is remembered if the reset event fires before the Account page exists (it did), so the link now works as sent. After the new password is saved the app signs the person in, so the page no longer disagrees with the "you are signed in" message.
+- Added `public/terms.html`: a draft Terms of Service for Cathology in the privacy policy's style (free app, optional Ko-fi tip, accounts and per-app membership, your content stays yours, third-party content, religious and educational disclaimers, liability, changes). It is a draft for the owner to have reviewed, not legal advice.
+
 ## Accounts: private preview build
 - The deployed site is now built with the Supabase address and the private preview switch (`VITE_ACCOUNTS_PREVIEW`). Someone who opens the app once with `?accounts=on` sees the account screens; everyone else sees nothing and, checked in a browser, makes no request at all to the account service. Opening it to everyone is a one-line change (`VITE_ACCOUNTS: '1'`) after the live checks pass.
 
