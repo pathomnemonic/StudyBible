@@ -2,6 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { parseRefs } from '../src/lib/refs';
+import { BOOK_PRAYERS } from '../src/data/prayerbook';
 
 const read = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
 
@@ -123,7 +124,8 @@ describe('K–12 catechism curriculum', () => {
     const idx = JSON.parse(readFileSync(`${dir}/index.json`, 'utf8')) as { id: string; lessons: number }[];
     const gl = JSON.parse(readFileSync(`${dir}/glossary.json`, 'utf8')) as Record<string, { w: string; d: string }>;
     expect(idx.map((g) => g.id)).toEqual(['K', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', 'YA']);
-    const prayers = new Set([...readFileSync('src/data/prayerbook.ts', 'utf8').matchAll(/id: '([^']+)'/g)].map((m) => m[1]));
+    // the prayers a lesson can point at are the app's merged prayer book (several files), which is what the lesson page looks them up in
+    const prayers = new Set(BOOK_PRAYERS.map((p) => p.id));
     const seen = new Set<string>();
     const bad: string[] = [];
     for (const g of idx) {
