@@ -120,7 +120,9 @@ const lastUser = () => {
 let started = false;
 export async function initSync() {
   // accounts are switched off unless the build turns them on (src/lib/accountsFlag.ts): never look for a server
-  const cameBack = /(^|[?&])code=/.test(location.search); // returning from a sign-in, confirmation or reset link
+  const cameBack = /(^|[?&])code=/.test(location.search) && supabaseConfigured(); // returning from a sign-in, confirmation or reset link
+  // coming back with a code means the person has just chosen to sign in (Google, a confirmation or a reset): an earlier "sign out here" must not block it
+  if (cameBack) setSignedOut(false);
   const where = location.search + (location.hash.includes('?') ? location.hash.slice(location.hash.indexOf('?')) : '');
   applyPreviewSwitch(where);
   applyDriveSyncPreviewSwitch(where);
@@ -143,9 +145,20 @@ export async function initSync() {
   window.addEventListener('online', () => { nextTry = 0; sessionNextTry = 0; void discover(); });
   document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') { sessionNextTry = 0; if (sessionKnown === 'none') sessionKnown = 'unknown'; void discover(); } });
   window.setInterval(() => document.visibilityState === 'visible' && void discover(), 90_000);
+  // arrived from an email or Google link: land on the account page, where they are signed in, asked to create the account, or asked for a new password.
+  // The code is exchanged in the background, so wait for either result rather than looking once (the exchange can finish after the first look).
+  if (cameBack) {
+    const arrived = () => (state.user || api.recoveryPending() ? ((location.hash = '#/account'), true) : false);
+    if (!arrived()) {
+      let timer = 0; let off = () => {};
+      const check = () => { if (arrived()) stop(); };
+      const stop = () => { listeners.delete(check); off(); window.clearTimeout(timer); };
+      listeners.add(check);
+      off = api.onPasswordRecovery(check);
+      timer = window.setTimeout(stop, 30_000);
+    }
+  }
   await discover();
-  // arrived from an email or Google link: land on the account page, where they are signed in, asked to create the account, or asked for a new password
-  if (cameBack && (state.user || api.recoveryPending())) location.hash = '#/account';
 }
 
 let discovering = false;

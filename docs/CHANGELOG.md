@@ -20,6 +20,14 @@
 
 
 
+
+## Accounts preview, second fix; three launch bugs
+- **Google and reset returns, root cause.** The app deliberately refuses to adopt a leftover session after someone has signed out on a device. A return from Google, a confirmation or a reset (`?code=…`) is the person choosing to sign in, but that guard still blocked it, so nothing finished in a browser that had signed out earlier (every one of the live test browsers). Returning with a code now clears that guard. The redirect to the Account page also no longer looks once and gives up: it waits for the sign-in or the recovery event, up to 30 seconds. Reproduced and checked in a browser against a faked Supabase: a fresh browser that had signed out earlier returns from Google, the code is exchanged, and the page lands on "Create your StudyBible account".
+- The Account page's "How your data is handled" no longer describes the self-hosted server (scrypt, cookies) when the app uses the shared account service.
+- **Lesson resume:** arriving at a lesson's last step used to erase the saved place, so closing there and coming back restarted at step 1. The place is now kept to the last step and cleared when the lesson is marked done (the "Resume" cards still treat a last-step lesson as finished).
+- **Video resume:** the list of places in videos is now the 100 most recent with nothing older than 90 days (it was 60 with no expiry, so the 61st video silently erased the oldest). Two saves in the same millisecond can no longer drop the newest.
+- **YouTube player script:** if it cannot be loaded, the video still plays, and the player now says that the place in the video cannot be saved right now instead of failing silently.
+
 ## Accounts preview: sign-in, confirmation and reset links now complete from a fresh browser
 - Live checks found that the Google, confirmation and password-reset links return to the site with `?code=…` and that, in a browser where the preview switch had never been turned on, the account code did not run, so the sign-in was not finished. Arriving with `?code=` now turns the account code on (only in a build that has the preview switch and the account service address), finishes the exchange, and lands on the Account page. An ordinary visitor still makes no request to the account service (checked in a browser).
 - The "choose a new password" step is remembered if the reset event fires before the Account page exists (it did), so the link now works as sent. After the new password is saved the app signs the person in, so the page no longer disagrees with the "you are signed in" message.

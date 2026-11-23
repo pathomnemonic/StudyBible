@@ -185,7 +185,8 @@ export default function LessonPath(p: Props) {
   const recap = useMemo(() => (lesson.remember && lesson.remember.length ? lesson.remember : contentPoints(lesson)).slice(0, 3), [lesson.id]);
   const at = Math.min(step, last);
   useEffect(() => { try { sessionStorage.setItem(key, String(at)); } catch { /* private mode */ } }, [at, key]);
-  useEffect(() => { if (at >= last) clearLessonProgress(p.grade.id, lesson.id); else if (at > 0) saveLessonProgress({ grade: p.grade.id, lesson: lesson.id, title: lesson.title, step: at, steps: steps.length }); }, [at, last, p.grade.id, lesson.id]);
+  // the place is kept all the way to the last step, so closing the lesson there and coming back reopens there instead of at step 1; it is cleared only when the lesson is marked done (the "Resume" cards still treat a lesson saved on its last step as finished)
+  useEffect(() => { if (p.done) clearLessonProgress(p.grade.id, lesson.id); else if (at > 0) saveLessonProgress({ grade: p.grade.id, lesson: lesson.id, title: lesson.title, step: at, steps: steps.length }); }, [at, p.done, p.grade.id, lesson.id]);
   const go = (i: number) => { setStep(Math.max(0, Math.min(last, i))); requestAnimationFrame(() => document.getElementById('lp-top')?.scrollIntoView({ block: 'start', behavior: 'smooth' })); };
   const cur = steps[at];
 

@@ -134,14 +134,18 @@ export default function MediaHost() {
 
   const title = item?.title ?? '';
   const titleRef = useRef(title); titleRef.current = title;
+  // true when YouTube's player script could not be loaded: the video still plays, but where the person stopped cannot be remembered, and they are told
+  const [noResume, setNoResume] = useState(false);
   // One YouTube player per iframe. The iframe is remounted whenever the media's key changes (the same video opened from another page has another
   // address), so the binding is made again for every key, not only for every video id, and the old player is destroyed, not just forgotten.
   useEffect(() => {
     if (!id || !frame.current) return;
     let live = true, timer = 0;
+    setNoResume(false);
     let player: { getCurrentTime(): number; getDuration(): number; destroy(): void } | null = null;
     const save = () => { try { if (player) savePos(id, player.getCurrentTime(), player.getDuration(), titleRef.current); } catch { /* player gone */ } };
     loadYT().then((YT) => {
+      if (live && !YT) setNoResume(true);
       if (!live || !YT || !frame.current) return;
       player = new YT.Player(frame.current, { events: { onStateChange: (e) => {
         window.clearInterval(timer);
@@ -171,6 +175,7 @@ export default function MediaHost() {
       {embed.kind === 'audio' && <audio key={mk} onError={onBad} onPlaying={() => setBad(false)} controls autoPlay preload="none" src={embed.src} aria-label={title} />}
       {embed.kind === 'video' && <video key={mk} onError={onBad} onPlaying={() => setBad(false)} controls autoPlay preload="none" src={embed.src} aria-label={title} playsInline />}
       {msg && <div className="mh-msg" role="alert"><span>{msg}</span><button type="button" className="btn small" onClick={() => { setBad(false); setAttempt((n) => n + 1); }}>Try again</button></div>}
+      {embed.kind === 'iframe' && !offlineFrame && noResume && <p className="mh-note muted small" role="status">Your place in this video cannot be saved right now, so it will start from the beginning next time.</p>}
       {embed.kind === 'iframe' && !offlineFrame && (
         <iframe
           key={mk}

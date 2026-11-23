@@ -1,5 +1,7 @@
 /** Where you stopped in each video, kept on this device only, so a video picks up where you left off. */
 const KEY = 'sb:vpos';
+export const MAX_KEPT = 100;
+export const MAX_AGE_MS = 90 * 86_400_000;
 export interface VPos { t: number; d: number; ts: number; title: string }
 type Map_ = Record<string, VPos>;
 
@@ -13,14 +15,18 @@ export const finished = (p: VPos) => p.d > 0 && (p.t >= p.d - 20 || p.t / p.d > 
 export function savePos(id: string, t: number, d: number, title: string) {
   const m = read();
   const p: VPos = { t: Math.floor(t), d: Math.floor(d), ts: Date.now(), title };
-  if (p.t < START_MIN || finished(p)) delete m[id]; else m[id] = p;
-  const keep = Object.entries(m).sort((a, b) => b[1].ts - a[1].ts).slice(0, 60); // a short list is enough
+  delete m[id]; // a re-saved video moves to the end, so insertion order is also recency order
+  if (!(p.t < START_MIN || finished(p))) m[id] = p;
+  // the most recent 100, and nothing older than 90 days (the same limits as the places kept in Scripture references): the 61st video no longer pushes out the oldest
+  const cutoff = Date.now() - MAX_AGE_MS;
+  // newest first; two saved in the same millisecond keep the later one first, so a tie can never drop the video just saved
+  const keep = Object.entries(m).map(([k, v], i) => ({ k, v, i })).filter((x) => x.v.ts >= cutoff).sort((a, b) => b.v.ts - a.v.ts || b.i - a.i).slice(0, MAX_KEPT).map((x) => [x.k, x.v] as const).reverse(); // stored oldest to newest, so the order itself says which is later
   write(Object.fromEntries(keep));
   window.dispatchEvent(new CustomEvent('studybible:vpos'));
 }
 export const posOf = (id: string): VPos | undefined => read()[id];
 /** Videos you started and have not finished, most recent first. */
-export const inProgress = (): { id: string; p: VPos }[] => Object.entries(read()).map(([id, p]) => ({ id, p })).filter((x) => x.p.t >= START_MIN && !finished(x.p)).sort((a, b) => b.p.ts - a.p.ts);
+export const inProgress = (): { id: string; p: VPos }[] => Object.entries(read()).map(([id, p]) => ({ id, p })).filter((x) => x.p.t >= START_MIN && !finished(x.p) && x.p.ts >= Date.now() - MAX_AGE_MS).sort((a, b) => b.p.ts - a.p.ts);
 export const clearPos = (id: string) => { const m = read(); delete m[id]; write(m); window.dispatchEvent(new CustomEvent('studybible:vpos')); };
 
 interface YTPlayer { getCurrentTime(): number; getDuration(): number; destroy(): void }

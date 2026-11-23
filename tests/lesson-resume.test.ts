@@ -23,6 +23,12 @@ describe('lesson resume', () => {
     saveLessonProgress({ grade: '4', lesson: 'l2', title: 'Wine', step: 6, steps: 7 });
     expect(resumeOf('4', 'l2')).toBeNull();
   });
+  it('still remembers the last step, so reopening the lesson does not restart it at step 1', () => {
+    saveLessonProgress({ grade: '4', lesson: 'l2', title: 'Wine', step: 6, steps: 7 });
+    expect(getSavedStep('4', 'l2')).toBe(6);
+    clearLessonProgress('4', 'l2'); // marking the lesson done clears it
+    expect(getSavedStep('4', 'l2')).toBe(0);
+  });
 });
 
 describe('My lessons bookmarks', () => {

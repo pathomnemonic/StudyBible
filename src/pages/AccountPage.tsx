@@ -228,8 +228,17 @@ export default function AccountPage() {
         <ul className="small bullets">
           <li><strong>Local first.</strong> The app works without an account, and your notes work offline; signing in only adds sync and backup. Scripture and study data you have not opened or downloaded need a connection.</li>
           <li><strong>What is stored.</strong> Notes, highlights, bookmarks, folders, collections, journal, plans and progress, links you attach, and reading settings. No analytics, no tracking.</li>
-          <li><strong>Security.</strong> Passwords are hashed with scrypt; sessions use HttpOnly cookies; run the server behind HTTPS. Notes are not end-to-end encrypted yet, so the server operator can technically read them — host it yourself or trust your host (see docs/SERVER.md).</li>
-          <li><strong>Backup & deletion.</strong> Download everything any time; deleting the account removes all server-side data.</li>
+          {api.backend === 'supabase' ? (
+            <>
+              <li><strong>Security.</strong> Your sign-in is handled by the shared PathoMnemonic account service, and each person can read only their own StudyBible records. Notes are not end-to-end encrypted, so the people who run the service can technically read them. See the <a href="privacy.html">privacy policy</a>.</li>
+              <li><strong>Backup &amp; deletion.</strong> Download everything any time. &ldquo;Delete my StudyBible account&rdquo; removes your StudyBible account and its data and nothing else; &ldquo;Also remove my sign-in&rdquo; removes the shared sign-in too.</li>
+            </>
+          ) : (
+            <>
+              <li><strong>Security.</strong> Passwords are hashed with scrypt; sessions use HttpOnly cookies; run the server behind HTTPS. Notes are not end-to-end encrypted yet, so the server operator can technically read them — host it yourself or trust your host (see docs/SERVER.md).</li>
+              <li><strong>Backup & deletion.</strong> Download everything any time; deleting the account removes all server-side data.</li>
+                    </>
+          )}
         </ul>
         <p className="small"><Link to="/settings">Back to settings</Link></p>
       </div>
