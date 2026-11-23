@@ -24,6 +24,10 @@
 
 
 
+## Not-for-profit wording where the tip option appears
+
+By the owner's direction the app now says plainly that it is a not-for-profit project: any tips are put back into keeping the app and site running (hosting and upkeep) and into helping other people find it, and none of it is kept as profit. The line (`TIP_PROMISE` in `src/lib/tip.ts`) is shown under the tip button in Settings and in a new "Free, and not for profit" card on the About page, which appears in store builds too (the tip link itself stays hidden there). The app stays fully free. The store description and the Ko-fi page should carry the same line.
+
 ## Social content exporter and card renderer (daily words, Advent walk)
 
 Added `scripts/social/` so a day of posts can be made from the app's own data without writing any new religious text. `npx tsx scripts/social/export.ts --from 2026-11-29 --days 7` writes one JSON file per day to `social-out/` (not committed): the liturgical day, the Mass reading citations (citations only; the lectionary wording is copyrighted), the day's passage with its Douay-Rheims verse text (public domain, cut only at a whole verse), the first Catechism paragraph that cites that verse, the day's Father line, the seven Basilion questions for that day (questions only, no answers), the Advent walk day (day 1 to day 26, December 24 last) with its reading from the existing 24-day Advent plan, and the "From the Fathers" quote on feast days. `npx tsx scripts/social/cards.ts` draws 1080x1350, 1080x1920 and 1000x1500 PNG cards from those files. A day whose reading could not be placed in the Douay numbering, or whose Father line the app marks unverified, is listed as needing a person before posting. The Advent walk does not pair the day's Father line with a plan reading it was not written for.

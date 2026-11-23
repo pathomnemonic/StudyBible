@@ -6,6 +6,7 @@ import { FEATURES, STATUS_LABEL, type Status } from '../featureStatus';
 import { CANON_NOTES } from '../lib/canon';
 import { useEffect } from 'react';
 import { getJson } from '../data/loader';
+import { TIP_PROMISE } from '../lib/tip';
 
 const COLOR: Record<Status, string> = { working: 'good', partial: 'warn', 'needs-license': 'warn', 'needs-credentials': 'warn', planned: '' };
 
@@ -35,6 +36,11 @@ export default function AboutPage() {
           {x.next && <p className="small muted"><strong>Next:</strong> {x.next.deliverable}. <strong>Blocked by:</strong> {x.next.blocker}. <strong>Done when:</strong> {x.next.test}.</p>}
         </div>
       ))}
+      <section className="card" id="not-for-profit">
+        <h2 className="card-title">Free, and not for profit</h2>
+        <p className="small">Everything in this app is free, with no paywalls and nothing locked, and it always will be. {TIP_PROMISE}</p>
+      </section>
+
       <section className="card" id="eastern">
         <h2 className="card-title">For the Eastern Catholic Churches, and others outside the Roman Rite</h2>
         <p className="small">This app began with the Latin Church, and we say so plainly instead of treating the Roman Rite as the whole Catholic Church. Choose your Church in <Link to="/settings">Settings → Your Church</Link>.</p>

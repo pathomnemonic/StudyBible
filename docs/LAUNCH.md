@@ -43,6 +43,7 @@ The app is already an installable **PWA** (manifest, service worker, offline, up
   - **Sign in with Apple** is required in the iOS app if Google sign-in is offered (set up Apple as a provider in the project first).
   - The privacy policy address to enter in both stores: https://pathomnemonic.github.io/StudyBible/privacy.html (kept by Orion; it names the accounts, Drive backup, third-party content and children wording).
   - The terms of service address for the listings: https://pathomnemonic.github.io/StudyBible/terms.html (a draft; have it reviewed before launch).
+  - Use the same not-for-profit line (`TIP_PROMISE` in `src/lib/tip.ts`) in the store description and on the Ko-fi page.
   - The tip link is hidden inside the native app on purpose; check each store's current rules on tips and outside payment pages before showing it there.
   - The lessons for younger learners (Kindergarten to Grade 8) affect the age rating and, on Google Play, the audience and Families questions: decide the target audience deliberately.
   - Re-read the in-app sentences that say "there is no account" (Passport page, Widgets page, Help "Where is my data kept?") when accounts ship; they are true now and must stay true.

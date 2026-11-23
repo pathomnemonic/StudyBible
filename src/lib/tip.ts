@@ -11,3 +11,6 @@ export const TIP_URL = 'https://ko-fi.com/pathomnemonic';
 export function tipVisible(win: { Capacitor?: { isNativePlatform?: () => boolean } } | undefined = typeof window === 'undefined' ? undefined : (window as never)): boolean {
   try { return !win?.Capacitor?.isNativePlatform?.(); } catch { return true; }
 }
+
+/** The promise that goes wherever the tip option appears (and on the About page). Keep the store description and the Ko-fi page saying the same thing. */
+export const TIP_PROMISE = 'This is a not-for-profit project. Any tips are put back into keeping the app and site running (hosting and upkeep) and into helping other people find it. None of it is kept as profit.';
