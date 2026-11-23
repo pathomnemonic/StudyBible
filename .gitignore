@@ -14,3 +14,6 @@ __pycache__/
 # RSV-2CE: intermediate aligner output (rebuilt from data/licensed/*); the shipped pack is data/curated/rsv2ce
 data/curated/rsv2ce-raw/
 tmp-drafts/
+
+# generated social exports (not committed)
+social-out/

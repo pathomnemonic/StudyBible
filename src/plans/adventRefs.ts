@@ -1,0 +1,2 @@
+/** The 24 daily readings of the Advent plan (an editorial selection). One list, used by the plan and by the social exporter. */
+export const ADVENT_REFS = ['ISA.2.1-5', 'ISA.7.10-14', 'ISA.9.1-7', 'ISA.11.1-10', 'ISA.12.1-6', 'ISA.25.6-10', 'ISA.26.1-9', 'ISA.29.17-24', 'ISA.30.18-26', 'ISA.35.1-10', 'ISA.40.1-11', 'ISA.41.8-20', 'ISA.45.6-8', 'ISA.49.8-15', 'ISA.52.7-10', 'ISA.54.1-10', 'ISA.55.1-13', 'ISA.60.1-7', 'MAT.1.1-17', 'MAT.1.18-25', 'LUK.1.5-25', 'LUK.1.26-38', 'LUK.1.39-56', 'LUK.1.57-80'];

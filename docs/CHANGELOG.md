@@ -24,6 +24,12 @@
 
 
 
+## Social content exporter and card renderer (daily words, Advent walk)
+
+Added `scripts/social/` so a day of posts can be made from the app's own data without writing any new religious text. `npx tsx scripts/social/export.ts --from 2026-11-29 --days 7` writes one JSON file per day to `social-out/` (not committed): the liturgical day, the Mass reading citations (citations only; the lectionary wording is copyrighted), the day's passage with its Douay-Rheims verse text (public domain, cut only at a whole verse), the first Catechism paragraph that cites that verse, the day's Father line, the seven Basilion questions for that day (questions only, no answers), the Advent walk day (day 1 to day 26, December 24 last) with its reading from the existing 24-day Advent plan, and the "From the Fathers" quote on feast days. `npx tsx scripts/social/cards.ts` draws 1080x1350, 1080x1920 and 1000x1500 PNG cards from those files. A day whose reading could not be placed in the Douay numbering, or whose Father line the app marks unverified, is listed as needing a person before posting. The Advent walk does not pair the day's Father line with a plan reading it was not written for.
+
+To share the lookup with scripts, the pure part of `src/study/daily.ts` moved to `src/study/dailyPick.ts` (the page imports are unchanged), and the Advent plan's reading list moved to `src/plans/adventRefs.ts`. Nothing in the app's behaviour changed. See `docs/SOCIAL.md`. Tests: `tests/socialExport.test.ts`.
+
 ## A deleted StudyBible account no longer comes back; a link that was already used now says so
 - **Root cause of the "resurrected" account:** after an email sign-up, a marker on the sign-in told the app to create the StudyBible account automatically (that is how sign-up and account creation happen together). The marker was never removed, so every later start that found no account quietly made one again, including after the person had deliberately deleted it. The marker is now removed right after the account is first created (at sign-up, on first sign-in after confirming, or when the person chooses to create it) and again when the account is deleted. Tests cover creating once, not recreating after a deletion, and clearing the marker on each path.
 - **A used or unusable link** (it comes back with `?code=` but nothing is signed in and no reset is waiting) now lands on the Account page with "That link was already used, or has expired. Request a new one." instead of a silent home page.

@@ -1,4 +1,5 @@
 import { BOOKS } from '../lib/canon';
+import { ADVENT_REFS } from './adventRefs';
 import { refId } from '../lib/refs';
 import type { EditionRecord } from '../data/loader';
 import { getBiay, getDoctrine, getLibraryIndex } from '../data/content';
@@ -117,7 +118,7 @@ export async function builtinPlans(vulgate: EditionRecord): Promise<PlanDef[]> {
   plans.push({
     id: 'advent-24', name: 'Advent: Isaiah and the infancy narratives', season: 'advent', category: 'seasonal',
     description: 'Twenty-four days of waiting: the great Advent prophecies of Isaiah, then the infancy narratives of Matthew and Luke. An editorial selection.',
-    days: ['ISA.2.1-5', 'ISA.7.10-14', 'ISA.9.1-7', 'ISA.11.1-10', 'ISA.12.1-6', 'ISA.25.6-10', 'ISA.26.1-9', 'ISA.29.17-24', 'ISA.30.18-26', 'ISA.35.1-10', 'ISA.40.1-11', 'ISA.41.8-20', 'ISA.45.6-8', 'ISA.49.8-15', 'ISA.52.7-10', 'ISA.54.1-10', 'ISA.55.1-13', 'ISA.60.1-7', 'MAT.1.1-17', 'MAT.1.18-25', 'LUK.1.5-25', 'LUK.1.26-38', 'LUK.1.39-56', 'LUK.1.57-80'].map((r) => ({ refs: [r] })),
+    days: ADVENT_REFS.map((r) => ({ refs: [r] })),
   });
   plans.push({
     id: 'lent-40', name: 'Lent: repentance and the road to the Cross', season: 'lent', category: 'seasonal',
