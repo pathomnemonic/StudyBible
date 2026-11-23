@@ -18,6 +18,10 @@
 
 
 
+
+## Accounts: private preview build
+- The deployed site is now built with the Supabase address and the private preview switch (`VITE_ACCOUNTS_PREVIEW`). Someone who opens the app once with `?accounts=on` sees the account screens; everyone else sees nothing and, checked in a browser, makes no request at all to the account service. Opening it to everyone is a one-line change (`VITE_ACCOUNTS: '1'`) after the live checks pass.
+
 ## Nightly sweep: two approved check changes
 - The Today heading check now accepts the titles of feasts of the Lord, Our Lady and saints (it failed on "Our Lord Jesus Christ, King of the Universe"). It still rejects a heading that is not a liturgical title, such as a loading placeholder.
 - A picture from another site that fails to load is now reported as the sweep's existing third-party warning instead of a failure of this app. This app's own pictures are still checked. Both changes were approved by the owner after the Nov 22 sweep failed only on these two kinds.

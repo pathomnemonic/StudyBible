@@ -50,6 +50,7 @@ jobs:
           # empty unless set as (non-secret) repository variables; the app is unchanged without them, and accounts stay off unless VITE_ACCOUNTS=1 is also set
           VITE_SUPABASE_URL: ${{ vars.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ vars.VITE_SUPABASE_ANON_KEY }}
+          VITE_ACCOUNTS_PREVIEW: '1' # private preview only: the account screens exist for someone who opens the app once with ?accounts=on; everyone else sees nothing and makes no request to the account service. Replace with VITE_ACCOUNTS: '1' to open it to everyone, after the live checks pass.
           VITE_LOCAL_ONLY: '1' # GitHub Pages has no sync server, so the app does not look for one
           VITE_SITE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/ # the public address, for link previews (WhatsApp needs absolute picture addresses)
       - run: touch dist/.nojekyll
