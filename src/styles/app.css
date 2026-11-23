@@ -6483,3 +6483,5 @@ a.shelf-card:hover, a.card:hover, button.shelf-card:hover { transform: translate
 .games-bar-link .games-menu-n { background: #ffd23f; color: #2a1700; font-weight: 700; }
 html[data-arcade-pre] body { background: #1a0b4d; color: #fff; }
 html[data-arcade-pre] .skeleton-list i { background: rgba(255, 255, 255, 0.12); }
+/* a wrong tap in "Match the term": the word turns red until another is chosen */
+.btn.wrong { border-color: #c62828; background: color-mix(in srgb, #c62828 16%, transparent); }

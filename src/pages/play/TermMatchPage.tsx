@@ -1,9 +1,9 @@
 import GameHelp from '../../components/GameHelp';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GLOSSARY } from '../../data/glossary';
 import { buildRound } from '../../lib/termMatch';
-import { seeded, shuffled } from '../../lib/dailyGame';
+import { recordPlay, seeded, shuffled } from '../../lib/dailyGame';
 
 /** Tap a meaning, then the term it belongs to. Right pairs lock in; a wrong tap costs a point. The wording is the glossary's own. */
 export default function TermMatchPage() {
@@ -15,6 +15,8 @@ export default function TermMatchPage() {
   const [misses, setMisses] = useState(0);
   const [bad, setBad] = useState('');
   const finished = done.length === round.pairs.length;
+  // a finished round counts as a game played (it was the one game that never did, so it earned no points toward the Games level)
+  useEffect(() => { if (finished) recordPlay('termmatch', { perfect: misses === 0 }); }, [finished]); // eslint-disable-line react-hooks/exhaustive-deps
   const pickTerm = (t: string) => {
     if (sel == null || done.includes(t)) return;
     if (round.pairs.find((p) => p.meaning === sel)?.term === t) { setDone([...done, t]); setSel(null); setBad(''); }
@@ -37,7 +39,7 @@ export default function TermMatchPage() {
           {terms.map((t) => <button key={t} className={`btn${bad === t ? ' wrong' : ''}`} disabled={done.includes(t) || sel == null} onClick={() => pickTerm(t)}>{t}</button>)}
         </div>
       </div>
-      <p className="muted small" role="status">{finished ? `Done with ${misses} ${misses === 1 ? 'miss' : 'misses'}.` : sel ? 'Now choose the word.' : 'Choose a meaning first.'}</p>
+      <p className="muted small" role="status">{finished ? `Done with ${misses} ${misses === 1 ? 'miss' : 'misses'}.` : bad ? `Not “${bad}”. Choose another word. Misses so far: ${misses}.` : sel ? `Now choose the word.${misses ? ` Misses so far: ${misses}.` : ''}` : `Choose a meaning first.${misses ? ` Misses so far: ${misses}.` : ''}`}</p>
       {finished && <p className="row" style={{ gap: 8 }}><button className="btn primary" onClick={again}>Another round</button><Link className="btn" to="/study/glossary">Open the glossary</Link></p>}
     </div>
   );

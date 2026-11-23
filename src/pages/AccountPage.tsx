@@ -8,10 +8,10 @@ import { download } from '../db/ops';
 import { useToast } from '../components/Toast';
 import { ForgotPassword, ProfileCard, SecurityLogCard, SetNewPassword, TwoFactorCard } from '../components/AccountSecurity';
 import { needsCode } from '../lib/securityLog';
+import { consumeAuthError } from '../lib/accountsFlag';
+import { useConfirm } from '../components/useConfirm';
 import { ProviderButtons, SignInMethodsCard, signInMessage } from '../components/SignInMethods';
 
-const decide = async (n: number): Promise<AuthDecision> =>
-  confirm(`This device holds ${n} notes, highlights and other items from a different account.\n\nOK = remove them from this device before signing in (recommended on a shared device).\nCancel = merge them into the account you are signing in to.`) ? 'wipe' : 'merge';
 
 export default function AccountPage() {
   if (getSettings().localOnly)
@@ -25,6 +25,9 @@ export default function AccountPage() {
   const [pending, setPending] = useState<number | null>(null);
   useEffect(() => { if (s.user) pendingCount(s.user.id).then(setPending).catch(() => setPending(null)); }, [s.user?.id, s.status, s.lastSyncAt]);
   const toast = useToast();
+  const [ask, confirmDialog] = useConfirm();
+  // when someone signs in on a device that holds another account's data: remove it first, or merge it
+  const decide = (n: number): Promise<AuthDecision> => ask('Data from another account is on this device', `This device holds ${n} notes, highlights and other items from a different account.\n\nRemove them before signing in (recommended on a shared device), or merge them into the account you are signing in to.`, { ok: 'Remove them', cancel: 'Merge them' }).then((wipe) => (wipe ? 'wipe' : 'merge'));
   const [devices, setDevices] = useState<DeviceSession[] | null>(null);
   const [stats, setStats] = useState<{ tables: { table: string; records: number; deleted: number }[]; bytes: number; limits: { records: number; bytes: number } } | null>(null);
   const loadDevices = () => { api.sessions().then((r) => setDevices(r.sessions)).catch(() => setDevices(null)); api.stats().then(setStats).catch(() => setStats(null)); };
@@ -43,6 +46,8 @@ export default function AccountPage() {
   const [delPw, setDelPw] = useState('');
   // the person followed the reset link in their email and is back here to choose a new password
   const [recovering, setRecovering] = useState(() => api.recoveryPending());
+  // an email link that has expired or was already used leaves a message for this page
+  useEffect(() => { const m = consumeAuthError(); if (m) setErr(m); }, []);
   useEffect(() => api.onPasswordRecovery(() => setRecovering(true)), []);
 
   const submit = async (e: React.FormEvent) => {
@@ -77,6 +82,7 @@ export default function AccountPage() {
 
   return (
     <div className="page narrow">
+      {confirmDialog}
       <h1>Account & sync</h1>
       {s.server === 'unavailable' && (
         <div className="card">
@@ -157,7 +163,7 @@ export default function AccountPage() {
             <div className="row">
               <button className="btn" onClick={() => syncNow()}>Sync now</button>
               <button className="btn" onClick={async () => download('studybible-account-export.json', JSON.stringify(await api.exportAccount(), null, 1))}>Download my account data</button>
-              <button className="btn" onClick={async () => { const clear = confirm('Sign out and also remove your notes from this device?\n\nOK = remove from this device (they stay in your account).\nCancel = keep a copy on this device.'); await signOut(clear); toast('Signed out.'); }}>Sign out</button>
+              <button className="btn" onClick={async () => { const clear = await ask('Sign out', 'Also remove your notes from this device? They stay in your account.', { ok: 'Sign out and remove them', cancel: 'Sign out, keep a copy' }); await signOut(clear); toast('Signed out.'); }}>Sign out</button>
             </div>
           </div>
 
@@ -207,7 +213,7 @@ export default function AccountPage() {
             <div className="card danger-zone">
               <h2 className="card-title">Delete my StudyBible account</h2>
               <p className="muted small">Deletes your StudyBible account and everything stored for it: notes, highlights, bookmarks, journal, progress and settings. Nothing else is touched: your sign-in stays, so any other app you use it with is not affected. You can create a new StudyBible account later. Copies on your own devices stay unless you choose to remove them. This cannot be undone.</p>
-              <button className="btn danger" onClick={async () => { if (!confirm('Before deleting: have you downloaded your account data (the button near the top of this page)?\n\nThis permanently deletes your StudyBible account and everything it stores on the account service. Your sign-in is not deleted. Continue?')) return; try { await deleteStudyBibleAccount(confirm('Also remove the notes from this device?')); toast('Your StudyBible account was deleted.'); } catch (e: any) { toast(e.message, 'error'); } }}>Delete my StudyBible account</button>
+              <button className="btn danger" onClick={async () => { if (!(await ask('Delete your StudyBible account?', 'Before deleting: have you downloaded your account data (the button near the top of this page)?\n\nThis permanently deletes your StudyBible account and everything it stores on the account service. Your sign-in is not deleted.', { ok: 'Delete my account', cancel: 'Keep it', danger: true }))) return; const clear = await ask('Also remove the notes from this device?', 'Your notes on this device can stay, or be removed with the account.', { ok: 'Remove them too', cancel: 'Keep them here' }); try { await deleteStudyBibleAccount(clear); toast('Your StudyBible account was deleted.'); } catch (e: any) { toast(e.message, 'error'); } }}>Delete my StudyBible account</button>
             </div>
           )}
 
@@ -217,7 +223,7 @@ export default function AccountPage() {
             <p className="muted small">Permanently deletes your account and every note, highlight and setting stored on the server. Copies on your own devices are not touched unless you choose to remove them when asked. This cannot be undone.</p>
             <div className="row">
               <input type="password" placeholder="Confirm with your password" value={delPw} onChange={(e) => setDelPw(e.target.value)} autoComplete="current-password" />
-              <button className="btn danger" disabled={!delPw} onClick={async () => { if (!confirm('Before deleting: have you downloaded your account data (the button near the top of this page)?\n\nThis permanently deletes your account and everything stored on the server. Copies on your devices stay unless you choose to remove them next. Continue?')) return; try { await deleteAccount(delPw, confirm('Also remove the notes from this device?')); setDelPw(''); toast('Your account was deleted.'); } catch (e: any) { toast(e.message, 'error'); } }}>Delete account</button>
+              <button className="btn danger" disabled={!delPw} onClick={async () => { if (!(await ask(api.backend === 'supabase' ? 'Also remove your sign-in?' : 'Delete your account?', 'Before deleting: have you downloaded your account data (the button near the top of this page)?\n\nThis permanently deletes ' + (api.backend === 'supabase' ? 'your email sign-in itself, and what any other app by the same developer keeps for you with it.' : 'your account and everything stored on the server.') + ' It cannot be undone.', { ok: 'Delete', cancel: 'Keep it', danger: true }))) return; const clear = await ask('Also remove the notes from this device?', 'Your notes on this device can stay, or be removed with the account.', { ok: 'Remove them too', cancel: 'Keep them here' }); try { await deleteAccount(delPw, clear); setDelPw(''); toast('Your account was deleted.'); } catch (e: any) { toast(e.message, 'error'); } }}>Delete account</button>
             </div>
           </div>
         </>

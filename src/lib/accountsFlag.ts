@@ -18,7 +18,27 @@ export function accountsEnabled(): boolean {
 }
 
 /** the switch is read as soon as this file loads, before the router decides whether the account page exists (reading it later, in a start-up effect, sent a first visit to ?accounts=on#/account back to the home page and stripped the hash) */
-export const applyPreviewSwitchNow = () => { if (typeof location !== 'undefined') applyPreviewSwitch(location.search + (location.hash.includes('?') ? location.hash.slice(location.hash.indexOf('?')) : '')); };
+const AUTH_ERROR_KEY = 'sb:auth-error';
+/**
+ * An expired or already-used email link comes back as /?error=access_denied&error_code=otp_expired#error=… . The router would read that "#error=…" as a page that does
+ * not exist (a 404). Instead the message is kept for the Account page, the address is tidied to #/account, and the person is told the link no longer works.
+ */
+function takeAuthErrorFromAddress() {
+  if (typeof location === 'undefined' || !supabaseConfigured()) return;
+  const q = new URLSearchParams(location.search), h = new URLSearchParams(location.hash.replace(/^#\/?/, ''));
+  const code = q.get('error_code') ?? h.get('error_code');
+  const err = q.get('error') ?? h.get('error');
+  if (!code && !err) return;
+  const msg = code === 'otp_expired' ? 'That link has expired or was already used. Request a new one.' : 'That sign-in link did not work. Try again, or request a new link.';
+  try { sessionStorage.setItem(AUTH_ERROR_KEY, msg); localStorage.setItem(KEY, 'on'); history.replaceState(null, '', location.pathname + '#/account'); } catch { /* storage blocked */ }
+}
+/** the message left by a failed email-link return (shown once) */
+export function consumeAuthError(): string | null {
+  try { const m = sessionStorage.getItem(AUTH_ERROR_KEY); if (m) sessionStorage.removeItem(AUTH_ERROR_KEY); return m; } catch { return null; }
+}
+
+export const applyPreviewSwitchNow = () => {
+  if (import.meta.env.VITE_ACCOUNTS_PREVIEW === '1' || import.meta.env.VITE_ACCOUNTS === '1') takeAuthErrorFromAddress(); if (typeof location !== 'undefined') applyPreviewSwitch(location.search + (location.hash.includes('?') ? location.hash.slice(location.hash.indexOf('?')) : '')); };
 
 /** reads ?accounts=on|off from the address (only honoured in a preview build) and remembers it on this device */
 export function applyPreviewSwitch(search: string): void {

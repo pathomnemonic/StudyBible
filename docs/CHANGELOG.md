@@ -22,6 +22,14 @@
 
 
 
+
+## Account page: delete buttons that work everywhere, expired links, and a few play-through fixes
+- **The delete buttons did nothing** in the live retest: they asked their question with the browser's own confirm box, which some browsers (and automated ones) suppress, so the button silently did nothing. Every question on the Account page (delete the StudyBible account, also remove the sign-in, sign out, data from another account on this device) is now asked in the page. Checked in a browser: pressing "Delete my StudyBible account" opens the page's own dialog.
+- **An expired or already-used email link** (`/?error=…&error_code=otp_expired#error=…`) was read by the router as a page that does not exist. It now lands on the Account page with "That link has expired or was already used. Request a new one."
+- "Match the term" now counts as a game played (it was the only one that did not, so it earned nothing toward the Games level), says "Not … Choose another word. Misses so far: n" after a wrong tap, and turns the wrong word red.
+- Only one theme is now labelled "(default)".
+- Terms of Service: governing law is the State of Arizona; the operator is named only as PathoMnemonic.
+
 ## Accounts preview: four more fixes from the live checks
 - **First visit to `?accounts=on#/account` went home with the hash stripped** (and the Account page "would not open until Update now", which was not the service worker). The switch was read in a start-up effect, after the router had already seen the account page as off and redirected. It is now read when the file loads, before the router decides. Checked in a browser: the first visit and a reload both stay on `#/account` and show the page.
 - The warning on "Also remove my sign-in" showed the literal text `\u201c` and `\u201d`: escape sequences had been written into page text. Fixed, and no other such text remains in the screens.

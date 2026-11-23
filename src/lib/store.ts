@@ -7,7 +7,7 @@ export type ThemeName = 'season' | 'twilight' | 'ocean' | 'dawn' | 'mist' | 'dar
 /** Themes offered in Settings: [id, label, background, text, accent] (colors are preview swatches only). */
 export const THEMES: [ThemeName, string, string, string, string][] = [
   ['season', 'Follows the Church’s year (default)', '#120a1f', '#f2ecf8', '#f0c36a'],
-  ['twilight', 'Twilight (default)', '#0a0c1c', '#ecebf8', '#b7a8ff'],
+  ['twilight', 'Twilight', '#0a0c1c', '#ecebf8', '#b7a8ff'],
   ['ocean', 'Ocean', '#06131b', '#e4f1f5', '#7fd6d0'],
   ['dark', 'Ember', '#121110', '#ecebe6', '#e28d95'],
   ['midnight', 'Midnight', '#0c111b', '#e6ebf5', '#8ab4f8'],
