@@ -17,6 +17,11 @@
 
 
 
+
+## Nightly sweep: two approved check changes
+- The Today heading check now accepts the titles of feasts of the Lord, Our Lady and saints (it failed on "Our Lord Jesus Christ, King of the Universe"). It still rejects a heading that is not a liturgical title, such as a loading placeholder.
+- A picture from another site that fails to load is now reported as the sweep's existing third-party warning instead of a failure of this app. This app's own pictures are still checked. Both changes were approved by the owner after the Nov 22 sweep failed only on these two kinds.
+
 ## Per-app accounts on the shared Supabase project
 - A StudyBible account is now its own record (`studybible.accounts`), created on purpose in StudyBible. Signing in through another app does not create one, and no StudyBible function works without it. Signing up by email in StudyBible creates the sign-in and the account together; a person who already has a sign-in from another app, or who uses "Continue with Google", is asked to create their StudyBible account with one tap, and nothing is sent until they do. A second migration upgrades the first (`profiles` becomes `accounts`).
 - "Delete my StudyBible account" removes the account and its data and nothing else (tested to leave the sign-in and another app's data alone). "Also remove my sign-in" stays as a separate, optional action with a warning.

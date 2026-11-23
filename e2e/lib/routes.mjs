@@ -259,7 +259,8 @@ export const CRAWL = [
  */
 export const EXPECT = {
   '/play/deepwaters': 'Basilion|climb the basilica',
-  '/': 'week|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|feast|solemnity|memorial|Easter|Advent|Lent|Christmas',
+  // the Today heading is the day's liturgical title: a Sunday, a feast of the Lord ("Our Lord Jesus Christ, King of the Universe"), Our Lady, or a saint; the list covers those titles so a solemnity does not fail the nightly crawl (approved by the owner, Nov 23)
+  '/': 'week|Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|feast|solemnity|memorial|Easter|Advent|Lent|Christmas|Lord|Christ|King|Mary|Lady|Saint|St\\.?\\s|Blessed|Apostle|Martyr|Pope|Virgin|Holy|Ordinary|Epiphany|Pentecost|Trinity|Ascension|Assumption|Nativity|Presentation|Annunciation|Visitation|Transfiguration|All Souls|Corpus|Sacred Heart|Baptism',
   '/study': 'Explore the Bible', '/study/catechism': 'Catechism of the Catholic Church', '/study/catechism/1324': 'Catechism of the Catholic Church',
   '/calendar': 'Church calendar', '/settings': '^Settings$', '/memorize': 'Memorize Scripture', '/library': '^Notes$', '/pray/plans': 'Reading plans',
   '/study/saints': 'Lives of the Saints', '/study/councils': 'councils', '/study/curriculum': 'Catechism program', '/study/curriculum/9': 'Grade 9',

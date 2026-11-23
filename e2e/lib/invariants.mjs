@@ -66,7 +66,8 @@ export const INVARIANTS = () => {
   for (const [re, what] of leaks) { const m = re.exec(text); if (m) out.push(`shows ${what}: …${text.slice(Math.max(0, m.index - 25), m.index + 30).replace(/\s+/g, ' ')}…`); }
   if (/Something went wrong|That page is not here/.test(text)) out.push('error or not-found screen');
   // 4. pictures that did not load, and controls with no name a screen reader could read
-  for (const im of root.querySelectorAll('img')) if (vis(im) && im.complete && im.naturalWidth === 0 && im.src && !im.src.startsWith('data:')) out.push(`picture did not load: ${im.src.slice(-50)}`);
+  // a picture served by another site (a museum's image server may refuse a build machine) is reported by the sweep as a third-party warning, not as a failure of this app (approved by the owner, Nov 23); this app's own pictures are still checked
+  for (const im of root.querySelectorAll('img')) if (vis(im) && im.complete && im.naturalWidth === 0 && im.src && !im.src.startsWith('data:') && new URL(im.src, location.href).origin === location.origin) out.push(`picture did not load: ${im.src.slice(-50)}`);
   for (const e of controls) if (e.matches('button, a[href], [role=tab], [role=button]') && !(e.textContent || '').trim() && !e.getAttribute('aria-label') && !e.getAttribute('aria-labelledby') && !e.getAttribute('title') && !e.querySelector('img[alt]:not([alt=""])')) out.push(`control with no name: <${e.tagName.toLowerCase()} class="${(e.className || '').toString().slice(0, 30)}">`);
   return out;
 };
