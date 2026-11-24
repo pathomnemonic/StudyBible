@@ -5,7 +5,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
  * The app is fully offline-capable, so the wrapper ships the files inside the binary and never loads a remote site.
  */
 const config: CapacitorConfig = {
-  appId: 'org.cathology.app',
+  appId: 'com.pathomnemonic.cathology',
   appName: 'Cathology',
   webDir: 'dist',
   backgroundColor: '#0a0c1c',
