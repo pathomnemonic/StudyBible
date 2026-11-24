@@ -19,7 +19,7 @@ describe('launch kit', () => {
   });
   it('manifest source declares what stores and browsers need', () => {
     const v = read('vite.config.ts');
-    for (const k of ["id: 'org.cathology.app'", "display: 'standalone'", "categories:", "purpose: 'maskable'", "scope:"]) expect(v, k).toContain(k);
+    for (const k of ["id: 'com.pathomnemonic.cathology'", "display: 'standalone'", "categories:", "purpose: 'maskable'", "scope:"]) expect(v, k).toContain(k);
     expect(read('index.html')).toMatch(/apple-touch-icon/);
     expect(read('index.html')).toMatch(/apple-mobile-web-app-capable/);
   });
