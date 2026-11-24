@@ -1,0 +1,61 @@
+# Codemagic CI/CD for Cathology on iOS: builds and signs on Codemagic's cloud Macs, so no local Mac is needed.
+# Set up once in Codemagic (see docs/IOS_BUILD.md): add this repository, connect an App Store Connect API key under
+# Teams > Integrations, and fill in the values marked CHANGE_ME below. The workflow has NO automatic trigger: it only
+# runs when someone starts it by hand in Codemagic. The first run needs an active Apple Developer account.
+workflows:
+  ios-release:
+    name: Cathology iOS release (TestFlight)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    integrations:
+      # the name you gave the App Store Connect API key in Codemagic (Teams > Integrations > App Store Connect)
+      app_store_connect: CHANGE_ME_ASC_KEY_NAME
+    environment:
+      ios_signing:
+        # Codemagic creates or fetches the distribution certificate and App Store provisioning profile with the API key above
+        distribution_type: app_store
+        bundle_identifier: org.cathology.app
+      vars:
+        BUNDLE_ID: org.cathology.app
+        # the numeric "Apple ID" of the app record in App Store Connect (App Information > General). Used to number builds.
+        APP_STORE_APPLE_ID: CHANGE_ME_APP_STORE_APPLE_ID
+        XCODE_WORKSPACE: ios/App/App.xcworkspace
+        XCODE_SCHEME: App
+        # the store build: no sync server, no accounts (the Google Drive and sign-in flows need a web address the app does not have)
+        VITE_LOCAL_ONLY: "1"
+      node: 22
+      xcode: latest
+      cocoapods: default
+    # no triggering block: the workflow never starts by itself
+    scripts:
+      - name: Install web dependencies
+        script: npm ci
+      - name: Check the iOS project matches the app (bundle id, icon, plist)
+        script: npx tsx scripts/ios/check.ts
+      - name: Build the web app
+        script: npm run build
+      - name: Sync the web app into the iOS project and install pods
+        script: npx cap sync ios
+      - name: Set up code signing
+        script: xcode-project use-profiles
+      - name: Number the build (latest TestFlight build + 1)
+        script: |
+          LATEST=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID" 2>/dev/null || echo 0)
+          LATEST_TF=$(app-store-connect get-latest-testflight-build-number "$APP_STORE_APPLE_ID" 2>/dev/null || echo 0)
+          NEXT=$(( $(printf '%s\n%s\n' "${LATEST:-0}" "${LATEST_TF:-0}" | sort -n | tail -1) + 1 ))
+          echo "Build number: $NEXT"
+          cd ios/App && agvtool new-version -all "$NEXT"
+      - name: Build the signed .ipa
+        script: |
+          xcode-project build-ipa \
+            --workspace "$CM_BUILD_DIR/$XCODE_WORKSPACE" \
+            --scheme "$XCODE_SCHEME"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        auth: integration
+        # to TestFlight only; sending a build to App Review stays a manual step in App Store Connect
+        submit_to_testflight: true
+        submit_to_app_store: false

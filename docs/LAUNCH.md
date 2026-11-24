@@ -24,7 +24,7 @@ The app is already an installable **PWA** (manifest, service worker, offline, up
    # copy store/android/res/* into android/app/src/main/res (launcher sizes + adaptive layers), then:
    npx cap open android   # Build > Generate Signed Bundle (AAB), upload to Play Console
    ```
-4. **iOS build** (needs a Mac with Xcode):
+4. **iOS build**: set up for Codemagic cloud Macs (no local Mac); see `docs/IOS_BUILD.md` and `codemagic.yaml`. The manual route, if ever needed, on a Mac with Xcode:
    ```
    npm i @capacitor/ios && npm run build && npx cap add ios && npx cap sync ios
    # replace the AppIcon set with store/ios/AppIcon/*, set the bundle id org.cathology.app and your team, then:
@@ -47,7 +47,7 @@ The app is already an installable **PWA** (manifest, service worker, offline, up
   - The tip link is hidden inside the native app on purpose; check each store's current rules on tips and outside payment pages before showing it there.
   - The lessons for younger learners (Kindergarten to Grade 8) affect the age rating and, on Google Play, the audience and Families questions: decide the target audience deliberately.
   - Re-read the in-app sentences that say "there is no account" (Passport page, Widgets page, Help "Where is my data kept?") when accounts ship; they are true now and must stay true.
-- [ ] The native wrappers are not installed yet: `@capacitor/*` is not in package.json (the steps above add them), so no store build has been made or tested from this repo.
+- [ ] The iOS wrapper is set up (`@capacitor/*` 7.x in package.json, `ios/`, `codemagic.yaml`) but no store build has been made or tested yet; the Android wrapper is not added. See `docs/IOS_BUILD.md` for what blocks the first iOS build.
 - [x] Icons: maskable safe zone respected; iOS icon has no alpha channel.
 - [x] `tests/launch.test.ts` checks manifest fields, icon files and listing limits (name ≤30, short description ≤80, keywords ≤100).
 - [ ] Real-device pass on a low-end Android phone and an older iPhone (cannot be done here).
