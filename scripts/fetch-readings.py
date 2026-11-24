@@ -19,7 +19,7 @@ def parse(h):
     # each reading block: a name (h3.name) followed by one or more address divs
     for m in re.finditer(r'<h3 class="name">(.*?)</h3>([\s\S]*?)(?=<h3 class="name">|</article>|<div class="footer)', h):
         name = html.unescape(re.sub('<[^>]+>', '', m.group(1))).strip()
-        addrs = [re.sub(r'\s+', ' ', html.unescape(re.sub('<[^>]+>', '', a))).strip() for a in re.findall(r'<div class="address">([\s\S]*?)</div>', m.group(2))]
+        addrs = [re.sub(r'\s+', ' ', html.unescape(re.sub('<[^>]+>', '', a))).strip() for a in re.findall(r'<(?:div|p) class="address">([\s\S]*?)</(?:div|p)>', m.group(2))]
         addrs = [a.replace('\xa0', ' ') for a in addrs if a]
         if name and addrs: out.append({'slot': name, 'refs': addrs})
     title = re.search(r'<title>(.*?)</title>', h, re.S)

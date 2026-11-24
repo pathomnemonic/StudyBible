@@ -196,7 +196,7 @@ function temporal(date: Date, variant: CalendarVariant): LiturgicalDay {
 }
 
 /** A celebration with a fixed date that outranks an ordinary Sunday. */
-interface Fixed { m: number; d: number; name: string; rank: 'solemnity' | 'feast'; color: Color }
+interface Fixed { m: number; d: number; name: string; rank: 'solemnity' | 'feast'; color: Color; /** a feast of a saint: it replaces a weekday but gives way to a Sunday or any higher day */ weekdayOnly?: boolean }
 const FIXED: Fixed[] = [
   { m: 2, d: 2, name: 'The Presentation of the Lord', rank: 'feast', color: 'white' },
   { m: 3, d: 19, name: 'Saint Joseph, Spouse of the Blessed Virgin Mary', rank: 'solemnity', color: 'white' },
@@ -208,6 +208,7 @@ const FIXED: Fixed[] = [
   { m: 9, d: 14, name: 'The Exaltation of the Holy Cross', rank: 'feast', color: 'red' },
   { m: 11, d: 1, name: 'All Saints', rank: 'solemnity', color: 'white' },
   { m: 11, d: 2, name: 'The Commemoration of All the Faithful Departed (All Souls)', rank: 'solemnity', color: 'violet' },
+  { m: 11, d: 30, name: 'Saint Andrew, Apostle', rank: 'feast', color: 'red', weekdayOnly: true },
   { m: 11, d: 9, name: 'The Dedication of the Lateran Basilica', rank: 'feast', color: 'white' },
   { m: 12, d: 8, name: 'The Immaculate Conception of the Blessed Virgin Mary', rank: 'solemnity', color: 'white' },
 ];
@@ -244,6 +245,7 @@ export function liturgicalDay(date: Date, variant: CalendarVariant = 'universal'
   const t = temporal(date, variant);
   const f = fixedOn(date, variant);
   if (!f) return t;
+  if (f.weekdayOnly) return t.rank === 'weekday' ? { ...t, dayName: f.name, rank: f.rank, color: f.color } : t;
   // a transferred solemnity always lands on a free day; a feast of the Lord yields to anything the seasons rank as a solemnity
   if (f.rank === 'feast' && (t.rank === 'solemnity' || t.rank === 'triduum' || t.season !== 'ordinary')) return t;
   if (f.m === 11 && f.d === 2 && t.rank === 'solemnity') return t;

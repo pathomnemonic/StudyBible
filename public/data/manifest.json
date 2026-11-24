@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23",
+ "generated": "2026-11-24",
  "packs": [
   {
    "id": "learn",
@@ -3248,7 +3248,7 @@
   {
    "id": "prayer",
    "label": "Divine Office, Latin Mass texts, lectionary, hymns, readings to share and daily data",
-   "bytes": 4892370,
+   "bytes": 4893399,
    "files": [
     "office/office.json",
     "office/sancti-01.json",
@@ -3405,9 +3405,9 @@
     50477,
     60844,
     42477,
-    56195,
-    49911,
-    28860,
+    57683,
+    49560,
+    28752,
     178221,
     44,
     24,
@@ -3528,9 +3528,9 @@
     "324daf52bc3826c3",
     "b4eab6707a459d7a",
     "d4081c081a42eabe",
-    "a306987727700fcd",
-    "587804d2d9ace137",
-    "c80e1aad014425cc",
+    "ff73be1c67edda29",
+    "236003a5be22653b",
+    "034c0cdebc832959",
     "2a9d9a1c486b05c4",
     "5b919464ee513fa4",
     "0c771fa5a4346aa8",

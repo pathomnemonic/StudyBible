@@ -24,6 +24,12 @@
 
 
 
+## Advent Walk cards in the full frame; St Andrew named on 30 November; ten missing Mass-reading days filled
+
+- The 26 Advent Walk cards now use the same frame as the Daily Word card: date and day name, the walk day, the day's name and key verse (Douay-Rheims), the Catechism line or paragraph pointer where one cites the verse, and the Mass reading citations. On Advent days the Walk card is the day's single post. Re-drawn in `social-cards/advent-2026/`.
+- The liturgical calendar had no entry for the Feast of Saint Andrew, so 30 November read "Monday of the First week of Advent" on the Today screen as well as on the card. It is now named "Saint Andrew, Apostle" (a feast, red) on a weekday and still gives way to a Sunday (30 November 2025 stays the First Sunday of Advent). Only this feast was added; other feasts of saints (for example 26 and 28 December, and Our Lady of Guadalupe on 12 December in the United States) are still not named by the calendar.
+- The USCCB's page markup changed from `<div class="address">` to `<p class="address">`, so `scripts/fetch-readings.py` found no readings on days fetched since. Fixed, and ten missing days were fetched (one request every few seconds, same source and method as before, citations only): Nov 30, Dec 4, 6, 7, 11, 12, 15, 20, 23 and 28. A stray `">` left in some Alleluia citations was removed. Still missing: Dec 21 and 22 (the page would not load), Dec 25 (several Masses; none is stored), and many days elsewhere in 2026 (about 115 in all).
+
 ## Social cards: the Daily Word is now one full-day card (mirrors the Today card)
 
 By the owner's direction the Daily Word card carries everything for the day instead of only a verse. In the order the Today screen uses: the date and the liturgical day's name, the verse with its reference (Douay-Rheims), a Father or saint line (only when the app marks it verified), the day's question, then the Catechism paragraph on the verse and the Mass reading citations that Today links to. The Catechism paragraph is quoted whole when it is short; a longer one is pointed to by number, never cut. The slate cards add one word as the title and take their date and question from `scripts/social/slate.json`; the exporter-made card (`daily-word`) is the Today card's own content. The not-for-profit line is not on the card (it stays in captions and the bio). Re-drawn: the seven Week 1 cards in `social-cards/advent-2026/`. The separate Catechism and Father cards are retired because the one card holds them. Advent Walk cards are unchanged.

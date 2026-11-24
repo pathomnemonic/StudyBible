@@ -143,3 +143,11 @@ describe('Friday penance (canon 1251: lifted only by a solemnity)', () => {
     expect(dutiesOn(parseIso('2026-05-14'), 'universal')[0].title).toBe('Holy day of obligation: The Ascension of the Lord');
   });
 });
+
+describe('Saint Andrew (30 November)', () => {
+  it('is named on a weekday, in Advent too, and gives way to a Sunday', () => {
+    expect(day('2026-11-30', 'usa')).toMatchObject({ dayName: 'Saint Andrew, Apostle', rank: 'feast', season: 'advent' });
+    expect(day('2025-11-30', 'usa').dayName).toBe('First Sunday of Advent');
+    expect(day('2028-11-30', 'usa').dayName).toBe('Saint Andrew, Apostle');
+  });
+});

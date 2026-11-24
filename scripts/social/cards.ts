@@ -27,6 +27,8 @@ export interface DayCard {
   dateLine: string; dayName: string; color: string;
   /** our one-word title for the day (the hand-picked slate); absent on days made straight from the Today card */
   word?: string;
+  /** a line under the day name, e.g. the Advent walk day */
+  walk?: string;
   verse: { text: string; label: string };
   /** a Father or saint line, only when the app marks it verified */
   father?: { text: string; who: string };
@@ -54,6 +56,7 @@ export function dayCardHtml(c: DayCard, w: number, h: number): string {
   return `<html><body style="margin:0;width:${w}px;height:${h}px;background:${bg};color:${fg};font-family:Georgia,'Times New Roman',serif;display:flex;flex-direction:column;box-sizing:border-box;padding:${f(0.075)}px ${f(0.085)}px;overflow:hidden">
   <div style="${sans};font-size:${f(0.026)}px;letter-spacing:.12em;text-transform:uppercase;opacity:.8">${esc(c.dateLine)}</div>
   <div style="font-size:${f(0.04)}px;margin-top:${f(0.008)}px;opacity:.95">${esc(c.dayName)}</div>
+  ${c.walk ? `<div style="${sans};font-size:${f(0.024)}px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-top:${f(0.01)}px">${esc(c.walk)}</div>` : ''}
   <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:${f(0.004)}px">
     ${c.word ? `<div style="${sans};font-weight:700;font-size:${f(0.07)}px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:${f(0.02)}px">${esc(c.word)}</div>` : ''}
     <div style="font-size:${f(base)}px;line-height:1.38">${esc(c.verse.text)}</div>
@@ -88,7 +91,17 @@ export function cardsFor(d: SocialDay, w: number, h: number): { name: string; ht
   const dw = d.dailyWord;
   const full = todayCard(d);
   if (full) out.push({ name: 'daily-word', html: dayCardHtml(full, w, h) });
-  if (d.advent?.verse) out.push({ name: 'advent', html: page(w, h, 'violet', `Advent · day ${d.advent.day} of ${d.advent.of}${d.advent.theme ? ' · ' + d.advent.theme : ''}`, d.advent.verse.text, `${d.advent.verse.label} · Douay-Rheims`, 'Cathology · Advent walk') });
+  if (d.advent?.verse) {
+    const cit = d.massReadings?.citations;
+    const a = d.advent;
+    out.push({ name: 'advent', html: dayCardHtml({
+      dateLine: longDate(d.date), dayName: d.liturgical.name, color: d.liturgical.color === 'rose' ? 'rose' : 'violet',
+      walk: `Advent walk · day ${a.day} of ${a.of}`, word: a.theme ?? undefined,
+      verse: { text: a.verse!.text, label: a.verse!.label },
+      catechism: a.catechism ? { n: a.catechism.n, text: a.catechism.text } : undefined,
+      readings: cit ? [cit.first_reading, cit.second_reading, cit.gospel].filter(Boolean).join(' · ') : undefined,
+    }, w, h) });
+  }
   if (d.feastFather && d.feastFather.quote.length < 520) out.push({ name: 'feast-father', html: page(w, h, color, d.feastFather.feast, d.feastFather.quote, `${d.feastFather.author}, ${d.feastFather.source}`, 'Cathology · From the Fathers') });
   return out;
 }

@@ -91,7 +91,7 @@ export interface SocialDay {
   massReadings: { source: string; citations: Record<string, string> } | null;
   dailyWord: { passage: string; verse: VerseCard | null; church: { catechism: { n: number; text: string; quotes: boolean } | null; father: FatherLine | null }; reflectionQuestion: string; needsReview: string[] } | null;
   todaysClimb: { day: number; questions: string[] };
-  advent: { day: number; of: number; theme: string | null; passage: string; keyVerse: string | null; verse: VerseCard | null; father: FatherLine | null } | null;
+  advent: { day: number; of: number; theme: string | null; passage: string; keyVerse: string | null; catechism: { n: number; text: string; quotes: boolean } | null; verse: VerseCard | null; father: FatherLine | null } | null;
   feastFather: { feast: string; quote: string; author: string; source: string; note: string } | null;
   attribution: string;
 }
@@ -158,7 +158,8 @@ export function buildDay(date: string): SocialDay {
     const passage: string = n <= ADVENT_REFS.length ? ADVENT_REFS[n - 1] : (walk as { key?: string } | null)?.key ?? '';
     const shown = (walk as { key?: string } | null)?.key ?? passage; // a day with a key verse shows that verse alone
     const ref = shown ? toAnchor(shown) : null;
-    advent = { day: n, of: adventLength(y), theme: walk?.theme ?? null, passage, keyVerse: (walk as { key?: string } | null)?.key ?? null, verse: ref ? verseCard(ref) : null, father: null }; // the day's Father line belongs to the day's own reading, not to this plan reading, so it is not paired here
+    const paras = ref ? cccFor(ref, 6) : [];
+    advent = { day: n, of: adventLength(y), theme: walk?.theme ?? null, passage, keyVerse: (walk as { key?: string } | null)?.key ?? null, catechism: paras.find((p) => p.text.length <= 340) ?? paras[0] ?? null, verse: ref ? verseCard(ref) : null, father: null }; // the day's Father line belongs to the day's own reading, not to this plan reading, so it is not paired here
   }
 
   const feast = feastOf(date, ld.dayName);
