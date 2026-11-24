@@ -27,7 +27,11 @@ export function buildDaily(report: Report) {
         saint.verified = false;
         saint.misattributed = v.author ? `Found in ${v.author}${v.note ? ': ' + v.note : ''}` : v.note;
         if (v.author && v.author.length < 60) { saint.who = `${v.author} (often attributed to ${saint.who})`; delete saint.work; }
-      } else saint.verified = false;
+      } else {
+        saint.verified = false;
+        // the same line is listed under more than one saint and no source was found for any: shown as an uncertain attribution
+        if (v.duplicate) saint.misattributed = v.duplicate;
+      }
     }
     generic[e.key] = { ref: e.ref, saint, q: e.question };
   }

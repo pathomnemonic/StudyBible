@@ -24,6 +24,14 @@
 
 
 
+## Daily quotes: six "verified" lines made word for word, uncertain attributions marked, flags reclassified
+
+A review of the 223 `needsReview` flags the social exporter raises over a year (209 "saint line unverified", 14 "attribution note"; none fall between 29 November and 24 December) found three things.
+- Six lines were marked verified against a library work, but the wording on the Today screen was a modern paraphrase of it, so the "checked word for word" claim was not true: 1 Jan (Augustine), 30 Jan (Teresa), 5 Mar (de Sales), 13 Mar and 30 Mar (Thérèse), 27 Dec (1 John 4:16 as quoted by Cassian). Each now reads exactly as the library text does (so for example 1 Jan is "Thou madest us for Thyself, and our heart is restless, until it repose in Thee."). A test (`tests/dailyQuotes.test.ts`) now checks every verified line against the section it cites.
+- Forty unverified lines appear under more than one saint (for example "To serve God is to reign" under three, "The soul is more where it loves than where it lives" under three). They are now marked as uncertain attributions, so the Today screen says so instead of presenting one saint as certain. The source is `data/curated/daily-verify.json` (new `duplicate` note), and `public/data/daily/index.json` was regenerated from it.
+- The 209 unverified lines are not an error and cannot be verified without a source, so they stay unverified; the exporter no longer lists them as flags (each one's card simply leaves the line off, and the export prints a one-line count). The 14 attribution notes are already part of each line's `who`. Real flags remain for a reading that cannot be placed or a missing line: there are none.
+- `scripts/verify/daily-quotes.ts` re-checks the library for lines that could now be verified (four turn up quoted inside Liguori and Leo XIII: leads for a person, not proof).
+
 ## Terms of Service: "Contributing content" section (draft for review)
 
 Added a section to `public/terms.html` for content people submit for possible use in the app (the planned public form and review pipeline): the contributor states it is their own work or they may share it; keeps ownership and grants PathoMnemonic a free, worldwide, non-exclusive, perpetual license to use, edit and publish it; contributions are checked partly by an automated (AI) tool and partly by people, and may be stored in project tracking tools; acceptance is at PathoMnemonic's discretion; no payment or promised credit; the not-for-profit framing is repeated; removal requests are honoured going forward. The "Your content stays yours" paragraph now points to it, the date is November 24, 2026, and the "Changes" section records the addition. This is a draft and has not been reviewed by a lawyer.

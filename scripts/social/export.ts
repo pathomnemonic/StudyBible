@@ -18,4 +18,6 @@ for (let i = 0; i < days; i++) {
 }
 const flags = all.flatMap((d) => (d.dailyWord?.needsReview ?? []).map((m) => `${d.date}: ${m}`));
 console.log(`wrote ${all.length} day(s) to ${out}/`);
+const leftOff = all.filter((d) => d.dailyWord?.saintStatus === 'left-off-unverified').length;
+if (leftOff) console.log(`\n${leftOff} of ${all.length} day(s) have no verified saint line: their cards leave it off (see scripts/social/audit-saints.ts). This is a rule, not a flag.`);
 if (flags.length) console.log('\nNeeds a person before posting:\n' + flags.map((f) => ' - ' + f).join('\n'));

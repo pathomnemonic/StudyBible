@@ -66,7 +66,7 @@ export interface SocialDay {
   liturgical: { name: string; season: string; color: string; rank: string };
   /** citations only: the lectionary wording is copyrighted and is not stored or posted */
   massReadings: { source: string; citations: Record<string, string> } | null;
-  dailyWord: { passage: string; verse: VerseCard | null; church: { catechism: { n: number; text: string; quotes: boolean } | null; father: FatherLine | null }; reflectionQuestion: string; needsReview: string[] } | null;
+  dailyWord: { passage: string; verse: VerseCard | null; church: { catechism: { n: number; text: string; quotes: boolean } | null; father: FatherLine | null }; reflectionQuestion: string; needsReview: string[]; saintStatus: 'verified' | 'left-off-unverified' | 'none'; saintNote?: string } | null;
   todaysClimb: { day: number; questions: string[] };
   advent: { day: number; of: number; theme: string | null; passage: string; keyVerse: string | null; catechism: { n: number; text: string; quotes: boolean } | null; verse: VerseCard | null; father: FatherLine | null } | null;
   feastFather: { feast: string; quote: string; author: string; source: string; note: string } | null;
@@ -122,9 +122,8 @@ export function buildDay(date: string): SocialDay {
     else if (!verse) review.push(`no single-chapter Douay verse text for "${entry.ref}"`);
     const ccc = ref ? cccFor(ref)[0] ?? null : null;
     const father: FatherLine | null = { text: entry.saint.text, who: entry.saint.who, work: entry.saint.work, verified: entry.saint.verified === true };
-    if (!father.verified) review.push('the Father/saint line is marked unverified in the app data: check the source before posting');
-    if (entry.saint.misattributed) review.push(`attribution note in the app data: ${entry.saint.misattributed}`);
-    dailyWord = { passage: ref && verse ? verse.label : entry.ref, verse, church: { catechism: ccc, father }, reflectionQuestion: entry.q, needsReview: review };
+    // an unverified line is handled by a rule, not by a person: it is left off the card (see saintStatus), and its attribution note is already part of the line's `who`
+    dailyWord = { passage: ref && verse ? verse.label : entry.ref, verse, church: { catechism: ccc, father }, reflectionQuestion: entry.q, needsReview: review, saintStatus: father.verified ? 'verified' : 'left-off-unverified', saintNote: father.verified ? undefined : entry.saint.misattributed };
   }
 
   const n = adventDayOf(date);
