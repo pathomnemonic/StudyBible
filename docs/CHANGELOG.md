@@ -26,7 +26,7 @@
 
 ## iOS build set up for Codemagic (not yet run)
 
-Cathology had no iOS build setup. Added: `codemagic.yaml` with an `ios-release` workflow (cloud Mac, App Store Connect API key integration, automatic signing, build numbering, build to TestFlight only, no automatic trigger), the Capacitor 7 packages, the generated `ios/` project with bundle id `org.cathology.app` (the id already in `capacitor.config.ts`), the 1024 app icon and splash, the encryption-export key, a consistency check (`scripts/ios/check.ts`, also run in the tests), and `docs/IOS_BUILD.md` with the one-time setup, things to test and what still blocks a first build. Nothing was built or run: it waits for the Apple Developer account, the App ID and app record, the API key, and two values in `codemagic.yaml`.
+Cathology had no iOS build setup. Added: `codemagic.yaml` with an `ios-release` workflow (cloud Mac, App Store Connect API key integration, automatic signing, build numbering, build to TestFlight only, no automatic trigger), the Capacitor 7 packages, the generated `ios/` project with bundle id `com.pathomnemonic.cathology` (the id already in `capacitor.config.ts`), the 1024 app icon and splash, the encryption-export key, a consistency check (`scripts/ios/check.ts`, also run in the tests), and `docs/IOS_BUILD.md` with the one-time setup, things to test and what still blocks a first build. Nothing was built or run: it waits for the Apple Developer account, the App ID and app record, the API key, and two values in `codemagic.yaml`.
 
 ## Error reports (Sentry) and page counts (PostHog) on the public website
 

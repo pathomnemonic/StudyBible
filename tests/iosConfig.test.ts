@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 describe('the iOS build setup', () => {
   const yaml = readFileSync('codemagic.yaml', 'utf8');
   it('passes its own consistency check (bundle id, icon, plist)', () => {
-    expect(execFileSync('npx', ['tsx', 'scripts/ios/check.ts'], { encoding: 'utf8' })).toMatch(/iOS check passed \(bundle id org\.cathology\.app\)/);
+    expect(execFileSync('npx', ['tsx', 'scripts/ios/check.ts'], { encoding: 'utf8' })).toMatch(/iOS check passed \(bundle id com\.pathomnemonic\.cathology\)/);
   });
   it('has an ios-release workflow that never starts by itself and never sends a build to App Review', () => {
     expect(yaml).toMatch(/^ {2}ios-release:/m);

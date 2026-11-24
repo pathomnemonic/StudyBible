@@ -39,7 +39,7 @@ export default defineConfig({
         name: brand.name,
         short_name: brand.name,
         description: brand.description,
-        id: 'org.cathology.app',
+        id: 'com.pathomnemonic.cathology',
         lang: 'en',
         dir: 'ltr',
         scope: './',

@@ -12,7 +12,7 @@ struct Entry: TimelineEntry { let date: Date; let payload: Payload? }
 
 struct Provider: TimelineProvider {
     static func load() -> Payload? {
-        guard let raw = UserDefaults(suiteName: "group.org.cathology.app")?.string(forKey: "widgetData"), let data = raw.data(using: .utf8) else { return nil }
+        guard let raw = UserDefaults(suiteName: "group.com.pathomnemonic.cathology")?.string(forKey: "widgetData"), let data = raw.data(using: .utf8) else { return nil }
         return try? JSONDecoder().decode(Payload.self, from: data)
     }
     func placeholder(in context: Context) -> Entry { Entry(date: Date(), payload: nil) }

@@ -7,7 +7,7 @@ public class WidgetBridgePlugin: CAPPlugin, CAPBridgedPlugin {
     public let identifier = "WidgetBridgePlugin"
     public let jsName = "WidgetBridge"
     public let pluginMethods: [CAPPluginMethod] = [CAPPluginMethod(name: "publish", returnType: CAPPluginReturnPromise)]
-    static let group = "group.org.cathology.app"
+    static let group = "group.com.pathomnemonic.cathology"
 
     @objc func publish(_ call: CAPPluginCall) {
         guard let json = call.getString("json") else { return call.reject("json missing") }

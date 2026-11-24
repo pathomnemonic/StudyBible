@@ -24,7 +24,7 @@ What a widget shows: **today's verse**, **verses due for review** and the **game
 ## iOS (after `npx cap add ios`)
 
 1. In Xcode: File, New, Target, Widget Extension, named `CathologyWidget` (untick "Include Configuration App Intent"). Replace its Swift file with `store/widgets/ios/CathologyWidget/CathologyWidget.swift`.
-2. Add the **App Groups** capability to **both** the App target and the widget target, with the group `group.org.cathology.app` (change it in the Swift files if you pick another id).
+2. Add the **App Groups** capability to **both** the App target and the widget target, with the group `group.com.pathomnemonic.cathology` (change it in the Swift files if you pick another id).
 3. Add `store/widgets/ios/App/WidgetBridgePlugin.swift` to the App target.
 4. Build and run, then touch and hold the Home Screen, tap +, search for the app.
 
