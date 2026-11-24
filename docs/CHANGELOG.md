@@ -24,6 +24,10 @@
 
 
 
+## Terms of Service: "Contributing content" section (draft for review)
+
+Added a section to `public/terms.html` for content people submit for possible use in the app (the planned public form and review pipeline): the contributor states it is their own work or they may share it; keeps ownership and grants PathoMnemonic a free, worldwide, non-exclusive, perpetual license to use, edit and publish it; contributions are checked partly by an automated (AI) tool and partly by people, and may be stored in project tracking tools; acceptance is at PathoMnemonic's discretion; no payment or promised credit; the not-for-profit framing is repeated; removal requests are honoured going forward. The "Your content stays yours" paragraph now points to it, the date is November 24, 2026, and the "Changes" section records the addition. This is a draft and has not been reviewed by a lawyer.
+
 ## Daily card: no word headline
 
 By the owner's direction the big word is gone from the card. The template is now: quiet date and day name, the verse as the lead element, the saint's words, the question, the footer line. This applies to the social export (Daily Word and Advent Walk cards) and the in-app "Today's card" page. The Today home screen never had a word and is unchanged. The word is still used behind the scenes: it chooses the verse for the Week 1 dates and helps choose the picture, and the card files keep their `word-<name>` names. Re-drawn in `social-cards/advent-2026/`.
