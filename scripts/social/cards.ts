@@ -37,7 +37,7 @@ export function jobsFor(d: SocialDay): Job[] {
   const slate: DailyWord | null = DAILY_WORDS.find((w) => w.date === d.date) ?? null;
   if (slate) {
     const ref = parseRefId(slate.ref)!; const v = verseCard(ref)!;
-    jobs.push({ key: d.date, name: `word-${slate.word.toLowerCase()}`, date: d.date, hints: hintsFor(slate.ref, v.text, slate.word), inputs: { ...common, verse: { text: v.text, label: v.label }, word: slate.word, question: slate.question || dw?.reflectionQuestion || undefined } });
+    jobs.push({ key: d.date, name: `word-${slate.word.toLowerCase()}`, date: d.date, hints: hintsFor(slate.ref, v.text, slate.word), inputs: { ...common, verse: { text: v.text, label: v.label }, question: slate.question || dw?.reflectionQuestion || undefined } });
   } else if (dw?.verse) {
     const ref = parseRefId((dw.passage && /^[1-3A-Z]{3}\./.test(dw.passage)) ? dw.passage : '') ?? null;
     jobs.push({ key: d.date, name: 'daily-word', date: d.date, hints: hintsFor(undefined, dw.verse.text), inputs: { ...common, verse: { text: dw.verse.text, label: dw.verse.label }, question: dw.reflectionQuestion } });
@@ -45,7 +45,7 @@ export function jobsFor(d: SocialDay): Job[] {
   }
   if (d.advent?.verse) {
     const a = d.advent;
-    jobs.push({ key: d.date, name: 'advent', date: d.date, hints: { ...hintsFor(a.keyVerse ?? a.passage, a.verse!.text, a.theme ?? undefined), season: 'advent' }, inputs: { ...common, color: d.liturgical.color === 'rose' ? 'rose' : 'violet', verse: { text: a.verse!.text, label: a.verse!.label }, word: a.theme ?? undefined, question: dw?.reflectionQuestion || undefined, walk: `Advent walk · day ${a.day} of ${a.of}` } });
+    jobs.push({ key: d.date, name: 'advent', date: d.date, hints: { ...hintsFor(a.keyVerse ?? a.passage, a.verse!.text, a.theme ?? undefined), season: 'advent' }, inputs: { ...common, color: d.liturgical.color === 'rose' ? 'rose' : 'violet', verse: { text: a.verse!.text, label: a.verse!.label }, question: dw?.reflectionQuestion || undefined, walk: `Advent walk · day ${a.day} of ${a.of}` } });
   }
   return jobs;
 }

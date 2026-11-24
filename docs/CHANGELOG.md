@@ -24,6 +24,10 @@
 
 
 
+## Daily card: no word headline
+
+By the owner's direction the big word is gone from the card. The template is now: quiet date and day name, the verse as the lead element, the saint's words, the question, the footer line. This applies to the social export (Daily Word and Advent Walk cards) and the in-app "Today's card" page. The Today home screen never had a word and is unchanged. The word is still used behind the scenes: it chooses the verse for the Week 1 dates and helps choose the picture, and the card files keep their `word-<name>` names. Re-drawn in `social-cards/advent-2026/`.
+
 ## Every daily card now carries the day's question
 
 Only one of the seven Week 1 word entries had a hand-written question, and the Advent Walk cards had none. A card now uses the hand-written question from `src/data/dailyWords.json` when there is one, and otherwise the date's own `q` from the same daily entry the Today screen reads. The Advent Walk cards carry it in the same place and weight as the word cards. A test checks all 26 Advent days. Re-drawn in `social-cards/advent-2026/`.

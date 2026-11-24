@@ -2,8 +2,8 @@
  * Draws one daily card on a canvas. The same code runs in the app (the one-click card) and in the social export (in a headless browser),
  * so a user's card and the day's post are the same picture.
  *
- * Composition: everything is centred. A quiet header (date, day name) at the top, one focal block in the middle (the word and the verse),
- * the saint's words and the question beneath it with real weight of their own, and a muted foot (the line about the app). Margins are
+ * Composition: everything is centred. A quiet header (date, day name) at the top, the verse as the lead element in the middle,
+ * the saint's words and the question beneath it, and a muted foot (the line about the app). There is no headline word. Margins are
  * equal on all four sides; whatever room is left is shared evenly above and below the body.
  */
 export interface DayCardSpec {
@@ -11,8 +11,6 @@ export interface DayCardSpec {
   dateLine: string; dayName: string; color: 'green' | 'violet' | 'white' | 'red' | 'rose';
   /** a line under the day name, e.g. "Advent walk · day 2 of 26" */
   walk?: string;
-  /** our one-word title for the day, where there is one */
-  word?: string;
   verse: { text: string; label: string; translation: string };
   /** a verified Father or saint line for the date (never an unverified one) */
   father?: { text: string; who: string };
@@ -98,20 +96,19 @@ export function drawDayCard(ctx: CanvasRenderingContext2D, W: number, H: number,
   const footH = measure(foot);
   const footTop = H - M - footH;
 
-  // body: the word leads; the verse, the saint's words and the question carry similar weight, so no one of them dominates. Shrunk together until they fit.
+  // body: the verse leads; the saint's words and the question follow at a slightly smaller size. Shrunk together until they fit.
   const avail = footTop - headBottom - M * 0.8;
   const build = (s: number) => {
-    const base = f(0.043) * s;
+    const base = f(0.054) * s;
     const focus: Run[] = [];
-    if (spec.word) focus.push({ text: spec.word, font: `800 ${Math.round(f(0.085) * Math.min(1, s + 0.2))}px ${SANS}`, alpha: 1, lh: 1.15, caps: true, gap: f(0.026) });
     focus.push({ text: spec.verse.text, font: `400 ${Math.round(base)}px ${SERIF}`, alpha: 1, lh: 1.36, gap: f(0.014) });
     focus.push({ text: `${spec.verse.label} · ${spec.verse.translation}`, font: `italic 400 ${Math.round(base * 0.55)}px ${SERIF}`, alpha: 0.85, lh: 1.3, gap: 0 });
     const quiet: Run[] = [];
     if (spec.father) {
-      quiet.push({ text: `“${spec.father.text.replace(/“/g, '‘').replace(/”/g, '’')}”`, font: `400 ${Math.round(base * 0.92)}px ${SERIF}`, alpha: 1, lh: 1.36, gap: f(0.012) });
-      quiet.push({ text: `— ${spec.father.who}`, font: `italic 400 ${Math.round(base * 0.55)}px ${SERIF}`, alpha: 0.85, lh: 1.3, gap: spec.question ? f(0.034) : 0 });
+      quiet.push({ text: `“${spec.father.text.replace(/“/g, '‘').replace(/”/g, '’')}”`, font: `400 ${Math.round(base * 0.72)}px ${SERIF}`, alpha: 1, lh: 1.38, gap: f(0.012) });
+      quiet.push({ text: `— ${spec.father.who}`, font: `italic 400 ${Math.round(base * 0.5)}px ${SERIF}`, alpha: 0.85, lh: 1.3, gap: spec.question ? f(0.034) : 0 });
     }
-    if (spec.question) quiet.push({ text: spec.question, font: `italic 400 ${Math.round(base * 0.88)}px ${SERIF}`, alpha: 0.96, lh: 1.36, gap: 0 });
+    if (spec.question) quiet.push({ text: spec.question, font: `italic 400 ${Math.round(base * 0.68)}px ${SERIF}`, alpha: 0.96, lh: 1.36, gap: 0 });
     const between = quiet.length ? f(0.06) : 0; // the rule and the air around it
     return { focus, quiet, between, h: measure(focus) + between + measure(quiet) };
   };

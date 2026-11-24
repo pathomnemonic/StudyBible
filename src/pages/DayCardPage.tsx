@@ -63,7 +63,7 @@ export default function DayCardPage() {
       if (!v) return setErr('Today’s verse is not available on this device yet.');
       const label = formatRef({ ...ref, v1: v.first, v2: v.last }, { noDual: true });
       const { spec, issues } = buildSpec({
-        date, dayName: ld.dayName, color: ld.color, verse: { text: v.text, label }, saint: entry?.saint, word: word?.word,
+        date, dayName: ld.dayName, color: ld.color, verse: { text: v.text, label }, saint: entry?.saint,
         question: word?.question || entry?.q, advent: ld.season === 'advent',
       });
       setBase({ spec, ref, saintMissing: issues.length > 0 });
