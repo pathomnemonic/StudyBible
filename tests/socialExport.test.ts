@@ -77,3 +77,25 @@ describe('the social export', () => {
     for (const s of slate) { const v = verseCard(parseRefId(s.ref)!)!; expect(v.trimmed).toBe(false); if (want[s.ref]) expect(v.text).toBe(want[s.ref]); }
   });
 });
+
+import { dayCardHtml, todayCard } from '../scripts/social/cards';
+describe('the one-card Daily Word', () => {
+  it('carries the Today card fields in order, leaves out an unverified Father line, and does not carry the not-for-profit line', () => {
+    const d = buildDay('2026-11-29');
+    const c = todayCard(d)!;
+    expect(c.dayName).toBe('First Sunday of Advent');
+    expect(c.father?.who).toMatch(/Augustine/);
+    const html = dayCardHtml(c, 1080, 1350);
+    expect(html.indexOf('Advent')).toBeLessThan(html.indexOf('And that knowing'));
+    expect(html.indexOf('And that knowing')).toBeLessThan(html.indexOf('sleep not'));
+    expect(html).toMatch(/Mass readings: Isaiah 63/);
+    expect(html).not.toMatch(/not.for.profit/i);
+    d.dailyWord!.church.father = { ...d.dailyWord!.church.father!, verified: false };
+    expect(todayCard(d)!.father).toBeUndefined();
+  });
+  it('quotes a Catechism paragraph whole when short and otherwise only points to it', () => {
+    const long = dayCardHtml({ dateLine: 'x', dayName: 'y', color: 'green', verse: { text: 'v', label: 'l' }, catechism: { n: 5, text: 'a'.repeat(400) } }, 1080, 1350);
+    expect(long).toMatch(/paragraph 5/);
+    expect(long).not.toMatch(/aaaaa/);
+  });
+});

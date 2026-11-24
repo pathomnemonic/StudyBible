@@ -1,9 +1,38 @@
 [
-  { "word": "Watch", "ref": "MRK.13.37" },
-  { "word": "Seek", "ref": "MAT.7.7" },
-  { "word": "Mercy", "ref": "LUK.6.36" },
-  { "word": "Rest", "ref": "MAT.11.28" },
-  { "word": "Peace", "ref": "JHN.14.27" },
-  { "word": "Light", "ref": "JHN.1.5" },
-  { "word": "Charity", "ref": "1CO.13.4" }
+  {
+    "word": "Watch",
+    "ref": "MRK.13.37",
+    "date": "2026-11-29",
+    "question": "Where is your attention already being asked for today?"
+  },
+  {
+    "word": "Seek",
+    "ref": "MAT.7.7",
+    "date": "2026-11-30"
+  },
+  {
+    "word": "Mercy",
+    "ref": "LUK.6.36",
+    "date": "2026-12-01"
+  },
+  {
+    "word": "Rest",
+    "ref": "MAT.11.28",
+    "date": "2026-12-02"
+  },
+  {
+    "word": "Peace",
+    "ref": "JHN.14.27",
+    "date": "2026-12-03"
+  },
+  {
+    "word": "Light",
+    "ref": "JHN.1.5",
+    "date": "2026-12-04"
+  },
+  {
+    "word": "Charity",
+    "ref": "1CO.13.4",
+    "date": "2026-12-05"
+  }
 ]
