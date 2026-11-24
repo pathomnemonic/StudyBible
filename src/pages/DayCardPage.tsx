@@ -5,13 +5,12 @@ import { useSettings } from '../lib/store';
 import { passageText } from '../lib/bibleText';
 import { formatRef, parseRefId, parseRefs, type Ref } from '../lib/refs';
 import { getJson } from '../data/loader';
-import { getCccScripture, cccPara } from '../data/ccc';
 import { liturgicalDay, parseIso } from '../liturgy/compute';
 import { loadDaily, pickDaily, dailyRef, type DailyEntry } from '../study/daily';
 import { drawDayCard, type DayCardSpec } from '../lib/dayCard/draw';
-import { buildSpec, cccParagraphs, chooseCatechism, trimVerses, wordFor } from '../lib/dayCard/content';
+import { buildSpec, trimVerses, wordFor } from '../lib/dayCard/content';
 import { pickArt, type ArtWork } from '../lib/dayCard/art';
-import { TAGLINES } from '../lib/dayCard/taglines';
+import { ADVENT_ONLY, TAGLINES, pickTagline } from '../lib/dayCard/taglines';
 import { useToast } from '../components/Toast';
 
 const localIso = () => new Date().toLocaleDateString('en-CA');
@@ -41,7 +40,8 @@ export default function DayCardPage() {
   const [size, setSize] = useState('portrait');
   const [dim, setDim] = useState(64);
   const [showTag, setShowTag] = useState(true);
-  const [tagIx, setTagIx] = useState(0);
+  const pool = useMemo(() => (ld.season === 'advent' ? [...TAGLINES, ...ADVENT_ONLY] : TAGLINES), [ld.season]);
+  const [tagIx, setTagIx] = useState<number | null>(null); // null: the day's line in the rotation
   const [showCredit, setShowCredit] = useState(false);
   const [picker, setPicker] = useState(false);
   const [err, setErr] = useState('');
@@ -62,13 +62,11 @@ export default function DayCardPage() {
       const v = trimVerses(vs.map((x) => [x.v, x.text] as [number, string]), ref.v1 ?? 1, ref.v2 ?? ref.v1 ?? 999);
       if (!v) return setErr('Today’s verse is not available on this device yet.');
       const label = formatRef({ ...ref, v1: v.first, v2: v.last }, { noDual: true });
-      const cites = await getCccScripture(ref.book);
-      const paras = (await Promise.all(cccParagraphs(cites, ref.c1, ref.v1, ref.v2, 6).map((n) => cccPara(n)))).filter(Boolean).map((p) => ({ n: p!.n, text: p!.t }));
       const lect = await getJson<{ days: Record<string, { r: Record<string, string> }> }>(`lectionary/${date.slice(0, 4)}.json`, true);
       const c = lect?.days[date]?.r;
       const { spec, issues } = buildSpec({
         date, dayName: ld.dayName, color: ld.color, verse: { text: v.text, label }, saint: entry?.saint, word: word?.word,
-        question: word ? word.question : entry?.q, catechism: chooseCatechism(paras),
+        question: word ? word.question : entry?.q, advent: ld.season === 'advent',
         readings: c ? [c.first_reading, c.second_reading, c.gospel].filter(Boolean).join(' · ') : undefined,
       });
       setBase({ spec, ref, saintMissing: issues.length > 0 });
@@ -99,7 +97,7 @@ export default function DayCardPage() {
   };
 
   const credit = showCredit && work ? `Picture: ${work.title}, ${work.artist}${work.date ? ', ' + work.date : ''}. ${work.credit}` : undefined;
-  const spec: DayCardSpec | null = base && { ...base.spec, tagline: showTag ? (TAGLINES[tagIx] ?? TAGLINES[0]) : undefined, credit };
+  const spec: DayCardSpec | null = base && { ...base.spec, tagline: showTag ? pickTagline(date, tagIx, { advent: ld.season === 'advent' }) : undefined, credit };
   useEffect(() => {
     const c = canvas.current;
     if (!c || !spec || artId === undefined) return;
@@ -168,7 +166,7 @@ export default function DayCardPage() {
             <label className="field"><span>Darken the picture for the words</span><input type="range" min={30} max={90} value={dim} onChange={(e) => setDim(+e.target.value)} aria-label="Darken the picture" /></label>
             <div className="field"><span>Shape</span><div className="chips">{Object.entries(SIZES).map(([k, v]) => <button key={k} aria-pressed={size === k} className={'chip' + (size === k ? ' sel' : '')} onClick={() => setSize(k)}>{v.label}</button>)}</div></div>
             <label className="row" style={{ gap: 6 }}><input type="checkbox" checked={showTag} onChange={(e) => setShowTag(e.target.checked)} /> <span className="small">Show the line about the app at the bottom</span></label>
-            {TAGLINES.length > 1 && showTag && <div className="chips">{TAGLINES.map((t, i) => <button key={t} className={'chip' + (tagIx === i ? ' sel' : '')} onClick={() => setTagIx(i)}>{t}</button>)}</div>}
+            {showTag && <div className="chips" aria-label="Line at the bottom">{pool.map((t, i) => <button key={t} className={'chip' + ((tagIx ?? pool.indexOf(pickTagline(date, null, { advent: ld.season === 'advent' }))) === i ? ' sel' : '')} onClick={() => setTagIx(i)}>{t}</button>)}</div>}
             <label className="row" style={{ gap: 6 }}><input type="checkbox" checked={showCredit} onChange={(e) => setShowCredit(e.target.checked)} /> <span className="small">Add the picture’s credit in small print</span></label>
             <p className="muted small">Verse: Douay-Rheims (public domain). Mass readings are citations only. The card is made on your device; nothing is uploaded. <Link to="/share">Make a card for any verse</Link></p>
           </div>

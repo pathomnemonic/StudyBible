@@ -6,10 +6,10 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { parseRefId } from '../../src/lib/refs';
 import { buildSpec, DAILY_WORDS, type DailyWord } from '../../src/lib/dayCard/content';
 import type { ArtHints } from '../../src/lib/dayCard/art';
-import { TAGLINES } from '../../src/lib/dayCard/taglines';
+import { ADVENT_ONLY, TAGLINES } from '../../src/lib/dayCard/taglines';
 import { ArtPicker } from './art';
 import { withRenderer } from './render';
-import { buildDay, cccFor, verseCard, type SocialDay } from './lib';
+import { buildDay, verseCard, type SocialDay } from './lib';
 
 const arg = (k: string, d = '') => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : d; };
 const has = (k: string) => process.argv.includes(`--${k}`);
@@ -18,13 +18,11 @@ const ONLY_DATE = arg('date');
 const ART_OVERRIDE = arg('art') || null;
 const tagArg = arg('tagline');
 const TAGLINE: string | number | null = tagArg ? (/^\d+$/.test(tagArg) ? +tagArg : tagArg) : null;
-const MAX_CCC = 340;
 const SEASON: Record<string, ArtHints['season']> = { Advent: 'advent', Christmas: 'christmas', Lent: 'lent', Triduum: 'triduum', Easter: 'easter' };
 
 export interface Job { key: string; name: string; date: string; inputs: Parameters<typeof buildSpec>[0]; hints: ArtHints }
 
 const readingsOf = (d: SocialDay) => { const c = d.massReadings?.citations; return c ? [c.first_reading, c.second_reading, c.gospel].filter(Boolean).join(' · ') : undefined; };
-const bestCcc = (ref: ReturnType<typeof parseRefId>) => { const ps = ref ? cccFor(ref, 6) : []; const p = ps.find((x) => x.text.length <= MAX_CCC) ?? ps[0]; return p ? { n: p.n, text: p.text } : null; };
 
 /** every card a day produces: the Today card (or the hand-picked word for the date), and on Advent days the Walk card */
 export function jobsFor(d: SocialDay): Job[] {
@@ -40,16 +38,15 @@ export function jobsFor(d: SocialDay): Job[] {
   const slate: DailyWord | null = DAILY_WORDS.find((w) => w.date === d.date) ?? null;
   if (slate) {
     const ref = parseRefId(slate.ref)!; const v = verseCard(ref)!;
-    jobs.push({ key: d.date, name: `word-${slate.word.toLowerCase()}`, date: d.date, hints: hintsFor(slate.ref, v.text, slate.word), inputs: { ...common, verse: { text: v.text, label: v.label }, word: slate.word, question: slate.question, catechism: bestCcc(ref) } });
+    jobs.push({ key: d.date, name: `word-${slate.word.toLowerCase()}`, date: d.date, hints: hintsFor(slate.ref, v.text, slate.word), inputs: { ...common, verse: { text: v.text, label: v.label }, word: slate.word, question: slate.question } });
   } else if (dw?.verse) {
     const ref = parseRefId((dw.passage && /^[1-3A-Z]{3}\./.test(dw.passage)) ? dw.passage : '') ?? null;
-    jobs.push({ key: d.date, name: 'daily-word', date: d.date, hints: hintsFor(undefined, dw.verse.text), inputs: { ...common, verse: { text: dw.verse.text, label: dw.verse.label }, question: dw.reflectionQuestion, catechism: dw.church.catechism ? { n: dw.church.catechism.n, text: dw.church.catechism.text } : null } });
+    jobs.push({ key: d.date, name: 'daily-word', date: d.date, hints: hintsFor(undefined, dw.verse.text), inputs: { ...common, verse: { text: dw.verse.text, label: dw.verse.label }, question: dw.reflectionQuestion } });
     void ref;
   }
   if (d.advent?.verse) {
     const a = d.advent;
-    const ref = parseRefId(a.keyVerse ?? a.passage);
-    jobs.push({ key: d.date, name: 'advent', date: d.date, hints: { ...hintsFor(a.keyVerse ?? a.passage, a.verse!.text, a.theme ?? undefined), season: 'advent' }, inputs: { ...common, color: d.liturgical.color === 'rose' ? 'rose' : 'violet', verse: { text: a.verse!.text, label: a.verse!.label }, word: a.theme ?? undefined, walk: `Advent walk · day ${a.day} of ${a.of}`, catechism: a.catechism ? { n: a.catechism.n, text: a.catechism.text } : bestCcc(ref) } });
+    jobs.push({ key: d.date, name: 'advent', date: d.date, hints: { ...hintsFor(a.keyVerse ?? a.passage, a.verse!.text, a.theme ?? undefined), season: 'advent' }, inputs: { ...common, color: d.liturgical.color === 'rose' ? 'rose' : 'violet', verse: { text: a.verse!.text, label: a.verse!.label }, word: a.theme ?? undefined, walk: `Advent walk · day ${a.day} of ${a.of}` } });
   }
   return jobs;
 }
@@ -72,13 +69,13 @@ async function main() {
         if (has('slate') && has('advent-only') === false && false) continue;
         const pick = picker.choose(job.key, job.hints, ONLY_DATE ? ART_OVERRIDE : null);
         const imagePath = pick ? (existsSync(pick.file) ? pick.file : new URL(`../../public/${pick.file}`, import.meta.url).pathname) : null;
-        const { spec, issues } = buildSpec({ ...job.inputs, tagline: TAGLINE });
+        const { spec, issues } = buildSpec({ ...job.inputs, tagline: TAGLINE, advent: d.liturgical.season === 'Advent' });
         for (const i of issues) flags.push(`${d.date} ${job.name}: ${i}`);
         for (const [w, h] of SIZES) {
           const ext = imagePath && !has('png') ? 'jpg' : 'png';
           const r = await render({ spec, w, h, imagePath, format: ext === 'jpg' ? 'jpeg' : 'png' });
           writeFileSync(`${out}/${job.name === 'advent' || job.name === 'daily-word' ? d.date + '-' : ''}${job.name}-${w}x${h}.${ext}`, r.png);
-          if (r.droppedCatechism !== 'none') flags.push(`${d.date} ${job.name} ${w}x${h}: Catechism ${r.droppedCatechism === 'pointer' ? 'shortened to a pointer' : 'left off'} to fit`);
+          if (r.fit < 0.7) flags.push(`${d.date} ${job.name} ${w}x${h}: text shrunk to ${Math.round(r.fit * 100)}% to fit`);
           n++;
         }
         credits.push(`- ${d.date} ${job.name}: ${pick ? `${pick.title}${pick.artist ? ', ' + pick.artist : ''} (${pick.source}; ${pick.why.join(', ')}). ${pick.credit}${pick.page ? ' ' + pick.page : ''}` : 'flat colour (no picture)'} | footer: ${spec.tagline}`);
@@ -87,7 +84,7 @@ async function main() {
   });
   picker.save();
   writeFileSync(`${out}/CREDITS.md`, `# Picture credits and footer lines\n\nOne line per card (all sizes share the picture). Use the credit in the caption if you want it shown.\n\n${credits.join('\n')}\n`);
-  console.log(`drew ${n} card(s) in ${out}/ (taglines available: ${TAGLINES.length})`);
+  console.log(`drew ${n} card(s) in ${out}/ (footer lines in rotation: ${TAGLINES.length}, plus ${ADVENT_ONLY.length} for Advent)`);
   if (flags.length) console.log('\nNeeds attention:\n' + flags.map((x) => ' - ' + x).join('\n'));
 }
 if (process.argv[1]?.endsWith('cards.ts')) main();

@@ -24,6 +24,13 @@
 
 
 
+## Daily card: declutter and centred layout, no Catechism, settled footer lines; more feasts named in the calendar
+
+- **Card design (owner's direction).** The Catechism line is gone from the card (both the quoted paragraph and the "paragraph N" pointer). The layout is now centred with equal margins: a quiet header (date, day name), one focal block (the word and the verse), the saint's words and the question smaller and softer under a short rule, and a muted foot (Mass readings, then the line about the app). The full-width rules, the left alignment and the bottom-right brand are gone. The card template is shared with the in-app "Today's card" page, so that page changed the same way; the Today screen itself never had a Catechism element and is unchanged. Catechism data stays in the export JSON for captions.
+- **Footer lines (owner's list).** Default, verbatim: "Download Cathology. The Most Comprehensive Free Catholic Study Bible". Rotation: the default on every other day, the four alternates on the days between, in order; one Advent-only line joins the alternates on Advent dates. No line names a translation or leans on not-for-profit wording. A line can be chosen by number or text (`--tagline`), and the in-app page offers all of them.
+- **Calendar.** The liturgical calendar now names these feasts on a weekday, in the app and in the cards (each gives way to a Sunday, a solemnity, Holy Week and the Easter octave): 25 Jan Conversion of Saint Paul; 22 Feb Chair of Saint Peter; 25 Apr Saint Mark; 3 May Saints Philip and James; 14 May Saint Matthias; 3 Jul Saint Thomas; 25 Jul Saint James; 24 Aug Saint Bartholomew; 21 Sep Saint Matthew; 18 Oct Saint Luke; 28 Oct Saints Simon and Jude; 12 Dec Our Lady of Guadalupe (United States calendar only); 26 Dec Saint Stephen; 27 Dec Saint John (a Sunday's Holy Family wins in 2026); 28 Dec The Holy Innocents. Saint Andrew (30 Nov) was added earlier.
+- Re-drawn: the Week 1 slate and the Advent Walk set in `social-cards/advent-2026/`.
+
 ## One-click "Today's card" in the app, and the social cards made by the same generator
 
 - New: **Today's card** (a button on the Today screen, route `/card`). It draws the day's card on your device: date and liturgical day, the word (first week only so far), the Douay-Rheims verse, the date's checked saint or Father line, the Catechism paragraph or a pointer to it, the question, the Mass reading citations, and a footer line, over a painting chosen for the day. You can get another picture, choose one from the library or use a plain colour, darken the picture, change the shape (portrait, square, story), hide the footer line, add the picture's credit in small print, then download or share it.

@@ -1,9 +1,9 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { pickArt, suitable, type ArtWork } from '../src/lib/dayCard/art';
-import { buildSpec, cccParagraphs, chooseCatechism, fixSmallCaps, trimVerses, wordFor } from '../src/lib/dayCard/content';
+import { buildSpec, cccParagraphs, fixSmallCaps, trimVerses, wordFor } from '../src/lib/dayCard/content';
 import { drawDayCard, type DayCardSpec } from '../src/lib/dayCard/draw';
-import { DEFAULT_TAGLINE, pickTagline } from '../src/lib/dayCard/taglines';
+import { ADVENT_ONLY, DEFAULT_TAGLINE, TAGLINES, pickTagline } from '../src/lib/dayCard/taglines';
 import { library, bookOf } from '../scripts/social/art';
 
 const works = library();
@@ -42,11 +42,23 @@ describe('the picture behind a card', () => {
 });
 
 describe('the footer line', () => {
-  it('defaults to the agreed tagline, accepts a chosen one by number or text, and rotates when there are alternates', () => {
-    expect(pickTagline('2026-12-01')).toBe(DEFAULT_TAGLINE);
-    expect(pickTagline('2026-12-01', 'Read the whole Bible, free.')).toBe('Read the whole Bible, free.');
-    expect(pickTagline('2026-12-01', 1, ['a', 'b', 'c'])).toBe('b');
-    expect(pickTagline('2026-12-01', null, ['a', 'b'])).not.toBe(pickTagline('2026-12-02', null, ['a', 'b']));
+  it('keeps the owner\u2019s default verbatim and the agreed alternates in rotation', () => {
+    expect(DEFAULT_TAGLINE).toBe('Download Cathology. The Most Comprehensive Free Catholic Study Bible');
+    expect(TAGLINES).toEqual([DEFAULT_TAGLINE, 'Scripture, the Catechism, and the Church Fathers, all in one free app: Cathology.', 'Start your morning with Scripture, the saints, and a quiet reflection on Cathology.', 'Your daily companion for Scripture, saints, and Catholic tradition.', 'Free forever. No ads. Just Catholic Bible study on Cathology.']);
+    expect(ADVENT_ONLY).toEqual(['Walk through Advent with daily Scripture, saints, and reflections \u2014 free on Cathology.']);
+  });
+  it('names no translation and does not lean on not-for-profit wording', () => {
+    for (const t of [...TAGLINES, ...ADVENT_ONLY]) { expect(t).not.toMatch(/douay|rheims|not.for.profit|nonprofit/i); }
+  });
+  it('rotates a day at a time, only uses the Advent line in Advent, and accepts a chosen line', () => {
+    const eight = Array.from({ length: 8 }, (_, i) => pickTagline(`2027-02-${String(i + 1).padStart(2, '0')}`));
+    expect(new Set(eight).size).toBe(5); // all five lines appear in eight days
+    expect(eight.filter((x) => x === DEFAULT_TAGLINE).length).toBe(4); // the owner's line every other day
+    expect(Array.from({ length: 28 }, (_, i) => pickTagline(`2027-02-${String(i + 1).padStart(2, '0')}`))).not.toContain(ADVENT_ONLY[0]);
+    const adv = Array.from({ length: 6 }, (_, i) => pickTagline(`2026-12-0${i + 1}`, null, { advent: true }));
+    expect(adv).toContain(ADVENT_ONLY[0]);
+    expect(pickTagline('2026-12-01', 1)).toBe(TAGLINES[1]);
+    expect(pickTagline('2026-12-01', 'Chosen line.')).toBe('Chosen line.');
   });
 });
 
@@ -60,7 +72,7 @@ describe('the card’s content', () => {
   });
   it('carries the tagline by default and the Douay-Rheims name', () => {
     const { spec } = buildSpec(base);
-    expect(spec.tagline).toBe(DEFAULT_TAGLINE); expect(spec.verse.translation).toBe('Douay-Rheims');
+    expect(TAGLINES).toContain(spec.tagline); expect(buildSpec({ ...base, tagline: 0 }).spec.tagline).toBe(DEFAULT_TAGLINE); expect(spec.verse.translation).toBe('Douay-Rheims');
   });
   it('knows the hand-picked words for the first week, in order', () => {
     expect(['2026-11-29', '2026-11-30', '2026-12-01', '2026-12-02', '2026-12-03', '2026-12-04', '2026-12-05'].map((d) => wordFor(d)?.word)).toEqual(['Watch', 'Seek', 'Mercy', 'Rest', 'Peace', 'Light', 'Charity']);
@@ -70,9 +82,7 @@ describe('the card’s content', () => {
     expect(t.last).toBe(1); expect(t.trimmed).toBe(true);
     expect(fixSmallCaps('AND THOU, BETHLEHEM Ephrata')).toBe('And thou, Bethlehem Ephrata');
   });
-  it('chooses a short Catechism paragraph whole, else points to the first', () => {
-    expect(chooseCatechism([{ n: 1, text: 'x'.repeat(500) }, { n: 2, text: 'short' }])!.n).toBe(2);
-    expect(chooseCatechism([{ n: 1, text: 'x'.repeat(500) }])!.n).toBe(1);
+  it('finds Catechism paragraphs for a verse (kept for captions; the card no longer shows them)', () => {
     expect(cccParagraphs([[1, 2, 1, 4, 99, 1], [1, 9, 1, 9, 50, 0]], 1, 3, 3)).toEqual([99]);
   });
 });
@@ -84,7 +94,7 @@ function fakeCtx() {
   return { ctx: ctx as CanvasRenderingContext2D, drawn };
 }
 describe('drawing the card', () => {
-  const full: DayCardSpec = { dateLine: 'SUNDAY', dayName: 'First Sunday of Advent', color: 'violet', word: 'Watch', verse: { text: 'And what I say to you, I say to all: Watch.', label: 'Mark 13:37', translation: 'Douay-Rheims' }, father: { text: 'But of this let us take heed, namely, that our soul herself sleep not: for evil is the sleep of the soul.', who: 'St. Augustine' }, question: 'Where is your attention already being asked for today?', catechism: { n: 2849, text: 'x'.repeat(700) }, readings: 'Mark 13:33-37', tagline: DEFAULT_TAGLINE };
+  const full: DayCardSpec = { dateLine: 'SUNDAY', dayName: 'First Sunday of Advent', color: 'violet', word: 'Watch', verse: { text: 'And what I say to you, I say to all: Watch.', label: 'Mark 13:37', translation: 'Douay-Rheims' }, father: { text: 'But of this let us take heed, namely, that our soul herself sleep not: for evil is the sleep of the soul.', who: 'St. Augustine' }, question: 'Where is your attention already being asked for today?', readings: 'Mark 13:33-37', tagline: DEFAULT_TAGLINE };
   it('keeps the verse, the saint’s words, the question and the tagline on every shape', () => {
     for (const [w, h] of [[1080, 1350], [1080, 1080], [1080, 1920]]) {
       const { ctx, drawn } = fakeCtx();
@@ -94,11 +104,16 @@ describe('drawing the card', () => {
       expect(r.textBottom).toBeLessThanOrEqual(h);
     }
   });
-  it('shortens or drops the Catechism before it touches the saint’s words when space runs out', () => {
-    const long: DayCardSpec = { ...full, verse: { ...full.verse, text: 'word '.repeat(60) }, catechism: { n: 5, text: 'y'.repeat(320) } };
+  it('has no Catechism line on the card at all', () => {
+    const { ctx, drawn } = fakeCtx();
+    drawDayCard(ctx, 1080, 1350, full);
+    expect(drawn.join(' ')).not.toMatch(/Catechism/);
+  });
+  it('shrinks the type together, and keeps the verse, the saint and the question, when the text is long', () => {
+    const long: DayCardSpec = { ...full, verse: { ...full.verse, text: 'word '.repeat(70) } };
     const { ctx, drawn } = fakeCtx();
     const r = drawDayCard(ctx, 1080, 1080, long);
-    expect(drawn.join(' ')).toMatch(/sleep of the soul/);
-    expect(['none', 'pointer', 'removed']).toContain(r.droppedCatechism);
+    expect(r.fit).toBeLessThan(1);
+    expect(drawn.join(' ')).toMatch(/sleep of the soul/); expect(drawn.join(' ')).toMatch(/attention already/);
   });
 });

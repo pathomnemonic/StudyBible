@@ -36,10 +36,11 @@ export interface CardInputs {
   /** the date's own Father or saint line from the daily data */
   saint?: { text: string; who: string; work?: string; verified?: boolean } | null;
   question?: string;
-  catechism?: { n: number; text: string } | null;
   readings?: string;
   word?: string; walk?: string;
   tagline?: string | number | null;
+  /** Advent dates may also carry the Advent-only lines */
+  advent?: boolean;
   credit?: string;
 }
 
@@ -54,7 +55,7 @@ export function buildSpec(i: CardInputs): { spec: DayCardSpec; issues: string[] 
     spec: {
       dateLine: longDate(i.date), dayName: i.dayName, color: i.color, word: i.word, walk: i.walk,
       verse: { ...i.verse, translation: 'Douay-Rheims' }, father, question: i.question || undefined,
-      catechism: i.catechism ?? undefined, readings: i.readings, tagline: pickTagline(i.date, i.tagline), credit: i.credit,
+      readings: i.readings, tagline: pickTagline(i.date, i.tagline, { advent: i.advent }), credit: i.credit,
     },
   };
 }
@@ -70,5 +71,3 @@ export function cccParagraphs(cites: [number, number, number, number, number, nu
   }
   return [...hit].sort((p, q) => Number(q[1]) - Number(p[1]) || p[0] - q[0]).slice(0, max).map(([n]) => n);
 }
-/** a whole short paragraph if there is one among them, else the first (shown as a pointer) */
-export const chooseCatechism = <T extends { n: number; text: string }>(paras: T[]): T | null => paras.find((p) => p.text.length <= 340) ?? paras[0] ?? null;

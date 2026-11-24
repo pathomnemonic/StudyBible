@@ -151,3 +151,31 @@ describe('Saint Andrew (30 November)', () => {
     expect(day('2028-11-30', 'usa').dayName).toBe('Saint Andrew, Apostle');
   });
 });
+
+describe('feasts of apostles, evangelists and first martyrs, and Our Lady of Guadalupe (United States)', () => {
+  it('name the day on a weekday, and give way to a Sunday, Holy Week and the Easter octave', () => {
+    const n = (d: string, v: CalendarVariant = 'usa') => day(d, v).dayName;
+    expect(n('2026-12-12')).toBe('Our Lady of Guadalupe');
+    expect(n('2026-12-12', 'universal')).toMatch(/Saturday of the Second week of Advent/);
+    expect(n('2026-12-26')).toBe('Saint Stephen, the First Martyr');
+    expect(n('2026-12-28')).toBe('The Holy Innocents, Martyrs');
+    expect(n('2026-12-27')).toBe('The Holy Family of Jesus, Mary and Joseph'); // a Sunday wins
+    expect(n('2027-07-03')).toBe('Saint Thomas, Apostle');
+    expect(n('2027-04-25')).toBe('Fifth Sunday of Easter');
+    expect(n('2024-04-01')).toMatch(/Octave of Easter/);
+  });
+});
+
+describe('feasts of apostles, evangelists and first martyrs, and Our Lady of Guadalupe (United States)', () => {
+  it('name the day on a weekday, and give way to a Sunday, Holy Week and the Easter octave', () => {
+    const n = (d: string, v: CalendarVariant = 'usa') => day(d, v).dayName;
+    expect(n('2026-12-12')).toBe('Our Lady of Guadalupe');
+    expect(n('2026-12-12', 'universal')).toMatch(/Saturday of the Second week of Advent/);
+    expect(n('2026-12-26')).toBe('Saint Stephen, the First Martyr');
+    expect(n('2026-12-28')).toBe('The Holy Innocents, Martyrs');
+    expect(n('2026-12-27')).toBe('The Holy Family of Jesus, Mary and Joseph');
+    expect(n('2027-07-03')).toBe('Saint Thomas, Apostle');
+    expect(n('2027-04-25')).toBe('Fifth Sunday of Easter');
+    expect(n('2024-04-01')).toMatch(/Octave of Easter/);
+  });
+});
