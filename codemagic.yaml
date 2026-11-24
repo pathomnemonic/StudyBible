@@ -14,9 +14,9 @@ workflows:
       ios_signing:
         # Codemagic creates or fetches the distribution certificate and App Store provisioning profile with the API key above
         distribution_type: app_store
-        bundle_identifier: org.cathology.app
+        bundle_identifier: com.pathomnemonic.cathology
       vars:
-        BUNDLE_ID: org.cathology.app
+        BUNDLE_ID: com.pathomnemonic.cathology
         # the numeric "Apple ID" of the app record in App Store Connect (App Information > General). Used to number builds.
         APP_STORE_APPLE_ID: CHANGE_ME_APP_STORE_APPLE_ID
         XCODE_WORKSPACE: ios/App/App.xcworkspace
