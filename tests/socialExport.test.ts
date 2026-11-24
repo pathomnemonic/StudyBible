@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { adventDayOf, adventLength, buildDay, feastOf, MAX_VERSE_CHARS } from '../scripts/social/lib';
-import { ADVENT_REFS } from '../src/plans/adventRefs';
+import { ADVENT_EVE, ADVENT_REFS, ADVENT_WALK } from '../src/plans/adventRefs';
+import { readFileSync } from 'node:fs';
+import { parseRefId } from '../src/lib/refs';
+import { verseCard } from '../scripts/social/lib';
 
 describe('the social export', () => {
   it('takes the verse from the Douay-Rheims and says so', () => {
@@ -42,5 +45,35 @@ describe('the social export', () => {
     expect(a).toEqual(b);
     expect(a.questions).toHaveLength(7);
     expect(JSON.stringify(a)).not.toMatch(/answers/);
+  });
+  it('names and shows the Advent days as planned: Come, The sign, Comfort on the day of Isaiah 40', () => {
+    const at = (n: number) => buildDay(new Date(Date.UTC(2026, 10, 28 + n)).toISOString().slice(0, 10)).advent!;
+    expect([at(1).theme, at(1).verse?.label]).toEqual(['Come', 'Isaiah 2:5']);
+    expect([at(2).theme, at(2).verse?.label]).toEqual(['The sign', 'Isaiah 7:14']);
+    expect(at(2).verse?.text).toMatch(/virgin shall conceive/);
+    expect([at(11).theme, at(11).passage]).toEqual(['Comfort', 'ISA.40.1-11']);
+    expect(at(11).verse?.text).toMatch(/^Be comforted/);
+  });
+  it('shows no verse twice in the 26 days, and no card shouts in capitals', () => {
+    const seen = new Set<string>();
+    for (let n = 1; n <= 26; n++) {
+      const a = buildDay(new Date(Date.UTC(2026, 10, 28 + n)).toISOString().slice(0, 10)).advent!;
+      expect(a.verse, `day ${n}`).not.toBeNull();
+      expect(seen.has(a.verse!.label), `day ${n} repeats ${a.verse!.label}`).toBe(false);
+      seen.add(a.verse!.label);
+      expect(a.verse!.text.replace(/JESUS/g, '')).not.toMatch(/\b[A-Z]{3,}\b/);
+    }
+    expect(ADVENT_WALK).toHaveLength(ADVENT_REFS.length);
+    expect(ADVENT_EVE).toHaveLength(2);
+  });
+  it('quotes the Daily Word slate exactly as the Douay-Rheims has it', () => {
+    const slate = JSON.parse(readFileSync('scripts/social/slate.json', 'utf8')) as { word: string; ref: string }[];
+    const want: Record<string, string> = {
+      'MRK.13.37': 'And what I say to you, I say to all: Watch.',
+      'JHN.14.27': 'Peace I leave with you, my peace I give unto you: not as the world giveth, do I give unto you. Let not your heart be troubled, nor let it be afraid.',
+      '1CO.13.4': 'Charity is patient, is kind: charity envieth not, dealeth not perversely; is not puffed up;',
+    };
+    expect(slate).toHaveLength(7);
+    for (const s of slate) { const v = verseCard(parseRefId(s.ref)!)!; expect(v.trimmed).toBe(false); if (want[s.ref]) expect(v.text).toBe(want[s.ref]); }
   });
 });

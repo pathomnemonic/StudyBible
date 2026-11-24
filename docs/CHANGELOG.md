@@ -24,6 +24,10 @@
 
 
 
+## Advent walk: named days, key verses, and the Daily Word slate
+
+After a review of the launch posts against the app's own data: each Advent plan day now has a short name and, where its reading has one clear line, a key verse that the card shows alone (`ADVENT_WALK` in `src/plans/adventRefs.ts`). Day 1 is "Come" (Isaiah 2:5), day 2 "The sign" (Isaiah 7:14), day 11 "Comfort" (Isaiah 40:1). December 23 and 24 (days 25 and 26) now have verses of their own (Micah 5:2, Isaiah 9:6) instead of repeating one from earlier in the walk. The Douay prints the opening words of some verses in capitals; cards now show them in ordinary case (case only, no wording change). `scripts/social/slate.json` holds the hand-picked seven-word Daily Word slate, drawn unnumbered with `cards.ts --slate`; tests check the Peace and Charity verses against the Douay text. The drawn cards are in `social-cards/advent-2026/`. Known: a few verses in the bundled Douay text have typos (for example Isaiah 30:18 reads "that be may", 30:19 "shell hear"); no card uses them, and the text is being left as the source has it until it can be compared with a printed edition.
+
 ## Not-for-profit wording where the tip option appears
 
 By the owner's direction the app now says plainly that it is a not-for-profit project: any tips are put back into keeping the app and site running (hosting and upkeep) and into helping other people find it, and none of it is kept as profit. The line (`TIP_PROMISE` in `src/lib/tip.ts`) is shown under the tip button in Settings and in a new "Free, and not for profit" card on the About page, which appears in store builds too (the tip link itself stays hidden there). The app stays fully free. The store description and the Ko-fi page should carry the same line.

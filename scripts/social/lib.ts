@@ -6,7 +6,7 @@ import { pickDaily, dailyRef } from '../../src/study/dailyPick';
 import type { DailyFile } from '../../src/study/dailyTypes';
 import { formatRef, type Ref } from '../../src/lib/refs';
 import { loadVersification } from '../../src/lib/versification';
-import { ADVENT_REFS } from '../../src/plans/adventRefs';
+import { ADVENT_EVE, ADVENT_REFS, ADVENT_WALK } from '../../src/plans/adventRefs';
 import { dailyDeepPrompts } from '../../src/lib/deepWaters';
 import { FEAST_FATHERS } from '../../src/data/feastFathers';
 import { FEASTS } from '../../src/data/feasts';
@@ -31,6 +31,13 @@ const dra = new Map<string, any>();
 const draBook = (book: string) => { if (!dra.has(book)) dra.set(book, readJson<any>(`bible/dra/${book}.json`)); return dra.get(book); };
 
 /** Verse text from the Douay-Rheims for an anchor (Vulgate-numbered) reference. A passage is cut at a whole verse when it is too long for a card. */
+/** The Douay prints the opening words of some verses in capitals (AND THOU, BETHLEHEM). On a card that reads as shouting: lower them, keeping names capitalised. Only case changes; no wording. */
+const NAMES = new Set(['BETHLEHEM', 'JESUS', 'GOD', 'LORD', 'ISRAEL', 'JERUSALEM', 'SION', 'ZACHARY', 'JUDA', 'CHRIST']);
+export function fixSmallCaps(t: string): string {
+  const out = t.replace(/\b[A-Z]{2,}\b/g, (w) => (NAMES.has(w) && w !== 'JESUS' ? w[0] + w.slice(1).toLowerCase() : w === 'JESUS' ? w : w.toLowerCase()));
+  return out.replace(/^[a-z]/, (c) => c.toUpperCase());
+}
+
 export function douayVerses(r: Ref): { text: string; first: number; last: number; trimmed: boolean } | null {
   const b = draBook(r.book);
   if (!b || r.c1 !== r.c2) return null; // a card carries one chapter's verses
@@ -47,7 +54,7 @@ export function douayVerses(r: Ref): { text: string; first: number; last: number
     picked.push([n, t]); len += t.length + 1;
   }
   if (!picked.length) return null;
-  return { text: picked.map((p) => p[1]).join(' '), first: picked[0][0], last: picked[picked.length - 1][0], trimmed };
+  return { text: fixSmallCaps(picked.map((p) => p[1]).join(' ')), first: picked[0][0], last: picked[picked.length - 1][0], trimmed };
 }
 
 export function verseCard(ref: Ref): VerseCard | null {
@@ -84,7 +91,7 @@ export interface SocialDay {
   massReadings: { source: string; citations: Record<string, string> } | null;
   dailyWord: { passage: string; verse: VerseCard | null; church: { catechism: { n: number; text: string; quotes: boolean } | null; father: FatherLine | null }; reflectionQuestion: string; needsReview: string[] } | null;
   todaysClimb: { day: number; questions: string[] };
-  advent: { day: number; of: number; passage: string; verse: VerseCard | null; father: FatherLine | null } | null;
+  advent: { day: number; of: number; theme: string | null; passage: string; keyVerse: string | null; verse: VerseCard | null; father: FatherLine | null } | null;
   feastFather: { feast: string; quote: string; author: string; source: string; note: string } | null;
   attribution: string;
 }
@@ -147,9 +154,11 @@ export function buildDay(date: string): SocialDay {
   let advent: SocialDay['advent'] = null;
   if (n !== null) {
     const y = parseIso(date).getUTCFullYear();
-    const passage: string = n <= ADVENT_REFS.length ? ADVENT_REFS[n - 1] : entry?.ref ?? '';
-    const ref = passage ? toAnchor(passage.replace(/^([1-3A-Z]{3})\.(\d+)\.(\d+)-(\d+)$/, '$1.$2.$3-$4')) : null;
-    advent = { day: n, of: adventLength(y), passage, verse: ref ? verseCard(ref) : null, father: null }; // the day's Father line belongs to the day's own reading, not to this plan reading, so it is not paired here
+    const walk = n <= ADVENT_WALK.length ? ADVENT_WALK[n - 1] : ADVENT_EVE[n - ADVENT_WALK.length - 1] ?? null;
+    const passage: string = n <= ADVENT_REFS.length ? ADVENT_REFS[n - 1] : (walk as { key?: string } | null)?.key ?? '';
+    const shown = (walk as { key?: string } | null)?.key ?? passage; // a day with a key verse shows that verse alone
+    const ref = shown ? toAnchor(shown) : null;
+    advent = { day: n, of: adventLength(y), theme: walk?.theme ?? null, passage, keyVerse: (walk as { key?: string } | null)?.key ?? null, verse: ref ? verseCard(ref) : null, father: null }; // the day's Father line belongs to the day's own reading, not to this plan reading, so it is not paired here
   }
 
   const feast = feastOf(date, ld.dayName);

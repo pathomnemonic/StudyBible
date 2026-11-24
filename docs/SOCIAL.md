@@ -13,7 +13,8 @@ Sizes: 1080x1350 (Instagram, Facebook, Threads), 1080x1920 (stories, Shorts), 10
 
 - `dailyWord`: the passage, its Douay verse, the first Catechism paragraph citing it, the day's Father line, the reflection question, and `needsReview` notes.
 - `todaysClimb`: the seven Basilion questions for the day (the same ones players get, no answers). Post one as a plain card; the next morning post the rarest answers.
-- `advent`: day N of 26 (Nov 29 to Dec 24 in 2026) with its Douay verse from the 24-day Advent plan (days 25 and 26 use the day's own reading).
+- `advent`: day N of 26 with its name and one key verse (`ADVENT_WALK`, `ADVENT_EVE` in `src/plans/adventRefs.ts`). Daily Word posts are not numbered, so they never collide with Advent day numbers.
+- Slate cards: `cards.ts --slate` draws `scripts/slate.json`. Drawn Advent and slate cards are in `social-cards/advent-2026/`.
 - `feastFather`: the "From the Fathers" quote on its feast.
 
 ## Before posting
