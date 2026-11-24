@@ -36,6 +36,8 @@ export interface OAuthConfig {
   /** where the app is reached from outside, for example https://study.example.org (the sign-in return address is built from it) */
   publicUrl: string;
   providers: Provider[];
+  /** the Apple provider shaped for the native iOS sheet: its client id is the app's bundle id, not the web Services ID. Present only when the Apple key material is set. */
+  appleNative?: Provider | null;
   /** only for tests: lets a provider on http://127.0.0.1 be used */
   allowInsecure?: boolean;
   fetchImpl?: typeof fetch;
@@ -55,10 +57,14 @@ export const redirectUri = (cfg: OAuthConfig, id: string) => `${cfg.publicUrl.re
 
 const GOOGLE_ISS = new Set(['https://accounts.google.com', 'accounts.google.com']);
 
+/** The bundle id the native Apple sheet answers to, unless the operator overrides it. */
+export const APPLE_BUNDLE_ID_DEFAULT = 'com.pathomnemonic.cathology';
+
 /** Builds the list of providers the operator has fully configured, plus any mistakes found (reported at start-up, never silently ignored). */
-export function providersFromEnv(env: Record<string, string | undefined>): { providers: Provider[]; errors: string[] } {
+export function providersFromEnv(env: Record<string, string | undefined>): { providers: Provider[]; errors: string[]; appleNative: Provider | null } {
   const providers: Provider[] = [];
   const errors: string[] = [];
+  let appleNative: Provider | null = null;
   const need = (label: string, names: string[]) => {
     const have = names.filter((n) => env[n]);
     if (have.length && have.length < names.length) { errors.push(`${label}: set all of ${names.join(', ')} (missing ${names.filter((n) => !env[n]).join(', ')}).`); return false; }
@@ -110,7 +116,27 @@ export function providersFromEnv(env: Record<string, string | undefined>): { pro
       trustsEmailClaim: (c) => c.email_verified === true || c.email_verified === 'true',
     });
   }
-  return { providers, errors };
+  // the native iOS sheet needs only the key material: its client id is the bundle id, so it works before any web Services ID exists
+  if (env.APPLE_TEAM_ID && env.APPLE_KEY_ID && env.APPLE_PRIVATE_KEY) {
+    const pem = env.APPLE_PRIVATE_KEY!.replace(/\\n/g, '\n');
+    let keyOk = true;
+    try { createPrivateKey(pem); } catch { keyOk = false; if (!env.APPLE_CLIENT_ID) errors.push('Apple sign-in: APPLE_PRIVATE_KEY is not a valid private key (paste the whole .p8 file; \\n is accepted for new lines).'); }
+    if (keyOk) {
+      const bundleId = env.APPLE_BUNDLE_ID || APPLE_BUNDLE_ID_DEFAULT;
+      appleNative = {
+        id: 'apple', name: 'Apple',
+        issuerOk: (iss) => iss === 'https://appleid.apple.com',
+        authorizationEndpoint: 'https://appleid.apple.com/auth/authorize',
+        tokenEndpoint: 'https://appleid.apple.com/auth/token',
+        jwksUri: 'https://appleid.apple.com/auth/keys',
+        clientId: bundleId,
+        clientSecret: () => appleClientSecret({ teamId: env.APPLE_TEAM_ID!, keyId: env.APPLE_KEY_ID!, clientId: bundleId, privateKeyPem: pem }),
+        scopes: ['openid', 'email', 'name'],
+        trustsEmailClaim: (c) => c.email_verified === true || c.email_verified === 'true',
+      };
+    }
+  }
+  return { providers, errors, appleNative };
 }
 
 /** Apple wants the client secret to be a short-lived token signed with the developer's private key (ES256). */
@@ -142,16 +168,16 @@ export class OAuthError extends Error {
 
 const secureOrLocal = (cfg: OAuthConfig, url: string) => url.startsWith('https://') || (cfg.allowInsecure === true && /^http:\/\/(127\.0\.0\.1|localhost)[:/]/.test(url));
 
-export async function exchangeCode(cfg: OAuthConfig, p: Provider, code: string, verifier: string): Promise<{ idToken: string }> {
+export async function exchangeCode(cfg: OAuthConfig, p: Provider, code: string, verifier: string): Promise<{ idToken: string; refreshToken?: string }> {
   if (!secureOrLocal(cfg, p.tokenEndpoint)) throw new OAuthError('provider_misconfigured', 'The provider’s token address must be https.');
   const f = cfg.fetchImpl ?? fetch;
   const body = new URLSearchParams({ grant_type: 'authorization_code', code, redirect_uri: redirectUri(cfg, p.id), client_id: p.clientId, client_secret: p.clientSecret(), code_verifier: verifier });
   let res: Response;
   try { res = await f(p.tokenEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' }, body, signal: AbortSignal.timeout(10_000) }); }
   catch { throw new OAuthError('provider_unreachable', 'Could not reach the sign-in provider.'); }
-  const data = (await res.json().catch(() => ({}))) as { id_token?: unknown };
+  const data = (await res.json().catch(() => ({}))) as { id_token?: unknown; refresh_token?: unknown };
   if (!res.ok || typeof data.id_token !== 'string') throw new OAuthError('exchange_failed', 'The sign-in provider did not accept the sign-in.');
-  return { idToken: data.id_token };
+  return { idToken: data.id_token, refreshToken: typeof data.refresh_token === 'string' ? data.refresh_token : undefined };
 }
 
 /* ------------------------------------------------------------------ checking the ID token */
@@ -223,3 +249,47 @@ export const displayNameOf = (claims: Claims): string | null => {
 };
 
 export const publicProviders = (cfg: OAuthConfig) => (cfg.enabled ? cfg.providers.map((p) => ({ id: p.id, name: p.name })) : []);
+
+/* ------------------------------------------------------------------ the native iOS sheet: code exchange and revocation */
+
+/**
+ * A stored Apple refresh token says which flow minted it: tokens from the native sheet carry this prefix, tokens from the web flow are stored bare.
+ * Revocation must present the client id of the flow that minted the token (the bundle id for native tokens, the web Services ID for web tokens),
+ * which is the same split the Dx Dash implementation uses.
+ */
+export const IOS_TOKEN_PREFIX = 'ios:';
+export const markIosToken = (token: string) => IOS_TOKEN_PREFIX + token;
+export const isIosToken = (token: string) => typeof token === 'string' && token.startsWith(IOS_TOKEN_PREFIX);
+export const rawRefreshToken = (token: string) => (isIosToken(token) ? token.slice(IOS_TOKEN_PREFIX.length) : token);
+export const revokeTarget = (marked: string, webClientId: string, bundleId: string) => (isIosToken(marked) ? bundleId : webClientId);
+
+/** The form for swapping a one time code from the native sheet for a refresh token. The sheet flow has no redirect address and no PKCE verifier. */
+export const appleCodeForm = (o: { code: string; clientId: string; clientSecret: string }) => new URLSearchParams({ grant_type: 'authorization_code', code: o.code, client_id: o.clientId, client_secret: o.clientSecret });
+
+/** The form for handing a refresh token back to Apple when an account or a link is removed. */
+export const appleRevokeForm = (o: { token: string; clientId: string; clientSecret: string }) => new URLSearchParams({ token: o.token, token_type_hint: 'refresh_token', client_id: o.clientId, client_secret: o.clientSecret });
+
+const revokeEndpoint = (p: Provider) => p.tokenEndpoint.replace(/\/token$/, '/revoke');
+
+/** Swaps a code from the native sheet for the refresh token the server keeps for later revocation. The provider passed in decides the client id (the bundle id for the sheet). */
+export async function exchangeAppleCode(cfg: OAuthConfig, p: Provider, code: string): Promise<{ refreshToken: string }> {
+  if (!secureOrLocal(cfg, p.tokenEndpoint)) throw new OAuthError('provider_misconfigured', 'The provider’s token address must be https.');
+  const f = cfg.fetchImpl ?? fetch;
+  let res: Response;
+  try { res = await f(p.tokenEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' }, body: appleCodeForm({ code, clientId: p.clientId, clientSecret: p.clientSecret() }), signal: AbortSignal.timeout(10_000) }); }
+  catch { throw new OAuthError('provider_unreachable', 'Could not reach the sign-in provider.'); }
+  const data = (await res.json().catch(() => ({}))) as { refresh_token?: unknown };
+  if (!res.ok || typeof data.refresh_token !== 'string') throw new OAuthError('exchange_failed', 'The sign-in provider did not accept the sign-in.');
+  return { refreshToken: data.refresh_token };
+}
+
+/** Hands a stored refresh token back to Apple. The provider passed in must be the one revokeTarget picks for the stored token. Returns whether Apple accepted. */
+export async function revokeAppleToken(cfg: OAuthConfig, p: Provider, markedToken: string): Promise<boolean> {
+  const url = revokeEndpoint(p);
+  if (!secureOrLocal(cfg, url)) throw new OAuthError('provider_misconfigured', 'The provider’s token address must be https.');
+  const f = cfg.fetchImpl ?? fetch;
+  let res: Response;
+  try { res = await f(url, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', Accept: 'application/json' }, body: appleRevokeForm({ token: rawRefreshToken(markedToken), clientId: p.clientId, clientSecret: p.clientSecret() }), signal: AbortSignal.timeout(10_000) }); }
+  catch { throw new OAuthError('provider_unreachable', 'Could not reach the sign-in provider.'); }
+  return res.ok;
+}

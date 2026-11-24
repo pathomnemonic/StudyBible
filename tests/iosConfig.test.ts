@@ -7,6 +7,11 @@ describe('the iOS build setup', () => {
   it('passes its own consistency check (bundle id, icon, plist)', () => {
     expect(execFileSync('npx', ['tsx', 'scripts/ios/check.ts'], { encoding: 'utf8' })).toMatch(/iOS check passed \(bundle id com\.pathomnemonic\.cathology\)/);
   });
+  it('wires the Sign in with Apple entitlement into the Xcode project', () => {
+    const pbx = readFileSync('ios/App/App.xcodeproj/project.pbxproj', 'utf8');
+    expect(pbx).toContain('CODE_SIGN_ENTITLEMENTS = App/App.entitlements');
+    expect(readFileSync('ios/App/App/App.entitlements', 'utf8')).toContain('com.apple.developer.applesignin');
+  });
   it('has an ios-release workflow that never starts by itself and never sends a build to App Review', () => {
     expect(yaml).toMatch(/^ {2}ios-release:/m);
     expect(yaml).not.toMatch(/^\s*triggering:/m);

@@ -86,6 +86,12 @@ export function openDb(path: string): DatabaseSync {
       created_at INTEGER NOT NULL,
       expires_at INTEGER NOT NULL
     );
+    CREATE TABLE IF NOT EXISTS apple_refresh_tokens (
+      user_id TEXT PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+      subject TEXT NOT NULL,
+      token TEXT NOT NULL,
+      created_at INTEGER NOT NULL
+    );
   `);
   return db;
 }

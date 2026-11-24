@@ -130,7 +130,7 @@ export default function AccountPage() {
           {err && <div className="notice" role="alert">{err}</div>}
           <button className="btn primary block" disabled={busy}>{busy ? 'One moment…' : mode === 'in' ? 'Sign in' : 'Create account'}</button>
           {mode === 'in' && <p className="small"><button type="button" className="linklike" onClick={() => setMode('forgot')}>Forgot your password?</button></p>}
-          <ProviderButtons providers={s.providers} />
+          <ProviderButtons providers={s.providers} onNativeDone={() => { void completeProviderSignIn(decide).then(() => toast('Signed in. Your library is syncing.')).catch((e: any) => setErr(e.message)); }} />
           <p className="muted small">Your notes belong to you. They are stored on the server only so they can sync, are never shared or used for advertising, and you can export or permanently delete everything from this page.</p>
         </form>
       )}

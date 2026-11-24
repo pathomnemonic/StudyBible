@@ -8,7 +8,7 @@ import { isIP } from 'node:net';
 import type { DatabaseSync } from 'node:sqlite';
 import { LiveHub, MAX_PLAYERS, sanitizeContent, sanitizeRoster, sanitizeSettings, type LiveRoom } from '../src/live/engine';
 import { hashRecovery, lockMs, newRecoveryCodes, newTotpSecret, otpauthUrl, verifyTotp } from './security';
-import { OFF, OAuthError, accountEmail, authorizationUrl, displayNameOf, exchangeCode, hashState, publicProviders, randomUrlToken, verifyIdToken, type OAuthConfig } from './oauth';
+import { OFF, OAuthError, accountEmail, authorizationUrl, displayNameOf, exchangeAppleCode, exchangeCode, hashState, markIosToken, publicProviders, randomUrlToken, revokeAppleToken, revokeTarget, verifyIdToken, type OAuthConfig } from './oauth';
 import { RateLimiter, hashPassword, hashToken, newToken, passwordProblem, validateEmail, verifyPassword } from './auth';
 
 export interface Config {
@@ -248,14 +248,85 @@ export function createApp(cfg: Config): Server {
   const PASSWORDLESS = 'oauth$none';
   const hasPassword = (u: any) => typeof u.pass_hash === 'string' && !u.pass_hash.startsWith(PASSWORDLESS);
 
+  /** Hands the person's stored Apple refresh token back to Apple before the account (or the Apple link) goes away, so the app disappears from their Apple ID. Best effort: a failure at Apple never blocks the removal, and the stored copy is deleted either way. */
+  async function revokeAppleTokens(userId: string) {
+    const row = db.prepare('SELECT token FROM apple_refresh_tokens WHERE user_id = ?').get(userId) as any;
+    if (!row) return;
+    db.prepare('DELETE FROM apple_refresh_tokens WHERE user_id = ?').run(userId);
+    if (!oauth.enabled) return;
+    const web = oauth.providers.find((p) => p.id === 'apple');
+    const target = revokeTarget(String(row.token), web?.clientId ?? '', oauth.appleNative?.clientId ?? '');
+    const p = oauth.appleNative && target === oauth.appleNative.clientId ? oauth.appleNative : web;
+    if (p) { try { await revokeAppleToken(oauth, p, String(row.token)); } catch { /* Apple revocation is best effort */ } }
+  }
+
   /** Sends the browser back to the app's account page (the app uses #/ routes) with a short result code. */
   function backToApp(res: ServerResponse, query: string, headers: Record<string, string> = {}) {
     res.writeHead(302, { Location: `${oauth.publicUrl.replace(/\/$/, '')}/#/account?${query}`, 'Cache-Control': 'no-store', ...headers });
     res.end();
   }
 
+  /**
+   * The native iOS sheet flow: the app collects an identity token and a one time code from Apple itself (no browser redirect), the server checks the token
+   * against Apple's keys with the bundle id as the audience, finishes the same account logic the web callback runs, and swaps the code for a refresh token
+   * (stored with the native marker) so the token can be handed back when the account is deleted.
+   */
+  async function appleNativeRoute(req: IncomingMessage, res: ServerResponse, method: string): Promise<boolean> {
+    if (method !== 'POST') throw new HttpError(405, 'Use POST.');
+    const native = oauth.enabled ? oauth.appleNative : undefined;
+    if (!native) throw new HttpError(404, 'Not found.');
+    if (!oauthLimit.take(clientIp(req))) throw new HttpError(429, 'Too many attempts. Wait a few minutes and try again.');
+    const b = await readJson(req);
+    const identityToken = String(b.identityToken ?? ''), nonce = String(b.nonce ?? ''), code = String(b.code ?? '');
+    if (!identityToken || !nonce || !code) throw new HttpError(400, 'The sign in details from Apple are incomplete.');
+    let claims;
+    try { claims = await verifyIdToken(oauth, native, identityToken, nonce); }
+    catch (e) { if (e instanceof OAuthError) throw new HttpError(401, 'Apple did not accept that sign in. Try again.'); throw e; }
+    const subject = String(claims.sub);
+    const mail = accountEmail(native, claims);
+    // best effort: a failed swap never blocks the sign in itself; revocation on deletion is then skipped for this token
+    const storeToken = async (userId: string) => {
+      try {
+        const { refreshToken } = await exchangeAppleCode(oauth, native, code);
+        db.prepare('INSERT OR REPLACE INTO apple_refresh_tokens (user_id, subject, token, created_at) VALUES (?, ?, ?, ?)').run(userId, subject, markIosToken(refreshToken), Date.now());
+      } catch { /* the sign in stands */ }
+    };
+    if (b.link === true) {
+      const who = auth(req);
+      if (!who) throw new HttpError(401, 'Not signed in.');
+      const existing = db.prepare('SELECT user_id FROM identities WHERE provider = ? AND subject = ?').get('apple', subject) as any;
+      if (existing && existing.user_id !== who.id) throw new HttpError(409, 'That Apple account is linked to a different account.');
+      if (!existing) {
+        db.prepare('INSERT INTO identities (provider, subject, user_id, email, created_at) VALUES (?, ?, ?, ?, ?)').run('apple', subject, who.id, mail.verified ? mail.email : null, Date.now());
+        logEvent(who.id, 'sign-in-method-added', 'Apple');
+      }
+      await storeToken(who.id);
+      return json(res, 200, { user: pub(q.userById.get(who.id)) }), true;
+    }
+    const existing = db.prepare('SELECT user_id FROM identities WHERE provider = ? AND subject = ?').get('apple', subject) as any;
+    let userId: string;
+    if (existing) {
+      userId = existing.user_id;
+    } else {
+      if (mail.verified && q.userByEmail.get(mail.email)) throw new HttpError(409, 'An account with this email already exists. Sign in the usual way first, then add Apple from your account page.');
+      if (!openForSignup()) throw new HttpError(403, 'New accounts are not being opened on this server right now.');
+      if (!registerLimit.take(clientIp(req))) throw new HttpError(429, 'Too many attempts. Wait a few minutes and try again.');
+      userId = randomUUID();
+      q.insertUser.run(userId, mail.email, displayNameOf(claims), `${PASSWORDLESS}$${randomUrlToken(16)}`, Date.now());
+      db.prepare('INSERT INTO identities (provider, subject, user_id, email, created_at) VALUES (?, ?, ?, ?, ?)').run('apple', subject, userId, mail.verified ? mail.email : null, Date.now());
+      logEvent(userId, 'account-created', 'with Apple');
+    }
+    const u = db.prepare('SELECT * FROM users WHERE id = ?').get(userId) as any;
+    if (u.totp_enabled) throw new HttpError(403, 'This account has a second step turned on, which the Apple sheet cannot ask for. Sign in with your password and code instead.');
+    logEvent(userId, 'signed-in', 'with Apple');
+    await storeToken(userId);
+    await startSession(req, res, userId);
+    return true;
+  }
+
   /** Sign in with a provider: /start sends the person to the provider, /callback is where the provider sends them back. */
   async function oauthRoutes(req: IncomingMessage, res: ServerResponse, path: string, method: string): Promise<boolean> {
+    if (path === '/api/auth/oauth/apple/native') return appleNativeRoute(req, res, method);
     const m = path.match(/^\/api\/auth\/oauth\/([a-z0-9-]+)\/(start|callback)$/);
     if (!m) return false;
     const provider = oauth.enabled ? oauth.providers.find((p) => p.id === m[1]) : undefined;
@@ -293,11 +364,13 @@ export function createApp(cfg: Config): Server {
     const code = params.get('code');
     if (!code) return fail('provider_error');
     try {
-      const { idToken } = await exchangeCode(oauth, provider, code, row.verifier);
+      const { idToken, refreshToken } = await exchangeCode(oauth, provider, code, row.verifier);
       const claims = await verifyIdToken(oauth, provider, idToken, row.nonce);
       const subject = String(claims.sub);
       const existing = db.prepare('SELECT user_id FROM identities WHERE provider = ? AND subject = ?').get(provider.id, subject) as any;
       const mail = accountEmail(provider, claims);
+      // Apple sends a refresh token with the web flow too: keep it (stored bare, which marks it as a web token) so it can be handed back if the account goes away
+      const keepAppleToken = (userId: string) => { if (provider.id === 'apple' && refreshToken) db.prepare('INSERT OR REPLACE INTO apple_refresh_tokens (user_id, subject, token, created_at) VALUES (?, ?, ?, ?)').run(userId, subject, refreshToken, Date.now()); };
 
       // linking from an account that is already signed in
       if (row.link_user_id) {
@@ -306,6 +379,7 @@ export function createApp(cfg: Config): Server {
           db.prepare('INSERT INTO identities (provider, subject, user_id, email, created_at) VALUES (?, ?, ?, ?, ?)').run(provider.id, subject, row.link_user_id, mail.verified ? mail.email : null, Date.now());
           logEvent(row.link_user_id, 'sign-in-method-added', provider.name);
         }
+        keepAppleToken(row.link_user_id);
         return backToApp(res, `linked=${provider.id}`), true;
       }
 
@@ -324,6 +398,7 @@ export function createApp(cfg: Config): Server {
         db.prepare('INSERT INTO identities (provider, subject, user_id, email, created_at) VALUES (?, ?, ?, ?, ?)').run(provider.id, subject, userId, mail.verified ? mail.email : null, Date.now());
         logEvent(userId, 'account-created', `with ${provider.name}`);
       }
+      keepAppleToken(userId);
       const u = db.prepare('SELECT * FROM users WHERE id = ?').get(userId) as any;
       // a person who turned on a second step keeps it: the provider alone does not replace it, until a sign-in flow that asks for the code exists
       if (u.totp_enabled) return fail('second_step_required');
@@ -529,7 +604,23 @@ export function createApp(cfg: Config): Server {
       if (!hasPassword(full()) && n <= 1) throw new HttpError(409, 'This is your only way to sign in. Set a password first, or add another sign-in method.');
       const r = db.prepare('DELETE FROM identities WHERE user_id = ? AND provider = ?').run(me.id, idMatch[1]);
       if (!r.changes) throw new HttpError(404, 'That sign-in method is not linked.');
+      if (idMatch[1] === 'apple') await revokeAppleTokens(me.id);
       logEvent(me.id, 'sign-in-method-removed', idMatch[1]);
+      return json(res, 200, { ok: true });
+    }
+    // the iOS app hands over a one time code from the Apple sheet so the server can keep a revocable refresh token for this account
+    if (path === '/api/account/apple-code' && method === 'POST') {
+      const native = oauth.enabled ? oauth.appleNative : undefined;
+      if (!native) throw new HttpError(404, 'Not found.');
+      const ident = db.prepare('SELECT subject FROM identities WHERE user_id = ? AND provider = ?').get(me.id, 'apple') as any;
+      if (!ident) throw new HttpError(409, 'Apple is not linked to this account.');
+      const b = await readJson(req);
+      const code = String(b.code ?? '');
+      if (!code) throw new HttpError(400, 'A code from Apple is needed.');
+      try {
+        const { refreshToken } = await exchangeAppleCode(oauth, native, code);
+        db.prepare('INSERT OR REPLACE INTO apple_refresh_tokens (user_id, subject, token, created_at) VALUES (?, ?, ?, ?)').run(me.id, ident.subject, markIosToken(refreshToken), Date.now());
+      } catch (e) { if (e instanceof OAuthError) throw new HttpError(502, 'Apple did not accept the code.'); throw e; }
       return json(res, 200, { ok: true });
     }
     // an account made with a provider has no password; this lets its owner (already signed in) set one
@@ -660,6 +751,7 @@ export function createApp(cfg: Config): Server {
       const b = await readJson(req);
       const u = q.userByEmail.get((q.userById.get(me.id) as any).email) as any;
       if (!(await verifyPassword(String(b.password ?? ''), u.pass_hash))) throw new HttpError(401, 'Password is incorrect.');
+      await revokeAppleTokens(me.id);
       deleteUserData(me.id);
       return json(res, 200, { ok: true, deleted: true }, { 'Set-Cookie': `sb_session=; HttpOnly; SameSite=Lax; Path=/; Max-Age=0${isSecure(req) ? '; Secure' : ''}` });
     }
