@@ -6,7 +6,7 @@ Rules: the verse on every card is the Douay-Rheims (public domain). The Mass rea
 
 `src/lib/dayCard/` draws the daily card. The app's one-click **Today's card** (Today screen, "🖼 Today's card", route `/card`) and the social export run the same drawing code (`draw.ts`), so a user's card and the day's post are the same picture.
 
-Card content, centred, in order: date and liturgical day name; (Advent walk day); the word; the Douay-Rheims verse and reference; the date's own saint or Father line; the question; the Mass reading citations; the footer line. The footer lines are in `src/lib/dayCard/taglines.ts`: the owner's default on every other day, the alternates between, and an Advent-only line on Advent dates. Pass `--tagline <number|text>` to choose one for a run.
+Card content, centred, in order: date and liturgical day name; (Advent walk day); the word; the Douay-Rheims verse and reference; the date's own saint or Father line; the question; the footer line. The footer lines are in `src/lib/dayCard/taglines.ts`: the owner's default on every other day, the alternates between, and an Advent-only line on Advent dates. Pass `--tagline <number|text>` to choose one for a run.
 
 Where the content comes from: the word, verse and question for the first week are in `src/data/dailyWords.json` (date, word, verse, optional question). Any other day uses the Today card's own verse and question. The saint line is always the date's own entry in `public/data/daily/index.json`.
 

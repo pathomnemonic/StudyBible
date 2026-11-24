@@ -22,14 +22,13 @@ const SEASON: Record<string, ArtHints['season']> = { Advent: 'advent', Christmas
 
 export interface Job { key: string; name: string; date: string; inputs: Parameters<typeof buildSpec>[0]; hints: ArtHints }
 
-const readingsOf = (d: SocialDay) => { const c = d.massReadings?.citations; return c ? [c.first_reading, c.second_reading, c.gospel].filter(Boolean).join(' · ') : undefined; };
 
 /** every card a day produces: the Today card (or the hand-picked word for the date), and on Advent days the Walk card */
 export function jobsFor(d: SocialDay): Job[] {
   const jobs: Job[] = [];
   const dw = d.dailyWord;
   const saint = dw?.church.father ? { text: dw.church.father.text, who: dw.church.father.who, work: dw.church.father.work, verified: dw.church.father.verified } : null;
-  const common = { date: d.date, dayName: d.liturgical.name, color: d.liturgical.color as 'green', readings: readingsOf(d), saint };
+  const common = { date: d.date, dayName: d.liturgical.name, color: d.liturgical.color as 'green', saint };
   const season = SEASON[d.liturgical.season] ?? 'ordinary';
   const hintsFor = (refId: string | undefined, verseText: string, word?: string): ArtHints => {
     const r = refId ? parseRefId(refId) : null;

@@ -94,7 +94,7 @@ function fakeCtx() {
   return { ctx: ctx as CanvasRenderingContext2D, drawn };
 }
 describe('drawing the card', () => {
-  const full: DayCardSpec = { dateLine: 'SUNDAY', dayName: 'First Sunday of Advent', color: 'violet', word: 'Watch', verse: { text: 'And what I say to you, I say to all: Watch.', label: 'Mark 13:37', translation: 'Douay-Rheims' }, father: { text: 'But of this let us take heed, namely, that our soul herself sleep not: for evil is the sleep of the soul.', who: 'St. Augustine' }, question: 'Where is your attention already being asked for today?', readings: 'Mark 13:33-37', tagline: DEFAULT_TAGLINE };
+  const full: DayCardSpec = { dateLine: 'SUNDAY', dayName: 'First Sunday of Advent', color: 'violet', word: 'Watch', verse: { text: 'And what I say to you, I say to all: Watch.', label: 'Mark 13:37', translation: 'Douay-Rheims' }, father: { text: 'But of this let us take heed, namely, that our soul herself sleep not: for evil is the sleep of the soul.', who: 'St. Augustine' }, question: 'Where is your attention already being asked for today?', tagline: DEFAULT_TAGLINE };
   it('keeps the verse, the saint’s words, the question and the tagline on every shape', () => {
     for (const [w, h] of [[1080, 1350], [1080, 1080], [1080, 1920]]) {
       const { ctx, drawn } = fakeCtx();
@@ -104,10 +104,10 @@ describe('drawing the card', () => {
       expect(r.textBottom).toBeLessThanOrEqual(h);
     }
   });
-  it('has no Catechism line on the card at all', () => {
+  it('has no Catechism line and no Mass readings line on the card', () => {
     const { ctx, drawn } = fakeCtx();
     drawDayCard(ctx, 1080, 1350, full);
-    expect(drawn.join(' ')).not.toMatch(/Catechism/);
+    expect(drawn.join(' ')).not.toMatch(/Catechism|Mass readings/);
   });
   it('shrinks the type together, and keeps the verse, the saint and the question, when the text is long', () => {
     const long: DayCardSpec = { ...full, verse: { ...full.verse, text: 'word '.repeat(70) } };

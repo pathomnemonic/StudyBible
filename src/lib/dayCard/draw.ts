@@ -3,7 +3,7 @@
  * so a user's card and the day's post are the same picture.
  *
  * Composition: everything is centred. A quiet header (date, day name) at the top, one focal block in the middle (the word and the verse),
- * the saint's words and the question smaller and softer beneath it, and a muted foot (Mass readings, then the line about the app). Margins are
+ * the saint's words and the question beneath it with real weight of their own, and a muted foot (the line about the app). Margins are
  * equal on all four sides; whatever room is left is shared evenly above and below the body.
  */
 export interface DayCardSpec {
@@ -17,8 +17,6 @@ export interface DayCardSpec {
   /** a verified Father or saint line for the date (never an unverified one) */
   father?: { text: string; who: string };
   question?: string;
-  /** Mass reading citations (citations only; the lectionary wording is copyrighted) */
-  readings?: string;
   tagline?: string;
   /** small print under everything: the picture's credit, when asked for */
   credit?: string;
@@ -95,27 +93,26 @@ export function drawDayCard(ctx: CanvasRenderingContext2D, W: number, H: number,
 
   // foot: muted, at the bottom margin
   const foot: Run[] = [];
-  if (spec.readings) foot.push({ text: `Mass readings · ${spec.readings}`, font: `400 ${f(0.02)}px ${SANS}`, alpha: 0.62, lh: 1.4, gap: f(0.016) });
   if (spec.tagline) foot.push({ text: spec.tagline, font: `500 ${f(0.022)}px ${SANS}`, alpha: 0.88, lh: 1.4, gap: spec.credit ? f(0.01) : 0 });
   if (spec.credit) foot.push({ text: spec.credit, font: `400 ${f(0.015)}px ${SANS}`, alpha: 0.5, lh: 1.35, gap: 0 });
   const footH = measure(foot);
   const footTop = H - M - footH;
 
-  // body: the word and verse are the focus; the saint's words and the question are smaller and softer. Shrunk together until they fit.
+  // body: the word leads; the verse, the saint's words and the question carry similar weight, so no one of them dominates. Shrunk together until they fit.
   const avail = footTop - headBottom - M * 0.8;
   const build = (s: number) => {
-    const base = f(0.05) * s;
+    const base = f(0.043) * s;
     const focus: Run[] = [];
-    if (spec.word) focus.push({ text: spec.word, font: `800 ${Math.round(f(0.07) * Math.min(1, s + 0.2))}px ${SANS}`, alpha: 1, lh: 1.15, caps: true, gap: f(0.022) });
+    if (spec.word) focus.push({ text: spec.word, font: `800 ${Math.round(f(0.085) * Math.min(1, s + 0.2))}px ${SANS}`, alpha: 1, lh: 1.15, caps: true, gap: f(0.026) });
     focus.push({ text: spec.verse.text, font: `400 ${Math.round(base)}px ${SERIF}`, alpha: 1, lh: 1.36, gap: f(0.014) });
-    focus.push({ text: `${spec.verse.label} · ${spec.verse.translation}`, font: `italic 400 ${Math.round(base * 0.5)}px ${SERIF}`, alpha: 0.82, lh: 1.3, gap: 0 });
+    focus.push({ text: `${spec.verse.label} · ${spec.verse.translation}`, font: `italic 400 ${Math.round(base * 0.55)}px ${SERIF}`, alpha: 0.85, lh: 1.3, gap: 0 });
     const quiet: Run[] = [];
     if (spec.father) {
-      quiet.push({ text: `“${spec.father.text.replace(/“/g, '‘').replace(/”/g, '’')}”`, font: `400 ${Math.round(base * 0.56)}px ${SERIF}`, alpha: 0.86, lh: 1.38, gap: f(0.008) });
-      quiet.push({ text: `— ${spec.father.who}`, font: `italic 400 ${Math.round(base * 0.4)}px ${SERIF}`, alpha: 0.7, lh: 1.3, gap: spec.question ? f(0.028) : 0 });
+      quiet.push({ text: `“${spec.father.text.replace(/“/g, '‘').replace(/”/g, '’')}”`, font: `400 ${Math.round(base * 0.92)}px ${SERIF}`, alpha: 1, lh: 1.36, gap: f(0.012) });
+      quiet.push({ text: `— ${spec.father.who}`, font: `italic 400 ${Math.round(base * 0.55)}px ${SERIF}`, alpha: 0.85, lh: 1.3, gap: spec.question ? f(0.034) : 0 });
     }
-    if (spec.question) quiet.push({ text: spec.question, font: `italic 400 ${Math.round(base * 0.52)}px ${SERIF}`, alpha: 0.8, lh: 1.38, gap: 0 });
-    const between = quiet.length ? f(0.05) : 0; // the rule and the air around it
+    if (spec.question) quiet.push({ text: spec.question, font: `italic 400 ${Math.round(base * 0.88)}px ${SERIF}`, alpha: 0.96, lh: 1.36, gap: 0 });
+    const between = quiet.length ? f(0.06) : 0; // the rule and the air around it
     return { focus, quiet, between, h: measure(focus) + between + measure(quiet) };
   };
   let s = 1, b = build(s);

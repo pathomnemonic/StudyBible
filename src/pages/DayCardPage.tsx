@@ -62,12 +62,9 @@ export default function DayCardPage() {
       const v = trimVerses(vs.map((x) => [x.v, x.text] as [number, string]), ref.v1 ?? 1, ref.v2 ?? ref.v1 ?? 999);
       if (!v) return setErr('Today’s verse is not available on this device yet.');
       const label = formatRef({ ...ref, v1: v.first, v2: v.last }, { noDual: true });
-      const lect = await getJson<{ days: Record<string, { r: Record<string, string> }> }>(`lectionary/${date.slice(0, 4)}.json`, true);
-      const c = lect?.days[date]?.r;
       const { spec, issues } = buildSpec({
         date, dayName: ld.dayName, color: ld.color, verse: { text: v.text, label }, saint: entry?.saint, word: word?.word,
         question: word ? word.question : entry?.q, advent: ld.season === 'advent',
-        readings: c ? [c.first_reading, c.second_reading, c.gospel].filter(Boolean).join(' · ') : undefined,
       });
       setBase({ spec, ref, saintMissing: issues.length > 0 });
     })().catch(() => live && setErr('The card could not be prepared. Try again in a moment.'));
@@ -168,7 +165,7 @@ export default function DayCardPage() {
             <label className="row" style={{ gap: 6 }}><input type="checkbox" checked={showTag} onChange={(e) => setShowTag(e.target.checked)} /> <span className="small">Show the line about the app at the bottom</span></label>
             {showTag && <div className="chips" aria-label="Line at the bottom">{pool.map((t, i) => <button key={t} className={'chip' + ((tagIx ?? pool.indexOf(pickTagline(date, null, { advent: ld.season === 'advent' }))) === i ? ' sel' : '')} onClick={() => setTagIx(i)}>{t}</button>)}</div>}
             <label className="row" style={{ gap: 6 }}><input type="checkbox" checked={showCredit} onChange={(e) => setShowCredit(e.target.checked)} /> <span className="small">Add the picture’s credit in small print</span></label>
-            <p className="muted small">Verse: Douay-Rheims (public domain). Mass readings are citations only. The card is made on your device; nothing is uploaded. <Link to="/share">Make a card for any verse</Link></p>
+            <p className="muted small">Verse: Douay-Rheims (public domain). The card is made on your device; nothing is uploaded. <Link to="/share">Make a card for any verse</Link></p>
           </div>
         </div>
       )}

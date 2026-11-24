@@ -24,6 +24,10 @@
 
 
 
+## Daily card: Mass readings removed, hierarchy rebalanced
+
+By the owner's direction the Mass readings line is no longer on the card (the card, the in-app card page and the exporter no longer carry it). The hierarchy now leads with the word (larger), and gives the verse, the saint's words and the question similar weight, so the verse no longer dominates. Checked in a browser: for each of the seven Week 1 dates the saint line on the card is word for word the one the Today screen shows. Re-drawn in `social-cards/advent-2026/`.
+
 ## Daily card: declutter and centred layout, no Catechism, settled footer lines; more feasts named in the calendar
 
 - **Card design (owner's direction).** The Catechism line is gone from the card (both the quoted paragraph and the "paragraph N" pointer). The layout is now centred with equal margins: a quiet header (date, day name), one focal block (the word and the verse), the saint's words and the question smaller and softer under a short rule, and a muted foot (Mass readings, then the line about the app). The full-width rules, the left alignment and the bottom-right brand are gone. The card template is shared with the in-app "Today's card" page, so that page changed the same way; the Today screen itself never had a Catechism element and is unchanged. Catechism data stays in the export JSON for captions.

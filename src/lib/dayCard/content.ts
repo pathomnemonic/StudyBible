@@ -36,7 +36,6 @@ export interface CardInputs {
   /** the date's own Father or saint line from the daily data */
   saint?: { text: string; who: string; work?: string; verified?: boolean } | null;
   question?: string;
-  readings?: string;
   word?: string; walk?: string;
   tagline?: string | number | null;
   /** Advent dates may also carry the Advent-only lines */
@@ -55,7 +54,7 @@ export function buildSpec(i: CardInputs): { spec: DayCardSpec; issues: string[] 
     spec: {
       dateLine: longDate(i.date), dayName: i.dayName, color: i.color, word: i.word, walk: i.walk,
       verse: { ...i.verse, translation: 'Douay-Rheims' }, father, question: i.question || undefined,
-      readings: i.readings, tagline: pickTagline(i.date, i.tagline, { advent: i.advent }), credit: i.credit,
+      tagline: pickTagline(i.date, i.tagline, { advent: i.advent }), credit: i.credit,
     },
   };
 }
