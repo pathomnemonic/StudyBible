@@ -64,7 +64,7 @@ export default function DayCardPage() {
       const label = formatRef({ ...ref, v1: v.first, v2: v.last }, { noDual: true });
       const { spec, issues } = buildSpec({
         date, dayName: ld.dayName, color: ld.color, verse: { text: v.text, label }, saint: entry?.saint, word: word?.word,
-        question: word ? word.question : entry?.q, advent: ld.season === 'advent',
+        question: word?.question || entry?.q, advent: ld.season === 'advent',
       });
       setBase({ spec, ref, saintMissing: issues.length > 0 });
     })().catch(() => live && setErr('The card could not be prepared. Try again in a moment.'));

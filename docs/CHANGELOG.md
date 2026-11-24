@@ -24,6 +24,10 @@
 
 
 
+## Every daily card now carries the day's question
+
+Only one of the seven Week 1 word entries had a hand-written question, and the Advent Walk cards had none. A card now uses the hand-written question from `src/data/dailyWords.json` when there is one, and otherwise the date's own `q` from the same daily entry the Today screen reads. The Advent Walk cards carry it in the same place and weight as the word cards. A test checks all 26 Advent days. Re-drawn in `social-cards/advent-2026/`.
+
 ## Daily card: Mass readings removed, hierarchy rebalanced
 
 By the owner's direction the Mass readings line is no longer on the card (the card, the in-app card page and the exporter no longer carry it). The hierarchy now leads with the word (larger), and gives the verse, the saint's words and the question similar weight, so the verse no longer dominates. Checked in a browser: for each of the seven Week 1 dates the saint line on the card is word for word the one the Today screen shows. Re-drawn in `social-cards/advent-2026/`.

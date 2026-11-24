@@ -77,3 +77,17 @@ describe('the social export', () => {
     for (const s of slate) { const v = verseCard(parseRefId(s.ref)!)!; expect(v.trimmed).toBe(false); if (want[s.ref]) expect(v.text).toBe(want[s.ref]); }
   });
 });
+
+import { jobsFor } from '../scripts/social/cards';
+describe('every card carries the day’s question', () => {
+  it('uses the hand-written question when there is one, else the date’s own question from the daily data, on the word cards and the Advent Walk cards', () => {
+    const watch = jobsFor(buildDay('2026-11-29'));
+    expect(watch.find((j) => j.name === 'word-watch')!.inputs.question).toBe('Where is your attention already being asked for today?');
+    const mercy = jobsFor(buildDay('2026-12-01'));
+    expect(mercy.find((j) => j.name === 'word-mercy')!.inputs.question).toBe(buildDay('2026-12-01').dailyWord!.reflectionQuestion);
+    for (let n = 0; n < 26; n++) {
+      const d = new Date(Date.UTC(2026, 10, 29 + n)).toISOString().slice(0, 10);
+      for (const j of jobsFor(buildDay(d))) expect(j.inputs.question, `${d} ${j.name}`).toBeTruthy();
+    }
+  });
+});
