@@ -10,6 +10,7 @@ import { ADVENT_EVE, ADVENT_REFS, ADVENT_WALK } from '../../src/plans/adventRefs
 import { dailyDeepPrompts } from '../../src/lib/deepWaters';
 import { FEAST_FATHERS } from '../../src/data/feastFathers';
 import { FEASTS } from '../../src/data/feasts';
+import { cccParagraphs, trimVerses } from '../../src/lib/dayCard/content';
 
 const DATA = new URL('../../public/data/', import.meta.url).pathname;
 const readJson = <T>(p: string): T | null => (existsSync(DATA + p) ? (JSON.parse(readFileSync(DATA + p, 'utf8')) as T) : null);
@@ -22,8 +23,7 @@ function init() {
   ready = true;
 }
 
-/** The longest verse text a card carries; a longer passage is cut at a whole verse. */
-export const MAX_VERSE_CHARS = 330;
+export { MAX_VERSE_CHARS, fixSmallCaps } from '../../src/lib/dayCard/content';
 
 export interface VerseCard { label: string; translation: 'Douay-Rheims'; text: string; verses: string; trimmed: boolean }
 
@@ -31,13 +31,6 @@ const dra = new Map<string, any>();
 const draBook = (book: string) => { if (!dra.has(book)) dra.set(book, readJson<any>(`bible/dra/${book}.json`)); return dra.get(book); };
 
 /** Verse text from the Douay-Rheims for an anchor (Vulgate-numbered) reference. A passage is cut at a whole verse when it is too long for a card. */
-/** The Douay prints the opening words of some verses in capitals (AND THOU, BETHLEHEM). On a card that reads as shouting: lower them, keeping names capitalised. Only case changes; no wording. */
-const NAMES = new Set(['BETHLEHEM', 'JESUS', 'GOD', 'LORD', 'ISRAEL', 'JERUSALEM', 'SION', 'ZACHARY', 'JUDA', 'CHRIST']);
-export function fixSmallCaps(t: string): string {
-  const out = t.replace(/\b[A-Z]{2,}\b/g, (w) => (NAMES.has(w) && w !== 'JESUS' ? w[0] + w.slice(1).toLowerCase() : w === 'JESUS' ? w : w.toLowerCase()));
-  return out.replace(/^[a-z]/, (c) => c.toUpperCase());
-}
-
 export function douayVerses(r: Ref): { text: string; first: number; last: number; trimmed: boolean } | null {
   const b = draBook(r.book);
   if (!b || r.c1 !== r.c2) return null; // a card carries one chapter's verses
@@ -45,16 +38,7 @@ export function douayVerses(r: Ref): { text: string; first: number; last: number
   if (!ch) return null;
   const all: [number, string][] = [];
   for (const block of ch.blocks) if (Array.isArray(block[1])) for (const x of block[1]) if (Array.isArray(x) && typeof x[0] === 'number' && typeof x[1] === 'string') all.push([x[0], x[1]]);
-  const from = r.v1 ?? 1, to = r.v2 ?? r.v1 ?? 999;
-  const picked: [number, string][] = [];
-  let len = 0, trimmed = false;
-  for (const [n, t] of all) {
-    if (n < from || n > to) continue;
-    if (picked.length && len + t.length > MAX_VERSE_CHARS) { trimmed = true; break; }
-    picked.push([n, t]); len += t.length + 1;
-  }
-  if (!picked.length) return null;
-  return { text: fixSmallCaps(picked.map((p) => p[1]).join(' ')), first: picked[0][0], last: picked[picked.length - 1][0], trimmed };
+  return trimVerses(all, r.v1 ?? 1, r.v2 ?? r.v1 ?? 999);
 }
 
 export function verseCard(ref: Ref): VerseCard | null {
@@ -67,18 +51,11 @@ export function verseCard(ref: Ref): VerseCard | null {
 /** Catechism paragraphs that quote or cite this verse (from the Catechism's own footnotes), quoting ones first. */
 export function cccFor(ref: Ref, max = 3): { n: number; text: string; quotes: boolean }[] {
   const cites = readJson<[number, number, number, number, number, number][]>(`ccc/scripture/${ref.book}.json`);
-  if (!cites) return [];
-  const v1 = ref.v1 ?? 1, v2 = ref.v2 ?? ref.v1 ?? 999;
-  const hit = new Map<number, boolean>();
-  for (const [c1, a, c2, b, para, quotes] of cites) {
-    if (c1 !== ref.c1 || c2 !== ref.c1) continue;
-    if (b < v1 || a > v2) continue;
-    hit.set(para, (hit.get(para) ?? false) || quotes === 1);
-  }
-  const order = [...hit].sort((x, y) => Number(y[1]) - Number(x[1]) || x[0] - y[0]).slice(0, max);
-  return order.map(([n, quotes]) => {
+  const lo = ref.v1 ?? 1, hi = ref.v2 ?? ref.v1 ?? 999;
+  const quoting = new Set((cites ?? []).filter((c) => c[0] === ref.c1 && c[2] === ref.c1 && c[3] >= lo && c[1] <= hi && c[5] === 1).map((c) => c[4]));
+  return cccParagraphs(cites, ref.c1, ref.v1, ref.v2, max).map((n) => {
     const block = readJson<{ n: number; t: string }[]>(`ccc/p${Math.floor(n / 100)}.json`) ?? [];
-    return { n, text: block.find((p) => p.n === n)?.t ?? '', quotes };
+    return { n, text: block.find((p) => p.n === n)?.t ?? '', quotes: quoting.has(n) };
   }).filter((p) => p.text);
 }
 

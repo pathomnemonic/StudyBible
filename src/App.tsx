@@ -212,6 +212,7 @@ const PaulinePage = lazy(() => import('./pages/study/PaulinePage'));
 const PeoplePage = lazy(() => import('./pages/study/PeoplePage'));
 const MemorizePage = lazy(() => import('./pages/pray/MemorizePage'));
 const SharePage = lazy(() => import('./pages/SharePage'));
+const DayCardPage = lazy(() => import('./pages/DayCardPage'));
 const WidgetPage = lazy(() => import('./pages/WidgetPage'));
 const ThemesPage = lazy(() => import('./pages/study/ThemesPage'));
 const TextualPage = lazy(() => import('./pages/study/TextualPage'));
@@ -558,6 +559,7 @@ export default function App() {
               <Route path="/settings" element={<SettingsPage />} />
               <Route path="/memorize" element={<MemorizePage />} />
               <Route path="/share" element={<SharePage />} />
+              <Route path="/card" element={<DayCardPage />} />
               <Route path="/widget" element={<WidgetPage />} />
               <Route path="/widget/:kind" element={<WidgetView />} />
               <Route path="/widgets" element={<WidgetsPage />} />

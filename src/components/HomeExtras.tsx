@@ -58,6 +58,7 @@ export default function HomeExtras({ date, season, ref, label, onRandom }: { dat
     <div className="home-extras">
       <div className="home-cta">
         <Link to={`/pray/readings/${date}`} className="cta-main">📖 Mass readings</Link>
+        <Link to={`/card?d=${date}`} className="cta-main">🖼 Today’s card</Link>
         {onRandom && <button onClick={onRandom} className="cta-main">🎲 Random verse</button>}
       </div>
       {season2 && <Link to={`/study/path/${season2[0]}`}>{season2[1]} (study path)</Link>}

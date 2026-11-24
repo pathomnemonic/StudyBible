@@ -1,153 +1,93 @@
-// Draws share cards (PNG) from the exported JSON. Text is only what the export holds; nothing is composed here.
-//   npx tsx scripts/social/cards.ts --from social-out --out social-out/cards [--format 1080x1350,1080x1920,1000x1500]
-import { readdirSync, readFileSync, mkdirSync } from 'node:fs';
-import { chromium } from 'playwright';
-import type { SocialDay } from './lib';
-import { buildDay, cccFor, verseCard } from './lib';
+// Draws the daily social cards from the exported JSON with the SAME generator the app's one-click card uses (src/lib/dayCard).
+//   npx tsx scripts/social/cards.ts --from social-out --out social-cards/advent-2026 [--slate] [--advent-only] [--format 1080x1350,...]
+//     --date 2026-12-01 --art <library id | path to an image>   draw one date with a picture chosen by hand
+//     --tagline "<text>" | <number in TAGLINES>               use one tagline for this run
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { parseRefId } from '../../src/lib/refs';
+import { buildSpec, DAILY_WORDS, type DailyWord } from '../../src/lib/dayCard/content';
+import type { ArtHints } from '../../src/lib/dayCard/art';
+import { TAGLINES } from '../../src/lib/dayCard/taglines';
+import { ArtPicker } from './art';
+import { withRenderer } from './render';
+import { buildDay, cccFor, verseCard, type SocialDay } from './lib';
 
-const arg = (k: string, d: string) => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : d; };
+const arg = (k: string, d = '') => { const i = process.argv.indexOf(`--${k}`); return i > 0 ? process.argv[i + 1] : d; };
+const has = (k: string) => process.argv.includes(`--${k}`);
 const SIZES = arg('format', '1080x1350,1080x1920,1000x1500').split(',').map((s) => s.split('x').map(Number) as [number, number]);
-const PALETTE: Record<string, [string, string]> = { violet: ['#3b2a5a', '#f1e9ff'], rose: ['#8a4a63', '#fff0f5'], white: ['#f7f1e3', '#2a2118'], green: ['#25422f', '#eef7ee'], red: ['#6b1f1f', '#fff0ee'] };
-const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]!));
+const ONLY_DATE = arg('date');
+const ART_OVERRIDE = arg('art') || null;
+const tagArg = arg('tagline');
+const TAGLINE: string | number | null = tagArg ? (/^\d+$/.test(tagArg) ? +tagArg : tagArg) : null;
+const MAX_CCC = 340;
+const SEASON: Record<string, ArtHints['season']> = { Advent: 'advent', Christmas: 'christmas', Lent: 'lent', Triduum: 'triduum', Easter: 'easter' };
 
-function page(w: number, h: number, color: string, kicker: string, body: string, cite: string, foot: string) {
-  const [bg, fg] = PALETTE[color] ?? PALETTE.green;
-  const size = Math.round(w * (body.length > 260 ? 0.042 : body.length > 160 ? 0.05 : 0.06));
-  return `<html><body style="margin:0;width:${w}px;height:${h}px;background:${bg};color:${fg};font-family:Georgia,'Times New Roman',serif;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;padding:${Math.round(w * 0.09)}px">
-  <div style="font:600 ${Math.round(w * 0.03)}px system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;opacity:.8">${esc(kicker)}</div>
-  <div><div style="font-size:${size}px;line-height:1.38">${esc(body)}</div><div style="margin-top:${Math.round(w * 0.04)}px;font:italic ${Math.round(w * 0.04)}px Georgia,serif;opacity:.9">${esc(cite)}</div></div>
-  <div style="font:${Math.round(w * 0.026)}px system-ui,sans-serif;opacity:.7">${esc(foot)}</div></body></html>`;
-}
+export interface Job { key: string; name: string; date: string; inputs: Parameters<typeof buildSpec>[0]; hints: ArtHints }
 
-const MAX_CCC = 340; // a Catechism paragraph is quoted whole or not at all: a longer one is pointed to by number
+const readingsOf = (d: SocialDay) => { const c = d.massReadings?.citations; return c ? [c.first_reading, c.second_reading, c.gospel].filter(Boolean).join(' · ') : undefined; };
+const bestCcc = (ref: ReturnType<typeof parseRefId>) => { const ps = ref ? cccFor(ref, 6) : []; const p = ps.find((x) => x.text.length <= MAX_CCC) ?? ps[0]; return p ? { n: p.n, text: p.text } : null; };
 
-export interface DayCard {
-  /** the Today card's header: the date and the liturgical day's name */
-  dateLine: string; dayName: string; color: string;
-  /** our one-word title for the day (the hand-picked slate); absent on days made straight from the Today card */
-  word?: string;
-  /** a line under the day name, e.g. the Advent walk day */
-  walk?: string;
-  verse: { text: string; label: string };
-  /** a Father or saint line, only when the app marks it verified */
-  father?: { text: string; who: string };
-  /** a question written for the day (the app's own, or one supplied with the slate); never generated here */
-  question?: string;
-  catechism?: { n: number; text: string };
-  /** Mass reading citations (citations only; the lectionary wording is copyrighted) */
-  readings?: string;
-}
-
-const longDate = (iso: string) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
-
-/** One card with everything the Today screen carries for the day, in the same order: date and day name, verse with its reference, the Father line, the question; then the Catechism and the Mass readings that the Today screen links to. */
-export function dayCardHtml(c: DayCard, w: number, h: number): string {
-  const [bg, fg] = PALETTE[c.color] ?? PALETTE.green;
-  const vlen = c.verse.text.length + (c.father?.text.length ?? 0) * 0.6 + (c.catechism && c.catechism.text.length <= MAX_CCC ? c.catechism.text.length * 0.6 : 0);
-  const base = vlen > 700 ? 0.031 : vlen > 520 ? 0.034 : vlen > 380 ? 0.039 : 0.045;
-  const f = (r: number) => Math.round(w * r);
-  const rule = `border-top:1px solid ${fg}33;padding-top:${f(0.018)}px;margin-top:${f(0.022)}px`;
-  const sans = `font-family:system-ui,sans-serif`;
-  const small = (x: string) => `<div style="${sans};font-size:${f(0.024)}px;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-bottom:${f(0.006)}px">${esc(x)}</div>`;
-  const ccc = c.catechism ? (c.catechism.text.length <= MAX_CCC
-    ? `<div style="${rule}">${small('Catechism of the Catholic Church · ' + c.catechism.n)}<div style="font-size:${f(base * 0.8)}px;line-height:1.35">${esc(c.catechism.text)}</div></div>`
-    : `<div style="${rule};${sans};font-size:${f(0.026)}px;opacity:.85">In the Catechism of the Catholic Church: paragraph ${c.catechism.n}</div>`) : '';
-  return `<html><body style="margin:0;width:${w}px;height:${h}px;background:${bg};color:${fg};font-family:Georgia,'Times New Roman',serif;display:flex;flex-direction:column;box-sizing:border-box;padding:${f(0.075)}px ${f(0.085)}px;overflow:hidden">
-  <div style="${sans};font-size:${f(0.026)}px;letter-spacing:.12em;text-transform:uppercase;opacity:.8">${esc(c.dateLine)}</div>
-  <div style="font-size:${f(0.04)}px;margin-top:${f(0.008)}px;opacity:.95">${esc(c.dayName)}</div>
-  ${c.walk ? `<div style="${sans};font-size:${f(0.024)}px;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-top:${f(0.01)}px">${esc(c.walk)}</div>` : ''}
-  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:${f(0.004)}px">
-    ${c.word ? `<div style="${sans};font-weight:700;font-size:${f(0.07)}px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:${f(0.02)}px">${esc(c.word)}</div>` : ''}
-    <div style="font-size:${f(base)}px;line-height:1.38">${esc(c.verse.text)}</div>
-    <div style="margin-top:${f(0.014)}px;font:italic ${f(0.032)}px Georgia,serif;opacity:.9">${esc(c.verse.label)} · Douay-Rheims</div>
-    ${c.father ? `<div style="${rule}"><div style="font-size:${f(base * 0.82)}px;line-height:1.35">“${esc(c.father.text)}”</div><div style="margin-top:${f(0.008)}px;font:italic ${f(0.026)}px Georgia,serif;opacity:.85">— ${esc(c.father.who)}</div></div>` : ''}
-    ${ccc}
-    ${c.question ? `<div style="${rule}"><div style="font-size:${f(base * 0.9)}px;line-height:1.35;font-style:italic">${esc(c.question)}</div></div>` : ''}
-  </div>
-  <div style="display:flex;justify-content:space-between;align-items:flex-end;${sans};font-size:${f(0.022)}px;opacity:.75">
-    <div>${c.readings ? 'Mass readings: ' + esc(c.readings) : ''}</div><div>Cathology</div></div></body></html>`;
-}
-
-/** the card for a day made straight from the Today card's own content (its verse, verified Father line and question) */
-export function todayCard(d: SocialDay): DayCard | null {
+/** every card a day produces: the Today card (or the hand-picked word for the date), and on Advent days the Walk card */
+export function jobsFor(d: SocialDay): Job[] {
+  const jobs: Job[] = [];
   const dw = d.dailyWord;
-  if (!dw?.verse) return null;
-  const f = dw.church.father;
-  const cit = d.massReadings?.citations;
-  return {
-    dateLine: longDate(d.date), dayName: d.liturgical.name, color: d.liturgical.color,
-    verse: { text: dw.verse.text, label: dw.verse.label },
-    father: f && f.verified ? { text: f.text, who: f.who } : undefined,
-    question: dw.reflectionQuestion || undefined,
-    catechism: dw.church.catechism ? { n: dw.church.catechism.n, text: dw.church.catechism.text } : undefined,
-    readings: cit ? [cit.first_reading, cit.second_reading, cit.gospel].filter(Boolean).join(' · ') : undefined,
+  const saint = dw?.church.father ? { text: dw.church.father.text, who: dw.church.father.who, work: dw.church.father.work, verified: dw.church.father.verified } : null;
+  const common = { date: d.date, dayName: d.liturgical.name, color: d.liturgical.color as 'green', readings: readingsOf(d), saint };
+  const season = SEASON[d.liturgical.season] ?? 'ordinary';
+  const hintsFor = (refId: string | undefined, verseText: string, word?: string): ArtHints => {
+    const r = refId ? parseRefId(refId) : null;
+    return { book: r?.book, chapter: r?.c1, words: [word ?? '', verseText], saint: saint?.who, season, seed: d.date };
   };
-}
-
-export function cardsFor(d: SocialDay, w: number, h: number): { name: string; html: string }[] {
-  const out: { name: string; html: string }[] = [];
-  const color = d.liturgical.color;
-  const dw = d.dailyWord;
-  const full = todayCard(d);
-  if (full) out.push({ name: 'daily-word', html: dayCardHtml(full, w, h) });
-  if (d.advent?.verse) {
-    const cit = d.massReadings?.citations;
-    const a = d.advent;
-    out.push({ name: 'advent', html: dayCardHtml({
-      dateLine: longDate(d.date), dayName: d.liturgical.name, color: d.liturgical.color === 'rose' ? 'rose' : 'violet',
-      walk: `Advent walk · day ${a.day} of ${a.of}`, word: a.theme ?? undefined,
-      verse: { text: a.verse!.text, label: a.verse!.label },
-      catechism: a.catechism ? { n: a.catechism.n, text: a.catechism.text } : undefined,
-      readings: cit ? [cit.first_reading, cit.second_reading, cit.gospel].filter(Boolean).join(' · ') : undefined,
-    }, w, h) });
+  const slate: DailyWord | null = DAILY_WORDS.find((w) => w.date === d.date) ?? null;
+  if (slate) {
+    const ref = parseRefId(slate.ref)!; const v = verseCard(ref)!;
+    jobs.push({ key: d.date, name: `word-${slate.word.toLowerCase()}`, date: d.date, hints: hintsFor(slate.ref, v.text, slate.word), inputs: { ...common, verse: { text: v.text, label: v.label }, word: slate.word, question: slate.question, catechism: bestCcc(ref) } });
+  } else if (dw?.verse) {
+    const ref = parseRefId((dw.passage && /^[1-3A-Z]{3}\./.test(dw.passage)) ? dw.passage : '') ?? null;
+    jobs.push({ key: d.date, name: 'daily-word', date: d.date, hints: hintsFor(undefined, dw.verse.text), inputs: { ...common, verse: { text: dw.verse.text, label: dw.verse.label }, question: dw.reflectionQuestion, catechism: dw.church.catechism ? { n: dw.church.catechism.n, text: dw.church.catechism.text } : null } });
+    void ref;
   }
-  if (d.feastFather && d.feastFather.quote.length < 520) out.push({ name: 'feast-father', html: page(w, h, color, d.feastFather.feast, d.feastFather.quote, `${d.feastFather.author}, ${d.feastFather.source}`, 'Cathology · From the Fathers') });
-  return out;
-}
-
-/** The hand-picked Daily Word slate (scripts/social/slate.json): one word and one whole verse, not numbered. */
-export function slateCards(w: number, h: number) {
-  const slate = JSON.parse(readFileSync(new URL('./slate.json', import.meta.url).pathname, 'utf8')) as { word: string; ref: string; date: string; question?: string }[];
-  return slate.map((s) => {
-    const ref = parseRefId(s.ref)!;
-    const v = verseCard(ref)!;
-    const day = buildDay(s.date);
-    const paras = cccFor(ref, 6);
-    const ccc = paras.find((p) => p.text.length <= MAX_CCC) ?? paras[0]; // a whole short paragraph if there is one, else a pointer to the first
-    const cit = day.massReadings?.citations;
-    const card: DayCard = {
-      dateLine: longDate(s.date), dayName: day.liturgical.name, color: day.liturgical.color, word: s.word,
-      verse: { text: v.text, label: v.label },
-      question: s.question,
-      catechism: ccc ? { n: ccc.n, text: ccc.text } : undefined,
-      readings: cit ? [cit.first_reading, cit.second_reading, cit.gospel].filter(Boolean).join(' · ') : undefined,
-    };
-    return { name: `word-${s.word.toLowerCase()}`, html: dayCardHtml(card, w, h) };
-  });
+  if (d.advent?.verse) {
+    const a = d.advent;
+    const ref = parseRefId(a.keyVerse ?? a.passage);
+    jobs.push({ key: d.date, name: 'advent', date: d.date, hints: { ...hintsFor(a.keyVerse ?? a.passage, a.verse!.text, a.theme ?? undefined), season: 'advent' }, inputs: { ...common, color: d.liturgical.color === 'rose' ? 'rose' : 'violet', verse: { text: a.verse!.text, label: a.verse!.label }, word: a.theme ?? undefined, walk: `Advent walk · day ${a.day} of ${a.of}`, catechism: a.catechism ? { n: a.catechism.n, text: a.catechism.text } : bestCcc(ref) } });
+  }
+  return jobs;
 }
 
 async function main() {
   const dir = arg('from', 'social-out'), out = arg('out', `${dir}/cards`);
   mkdirSync(out, { recursive: true });
-  const browser = await chromium.launch();
+  const picker = new ArtPicker(`${out}/art-picks.json`);
+  const credits: string[] = [];
+  const flags: string[] = [];
   let n = 0;
-  for (const f of process.argv.includes('--slate-only') ? [] : readdirSync(dir).filter((x) => /^\d{4}-\d\d-\d\d\.json$/.test(x))) {
-    const d = JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')) as SocialDay;
-    for (const [w, h] of SIZES) {
-      for (const c of cardsFor(d, w, h).filter((c) => !process.argv.includes('--advent-only') || c.name === 'advent')) {
-        const p = await browser.newPage({ viewport: { width: w, height: h } });
-        await p.setContent(c.html);
-        await p.screenshot({ path: `${out}/${d.date}-${c.name}-${w}x${h}.png` });
-        await p.close(); n++;
+  const days: SocialDay[] = [];
+  if (has('slate-only') || has('slate')) for (const w of DAILY_WORDS) days.push(buildDay(w.date));
+  if (!has('slate-only')) for (const f of readdirSync(dir).filter((x) => /^\d{4}-\d\d-\d\d\.json$/.test(x))) if (!days.some((x) => x.date === f.slice(0, 10))) days.push(JSON.parse(readFileSync(`${dir}/${f}`, 'utf8')) as SocialDay);
+  await withRenderer(async (render) => {
+    for (const d of days.sort((a, b) => a.date.localeCompare(b.date))) {
+      if (ONLY_DATE && d.date !== ONLY_DATE) continue;
+      for (const job of jobsFor(d)) {
+        if (has('advent-only') && job.name !== 'advent' && !job.name.startsWith('word-')) continue;
+        if (has('slate') && has('advent-only') === false && false) continue;
+        const pick = picker.choose(job.key, job.hints, ONLY_DATE ? ART_OVERRIDE : null);
+        const imagePath = pick ? (existsSync(pick.file) ? pick.file : new URL(`../../public/${pick.file}`, import.meta.url).pathname) : null;
+        const { spec, issues } = buildSpec({ ...job.inputs, tagline: TAGLINE });
+        for (const i of issues) flags.push(`${d.date} ${job.name}: ${i}`);
+        for (const [w, h] of SIZES) {
+          const ext = imagePath && !has('png') ? 'jpg' : 'png';
+          const r = await render({ spec, w, h, imagePath, format: ext === 'jpg' ? 'jpeg' : 'png' });
+          writeFileSync(`${out}/${job.name === 'advent' || job.name === 'daily-word' ? d.date + '-' : ''}${job.name}-${w}x${h}.${ext}`, r.png);
+          if (r.droppedCatechism !== 'none') flags.push(`${d.date} ${job.name} ${w}x${h}: Catechism ${r.droppedCatechism === 'pointer' ? 'shortened to a pointer' : 'left off'} to fit`);
+          n++;
+        }
+        credits.push(`- ${d.date} ${job.name}: ${pick ? `${pick.title}${pick.artist ? ', ' + pick.artist : ''} (${pick.source}; ${pick.why.join(', ')}). ${pick.credit}${pick.page ? ' ' + pick.page : ''}` : 'flat colour (no picture)'} | footer: ${spec.tagline}`);
       }
     }
-  }
-  if (process.argv.includes('--slate')) for (const [w, h] of SIZES) for (const c of slateCards(w, h)) {
-    const p = await browser.newPage({ viewport: { width: w, height: h } });
-    await p.setContent(c.html); await p.screenshot({ path: `${out}/${c.name}-${w}x${h}.png` }); await p.close(); n++;
-  }
-  await browser.close();
-  console.log(`drew ${n} card(s) in ${out}/`);
+  });
+  picker.save();
+  writeFileSync(`${out}/CREDITS.md`, `# Picture credits and footer lines\n\nOne line per card (all sizes share the picture). Use the credit in the caption if you want it shown.\n\n${credits.join('\n')}\n`);
+  console.log(`drew ${n} card(s) in ${out}/ (taglines available: ${TAGLINES.length})`);
+  if (flags.length) console.log('\nNeeds attention:\n' + flags.map((x) => ' - ' + x).join('\n'));
 }
 if (process.argv[1]?.endsWith('cards.ts')) main();

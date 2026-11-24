@@ -220,6 +220,7 @@ export const CRAWL = [
   { path: "/settings", kind: "static", route: "/settings" },
   { path: "/memorize", kind: "static", route: "/memorize" },
   { path: "/share", kind: "static", route: "/share" },
+  { path: "/card", kind: "static", route: "/card" },
   { path: "/widget", kind: "static", route: "/widget" },
   { path: "/widget/__nope__", kind: "sample", route: "/widget/:kind" }, // the widget ignores :kind and always shows the same one (so there is nothing to be "not found")
   { path: "/widgets", kind: "static", route: "/widgets" },

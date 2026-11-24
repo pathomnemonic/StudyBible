@@ -1,22 +1,31 @@
 # Social content: how a day of posts is made
 
-Rules: the verse on every card is the Douay-Rheims (public domain, so no attribution line is needed beyond the translation name). The Mass readings are citations only: the lectionary text is copyrighted and is never posted. Catechism and Father lines are quotes, labelled. No prayer text is generated. A person reads every card before it goes out.
+Rules: the verse on every card is the Douay-Rheims (public domain). The Mass readings are citations only (the lectionary text is copyrighted). Catechism and Father lines are quotes, labelled; only a saint or Father line the app marks verified goes on a card. No prayer text is generated. A person reads every card before it goes out.
+
+## One generator, two uses
+
+`src/lib/dayCard/` draws the daily card. The app's one-click **Today's card** (Today screen, "🖼 Today's card", route `/card`) and the social export run the same drawing code (`draw.ts`), so a user's card and the day's post are the same picture.
+
+Card content, in order: date and liturgical day name; (Advent walk day); the word; the Douay-Rheims verse and reference; the date's own saint or Father line; the Catechism paragraph (whole when 340 characters or fewer, otherwise "paragraph N"); the question; the Mass reading citations; the footer line. The footer is `DEFAULT_TAGLINE` in `src/lib/dayCard/taglines.ts`; add alternates to `TAGLINES` there and pass `--tagline <number|text>` to choose one.
+
+Where the content comes from: the word, verse and question for the first week are in `src/data/dailyWords.json` (date, word, verse, optional question). Any other day uses the Today card's own verse and question. The saint line is always the date's own entry in `public/data/daily/index.json`.
 
 ## Make a week
 
-    npx tsx scripts/social/export.ts --from 2026-11-29 --days 7     # JSON in social-out/
-    npx tsx scripts/social/cards.ts                                 # PNGs in social-out/cards/
+    npx tsx scripts/social/export.ts --from 2026-11-29 --days 26        # JSON in social-out/
+    npx tsx scripts/social/cards.ts --slate --advent-only --out social-cards/advent-2026
+    npx tsx scripts/social/audit-saints.ts                              # dates with no verified saint line
 
-Sizes: 1080x1350 (Instagram, Facebook, Threads), 1080x1920 (stories, Shorts), 1000x1500 (Pinterest). Pass `--format 1080x1350` for one.
+Sizes: 1080x1350, 1080x1920, 1000x1500 (`--format` for one). Cards with a picture are JPEG (about a tenth of the size of a PNG); add `--png` for PNG.
 
-## What each file holds
+## Choosing the picture
 
-- `dailyWord`: the passage, its Douay verse, the first Catechism paragraph citing it, the day's Father line, the reflection question, and `needsReview` notes. `cards.ts` draws this as ONE card mirroring the Today screen (date and day name, verse, verified Father line, question, Catechism, Mass readings).
-- `todaysClimb`: the seven Basilion questions for the day (the same ones players get, no answers). Post one as a plain card; the next morning post the rarest answers.
-- `advent`: day N of 26 with its name and one key verse (`ADVENT_WALK`, `ADVENT_EVE` in `src/plans/adventRefs.ts`). Daily Word posts are not numbered, so they never collide with Advent day numbers.
-- Slate cards: `cards.ts --slate` draws `scripts/slate.json`. Drawn Advent and slate cards are in `social-cards/advent-2026/`.
-- `feastFather`: the "From the Fathers" quote on its feast.
+Automatic: `src/lib/dayCard/art.ts` scores the app's library (646 public-domain or open-access paintings and engravings) by the passage, the word, the saint and the season, drops scenes of violence and scenes from the wrong part of the year, and never reuses a picture inside a 150-card window. Picks are recorded in `art-picks.json` beside the cards, so a re-run draws the same card.
+
+By hand: `--date 2026-12-01 --art <library id or path to an image>` draws that date with your picture (and records it). A library id is the `id` in `public/data/art.json` or `art-more.json`. A picture from outside the library is not rights-checked by the exporter; the credit line says so.
+
+`CREDITS.md` beside the cards lists each card's picture credit and footer line, for captions.
 
 ## Before posting
 
-Check anything in `needsReview`. A Father line the app marks unverified, or a reading that could not be placed in the Douay numbering, needs a person. Catechism and commentary lines are quotes, not teaching of ours; a priest or catechist should read the first weeks.
+Check `needsReview` in the JSON and the "Needs attention" list the renderer prints. A date with no verified saint line gets a card without one and is listed by `audit-saints.ts`.
