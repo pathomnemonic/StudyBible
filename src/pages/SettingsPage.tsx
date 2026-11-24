@@ -143,12 +143,14 @@ export default function SettingsPage() {
 
       <Fold id="settings:Your data, sync and privacy" title="Your data, sync and privacy" open={false}>
         <ul className="small" style={{ lineHeight: 1.6 }}>
-          <li><strong>Private by default.</strong> Notes, highlights, bookmarks, journal and progress are stored in this browser (IndexedDB) and nowhere else, and there are no analytics. Nothing leaves your device unless you turn on Google Drive backup or sign in to a sync server.</li>
+          <li><strong>Private by default.</strong> Notes, highlights, bookmarks, journal and progress are stored in this browser (IndexedDB) and nowhere else. Nothing you write leaves your device unless you turn on Google Drive backup or sign in to a sync server.</li>
+          <li><strong>Error reports and page counts.</strong> On the public website (not in Kid mode, and not if your browser says Do Not Track), the app sends anonymous error reports and a count of which section of the app is opened, tagged “cathology”. It never sends what you read, search for or write, and uses no cookies or tracking identifier. You can turn it off with the switch that follows.</li>
           <li><strong>Accounts and sync are optional.</strong> If you or someone you trust runs a sync server, Account lets you sign in and sync across devices. That server can read what it stores: sync is not end-to-end encrypted. If no server is reachable here, everything keeps working locally. Use Google Drive backup or Export/Import to move data between devices without a server.</li>
           <li><strong>Backup.</strong> Connect Google Drive for automatic backups, or export everything as JSON at any time (Library → Export). Clearing browser data erases local data, so back up first.</li>
           <li><strong>Retention & deletion.</strong> Data stays until you delete it. “Delete all my data” removes the local database; if you use a sync server, deleting your account there also removes its copies.</li>
           <li><strong>Network use.</strong> Notes and the app itself work offline; Scripture and study data work offline for what you have opened or downloaded (see Downloads). The app contacts third parties only when you open an external link, play a video (YouTube’s player) or an audio episode (the publisher’s servers), or load the liturgical calendar (LitCal).</li>
         </ul>
+        <label className="row" style={{ gap: 8, margin: '8px 0' }}><input type="checkbox" checked={s.telemetry !== false} onChange={(e) => set({ telemetry: e.target.checked })} /> <span className="small">Share anonymous error reports and page counts (public website only)</span></label>
         <div className="row">
           <button className="btn" onClick={async () => download(`studybible-export-${new Date().toISOString().slice(0, 10)}.json`, await exportAll())}>Export everything</button>
           <button className="btn danger" onClick={() => confirm('Delete ALL notes, highlights, bookmarks, journal entries and progress on this device? This cannot be undone.') && deleteAllData()}>Delete all my data</button>

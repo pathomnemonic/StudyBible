@@ -13,7 +13,8 @@ const KB = 1024;
 // routes, 14 themes, print and accessibility styles, and a 270 MB data folder (Fathers library, 13 packs, 42,000-video index, 456 lessons).
 // The real fix for the script is to split shared code out of the entry chunk (see docs/CYCLE2_REPORT.md); until then these stop it growing further.
 const BUDGET = {
-  entryJs: 380 * KB, // the app shell: assets/index-*.js (351 KB measured)
+  // Raised from 380 to 382 on 2026-11-24, on purpose and by about 2 KB: the owner asked for 15 more feasts to be named in the calendar (their names live in the entry chunk because the calendar is needed at once) and for error reports and page counts, whose loader is a few hundred bytes (the Sentry and PostHog code is in its own lazy chunks). Measured 380.1 KB.
+  entryJs: 382 * KB, // the app shell: assets/index-*.js
   entryCss: 70 * KB, // (64 KB measured)
   // Raised from 260 to 420 on 2026-11-18 for one chunk: the Basilion page (DeepWatersPage, 382 KB gzip measured). It holds the whole question bank, about 700 hand-written lists
   // and 13,000 answers, which the game needs before it can deal a question; splitting it would not make the page load less. No other chunk is near 260.

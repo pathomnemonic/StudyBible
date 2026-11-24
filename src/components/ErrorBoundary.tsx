@@ -5,6 +5,7 @@ import { refreshApp } from '../lib/recover';
 export default class ErrorBoundary extends Component<{ children: ReactNode; resetKey?: string }, { err: Error | null; key?: string; offline: boolean }> {
   state = { err: null as Error | null, key: this.props.resetKey, offline: false };
   static getDerivedStateFromError(err: Error) { return { err }; }
+  componentDidCatch(err: Error) { (window as { __report?: (e: unknown) => void }).__report?.(err); }
   static getDerivedStateFromProps(p: { resetKey?: string }, s: { key?: string; err: Error | null }) {
     return p.resetKey !== s.key ? { err: null, key: p.resetKey } : null;
   }

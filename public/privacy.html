@@ -19,7 +19,7 @@
 <p>PathoMnemonic makes a small family of study apps: <strong>Cathology</strong> (Catholic Bible study), <strong>Roundsy</strong> (daily medical mini-games), <strong>Dx Dash</strong> (medical board prep), and <strong>Language Dash</strong> (vocabulary practice). This policy covers all of them, on the web and in our mobile apps. The short version: our apps work without an account, we collect as little as we can, we never sell personal information, and we show no advertising. Cathology's rules for use are set out in its <a href="terms.html">Terms of Service</a>.</p>
 
 <h2>Using the apps without an account</h2>
-<p>Every PathoMnemonic app can be used as a guest with no sign-in. In that case your progress, settings, and study data stay on your device, and nothing about your usage is sent to us. Some features that inherently need a server — such as Roundsy multiplayer rooms — create a temporary anonymous session so the feature can work; those sessions hold no name or email.</p>
+<p>Every PathoMnemonic app can be used as a guest with no sign-in. In that case your progress, settings, and study data stay on your device, and, apart from the anonymous error reports and page counts described under "Error reports and page counts" below, nothing about your usage is sent to us. Some features that inherently need a server — such as Roundsy multiplayer rooms — create a temporary anonymous session so the feature can work; those sessions hold no name or email.</p>
 
 <h2>If you create an account</h2>
 <p>All of our apps share one sign-in, provided through Supabase. If you register, we store:</p>
@@ -46,7 +46,10 @@
 </ul>
 
 <h2>Service providers</h2>
-<p>We rely on a small number of processors to run the service: Supabase (accounts and data storage), Stripe (web payments), Apple and Google (app-store payments and sign-in), and GitHub Pages (website hosting). Each receives only what it needs to do its job. Sign-in and account emails are sent from our own Gmail address.</p>
+<p>We rely on a small number of processors to run the service: Supabase (accounts and data storage), Stripe (web payments), Apple and Google (app-store payments and sign-in), GitHub Pages (website hosting), Sentry (error reports) and PostHog (page counts) for the Cathology website. Each receives only what it needs to do its job. Sign-in and account emails are sent from our own Gmail address.</p>
+
+<h2>Error reports and page counts (Cathology website)</h2>
+<p>On the public Cathology website (not in a store app, not in Kid mode, and not if your browser sends Do Not Track or Global Privacy Control), the app sends us two kinds of anonymous information: an error report when something breaks (the error message and technical details such as the browser and device type), and a count of which section of the app is opened (for example "read" or "pray", never the book, chapter, search words, notes or anything else you read or write). Reports are tagged "cathology". We use no cookies or browser storage for this, no session recording, no click tracking and no advertising identifier, and we do not build a profile of you. Your internet address is seen by the services that receive the reports, as with any website. They are processed by Sentry (error reports) and PostHog (page counts). You can turn this off at any time in Cathology under Settings, "Your data, sync and privacy".</p>
 
 <h2>Deleting your data</h2>
 <p>Every app has a delete option in its settings, labeled with that app's name (for example, "Delete my StudyBible account" in Cathology). Deleting an app's account removes that app's records for you and nothing else — your other apps are untouched. Most apps also offer a separate, clearly labeled option, "Also remove my sign-in," which deletes your shared sign-in itself; where an app does not offer that option, contact us at the address below and we will remove the sign-in for you. because that sign-in is shared, removing it also removes your data in every PathoMnemonic app. Both actions are permanent. You can also contact us at the address below and we will delete your data for you.</p>
@@ -58,7 +61,7 @@
 <p>Some of our lessons are written for younger learners. Lessons for younger learners are meant to be used by a parent, teacher or catechist. Children don't create accounts in our apps.</p>
 
 <h2>Changes to this policy</h2>
-<p>If we change this policy in a meaningful way, we will update the date at the top of this page and note the change here.</p>
+<p>If we change this policy in a meaningful way, we will update the date at the top of this page and note the change here. November 24, 2026: added "Error reports and page counts (Cathology website)".</p>
 
 <h2>Contact</h2>
 <p>Questions about privacy, or a deletion request, go to <a href="mailto:patho.mnemonic1@gmail.com">patho.mnemonic1@gmail.com</a>.</p>

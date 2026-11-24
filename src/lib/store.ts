@@ -91,6 +91,8 @@ export interface Settings {
   scriptureOnly: boolean;
   /** a child's version of the app: stories, simple prayers and games only, left with a grown-up question */
   kidMode: boolean;
+  /** share anonymous error reports and page counts from the public web app (on unless turned off here, in Do Not Track, or in Kid mode) */
+  telemetry: boolean;
   /** one chapter at a time, or an unbroken scroll through the chapters that follow */
   scrollMode: 'pages' | 'infinite';
   /** a quiet progress line in the corner while reading: minutes left in the chapter and how far */
@@ -218,6 +220,7 @@ export const DEFAULTS: Settings = {
   showVerseNumbers: true,
   scriptureOnly: false,
   kidMode: false,
+  telemetry: true,
   scrollMode: 'pages',
   readProgress: true,
   kidsAge: '7-9',

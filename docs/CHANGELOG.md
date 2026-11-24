@@ -24,6 +24,10 @@
 
 
 
+## Error reports (Sentry) and page counts (PostHog) on the public website
+
+By the owner's direction, the web app now reports anonymous errors to Sentry and a count of which section is opened to PostHog, both tagged `app=cathology` (`src/lib/telemetry.ts`). Scope and limits: production builds on a real host only; never in a store app, Kid mode or development; off if the browser sends Do Not Track or Global Privacy Control; on unless the person turns it off (new Settings switch, "Share anonymous error reports and page counts"); loaded lazily so the first download is unchanged. No cookies or browser storage, session recording, click capture, breadcrumbs, tracing, feature flags or person profiles. Only the first part of the route is ever sent (`#/read`, never the book, chapter, search words or notes): checked in a browser, a visit to `#/read/dra/JHN/3?q=secret` sent only `#/read`. PostHog's other address properties (session entry address, referrers) are removed. The PostHog region is set by `VITE_POSTHOG_HOST` (default US cloud). The privacy policy, the Terms, the Settings privacy text and `docs/LAUNCH.md` now say so. The entry-chunk budget was raised from 380 to 382 KB on purpose (15 feast names in the calendar and the small loader; the Sentry and PostHog code is in separate chunks).
+
 ## Daily quotes: six "verified" lines made word for word, uncertain attributions marked, flags reclassified
 
 A review of the 223 `needsReview` flags the social exporter raises over a year (209 "saint line unverified", 14 "attribution note"; none fall between 29 November and 24 December) found three things.
