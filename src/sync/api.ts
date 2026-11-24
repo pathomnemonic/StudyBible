@@ -97,6 +97,10 @@ const serverApi = {
   revokeSession: (id: string) => call<{ ok: boolean }>('DELETE', `/api/auth/sessions/${id}`),
   revokeOthers: () => call<{ ok: boolean; revoked: number }>('POST', '/api/auth/sessions/revoke-others', {}),
   stats: () => call<{ tables: { table: string; records: number; deleted: number }[]; bytes: number; limits: { records: number; bytes: number } }>('GET', '/api/account/stats'),
+  /** the native iOS Apple sheet: the server checks the identity token, finishes the sign in (or the link, with link set), and keeps a revocable refresh token */
+  appleNativeSignIn: (body: { identityToken: string; nonce: string; code: string; link?: boolean }) => call<{ user: AccountUser }>('POST', '/api/auth/oauth/apple/native', body),
+  /** hand over a one time code from the Apple sheet so the server can keep a revocable refresh token for this account */
+  appleCode: (code: string) => call<{ ok: boolean }>('POST', '/api/account/apple-code', { code }),
   // only the Supabase backend has these (see supabaseApi.ts)
   backend: 'server' as 'server' | 'supabase',
   deleteStudyBibleAccount: async (): Promise<{ ok: boolean }> => { throw new ApiError(404, 'Not available on this server.'); },

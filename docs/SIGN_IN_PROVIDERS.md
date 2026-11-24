@@ -71,6 +71,16 @@ APPLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----"
 
 Apple only sends the person's name the first time they sign in, and may give a private relay email address. If an app on the App Store offers other sign-in services, Apple requires "Sign in with Apple" too.
 
+#### Apple in the iOS app
+
+Inside the iOS app the Apple button opens the native sheet instead of the web redirect. The app collects an identity token and a one time code from Apple and posts them to `POST /api/auth/oauth/apple/native`. The server checks the identity token with the bundle id as the audience, runs the same account logic as the web callback, and swaps the code for a refresh token. The sheet needs only the key material above: its client id is the bundle id, so it works before any Services ID exists. Set `APPLE_BUNDLE_ID` only if the app ever stops using the default.
+
+```
+APPLE_BUNDLE_ID=com.pathomnemonic.cathology   # optional, this is the default
+```
+
+The server keeps one Apple refresh token per account so it can be handed back to Apple when the account is deleted or the Apple link is removed, which takes the app off the person's Apple ID. A token from the sheet is stored with a marker so revocation presents the bundle id; a token from the web flow is stored bare so revocation presents the Services ID. The iOS project already carries the Sign in with Apple entitlement the sheet needs.
+
 ### Other services
 
 Facebook, GitHub, X and others are not OpenID Connect in the same way and are **not built**. Any service that is plain OpenID Connect can be added in a few lines (see `providersFromEnv` in `server/oauth.ts`).

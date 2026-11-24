@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { api, providerStartUrl, type SignInProvider } from '../sync/api';
+import { appleNativeAvailable, isAppleCancel, signInWithAppleNative } from '../lib/appleNative';
 import { useToast } from './Toast';
 
 /** What each result code from a sign-in attempt means, in plain words. */
@@ -16,14 +17,28 @@ export const SIGN_IN_MESSAGES: Record<string, string> = {
 };
 export const signInMessage = (code: string) => SIGN_IN_MESSAGES[code] ?? 'Sign-in did not work. Please try again.';
 
-/** "Continue with Google" and the like. Shows nothing at all unless the server offers a provider, so it stays invisible until the operator turns sign-in providers on. */
-export function ProviderButtons({ providers }: { providers: SignInProvider[] }) {
+/** "Continue with Google" and the like. Shows nothing at all unless the server offers a provider, so it stays invisible until the operator turns sign-in providers on. Inside the iOS app the Apple button opens the native sheet instead of the web redirect. */
+export function ProviderButtons({ providers, onNativeDone }: { providers: SignInProvider[]; onNativeDone?: () => void }) {
+  const toast = useToast();
+  const [busy, setBusy] = useState(false);
   if (!providers.length) return null;
+  const nativeApple = async () => {
+    setBusy(true);
+    try {
+      const r = await signInWithAppleNative();
+      await api.appleNativeSignIn(r);
+      onNativeDone?.();
+    } catch (e: any) {
+      if (!isAppleCancel(e)) toast(e.message ?? 'Sign-in did not work. Please try again.', 'error');
+    } finally { setBusy(false); }
+  };
   return (
     <div className="provider-buttons" aria-label="Other ways to sign in">
       {providers.map((p) => api.backend === 'supabase'
         ? <button key={p.id} type="button" className="btn block" onClick={() => void api.signInWithProvider(p.id).catch(() => undefined)}>Continue with {p.name}</button>
-        : <a key={p.id} className="btn block" href={providerStartUrl(p.id)}>Continue with {p.name}</a>)}
+        : p.id === 'apple' && appleNativeAvailable()
+          ? <button key={p.id} type="button" className="btn block" disabled={busy} onClick={() => void nativeApple()}>Continue with {p.name}</button>
+          : <a key={p.id} className="btn block" href={providerStartUrl(p.id)}>Continue with {p.name}</a>)}
       <p className="muted small">Signing in with another service only proves who you are. Your notes stay in your StudyBible account.</p>
     </div>
   );
@@ -50,7 +65,9 @@ export function SignInMethodsCard() {
           </li>
         ))}
       </ul>
-      {data.available.filter((p) => !linked.has(p.id)).map((p) => <a key={p.id} className="btn small" href={providerStartUrl(p.id, true)}>Add {p.name}</a>)}
+      {data.available.filter((p) => !linked.has(p.id)).map((p) => p.id === 'apple' && api.backend !== 'supabase' && appleNativeAvailable()
+        ? <button key={p.id} type="button" className="btn small" onClick={async () => { setErr(''); try { const r = await signInWithAppleNative(); await api.appleNativeSignIn({ ...r, link: true }); toast('Apple added.'); load(); } catch (e: any) { if (!isAppleCancel(e)) setErr(e.message); } }}>Add {p.name}</button>
+        : <a key={p.id} className="btn small" href={providerStartUrl(p.id, true)}>Add {p.name}</a>)}
       {!data.hasPassword && (
         <form className="stack" onSubmit={async (e) => { e.preventDefault(); setErr(''); try { await api.setPassword(pw); setPw(''); toast('Password set.'); load(); } catch (x: any) { setErr(x.message); } }}>
           <p className="muted small">This account has no password yet. Some settings (changing your email, a second step, deleting the account) ask for one. Set one to use them.</p>

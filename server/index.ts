@@ -26,6 +26,7 @@ const port = +(process.env.PORT ?? 8787);
 const host = process.env.HOST ?? '127.0.0.1';
 const staticDir = resolve(process.env.STATIC_DIR ?? 'dist');
 const db = openDb(resolve(process.env.DB_PATH ?? 'server-data/studybible.sqlite'));
+const oauthBuilt = process.env.OAUTH === 'on' ? providersFromEnv(process.env) : null;
 const server = createApp({
   db,
   staticDir: existsSync(staticDir) ? staticDir : undefined,
@@ -34,7 +35,7 @@ const server = createApp({
   sessionDays: +(process.env.SESSION_DAYS ?? 60),
   allowedOrigins: (process.env.ALLOWED_ORIGINS ?? '').split(',').map((s) => s.trim()).filter(Boolean),
   // sign in with Google etc.: off unless OAUTH=on (docs/SIGN_IN_PROVIDERS.md)
-  oauth: process.env.OAUTH === 'on' ? { enabled: true, publicUrl: process.env.PUBLIC_URL ?? '', providers: providersFromEnv(process.env).providers } : OFF,
+  oauth: oauthBuilt ? { enabled: true, publicUrl: process.env.PUBLIC_URL ?? '', providers: oauthBuilt.providers, appleNative: oauthBuilt.appleNative } : OFF,
   secureCookies: process.env.COOKIE_SECURE === 'true' ? true : process.env.COOKIE_SECURE === 'false' ? false : 'auto',
 });
 server.listen(port, host, () => console.log(`Study Bible server on http://${host}:${port}  (static: ${existsSync(staticDir) ? staticDir : 'none — run npm run build'})`));

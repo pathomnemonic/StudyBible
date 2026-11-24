@@ -91,6 +91,9 @@ export function createSupabaseApi(getClient: GetClient = realClient) {
 
   return {
     backend: 'supabase' as 'server' | 'supabase',
+    // the native Apple sheet talks to the self-hosted server only; this backend's providers are not set up yet
+    appleNativeSignIn: async () => { throw new ApiError(404, 'Not available with this sign-in service.'); },
+    appleCode: async () => { throw new ApiError(404, 'Not available with this sign-in service.'); },
     /** which sign-in services the project has switched on (the public settings page; no sign-in needed). Nothing else is contacted. */
     health: async () => {
       let oauth: SignInProvider[] = [];
