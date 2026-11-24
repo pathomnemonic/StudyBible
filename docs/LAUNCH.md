@@ -27,7 +27,7 @@ The app is already an installable **PWA** (manifest, service worker, offline, up
 4. **iOS build**: set up for Codemagic cloud Macs (no local Mac); see `docs/IOS_BUILD.md` and `codemagic.yaml`. The manual route, if ever needed, on a Mac with Xcode:
    ```
    npm i @capacitor/ios && npm run build && npx cap add ios && npx cap sync ios
-   # replace the AppIcon set with store/ios/AppIcon/*, set the bundle id org.cathology.app and your team, then:
+   # replace the AppIcon set with store/ios/AppIcon/*, set the bundle id com.pathomnemonic.cathology and your team, then:
    npx cap open ios       # Product > Archive > Distribute to App Store Connect
    ```
 5. Fill the listings from `store/*/listing.md`, upload `store/` graphics, complete the rating and data-safety/privacy forms with the answers given.
