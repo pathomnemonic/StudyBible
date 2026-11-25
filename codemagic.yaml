@@ -82,6 +82,7 @@ workflows:
         script: npm run build
       - name: Create the Android project if needed and sync
         script: |
+          npm install --no-save @capacitor/android@^7.6.10
           if [ ! -d android ]; then npx cap add android; fi
           npx cap sync android
       - name: Set the version code
