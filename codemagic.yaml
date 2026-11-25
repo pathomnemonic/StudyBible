@@ -37,7 +37,10 @@ workflows:
       - name: Sync the web app into the iOS project and install pods
         script: npx cap sync ios
       - name: Set up code signing
-        script: xcode-project use-profiles
+        script: |
+          keychain initialize
+          keychain add-certificates
+          xcode-project use-profiles
       - name: Number the build (latest TestFlight build + 1)
         script: |
           LATEST=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID" 2>/dev/null || echo 0)
