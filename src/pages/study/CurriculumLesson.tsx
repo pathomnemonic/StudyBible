@@ -18,7 +18,7 @@ import { isKeyLesson, isLifeLesson } from '../../curriculum/keyLessons';
 import LessonRun from '../../curriculum/LessonRun';
 import LessonPlay from '../../curriculum/LessonPlay';
 import LessonPath from '../../curriculum/LessonPath';
-import { GoFurther, ReviewCard } from '../../curriculum/GoFurther';
+import { GoFurther, ReviewCard } from '../../curriculum/GoFurtherPanel';
 import MyLessonNotes from '../../curriculum/MyLessonNotes';
 import { BookmarkButton } from '../../curriculum/MyLessons';
 import { estimateTime } from '../../curriculum/duration';
