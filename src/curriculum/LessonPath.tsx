@@ -10,7 +10,7 @@ import { cccListSafe } from './model';
 import { contentPoints } from './teachpoints';
 import { saveLessonProgress, clearLessonProgress, getSavedStep } from './resume';
 import RelatedSources from './RelatedSources';
-import { GoFurther, ReviewCard } from './GoFurther';
+import { GoFurther, ReviewCard } from './GoFurtherPanel';
 import { TrackLinks, RelatedInApp } from './LessonLinks';
 import { WatchListen, DebateIt } from './LessonMedia';
 import type { Extras } from './extras';
