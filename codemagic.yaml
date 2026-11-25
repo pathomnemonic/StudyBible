@@ -62,3 +62,38 @@ workflows:
         # to TestFlight only; sending a build to App Review stays a manual step in App Store Connect
         submit_to_testflight: true
         submit_to_app_store: false
+
+  android-release:
+    name: Cathology Android (Play closed test)
+    instance_type: linux_x2
+    max_build_duration: 60
+    environment:
+      node: 22
+      java: 17
+      android_signing:
+        - cathology
+      vars:
+        # match the iOS store build: no sync server, no accounts
+        VITE_LOCAL_ONLY: "1"
+    scripts:
+      - name: Install web dependencies
+        script: npm ci
+      - name: Build the web app
+        script: npm run build
+      - name: Create the Android project if needed and sync
+        script: |
+          if [ ! -d android ]; then npx cap add android; fi
+          npx cap sync android
+      - name: Set the version code
+        script: |
+          sed -i "s/versionCode [0-9]*/versionCode $BUILD_NUMBER/" android/app/build.gradle
+          grep -n "versionCode" android/app/build.gradle
+      - name: Build the Android app bundle
+        script: |
+          chmod +x android/gradlew
+          cd android && ./gradlew bundleRelease
+      - name: Sign the bundle
+        script: |
+          jarsigner -keystore "$CM_KEYSTORE_PATH" -storepass "$CM_KEYSTORE_PASSWORD" -keypass "$CM_KEY_PASSWORD" android/app/build/outputs/bundle/release/app-release.aab "$CM_KEY_ALIAS"
+    artifacts:
+      - android/app/build/outputs/bundle/release/*.aab
