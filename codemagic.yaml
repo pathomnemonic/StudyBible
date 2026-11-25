@@ -9,7 +9,7 @@ workflows:
     max_build_duration: 60
     integrations:
       # the name you gave the App Store Connect API key in Codemagic (Teams > Integrations > App Store Connect)
-      app_store_connect: CHANGE_ME_ASC_KEY_NAME
+      app_store_connect: PathoMnemonic App Store Connect
     environment:
       ios_signing:
         # Codemagic creates or fetches the distribution certificate and App Store provisioning profile with the API key above
@@ -18,7 +18,7 @@ workflows:
       vars:
         BUNDLE_ID: com.pathomnemonic.cathology
         # the numeric "Apple ID" of the app record in App Store Connect (App Information > General). Used to number builds.
-        APP_STORE_APPLE_ID: CHANGE_ME_APP_STORE_APPLE_ID
+        APP_STORE_APPLE_ID: 6839357245
         XCODE_WORKSPACE: ios/App/App.xcworkspace
         XCODE_SCHEME: App
         # the store build: no sync server, no accounts (the Google Drive and sign-in flows need a web address the app does not have)
