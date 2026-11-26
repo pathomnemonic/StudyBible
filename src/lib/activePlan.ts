@@ -20,6 +20,15 @@ export interface ActivePlan {
   markDone: (i: number) => Promise<void>;
 }
 
+/** Whole calendar days from the local date of `startedAt` to the local date of `now`: a plan day rolls over at midnight, not 24 hours after the plan was started, and a daylight saving change never shifts it. */
+export function calendarDaysSince(startedAt: number, now = Date.now()): number {
+  const a = new Date(startedAt);
+  const b = new Date(now);
+  const am = new Date(a.getFullYear(), a.getMonth(), a.getDate()).getTime();
+  const bm = new Date(b.getFullYear(), b.getMonth(), b.getDate()).getTime();
+  return Math.round((bm - am) / 86400000);
+}
+
 /**
  * The one reading plan the person follows, resolved to "what do I read next". It is the plan chosen as theirs (Settings), or, if they never
  * chose, the only plan they have started. Used by the Bible tab, the reader and Today so the next passage is never more than a tap away.
@@ -44,7 +53,7 @@ export function useActivePlan(): ActivePlan | null {
     ? (() => { const u = userPlans.find((x) => x.id === +chosen.slice(5)); return u ? ({ id: chosen, name: u.name, description: '', category: 'bible', days: u.days } as PlanDef) : null; })()
     : built.find((p) => p.id === chosen) ?? null;
   if (!plan) return null;
-  const todayIdx = Math.max(0, Math.min(plan.days.length - 1, Math.floor((Date.now() - prog.startedAt) / 86400000) + prog.offsetDays));
+  const todayIdx = Math.max(0, Math.min(plan.days.length - 1, calendarDaysSince(prog.startedAt) + prog.offsetDays));
   // the Bible in a Year counts a day as done when you ticked it in the plan or finished its episode in the list, whichever you used
   const heard = new Set((epRows ?? []).filter((r) => r.completed).map((r) => r.episodeId));
   const doneSet = new Set(prog.done);
