@@ -89,6 +89,10 @@ workflows:
           npx cap sync android
       - name: Leave the downloadable packs out of the Android bundle
         script: python3 tools/native_slim.py android/app/src/main/assets/public
+      - name: Raise the minimum SDK to 24 (Play automatic protection requires it)
+        script: |
+          sed -i "s/minSdkVersion = 23/minSdkVersion = 24/" android/variables.gradle
+          grep -n "minSdkVersion" android/variables.gradle
       - name: Set the version code
         script: |
           sed -i "s/versionCode [0-9]*/versionCode $BUILD_NUMBER/" android/app/build.gradle
