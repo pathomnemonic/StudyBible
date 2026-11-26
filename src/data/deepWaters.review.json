@@ -2283,13 +2283,13 @@
   },
   {
    "id": "authored7-noah-flood-story",
-   "sha256": "d1d663dc6bdb1b6d7aff2b2b92cbdc55c6d0cf8f43dbb35e34acfab537e4eec4",
+   "sha256": "74f183717b748796dffbf964e7bce76639441e2140fb8fbf382471656f73167b",
    "answers": 36,
    "status": "unreviewed"
   },
   {
    "id": "authored7-garden-of-eden-story",
-   "sha256": "830aa3be7be44afd928eee50b9120fc9d72c230b200de7473685eea5b87d9427",
+   "sha256": "d2c01839f1f773de015aa818001f5f1fba2a65ef727c1acd0b4c2b17e559d480",
    "answers": 35,
    "status": "unreviewed"
   },
@@ -2307,7 +2307,7 @@
   },
   {
    "id": "authored7-david-and-goliath",
-   "sha256": "9401bf20d523b204c1cc60906d1f74bf2e89d1fb59e39c9e0d26b11e70623ca8",
+   "sha256": "de4a93771a2b2b2b600970089f48741238a438de8779dbeca35e07e612432b4a",
    "answers": 39,
    "status": "unreviewed"
   },
@@ -2319,7 +2319,7 @@
   },
   {
    "id": "authored7-jonah-story",
-   "sha256": "6cfaf51963300719dc79bf1c24ec70d844a50812519be41564cc9afce9fe52d5",
+   "sha256": "e8ea87e942bdf8eb7af2ed3805ec7f5aa924ec6ec2ad243be96fb2ea7f61db72",
    "answers": 31,
    "status": "unreviewed"
   },
@@ -2331,19 +2331,19 @@
   },
   {
    "id": "authored7-esther-book",
-   "sha256": "5c0e03bcd8ffcd752c83619d01c10efaba7bb7f983865eab67af3183361a8498",
+   "sha256": "07737ff682d02e4303269e352f0b0086e9bdb4d936c9a4c91efabd9c180698a8",
    "answers": 39,
    "status": "unreviewed"
   },
   {
    "id": "authored7-ruth-book",
-   "sha256": "52e0da680223346dc5fa797ec750e044da5593b32c9216f780b3e3f2043871e0",
+   "sha256": "875ecf713bc3e98d39d5b2b89830459295a49f539dfaa189dcf2cf5302522956",
    "answers": 36,
    "status": "unreviewed"
   },
   {
    "id": "authored7-job-book",
-   "sha256": "d70de7de776e5f21548a47014156b508414f4f7f320c31e520874b88f71cc7b4",
+   "sha256": "38c5e74b698a3026cbd5c6da7cec8abe32684e87a2d61dc754e2d99afd00e4ec",
    "answers": 41,
    "status": "unreviewed"
   },
@@ -2493,7 +2493,7 @@
   },
   {
    "id": "authored7-jacob-and-esau-story",
-   "sha256": "685843a333d9419427ada06e98ee04621a362ed4ad33ab33a6d5c42de590bc1f",
+   "sha256": "83e8a56b892cd3858476e0c1cd5f886c7b5eedbe523c4cf636b7d02fb50051e1",
    "answers": 39,
    "status": "unreviewed"
   },
@@ -2523,7 +2523,7 @@
   },
   {
    "id": "authored7-tobit-story",
-   "sha256": "d4f6ae08a1e3c9f8fdfc63224c6e8384b0e9b510b85f9af4f6c29cf7ae62a0a5",
+   "sha256": "5792adbbedd7fba559b8a23c6a8c3b69c7abd19c1236e7a04215b1d62822cdb7",
    "answers": 32,
    "status": "unreviewed"
   },
@@ -2667,7 +2667,7 @@
   },
   {
    "id": "authored7-nature-jesus-mentioned",
-   "sha256": "8a6a32e5ea29dc471e36d81438d307087ec952afd2056bd8fba446099d4e962d",
+   "sha256": "e047b02b1c5e1aa885ebaf1b70493f3c9a2184929dcef74ca497c6a741c7be38",
    "answers": 48,
    "status": "unreviewed"
   },
@@ -2685,7 +2685,7 @@
   },
   {
    "id": "authored7-paul-image",
-   "sha256": "302fe88617bc9700e7714cfb16ee27a55922dbe2e8ce80ee2f429cc7a4331276",
+   "sha256": "e0a344f7c1592cefcfdc9ca14f90600723d57b37afe13bb15ef5ac9d5fe568db",
    "answers": 41,
    "status": "unreviewed"
   },
@@ -2697,13 +2697,13 @@
   },
   {
    "id": "authored7-temple-jerusalem",
-   "sha256": "6c9b273ec5c9f23555eabf9de3e9001858a8c86d6ab14a54e07a267d1e977c5b",
+   "sha256": "93f1386f6e1737a8f2f761f3f13ed63a234abbf053340b9df5482a868ffe7423",
    "answers": 37,
    "status": "unreviewed"
   },
   {
    "id": "authored7-jewish-custom-gospels",
-   "sha256": "8bb5ef8c01f8c4c0264354c81f45558faadb4d93e5afe518f689308626ed9648",
+   "sha256": "73f58426a64a4dcdc7682aef06fba9314fd9776b7802380a0e27f4d39e3c6e93",
    "answers": 27,
    "status": "unreviewed"
   },
@@ -2715,7 +2715,7 @@
   },
   {
    "id": "authored7-matthew-only",
-   "sha256": "a375163edd11e75f86a2d0d9e010dbdbd848564da3d8cabca70931615e98b843",
+   "sha256": "4390ac842b43f1f042d4997ec7c2b959596380f429b58eb6fcc4de2cca24c318",
    "answers": 33,
    "status": "unreviewed"
   },
@@ -2727,7 +2727,7 @@
   },
   {
    "id": "authored7-nt-ruler",
-   "sha256": "fd107f1c2cd5686c13cdb4eff22ea4ed7e32bdd1af83beba14c6195138695cb5",
+   "sha256": "53b47c20f63e87a8b7ee099fbc25042e188e7b2c02e826bca38f771eb87fee2f",
    "answers": 34,
    "status": "unreviewed"
   },
@@ -2745,7 +2745,7 @@
   },
   {
    "id": "authored7-ot-figure-in-gospels",
-   "sha256": "9c7fc4130dbe205c919b3849f2e897be559cff4ba77756b57015e532730ce4ef",
+   "sha256": "7c6e32b904fb3cb74f39f1c7001537b89b3b8d0c9cbdf0a46fc8f23c9408d349",
    "answers": 42,
    "status": "unreviewed"
   },
@@ -2781,7 +2781,7 @@
   },
   {
    "id": "authored7-john-apostle",
-   "sha256": "9da3d712c65ca2f1ba77c2b7883ffba93c6e2dd881f74b289aeb78f4c30d90b6",
+   "sha256": "f1b084a5632636767c1caa69cd111cba9ed245c9190e82e67efcc818a12cf403",
    "answers": 34,
    "status": "unreviewed"
   },
@@ -2823,7 +2823,7 @@
   },
   {
    "id": "authored7-found-in-the-sanctuary",
-   "sha256": "44e1090c327906b68777be4e06c8849ec3d3e37e9304c2f84a8fe0d0805264b7",
+   "sha256": "fdb9700df0645252aa033e5a591e6ace91ed28011bd127f46b81c5fc63f4813d",
    "answers": 30,
    "status": "unreviewed"
   },
@@ -2889,7 +2889,7 @@
   },
   {
    "id": "authored7-in-the-month-of-november",
-   "sha256": "bd2ad45e6b3b0ce972222d5e2c23365067177bfef363923712edd3ae43f8545c",
+   "sha256": "513773749a40f970277dea3bf474342e5a5c9200f0540f01474c9c11489234bc",
    "answers": 37,
    "status": "unreviewed"
   },
@@ -3081,7 +3081,7 @@
   },
   {
    "id": "authored7-all-saints-all-souls-things",
-   "sha256": "c95fdd0c24494c97b2afb30fe3a7f74abac8f343bac75aae630b7cf5a623f541",
+   "sha256": "7e30aa561273d451732803cb654604c4162ae8c86abec2650011ca66518e4707",
    "answers": 34,
    "status": "unreviewed"
   },
@@ -3123,7 +3123,7 @@
   },
   {
    "id": "authored7-gestures-in-catholic-worship",
-   "sha256": "af1ee0a5bbcfd08d2f99a0c84af7d6ac6a56106f1da825e5236478146111866e",
+   "sha256": "896c456d7a5f233dd9d17482040485e5762bfea8ca0942a3f886e4c171c191e6",
    "answers": 29,
    "status": "unreviewed"
   },
@@ -3177,7 +3177,7 @@
   },
   {
    "id": "authored7-catholic-sunday-things",
-   "sha256": "721be11ba2a9ada8199ef6121967515cb282f32460d555293c7435bb68204995",
+   "sha256": "c18ac3983f2e0c4752c73d31723a16b5da2f5e4f6c9005635e94d40d9c188232",
    "answers": 27,
    "status": "unreviewed"
   },
@@ -3195,7 +3195,7 @@
   },
   {
    "id": "authored7-ways-catholics-help-the-poor",
-   "sha256": "1e50789aa270971c7097ca16b7f55125c1f6f6c674777cc442a25485ac157862",
+   "sha256": "2ca5d928aa2d13de5698c7f2803ff96f2f8bf0ad59e24b291538633fdd18994d",
    "answers": 46,
    "status": "unreviewed"
   },
@@ -3207,7 +3207,7 @@
   },
   {
    "id": "authored7-what-nuns-do",
-   "sha256": "918020f566d0748d0c917428ebdf7255256863b962fba5306b8ffb5964457d5f",
+   "sha256": "b2824a1d9c446795c15071cb176d04b94c21d3449640dc401e95eaae31c3342b",
    "answers": 35,
    "status": "unreviewed"
   },
@@ -3273,7 +3273,7 @@
   },
   {
    "id": "authored7-church-history-event",
-   "sha256": "860d3060fa29f6cf3ed19063541147836b5d48665ecd9df07c9e16d9bc21f0b2",
+   "sha256": "46f9f2de154c33bc377d32e6596214c265a6b8b44f337339c5ebb8bc6914ade8",
    "answers": 61,
    "status": "unreviewed"
   },
@@ -3285,13 +3285,13 @@
   },
   {
    "id": "authored7-foreign-catholic-custom",
-   "sha256": "911815ee47c50cb4e094db077a2611a9e1c5d701ed1ac926f6d2f94f309f629d",
+   "sha256": "1a0fe346a6be7baea21a779744b7ba52f1f46a99487ca5a240512b2b481503a2",
    "answers": 43,
    "status": "unreviewed"
   },
   {
    "id": "authored7-pope-wears",
-   "sha256": "d1f3937241650a0ef3cf5848ff83998e27e6929e592c0cd4527f45804d4d3e8e",
+   "sha256": "04c1aa9d294b5e6b27710040de943200ea3330ca45f5f538ca76ee18c2e3ecfa",
    "answers": 31,
    "status": "unreviewed"
   },
@@ -3309,7 +3309,7 @@
   },
   {
    "id": "authored7-church-history-city",
-   "sha256": "603d67fba7a32c324d43ca6e9575bd3650fa55016748723a3b2f83c902333861",
+   "sha256": "8aac6779bcb3045cb3de39b0a5bbc8f126f1287e9b0c0ed181ab9aaddf91d123",
    "answers": 52,
    "status": "unreviewed"
   },
@@ -3321,7 +3321,7 @@
   },
   {
    "id": "authored7-catholic-philosopher",
-   "sha256": "4a3c0018b549875c0f5ad70e0fe36b3884697e13c6571cbfe5fc5e8cfbccd972",
+   "sha256": "384629e1281c188d3068400ebc11512be19c1793592cd2c956143858b031998e",
    "answers": 55,
    "status": "unreviewed"
   },
@@ -3411,7 +3411,7 @@
   },
   {
    "id": "authored7-pope-visited-country",
-   "sha256": "b5e7dfa03eadbac8aa1070d25845f58e8163e3e65f0813809894676034639111",
+   "sha256": "5bdef78387d5011acb83be083e5730cc4b892af44ab4cf10c64637bee70d71e9",
    "answers": 90,
    "status": "unreviewed"
   },
@@ -3543,7 +3543,7 @@
   },
   {
    "id": "authored7-vocations",
-   "sha256": "d22180e0879bec864203494b7646d1d56e00cd0ffe7c1a8af02b4220d9036c9e",
+   "sha256": "cc98260ad2ab0c004078eba3a6d23b2d8e1a0d12c5faea7ac78768b258475e38",
    "answers": 31,
    "status": "unreviewed"
   },
@@ -3573,7 +3573,7 @@
   },
   {
    "id": "authored7-people-to-pray-for",
-   "sha256": "29498a0d8f47ab16d6c3dc31d9e67b676eaf5a6abbdd65010b3d8ef02181fed2",
+   "sha256": "7fed544a08ca106375696859c7c9016ea2fee879bac15672e325ef1333fcb7f4",
    "answers": 44,
    "status": "unreviewed"
   },
@@ -3597,7 +3597,7 @@
   },
   {
    "id": "authored7-things-put-before-god",
-   "sha256": "81ea8346314469894e2ad0ad767ccd378c1e7320d89f0f3ed54b354c31c1396a",
+   "sha256": "ee64c957833166110cc49c78db531b1f1e65e42359814d6f18f144df53f0b722",
    "answers": 34,
    "status": "unreviewed"
   },
@@ -3621,13 +3621,13 @@
   },
   {
    "id": "authored7-ways-to-respect-life",
-   "sha256": "095c6d285e0067423997eff494e9d78697cfcc2a3490ec7908604d32e32f5a22",
+   "sha256": "11e641841175394053098a21012170c642e8d873c252e52a22aeeeb97c739c28",
    "answers": 30,
    "status": "unreviewed"
   },
   {
    "id": "authored7-protection-from-evil",
-   "sha256": "01fd564af2e33571f49ce4198c858092fb00f7daaf92039ea8dc0c413eb2bdd1",
+   "sha256": "4f0bcb87cb3d4cca5466203f50e9247cf747926be63f82baaaa13d0b0aa72bf3",
    "answers": 30,
    "status": "unreviewed"
   },
@@ -3639,7 +3639,7 @@
   },
   {
    "id": "authored7-ways-to-love-your-neighbor",
-   "sha256": "51be6dff3d978846ec1af9cb63b6e61cb9c19a648e1c26dfd0c561e55f3d6000",
+   "sha256": "e1c31c1548829dea591eb3bdb04d08f2072416009f0f02d242bcf41af9c52370",
    "answers": 37,
    "status": "unreviewed"
   },
@@ -3699,7 +3699,7 @@
   },
   {
    "id": "authored7-reasons-people-become-catholic",
-   "sha256": "d29a2ef852d51341d342e4d326ae326f07c748a61205c86a01f4d003432d3407",
+   "sha256": "492f3a9222a40cb879269a6f8313bb9d8b51d6c6cbf60008ab88f296fa58a82b",
    "answers": 34,
    "status": "unreviewed"
   },
@@ -3717,7 +3717,7 @@
   },
   {
    "id": "authored7-holy-land-site",
-   "sha256": "1f50cbe827aaf9c14085419631a60bae66125f1d5b18443b61612eea1b537cda",
+   "sha256": "c214b0bcc1f71ffb19e1f8fc225bda90a78e489a3e44686e1ecde9965e10d298",
    "answers": 45,
    "status": "unreviewed"
   },
@@ -3771,7 +3771,7 @@
   },
   {
    "id": "authored7-marian-hymn",
-   "sha256": "c4130faba516be5bee0ee708988c5e81daa420e3aec363d14346b7d978810fbb",
+   "sha256": "5ad3f305f57b11a4605eb8b929d281d7dbdcfcb8c4ee91ec7530e25f1180f3b9",
    "answers": 31,
    "status": "unreviewed"
   },
@@ -3819,7 +3819,7 @@
   },
   {
    "id": "authored7-holy-place-ireland",
-   "sha256": "447dbb0f168b231c8938718b1dbb714fc4d0b3ecacf7aafd07434a1cd7115c5f",
+   "sha256": "a941943d87d565efa0e7c4b03f72ccb0f84985b6f0a722265c143df42bf6ab49",
    "answers": 33,
    "status": "unreviewed"
   },
@@ -3927,7 +3927,7 @@
   },
   {
    "id": "authored7-custom-poland",
-   "sha256": "ede6b6e6a7404d969fad6f5ecb4909f1fadb5e6d8116e12fe92740595af1e75a",
+   "sha256": "5b755d8f97d35195857cffd15c823186491caa947e1d1ea7b9f51bbe73fd7fa0",
    "answers": 33,
    "status": "unreviewed"
   },
@@ -3945,7 +3945,7 @@
   },
   {
    "id": "authored7-paris-church",
-   "sha256": "0326d11df0564dc9b064a4f1e4b458869e7fc7664ae1dbb9c1fed2ed7497b00c",
+   "sha256": "1e0bdf06be7ea9ac678e7d4afedd5ecd02ec327867cee06a5f92308786cf5694",
    "answers": 30,
    "status": "unreviewed"
   },
