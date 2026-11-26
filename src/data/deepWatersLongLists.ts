@@ -33,12 +33,12 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "tier": 2
    },
    {
-    "answer": "Credo in unum Deum",
-    "tier": 3
-   },
-   {
     "answer": "Sanctus",
     "tier": 2
+   },
+   {
+    "answer": "Credo in unum Deum",
+    "tier": 3
    },
    {
     "answer": "Benedictus",
@@ -484,15 +484,15 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "tier": 1
    },
    {
+    "answer": "Docetism",
+    "tier": 3
+   },
+   {
     "answer": "Semi-Arianism",
     "tier": 5,
     "aliases": [
      "Homoiousianism"
     ]
-   },
-   {
-    "answer": "Docetism",
-    "tier": 3
    },
    {
     "answer": "Gnosticism",
@@ -786,15 +786,15 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
-    "answer": "Summa contra Gentiles",
-    "tier": 3
-   },
-   {
     "answer": "The Imitation of Christ",
     "tier": 1,
     "aliases": [
      "Imitation of Christ"
     ]
+   },
+   {
+    "answer": "Summa contra Gentiles",
+    "tier": 3
    },
    {
     "answer": "Introduction to the Devout Life",
@@ -845,10 +845,7 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
    {
     "answer": "The Rule of Saint Benedict",
     "tier": 1,
-    "aliases": [
-     "Rule of Benedict",
-     "Rule of Saint Benedict"
-    ]
+    "aliases": ["Rule of Benedict"]
    },
    {
     "answer": "Rule of Saint Augustine",
@@ -1167,15 +1164,15 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
-    "answer": "Raymond of Penyafort",
-    "tier": 6
-   },
-   {
     "answer": "Hilary of Poitiers",
     "tier": 5,
     "aliases": [
      "Hilary"
     ]
+   },
+   {
+    "answer": "Raymond of Penyafort",
+    "tier": 6
    },
    {
     "answer": "Anthony the Abbot",
@@ -2063,15 +2060,15 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
+    "answer": "Medjugorje",
+    "tier": 2
+   },
+   {
     "answer": "Walsingham",
     "tier": 3,
     "aliases": [
      "Our Lady of Walsingham"
     ]
-   },
-   {
-    "answer": "Medjugorje",
-    "tier": 2
    },
    {
     "answer": "Aparecida",
@@ -2555,12 +2552,12 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "tier": 2
    },
    {
-    "answer": "Medes",
-    "tier": 3
-   },
-   {
     "answer": "Romans",
     "tier": 1
+   },
+   {
+    "answer": "Medes",
+    "tier": 3
    },
    {
     "answer": "Greeks",
@@ -2826,7 +2823,7 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
   "theme": "scripture",
   "basis": "Hand-authored; the books of Genesis to Esther, Daniel, the Gospels and Acts.",
   "prompt": "Name a foreign king, queen, emperor or governor in the Bible.",
-  "context": "Rulers outside Israel and Judah, from Pharaoh to Pontius Pilate.",
+  "context": "Rulers outside Israel and Judah.",
   "answers": [
    {
     "answer": "Pharaoh",
@@ -2852,12 +2849,12 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
-    "answer": "Artaxerxes",
-    "tier": 3
-   },
-   {
     "answer": "Belshazzar",
     "tier": 2
+   },
+   {
+    "answer": "Artaxerxes",
+    "tier": 3
    },
    {
     "answer": "Sennacherib",
@@ -3157,7 +3154,7 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
   "theme": "doctrine",
   "basis": "Hand-authored; Catechism of the Catholic Church glossary and standard theological dictionaries.",
   "prompt": "Name a term used in Catholic theology.",
-  "context": "Words from doctrine, the sacraments, moral teaching and the study of Scripture.",
+  "context": "Words from doctrine, moral teaching and the study of Scripture.",
   "answers": [
    {
     "answer": "Trinity",
@@ -3196,12 +3193,12 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "tier": 1
    },
    {
-    "answer": "Beatific vision",
-    "tier": 3
-   },
-   {
     "answer": "Transubstantiation",
     "tier": 1
+   },
+   {
+    "answer": "Beatific vision",
+    "tier": 3
    },
    {
     "answer": "Real Presence",
@@ -3641,15 +3638,11 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
   "theme": "scripture",
   "basis": "Hand-authored; the four Gospels.",
   "prompt": "Name an event in the life of Jesus told in the Gospels.",
-  "context": "From the Annunciation to the Ascension.",
+  "context": "The events of his life, from the Gospels.",
   "answers": [
    {
     "answer": "Annunciation",
     "tier": 1
-   },
-   {
-    "answer": "Visitation",
-    "tier": 3
    },
    {
     "answer": "Nativity",
@@ -3657,6 +3650,10 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "aliases": [
      "Birth of Jesus"
     ]
+   },
+   {
+    "answer": "Visitation",
+    "tier": 3
    },
    {
     "answer": "Visit of the shepherds",
@@ -4031,15 +4028,15 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "tier": 1
    },
    {
+    "answer": "Honey",
+    "tier": 1
+   },
+   {
     "answer": "Olive oil",
     "tier": 2,
     "aliases": [
      "Oil"
     ]
-   },
-   {
-    "answer": "Honey",
-    "tier": 1
    },
    {
     "answer": "Milk",
@@ -4307,7 +4304,7 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
   "theme": "scripture",
   "basis": "Hand-authored; the Old and New Testaments.",
   "prompt": "Name a trade or occupation mentioned in the Bible.",
-  "context": "Work done by people in either Testament, from shepherd to tax collector.",
+  "context": "Work done by people in either Testament.",
   "answers": [
    {
     "answer": "Shepherd",
@@ -4342,12 +4339,12 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "tier": 1
    },
    {
-    "answer": "Levite",
-    "tier": 3
-   },
-   {
     "answer": "Prophet",
     "tier": 1
+   },
+   {
+    "answer": "Levite",
+    "tier": 3
    },
    {
     "answer": "Judge",
@@ -4629,7 +4626,7 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
   "theme": "church-history",
   "basis": "Hand-authored; the Annuario Pontificio list of popes.",
   "prompt": "Name a name taken by a pope as his papal name.",
-  "context": "Any regnal name used by at least one pope, such as Leo, John or Francis.",
+  "context": "Any regnal name used by at least one pope.",
   "answers": [
    {
     "answer": "Peter",
@@ -4640,15 +4637,15 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "tier": 3
    },
    {
+    "answer": "Clement",
+    "tier": 1
+   },
+   {
     "answer": "Anacletus",
     "tier": 4,
     "aliases": [
      "Cletus"
     ]
-   },
-   {
-    "answer": "Clement",
-    "tier": 1
    },
    {
     "answer": "Evaristus",
@@ -5049,12 +5046,12 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "tier": 2
    },
    {
-    "answer": "Lord of Lords",
-    "tier": 4
-   },
-   {
     "answer": "King of the Jews",
     "tier": 2
+   },
+   {
+    "answer": "Lord of Lords",
+    "tier": 4
    },
    {
     "answer": "Prince of Peace",
@@ -5390,12 +5387,12 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "tier": 4
    },
    {
-    "answer": "Peacock",
-    "tier": 4
-   },
-   {
     "answer": "Alpha and Omega",
     "tier": 2
+   },
+   {
+    "answer": "Peacock",
+    "tier": 4
    },
    {
     "answer": "IHS",

@@ -3,37 +3,37 @@
  "entries": [
   {
    "id": "orders",
-   "sha256": "9e3674ebc84826191b6ecbd75fa13510d6deda141d8cf3af93b2d283c77714ef",
+   "sha256": "282dfc5773103f176ffe4e14bf1d71052cb3be5f889f09f68b6eef17806d984b",
    "answers": 77,
    "status": "unreviewed"
   },
   {
    "id": "marian",
-   "sha256": "1f9eb5dd3bc3e16eeef5ce1cd5ca12e8a821bb4bdae2a3a8b005dc64dc464f7f",
+   "sha256": "3bbdf28e3d2961a4fae97d093d49152af0589d93ff416c8daf2fca5c263923fd",
    "answers": 86,
    "status": "unreviewed"
   },
   {
    "id": "fathers",
-   "sha256": "200e7989b068a1df00265dfcb334b492ff4a5a0b05b1fe6ed9c391a322492c20",
+   "sha256": "8dc0a7574683958cb4c14fe06cd909deb5880d2a48efbbc6332a648b02e0b780",
    "answers": 69,
    "status": "unreviewed"
   },
   {
    "id": "councils",
-   "sha256": "d16c39f014a22c85267dd6c6c084f75ece59cd155a260c6944957eb27ba5c646",
+   "sha256": "6b69ffc5148a80f5783d95d3ab406552261d256d212ac5052c74b494b5dd6438",
    "answers": 21,
    "status": "unreviewed"
   },
   {
    "id": "deuterocanon",
-   "sha256": "264ca7e74f7ae5d421c2370bb2a521c5f02ebf7b95606137457d34bd02c4b98e",
+   "sha256": "e161b893e8710fcf6d73d5ababf9574ad9a631863eaca47ad76d803678a96eb9",
    "answers": 13,
    "status": "unreviewed"
   },
   {
    "id": "devotions",
-   "sha256": "314250c3024ad56300e9bc65537a55883792a5902db80898bd9e749aa6fa557c",
+   "sha256": "942f2147865fd8ba35688ed0ea55019cdf53bb5bd7463bdde0c8122a5d4afa85",
    "answers": 75,
    "status": "unreviewed"
   },
@@ -45,61 +45,61 @@
   },
   {
    "id": "popes",
-   "sha256": "c195ffb54c71b0dec98ed32d8d9d2ecd180d85d54b819f5adc5a951d8484a5cc",
+   "sha256": "3903eba201f6e888de482a7a679f491948357134024f79387b8aed54198a16c7",
    "answers": 76,
    "status": "unreviewed"
   },
   {
    "id": "women",
-   "sha256": "e99c47e1a63753d9f8e50d4150975b485eff5b555110f750d9237f9b10ead799",
+   "sha256": "09bbc6409667d139fadf2808d539f138b609ed4b13b3f29d1c7c9a77f3e6e791",
    "answers": 86,
    "status": "unreviewed"
   },
   {
    "id": "places",
-   "sha256": "522e9634b2ae19da0821d3c647a7944a53eb776ae79cd2ca3e488b42bd884aa2",
+   "sha256": "f9c2d39b3cc12b51e3ca48ac6331c1d9cb4cadb6695b78de0dcb5b1919246296",
    "answers": 106,
    "status": "unreviewed"
   },
   {
    "id": "apostles",
-   "sha256": "b17343cdc19527b8bb379cb5aa60e87cb3e7454ff1ea9dcc0a280f68ede41186",
+   "sha256": "a2aeafbf409c7fcca01c0a174c412246abaa5fffccc8ad8a5bb1d010cec538df",
    "answers": 13,
    "status": "unreviewed"
   },
   {
    "id": "doctors",
-   "sha256": "20494f55eb834bfeafb6c735ea4d0b10a1ddaf97fbd11bce49e8edc13e9835f4",
+   "sha256": "ffb4d1b326b235eeddac88e16b87b0763283592d7d478425855a8d02473e9188",
    "answers": 38,
    "status": "unreviewed"
   },
   {
    "id": "ntbooks",
-   "sha256": "a31aa95cb326288614f02b1936ed0e2a3a2a2bde80c81f455eae4268490d9c77",
+   "sha256": "72517e407fefcb5c8b07aa64e76c8ad893e7580bb7de4aa8c104030a02bc7673",
    "answers": 27,
    "status": "unreviewed"
   },
   {
    "id": "otbooks",
-   "sha256": "3a105c6af5b67877a9577f4aafa6a8a5106d9f6af57c77b90a034373376a7f21",
+   "sha256": "6a4b32460ac40dc828d04844c7cc398e16c9be1e9a37b4b5df8297c5ea2d6b32",
    "answers": 46,
    "status": "unreviewed"
   },
   {
    "id": "mysteries",
-   "sha256": "bf7fd28e44306ec7020a62bd2f47953f513b68b5ac28168ba1ff32bce92ea6bd",
+   "sha256": "395b0cdda9229ef204feb8362f92d862b9e1b444606aba81fbdc1b144d989017",
    "answers": 20,
    "status": "unreviewed"
   },
   {
    "id": "sacraments",
-   "sha256": "37c830b42721c7f1aa0ae065abab3ab8a8238f6ced988de4a2da814551e72de6",
+   "sha256": "6300a4b4214d10666cd1c724fe4acc15139c2915014d1a18566c2d426a82ee34",
    "answers": 7,
    "status": "unreviewed"
   },
   {
    "id": "virtues",
-   "sha256": "3f5f98510b36023235e5861359373ee144e9403868c55c272449aeaa1f3d981c",
+   "sha256": "5924676df4ba200c5d113ff30eea057e7db56ae35876352eaa0a4db2375fe758",
    "answers": 7,
    "status": "unreviewed"
   },
@@ -111,97 +111,97 @@
   },
   {
    "id": "gifts",
-   "sha256": "d83e106a6a0126c8d4143b894ba58e81b09bc00cd06e0fccdab7c54873c0afca",
+   "sha256": "9ba512bbb1d7d85e3315b0a3261506752a58f3d6ce453dfac9000e8b7b53d13d",
    "answers": 7,
    "status": "unreviewed"
   },
   {
    "id": "fruits",
-   "sha256": "03e81ae0ce6dc82a1cd744490ae0e1fe04e6e3cf9b2f3748a92597b04dffebcb",
+   "sha256": "f5e7a3ae3a898343fae876fa100d974fed56c95fdeeaa545ab126f51d2280910",
    "answers": 12,
    "status": "unreviewed"
   },
   {
    "id": "corporal-works",
-   "sha256": "598382e0233e41cc25ec92817e504c0e11589c4ceb68f4bfd38ce3e27121d7e7",
+   "sha256": "a02ba1c2c80e9abf802bbef48e87367adceb2e02641b9cc65799b8b73eb4c568",
    "answers": 7,
    "status": "unreviewed"
   },
   {
    "id": "spiritual-works",
-   "sha256": "e1090f3ef1a7933475bd2a400b7b18121a7ac48c39f19a67dba02bcf8b459108",
+   "sha256": "228c23b841e10b71e9b5103b4fcfcd9b3372c537000555901604b5f60d1ff623",
    "answers": 7,
    "status": "unreviewed"
   },
   {
    "id": "plagues",
-   "sha256": "d33768a4eaf4e45e7b22e691d30bb939f972c02a0590213bc779fd4b56daf146",
+   "sha256": "7db2978f0bfedba0621ade4ff03bc676570622d69e9e004a4639116ce5025eb2",
    "answers": 10,
    "status": "unreviewed"
   },
   {
    "id": "sons-of-jacob",
-   "sha256": "1409438b94e6a0f64cc377159f21f217e66ea73049d6525c8cad5ec858dd8d4c",
+   "sha256": "fa53601a80dd8f264f4b21e789324f5713d8dad3dfcd28829780260271724fd8",
    "answers": 12,
    "status": "unreviewed"
   },
   {
    "id": "minor-prophets",
-   "sha256": "7e74bf3a5e1b1a541a8fa5dbdfb945cfbc5bac7622d05f0f83b6e8e59fae980c",
+   "sha256": "89547315c25a8a1161654f003e9db076bf4f56bd5186c71bd39033b462c374b9",
    "answers": 12,
    "status": "unreviewed"
   },
   {
    "id": "ot-prophets",
-   "sha256": "21af99d20acb376c12f802455c2732d48ca4d74b7e614d858269ef09165008ea",
+   "sha256": "37f12863e3052ea50873d8e649788fb69054bb69c91c0d26d31d8b31d97942b1",
    "answers": 42,
    "status": "unreviewed"
   },
   {
    "id": "kings-of-israel",
-   "sha256": "676f08fb34db6e133d4a4c1af59a289a07458c6bf43ecef860db3d3aeb99ad92",
+   "sha256": "d86d373144a2b632da3edfe532d6b3aadd80d48655a8874d455009a629d68652",
    "answers": 39,
    "status": "unreviewed"
   },
   {
    "id": "judges",
-   "sha256": "74d63dd95efa8b1025f4c340f77cfde88b65231da4f626c5582d0205bd0887c9",
+   "sha256": "b6a42e93aeda6ec20534c8449609206347dd5111a45915119a03176d1142a2de",
    "answers": 14,
    "status": "unreviewed"
   },
   {
    "id": "parables",
-   "sha256": "d7459c096d5dde699c3c9954f1934f1cc024d1bd3e51235bf9b0b1da84426e40",
+   "sha256": "d66dc994c8ecbb648109f7d07f7679ad49349bc9e7659c54e4846b90cd6616ba",
    "answers": 34,
    "status": "unreviewed"
   },
   {
    "id": "miracles",
-   "sha256": "84fad88b085ffc659e8aaf422e72d51073fbecfc0092830f31f4806c1c3d1c14",
+   "sha256": "f7060f206ebabbc57b96e1e2e20917346f474d21588764ba735d0b6687ff6573",
    "answers": 33,
    "status": "unreviewed"
   },
   {
    "id": "pius",
-   "sha256": "e3311425d8e842d3fac85dabded2d7eee10a61fb0f2b6735a006276d8fe6175a",
+   "sha256": "48125a09a162e4079f097d8817d9b6a6783d7f8b7b53d784a5bcb4d35657fd98",
    "answers": 12,
    "status": "unreviewed"
   },
   {
    "id": "popes-20c",
-   "sha256": "219bbde2e2d3211a994c162a93fee8a2454b37cd032f8cc7483d7431398c4cab",
+   "sha256": "6fae3d020af80fc4916b42744738910237fa5a60fcdc659096ae26886aefde0f",
    "answers": 9,
    "status": "unreviewed"
   },
   {
    "id": "encyclicals",
-   "sha256": "9669e98623923ab0431b9372057734ea1a837aefcb2e3e2d9d84ea0e953fd9c4",
+   "sha256": "2cd275bcc596e869886634b50e7c1b5b58609747575ed21c4dee692ba35a7635",
    "answers": 53,
    "status": "unreviewed"
   },
   {
    "id": "holy-days",
-   "sha256": "9a332d3fd9f12584adad1ddc1d23253ab7e272b9f637442c3fdf5b415e73d913",
+   "sha256": "1247a2871d3c8a3ca2728d743019e16ad79ffd3dee124774e29b345a2898d186",
    "answers": 6,
    "status": "unreviewed"
   },
@@ -213,37 +213,37 @@
   },
   {
    "id": "vestments",
-   "sha256": "b23361e57274c79a5e5714587cc6d5f52fb50300869360f99f86de9ebfbddd3a",
+   "sha256": "eec21e551e996b928b44a522c9688484f40a1b25903f18ac54fef835771c78c2",
    "answers": 29,
    "status": "unreviewed"
   },
   {
    "id": "church-furnishings",
-   "sha256": "e5e3f20299a2ca4f2e27c53bce4d2bd0f1b673d0b2020d7cca85feedb33572a8",
+   "sha256": "c83bd9aba54e0058393dfeef96a3f4aa96647268fe55c90c2213ef1dcfe96a4f",
    "answers": 44,
    "status": "unreviewed"
   },
   {
    "id": "sacred-music",
-   "sha256": "3c195c30a783e4e61aaff4c72ce100f794789a80c1292b84452ea7c97857c842",
+   "sha256": "bfd4868aed3a25fcc2a5c68df2aa8562c77f4c4dd9a725d336c72728445075b1",
    "answers": 53,
    "status": "unreviewed"
   },
   {
    "id": "sacred-art",
-   "sha256": "5b243c69a501270a48962baa43d67acfebeb1afe4511c889b9b57e5c1e3f70d4",
+   "sha256": "104cc386048aded2285d64f24af039be96e8145e372fe68d03750b067f5b34b0",
    "answers": 45,
    "status": "unreviewed"
   },
   {
    "id": "catholic-writers",
-   "sha256": "db5ce39b8479f7f1ae674e36b10f0dba4837d3c416814e8d3a0a60689ad9cb8c",
+   "sha256": "d89a583224a616af2bfb20f06ca1c33a9957bcbf2f20af20b744d50717741069",
    "answers": 67,
    "status": "unreviewed"
   },
   {
    "id": "seven-churches",
-   "sha256": "0887246fbf9124881e6e36f67ba948570cc6036eaa3a59eeaf6dbbc13a6be87f",
+   "sha256": "e221813250b6283426c0cc6f34afdabd2549b7b10cd8909c41c2343d8bdc1c5e",
    "answers": 7,
    "status": "unreviewed"
   },
@@ -285,19 +285,19 @@
   },
   {
    "id": "authored-pauline-coworkers",
-   "sha256": "2657d825ff21d01f2ffd98ab585e75e2b999b31253e72c5639323f7787109479",
+   "sha256": "9b6f7f7dd13267d03d4631e0c141169e9308c71a65b2c3769316b59e6c77e87c",
    "answers": 28,
    "status": "unreviewed"
   },
   {
    "id": "authored-romans16-women",
-   "sha256": "638321c7e0e21cc5e78ed1c0140315bf3774891b56727f581600af88f25dcb00",
+   "sha256": "b702660d4ff460f0299d7e19f425d4ee3c5b088134de8174b239a877ba41f6de",
    "answers": 10,
    "status": "unreviewed"
   },
   {
    "id": "authored-luke-parables",
-   "sha256": "a178a4169056383d0c83bb6f90d7e69054571cac2b633444ebb73b02f50007b8",
+   "sha256": "4b18d3856f6b7c8617ec7904951799f6c3a21951ef27cb9c334020e884265a54",
    "answers": 16,
    "status": "unreviewed"
   },
@@ -309,145 +309,145 @@
   },
   {
    "id": "authored-resurrection-witnesses",
-   "sha256": "e384f36e3c3020a23aadf04c3066358cb5d2e226b99e6092dfe5c52f52b39bd7",
+   "sha256": "603641089c4e33973416e4d33eeb0dc520a2f9a0ea953c740a4e886357d9a032",
    "answers": 13,
    "status": "unreviewed"
   },
   {
    "id": "authored-marian-litany",
-   "sha256": "13d65570796c830e51b001dbfc35b9cc94e923bc1122211a58ddf947fe974396",
+   "sha256": "33db8432a47c4fff939844beb459d1eb2198a0e746dc0b9dfbfa57cdfcc615a1",
    "answers": 54,
    "status": "unreviewed"
   },
   {
    "id": "authored-early-martyrs",
-   "sha256": "e0ae2aa87cea8f2f222fc9818c0cf29eba9ea16472cecc55d5a791bbd301489d",
+   "sha256": "35d1279385d8a6ecb01df016a913a3ee89b9090db8c8c44860b64d1c7f2fc3b6",
    "answers": 28,
    "status": "unreviewed"
   },
   {
    "id": "authored-prophets-before-kings",
-   "sha256": "0be06eb38798d95e395be3a6f178f84704052ebecb2d7899add7db89eaf5bd6e",
+   "sha256": "4cdc2532f559e7e5623be98d5546d9a80a6d7f9c76b08e15ce9c9e124e2d4a78",
    "answers": 15,
    "status": "unreviewed"
   },
   {
    "id": "authored-women-in-acts",
-   "sha256": "acfdade90a4ba24fa20f1debf79dece86faccb455f875f9946c6e3084a74b886",
+   "sha256": "7f3741175b7d72fcd12188ae92413a6ad252256c5e6bbac4f5736701b47cbdcc",
    "answers": 8,
    "status": "unreviewed"
   },
   {
    "id": "authored-jesus-healings",
-   "sha256": "2f8d24ea40e7c9a8c2b208ef6ba9086770277c0753dfd229cd2e70998e69f25d",
+   "sha256": "1f7d3d8e877ade51601a2d11596c080040d5fcdcc935d6929fa78413b553ffa8",
    "answers": 13,
    "status": "unreviewed"
   },
   {
    "id": "authored-johannine-titles",
-   "sha256": "e7624c206e8c9909fbf285fa6783148232f6a3c882e05e56e25b900919951bbc",
+   "sha256": "6a1d06e0a267d187e217660f54828da05f0616e7b44ab6842274cae1d6a78cd7",
    "answers": 24,
    "status": "unreviewed"
   },
   {
    "id": "authored-revelation-images",
-   "sha256": "8a7fb20e56df5f38c796ea22c2590260c12aad4433a38799bee055f27ee6ea8e",
+   "sha256": "3dca01b379e55ca3366ea9d66803403ec4c6b722f2c403ce45c5ca6e9b35dc80",
    "answers": 31,
    "status": "unreviewed"
   },
   {
    "id": "authored-liturgical-observances",
-   "sha256": "ff898b33c7fa1d7676f1024adc38719d010d9d45959e0f9ac24003a455209ba0",
+   "sha256": "5c48b0db1c4c61e2d499c11a9485e07cf20fa9a2c4ae878218c43cad1384ed80",
    "answers": 40,
    "status": "unreviewed"
   },
   {
    "id": "authored-pauls-first-journey",
-   "sha256": "982bfc9453929577759d0f9fa5e518947e185b17c2b29d488b343610dd8b669b",
+   "sha256": "e60de10b39414457ea42193e1a67e0a07b983039468fe5d933503385951779e1",
    "answers": 14,
    "status": "unreviewed"
   },
   {
    "id": "authored-latin-worship",
-   "sha256": "c04c738b79adc5a28399443d2af01bf75d5e983f37a4fb85416f2900a9fd11b7",
+   "sha256": "874b766d5da58a084a5b0adcbecf896b4bbb802fc2533b5398829d15fad84707",
    "answers": 105,
    "status": "unreviewed"
   },
   {
    "id": "authored-heresies",
-   "sha256": "c009457adc38694339cac1ab1472f25c34e0f85e56824f005c2fadf189ed809b",
+   "sha256": "38d7cfe98c1d824f1c36468b2399381cbc45819d7f730ad3b33191e42ca1a2ad",
    "answers": 63,
    "status": "unreviewed"
   },
   {
    "id": "authored-catholic-classics",
-   "sha256": "9135a541649d4d420f462dc4facb4c2423a840a1bc09d3b8008d81b3737c37e3",
+   "sha256": "855d6c2a7c657fe58d2ccfbaecdb7dd107db9a7035b45440d5b38e21f09c7534",
    "answers": 76,
    "status": "unreviewed"
   },
   {
    "id": "authored-calendar-saints",
-   "sha256": "a385116770e8396b60142b4f78e97304484e5b13324bb8cdf2d5bcac3d784f0b",
+   "sha256": "aa2a9a77feb26c86fba780819aecfa158b0745a8f9ae38d93d453219fd269b99",
    "answers": 184,
    "status": "unreviewed"
   },
   {
    "id": "authored-shrines",
-   "sha256": "dfc57b7e2689d0f8bf5726fae98563c5ebb1526ac8a1a4b78a6f50668b7a4680",
+   "sha256": "cc0f70d79e03bae3882148e8223552cc8cde4317d258d82e83047d9c44000417",
    "answers": 100,
    "status": "unreviewed"
   },
   {
    "id": "authored-biblical-peoples",
-   "sha256": "958750679a5bedc37973d8d7f5d70b3de9f219fc305b3c51c03a417dcd8e2057",
+   "sha256": "4e32f5118dc3fff9074dee78fcf7798765fbf3c160a8a6da19d6836d0b7a9127",
    "answers": 70,
    "status": "unreviewed"
   },
   {
    "id": "authored-foreign-rulers",
-   "sha256": "af8331b81bb60189eb9e609dfca806f38bf8a7881058341c717a52ac535a110a",
+   "sha256": "85ad1337c65b8e4972df1d8c38e9c480cc723ba50f6b4f765cf5287ad9601b8f",
    "answers": 70,
    "status": "unreviewed"
   },
   {
    "id": "authored-theology-terms",
-   "sha256": "4de2e18c9778961a7f6b076a2717b40efe43d659f7f1efa92aa58d5d1c69a4f2",
+   "sha256": "2841cce0a522e2481040568b6f7b403ae5a6fa6b9c2054fbaa3abf9d54becfc0",
    "answers": 115,
    "status": "unreviewed"
   },
   {
    "id": "authored-life-of-jesus",
-   "sha256": "1513205018d8feeb14ba02866a583c0dc00596307c01e93af0c15cb3d2b5db8a",
+   "sha256": "49a7c8e185958505451a84536c6de00aa30cea0222b6c7ffc84442691639b6dd",
    "answers": 71,
    "status": "unreviewed"
   },
   {
    "id": "authored-foods",
-   "sha256": "44df8e8adb332fa3c2c802267008665c2e6a344022169e4af288b97a7a7e6ee8",
+   "sha256": "922e87d906fd9e5a1c69103826c7f98b5ec5ec5d9f8065b9941831b895684ec7",
    "answers": 60,
    "status": "unreviewed"
   },
   {
    "id": "authored-occupations",
-   "sha256": "a7e01f483403c7a0e12f672f0873f55646d5da0dfaee7fd36a400e16811b2f29",
+   "sha256": "0b591f1e7de3e3eae4f8384fb329edb6aa01e4fccf082f5e694756c6667e4801",
    "answers": 73,
    "status": "unreviewed"
   },
   {
    "id": "authored-papal-names",
-   "sha256": "af948c9e0c2eb048081080309a8841ded0819882aa131ff17b4a6830322c144f",
+   "sha256": "8f70388aafe01cc14e6893b48253730a858d989b5f751104dad8825fbf9d95e5",
    "answers": 82,
    "status": "unreviewed"
   },
   {
    "id": "authored-titles-of-jesus",
-   "sha256": "10c331962b10ac4149d24151d2eee62361addb32baf6fbe751c7e5eea00cc2f7",
+   "sha256": "2c3974763f5a2a7a5dcf4d03047d68099230a374d5b82714f8dcb5a396eee35e",
    "answers": 74,
    "status": "unreviewed"
   },
   {
    "id": "authored-christian-symbols",
-   "sha256": "60dde7b2b33cd00b799d8beb75dd1b62c4bcbd409dd6e86945dce8f86c2913fe",
+   "sha256": "b84fa68b101360a7b0a36a337989e5d73b89bcd0efb31051a3d72b104a0d652b",
    "answers": 83,
    "status": "unreviewed"
   },
@@ -1467,7 +1467,7 @@
   },
   {
    "id": "authored2-old-masters",
-   "sha256": "8c1010fbbae4f7b68cbc5c1e1b1c8a9f1324357c66e842271308100b71b0ea71",
+   "sha256": "4b7f984dd500c6b88d8bc61834b0adcda8693ead105b020120d6efc8b889d045",
    "answers": 103,
    "status": "unreviewed"
   },
@@ -1515,7 +1515,7 @@
   },
   {
    "id": "authored2-catholic-prayers",
-   "sha256": "0cd145dddf85265947f8cb2c1787f6ea5b82770bb007244883d59451d6d787ac",
+   "sha256": "3cb625f9deadb56e90eebfc769d03cecd85476e054fceae315d2b00cd0fc7e41",
    "answers": 91,
    "status": "unreviewed"
   },
@@ -1575,7 +1575,7 @@
   },
   {
    "id": "authored2-patron-occupations",
-   "sha256": "596c5df02ec756ab992f2d8af9e569750c6d155a6a3092b13110c99ef9850c24",
+   "sha256": "f6f5593066d27ab608faa5b557d2e95ed10fb080ad25730015b16829f2f6d559",
    "answers": 132,
    "status": "unreviewed"
   },
@@ -1647,7 +1647,7 @@
   },
   {
    "id": "ported-aquinas-works",
-   "sha256": "ed686fbd61bf3c58bd82023180992c40ec6d5a9568b6bb3f8ffc6f8eb6e07e40",
+   "sha256": "4af43c1678941edbf5b9533b19f7ec29f820808635b97ace0c88497b70f2516c",
    "answers": 60,
    "status": "unreviewed"
   },
@@ -1665,19 +1665,19 @@
   },
   {
    "id": "ported-patron-illnesses",
-   "sha256": "22baac57c357e5ce731895f3fc67af191e6e8503e80df0bba18d60236337d788",
+   "sha256": "d60497e0cd8ac744a93320cc371310ca0317428a213931cd3fe40c3949eb9007",
    "answers": 63,
    "status": "unreviewed"
   },
   {
    "id": "ported-patron-countries",
-   "sha256": "ac8be9a871847bed86cc8e396a2fcfdeeb4c6255a9ce9adf07ceaff6de17a442",
+   "sha256": "25f88185520d55e53241b8dc26c1b4cb04c5284950ad3e3f7efdc0dcf3c41b6f",
    "answers": 66,
    "status": "unreviewed"
   },
   {
    "id": "ported-ancient-sees",
-   "sha256": "380811d4d645ae2e385a396ca807200b66a1a87ac81098ce4658b499e09e9fd5",
+   "sha256": "133b5d96e9a0f57cd30e9e6c3c573c5059e1a683e0fbc56b2be4436660e2d119",
    "answers": 70,
    "status": "unreviewed"
   },
@@ -1701,7 +1701,7 @@
   },
   {
    "id": "authored4-saint-first-names",
-   "sha256": "64a4a69e0bcd415b040f22fc58febcbf4c00b73fcba387649fdb550e721646a3",
+   "sha256": "9d78c23c53ddc8b64d5f4cdd0ae7f66e4689d02d254380619bc5afda106893e6",
    "answers": 204,
    "status": "unreviewed"
   },
@@ -1803,7 +1803,7 @@
   },
   {
    "id": "authored5-saint-writers",
-   "sha256": "1d82827fdd77be4c5c43d058d860b0038d9820e496b38aad80a448bd05a531c0",
+   "sha256": "48aa5008de1315561471af9b2a3221567145adbefa8ba059748be63b7913dc5f",
    "answers": 40,
    "status": "unreviewed"
   },
@@ -1863,7 +1863,7 @@
   },
   {
    "id": "authored5-catholic-food",
-   "sha256": "c86b5c0eeb4ff14237f503169400022379d0cad040a6c95613abb37691137829",
+   "sha256": "4d6486b9bddff6e249c60934b3f0a6ef11594c78f1b087c65881cb1dfe95ed95",
    "answers": 28,
    "status": "unreviewed"
   },
@@ -1989,7 +1989,7 @@
   },
   {
    "id": "authored6-bible-lands",
-   "sha256": "a0e0a86591c1a8f1c083c96e2f276f978b2fd84c79266f37f09bcf9742c1978f",
+   "sha256": "2069a6d91f4f02256b3701086d9e161a70c689d0f4007e4c4c6b5a27ff413880",
    "answers": 46,
    "status": "unreviewed"
   },
@@ -2103,7 +2103,7 @@
   },
   {
    "id": "authored7-shown-with-saint-in-art",
-   "sha256": "ef4107ae42b9f93a58fe7409689aece79b8b463f18bdede9e6aa25ee77163a97",
+   "sha256": "fe03e94671bfe685f759257f92da5554fcbb7aaf55a780b5205184afea02a411",
    "answers": 53,
    "status": "unreviewed"
   },
@@ -2157,7 +2157,7 @@
   },
   {
    "id": "authored7-way-a-martyr-died",
-   "sha256": "6df2b604fcd5340abc707d4d7baaff5cf0059c3288149cdbf6e8da3a71a553a0",
+   "sha256": "621ded21518a765cdfc8384e33449c4a7f9098c9ac6c68df5dfffd75b966d7f2",
    "answers": 30,
    "status": "unreviewed"
   },
@@ -3975,7 +3975,7 @@
   },
   {
    "id": "derived:bible-books",
-   "sha256": "2f3fac42694980ef5f42bc7e0a7459a53446da4de0538334e49c0e973eacfe18",
+   "sha256": "63a8dbdb45a8d1b1ea097e4398659261ee1609dcd61fe8b7464aaa3e585737e2",
    "answers": 2,
    "status": "unreviewed"
   },

@@ -212,7 +212,7 @@ Fear of the Lord|4
 Reverence|3
 Generosity of spirit|5
 `),
-  L('ways-to-pray', 'devotion', 'Name a way to pray.', 'Catholics pray alone and together, with set words and in silence. Any way of praying counts. This list is long but not complete.', CUSTOM, `
+  L('ways-to-pray', 'devotion', 'Name a way to pray.', 'Catholics pray alone and together, with set words. Any way of praying counts. This list is long but not complete.', CUSTOM, `
 The rosary|1|Rosary;Praying the rosary
 The Mass|1|Mass
 Silent prayer|1|Silence;Praying silently
@@ -250,7 +250,7 @@ Reciting the Our Father|1|Our Father
 Reciting the Hail Mary|1|Hail Mary
 Bible reading|2|Reading the Bible
 `),
-  L('baptism-things', 'liturgy', 'Name something you see or hear at a baptism.', 'Baptism uses water, oil, a candle and a white garment, and the person is named and welcomed into the Church. This list is not complete.', 'Hand-authored from the Rite of Baptism.', `
+  L('baptism-things', 'liturgy', 'Name something you see or hear at a baptism.', 'Baptism begins a person\'s life in the Church. This list is not complete.', 'Hand-authored from the Rite of Baptism.', `
 Water|1|Holy water
 Baptismal font|1|Font
 The priest|1|Priest;Deacon
@@ -277,7 +277,7 @@ Dove|4
 Photographs|3
 Gifts|3
 `),
-  L('wedding-things', 'liturgy', 'Name something you see or hear at a Catholic wedding.', 'A Catholic wedding is a sacrament celebrated before a priest or deacon and two witnesses, usually during Mass. This list is not complete.', 'Hand-authored from the Rite of Marriage.', `
+  L('wedding-things', 'liturgy', 'Name something you see or hear at a Catholic wedding.', 'A Catholic wedding is a sacrament celebrated with the community gathered. This list is not complete.', 'Hand-authored from the Rite of Marriage.', `
 Bride|1
 Groom|1|Bridegroom
 Rings|1|Wedding rings;Exchange of rings
@@ -313,7 +313,7 @@ Candles|3
 Sign of peace|3
 Bells|4
 `),
-  L('funeral-things', 'liturgy', 'Name something you see or hear at a Catholic funeral.', 'A Catholic funeral commends the person to God with prayers, readings and often a Mass of Christian Burial. This list is not complete.', 'Hand-authored from the Order of Christian Funerals.', `
+  L('funeral-things', 'liturgy', 'Name something you see or hear at a Catholic funeral.', 'A Catholic funeral commends the person to God. This list is not complete.', 'Hand-authored from the Order of Christian Funerals.', `
 Coffin|1|Casket
 Priest|1|Deacon
 Flowers|1
@@ -350,7 +350,7 @@ Cross|2|Crucifix
 Memorial card|3|Prayer card
 Funeral home|3
 `),
-  L('confessional-things', 'liturgy', 'Name something connected with Confession.', 'The sacrament of Reconciliation, or Confession, is where a Catholic confesses sins to a priest and is forgiven. This list is not complete.', 'Hand-authored from the Rite of Penance.', `
+  L('confessional-things', 'liturgy', 'Name something connected with Confession.', 'One of the sacraments of healing in the Church. This list is not complete.', 'Hand-authored from the Rite of Penance.', `
 Priest|1
 Confessional|1|Confession booth;Booth
 Sins|1|Sin
@@ -512,7 +512,7 @@ Joseph of Arimathea|3
 Easter Sunday|1
 Sunday|1|The first day of the week
 `),
-  L('jesus-places', 'places', 'Name a place where Jesus went or lived.', 'The Gospels follow Jesus from Bethlehem and Nazareth through Galilee and Judea to Jerusalem. This list is long but not complete.', 'Hand-authored from the four Gospels.', `
+  L('jesus-places', 'places', 'Name a place where Jesus went or lived.', 'The Gospels follow Jesus through his life and ministry. This list is long but not complete.', 'Hand-authored from the four Gospels.', `
 Bethlehem|1
 Nazareth|1
 Jerusalem|1
@@ -628,7 +628,7 @@ Judah|2|Judea
 Babylon|1|Babylonia
 Assyria|2
 Persia|2
-Greece|2|Greece
+Greece|2
 Rome|1|Roman Empire
 Canaan|1|The Promised Land
 Moab|2
@@ -936,7 +936,7 @@ Image of Mary|2|Mary statue
 Prayer book|2
 Bell|3
 `),
-  L('mass-vessels', 'liturgy', 'Name something a priest uses at Mass.', 'The priest uses a number of vessels, books and vestments at the altar. This list is long but not complete.', 'Hand-authored from the General Instruction of the Roman Missal.', `
+  L('mass-vessels', 'liturgy', 'Name something a priest uses at Mass.', 'The priest uses a number of vessels and books. This list is long but not complete.', 'Hand-authored from the General Instruction of the Roman Missal.', `
 Chalice|1
 Paten|2
 Host|1|Hosts;Bread

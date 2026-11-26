@@ -32,11 +32,28 @@ const ADD: Record<string, Add[]> = {
     { answer: 'Cecilia', tier: 3 }, { answer: 'Mary Mazzarello', tier: 5 }, { answer: 'Joseph Cafasso', tier: 6 },
   ],
   'longtail-patron-illnesses': [
-    { answer: 'Cornelius', tier: 5 }, { answer: 'Valentine', tier: 3 }, { answer: 'Hubert', tier: 4 }, { answer: 'Wolfgang', tier: 5 }, { answer: 'Odilia', tier: 5 }, { answer: 'Servatius', tier: 6 }, { answer: 'Sebastian', tier: 3 }, { answer: 'Maurus', tier: 6 },
+{ answer: 'Valentine', tier: 3 },
+    { answer: 'Sebastian', tier: 3 },
+    { answer: 'Hubert', tier: 4 },
+    { answer: 'Cornelius', tier: 5 },
+    { answer: 'Wolfgang', tier: 5 },
+    { answer: 'Odilia', tier: 5 },
+    { answer: 'Servatius', tier: 6 },
+    { answer: 'Maurus', tier: 6 },
   ],
   'longtail-patron-countries': [
-    { answer: 'Boniface', tier: 3 }, { answer: 'Joan of Arc', tier: 2 }, { answer: 'Thérèse of Lisieux', tier: 2 }, { answer: 'Wenceslaus', tier: 3 }, { answer: 'Sava', tier: 5 }, { answer: 'Gregory the Illuminator', tier: 5 },
-    { answer: 'Nino', tier: 6 }, { answer: 'Mark the Evangelist', tier: 3 }, { answer: 'Charles Lwanga', tier: 4 }, { answer: 'Columba', tier: 3 }, { answer: 'Brigid of Kildare', tier: 2 }, { answer: 'Canute IV', tier: 6 },
+{ answer: 'Joan of Arc', tier: 2 },
+    { answer: 'Thérèse of Lisieux', tier: 2 },
+    { answer: 'Brigid of Kildare', tier: 2 },
+    { answer: 'Boniface', tier: 3 },
+    { answer: 'Wenceslaus', tier: 3 },
+    { answer: 'Mark the Evangelist', tier: 3 },
+    { answer: 'Columba', tier: 3 },
+    { answer: 'Charles Lwanga', tier: 4 },
+    { answer: 'Sava', tier: 5 },
+    { answer: 'Gregory the Illuminator', tier: 5 },
+    { answer: 'Nino', tier: 6 },
+    { answer: 'Canute IV', tier: 6 },
   ],
   'longtail-ancient-sees': [
     { answer: 'Rome', tier: 1 }, { answer: 'Jerusalem', tier: 1 }, { answer: 'Antioch', tier: 1, aliases: ['Antioch in Syria'] }, { answer: 'Ephesus', tier: 1 }, { answer: 'Corinth', tier: 2 },
@@ -50,6 +67,10 @@ export const LONG_TAIL_PORTED: DeepPrompt[] = LONG_TAIL_PROMPTS.filter((p) => KE
   const answers = p.answers.filter((a) => !drop.has(norm(a.answer)));
   const have = new Set(answers.map((a) => norm(a.answer)));
   for (const a of ADD[p.id] ?? []) if (!have.has(norm(a.answer))) answers.push(a);
+  if (p.id === 'longtail-ancient-sees') { // Beroea is the list's rarest answer; it belongs after the appended famous sees, not before them
+    const bi = answers.findIndex((a) => norm(a.answer) === 'beroea');
+    if (bi >= 0) answers.push(answers.splice(bi, 1)[0]);
+  }
   const { commonGuesses: _g, reviewFlags: _r, ...rest } = p as DeepPrompt & { commonGuesses?: unknown; reviewFlags?: unknown };
   void _g; void _r;
   return { ...rest, id: `ported-${p.id.replace('longtail-', '')}`, answers } as DeepPrompt;
