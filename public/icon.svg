@@ -1,1 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#143c2f"/><stop offset="1" stop-color="#0a0c1c"/></linearGradient></defs><rect width="1024" height="1024" rx="224" fill="url(#g)"/><rect x="456" y="212" width="112" height="600" rx="56" fill="#9be3b4"/><rect x="262" y="372" width="500" height="112" rx="56" fill="#9be3b4"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="78%">
+      <stop offset="0%" stop-color="#FFC93D"/>
+      <stop offset="100%" stop-color="#E8A90C"/>
+    </radialGradient>
+  </defs>
+  <rect x="0" y="0" width="1024" height="1024" rx="225" fill="url(#glow)"/>
+  <!-- alternating gold rays, long and short -->
+  <g stroke="#FFFBF2" stroke-linecap="round">
+    <g stroke-width="21">
+      <line x1="512" y1="130" x2="512" y2="238"/>
+      <line x1="512" y1="130" x2="512" y2="238" transform="rotate(45 512 512)"/>
+      <line x1="512" y1="130" x2="512" y2="238" transform="rotate(90 512 512)"/>
+      <line x1="512" y1="130" x2="512" y2="238" transform="rotate(135 512 512)"/>
+      <line x1="512" y1="130" x2="512" y2="238" transform="rotate(180 512 512)"/>
+      <line x1="512" y1="130" x2="512" y2="238" transform="rotate(225 512 512)"/>
+      <line x1="512" y1="130" x2="512" y2="238" transform="rotate(270 512 512)"/>
+      <line x1="512" y1="130" x2="512" y2="238" transform="rotate(315 512 512)"/>
+    </g>
+    <g stroke-width="15">
+      <line x1="512" y1="196" x2="512" y2="252" transform="rotate(22.5 512 512)"/>
+      <line x1="512" y1="196" x2="512" y2="252" transform="rotate(67.5 512 512)"/>
+      <line x1="512" y1="196" x2="512" y2="252" transform="rotate(112.5 512 512)"/>
+      <line x1="512" y1="196" x2="512" y2="252" transform="rotate(157.5 512 512)"/>
+      <line x1="512" y1="196" x2="512" y2="252" transform="rotate(202.5 512 512)"/>
+      <line x1="512" y1="196" x2="512" y2="252" transform="rotate(247.5 512 512)"/>
+      <line x1="512" y1="196" x2="512" y2="252" transform="rotate(292.5 512 512)"/>
+      <line x1="512" y1="196" x2="512" y2="252" transform="rotate(337.5 512 512)"/>
+    </g>
+  </g>
+  <!-- medallion ring and host -->
+  <circle cx="512" cy="512" r="212" fill="none" stroke="#FFFBF2" stroke-width="24"/>
+  <circle cx="512" cy="512" r="152" fill="#FFFBF2"/>
+  <g stroke="#B8860B" stroke-width="21" stroke-linecap="round">
+    <line x1="512" y1="428" x2="512" y2="596"/>
+    <line x1="462" y1="478" x2="562" y2="478"/>
+  </g>
+</svg>

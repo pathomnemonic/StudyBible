@@ -95,6 +95,8 @@ export interface Settings {
   telemetry: boolean;
   /** the answer to the error reports and page counts question where one must be asked first (the EU, the UK and the EEA, judged by time zone); unset until answered there, and only 'granted' lets reports run there */
   telemetryConsent?: 'granted' | 'denied';
+  /** store app only: the home screen icon follows the liturgical season (violet in Advent and Lent, green in Ordinary Time, red on Pentecost, gold and white at Christmas and Easter) */
+  seasonalIcon: boolean;
   /** one chapter at a time, or an unbroken scroll through the chapters that follow */
   scrollMode: 'pages' | 'infinite';
   /** a quiet progress line in the corner while reading: minutes left in the chapter and how far */
@@ -222,6 +224,7 @@ export const DEFAULTS: Settings = {
   showVerseNumbers: true,
   scriptureOnly: false,
   kidMode: false,
+  seasonalIcon: false,
   telemetry: true,
   scrollMode: 'pages',
   readProgress: true,
