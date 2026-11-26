@@ -1,3 +1,4 @@
+import { artSrc, ART_LOCAL } from '../lib/artSrc';
 import { useEffect, useState } from 'react';
 import { shiftDay } from '../lib/day';
 import { Link, useParams } from 'react-router-dom';
@@ -58,7 +59,8 @@ export default function FeastCardPage() {
         if (best && live) setLife(best);
       }
       const works = (await getJson<{ works: Work[] }>('art.json', true).catch(() => null))?.works ?? [];
-      const pool = works.filter((w) => w.theme === themeFor(top.name));
+      const themed = works.filter((w) => w.theme === themeFor(top.name));
+      const pool = themed.some((w) => ART_LOCAL.has(w.file)) ? themed.filter((w) => ART_LOCAL.has(w.file)) : themed;
       if (pool.length && live) setArt(pool[Math.abs([...date].reduce((h, c) => h * 31 + c.charCodeAt(0), 7)) % pool.length]);
     });
     return () => { live = false; };
@@ -77,7 +79,7 @@ export default function FeastCardPage() {
   return (
     <div className="page feast-card">
       <article className="card feast-hero">
-        {art && <figure className="feast-art"><img src={`${import.meta.env.BASE_URL}${art.file}`} alt={art.title} loading="lazy" /><figcaption>{art.title}, {art.artist}</figcaption></figure>}
+        {art && <figure className="feast-art"><img src={artSrc(art.file)} alt={art.title} loading="lazy" /><figcaption>{art.title}, {art.artist}</figcaption></figure>}
         <p className="eyebrow">{label}{feast ? ` · ${feast.rank}` : ''}</p>
         <h1>{name ?? 'A day in ordinary time'}</h1>
         {feast ? <p>{feast.about}</p> : !life ? <p className="muted">The Church keeps this as an ordinary day. Today’s Mass readings are the place to start.</p> : null}
