@@ -15,6 +15,7 @@ import { ToastProvider } from './components/Toast';
 import { initSync } from './sync/state';
 import { accountsEnabled } from './lib/accountsFlag';
 import UpdateBanner from './components/UpdateBanner';
+import TelemetryConsentBanner from './components/TelemetryConsentBanner';
 import ScrollMemory from './components/ScrollMemory';
 import { db, TRASH_DAYS } from './db/db';
 import { scheduleReminder } from './liturgy/reminders';
@@ -325,9 +326,9 @@ export default function App() {
   const loc = useLocation();
   const [spell] = useSettings();
   useSpelling(spell.spelling);
-  // error reports and page counts: production web only, off by Do Not Track, Kid mode or the Settings switch (see src/lib/telemetry.ts)
+  // error reports and page counts: production web only, off by Do Not Track, Kid mode or the Settings switch, and in the EU, the UK and the EEA only with the person's agreement (see src/lib/telemetry.ts)
   // loaded on demand, so none of it is in the first download
-  useEffect(() => { import.meta.env.PROD && import('./lib/telemetry').then((m) => m.onRoute(loc.pathname), () => 0); }, [loc.pathname, spell.telemetry, spell.kidMode]);
+  useEffect(() => { import.meta.env.PROD && import('./lib/telemetry').then((m) => m.onRoute(loc.pathname), () => 0); }, [loc.pathname, spell.telemetry, spell.kidMode, spell.telemetryConsent]);
   // the games take a moment to load their own look; until then the screen is already the arcade's colour instead of flashing the app's
   useEffect(() => { const on = loc.pathname === '/play' || loc.pathname.startsWith('/play/'); if (on) document.documentElement.dataset.arcadePre = '1'; else delete document.documentElement.dataset.arcadePre; }, [loc.pathname]);
   useEffect(() => {
@@ -348,6 +349,7 @@ export default function App() {
       <ThemeApplier />
       <StartPage />
       <UpdateBanner />
+      <TelemetryConsentBanner />
       <ScrollMemory />
       <Gate>
         <PlayerProvider>

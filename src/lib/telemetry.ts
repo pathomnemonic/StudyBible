@@ -2,6 +2,7 @@
  * Error reports (Sentry) and page counts (PostHog), on the public web app only. Deliberately small:
  *  - production builds on a real host only (never in development, tests, the native store apps or Kid mode);
  *  - off if the browser sends Do Not Track or Global Privacy Control, or the person turns it off in Settings;
+ *  - in the EU, the UK and the EEA (judged by the device time zone) nothing runs until the person agrees; a banner asks, and Settings holds the same choice;
  *  - loaded lazily after the app is up, so it adds nothing to the first load;
  *  - no cookies or browser storage, no session recording, no click capture, no breadcrumbs, no tracing, no person profiles;
  *  - only the first part of the address is ever sent (for example "#/read", never the book, chapter, search words or notes).
@@ -27,6 +28,20 @@ export function coarseUrl(href: string): string {
 }
 export const coarseRoute = (hashPath: string) => `/${hashPath.replace(/^\//, '').split(/[/?]/)[0]}`;
 
+/** Atlantic time zones that belong to the region below although they do not start with "Europe/": Iceland (EEA), the Canaries and Madeira (EU), the Azores (EU) and the Faroes. */
+const CONSENT_ATLANTIC = ['Atlantic/Reykjavik', 'Atlantic/Canary', 'Atlantic/Madeira', 'Atlantic/Azores', 'Atlantic/Faeroe', 'Atlantic/Faroe'];
+
+/** Whether a time zone is in the EU, the UK or the EEA, where an answer is required before any reports are sent. Judged by time zone only: nothing is looked up and no address leaves the device. */
+export function consentRegionFor(tz: string | undefined | null): boolean {
+  if (!tz) return false;
+  return tz.startsWith('Europe/') || CONSENT_ATLANTIC.includes(tz);
+}
+
+/** Whether this device sits in the region where reports need the person's agreement first. */
+export function inConsentRegion(): boolean {
+  try { return consentRegionFor(Intl.DateTimeFormat().resolvedOptions().timeZone); } catch { return false; }
+}
+
 /** Whether reports may be sent from this page right now. */
 export function telemetryAllowed(w: Win | undefined = typeof window === 'undefined' ? undefined : (window as Win)): boolean {
   if (!w || !import.meta.env.PROD) return false;
@@ -37,8 +52,22 @@ export function telemetryAllowed(w: Win | undefined = typeof window === 'undefin
     if (nav.doNotTrack === '1' || (w as unknown as { doNotTrack?: string }).doNotTrack === '1' || nav.msDoNotTrack === '1' || nav.globalPrivacyControl === true) return false;
     const s = getSettings();
     if (s.kidMode || s.telemetry === false) return false;
+    if (inConsentRegion() && s.telemetryConsent !== 'granted') return false; // the EU, the UK and the EEA: agreement first
   } catch { return false; }
   return true;
+}
+
+/** Whether the banner asking for that agreement should be offered: the public website on a real host (never a store app, a local copy or Kid mode), in the consent region, with no answer yet and reports not already switched off in Settings. */
+export function consentPromptNeeded(w: Win | undefined = typeof window === 'undefined' ? undefined : (window as Win)): boolean {
+  if (!w || !import.meta.env.PROD) return false;
+  try {
+    if (/^(localhost|127\.|\[::1\]|0\.0\.0\.0)/.test(w.location.hostname) || w.location.protocol === 'file:') return false;
+    if (w.Capacitor?.isNativePlatform?.()) return false;
+    const s = getSettings();
+    if (s.kidMode || s.telemetry === false) return false;
+    if (s.telemetryConsent === 'granted' || s.telemetryConsent === 'denied') return false;
+    return inConsentRegion();
+  } catch { return false; }
 }
 
 let started: Promise<void> | null = null;
