@@ -340,6 +340,8 @@ export default function App() {
   useEffect(() => {
     initSync();
     scheduleReminder();
+    // loaded on demand, like the telemetry loader: the seasonal icon check is not needed for first paint
+    import('./lib/seasonalIcon').then((m) => m.initSeasonalIcon(), () => 0);
     // things deleted more than 30 days ago leave the Recently deleted list for good
     db.trash.where('deletedAt').below(Date.now() - TRASH_DAYS * 86400000).delete().catch(() => {});
   }, []);

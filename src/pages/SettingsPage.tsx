@@ -10,6 +10,7 @@ import { useEditions } from '../data/EditionsContext';
 import { EnableEditionDialog, useChoosable } from '../components/EditionGate';
 import StorageStatus from '../components/StorageStatus';
 import { useSettings, THEMES } from '../lib/store';
+import { applySeasonalIcon, seasonalIconSupported } from '../lib/seasonalIcon';
 import { inConsentRegion } from '../lib/telemetry';
 import { TRADITIONS, traditionOf } from '../lib/tradition';
 import { LANGS, useT } from '../lib/i18n';
@@ -80,6 +81,12 @@ export default function SettingsPage() {
         <div className="row between" style={{ margin: '8px 0' }}><span>Liturgical calendar</span><select aria-label="Liturgical calendar" value={s.diocese} onChange={(e) => set({ diocese: e.target.value })}>{Object.entries(NATIONS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select></div>
       </Fold>
 
+      {seasonalIconSupported() && (
+        <Fold id="settings:App icon" title="App icon" open={false}>
+          <label className="row between" style={{ margin: '8px 0' }}><span>Seasonal icon</span><input type="checkbox" checked={!!s.seasonalIcon} onChange={(e) => { set({ seasonalIcon: e.target.checked }); void applySeasonalIcon(e.target.checked); }} /></label>
+          <p className="muted small" style={{ margin: '0 0 8px' }}>The home screen icon follows the liturgical season: violet in Advent and Lent, green in Ordinary Time, red on Pentecost, and gold and white at Christmas and Easter. It changes by itself when the season changes; on iPhone the system shows a short message when it does.</p>
+        </Fold>
+      )}
       <MoreSettings />
       <Fold id="settings:Tips and red dots" title="Tips and red dots" open={false}>
         <label className="welcome-check"><input type="checkbox" checked={s.hints} onChange={(e) => set({ hints: e.target.checked })} /><span><strong>Show red dots and short tips</strong><br /><small>Dots mark things you have not opened; tips explain a feature once.</small></span></label>

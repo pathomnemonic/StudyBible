@@ -89,6 +89,8 @@ workflows:
           npx cap sync android
       - name: Leave the downloadable packs out of the Android bundle
         script: python3 tools/native_slim.py android/app/src/main/assets/public
+      - name: Add the seasonal icon launcher aliases and icons
+        script: python3 tools/android_seasonal_icon.py android
       - name: Raise the minimum SDK to 24 (Play automatic protection requires it)
         script: |
           perl -pi -e 's/minSdkVersion = 23/minSdkVersion = 24/' android/variables.gradle

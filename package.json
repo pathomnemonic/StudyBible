@@ -40,6 +40,7 @@
     "@capacitor-community/apple-sign-in": "^7.1.0",
     "@capacitor/core": "^7.6.10",
     "@capacitor/ios": "^7.6.10",
+    "capacitor-seasonal-icon": "file:plugins/seasonal-icon",
     "@fontsource-variable/fredoka": "^5.3.0",
     "@fontsource-variable/inter": "^5.3.0",
     "@fontsource-variable/newsreader": "^5.3.0",

@@ -1,0 +1,37 @@
+{
+  "name": "capacitor-seasonal-icon",
+  "version": "0.1.0",
+  "description": "Capacitor plugin that switches the app launcher icon with the liturgical season (Cathology).",
+  "main": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "unpkg": "dist/esm/index.js",
+  "files": [
+    "dist/",
+    "ios/",
+    "android/",
+    "Package.swift",
+    "CapacitorSeasonalIcon.podspec"
+  ],
+  "author": "PathoMnemonic",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pathomnemonic/StudyBible.git"
+  },
+  "keywords": [
+    "capacitor",
+    "plugin",
+    "native"
+  ],
+  "peerDependencies": {
+    "@capacitor/core": ">=7.0.0"
+  },
+  "capacitor": {
+    "ios": {
+      "src": "ios"
+    },
+    "android": {
+      "src": "android"
+    }
+  }
+}
