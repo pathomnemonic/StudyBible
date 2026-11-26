@@ -157,7 +157,7 @@ export default function SettingsPage() {
             <span className="small">Where you live, these reports run only with your agreement. Your choice:</span>
             <button className="btn small" aria-pressed={s.telemetryConsent === 'granted'} onClick={() => set({ telemetryConsent: 'granted' })}>Accept</button>
             <button className="btn small" aria-pressed={s.telemetryConsent === 'denied'} onClick={() => set({ telemetryConsent: 'denied' })}>Decline</button>
-            {s.telemetryConsent === 'granted' && <span className="muted small">You agreed. The switch above can still turn reports off.</span>}
+            {s.telemetryConsent === 'granted' && <span className="muted small">You agreed. The switch can still turn reports off at any time.</span>}
             {s.telemetryConsent === 'denied' && <span className="muted small">You declined, so nothing is sent.</span>}
             {s.telemetryConsent !== 'granted' && s.telemetryConsent !== 'denied' && <span className="muted small">Not answered yet, so nothing is sent.</span>}
           </div>
