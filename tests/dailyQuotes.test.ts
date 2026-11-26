@@ -26,4 +26,16 @@ describe('the saint and Father lines of the day', () => {
       if (e.saint.verified !== true && (seen.get(t)?.size ?? 0) > 1) expect(e.saint.misattributed, e.saint.text).toBeTruthy();
     }
   });
+  it('no line names a work by a saint who left no writings (the Willibrord failure mode)', () => {
+    // Nov 2026 audit: these saints left no writings, so any specific work credited to them is invented.
+    // Their lines may be shown as attributed, but with no work named. St. Willibrord's line was replaced
+    // outright: no letters of his survive, and 'Missionary Letters' does not exist.
+    const noWritings = ['St. Willibrord', 'St. Matthias', 'St. Guy of Anderlecht', 'St. Lazarus', 'St. Hunger', 'St. Egwin'];
+    const bad: string[] = [];
+    for (const [kind, group] of Object.entries(daily)) for (const [key, e] of Object.entries(group)) {
+      const s = e.saint;
+      if (s?.work && noWritings.some((w) => String(s.who).startsWith(w))) bad.push(`${kind}/${key}`);
+    }
+    expect(bad).toEqual([]);
+  });
 });

@@ -550,7 +550,7 @@
    "found": "",
    "author": null,
    "source": null,
-   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution. Attributed work \"Apostolic Tradition\" is generic/non-specific."
+   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution. Attributed work \"Apostolic Tradition\" is generic/non-specific. Nov 2026 audit: the cited 'Apostolic Tradition' is the work of Hippolytus, not of Matthias, and no writings of St. Matthias survive; the work attribution has been removed and the line is shown as attributed only."
   },
   "02-25": {
    "status": "verified-web",
@@ -1238,14 +1238,14 @@
    "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution."
   },
   "05-03": {
-   "status": "unverified",
+   "status": "misattributed",
    "work": null,
    "section": null,
    "para": null,
-   "found": "",
-   "author": null,
+   "found": "He who climbs never stops going from beginning to beginning, through beginnings that have no end.",
+   "author": "St. Gregory of Nyssa",
    "source": null,
-   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution. Attributed work \"Apostolic Sayings\" is generic/non-specific."
+   "note": "The line is Gregory of Nyssa's teaching on continual progress in the spiritual life (Life of Moses). No writings of St. Philip the Apostle survive; the cited 'Apostolic Sayings' is not a real work. Flagged in the Nov 2026 audit."
   },
   "05-04": {
    "status": "unverified",
@@ -1356,7 +1356,7 @@
    "found": "",
    "author": null,
    "source": null,
-   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution. Identical text also appears under other saints: 10-12 (so at most one can be correct).",
+   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution. Identical text also appears under other saints: 10-12 (so at most one can be correct). Nov 2026 audit: the cited 'Clementine Recognitions' is a pseudo-Clementine romance about St. Peter, not a work of Matthias, and no writings of St. Matthias survive; the work attribution has been removed and the line is shown as attributed only.",
    "duplicate": "The same line is listed in this app under other saints (on 10-12); no source was found for any of them, so the attribution is uncertain."
   },
   "05-15": {
@@ -2592,7 +2592,7 @@
    "found": "",
    "author": null,
    "source": null,
-   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution."
+   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution. Nov 2026 audit: the cited 'Pilgrim's Notes' is not a real work, and St. Guy of Anderlecht, an illiterate pilgrim, left no writings; the work attribution has been removed and the line is shown as attributed only."
   },
   "09-13": {
    "status": "unverified",
@@ -3157,14 +3157,14 @@
    "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution."
   },
   "11-07": {
-   "status": "unverified",
-   "work": null,
-   "section": null,
-   "para": null,
-   "found": "",
-   "author": null,
-   "source": null,
-   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution."
+   "status": "verified-library",
+   "work": "bede-history",
+   "section": 125,
+   "para": 1,
+   "found": "Thus it came to pass, that with the help of the Divine grace, in a short time they converted many from idolatry to the faith of Christ.",
+   "author": "Bede the Venerable",
+   "source": "library bede-history",
+   "note": "Replacement (Nov 2026): the previous line, attributed to St. Willibrord, 'Missionary Letters', could not be sourced; no letters of Willibrord survive (the famous missionary letter collection of that circle is Boniface's). Bede's account of Willibrord's mission (Ecclesiastical History V.10) is used instead, word for word from the library text."
   },
   "11-08": {
    "status": "unverified",
@@ -3566,7 +3566,7 @@
    "found": "",
    "author": null,
    "source": null,
-   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution. Attributed work \"Tradition of the Resurrected\" is generic/non-specific."
+   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution. Attributed work \"Tradition of the Resurrected\" is generic/non-specific. Nov 2026 audit: the cited 'Tradition of the Resurrected' is not a real work, and St. Lazarus left no writings; the work attribution has been removed and the line is shown as attributed only."
   },
   "12-18": {
    "status": "unverified",
@@ -3616,7 +3616,7 @@
    "found": "",
    "author": null,
    "source": null,
-   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution."
+   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution. Nov 2026 audit: the cited 'Diocesan Records' is not a real work, and no writings of St. Hunger survive; the work attribution has been removed and the line is shown as attributed only."
   },
   "12-23": {
    "status": "unverified",
@@ -3696,7 +3696,7 @@
    "found": "",
    "author": null,
    "source": null,
-   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution."
+   "note": "Not found in the 93 library works (exact and fuzzy search) and no reliable online source located for this wording/attribution. Nov 2026 audit: the cited 'Abbatial Rule' is not a real work, and no writings of St. Egwin survive; the work attribution has been removed and the line is shown as attributed only."
   },
   "12-31": {
    "status": "unverified",
