@@ -60,12 +60,12 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     "tier": 3
    },
    {
-    "answer": "Trophimus",
-    "tier": 4
-   },
-   {
     "answer": "Aristarchus",
     "tier": 3
+   },
+   {
+    "answer": "Trophimus",
+    "tier": 4
    },
    {
     "answer": "Epaphras",
@@ -179,15 +179,15 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
+    "answer": "Julia",
+    "tier": 3
+   },
+   {
     "answer": "Nereus's sister",
     "tier": 6,
     "aliases": [
      "Sister of Nereus"
     ]
-   },
-   {
-    "answer": "Julia",
-    "tier": 3
    }
   ],
   "closed": 10
@@ -197,7 +197,7 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
   "theme": "scripture",
   "basis": "Hand-authored answer key; sources: Luke 10:25–37; 12:13–21; 13:6–9; 14:7–24; 15:8–32; 16:1–31; 18:1–14.",
   "prompt": "Name a parable of Jesus that appears only in Luke's Gospel.",
-  "context": "Matthew has a related story to the Great Banquet (the Wedding Feast); Luke's version is counted because it is told differently.",
+  "context": "Matthew has a related banquet story (the Wedding Feast); Luke's version is counted because it is told differently.",
   "answers": [
    {
     "answer": "The Good Samaritan",
@@ -215,15 +215,15 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     "tier": 2
    },
    {
+    "answer": "The Great Banquet",
+    "tier": 2
+   },
+   {
     "answer": "The Lowest Seat at the Banquet",
     "tier": 3,
     "aliases": [
      "The Wedding Feast Seats"
     ]
-   },
-   {
-    "answer": "The Great Banquet",
-    "tier": 2
    },
    {
     "answer": "The Lost Coin",
@@ -391,15 +391,15 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
-    "answer": "Cleopas",
-    "tier": 3
-   },
-   {
     "answer": "Thomas",
     "tier": 1,
     "aliases": [
      "Didymus"
     ]
+   },
+   {
+    "answer": "Cleopas",
+    "tier": 3
    },
    {
     "answer": "James",
@@ -467,12 +467,12 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     "tier": 1
    },
    {
-    "answer": "Holy Virgin of virgins",
-    "tier": 2
-   },
-   {
     "answer": "Mother of Christ",
     "tier": 1
+   },
+   {
+    "answer": "Holy Virgin of virgins",
+    "tier": 2
    },
    {
     "answer": "Mother of the Church",
@@ -724,17 +724,17 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
-    "answer": "James son of Zebedee",
-    "tier": 2,
-    "aliases": [
-     "James"
-    ]
-   },
-   {
     "answer": "Ignatius of Antioch",
     "tier": 1,
     "aliases": [
      "Ignatius"
+    ]
+   },
+   {
+    "answer": "James son of Zebedee",
+    "tier": 2,
+    "aliases": [
+     "James"
     ]
    },
    {
@@ -923,12 +923,12 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
-    "answer": "Shemaiah",
-    "tier": 4
-   },
-   {
     "answer": "Elijah",
     "tier": 1
+   },
+   {
+    "answer": "Shemaiah",
+    "tier": 4
    },
    {
     "answer": "Elisha",
@@ -995,12 +995,12 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
-    "answer": "Mary the mother of John Mark",
-    "tier": 3
-   },
-   {
     "answer": "Sapphira",
     "tier": 2
+   },
+   {
+    "answer": "Mary the mother of John Mark",
+    "tier": 3
    },
    {
     "answer": "Tabitha",
@@ -1036,7 +1036,7 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
   "theme": "scripture",
   "basis": "Hand-authored answer key; sources: Matthew 8–9; Mark 1–10; Luke 4–18; John 4–9.",
   "prompt": "Name an illness or disability that Jesus healed in the Gospels.",
-  "context": "Give the condition, such as blindness, not the person's name.",
+  "context": "Give the condition, not the person's name.",
   "answers": [
    {
     "answer": "Blindness",
@@ -1066,15 +1066,15 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     "tier": 1
    },
    {
+    "answer": "Deafness",
+    "tier": 2
+   },
+   {
     "answer": "Dropsy",
     "tier": 4,
     "aliases": [
      "Edema"
     ]
-   },
-   {
-    "answer": "Deafness",
-    "tier": 2
    },
    {
     "answer": "Speech impairment",
@@ -1134,15 +1134,15 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     "tier": 1
    },
    {
-    "answer": "The King of Israel",
-    "tier": 2
-   },
-   {
     "answer": "The Messiah",
     "tier": 1,
     "aliases": [
      "The Christ"
     ]
+   },
+   {
+    "answer": "The King of Israel",
+    "tier": 2
    },
    {
     "answer": "The Savior of the world",
@@ -1226,7 +1226,7 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
   "theme": "scripture",
   "basis": "Hand-authored answer key; Revelation 1–22.",
   "prompt": "Name an image or figure from the visions of Revelation.",
-  "context": "Pictures seen by John, such as the dragon or the New Jerusalem, not ideas like faith or hope.",
+  "context": "Pictures seen by John, not ideas like faith or hope.",
   "answers": [
    {
     "answer": "The seven lampstands",
@@ -1249,12 +1249,12 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     "tier": 1
    },
    {
-    "answer": "The scroll with seven seals",
-    "tier": 2
-   },
-   {
     "answer": "The four horsemen",
     "tier": 1
+   },
+   {
+    "answer": "The scroll with seven seals",
+    "tier": 2
    },
    {
     "answer": "The woman clothed with the sun",
@@ -1362,7 +1362,7 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
   "theme": "liturgy",
   "basis": "Hand-authored answer key; General Roman Calendar and Universal Norms on the Liturgical Year.",
   "prompt": "Name a season, feast or major observance of the Catholic liturgical year.",
-  "context": "Seasons, Holy Week days, solemnities and feasts of the Lord and of Mary; not memorials of individual saints.",
+  "context": "Seasons, solemnities and feasts of the Lord and of Mary; not memorials of individual saints.",
   "answers": [
    {
     "answer": "Advent",
@@ -1409,12 +1409,12 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     "tier": 2
    },
    {
-    "answer": "Easter Vigil",
-    "tier": 2
-   },
-   {
     "answer": "Pentecost",
     "tier": 1
+   },
+   {
+    "answer": "Easter Vigil",
+    "tier": 2
    },
    {
     "answer": "Epiphany",
@@ -1543,7 +1543,7 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
   "theme": "places",
   "basis": "Hand-authored answer key; sources: Acts 13:1–14:28.",
   "prompt": "Name a place on Paul and Barnabas's first missionary journey.",
-  "context": "The route in Acts 13 and 14, out from Antioch and back again.",
+  "context": "The route in Acts 13 and 14, out and back again.",
   "answers": [
    {
     "answer": "Antioch",
@@ -1553,12 +1553,12 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     ]
    },
    {
-    "answer": "Seleucia",
-    "tier": 3
-   },
-   {
     "answer": "Salamis",
     "tier": 2
+   },
+   {
+    "answer": "Seleucia",
+    "tier": 3
    },
    {
     "answer": "Paphos",

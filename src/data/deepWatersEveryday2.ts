@@ -328,7 +328,7 @@ Ladislaus|5
   L('saint-writers', 'saints', 'Name a saint who wrote books.', 'Many saints left writings that are still read: sermons, letters, autobiographies and works of theology. This list is not complete.', LIVES, `
 Augustine|1|Augustine of Hippo
 Thomas Aquinas|1
-Teresa of Avila|1|Teresa of Ávila
+Teresa of Avila|1
 John of the Cross|1
 Francis de Sales|2
 Jerome|2
@@ -492,7 +492,7 @@ Herod|3|Herod Antipas
 The chief priests|3|Chief priests
 The crowd|3
 `),
-  L('nativity-people', 'scripture', 'Name someone (or something) in the Christmas story.', 'The Gospels of Matthew and Luke tell of the birth of Jesus, and tradition has added the ox and the donkey to the scene. This list is not complete.', 'Hand-authored from Matthew 1 to 2 and Luke 1 to 2, with the customary crib figures.', `
+  L('nativity-people', 'scripture', 'Name someone (or something) in the Christmas story.', 'The Gospels of Matthew and Luke tell of the birth of Jesus, and tradition has added to the scene. This list is not complete.', 'Hand-authored from Matthew 1 to 2 and Luke 1 to 2, with the customary crib figures.', `
 Mary|1
 Joseph|1
 Jesus|1|The baby Jesus;Baby Jesus
@@ -569,7 +569,7 @@ Gum|4
 Fries|4|French fries
 Netflix|2
 `),
-  L('mass-actions', 'liturgy', 'Name something Catholics do at Mass.', 'The Mass has a pattern of standing, sitting, kneeling, singing and responding, and the people take part throughout. This list is long but not complete.', 'Hand-authored from the Order of Mass in the Roman Missal.', `
+  L('mass-actions', 'liturgy', 'Name something Catholics do at Mass.', 'The Mass has a pattern, and the people take part throughout. This list is long but not complete.', 'Hand-authored from the Order of Mass in the Roman Missal.', `
 Pray|1|Praying
 Sing|1|Singing;Sing hymns
 Kneel|1|Kneeling
@@ -640,7 +640,7 @@ Lamb|1|Easter lamb;Roast lamb;Lamb cake
 Pancakes|1|Shrove Tuesday pancakes;Pancake Tuesday
 King cake|2|Kings cake;Rosca de Reyes;Three kings cake
 Pretzels|2|Pretzel
-Paczki|3|Pączki;Paczkis;Polish doughnuts
+Paczki|3|Paczkis;Polish doughnuts
 Panettone|3
 Christmas ham|3|Ham
 Tamales|3
@@ -743,7 +743,7 @@ Offertory|3|Offering
 Homily|3
 Readings|2
 `),
-  L('catholic-symbols-everyday', 'art-music', 'Name something you would see on a rosary or in a rosary prayer.', 'The rosary has a cross, a circle of beads and a few special pieces, and its prayers have words everyone knows. This list is long but not complete.', 'Hand-authored from the standard form of the Rosary.', `
+  L('catholic-symbols-everyday', 'art-music', 'Name something you would see on a rosary or in a rosary prayer.', 'Its prayers have words everyone knows. This list is long but not complete.', 'Hand-authored from the standard form of the Rosary.', `
 Crucifix|1|Cross
 Beads|1|Rosary beads
 Hail Mary|1
@@ -817,7 +817,7 @@ Manoah|5
 Lot|4
 Jonah|4
 `),
-  L('shepherds-bible', 'scripture', 'Name a shepherd or a keeper of sheep in the Bible.', 'Shepherds appear everywhere in the Bible, and God and Jesus are both called shepherds. This list is not complete.', 'Hand-authored from the Old and New Testaments.', `
+  L('shepherds-bible', 'scripture', 'Name a shepherd or a keeper of sheep in the Bible.', 'Shepherds appear everywhere in the Bible, and God is called a shepherd. This list is not complete.', 'Hand-authored from the Old and New Testaments.', `
 David|1
 Moses|1
 Abel|2

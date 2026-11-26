@@ -42,10 +42,10 @@ Mark|1
 Luke|1
 Andrew|1
 Philip|1
-Bartholomew|2
-Simon|2
 Jude|1
 Stephen|1|Steven
+Bartholomew|2
+Simon|2
 Nicholas|1
 Christopher|1
 George|1
@@ -78,8 +78,8 @@ Henry|2
 Hubert|3
 Hugh|2
 Isidore|2|Isidor
-Ita|5
 Jacinta|3
+Ita|5
 Josephine|1
 Julian|2
 Justin|2
@@ -220,7 +220,7 @@ Zachary|2
 Zeno|4
 Zoe|3
 `),
-  L('cities-named-for-saints', 'places', 'Name a city or town in the world that is named after a saint.', 'From San Francisco to Saint Petersburg, thousands of places carry a saint\'s name, because explorers, settlers and missionaries named them for the saint on whose feast day they arrived or whom they trusted to protect them. This list is long but not complete.', 'Hand-authored from standard gazetteers (the town takes its name from the saint).', `
+  L('cities-named-for-saints', 'places', 'Name a city or town in the world that is named after a saint.', 'Thousands of places carry a saint\'s name, because explorers, settlers and missionaries named them for the saint on whose feast day they arrived or whom they trusted to protect them. This list is long but not complete.', 'Hand-authored from standard gazetteers (the town takes its name from the saint).', `
 San Francisco|1
 San Diego|1
 San Jose|1|San José
@@ -396,7 +396,7 @@ Seychelles|5
 Saint Lucia|5
 Dominica|5
 `),
-  L('italian-cities', 'places', 'Name a city or town in Italy.', 'Italy holds the Vatican, the tombs of the apostles Peter and Paul, and the towns of Francis, Clare, Benedict, Catherine of Siena and Padre Pio, so almost every Catholic has met its towns in the lives of the saints. Any Italian city or town counts. This list is long but not complete.', 'Hand-authored from standard gazetteers and Butler\'s Lives of the Saints.', `
+  L('italian-cities', 'places', 'Name a city or town in Italy.', 'Italy holds the Vatican, the tombs of the apostles Peter and Paul, and the towns of Francis, Clare, Benedict and Padre Pio, so almost every Catholic has met its towns in the lives of the saints. Any Italian city or town counts. This list is long but not complete.', 'Hand-authored from standard gazetteers and Butler\'s Lives of the Saints.', `
 Rome|1
 Milan|1
 Venice|1
@@ -533,7 +533,7 @@ Ivrea|4
 Biella|5
 Vercelli|4
 `),
-  L('spanish-cities', 'places', 'Name a city or town in Spain.', 'Spain gave the Church Ignatius of Loyola, Teresa of Avila, John of the Cross, Dominic and Francis Xavier, and its pilgrim road ends at Santiago de Compostela. Any Spanish city or town counts. This list is long but not complete.', 'Hand-authored from standard gazetteers and Butler\'s Lives of the Saints.', `
+  L('spanish-cities', 'places', 'Name a city or town in Spain.', 'Spain gave the Church many great saints, and its pilgrim roads draw walkers from across Europe. Any Spanish city or town counts. This list is long but not complete.', 'Hand-authored from standard gazetteers and Butler\'s Lives of the Saints.', `
 Madrid|1
 Barcelona|1
 Seville|1|Sevilla

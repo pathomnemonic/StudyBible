@@ -298,7 +298,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
   {
     id: 'longtail-augustine-works', theme: 'church-history',
     prompt: 'Name a surviving work by Augustine of Hippo.',
-    context: 'Titles include books, dialogues, treatises, biblical commentaries, letters, and sermon collections preserved in the Augustinian corpus.',
+    context: 'Titles include books, dialogues, treatises, biblical commentaries preserved in the Augustinian corpus.',
     basis: 'Source bibliography: James J. O’Donnell, Georgetown University, “Augustine: Selected Bibliography”; Stanford Encyclopedia of Philosophy bibliography and corpus overview: https://faculty.georgetown.edu/jod/twayne/twaynebib.html ; https://plato.stanford.edu/entries/augustine/ .',
     answers: ranked([
       'Confessions','City of God','On the Trinity','On Christian Doctrine','Enchiridion',
@@ -338,7 +338,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
       'On the Mixture of Elements','On the Hidden Operations of Nature','On the Sorts','On the Motion of the Heart','On the Judgments of the Stars','On the Perfection of the Spiritual Life','On the Perfection of the Christian Life','On the Purchase and Sale of Time','On the Form of Absolution','On the Boethian De Trinitate','On Boethius De Hebdomadibus','Commentary on the Divine Names','Commentary on the Book of Causes','Commentary on Aristotle’s Physics','Commentary on Aristotle’s Metaphysics','Commentary on Aristotle’s Ethics','Commentary on Aristotle’s Politics','Commentary on Aristotle’s De Anima','Commentary on Aristotle’s De Interpretatione','Commentary on the Posterior Analytics','Commentary on the Categories','Commentary on the Meteorology','Commentary on On Generation and Corruption','Commentary on De Caelo','Commentary on Job','Commentary on Isaiah','Commentary on Jeremiah','Commentary on Matthew','Commentary on John','Commentary on Romans','Commentary on First Corinthians','Commentary on the Pauline Epistles','Commentary on the Psalms','The Office of Corpus Christi','Pange Lingua','Adoro Te Devote','Lauda Sion','Tantum Ergo','O Salutaris Hostia','Exposition of the Hail Mary','Exposition of the Apostles’ Creed','Contra Impugnantes Dei Cultum','De Rationibus Fidei','De Unitate Intellectus contra Averroistas','De Veritate',
     ], {
       'Summa Theologiae':'Summa Theologica',
-      'Summa Contra Gentiles':'Summa contra Gentiles',
+      
       'On Being and Essence':'De ente et essentia',
       'On the Principles of Nature':'De principiis naturae',
       'On Kingship':'De regno',
@@ -827,7 +827,7 @@ const checkedLongTailPrompts: CheckedPrompt[] = [
   {
     id: 'longtail-francis-canonizations', theme: 'saints',
     prompt: 'Name a Catholic saint canonized since the year 2000.',
-    context: 'The answer key samples official Vatican canonization records from 2000 through 2025, under John Paul II, Benedict XVI, and Francis.',
+    context: 'The answer key samples official Vatican canonization records from 2000 through 2025, under Benedict XVI, and Francis.',
     basis: 'Source lists: Holy See, Dicastery for the Causes of Saints, canonizations by pontificate and year; Vatican News canonicalization records: https://www.vatican.va/news_services/liturgy/saints/index_saints_en.html ; https://www.vaticannews.va/en/pope/news/2025-04/pope-francis-canonizations-saints.html .',
     reviewFlags: ['Group canonizations can involve dozens or hundreds of people; this open answer key is a sample, not the complete set of everyone canonized since 2000. Check names and canonical spellings against the Vatican record before marking reviewed.'],
     answers: ranked([

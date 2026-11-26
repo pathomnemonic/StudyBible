@@ -14,7 +14,7 @@ const rows = (t: string): DeepAnswer[] => t.trim().split('\n').map((l) => l.trim
 const L = (id: string, theme: DeepTheme, prompt: string, context: string, basis: string, list: string, extra: Partial<DeepPrompt> = {}): DeepPrompt => ({ id: `authored2-${id}`, theme, basis, prompt, context, answers: rows(list), ...extra });
 
 export const LONG_LIST_2_PROMPTS: DeepPrompt[] = [
-  L('nt-people', 'people', 'Name a person in the New Testament other than Jesus.', 'The Gospels, Acts and the letters name well over a hundred people, from the Holy Family and the apostles to Paul\'s co-workers and the officials who judged him. This list is long but not complete.', 'Hand-authored from the Gospels, Acts and the New Testament letters.', `
+  L('nt-people', 'people', 'Name a person in the New Testament other than Jesus.', 'The Gospels, Acts and the letters name well over a hundred people, from the Holy Family and the apostles to his co-workers and the officials who judged him. This list is long but not complete.', 'Hand-authored from the Gospels, Acts and the New Testament letters.', `
 Mary|1|Virgin Mary;Blessed Virgin Mary;Mary the mother of Jesus;Mother Mary
 Joseph|1|Saint Joseph;Joseph the carpenter;Joseph husband of Mary
 Peter|1|Simon Peter;Simon;Cephas
@@ -248,7 +248,7 @@ Hail Redeemer King Divine|6
 Sweet Sacrament Divine|5
 Jesus My Lord My God My All|4
 `),
-  L('catholic-authors', 'church-history', 'Name a Catholic author or poet.', 'Novelists, poets, essayists and thinkers who were Catholic, from Dante to Flannery O\'Connor, including converts. Someone who wrote about Catholicism without being Catholic is not on the list.', 'Hand-authored; standard literary histories and biographies. Only writers who were baptized or received into the Catholic Church, whether or not they stayed observant.', `
+  L('catholic-authors', 'church-history', 'Name a Catholic author or poet.', 'Novelists, poets, essayists and thinkers who were Catholic, including converts. Someone who wrote about Catholicism without being Catholic is not on the list.', 'Hand-authored; standard literary histories and biographies. Only writers who were baptized or received into the Catholic Church, whether or not they stayed observant.', `
 G. K. Chesterton|1|Chesterton;GK Chesterton
 J. R. R. Tolkien|1|Tolkien;JRR Tolkien
 Dante Alighieri|1|Dante
@@ -443,7 +443,7 @@ Bartolomé Esteban Murillo|3|Murillo
 Francisco de Zurbarán|4|Zurbaran
 Jusepe de Ribera|4|Ribera
 Peter Paul Rubens|2|Rubens
-Anthony van Dyck|3|Van Dyck;Anthony Van Dyck
+Anthony van Dyck|3|Van Dyck
 Rembrandt|2|Rembrandt van Rijn
 Nicolas Poussin|4|Poussin
 Georges de La Tour|4|La Tour
@@ -844,7 +844,7 @@ Saint Mary's University Twickenham|6
 Ushaw College|6
 Oscott College|6
 `),
-  L('denominations', 'church-history', 'Name a Christian church, denomination or tradition.', 'Churches and traditions that confess Christ, from the ancient Eastern churches to the Reformation churches and modern movements. Naming one does not say the Catholic Church recognizes its sacraments or orders.', 'Hand-authored; standard directories such as the World Christian Encyclopedia and the Handbook of Denominations.', `
+  L('denominations', 'church-history', 'Name a Christian church, denomination or tradition.', 'Churches and traditions that confess Christ, from the ancient Eastern churches to the Reformation churches and modern movements.', 'Hand-authored; standard directories such as the World Christian Encyclopedia and the Handbook of Denominations.', `
 Catholic Church|1|Roman Catholic Church;Catholic;Roman Catholic
 Eastern Orthodox Church|1|Orthodox;Eastern Orthodox;Greek Orthodox
 Lutheran Church|1|Lutheran;Lutheranism
@@ -1202,7 +1202,7 @@ San Salvatore in Lauro|6
 Santi Ambrogio e Carlo|6
 Sant'Antonio dei Portoghesi|6
 `),
-  L('catholic-prayers', 'devotion', 'Name a Catholic prayer.', 'Prayers learned at home, said at Mass or taught in the Catechism, including prayers of the Rosary, the Angelus, the Divine Mercy and the great saints.', 'Hand-authored; Compendium of the Catechism of the Catholic Church, Roman Missal, Liturgy of the Hours and the Manual of Indulgences.', `
+  L('catholic-prayers', 'devotion', 'Name a Catholic prayer.', 'Prayers learned at home, said at Mass or taught in the Catechism, including prayers and the great saints.', 'Hand-authored; Compendium of the Catechism of the Catholic Church, Roman Missal, Liturgy of the Hours and the Manual of Indulgences.', `
 Our Father|1|Lord's Prayer;Pater Noster;Our Father Who Art in Heaven
 Hail Mary|1|Ave Maria
 Glory Be|1|Glory Be to the Father;Gloria Patri
@@ -1226,7 +1226,7 @@ Litany of Saint Joseph|5
 Litany of the Holy Name|5
 Jesus Prayer|3|Lord Jesus Christ Son of God Have Mercy on Me
 Prayer of Saint Francis|2|Make Me an Instrument of Your Peace
-Grace Before Meals|1|Bless Us O Lord;Grace Before Meals
+Grace Before Meals|1|Bless Us O Lord
 Grace After Meals|3|We Give Thee Thanks
 Morning Offering|2
 Prayer Before Communion|3|Lord I Am Not Worthy
@@ -1314,7 +1314,7 @@ Dignitatis Humanae|3|Declaration on Religious Freedom;Religious Freedom
 Ad Gentes|4|Decree on the Church's Missionary Activity;Missionary Activity
 Presbyterorum Ordinis|5|Decree on the Ministry and Life of Priests;Ministry and Life of Priests
 `, { closed: 16 }),
-  L('stations-of-the-cross', 'devotion', 'Name one of the fourteen Stations of the Cross.', 'The traditional Way of the Cross has fourteen stations, from the condemnation by Pilate to the burial.', 'The traditional fourteen stations as prayed in the Roman Catholic Church.', `
+  L('stations-of-the-cross', 'devotion', 'Name one of the fourteen Stations of the Cross.', 'The traditional Way of the Cross has fourteen stations.', 'The traditional fourteen stations as prayed in the Roman Catholic Church.', `
 Jesus is condemned to death|2|Condemned to death;Jesus is condemned
 Jesus takes up his cross|2|Jesus takes the cross;Takes up the cross;Jesus carries his cross
 Jesus falls the first time|1|First fall;Jesus falls
@@ -1331,7 +1331,7 @@ Jesus is taken down from the cross|2|Taken down from the cross;Deposition
 Jesus is laid in the tomb|1|Laid in the tomb;Jesus is buried;Burial
 `, { closed: 14 }),
 
-  L('roman-emperors', 'church-history', 'Name a Roman emperor.', 'Rulers of the Roman Empire from Augustus to the last emperor of the West, including the emperors who persecuted Christians and the first to favor them.', 'Hand-authored; standard lists of Roman emperors (Oxford Classical Dictionary).', `
+  L('roman-emperors', 'church-history', 'Name a Roman emperor.', 'Rulers of the Roman Empire to the last emperor of the West, including the emperors who persecuted Christians and the first to favor them.', 'Hand-authored; standard lists of Roman emperors (Oxford Classical Dictionary).', `
 Augustus|1|Caesar Augustus;Octavian
 Tiberius|1
 Caligula|1|Gaius;Gaius Caesar
@@ -1417,7 +1417,7 @@ Zeno|5
 Justinian|2|Justinian I;Justinian the Great
 Heraclius|4
 `),
-  L('us-cities-saints', 'places', 'Name a city or town in the United States named for a saint or a Catholic term.', 'Many American places were named by Spanish, French and Catholic settlers for saints, feasts and sacraments, from San Francisco to Saint Louis.', 'Hand-authored; the United States Board on Geographic Names and standard place-name dictionaries.', `
+  L('us-cities-saints', 'places', 'Name a city or town in the United States named for a saint or a Catholic term.', 'Many American places were named by Spanish, French and Catholic settlers for saints, feasts and sacraments.', 'Hand-authored; the United States Board on Geographic Names and standard place-name dictionaries.', `
 San Francisco|1
 Saint Louis|1|St. Louis
 San Diego|1
@@ -1569,7 +1569,7 @@ Mosteiro dos Jerónimos|5|Jeronimos Monastery;Jeronimos
 Escorial|3|El Escorial
 Las Huelgas|6
 `),
-  L('ot-stories', 'scripture', 'Name a story from the Old Testament.', 'Well-known episodes of the Old Testament: from creation and the patriarchs to the Exodus, the judges and kings, the prophets and the exile.', 'Hand-authored from the Catholic Old Testament.', `
+  L('ot-stories', 'scripture', 'Name a story from the Old Testament.', 'Well-known episodes of the Old Testament: the Exodus, the judges and kings, the prophets and the exile.', 'Hand-authored from the Catholic Old Testament.', `
 Creation|1|Creation of the world;The Seven Days of Creation
 Adam and Eve|1|The Fall;The Garden of Eden;Garden of Eden;Eve and the serpent
 Cain and Abel|1
@@ -1664,7 +1664,7 @@ Uzzah and the ark|5
 Dedication of the Temple|4
 Elijah on Mount Horeb|4|Still small voice
 `),
-  L('genesis-people', 'people', 'Name a person in the Book of Genesis.', 'Genesis names the first humans, the families of Noah and Abraham and the twelve sons of Jacob. Gods and angels are not counted.', 'Hand-authored from Genesis.', `
+  L('genesis-people', 'people', 'Name a person in the Book of Genesis.', 'Genesis names the first humans. Gods and angels are not counted.', 'Hand-authored from Genesis.', `
 Adam|1
 Eve|1
 Cain|1
@@ -1968,10 +1968,10 @@ Good Christian Men Rejoice|3
 Sing We Now of Christmas|6
 Shepherds Shake Off Your Drowsy Sleep|6
 `),
-  L('patron-occupations', 'saints', 'Name a job, group or condition that has a patron saint.', 'The Church honors saints as patrons of trades, causes and conditions: farmers, musicians, travelers, nurses, students and many more. Name the job or group, not the saint.', 'Hand-authored; Butler\'s Lives of the Saints and Catholic patron-saint directories (for example Catholic Online and the Catholic Encyclopedia).', `
+  L('patron-occupations', 'saints', 'Name a job, group or condition that has a patron saint.', 'The Church honors saints as patrons of trades, causes and conditions. Name the job or group, not the saint.', 'Hand-authored; Butler\'s Lives of the Saints and Catholic patron-saint directories (for example Catholic Online and the Catholic Encyclopedia).', `
 Farmers|1|Farming;Farmer
 Musicians|1|Music;Musician
-Travelers|1|Travellers;Traveler;Travelers
+Travelers|1|Travellers;Traveler
 Nurses|1|Nurse
 Students|1|Student;Scholars
 Teachers|1|Teacher;Educators
@@ -1996,7 +1996,7 @@ Shoemakers|3|Shoemaker;Cobblers
 Weavers|4|Weaver
 Miners|3|Mining;Miner
 Firefighters|2|Firemen;Firefighter
-Police officers|2|Police;Policemen;Police
+Police officers|2|Police;Policemen
 Judges|3|Judge
 Accountants|2|Accountant;Bookkeepers
 Bankers|3|Banker
@@ -2043,13 +2043,13 @@ Potters|4|Potter
 Glassmakers|5
 Sculptors|4|Sculptor
 Organists|5|Organist
-Postal workers|3|Postal Workers;Mail carriers
+Postal workers|3|Mail carriers
 Taxi drivers|3|Cab drivers;Drivers
 Truck drivers|4
 Undertakers|3|Funeral directors
 Prisoners|2|Prisoner;Captives
 Thieves|3|Thief
-Lepers|3|Leprosy;Lepers
+Lepers|3|Leprosy
 The sick|2|Sick people;Invalids
 The dying|2
 The poor|2
@@ -2072,7 +2072,7 @@ Catechists|3|Catechist
 Altar servers|3|Altar boys;Servers
 Choirs|4
 Church musicians|3
-Parish priests|3|Parish Priests
+Parish priests|3
 Lost things|2|Lost articles;Lost items
 Impossible causes|2|Desperate cases;Lost causes
 Headaches|4
@@ -2102,7 +2102,7 @@ Tax collectors|3|Tax collector
 Gravediggers|5
 Tentmakers|4|Tentmaker
 `),
-  L('church-titles', 'church-history', 'Name a title, office or role in the Catholic Church.', 'Offices of clergy and bishops, ranks in religious life, and roles in a parish and the Vatican, from pope to altar server.', 'Hand-authored; Code of Canon Law and the Annuario Pontificio.', `
+  L('church-titles', 'church-history', 'Name a title, office or role in the Catholic Church.', 'Offices of clergy and bishops, ranks in religious life, and roles in a parish and the Vatican.', 'Hand-authored; Code of Canon Law and the Annuario Pontificio.', `
 Pontiff|2|Bishop of Rome;Holy Father;Supreme Pontiff
 Cardinal|1
 Archbishop|1
@@ -2208,7 +2208,7 @@ Domestic prelate|6
 Honorary prelate|6
 Chaplain of His Holiness|5
 `),
-  L('church-architecture', 'places', 'Name a part or feature of a church or cathedral building.', 'Parts of the building, from the floor plan (nave, transept) to the windows, vaults, towers, doors and furnishings of great medieval and Renaissance churches.', 'Hand-authored; standard architectural glossaries (for example Banister Fletcher).', `
+  L('church-architecture', 'places', 'Name a part or feature of a church or cathedral building.', 'Parts of the building, from the floor plan to the windows, vaults, towers, doors and furnishings of great medieval and Renaissance churches.', 'Hand-authored; standard architectural glossaries (for example Banister Fletcher).', `
 Nave|1
 Altar|1
 Aisle|1
@@ -2400,7 +2400,7 @@ The Gospel of John|4
 The Gospel of Luke|5|Jesus film
 The Miracle Maker|3
 `),
-  L('christmas-customs', 'devotion', 'Name a Christmas custom or tradition.', 'Things people do, make, eat and decorate at Advent and Christmas, from church customs to family and national traditions.', 'Hand-authored; standard folklore and liturgical references.', `
+  L('christmas-customs', 'devotion', 'Name a Christmas custom or tradition.', 'Things people do, make, eat and decorate, from church customs to family and national traditions.', 'Hand-authored; standard folklore and liturgical references.', `
 Christmas tree|1
 Nativity scene|1|Crèche;Creche;Manger scene
 Advent calendar|1
@@ -2546,7 +2546,7 @@ Sweyn Forkbeard|4|Sweyn
 Æthelwulf|6|Ethelwulf
 `),
 
-  L('kings-people', 'people', 'Name a person in the Books of Kings.', 'First and Second Kings follow Israel from Solomon to the exile: kings of Judah and Israel, prophets and their servants, queens, priests, and foreign rulers.', 'Hand-authored from 1 and 2 Kings.', `
+  L('kings-people', 'people', 'Name a person in the Books of Kings.', 'First and Second Kings follow Israel to the exile: kings of Judah and Israel, prophets and their servants, queens, priests, and foreign rulers.', 'Hand-authored from 1 and 2 Kings.', `
 Solomon|1
 Elijah|1
 Elisha|1
@@ -2637,7 +2637,7 @@ Tahpenes|6
 Pharaoh's daughter|3
 `),
 
-  L('samuel-people', 'people', 'Name a person in the Books of Samuel.', 'First and Second Samuel tell of the prophet Samuel, King Saul and King David: judges and priests, soldiers and wives, enemies and friends.', 'Hand-authored from 1 and 2 Samuel.', `
+  L('samuel-people', 'people', 'Name a person in the Books of Samuel.', 'First and Second Samuel tell of judges and priests, soldiers and wives, enemies and friends.', 'Hand-authored from 1 and 2 Samuel.', `
 David|1
 Saul|1
 Samuel|1
@@ -2732,7 +2732,7 @@ Chimham|6
 Naharai|6
 Zelek|6
 `),
-  L('acts-people', 'people', 'Name a person in the Acts of the Apostles.', 'Acts follows the first Christians from the upper room to Rome: apostles and deacons, converts, helpers and officials, and the rulers before whom Paul stood.', 'Hand-authored from the Acts of the Apostles.', `
+  L('acts-people', 'people', 'Name a person in the Acts of the Apostles.', 'Acts follows the first Christians from the upper room to Rome: apostles and deacons, converts, helpers and officials, and the rulers he faced.', 'Hand-authored from the Acts of the Apostles.', `
 Peter|1
 Paul|1|Saul
 John|1
