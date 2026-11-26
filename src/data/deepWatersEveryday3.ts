@@ -91,7 +91,7 @@ James|2
 Jude|3
 Revelation|1|Apocalypse;Book of Revelation
 `, { closed: 73 }),
-  L('angels', 'doctrine', 'Name an angel.', 'Scripture names three angels, and tradition names others. Angels are messengers and servants of God. This list is not complete.', 'Hand-authored from Scripture and Catholic tradition.', `
+  L('angels', 'doctrine', 'Name an angel, an archangel, or a choir of angels in Catholic tradition.', 'Scripture names three angels, and tradition names others. Angels are messengers and servants of God. This list is not complete.', 'Hand-authored from Scripture and Catholic tradition.', `
 Michael|1|Saint Michael;Michael the Archangel
 Gabriel|1|Saint Gabriel;Gabriel the Archangel
 Raphael|1|Saint Raphael;Raphael the Archangel
@@ -107,7 +107,6 @@ Powers|4
 Principalities|3
 Archangels|3
 Angels|1
-Abaddon|5|Apollyon
 `),
   L('sins', 'doctrine', 'Name a sin.', 'The Church teaches that sin is an offense against God and neighbor. Any sin counts: a deadly sin, a sin against a commandment, or a sin of everyday life. This list is long but not complete.', CUSTOM, `
 Pride|1
@@ -131,8 +130,7 @@ Idolatry|2|Worshiping idols
 Coveting|2|Covet
 Disobedience|3|Disobeying parents
 Dishonoring parents|3|Not honoring parents
-Slander|3
-Calumny|4
+Slander|3|Calumny
 Detraction|4
 Perjury|4|False witness;Bearing false witness
 Fornication|3
@@ -169,17 +167,16 @@ Hope|1
 Charity|1|Love
 Prudence|2
 Justice|2
-Fortitude|2
+Fortitude|2|Courage;Bravery
 Temperance|2|Self-control
 Humility|1
 Patience|1
 Kindness|1
 Chastity|2
-Generosity|1
+Generosity|1|Liberality;Generosity of spirit
 Obedience|2
 Gratitude|2|Thankfulness
 Honesty|1|Truthfulness
-Courage|1|Bravery
 Mercy|1
 Diligence|3
 Meekness|3|Gentleness
@@ -190,8 +187,8 @@ Compassion|1
 Purity|2
 Modesty|3
 Wisdom|2
-Poverty of spirit|4|Poverty
-Faithfulness|2
+Poverty of spirit|4
+Faithfulness|2|Fidelity
 Loyalty|3
 Perseverance|3
 Self-sacrifice|3|Sacrifice
@@ -203,21 +200,18 @@ Trust|2
 Respect|3
 Service|2
 Hospitality|3
-Fidelity|3
 Contentment|4
 Mildness|5
-Liberality|5
 Magnanimity|5
 Fear of the Lord|4
 Reverence|3
-Generosity of spirit|5
 `),
   L('ways-to-pray', 'devotion', 'Name a way to pray.', 'Catholics pray alone and together, with set words. Any way of praying counts. This list is long but not complete.', CUSTOM, `
 The rosary|1|Rosary;Praying the rosary
 The Mass|1|Mass
 Silent prayer|1|Silence;Praying silently
 Prayer before meals|1|Grace before meals;Saying grace;Grace
-Night prayer|2|Evening prayer;Bedtime prayer;Compline
+Night prayer|2|Evening prayer;Bedtime prayer
 Morning prayer|2|Lauds
 Novena|2
 The Stations of the Cross|2|Stations of the Cross;Way of the Cross
@@ -386,7 +380,6 @@ Confess|1
 `),
   L('moses-story', 'scripture', 'Name something from the story of Moses and the Exodus.', 'The Book of Exodus tells how God freed Israel from Egypt through Moses. This list is not complete.', 'Hand-authored from Exodus.', `
 Burning bush|1
-Plagues|1|Ten plagues
 Red Sea|1|Parting of the Red Sea
 Ten Commandments|1
 Mount Sinai|1|Sinai
@@ -509,8 +502,7 @@ Gardener|3
 Rabboni|3
 Do not touch me|3|Noli me tangere
 Joseph of Arimathea|3
-Easter Sunday|1
-Sunday|1|The first day of the week
+Easter Sunday|1|Sunday;The first day of the week
 `),
   L('jesus-places', 'places', 'Name a place where Jesus went or lived.', 'The Gospels follow Jesus through his life and ministry. This list is long but not complete.', 'Hand-authored from the four Gospels.', `
 Bethlehem|1
@@ -579,7 +571,6 @@ Cana|1
 Emmaus|2
 Philippi|2
 Thessalonica|2
-Galatia|3
 Colossae|3
 Laodicea|3
 Smyrna|3
@@ -653,7 +644,7 @@ Galilee|2
 Eden|1|Garden of Eden
 Goshen|3
 Gilead|3
-Ur of the Chaldeans|3|Chaldea
+Ur of the Chaldeans|3
 Lebanon|3
 Gaul|5
 Spain|3
@@ -707,7 +698,6 @@ Papal tiara|4|Tiara
 Fisherman's ring|4|Ring of the Fisherman
 Papal throne|3
 Rome|1
-Tiber|4
 Papal audience|2|General audience
 Pope mobile|2|Popemobile
 `),
@@ -737,15 +727,14 @@ Ring of the Fisherman destroyed|4
 Prayer|2|Veni Creator
 Mass for the election|3|Pro eligendo pontifice
 Sealed|3
-Crowds|2|St. Peter's Square
+Crowds|2
 Bells|3
 Election|1
 Acceptance|3|Acceptio
-Habemus|2
 Urbi et orbi|3
 Papal blessing|2
 `),
-  L('catholic-groups', 'church-history', 'Name a Catholic charity or lay group.', 'Many Catholic groups serve the poor and build up the Church. This list is not complete.', 'Hand-authored from the Annuario Pontificio and the groups\' own descriptions.', `
+  L('catholic-groups', 'church-history', 'Name a Catholic charity, lay group, or religious order.', 'Many Catholic groups serve the poor and build up the Church. This list is not complete.', 'Hand-authored from the Annuario Pontificio and the groups\' own descriptions.', `
 Knights of Columbus|1
 Catholic Relief Services|1|CRS
 Caritas|2
@@ -827,7 +816,6 @@ Tongues of fire|1
 Breath|2
 Living water|3
 Red|3|Red vestments
-Pentecost|2
 Temple|4
 Advocate|3|Paraclete
 Counselor|3|Comforter
@@ -858,13 +846,13 @@ Garden|2|Garden of Eden;Eden
 Rivers|3
 Tree of life|2
 Tree of the knowledge of good and evil|2|Tree of knowledge
-Rest|2|The Sabbath;Sabbath;Seventh day
+Rest|2|Sabbath;Seventh day
 Evening and morning|3
 Image of God|3
 Clay|4|Dust
 `),
   L('liturgical-colors', 'liturgy', 'Name a liturgical color.', 'The priest\'s vestments change color with the season or feast. This list is complete: the colors used in the Roman Rite.', 'Hand-authored from the General Instruction of the Roman Missal, no. 346.', `
-Green|1|Ordinary Time
+Green|1
 White|1
 Red|1
 Purple|1|Violet
@@ -889,7 +877,7 @@ Kidron|3|Kidron Valley
 Kishon|4
 Pishon|4
 Gihon|4
-Abana|5|Pharpar
+Abana|5
 River of Egypt|4
 Chebar|4|Chebar canal
 Spring of Harod|5
@@ -917,9 +905,7 @@ Candle|1|Votive candle
 Palm|2|Blessed palm
 Holy card|2|Prayer card
 Statue|1|Holy statue
-Bible|1
 Icon|2
-Missal|2
 Incense|2
 Holy oil|3|Blessed oil
 Ashes|2
@@ -927,7 +913,6 @@ Blessed salt|4
 Crucifix necklace|2|Cross necklace
 Medal of Saint Benedict|3|Benedict medal
 Nativity set|2|Crèche;Creche;Nativity scene
-Prie-dieu|4|Kneeler
 Chaplet|3
 Agnus Dei|5
 Blessed bread|3|Saint Anthony's bread
@@ -941,7 +926,6 @@ Chalice|1
 Paten|2
 Host|1|Hosts;Bread
 Wine|1
-Altar|1
 Vestments|1
 Chasuble|1
 Stole|2
@@ -968,7 +952,6 @@ Chair|3|Presider's chair
 Paschal candle|3
 Aspergillum|3|Holy water sprinkler
 Monstrance|2
-Tabernacle|2
 Pyx|4
 Humeral veil|4
 Chalice veil|4
@@ -992,7 +975,7 @@ Holy Saturday|2
 Ascension|1|Ascension Thursday
 All Saints' Day|1|All Saints Day;All Saints
 All Souls' Day|1|All Souls Day;All Souls
-Epiphany|1
+Epiphany|1|Three Kings' Day;Dia de los Reyes
 Assumption|1|Feast of the Assumption
 Immaculate Conception|1
 Annunciation|2
@@ -1031,6 +1014,5 @@ Our Lady of Lourdes|2
 Sacred Heart|2|Feast of the Sacred Heart
 Day of the Dead|3|Dia de los Muertos;Día de los Muertos
 Las Posadas|3
-Three Kings' Day|2|Dia de los Reyes
 `),
 ];

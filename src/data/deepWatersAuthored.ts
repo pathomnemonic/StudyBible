@@ -208,7 +208,7 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
    },
    {
     "answer": "The Rich Fool",
-    "tier": 1
+    "tier": 2
    },
    {
     "answer": "The Barren Fig Tree",
@@ -445,8 +445,7 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     "answer": "The seven disciples at the Sea of Tiberias",
     "tier": 4,
     "aliases": [
-     "The disciples fishing at Tiberias",
-     "Nathanael"
+     "The disciples fishing at Tiberias"
     ]
    }
   ]
@@ -984,7 +983,7 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
   "id": "authored-women-in-acts",
   "theme": "people",
   "basis": "Hand-authored answer key; sources: Acts 1:14; 9:36–42; 12:12; 16:14–15; 18:2, 18, 26; 21:8–9.",
-  "prompt": "Name a woman in the Acts of the Apostles who belonged to the early Christian community.",
+  "prompt": "Name a woman named in the Acts of the Apostles.",
   "context": "Eight women are named in Acts as part of the community of believers.",
   "answers": [
    {
@@ -1172,6 +1171,10 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
     "tier": 1
    },
    {
+    "answer": "I AM",
+    "tier": 1
+   },
+   {
     "answer": "The Way",
     "tier": 1
    },
@@ -1189,11 +1192,10 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
    },
    {
     "answer": "Rabbi",
-    "tier": 1
-   },
-   {
-    "answer": "Teacher",
-    "tier": 1
+    "tier": 1,
+    "aliases": [
+     "Teacher"
+    ]
    },
    {
     "answer": "Lord",
@@ -1210,10 +1212,6 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
    {
     "answer": "The King of the Jews",
     "tier": 3
-   },
-   {
-    "answer": "I AM",
-    "tier": 2
    },
    {
     "answer": "The Chosen One of God",
@@ -1362,7 +1360,7 @@ export const AUTHORED_PROMPTS: DeepPrompt[] = [
   "theme": "liturgy",
   "basis": "Hand-authored answer key; General Roman Calendar and Universal Norms on the Liturgical Year.",
   "prompt": "Name a season, feast or major observance of the Catholic liturgical year.",
-  "context": "Seasons, solemnities and feasts of the Lord and of Mary; not memorials of individual saints.",
+  "context": "Seasons, Holy Week days, solemnities and feasts of the Lord and of Mary, and the great solemnities of saints; not memorials.",
   "answers": [
    {
     "answer": "Advent",

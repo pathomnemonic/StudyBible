@@ -73,7 +73,7 @@ const CORE_PROMPTS: Omit<DeepPrompt, 'theme'>[] = [
       ['Teutonic Order', 5, 'Teutonic Knights'], ['Alexians', 5, 'Cellites'], ['Basilians', 4, 'Order of Saint Basil the Great'], ['Studites', 5], ['Cluniacs', 4, 'Order of Cluny'], ['Gilbertines', 5, 'Order of Saint Gilbert of Sempringham'],
       ['Minims', 5, 'Order of Minims|Order of Minim Friars'], ['Conventual Franciscans', 4, 'Friars Minor Conventual|Order of Friars Minor Conventual'], ['Sisters of Notre Dame de Namur', 5], ['Religious of the Sacred Heart', 4, 'Society of the Sacred Heart'], ['Visitandines', 5, 'Order of the Visitation of Holy Mary|Visitation Sisters|Sisters of the Visitation'],
       ['Sisters of Loreto', 5, 'Institute of the Blessed Virgin Mary|Loreto Sisters'], ['Presentation Sisters', 5], ['Brigittines', 5, 'Bridgettines|Order of the Most Holy Savior|Order of Saint Bridget'], ['Dominican Sisters', 3], ['Blessed Sacrament Fathers', 5, 'Congregation of the Blessed Sacrament|Eymardists'],
-      ['Assumptionists', 5, 'Augustinians of the Assumption'], ['Spiritans', 5, 'Congregation of the Holy Spirit|Holy Ghost Fathers'], ['White Fathers', 5, 'Missionaries of Africa'], ['Comboni Missionaries', 5, 'Missionaries of the Sacred Heart'], ['Pallottines', 5, 'Society of the Catholic Apostolate'],
+      ['Assumptionists', 5, 'Augustinians of the Assumption'], ['Spiritans', 5, 'Congregation of the Holy Spirit|Holy Ghost Fathers'], ['White Fathers', 5, 'Missionaries of Africa'], ['Comboni Missionaries', 5], ['Pallottines', 5, 'Society of the Catholic Apostolate'],
       ['Xaverians', 5, 'Xaverian Missionaries'], ['Consolata Missionaries', 5], ['Josephites', 5, 'Society of Saint Joseph of the Sacred Heart'], ['Resurrectionists', 5, 'Congregation of the Resurrection'], ['Rogationists', 5],
       ['Sisters of Life', 4], ['Dominican Sisters of Mary Mother of the Eucharist', 5], ['Missionaries of the Poor', 5], ['Little Brothers of Jesus', 5], ['Schoenstatt Sisters', 5],
     ]),
@@ -225,7 +225,7 @@ const CORE_PROMPTS: Omit<DeepPrompt, 'theme'>[] = [
     closed: 13,
     answers: rows([
       ['Peter', 1, 'Simon Peter|Cephas'], ['John', 1, 'John the Apostle|John the Evangelist|John the Beloved Disciple|John son of Zebedee'], ['James the Greater', 2, 'James son of Zebedee|James the Great|James of Zebedee|James'], ['Andrew', 2], ['Thomas', 1, 'Doubting Thomas|Didymus'], ['Matthew', 2, 'Levi|Matthew the Tax Collector|Matthew Levi'],
-      ['Philip', 3], ['Bartholomew', 3, 'Nathanael|Nathaniel'], ['James the Less', 4, 'James son of Alphaeus|James of Alphaeus|James the Lesser|James the Younger'], ['Thaddaeus', 4, 'Jude|Jude Thaddaeus|Judas Thaddaeus|Thaddeus|Saint Jude|Jude the Apostle|Lebbaeus|Judas son of James'], ['Simon the Zealot', 4, 'Simon the Canaanite|Simon Zelotes|Simon the Cananean|Zealot'],
+      ['Philip', 3], ['Bartholomew', 3, 'Nathanael|Nathaniel'], ['James the Less', 4, 'James son of Alphaeus|James of Alphaeus|James the Lesser|James the Younger'], ['Thaddaeus', 4, 'Jude Thaddaeus|Judas Thaddaeus|Thaddeus|Saint Jude|Jude the Apostle|Lebbaeus|Judas son of James'], ['Simon the Zealot', 4, 'Simon the Canaanite|Simon Zelotes|Simon the Cananean|Zealot'],
       ['Judas Iscariot', 1, 'Judas|Iscariot'], ['Matthias', 3, 'Saint Matthias'],
     ]),
   },

@@ -39,7 +39,6 @@ Acacius|5
 `),
   L('saint-rulers', 'saints', 'Name a saint who was a king, a queen or an emperor.', 'The Church has canonized rulers who governed with care for the poor and the faith. This list is not complete.', LIVES, `
 Louis IX of France|1|Saint Louis;King Louis IX;Louis IX
-Wenceslaus|1|Good King Wenceslas;Wenceslas
 Helena|1|Helen;Empress Helena
 Elizabeth of Hungary|2|Elizabeth
 Stephen of Hungary|2|King Stephen of Hungary
@@ -47,7 +46,6 @@ Edward the Confessor|2
 Henry II|3|Emperor Henry II
 Olaf|3|Olaf of Norway
 Margaret of Scotland|3|Queen Margaret of Scotland
-Casimir|3
 Ferdinand III of Castile|3|Ferdinand III
 Clotilde|4|Clotilda
 Elizabeth of Portugal|4
@@ -59,7 +57,7 @@ Edmund the Martyr|4
 Pulcheria|5
 `),
   L('saint-nuns', 'saints', 'Name a saint who was a nun or a sister.', 'Women who took vows and lived in a convent or a community of sisters include many of the best known saints. This list is not complete.', LIVES, `
-Teresa of Avila|1|Teresa of Ávila;Saint Teresa
+Teresa of Avila|1|Teresa of Ávila
 Clare of Assisi|1|Clare
 Therese of Lisieux|1|Thérèse of Lisieux;Little Flower;Saint Therese
 Mother Teresa|1|Teresa of Calcutta;Mother Teresa of Calcutta
@@ -112,7 +110,7 @@ John Baptist de la Salle|3
 Brigid of Kildare|3
 Columba|4
 Peter Julian Eymard|5
-Daniel Comboni|5
+Daniel Comboni|5|Daniele Comboni
 Josemaria Escriva|3|Josemaría Escrivá
 Giuseppe Cottolengo|5
 `),
@@ -143,7 +141,7 @@ Teresa of Calcutta|2
 Willibrord|5
 Gall|5
 Columbanus|4
-Killian|5
+Killian|5|Kilian
 `),
   L('saint-hermits-monks', 'saints', 'Name a saint who was a monk or a hermit.', 'The first monks lived alone in the desert, and later ones lived together in monasteries under a rule. This list is not complete.', LIVES, `
 Benedict|1|Benedict of Nursia
@@ -209,7 +207,7 @@ Ignatius of Loyola|3
 Peter Canisius|4
 Joseph Calasanz|4|Joseph Calasanctius
 Marcellin Champagnat|5
-Mary Mackillop|4
+Mary MacKillop|4
 Madeleine Sophie Barat|5
 Rose Philippine Duchesne|4
 Albert the Great|3|Albertus Magnus
@@ -299,13 +297,12 @@ Ursula|4
 Joseph|1|Saint Joseph
 Anne|1|Saint Anne;Ann
 Joachim|1
-Elizabeth|2|Saint Elizabeth
+Elizabeth of Hungary|3|Elizabeth;Saint Elizabeth
 Zechariah|3|Zachary
 Monica|1
 Peter|1|Simon Peter
 Thomas More|2
 Louis IX|3|Louis IX of France
-Elizabeth of Hungary|3
 Gianna Beretta Molla|2|Gianna Molla
 Zelie Martin|2|Zélie Martin
 Louis Martin|2
@@ -378,7 +375,7 @@ Blaise|4
 Martin de Porres|2
 Mark|3|Mark the Evangelist
 Luke|3|Luke the Evangelist
-Gertrude|4
+Gertrude of Nivelles|4|Gertrude
 Brendan|3
 Cuthbert|3
 Giles|3
@@ -388,7 +385,7 @@ Gall|4
 Columba|4
 Kevin|4
 Melangell|5
-Paul|5
+Paul the Hermit|5|Paul
 John|3|John the Evangelist
 Agnes|2
 Patrick|2
@@ -397,7 +394,7 @@ Margaret of Antioch|4
   L('saint-feast-known', 'saints', 'Name a saint with a well known feast day.', 'Some saints\' days are marked far beyond the Church with parades, gifts and foods. This list is not complete.', 'Hand-authored from the General Roman Calendar and popular customs.', `
 Patrick|1|St. Patrick;Saint Patrick
 Valentine|1
-Nicholas|1|Saint Nick;Santa Claus
+Nicholas|1|Saint Nick;Santa Claus;Nicholas of Myra
 Joseph|1
 Francis of Assisi|2|Francis
 Anthony of Padua|2
@@ -426,7 +423,6 @@ Teresa of Avila|3
 Therese of Lisieux|3
 John Bosco|3
 Elizabeth|3
-Nicholas of Myra|3
 Rose of Lima|3
 Martin de Porres|3
 Juan Diego|3
@@ -486,9 +482,6 @@ Longinus|3
 The soldiers|2|Roman soldiers
 Veronica|3
 The women of Jerusalem|4|Daughters of Jerusalem
-Barabbas|2
-Caiaphas|3
-Herod|3|Herod Antipas
 The chief priests|3|Chief priests
 The crowd|3
 `),
@@ -512,8 +505,6 @@ Balthasar|3|Balthazar
 Elizabeth|2
 Zechariah|3|Zachary
 John the Baptist|2|John
-Simeon|3
-Anna|3|Anna the prophetess
 Caesar Augustus|3|Augustus
 Quirinius|4
 The sheep|3|Sheep;Lambs
@@ -546,7 +537,6 @@ Soda|2|Soft drinks;Pop
 Television|2|TV
 Video games|2|Gaming
 Fast food|2
-Snacks|2|Snacking
 Ice cream|2
 Cookies|3
 Cheese|4
@@ -562,7 +552,7 @@ Caffeine|3
 Chips|3|Crisps
 Pizza|3
 Music|3
-Eating between meals|4
+Eating between meals|4|Snacks;Snacking
 Their phone|3|Phone;Smartphone
 The internet|4
 Gum|4
@@ -577,7 +567,7 @@ Stand|1|Standing
 Sit|1|Sitting
 Make the sign of the cross|1|Sign of the cross;Bless themselves
 Receive communion|1|Take communion;Go to communion;Communion
-Listen to the readings|2|Listen to the Gospel;Listen;Hear the readings
+Listen to the readings|2|Listen;Hear the readings
 Listen to the homily|2|Listen to the sermon;Homily;Sermon
 Say the Creed|2|Recite the Creed;Creed
 Give the sign of peace|2|Exchange the sign of peace;Shake hands;Sign of peace
@@ -623,7 +613,6 @@ Tenebrae|3
 Chrism Mass|4|Mass of Chrism
 Adoration at the altar of repose|3|Altar of repose;Watch with the Lord;Adoration
 Confession|2|Go to confession
-Easter egg hunt|3
 Blessing of the Easter food|4|Blessing of baskets
 Seven Last Words|4
 Sing the Exsultet|4|Exsultet
@@ -687,7 +676,7 @@ Ships|4|Boats;Fleets
 Chalices|3|Chalice
 Vestments|3
 Bells|3
-Chrism|3|Oil;Holy oil;Oil of the sick
+Chrism|3
 Bread|2|Loaves;Saint Anthony's bread
 Wine|3
 Salt|4
@@ -743,7 +732,7 @@ Offertory|3|Offering
 Homily|3
 Readings|2
 `),
-  L('catholic-symbols-everyday', 'art-music', 'Name something you would see on a rosary or in a rosary prayer.', 'Its prayers have words everyone knows. This list is long but not complete.', 'Hand-authored from the standard form of the Rosary.', `
+  L('catholic-symbols-everyday', 'art-music', 'Name something seen on a rosary or named in its prayers.', 'Its prayers have words everyone knows. This list is long but not complete.', 'Hand-authored from the standard form of the Rosary.', `
 Crucifix|1|Cross
 Beads|1|Rosary beads
 Hail Mary|1
@@ -780,7 +769,6 @@ Transfiguration|3
 Institution of the Eucharist|3|Last Supper
 Fatima prayer|3|O my Jesus;Oh my Jesus
 Five decades|2
-Fifty-three Hail Marys|4
 Sign of the Cross|2
 `),
   L('visions-appearances', 'scripture', 'Name someone who had a vision, dream or heavenly message in the Bible.', 'God speaks to people throughout the Bible by dreams, visions and angels. This list is not complete.', 'Hand-authored from the Old and New Testaments.', `

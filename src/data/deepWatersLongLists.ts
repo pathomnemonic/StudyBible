@@ -30,15 +30,14 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
    },
    {
     "answer": "Credo",
-    "tier": 2
+    "tier": 2,
+    "aliases": [
+     "Credo in unum Deum"
+    ]
    },
    {
     "answer": "Sanctus",
     "tier": 2
-   },
-   {
-    "answer": "Credo in unum Deum",
-    "tier": 3
    },
    {
     "answer": "Benedictus",
@@ -1295,7 +1294,11 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
    },
    {
     "answer": "Joseph",
-    "tier": 1
+    "tier": 1,
+    "aliases": [
+     "Joseph the Worker",
+     "Saint Joseph the Worker"
+    ]
    },
    {
     "answer": "Turibius of Mogrovejo",
@@ -1366,10 +1369,6 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
    {
     "answer": "Pius V",
     "tier": 5
-   },
-   {
-    "answer": "Joseph the Worker",
-    "tier": 2
    },
    {
     "answer": "Athanasius",
@@ -4872,12 +4871,15 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
     "tier": 6
    },
    {
-    "answer": "Deusdedit",
-    "tier": 6
-   },
-   {
     "answer": "Honorius",
     "tier": 4
+   },
+   {
+    "answer": "Adeodatus",
+    "tier": 6,
+    "aliases": [
+     "Deusdedit"
+    ]
    },
    {
     "answer": "Severinus",
@@ -4897,10 +4899,6 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
    },
    {
     "answer": "Vitalian",
-    "tier": 6
-   },
-   {
-    "answer": "Adeodatus",
     "tier": 6
    },
    {

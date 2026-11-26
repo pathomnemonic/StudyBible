@@ -42,12 +42,56 @@ const booksNaming = (i: number) => [...inBook.values()].filter((s) => s.has(i)).
 
 interface Cand { id: string; prompt: string; context: string; slots: Set<number>; exclude?: string }
 /* Basilion review (issue 26): in these lists the shorter name is the same feature as the kept tier 6 answer under its
-   fuller name (the Zered valley; the valley Ezekiel also calls the Valley of the Travelers), scored twice in one list. */
+   fuller name (the valley Ezekiel also calls the Valley of the Travelers), scored twice in one list. The Zered case is
+   settled the other way by Class B batch 11: the Valley of Zered folds into Zered, which stays as the one answer. */
 const EXCLUDED_ANSWERS: Record<string, string[]> = {
-  'dir-south-in-law': ['Zered'],
   'dir-east-in-prophets': ['Valley of Hamon-gog'],
   'dir-transjordan-in-prophets': ['Valley of Hamon-gog'],
+  // Class B batch 12: these records ask for places outside the Holy Land and Egypt, so Egyptian places are excluded
+  'dir-abroad': ['Pathros', 'Thebes', 'Syene', 'Pelusium', 'Hanes', 'Alexandria'],
+  'dir-abroad-in-prophets': ['Pathros', 'Thebes', 'Syene', 'Pelusium', 'Hanes', 'Alexandria'],
+  'dir-abroad-in-ot': ['Pathros', 'Thebes', 'Syene', 'Pelusium', 'Hanes', 'Alexandria'],
+  'dir-abroad-in-nt': ['Pathros', 'Thebes', 'Syene', 'Pelusium', 'Hanes', 'Alexandria'],
 };
+/* Basilion review (issue 26), Class B batches 9 to 12: variant forms of one place are one answer, scored under the
+   canonical name with the variant as an accepted form. Keys are comparison forms, so "Sidon the Great" and
+   "Great Sidon" hit the same entry. Folds chain: Chinnereth folds to Sea of Chinnereth, which itself folds to
+   Sea of Galilee where that fold applies. */
+const keyOf = (n: string) => deepTokens(n).join(' ');
+const foldMapOf = (pairs: [string, string][]) => new Map(pairs.map(([v, c]) => [keyOf(v), c] as const));
+const FOLD_PAIRS_X: [string, string][] = [
+  ['Bethlehem Ephrathah', 'Bethlehem'], ['Babel', 'Babylon'], ['Horeb', 'Sinai'], ['Mount Horeb', 'Sinai'],
+  ['Place of a Skull', 'Golgotha'], ['The Skull', 'Golgotha'], ['Akeldama', 'Field of Blood'], ['Olivet', 'Mount of Olives'],
+  ['Hermon', 'Mount Hermon'], ['Kiriath-sepher', 'Debir'], ['Kiriath-sannah', 'Debir'], ['Raamses', 'Rameses'],
+  ['Tehaphnehes', 'Tahpanhes'], ['Sea of Tiberias', 'Sea of Galilee'], ['Sea of Chinnereth', 'Sea of Galilee'], ['Chinnereth', 'Sea of Chinnereth'],
+  ['Gennesaret', 'Sea of Galilee'], ['Laish', 'Dan'], ['Leshem', 'Dan'], ['Great Sidon', 'Sidon'], ['Ptolemais', 'Acco'],
+  ['Peniel', 'Penuel'], ['Michmas', 'Michmash'], ['Perez-uzza', 'Perez-uzzah'], ['Nahalol', 'Nahalal'], ['Mishal', 'Mashal'],
+  ['Hukok', 'Hukkok'], ['Beth-shan', 'Beth-shean'], ['Rimmono', 'Rimmon'], ['Timnath-serah', 'Timnath-heres'],
+  ['Vale of Succoth', 'Valley of Succoth'], ['Sea of the Arabah', 'Salt Sea'], ['Beth-baal-meon', 'Baal-meon'],
+  ['Valley of Shittim', 'Shittim'], ['Berothah', 'Berothai'], ['Cuth', 'Cuthah'], ['Maacath', 'Maacah'],
+];
+/* batch 10 folds, for the places-x-in-* records (and the dir records, which take batches 9 and 10 together):
+   in these records the lake keeps Sea of Chinnereth as its own answer, so that one batch 9 fold does not apply */
+const FOLD_PAIRS_IN_EXTRA: [string, string][] = [
+  ['Jabneh', 'Jabneel'], ['Moserah', 'Moseroth'], ['Kidron', 'Kidron Valley'], ['Jahzah', 'Jahaz'],
+  ['The Stone Pavement', 'Gabbatha'], ['Mount Sinai', 'Sinai'],
+];
+/* batches 11 and 12 folds, for the places-x-dir-* records only (including the Hamath-zobah name form of 2 Chronicles 8:3) */
+const FOLD_PAIRS_DIR_EXTRA: [string, string][] = [
+  ['Babylonia', 'Babylon'], ['Valley of the Arnon', 'Arnon'], ['Valley of Zered', 'Zered'], ['Kadesh-barnea', 'Kadesh'],
+  ['Eloth', 'Elath'], ['Azotus', 'Ashdod'], ['Mount Seir', 'Seir'], ['Luz', 'Bethel'], ['Kiriath-arba', 'Hebron'],
+  ['Zobah-Hamath', 'Hamath-zobah'],
+];
+const FOLDS_X = foldMapOf(FOLD_PAIRS_X);
+const FOLDS_IN = foldMapOf([...FOLD_PAIRS_X.filter(([v]) => v !== 'Sea of Chinnereth'), ...FOLD_PAIRS_IN_EXTRA]);
+const FOLDS_DIR = foldMapOf([...FOLD_PAIRS_X, ...FOLD_PAIRS_IN_EXTRA, ...FOLD_PAIRS_DIR_EXTRA]);
+/* Class B batches 8, 9, 10 and 12: entries that are not places (persons, peoples, temple spaces and bare generic
+   labels), the separate Ephrath and Ephrathah entries (batch 9), and the composite Lower and Upper Beth-horon */
+const EXCLUDED_X = new Set(['Solomon', 'Mount', 'Jebusite', 'Judean', 'Angle', 'Sur', 'Mortar', 'Plain', 'East', 'River', 'Straight',
+  'Most Holy Place', 'Holy Place', 'Hall of Judgment', 'Hall of Pillars', 'Hall of the Throne', "Solomon's Portico",
+  'Esau', 'Nimrod', 'Rahab', 'Ham', 'Ephrath', 'Ephrathah', 'Lower and Upper Beth-horon'].map(keyOf));
+const EXCLUDED_IN = new Set([...EXCLUDED_X, ...['Terah', 'Gog', 'Baal', 'Bilhah', 'Cherub', 'Jeshua'].map(keyOf)]);
+const EXCLUDED_DIR = new Set([...EXCLUDED_X, ...['Gog', 'Second Quarter'].map(keyOf)]);
 const cands: Cand[] = [];
 const geo = (i: number) => places[i].lat !== undefined && places[i].lon !== undefined;
 
@@ -99,19 +143,27 @@ for (const [dk, dl, f] of DIRS) {
 const prompts: DeepPrompt[] = [];
 const kept: Set<string>[] = [];
 for (const c of cands) {
+  const folds = c.id.startsWith('dir-') ? FOLDS_DIR : c.id.startsWith('in-') ? FOLDS_IN : FOLDS_X;
+  const excluded = c.id.startsWith('dir-') ? EXCLUDED_DIR : c.id.startsWith('in-') ? EXCLUDED_IN : EXCLUDED_X;
   const byKey = new Map<string, { name: string; aliases: string[]; score: number }>();
   for (const i of c.slots) {
     const p = places[i];
     if (!okName(p)) continue;
-    const name = nameOf(p).replace(/['’]s$/, '');
+    const raw = nameOf(p).replace(/['’]s$/, '');
+    if (c.exclude && raw === c.exclude) continue;
+    if ((EXCLUDED_ANSWERS[c.id] ?? []).includes(raw)) continue;
+    if (excluded.has(keyOf(raw))) continue;
+    // fold variant forms to their canonical place, following the chain (Chinnereth to Sea of Chinnereth to Sea of Galilee)
+    let name = raw;
+    { const seen = new Set<string>(); let n = raw; while (folds.has(keyOf(n)) && !seen.has(keyOf(n))) { seen.add(keyOf(n)); n = folds.get(keyOf(n))!; } name = n; }
+    // a variant of the anchor place folds into the anchor's name; the anchor itself is not scored in its own radius list
     if (c.exclude && name === c.exclude) continue;
-    if ((EXCLUDED_ANSWERS[c.id] ?? []).includes(name)) continue;
     const k = deepTokens(name).join(' ');
     const now = p.c && /^Now /.test(p.c) ? p.c.replace(/^Now /, '').replace(/[.]$/, '').trim() : '';
     const score = Math.log(1 + p.nv) + 0.5 * Math.log(1 + booksNaming(i));
     const cur = byKey.get(k);
-    if (!cur) byKey.set(k, { name, aliases: now.length >= 3 && !/[^A-Za-z '\-.]/.test(now) ? [now] : [], score });
-    else cur.score = Math.max(cur.score, score);
+    if (!cur) byKey.set(k, { name, aliases: [...(now.length >= 3 && !/[^A-Za-z '\-.]/.test(now) ? [now] : []), ...(name !== raw ? [raw] : [])], score });
+    else { cur.score = Math.max(cur.score, score); if (name !== raw && !cur.aliases.includes(raw)) cur.aliases.push(raw); }
   }
   if (byKey.size < 60) continue;
   const keys = new Set(byKey.keys());

@@ -24,12 +24,12 @@ Francis|1
 Anthony|1|Antony
 Joseph|1
 Michael|1
-Mary|1
+Mary|1|Maria
 Catherine|1|Katherine;Katharine
 Teresa|1|Theresa
 Agnes|1
 Cecilia|1
-Lucy|1
+Lucy|1|Lucia
 Anne|1|Ann;Anna
 Elizabeth|1
 Margaret|1
@@ -38,7 +38,7 @@ Clare|1|Claire
 Rose|1
 Patrick|1
 Matthew|1
-Mark|1
+Mark|1|Marcus
 Luke|1
 Andrew|1
 Philip|1
@@ -64,7 +64,6 @@ Bernard|1
 Bernadette|1
 Martin|1
 Maximilian|2
-Maria|1
 Jane|1
 Joan|1|Jeanne
 Barbara|1
@@ -85,7 +84,6 @@ Julian|2
 Justin|2
 Kevin|2
 Louis|1
-Lucia|1
 Matilda|3|Mathilda;Maud
 Odilia|5
 Olga|3
@@ -167,7 +165,6 @@ Lydia|2
 Macrina|4
 Magnus|4
 Marcellus|4
-Marcus|2
 Marinus|5
 Martha|2|Marta
 Maurice|3
@@ -257,7 +254,7 @@ Saint Albans|2|St Albans;St. Albans
 Saint Andrews|2|St Andrews;St. Andrews
 Saint Davids|3|St Davids
 Saint Ives|3|St Ives
-Saint John|2|St. John;St John;Saint John's;St. John's;St John's
+Saint John|2|St. John;St John
 Saint Tropez|2|Saint-Tropez
 Saint Malo|2|Saint-Malo
 Saint Denis|3|Saint-Denis
@@ -364,7 +361,7 @@ Andorra|4
 Monaco|3
 San Marino|3
 Liechtenstein|4
-Vatican City|1|Holy See
+Vatican City|1
 Switzerland|3
 Cuba|2
 Dominican Republic|2
@@ -382,7 +379,7 @@ East Timor|3|Timor-Leste
 Kiribati|5
 Palau|5
 Angola|3
-Democratic Republic of the Congo|3|DR Congo;Congo;DRC
+Democratic Republic of the Congo|3|DR Congo;DRC
 Republic of the Congo|4
 Gabon|5
 Equatorial Guinea|4
@@ -571,7 +568,7 @@ Murcia|2
 Cartagena|3
 Alicante|2
 Benidorm|3
-Castellon|4|Castellón
+Castellon|4|Castellón;Castellón de la Plana
 Tarragona|2
 Girona|2|Gerona
 Lleida|3|Lerida
@@ -639,7 +636,7 @@ Roncesvalles|3
 Burgo de Osma|5
 Astorga|3
 Ponferrada|3
-Sahagun|4
+Sahagun|4|Sahagún
 Carrion de los Condes|4|Carrión de los Condes
 Villafranca del Bierzo|5
 O Cebreiro|4

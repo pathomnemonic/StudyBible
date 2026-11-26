@@ -32,7 +32,7 @@ Martha|2
 Lazarus|1
 Mary of Bethany|3
 Pontius Pilate|1|Pilate
-Herod|1|Herod the Great
+Herod the Great|1|Herod
 Herod Antipas|2
 Herodias|3
 Salome|3
@@ -143,7 +143,7 @@ Gallio|4
 Claudius Lysias|6|Lysias
 Tertullus|6
 `),
-  L('catholic-songs', 'art-music', 'Name a hymn or song sung in Catholic churches.', 'Latin chant and hymns, Marian songs, and the English hymns Catholics sing at Mass, in Advent and Christmas, Lent and Easter, in the Rosary tradition and at May crowning.', 'Hand-authored; Graduale Romanum, Liber Usualis, the Westminster Hymnal and common Catholic hymnals.', `
+  L('catholic-songs', 'art-music', 'Name a hymn or song sung in Catholic churches.', 'Latin chant and hymns, Marian songs, and the English hymns Catholics sing at Mass, in Advent and Christmas, Lent and Easter, in the Rosary tradition and at May crowning.', 'Hand-authored; hymns sung in Catholic parishes, including hymns of Protestant origin; Graduale Romanum, Liber Usualis, the Westminster Hymnal and common Catholic hymnals.', `
 Silent Night|1|Stille Nacht
 O Come All Ye Faithful|1|Adeste Fideles;O Come All You Faithful
 Ave Maria|1|Hail Mary
@@ -167,8 +167,7 @@ Lord of the Dance|2
 Holy God We Praise Thy Name|2|Holy God We Praise Your Name
 Faith of Our Fathers|3
 Immaculate Mary|3|Lourdes Hymn;Ave Ave Ave Maria
-Hail Holy Queen|2
-Salve Regina|2
+Salve Regina|2|Hail Holy Queen
 Regina Caeli|2|Regina Coeli;Queen of Heaven Rejoice
 Alma Redemptoris Mater|4
 Ave Regina Caelorum|4|Ave Regina Coelorum
@@ -229,8 +228,6 @@ Sanctus|3|Holy Holy Holy Lord God of Hosts
 Agnus Dei|3|Lamb of God
 Kyrie Eleison|3|Kyrie
 Pater Noster|3
-Missa de Angelis|5
-Mass of Creation|4
 Holy Is His Name|4
 Canticle of the Sun|4
 Prayer of Saint Francis|3|Make Me a Channel of Your Peace;Lord Make Me an Instrument of Your Peace
@@ -444,7 +441,6 @@ Francisco de Zurbarán|4|Zurbaran
 Jusepe de Ribera|4|Ribera
 Peter Paul Rubens|2|Rubens
 Anthony van Dyck|3|Van Dyck
-Rembrandt|2|Rembrandt van Rijn
 Nicolas Poussin|4|Poussin
 Georges de La Tour|4|La Tour
 Gian Lorenzo Bernini|2|Bernini
@@ -484,7 +480,8 @@ Antonello da Messina|5
 Carlo Crivelli|6|Crivelli
 Gentile da Fabriano|6
 Simone Martini|4
-Lorenzetti|5|Pietro Lorenzetti;Ambrogio Lorenzetti
+Pietro Lorenzetti|5
+Ambrogio Lorenzetti|5
 Giovanni Pisano|6
 Nicola Pisano|6
 Arnolfo di Cambio|6
@@ -500,7 +497,6 @@ Giovanni Lanfranco|6
 Jacob Jordaens|5|Jordaens
 Philippe de Champaigne|5|Champaigne
 Simon Vouet|6
-Francisco de Goya|4|Goya
 Juan de Juanes|6
 Pedro de Mena|6
 Juan Martínez Montañés|6
@@ -515,7 +511,6 @@ Dieric Bouts|5|Bouts
 Robert Campin|6
 Jean Fouquet|6|Fouquet
 Limbourg brothers|5|Limbourg
-Rublev|4|Andrei Rublev
 `),
   L('women-saints', 'saints', 'Name a woman who is a canonized saint.', 'Virgins, martyrs, mothers, widows, queens, mystics and foundresses from the early Church to the present, canonized by the Church or long honored as saints. Blesseds who are not yet canonized are not on the list.', 'Hand-authored; Roman Martyrology, General Roman Calendar and the canonization lists of the Holy See.', `
 Mary Magdalene|1|Mary of Magdala
@@ -619,7 +614,6 @@ Lydia|4
 Phoebe|5
 Priscilla|5
 Tabitha|4
-Rhoda|6
 Marina|6
 Eugenia|6
 Euphemia|4
@@ -711,7 +705,6 @@ Lincoln Cathedral|4
 Wells Cathedral|4
 Ely Cathedral|4
 Winchester Cathedral|4
-Saint Paul's Cathedral|2
 Glastonbury Abbey|3
 Basilica of the National Shrine of the Immaculate Conception|2|National Shrine
 Saint Louis Cathedral Basilica|4|Cathedral Basilica of Saint Louis
@@ -763,9 +756,9 @@ Saint Louis University|3
 College of the Holy Cross|3|Holy Cross
 Fairfield University|4
 Le Moyne College|5
-Canisius College|5
-Manhattan College|5
-Iona College|5
+Canisius University|5|Canisius College
+Manhattan University|5|Manhattan College
+Iona University|5|Iona College
 Niagara University|5
 Stonehill College|5
 Merrimack College|5
@@ -813,7 +806,6 @@ Pontifical University of Saint Thomas Aquinas|3|Angelicum
 Pontifical Lateran University|4|Lateran University
 Pontifical Biblical Institute|4|Biblicum
 Pontifical Oriental Institute|5
-Pontifical North American College|3|North American College
 Pontifical Urbaniana University|6
 Pontifical University of Saint Bonaventure|6|Seraphicum
 Pontifical Athenaeum Regina Apostolorum|6
@@ -841,12 +833,10 @@ Catholic University of Lille|6
 Catholic University of Portugal|6
 Maynooth|3|Saint Patrick's College Maynooth
 Saint Mary's University Twickenham|6
-Ushaw College|6
-Oscott College|6
 `),
   L('denominations', 'church-history', 'Name a Christian church, denomination or tradition.', 'Churches and traditions that confess Christ, from the ancient Eastern churches to the Reformation churches and modern movements.', 'Hand-authored; standard directories such as the World Christian Encyclopedia and the Handbook of Denominations.', `
 Catholic Church|1|Roman Catholic Church;Catholic;Roman Catholic
-Eastern Orthodox Church|1|Orthodox;Eastern Orthodox;Greek Orthodox
+Eastern Orthodox Church|1|Orthodox;Eastern Orthodox;Greek Orthodox;Greek Orthodox Church
 Lutheran Church|1|Lutheran;Lutheranism
 Anglican Church|1|Anglican;Church of England;Episcopal Church;Episcopalian
 Baptist|1|Baptists;Southern Baptist Convention;Baptist Church
@@ -866,7 +856,6 @@ Coptic Orthodox Church|3|Coptic;Copts
 Armenian Apostolic Church|4|Armenian Church
 Ethiopian Orthodox Church|4|Ethiopian Orthodox Tewahedo Church
 Russian Orthodox Church|2|Russian Orthodox
-Greek Orthodox Church|2
 Serbian Orthodox Church|4|Serbian Orthodox
 Romanian Orthodox Church|5
 Bulgarian Orthodox Church|5
@@ -879,10 +868,8 @@ Chaldean Catholic Church|5|Chaldean
 Ukrainian Greek Catholic Church|4
 Syro-Malabar Church|5|Syro-Malabar Catholic Church
 Old Catholic Church|5|Old Catholics
-Society of Saint Pius X|5|SSPX
 Salvation Army|3
 Christian Science|4
-Unitarian|4|Unitarians;Unitarian Universalism
 Disciples of Christ|5|Christian Church
 Church of Christ|4|Churches of Christ
 Church of the Nazarene|5|Nazarene
@@ -916,7 +903,7 @@ Ark of Noah|1|Noah's Ark
 Cross|1
 Crown of thorns|1
 Manger|1
-Sling|1|Slingshot
+Sling|1
 Staff|2|Rod;Shepherd's staff
 Tablets of the Law|1|Ten Commandments;Stone tablets
 Golden calf|1
@@ -954,8 +941,7 @@ Linen cloth|3|Shroud;Linen wrappings
 Sponge|3
 Nails|2
 Lamp|2|Oil lamp
-Jar|3|Water jar;Stone jars
-Water pot|3|Waterpots
+Jar|3|Water jar;Water pot;Waterpots
 Wineskin|3|Wineskins;Wine skin
 Basket|3
 Net|2|Fishing net
@@ -978,7 +964,7 @@ Throne|2
 Bed|4|Pallet
 Mat|3
 Pillow|5
-Lantern|4|Torches
+Lantern|4
 Torch|4
 Censer|4|Thurible
 Basin|3|Washbasin
@@ -991,8 +977,6 @@ Talent|3|Talents
 Mite|3|Widow's mite
 Pearl|2|Pearl of great price
 Treasure|3|Hidden treasure
-Pillar of cloud|3
-Pillar of fire|3
 Cornerstone|2
 Tent|2|Tent of Meeting
 Tabernacle|2
@@ -1149,11 +1133,11 @@ Santa Cecilia in Trastevere|4|Saint Cecilia in Trastevere
 San Clemente|4|Saint Clement
 Santi Quattro Coronati|6
 Sant'Agnese fuori le Mura|5|Saint Agnes Outside the Walls
-Sant'Agnese in Agone|4|Saint Agnes in Agony
+Sant'Agnese in Agone|4
 San Luigi dei Francesi|4|Saint Louis of the French
 Sant'Andrea della Valle|5
 Santa Maria in Aracoeli|5|Aracoeli
-Santa Maria in Cosmedin|4|Mouth of Truth
+Santa Maria in Cosmedin|4
 San Carlo alle Quattro Fontane|5|San Carlino
 Sant'Ivo alla Sapienza|6
 Trinità dei Monti|4|Trinita dei Monti
@@ -1165,7 +1149,7 @@ San Marco|5|Saint Mark
 San Crisogono|6
 Pantheon|2|Santa Maria ad Martyres;Santa Maria Rotonda
 Sant'Eustachio|6
-San Pietro in Montorio|5|Tempietto
+San Pietro in Montorio|5
 Domine Quo Vadis|5|Quo Vadis
 Santa Francesca Romana|6
 Santi Cosma e Damiano|6
@@ -1215,7 +1199,7 @@ Regina Caeli|3|Regina Coeli;Queen of Heaven
 Hail Holy Queen|2|Salve Regina
 Prayer to Saint Michael|1|Saint Michael Prayer;Saint Michael the Archangel
 Guardian Angel Prayer|2|Angel of God;Angel of God My Guardian Dear
-Come Holy Spirit|2|Veni Sancte Spiritus;Veni Creator Spiritus
+Come Holy Spirit|2|Veni Sancte Spiritus
 Anima Christi|3|Soul of Christ
 Divine Mercy Chaplet|2|Chaplet of Divine Mercy;Chaplet of the Divine Mercy
 Rosary|1|Holy Rosary
@@ -1244,7 +1228,6 @@ Agnus Dei|2|Lamb of God
 Kyrie|3|Kyrie Eleison;Lord Have Mercy
 Eternal Rest|3|Eternal Rest Grant Unto Them;Requiem Aeternam
 Stations of the Cross|2|Way of the Cross
-Novena|2
 Prayer to Saint Joseph|3|To Saint Joseph
 Prayer to Saint Jude|4
 Prayer to Saint Anthony|4|Saint Anthony Prayer
@@ -1413,9 +1396,6 @@ Julius Nepos|6
 Romulus Augustulus|3
 Marcian|5
 Leo I|5
-Zeno|5
-Justinian|2|Justinian I;Justinian the Great
-Heraclius|4
 `),
   L('us-cities-saints', 'places', 'Name a city or town in the United States named for a saint or a Catholic term.', 'Many American places were named by Spanish, French and Catholic settlers for saints, feasts and sacraments.', 'Hand-authored; the United States Board on Geographic Names and standard place-name dictionaries.', `
 San Francisco|1
@@ -1552,11 +1532,7 @@ Farfa|6
 Casamari|6
 Fossanova|6
 Chiaravalle|5
-Mount Athos|2|Athos
-Saint Catherine's Monastery|2|Saint Catherine's;Mount Sinai Monastery
-Mar Saba|4
 Studion|6|Stoudios
-Meteora|3
 Kykkos|6
 Valaam|6
 Troitse-Sergiyeva Lavra|5|Holy Trinity Lavra;Sergiev Posad
@@ -1804,7 +1780,7 @@ Laurence O'Toole|4
 Enda|5
 Declan|4
 Ita|5
-Dympna|3
+Dymphna|3|Dympna
 Gall|5
 Kilian|4
 Willibrord|4
@@ -1902,7 +1878,7 @@ Ding Dong Merrily on High|3
 Coventry Carol|4
 Good King Wenceslas|2
 We Three Kings|2
-Angels We Have Heard on High|2
+Angels We Have Heard on High|2|Les Anges dans nos campagnes
 It Came Upon the Midnight Clear|3
 I Saw Three Ships|4
 O Holy Night|1
@@ -1940,8 +1916,6 @@ Personent Hodie|6
 Wexford Carol|5
 Huron Carol|5|Jesous Ahatonhia
 Il Est Né|6
-Les Anges dans nos campagnes|6
-Noël Nouvelet|6
 Sussex Carol|5
 The Cherry Tree Carol|5
 Tomorrow Shall Be My Dancing Day|6
@@ -1961,14 +1935,13 @@ Please Come Home for Christmas|4
 Run Rudolph Run|4
 Driving Home for Christmas|4
 I Wish It Could Be Christmas Everyday|4
-O Come O Come Emmanuel|2
-Veni Veni Emmanuel|5
+O Come O Come Emmanuel|2|Veni Veni Emmanuel
 Of the Father's Love Begotten|5
 Good Christian Men Rejoice|3
-Sing We Now of Christmas|6
+Sing We Now of Christmas|6|Noël Nouvelet
 Shepherds Shake Off Your Drowsy Sleep|6
 `),
-  L('patron-occupations', 'saints', 'Name a job, group or condition that has a patron saint.', 'The Church honors saints as patrons of trades, causes and conditions. Name the job or group, not the saint.', 'Hand-authored; Butler\'s Lives of the Saints and Catholic patron-saint directories (for example Catholic Online and the Catholic Encyclopedia).', `
+  L('patron-occupations', 'saints', 'Name a group of people, a condition, or a cause that has a patron saint.', 'The Church honors saints as patrons of trades, causes and conditions. Name the job or group, not the saint.', 'Hand-authored; Butler\'s Lives of the Saints and Catholic patron-saint directories (for example Catholic Online and the Catholic Encyclopedia).', `
 Farmers|1|Farming;Farmer
 Musicians|1|Music;Musician
 Travelers|1|Travellers;Traveler
@@ -1977,7 +1950,7 @@ Students|1|Student;Scholars
 Teachers|1|Teacher;Educators
 Doctors|1|Physicians;Doctor;Physician
 Soldiers|1|Soldier
-Sailors|1|Mariners;Seamen;Sailor
+Sailors|1|Mariners;Seamen;Sailor;Seafarers
 Fishermen|1|Fisherman;Fishers
 Carpenters|1|Carpenter;Woodworkers
 Lawyers|1|Lawyer;Attorneys
@@ -2092,7 +2065,6 @@ Young girls|4|Girls
 Young boys|4|Boys
 Youth|2|Young people;Teenagers
 Boy Scouts|5|Scouts
-Seafarers|3
 Cyclists|5|Bicyclists
 Computer programmers|4|Programmers;Internet
 Television|3|Broadcasters
@@ -2204,8 +2176,7 @@ Prefect apostolic|6
 Vicar apostolic|5
 Archpriest|5
 Dean of a cathedral chapter|6
-Domestic prelate|6
-Honorary prelate|6
+Honorary prelate|6|Domestic prelate
 Chaplain of His Holiness|5
 `),
   L('church-architecture', 'places', 'Name a part or feature of a church or cathedral building.', 'Parts of the building, from the floor plan to the windows, vaults, towers, doors and furnishings of great medieval and Renaissance churches.', 'Hand-authored; standard architectural glossaries (for example Banister Fletcher).', `
@@ -2216,7 +2187,7 @@ Pew|1|Pews
 Steeple|1
 Bell tower|1|Campanile;Belfry
 Stained glass|1|Stained glass window
-Pulpit|1|Ambo
+Pulpit|1
 Crypt|2
 Apse|2
 Transept|2
@@ -2230,7 +2201,7 @@ Font|2|Baptismal font
 Tabernacle|2
 Confessional|2|Confession booth
 Rose window|2|Rose
-Flying buttress|2|Buttress
+Flying buttress|2
 Pointed arch|3|Gothic arch
 Ribbed vault|3|Rib vault
 Barrel vault|4|Tunnel vault
@@ -2254,13 +2225,13 @@ Oculus|5
 Tympanum|4
 Portal|3|Doorway
 Trumeau|6
-Rood screen|4|Rood
+Rood screen|4
 Choir stalls|4|Stalls
 Misericord|5
 Sedilia|5
 Piscina|5
 Aumbry|6
-Reredos|4|Retable
+Reredos|4
 Altarpiece|2|Altar piece
 Triptych|3
 Predella|6
@@ -2274,20 +2245,16 @@ Ossuary|5
 Catacomb|3
 Galilee|6
 Lych gate|5|Lychgate
-Churchyard|3
-Graveyard|2|Cemetery
-Rectory|2
 Presbytery|3
 Vestry|3
-Choir loft|3|Organ loft;Gallery
+Choir loft|3
 Organ|2|Pipe organ
 Bell|1|Bells
 Lectern|3
 Credence table|5
 Sanctuary lamp|3
 Paschal candlestick|5|Paschal candle stand
-Holy water stoup|3|Stoup
-Holy water font|2
+Holy water font|2|Holy water stoup;Stoup
 Stations of the Cross|2
 Crucifix|1
 Statues|2|Statue
@@ -2312,7 +2279,7 @@ Bishop's throne|3|Cathedra
 Kneeler|2|Kneelers
 Hymn board|5
 `),
-  L('catholic-films', 'art-music', 'Name a film or TV series about the Bible, Jesus, a saint or Catholic life.', 'Movies and shows that tell the story of Christ, the saints, priests and nuns, the popes or the Church, from silent films to recent releases.', 'Hand-authored; standard film histories and the Vatican Film List.', `
+  L('catholic-films', 'art-music', 'Name a film about Jesus, the Bible, the saints, or the Catholic Church.', 'Movies and shows that tell the story of Christ, the saints, priests and nuns, the popes or the Church, from silent films to recent releases.', 'Hand-authored; standard film histories and the Vatican Film List.', `
 The Passion of the Christ|1
 Ben-Hur|1
 The Ten Commandments|1
@@ -2397,7 +2364,7 @@ David and Bathsheba|3
 The Story of Ruth|5
 The Bible: In the Beginning|4|The Bible
 The Gospel of John|4
-The Gospel of Luke|5|Jesus film
+The Gospel of Luke|5
 The Miracle Maker|3
 `),
   L('christmas-customs', 'devotion', 'Name a Christmas custom or tradition.', 'Things people do, make, eat and decorate, from church customs to family and national traditions.', 'Hand-authored; standard folklore and liturgical references.', `
@@ -2417,7 +2384,7 @@ Candy cane|2
 Gingerbread house|2|Gingerbread
 Fruitcake|3
 Eggnog|2
-Yule log|3
+Yule log|3|Yule log cake
 Mistletoe|2
 Holly|2
 Poinsettia|2
@@ -2466,7 +2433,6 @@ Krampus|4
 Belsnickel|6
 Befana|4|La Befana
 Julebukk|6
-Yule|3
 Wassailing|4|Wassail
 Burning the Yule log|5
 Candles in the window|3
@@ -2474,15 +2440,9 @@ Luminarias|4|Farolitos
 Christmas Day Mass|2
 Christmas novena|4
 O Antiphons|4|Great Os
-Christmas Eve|1
-Christmas Day|1
-Twelve days of Christmas|2
-Advent|1
-Christmas octave|5
-Holy Family Sunday|4
 `),
 
-  L('english-monarchs', 'church-history', 'Name a king or queen of England.', 'Rulers of England from the Anglo-Saxon kings to the present, including those who defended the Pope, broke with Rome or returned to it.', 'Hand-authored; standard lists of English monarchs.', `
+  L('english-monarchs', 'church-history', 'Name a king or queen of England, or after 1707 of Great Britain.', 'Rulers of England from the Anglo-Saxon kings to the present, including those who defended the Pope, broke with Rome or returned to it.', 'Hand-authored; standard lists of English monarchs.', `
 William the Conqueror|1|William I
 William Rufus|3|William II
 Henry I|3
@@ -2739,7 +2699,7 @@ John|1
 James|2
 Stephen|1
 Philip|2
-Barnabas|2
+Barnabas|2|Joseph Barnabas
 Silas|2
 Timothy|2
 Luke|2
@@ -2794,9 +2754,8 @@ Theudas|5
 Judas the Galilean|5
 Annas|3
 Caiaphas|3
-Joseph Barnabas|3
 Judas Barsabbas|4|Barsabbas
-Joseph called Barsabbas|6|Justus
+Joseph called Barsabbas|6
 Mnason|5
 Ethiopian eunuch|2|Eunuch
 Candace|4
