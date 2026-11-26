@@ -36,8 +36,8 @@ jobs:
         run: python3 tools/native_slim.py android/app/src/main/assets/public
       - name: Raise the minimum SDK to 24 (Play automatic protection requires it)
         run: |
-          sed -i "s/minSdkVersion = 23/minSdkVersion = 24/" android/variables.gradle
-          grep -n "minSdkVersion" android/variables.gradle
+          perl -pi -e 's/minSdkVersion = 23/minSdkVersion = 24/' android/variables.gradle
+          grep -n "minSdkVersion = 24" android/variables.gradle
       - name: Set the version code
         run: sed -i "s/versionCode [0-9]*/versionCode ${{ github.run_number }}/" android/app/build.gradle
       - name: Build the Android app bundle (unsigned)
