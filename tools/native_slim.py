@@ -4,11 +4,10 @@
 Run AFTER `npx cap sync`, with the synced public folder as the argument
 (android/app/src/main/assets/public, or ios/App/App/public). The store
 binary keeps the daily core (prayers, readings, office, catechism, saints,
-the Douay Rheims text, the art gallery) and drops the packs the app already
+the Douay Rheims, NABRE and RSV2CE texts, the art gallery) and drops the packs the app already
 knows how to download on demand (see data/manifest.json): the Fathers and
 saints library, the commentaries, the Greek and Hebrew study pack, the
-encyclopedia, the dictionary, the media lists, every Bible edition except
-Douay Rheims, and the music tracks (those stream from the app's site
+encyclopedia, the dictionary, the media lists, the other Bible editions, and the music tracks (those stream from the app's site
 instead). The web build is untouched and still ships everything.
 
 Added by Orion, Nov 25, 2026, to bring the store download from about
@@ -17,7 +16,7 @@ Added by Orion, Nov 25, 2026, to bring the store download from about
 import os, shutil, sys
 
 DROP_DATA_DIRS = ["library", "commentary", "original", "encyclopedia", "dictionary", "media"]
-KEEP_EDITION = "dra"
+KEEP_EDITIONS = {"dra", "nabre", "rsv2ce"}
 
 def main(public_dir):
     data = os.path.join(public_dir, "data")
@@ -29,7 +28,7 @@ def main(public_dir):
     bible = os.path.join(data, "bible")
     if os.path.isdir(bible):
         for ed in sorted(os.listdir(bible)):
-            if ed != KEEP_EDITION:
+            if ed not in KEEP_EDITIONS:
                 shutil.rmtree(os.path.join(bible, ed))
                 print("dropped data/bible/" + ed)
     audio = os.path.join(public_dir, "audio")
