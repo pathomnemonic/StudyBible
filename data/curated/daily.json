@@ -671,7 +671,6 @@
    "saint": {
     "text": "Let us serve the Lord with a holy joy.",
     "who": "St. Matthias",
-    "work": "Apostolic Tradition",
     "verified": false
    },
    "question": "Do you pray with the confidence that God's ears are truly open to your specific needs?",
@@ -3148,7 +3147,6 @@
    "saint": {
     "text": "The Name of Mary is a tower of strength and a shield of defense.",
     "who": "St. Guy of Anderlecht",
-    "work": "Pilgrim's Notes",
     "verified": false
    },
    "question": "How often do you call upon the Holy Name of Mary when you feel tempted or overwhelmed?",
@@ -3832,10 +3830,10 @@
    "key": "11-07",
    "ref": "WIS.3.1",
    "saint": {
-    "text": "God is the only light that can dispel the darkness of the grave.",
-    "who": "St. Willibrord",
-    "work": "Missionary Letters",
-    "verified": false
+    "text": "Thus it came to pass, that with the help of the Divine grace, in a short time they converted many from idolatry to the faith of Christ.",
+    "who": "St. Bede the Venerable",
+    "work": "Ecclesiastical History of the English People",
+    "verified": true
    },
    "question": "Do you fear the future, or do you trust that you are securely held in 'the hand of God'?",
    "tags": []
@@ -4332,7 +4330,6 @@
    "saint": {
     "text": "The wisdom of the world is a heavy burden, but the wisdom of God is a light yoke.",
     "who": "St. Lazarus",
-    "work": "Tradition of the Resurrected",
     "verified": false
    },
    "question": "Are you seeking 'prudence' (the right way to act) through prayer, or through the opinions of the world?",
@@ -4394,7 +4391,6 @@
    "saint": {
     "text": "True joy is not found in things, but in the presence of God.",
     "who": "St. Hunger",
-    "work": "Diocesan Records",
     "verified": false
    },
    "question": "Is your soul 'magnifying' (making bigger) the goodness of God today, or the problems you are facing?",
@@ -4496,7 +4492,6 @@
    "saint": {
     "text": "Let us always be ready to serve the Lord with all our hearts.",
     "who": "St. Egwin",
-    "work": "Abbatial Rule",
     "verified": false
    },
    "question": "As the year draws to a close, can you see how God's 'eyes' have been upon you through every trial?",
