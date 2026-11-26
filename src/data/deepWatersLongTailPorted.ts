@@ -60,13 +60,27 @@ const ADD: Record<string, Add[]> = {
     { answer: 'Smyrna', tier: 2 }, { answer: 'Thessalonica', tier: 2 }, { answer: 'Hippo', tier: 2, aliases: ['Hippo Regius'] }, { answer: 'Philippi', tier: 3 }, { answer: 'Laodicea', tier: 3 }, { answer: 'Pergamum', tier: 3 }, { answer: 'Sardis', tier: 3 }, { answer: 'Colossae', tier: 3 },
   ],
 };
+// Basilion review (issue 26), Class B batch 14: two entries for one saint scored twice in one list are merged here,
+// in the ported list, because the source bank enforces a 60 answer minimum that a source level merge would break
+const MERGE: Record<string, { keep: string; drop: string }[]> = {
+  'longtail-patron-illnesses': [{ keep: 'Anthony the Abbot', drop: 'Anthony of Egypt' }],
+};
 const KEEP = Object.keys(DROP);
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 export const LONG_TAIL_PORTED: DeepPrompt[] = LONG_TAIL_PROMPTS.filter((p) => KEEP.includes(p.id)).map((p) => {
   const drop = new Set(DROP[p.id].map(norm));
-  const answers = p.answers.filter((a) => !drop.has(norm(a.answer)));
+  let answers = p.answers.filter((a) => !drop.has(norm(a.answer)));
   const have = new Set(answers.map((a) => norm(a.answer)));
   for (const a of ADD[p.id] ?? []) if (!have.has(norm(a.answer))) answers.push(a);
+  for (const m of MERGE[p.id] ?? []) {
+    const k = answers.find((a) => norm(a.answer) === norm(m.keep));
+    const d = answers.find((a) => norm(a.answer) === norm(m.drop));
+    if (k && d) {
+      const aliases = [...(k.aliases ?? [])];
+      for (const a of [d.answer, ...(d.aliases ?? [])]) if (!aliases.includes(a)) aliases.push(a);
+      answers = answers.map((a) => (a === k ? { ...a, aliases } : a)).filter((a) => a !== d);
+    }
+  }
   if (p.id === 'longtail-ancient-sees') { // Beroea is the list's rarest answer; it belongs after the appended famous sees, not before them
     const bi = answers.findIndex((a) => norm(a.answer) === 'beroea');
     if (bi >= 0) answers.push(answers.splice(bi, 1)[0]);

@@ -80,7 +80,7 @@ export const MORE_PROMPTS: DeepPrompt[] = [
     context: 'Exodus 7-12 tells of ten signs that preceded the Exodus, ending with the death of the firstborn and the first Passover.',
     closed: 10,
     answers: rows([
-      ['Water turned to blood', 1, 'Blood|Nile turned to blood|River of blood|Water to blood'], ['Frogs', 1], ['Gnats', 3, 'Lice|Mosquitoes|Fleas|Gnats or lice'], ['Flies', 3, 'Swarms of flies|Insects|Swarm|Beetles'], ['Boils', 2, 'Sores|Festering boils'],
+      ['Water turned to blood', 1, 'Blood|Nile turned to blood|River of blood|Water to blood'], ['Frogs', 1], ['Gnats', 3, 'Lice|Mosquitoes|Fleas|Gnats or lice'], ['Flies', 3, 'Swarms of flies|Swarm'], ['Boils', 2, 'Sores|Festering boils'],
       ['Death of livestock', 3, 'Pestilence|Livestock|Cattle|Plague on livestock|Disease on livestock|Murrain'], ['Hail', 2, 'Thunder and hail|Hailstorm'], ['Locusts', 1], ['Darkness', 1], ['Death of the firstborn', 1, 'Firstborn|Death of firstborn|Slaying of the firstborn|Death of the first born'],
     ]),
   },
@@ -135,7 +135,7 @@ export const MORE_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a parable of Jesus.',
     context: 'Jesus taught in stories drawn from farms, weddings, banquets and households. This list is long but not complete.',
     answers: rows([
-      ['The Prodigal Son', 1, 'Prodigal Son|Lost Son|The Lost Son|The Father and Two Sons'], ['The Good Samaritan', 1, 'Good Samaritan'], ['The Sower', 1, 'Parable of the Sower|The Sower and the Seed|The Sower and the Soils|Sower'], ['The Mustard Seed', 1, 'Mustard Seed'], ['The Lost Sheep', 1, 'Lost Sheep'], ['The Ten Virgins', 1, 'Ten Virgins|Wise and Foolish Virgins|Ten Bridesmaids'],
+      ['The Prodigal Son', 1, 'Prodigal Son|Lost Son|The Lost Son'], ['The Good Samaritan', 1, 'Good Samaritan'], ['The Sower', 1, 'Parable of the Sower|The Sower and the Seed|The Sower and the Soils|Sower'], ['The Mustard Seed', 1, 'Mustard Seed'], ['The Lost Sheep', 1, 'Lost Sheep'], ['The Ten Virgins', 1, 'Ten Virgins|Wise and Foolish Virgins|Ten Bridesmaids'],
       ['The Talents', 1, 'Talents|The Parable of the Talents|The Ten Minas|The Minas'], ['The Rich Fool', 2, 'Rich Fool'], ['The Lost Coin', 2, 'Lost Coin|The Lost Drachma'], ['The Wheat and the Weeds', 2, 'Wheat and Tares|Weeds|The Weeds|The Tares|Wheat and Weeds'], ['The Leaven', 2, 'Yeast|Leaven|The Yeast'], ['The Hidden Treasure', 2, 'Hidden Treasure|Treasure in the Field'], ['The Pearl of Great Price', 2, 'Pearl of Great Price|The Pearl|Pearl'],
       ['The Dragnet', 3, 'Net|The Net|Fishing Net'], ['The Unforgiving Servant', 2, 'Unforgiving Servant|The Unmerciful Servant|Unmerciful Servant'], ['The Workers in the Vineyard', 2, 'Laborers in the Vineyard|Labourers in the Vineyard|Workers in the Vineyard|The Vineyard Workers'], ['The Wicked Tenants', 2, 'Wicked Tenants|The Tenants|The Vineyard Tenants|Wicked Husbandmen'], ['The Two Sons', 3, 'Two Sons'],
       ['The Wedding Feast', 2, 'Wedding Banquet|The Great Banquet|Great Banquet|Wedding Garment|The Marriage Feast'], ['The Sheep and the Goats', 1, 'Sheep and Goats|Final Judgment|Last Judgment'], ['The Pharisee and the Tax Collector', 1, 'Pharisee and Publican|The Pharisee and the Publican|Pharisee and the Tax Collector'], ['The Persistent Widow', 2, 'Unjust Judge|The Unjust Judge|The Widow and the Judge|Persistent Widow'],
@@ -189,7 +189,7 @@ export const MORE_PROMPTS: DeepPrompt[] = [
       ['Dominum et Vivificantem', 5, 'Lord and Giver of Life'], ['Redemptoris Mater', 5, 'Mother of the Redeemer'], ['Mystici Corporis Christi', 4, 'The Mystical Body of Christ|Mystici Corporis'], ['Divino Afflante Spiritu', 4, 'Inspired by the Divine Spirit'], ['Humani Generis', 4, 'Concerning Some False Opinions'], ['Mediator Dei', 4, 'Mediator of God'], ['Casti Connubii', 4, 'On Christian Marriage'],
       ['Mit Brennender Sorge', 4, 'With Burning Anxiety'], ['Pascendi Dominici Gregis', 4, 'Pascendi|Feeding the Lord\'s Flock'], ['Aeterni Patris', 4, 'Of the Eternal Father'], ['Providentissimus Deus', 4, 'The Most Provident God'], ['Quanta Cura', 5], ['Ubi Primum', 5], ['Dilexit Nos', 3, 'He Loved Us'],
       ['Redemptoris Custos', 5, 'Guardian of the Redeemer'], ['Evangelii Nuntiandi', 3, 'Evangelization in the Modern World'], ['Familiaris Consortio', 3, 'The Family in the Modern World'], ['Christifideles Laici', 4, 'The Lay Members of Christ\'s Faithful People'], ['Pastores Dabo Vobis', 4, 'I Will Give You Shepherds'], ['Reconciliatio et Paenitentia', 5], ['Catechesi Tradendae', 4, 'Catechesis in Our Time'],
-      ['Gaudete et Exsultate', 3, 'Rejoice and Be Glad'], ['Christus Vivit', 3, 'Christ Is Alive'], ['Querida Amazonia', 4, 'Beloved Amazon'], ['Sacramentum Caritatis', 4, 'Sacrament of Charity'], ['Verbum Domini', 4, 'The Word of the Lord'], ['Africae Munus', 5], ['Ecclesia in Europa', 5], ['Novo Millennio Ineunte', 4, 'At the Beginning of the New Millennium'],
+      ['Gaudete et Exsultate', 3, 'Rejoice and Be Glad'], ['Christus Vivit', 3, 'Christ Is Alive'], ['Querida Amazonia', 4, 'Beloved Amazon'], ['Sacramentum Caritatis', 4, 'Sacrament of Charity'], ['Verbum Domini', 4, 'The Word of the Lord'], ['Africae Munus', 5], ['Ecclesia in Europa', 5],
     ]),
   },
   {
@@ -205,7 +205,7 @@ export const MORE_PROMPTS: DeepPrompt[] = [
   {
     id: 'liturgical-seasons', theme: 'liturgy',
     prompt: 'Name one of the five seasons of the liturgical year.',
-    context: 'The Church year moves through Advent, Christmas, Ordinary Time, Lent and Easter, with the Easter Triduum at the heart of it.',
+    context: 'The Church year moves through Advent, Christmas, Ordinary Time, Lent and Easter.',
     closed: 5,
     answers: rows([['Advent', 1], ['Christmas', 1, 'Christmastide|Christmas Time'], ['Ordinary Time', 1, 'Ordinary'], ['Lent', 1, 'Lenten Season'], ['Easter', 1, 'Eastertide|Easter Time|Easter Season|Paschal Time']]),
   },
@@ -233,9 +233,9 @@ export const MORE_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a Catholic hymn, chant or piece of sacred music.',
     context: 'The Church\'s musical treasury includes Gregorian chant, hymns of the Office and the Mass, and polyphony. This list is long but not complete.',
     answers: rows([
-      ['Salve Regina', 1], ['Ave Maria', 1], ['Tantum Ergo', 2], ['Veni Creator Spiritus', 2, 'Veni Creator'], ['Veni Sancte Spiritus', 2], ['Dies Irae', 2], ['Te Deum', 2], ['Pange Lingua', 2], ['Adoro Te Devote', 3], ['O Salutaris Hostia', 3, 'O Salutaris'], ['Regina Caeli', 2, 'Regina Coeli'], ['Ave Maris Stella', 3], ['Stabat Mater', 2], ['Magnificat', 2], ['Gloria', 2], ['Agnus Dei', 2], ['Kyrie', 2, 'Kyrie Eleison'], ['Sanctus', 3, 'Holy Holy Holy'],
+      ['Salve Regina', 1], ['Ave Maria', 1], ['Tantum Ergo', 2], ['Veni Creator Spiritus', 2, 'Veni Creator'], ['Veni Sancte Spiritus', 2], ['Dies Irae', 2], ['Te Deum', 2], ['Pange Lingua', 2, 'Pange Lingua Gloriosi'], ['Adoro Te Devote', 3], ['O Salutaris Hostia', 3, 'O Salutaris'], ['Regina Caeli', 2, 'Regina Coeli'], ['Ave Maris Stella', 3], ['Stabat Mater', 2], ['Magnificat', 2], ['Gloria', 2], ['Agnus Dei', 2], ['Kyrie', 2, 'Kyrie Eleison'], ['Sanctus', 3, 'Holy Holy Holy'],
       ['Requiem', 2, 'Requiem Aeternam'], ['Credo', 3], ['Missa Papae Marcelli', 5, 'Pope Marcellus Mass'], ['Miserere', 3, 'Allegri Miserere'], ['Alma Redemptoris Mater', 4], ['Ave Regina Caelorum', 4, 'Ave Regina Coelorum'], ['Salve Mater Misericordiae', 5], ['Victimae Paschali Laudes', 4, 'Victimae Paschali'], ['Lauda Sion', 4], ['Veni Veni Emmanuel', 2, 'O Come O Come Emmanuel'], ['Adeste Fideles', 1, 'O Come All Ye Faithful'], ['Silent Night', 1, 'Stille Nacht'],
-      ['Panis Angelicus', 2], ['Ubi Caritas', 3], ['Jesu Dulcis Memoria', 4], ['Vexilla Regis', 3], ['Crux Fidelis', 5], ['Pange Lingua Gloriosi', 3], ['Attende Domine', 4], ['Rorate Caeli', 4, 'Rorate Coeli'], ['Puer Natus Est', 5], ['Resurrexi', 5], ['Haec Dies', 4], ['Exsultet', 3, 'Easter Proclamation'], ['Salve Festa Dies', 5], ['Christus Vincit', 4], ['Tu Es Petrus', 4], ['Sicut Cervus', 5], ['O Magnum Mysterium', 4], ['Ave Verum Corpus', 2], ['Bring Flowers of the Rarest', 4], ['Holy God We Praise Thy Name', 3, 'Grosser Gott'], ['Be Thou My Vision', 3], ['Immaculate Mary', 3, 'Lourdes Hymn'], ['Hail Holy Queen Enthroned Above', 4],
+      ['Panis Angelicus', 2], ['Ubi Caritas', 3], ['Jesu Dulcis Memoria', 4], ['Vexilla Regis', 3], ['Crux Fidelis', 5], ['Attende Domine', 4], ['Rorate Caeli', 4, 'Rorate Coeli'], ['Puer Natus Est', 5], ['Resurrexi', 5], ['Haec Dies', 4], ['Exsultet', 3, 'Easter Proclamation'], ['Salve Festa Dies', 5], ['Christus Vincit', 4], ['Tu Es Petrus', 4], ['Sicut Cervus', 5], ['O Magnum Mysterium', 4], ['Ave Verum Corpus', 2], ['Bring Flowers of the Rarest', 4], ['Holy God We Praise Thy Name', 3, 'Grosser Gott'], ['Be Thou My Vision', 3], ['Immaculate Mary', 3, 'Lourdes Hymn'], ['Hail Holy Queen Enthroned Above', 4],
     ]),
   },
   {
@@ -285,8 +285,8 @@ export const MORE_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a mountain or hill in the Bible.',
     context: 'Scripture often sets great moments on high places. This list is long but not complete.',
     answers: rows([
-      ['Sinai', 1, 'Mount Sinai'], ['Zion', 1, 'Mount Zion|Sion'], ['Olives', 1, 'Mount of Olives|Olivet'], ['Calvary', 1, 'Golgotha|Mount Calvary'], ['Ararat', 2, 'Mount Ararat'], ['Carmel', 2, 'Mount Carmel'], ['Tabor', 2, 'Mount Tabor'],
-      ['Moriah', 2, 'Mount Moriah'], ['Horeb', 3, 'Mount Horeb'], ['Nebo', 3, 'Mount Nebo'], ['Hermon', 3, 'Mount Hermon'], ['Gilboa', 3, 'Mount Gilboa'], ['Gerizim', 4, 'Mount Gerizim'], ['Ebal', 4, 'Mount Ebal'],
+      ['Sinai', 1, 'Mount Sinai|Horeb|Mount Horeb'], ['Zion', 1, 'Mount Zion|Sion'], ['Olives', 1, 'Mount of Olives|Olivet'], ['Calvary', 1, 'Golgotha|Mount Calvary'], ['Ararat', 2, 'Mount Ararat'], ['Carmel', 2, 'Mount Carmel'], ['Tabor', 2, 'Mount Tabor'],
+      ['Moriah', 2, 'Mount Moriah'], ['Nebo', 3, 'Mount Nebo'], ['Hermon', 3, 'Mount Hermon'], ['Gilboa', 3, 'Mount Gilboa'], ['Gerizim', 4, 'Mount Gerizim'], ['Ebal', 4, 'Mount Ebal'],
       ['Pisgah', 4, 'Mount Pisgah'], ['Hor', 5, 'Mount Hor'], ['Seir', 5, 'Mount Seir'],
     ]),
   },
@@ -304,7 +304,7 @@ export const MORE_PROMPTS: DeepPrompt[] = [
     prompt: 'Name a tree, plant or crop in the Bible.',
     context: 'Scripture is full of trees, used again and again as pictures of life and faith. This list is long but not complete.',
     answers: rows([
-      ['Olive', 1, 'Olive tree|Olives'], ['Fig', 1, 'Fig tree|Figs'], ['Vine', 1, 'Grapevine|Grape|Grapes|Vineyard'], ['Wheat', 1, 'Grain|Corn'], ['Mustard', 1, 'Mustard seed|Mustard plant|Mustard tree'], ['Cedar', 2, 'Cedar of Lebanon|Cedars'],
+      ['Olive', 1, 'Olive tree|Olives'], ['Fig', 1, 'Fig tree|Figs'], ['Vine', 1, 'Grapevine|Grape|Grapes'], ['Wheat', 1, 'Corn'], ['Mustard', 1, 'Mustard seed|Mustard plant|Mustard tree'], ['Cedar', 2, 'Cedar of Lebanon|Cedars'],
       ['Palm', 2, 'Palm tree|Date palm|Palms'], ['Lily', 2, 'Lilies|Lily of the field'], ['Thorn', 2, 'Thorns|Thorn bush|Thornbush|Thistle'], ['Barley', 3], ['Sycamore', 3, 'Sycamore tree|Sycamore fig'], ['Almond', 3, 'Almond tree'],
       ['Pomegranate', 3, 'Pomegranates'], ['Oak', 3, 'Oak tree|Oaks'], ['Hyssop', 3], ['Myrrh', 3], ['Frankincense', 3], ['Reed', 3, 'Reeds|Papyrus'], ['Balm', 4, 'Balm of Gilead'], ['Cypress', 4], ['Fir', 4, 'Fir tree'],
       ['Mandrake', 4, 'Mandrakes'], ['Acacia', 4, 'Shittim|Shittim wood'], ['Rose of Sharon', 4], ['Gourd', 4], ['Mint', 4], ['Flax', 4], ['Cummin', 5, 'Cumin'], ['Dill', 5, 'Anise'], ['Rue', 5], ['Terebinth', 5],
@@ -327,7 +327,7 @@ export const MORE_PROMPTS: DeepPrompt[] = [
     context: 'Psalms and histories alike call for music: strings, winds and percussion. This list is long but not complete.',
     answers: rows([
       ['Harp', 1, 'Harps'], ['Trumpet', 1, 'Trumpets'], ['Lyre', 2, 'Lyres'], ['Cymbals', 2, 'Cymbal'], ['Flute', 2, 'Pipe|Pipes|Flutes'], ['Tambourine', 2, 'Timbrel|Tabret|Tambourines'], ['Horn', 2, 'Shofar|Ram\'s horn|Rams horn'],
-      ['Bell', 3, 'Bells'], ['Psaltery', 4, 'Psalteries'], ['Lute', 4], ['Organ', 4], ['Sackbut', 5], ['Dulcimer', 5], ['Zither', 5], ['Castanets', 5, 'Sistrum'], ['Viol', 5],
+      ['Bell', 3, 'Bells'], ['Psaltery', 4, 'Psalteries'], ['Lute', 4], ['Organ', 4], ['Sackbut', 5], ['Dulcimer', 5], ['Zither', 5], ['Castanets', 5], ['Viol', 5],
     ]),
   },
 ];
