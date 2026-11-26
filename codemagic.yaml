@@ -36,6 +36,8 @@ workflows:
         script: npm run build
       - name: Sync the web app into the iOS project and install pods
         script: npx cap sync ios
+      - name: Leave the downloadable packs out of the iOS app
+        script: python3 tools/native_slim.py ios/App/App/public
       - name: Set up code signing
         script: |
           keychain initialize
@@ -85,8 +87,8 @@ workflows:
           npm install --no-save @capacitor/android@^7.6.10
           if [ ! -d android ]; then npx cap add android; fi
           npx cap sync android
-      - name: Move audio into an install time asset pack (Play base module limit)
-        script: python3 tools/android_pack_setup.py
+      - name: Leave the downloadable packs out of the Android bundle
+        script: python3 tools/native_slim.py android/app/src/main/assets/public
       - name: Set the version code
         script: |
           sed -i "s/versionCode [0-9]*/versionCode $BUILD_NUMBER/" android/app/build.gradle
