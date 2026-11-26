@@ -88,10 +88,14 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
       const p = bySlot(idx);
       if (!p) continue;
       // names carry a disambiguation number ("Antioch 1", "Antioch 2"); the answer is the name and the number is dropped
-      const name = p.n.replace(/\s+\d+(?::\d+)?$/, '').trim();
+      const rawName = p.n.replace(/\s+\d+(?::\d+)?$/, '').trim();
+      // Basilion review (issue 26): spelling variants of one place (Beth-shan, Kiriath-arim, Hazar-susim, Mount Moriah, Bethlehem Ephrathah)
+      // are one answer, scored under the canonical name with the variant as an accepted form
+      const PLACE_VARIANT_OF: Record<string, string> = { 'Beth-shan': 'Beth-shean', 'Kiriath-arim': 'Kiriath-jearim', 'Hazar-susim': 'Hazar-susah', 'Mount Moriah': 'Moriah', 'Bethlehem Ephrathah': 'Bethlehem' };
+      const name = PLACE_VARIANT_OF[rawName] ?? rawName;
       if (name.length < 3 || /[^A-Za-z '\-.]/.test(name)) continue;
       const now = p.c && /^Now /.test(p.c) ? p.c.replace(/^Now /, '').replace(/[.]$/, '').trim() : '';
-      const aliases = now.length >= 3 && !/[^A-Za-z '\-.]/.test(now) ? [now] : [];
+      const aliases = [...(now.length >= 3 && !/[^A-Za-z '\-.]/.test(now) ? [now] : []), ...(PLACE_VARIANT_OF[rawName] ? [rawName] : [])];
       found.push({ name, aliases, score: Math.log(1 + p.nv) + 1.5 * Math.log(1 + inBook) });
     }
     if (found.length < 20) continue;
@@ -122,6 +126,14 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
   // or are fragments of a longer heading (Chef, Cloud, Gal), and parse into entries that are not a saint's name.
   // The saints themselves stand in the lists under their clean headings (Willehad, Gall), so the garbled entries are dropped.
   const EXCLUDED_SAINT_NAMES = new Set(['Will Kd', 'Chef', 'Cloud', 'Gal', 'Die Ob Deodatus', "Rom Ark'", 'Kilian Bishop']);
+  // Basilion review (issue 26): Peter of Luxemburg and John Columbini are Blesseds, not canonized saints, in a saints list
+  for (const n of ['Peter of Luxemburg', 'John Columbini']) EXCLUDED_SAINT_NAMES.add(n);
+  // Basilion review (issue 26): two names for one saint are one answer, scored under the first listed form with the variant accepted
+  const SAINT_VARIANT_OF: Record<string, string> = { 'Antony of Padua': 'Anthony of Padua', 'Ephrem of Edessa': 'Ephrem', 'Mary Magdalen': 'Mary Magdalene', 'Vincent of Paul': 'Vincent de Paul', 'Isidore of Madrid': 'Isidore the Farmer', Canut: 'Canutus' };
+  // Basilion review (issue 26): Butler's place spellings in the "of Place" aliases, corrected
+  const SAINT_ALIAS_CORRECTIONS: Record<string, string> = { 'Catharine of Sienna': 'Catharine of Siena', 'Fidelis of Sigmarengen': 'Fidelis of Sigmaringen', 'Kentigern of Glasco': 'Kentigern of Glasgow', 'Rupert of Saltzbourg': 'Rupert of Salzburg', 'Virgil of Saltzburg': 'Virgil of Salzburg', 'Willibald of Aichstadt': 'Willibald of Eichstätt', 'Ulric of Ausburg': 'Ulric of Augsburg', 'Corbinian of Frisingen': 'Corbinian of Freising', 'Burckard of Wurtzburg': 'Burckard of Würzburg', 'Eleutherius of Tournay': 'Eleutherius of Tournai', 'Piat of Tournay': 'Piat of Tournai', 'Hugh of Cluni': 'Hugh of Cluny', 'Odo of Cluni': 'Odo of Cluny', 'Odilo of Cluni': 'Odilo of Cluny', 'Maieul of Cluni': 'Maieul of Cluny', 'Amand of Bourdeaux': 'Amand of Bordeaux', 'Memmius of Chalons': 'Memmius of Châlons', 'Poppo of Stavelo': 'Poppo of Stavelot' };
+  // Basilion review (issue 26): Irenaeus of Lyons is the scored saint; Irenaeus of Sirmium is a different saint and not his alias
+  const SAINT_ALIAS_DROPS = new Set(['Irenaeus of Sirmium']);
   // a corrected form whose Butler spelling is an OCR garble rather than a real spelling is not kept as an alias
   const NO_RAW_ALIAS = new Set(['Thomas Ov Villanova']);
   const dir = 'public/data/saints/butler/';
@@ -163,7 +175,17 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
     const paren = /^(.*?)\s*\((.*)\)\s*$/.exec(n.name);
     saints.push({ name: paren ? paren[1] : n.name, aliases: paren ? [paren[2]] : [], score: Math.log(8000) + CURATED_BONUS * 0.25, month, desc: '' });
   }
-  const to = (s: S) => ({ name: s.name, aliases: s.aliases, score: s.score });
+  // merge the variant spellings into their canonical saint before any list is built from the array
+  {
+    const byName = new Map(saints.map((s) => [s.name, s] as const));
+    for (const [variant, canonical] of Object.entries(SAINT_VARIANT_OF)) {
+      const v = byName.get(variant), c = byName.get(canonical);
+      if (v && c) { if (!c.aliases.includes(variant)) c.aliases.push(variant); for (const a of v.aliases) if (!c.aliases.includes(a)) c.aliases.push(a); c.score = Math.max(c.score, v.score); saints.splice(saints.indexOf(v), 1); }
+      else if (v) { v.aliases.push(v.name); v.name = canonical; }
+    }
+  }
+  const SAINT_ALIAS_ADDITIONS: Record<string, string> = { 'Eucherius of Orleans': 'Eucherius of Orléans', 'Anian of Orleans': 'Anian of Orléans' };
+  const to = (s: S) => { const aliases = s.aliases.map((a) => SAINT_ALIAS_CORRECTIONS[a] ?? a).filter((a) => !SAINT_ALIAS_DROPS.has(a)); for (const a of [...aliases]) if (SAINT_ALIAS_ADDITIONS[a] && !aliases.includes(SAINT_ALIAS_ADDITIONS[a])) aliases.push(SAINT_ALIAS_ADDITIONS[a]); return { name: s.name, aliases, score: s.score }; };
   const src = 'Butler\'s Lives of the Saints (1903 edition, Project Gutenberg #20450) as shipped in public/data/saints/butler, and the app\'s own list of well-known saints';
   const rule = 'names parsed from Butler entry headings; accepted only if the name recurs at least 3 times in the entry text and the entry has 150 or more words; tier ranks log(1+entry words), plus a bonus for the app\'s list of well-known saints';
   finish('saints-any', 'saints', 'Name a saint.', 'Thousands of saints are honoured across the Church year. This list follows Butler\'s Lives of the Saints and the app\'s own saints; it is long but not complete.', src, saints.map(to), rule, 40);
@@ -203,13 +225,18 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
   interface N { name: string; kind: string; type?: string; meaning?: string }
   const stepDir = 'public/data/reference/step/';
   const people: N[] = [];
+  // Basilion review (issue 26): variant spellings of one person (Jerimoth, Joiada, Joiarib, Nethanel, Shimon, Beerah, Beraiah,
+  // Aridatha, Hizki, Hizkiah, Sallu, Mattattah, Shammah) are one answer, scored under the first listed form with the variant accepted
+  const PEOPLE_VARIANT_OF: Record<string, string> = { Jerimoth: 'Jeremoth', Joiada: 'Jehoiada', Joiarib: 'Jehoiarib', Nethanel: 'Neriah', Shimon: 'Shimeon', Beerah: 'Beera', Beraiah: 'Bera', Aridatha: 'Aridai', Hizki: 'Jehizkiah', Hizkiah: 'Jehizkiah', Sallu: 'Sallai', Mattattah: 'Mattatha', Shammah: 'Shamma' };
+  const PEOPLE_ALIASES: Record<string, string[]> = {};
+  for (const [v, c] of Object.entries(PEOPLE_VARIANT_OF)) (PEOPLE_ALIASES[c] ??= []).push(v);
   for (const f of readdirSync(ROOT + stepDir).filter((x) => /^names-\d+\.json$/.test(x)).sort((a, b) => parseInt(a.slice(6)) - parseInt(b.slice(6)))) {
     // Azariahu is STEPBible's variant form of Azariah, one man listed twice; the Basilion review (issue 26) keeps the Azariah entry only
-    for (const e of JSON.parse(track(stepDir + f)) as N[]) if (e.kind === 'person' && e.name !== 'Azariahu' && /^[A-Z][A-Za-z'\- ]{2,}$/.test(e.name)) people.push(e);
+    for (const e of JSON.parse(track(stepDir + f)) as N[]) if (e.kind === 'person' && e.name !== 'Azariahu' && !(e.name in PEOPLE_VARIANT_OF) && /^[A-Z][A-Za-z'\- ]{2,}$/.test(e.name)) people.push(e);
   }
   const src = 'STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles';
   const scoreOf = (n: string) => Math.log(1 + countMentions(whole, n));
-  const entryOf = (n: N) => ({ name: n.name, aliases: [] as string[], score: scoreOf(n.name) });
+  const entryOf = (n: N) => ({ name: n.name, aliases: [...(PEOPLE_ALIASES[n.name] ?? [])], score: scoreOf(n.name) });
   const initials = [...new Set(people.map((x) => x.name[0]))].sort();
   // a letter with fewer than 20 names is pooled with the other short letters into one question
   const byLetter = new Map(initials.map((ch) => [ch, people.filter((x) => x.name[0] === ch)] as const));
@@ -226,8 +253,11 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
   }
   // Roles such as "king" or "prophet" are not generated: STEPBible's one-line meanings describe namesakes as well as the famous bearer of a name (a prophet Ahab, a king Ishmael), and
   // leave out well-known kings, so a role list built from them would accept and reject the wrong answers. Only the objective field (Female) is used.
+  // Basilion review (issue 26): Lappidoth, Jahdai, Gibea, Machbenah, Aramitess and Hodiah stand in STEPBible's Female sort but are
+  // a husband, a male descendant, two places in "father of" constructions, a gentilic and a husband; they are not women
+  const NOT_WOMEN = new Set(['Lappidoth', 'Jahdai', 'Gibea', 'Machbenah', 'Aramitess', 'Hodiah']);
   finish('roles-women', 'people', 'Name a woman in the Bible.', 'The Bible names many women, from the first generations to the women at the tomb. This list follows STEPBible\'s name list; it is long but not complete.', src,
-    people.filter((x) => x.type === 'Female').map(entryOf), 'names STEPBible marks Female; tier ranks log(1+mentions in the WEB-C Bible)', 12);
+    people.filter((x) => x.type === 'Female' && !NOT_WOMEN.has(x.name) && x.name !== 'Shelomoth').map((x) => x.name === 'Shelomith' ? { ...entryOf(x), aliases: [...entryOf(x).aliases, 'Shelomoth'] } : entryOf(x)), 'names STEPBible marks Female; tier ranks log(1+mentions in the WEB-C Bible)', 12);
 }
 
 /* ---------- write ---------- */

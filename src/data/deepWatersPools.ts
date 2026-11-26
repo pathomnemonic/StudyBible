@@ -61,10 +61,10 @@ const TEXTS: [string, string, DeepTheme, string][] = [
 
 /* ---------- the parts of the Mass ---------- */
 
-const MASS: [string, number][] = [
+const MASS: [string, number, string[]?][] = [
   ['Introductory Rites', 3], ['Entrance Chant', 3], ['Entrance Procession', 3], ['Sign of the Cross', 1], ['Greeting', 2], ['Penitential Act', 3], ['Kyrie', 2], ['Gloria', 1], ['Collect', 3],
-  ['Liturgy of the Word', 1], ['First Reading', 1], ['Responsorial Psalm', 2], ['Second Reading', 1], ['Gospel Acclamation', 3], ['Alleluia', 2], ['Gospel', 1], ['Homily', 1], ['Creed', 1], ['Profession of Faith', 3],
-  ['Prayer of the Faithful', 2], ['Universal Prayer', 4], ['Liturgy of the Eucharist', 1], ['Preparation of the Gifts', 3], ['Offertory', 1], ['Offertory Procession', 3], ['Prayer over the Offerings', 4],
+  ['Liturgy of the Word', 1], ['First Reading', 1], ['Responsorial Psalm', 2], ['Second Reading', 1], ['Alleluia', 2, ['Gospel Acclamation']], ['Gospel', 1], ['Homily', 1], ['Creed', 1, ['Profession of Faith']],
+  ['Prayer of the Faithful', 2, ['Universal Prayer']], ['Liturgy of the Eucharist', 1], ['Offertory', 1, ['Preparation of the Gifts']], ['Offertory Procession', 3], ['Prayer over the Offerings', 4],
   ['Eucharistic Prayer', 2], ['Preface', 3], ['Preface Dialogue', 5], ['Sanctus', 2], ['Epiclesis', 5], ['Institution Narrative', 4], ['Consecration', 1], ['Memorial Acclamation', 3], ['Anamnesis', 5],
   ['Intercessions', 4], ['Doxology', 4], ['Great Amen', 3], ['Communion Rite', 2], ['Lord’s Prayer', 1], ['Embolism', 6], ['Sign of Peace', 1], ['Fraction Rite', 4], ['Lamb of God', 1], ['Agnus Dei', 2],
   ['Invitation to Communion', 4], ['Communion', 1], ['Communion Chant', 3], ['Prayer after Communion', 3], ['Concluding Rites', 2], ['Announcements', 2], ['Blessing', 1], ['Dismissal', 1], ['Recessional', 3], ['Silent Reflection', 4],
@@ -218,7 +218,7 @@ const TABLES: Record<string, Table> = {
       exorcism: ['Gerasene demoniac', 'Healing the man at Capernaum with an unclean spirit', 'Healing the dumb demoniac', 'Healing the Canaanite woman\'s daughter', 'Healing the epileptic boy'],
       galilee: ['Water into wine', 'Feeding the five thousand', 'Walking on water', 'Calming the storm', 'Feeding the four thousand', 'Miraculous catch of fish', 'The coin in the fish\'s mouth', 'Healing Peter\'s mother-in-law', 'Healing the centurion\'s servant', 'Healing the official\'s son', 'Woman with the flow of blood', 'Raising of Jairus\'s daughter', 'Raising the widow\'s son at Nain', 'Healing the man with a withered hand', 'Gerasene demoniac', 'Healing the man at Capernaum with an unclean spirit', 'Healing the blind man of Bethsaida', 'Healing the deaf mute', 'Healing the dumb demoniac'],
     },
-    rules: [['nature', 'Name a miracle of Jesus over nature, bread or water.', 6], ['exorcism', 'Name a miracle in which Jesus drove out an unclean spirit.', 5], ['galilee', 'Name a miracle of Jesus worked in or around Galilee.', 8]],
+    rules: [['nature', 'Name a miracle of Jesus over nature, bread or water.', 6], ['exorcism', 'Name a miracle in which Jesus drove out an unclean spirit.', 5], ['galilee', 'Name a miracle of Jesus.', 8]],
   },
   rulers: {
     tags: {
@@ -282,7 +282,7 @@ const TABLES: Record<string, Table> = {
       isles: ['Knock', 'Croagh Patrick', 'Lough Derg', 'Glendalough', 'Walsingham'],
       poland: ['Czestochowa', 'Divine Mercy Sanctuary', 'Wadowice', 'Kalwaria Zebrzydowska', 'Lichen'],
     },
-    rules: [['italy', 'Name a Catholic shrine or pilgrimage site in Italy.', 12], ['france', 'Name a Catholic shrine or pilgrimage site in France.', 8], ['spain', 'Name a Catholic shrine or pilgrimage site in Spain.', 6], ['holyland', 'Name a pilgrimage site in the Holy Land.', 8], ['germanic', 'Name a Catholic shrine in Germany, Austria or Switzerland.', 6], ['americas', 'Name a Catholic shrine in the Americas.', 8], ['isles', 'Name a pilgrimage site in Ireland or Britain.', 5], ['poland', 'Name a Catholic shrine in Poland.', 5]],
+    rules: [['italy', 'Name a Catholic shrine or pilgrimage site in Italy.', 12], ['france', 'Name a Catholic shrine or pilgrimage site in France.', 8], ['spain', 'Name a Catholic shrine or pilgrimage site in Spain.', 6], ['holyland', 'Name a Catholic shrine or pilgrimage site in the Holy Land.', 8], ['germanic', 'Name a Catholic shrine in Germany, Austria or Switzerland.', 6], ['americas', 'Name a Catholic shrine in the Americas.', 8], ['isles', 'Name a pilgrimage site in Ireland or Britain.', 5], ['poland', 'Name a Catholic shrine in Poland.', 5]],
   },
   parables: {
     tags: { matthew: ['The Ten Virgins', 'The Talents', 'The Wheat and the Weeds', 'The Hidden Treasure', 'The Pearl of Great Price', 'The Dragnet', 'The Unforgiving Servant', 'The Workers in the Vineyard', 'The Two Sons', 'The Sheep and the Goats'] },
@@ -301,14 +301,14 @@ const TABLES: Record<string, Table> = {
       tree: ['Olive', 'Fig', 'Cedar', 'Palm', 'Sycamore', 'Almond', 'Pomegranate', 'Oak', 'Cypress', 'Fir', 'Acacia', 'Terebinth'],
       herb: ['Mustard', 'Hyssop', 'Myrrh', 'Frankincense', 'Balm', 'Mint', 'Cummin', 'Dill', 'Rue'],
     },
-    rules: [['tree', 'Name a tree in the Bible.', 8], ['herb', 'Name a herb, spice or resin in the Bible.', 8]],
+    rules: [['tree', 'Name a plant in the Bible.', 8], ['herb', 'Name a herb, spice or resin in the Bible.', 8]],
   },
   trades: {
     tags: {
       farming: ['Farmer', 'Shepherd', 'Vinedresser', 'Gardener', 'Sower', 'Reaper', 'Gleaner', 'Thresher', 'Herdsman', 'Hired hand'],
       craft: ['Carpenter', 'Potter', 'Tentmaker', 'Weaver', 'Tanner', 'Fuller', 'Goldsmith', 'Silversmith', 'Blacksmith', 'Coppersmith', 'Mason', 'Builder', 'Master builder', 'Seller of purple', 'Perfumer'],
       war: ['Soldier', 'Centurion', 'Archer', 'Armor-bearer', 'Charioteer', 'Spy', 'Executioner'],
-      service: ['Servant', 'Slave', 'Steward', 'Cook', 'Baker', 'Cupbearer', 'Nurse', 'Midwife', 'Hired hand', 'Messenger', 'Gatekeeper', 'Watchman'],
+      service: ['Servant', 'Steward', 'Cook', 'Baker', 'Cupbearer', 'Nurse', 'Midwife', 'Hired hand', 'Messenger', 'Gatekeeper', 'Watchman'],
       holy: ['Priest', 'Levite', 'Prophet', 'Scribe', 'Exorcist', 'Evangelist'],
     },
     rules: [['farming', 'Name a farming or herding job in the Bible.', 8], ['craft', 'Name a craft or building trade in the Bible.', 8], ['war', 'Name a soldier\'s job in the Bible.', 6], ['service', 'Name a household or service job in the Bible.', 8], ['holy', 'Name a religious job or calling in the Bible.', 5]],
@@ -437,6 +437,10 @@ export function buildPools(base: DeepPrompt[]): Pool[] {
     const closedBase = typeof s.from === 'string' ? base.find((p) => p.id === s.from)?.closed : undefined;
     const pool: Pool = { id: s.id, noun: s.noun, theme: s.theme, closed: !!closedBase, answers, ...(s.part ? { part: s.part } : {}), ...(s.weight ? { weight: s.weight } : {}), ...(typeof s.from === 'string' ? { ignore: base.find((p) => p.id === s.from)?.ignore } : {}) };
     if (['councils', 'saint-popes'].includes(s.id)) pool.numerals = true;
+    // Basilion review (issue 26): the letter I question of the saint cities must say the letter is in the city's name, not the saint's
+    if (s.id === 'saint-cities') pool.textOverride = { 'has|i': "Name a city or town named after a saint, with the letter I in the city's name." };
+    // Basilion review (issue 26): the women note must not read as overriding the letter rule its questions state
+    if (s.id === 'bible-women') pool.contextOverride = 'Any woman in the Bible on our list whose name fits the question counts. The list is long, but it is not complete.';
     if (s.id === 'councils') { pool.facts = COUNCIL_FACTS; pool.factRules = councilRules; }
     if (s.id === 'mysteries') { pool.facts = Object.fromEntries(Object.entries(MYSTERY_SET).map(([k, v]) => [k, { set: v }])); pool.factRules = mysteryRules; }
     if (s.id === 'apostles') { pool.facts = Object.fromEntries(['Peter', 'Andrew', 'James the Greater', 'John'].map((n) => [n, { fisher: 1 }])); pool.factRules = rules([['trade', 'fishermen', 'Name an apostle who was a fisherman.', (f) => f.fisher === 1, 4]]); }
@@ -452,7 +456,7 @@ export function buildPools(base: DeepPrompt[]): Pool[] {
   for (const [n, y] of POPES) popeP.facts![n] = { ...popeP.facts![n], start: y, name: n.split(' ')[0] };
   popeP.factRules = [...popeP.factRules!, ...POPE_NAME_RULES()];
   pools.push(popeP);
-  const mass: Pool = { id: 'mass', noun: 'part of the Mass', theme: 'liturgy', closed: false, part: 'name', answers: MASS.map(([answer, tier]) => ({ answer, tier: tier as DeepAnswer['tier'] })), facts: Object.fromEntries(MASS.map(([n]) => [n, { section: MASS_SECTION[n] ?? '' }])), factRules: massRules };
+  const mass: Pool = { id: 'mass', noun: 'part of the Mass', theme: 'liturgy', closed: false, part: 'name', answers: MASS.map(([answer, tier, aliases]) => ({ answer, tier: tier as DeepAnswer['tier'], ...(aliases?.length ? { aliases } : {}) })), facts: Object.fromEntries(MASS.map(([n]) => [n, { section: MASS_SECTION[n] ?? '' }])), factRules: massRules };
   pools.push(mass);
   for (const [id, title, theme, text] of TEXTS) pools.push(wordPool(id, title, theme, text));
   for (const [from, id, noun] of CATEGORY_SAINTS) { const answers = unionOf(base, from); if (answers.length >= 20) pools.push({ id, noun, theme: 'saints', closed: false, answers }); }

@@ -2483,7 +2483,10 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
    },
    {
     "answer": "Vezelay",
-    "tier": 6
+    "tier": 6,
+    "aliases": [
+     "Vézelay"
+    ]
    },
    {
     "answer": "Conques",
