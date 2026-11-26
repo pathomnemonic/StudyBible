@@ -40,7 +40,14 @@ const GROUPS: Record<string, { ids: string[]; label: string }> = {
 const slotsOf = (ids: string[]) => { const s = new Set<number>(); for (const id of ids) for (const i of inBook.get(id) ?? []) s.add(i); return s; };
 const booksNaming = (i: number) => [...inBook.values()].filter((s) => s.has(i)).length;
 
-interface Cand { id: string; prompt: string; context: string; slots: Set<number> }
+interface Cand { id: string; prompt: string; context: string; slots: Set<number>; exclude?: string }
+/* Basilion review (issue 26): in these lists the shorter name is the same feature as the kept tier 6 answer under its
+   fuller name (the Zered valley; the valley Ezekiel also calls the Valley of the Travelers), scored twice in one list. */
+const EXCLUDED_ANSWERS: Record<string, string[]> = {
+  'dir-south-in-law': ['Zered'],
+  'dir-east-in-prophets': ['Valley of Hamon-gog'],
+  'dir-transjordan-in-prophets': ['Valley of Hamon-gog'],
+};
 const cands: Cand[] = [];
 const geo = (i: number) => places[i].lat !== undefined && places[i].lon !== undefined;
 
@@ -54,7 +61,8 @@ const ANCHORS: [string, string, number, number][] = [
 ];
 for (const [key, label, la, lo] of ANCHORS) for (const r of [25, 50, 100, 200, 400, 800, 1500, 3000]) {
   const slots = new Set(places.map((_, i) => i).filter((i) => geo(i) && km(la, lo, places[i].lat!, places[i].lon!) <= r));
-  cands.push({ id: `near-${key}-${r}`, prompt: `Name a place in the Bible within about ${r} kilometers of ${label}.`, context: `Distances are in a straight line from ${label} to the place as the app's map data (OpenBible) locates it today; the same name can be more than one place, and some sites are only roughly placed.`, slots });
+  // the anchor place itself is not scored in its own radius list: the question names it, so it would hand the player a free answer
+  cands.push({ id: `near-${key}-${r}`, prompt: `Name a place in the Bible within about ${r} kilometers of ${label}.`, context: `Distances are measured from ${label} to the place as the app's map data (OpenBible) locates it today; the same name can be more than one place, and some sites are only roughly placed.`, slots, exclude: key === 'antioch' ? 'Antioch' : label });
 }
 /* which books: groups of books */
 const GK = Object.keys(GROUPS);
@@ -73,14 +81,17 @@ for (const n of [1, 2, 3]) cands.push({ id: `onebook-${n}`, prompt: n === 1 ? 'N
 const J: [number, number] = [31.778, 35.235];
 const DIRS: [string, string, (la: number, lo: number) => boolean][] = [
   ['north', 'north of Jerusalem', (la) => la > J[0] + 0.3], ['south', 'south of Jerusalem', (la) => la < J[0] - 0.3], ['east', 'east of Jerusalem', (_la, lo) => lo > J[1] + 0.3], ['west', 'west of Jerusalem', (_la, lo) => lo < J[1] - 0.3],
-  ['holyland', 'inside the Holy Land (between Dan and Beersheba)', (la, lo) => la >= 31.1 && la <= 33.4 && lo >= 34.2 && lo <= 36.0], ['abroad', 'outside the Holy Land and Egypt', (la, lo) => !(la >= 29 && la <= 33.5 && lo >= 31 && lo <= 36)],
+  ['holyland', 'inside the Holy Land', (la, lo) => la >= 31.1 && la <= 33.4 && lo >= 34.2 && lo <= 36.0], ['abroad', 'outside the Holy Land and Egypt', (la, lo) => !(la >= 29 && la <= 33.5 && lo >= 31 && lo <= 36)],
   ['transjordan', 'east of the Jordan River', (la, lo) => lo > 35.6 && la > 29 && la < 34], ['coast', 'on the Mediterranean coast of the Holy Land', (la, lo) => lo < 34.95 && lo > 34 && la > 31 && la < 34],
 ];
 for (const [dk, dl, f] of DIRS) {
   cands.push({ id: `dir-${dk}`, prompt: `Name a place in the Bible ${dl.startsWith('inside') || dl.startsWith('outside') || dl.startsWith('on ') ? 'that is ' : 'that lies '}${dl}.`, context: `Placed by the app's map data (OpenBible geocoding); where scholars disagree the data takes one view, and some sites are only roughly placed.`, slots: new Set(places.map((_, i) => i).filter((i) => geo(i) && f(places[i].lat!, places[i].lon!))) });
   for (const g of GK) {
     const gs = slotsOf(GROUPS[g].ids);
-    cands.push({ id: `dir-${dk}-in-${g}`, prompt: `Name a place mentioned in ${GROUPS[g].label} that is ${dl.startsWith('north') || dl.startsWith('south') || dl.startsWith('east') || dl.startsWith('west') ? 'to the ' + dl.replace(' of Jerusalem', '').replace(/^(\w+) /, '$1') + ' of Jerusalem' : dl}.`.replace('is inside', 'is inside').replace('to the north of Jerusalem', 'north of Jerusalem').replace('to the south of Jerusalem', 'south of Jerusalem').replace('to the east of Jerusalem', 'east of Jerusalem').replace('to the west of Jerusalem', 'west of Jerusalem'), context: `Placed by the app's map data (OpenBible geocoding) and counted from the places it lists in those books; some sites are only roughly placed.`, slots: new Set([...gs].filter((i) => geo(i) && f(places[i].lat!, places[i].lon!))) });
+    // the cardinal directions read "north of Jerusalem" etc; every other direction phrase is used as it stands
+    // (the old string surgery mangled "east of the Jordan River" into "eastof the Jordan River of Jerusalem")
+    const dirPhrase = dk === 'north' || dk === 'south' || dk === 'east' || dk === 'west' ? `${dk} of Jerusalem` : dl;
+    cands.push({ id: `dir-${dk}-in-${g}`, prompt: `Name a place mentioned in ${GROUPS[g].label} that is ${dirPhrase}.`, context: `Placed by the app's map data (OpenBible geocoding) and counted from the places it lists in those books; some sites are only roughly placed.`, slots: new Set([...gs].filter((i) => geo(i) && f(places[i].lat!, places[i].lon!))) });
   }
 }
 
@@ -93,6 +104,8 @@ for (const c of cands) {
     const p = places[i];
     if (!okName(p)) continue;
     const name = nameOf(p).replace(/['’]s$/, '');
+    if (c.exclude && name === c.exclude) continue;
+    if ((EXCLUDED_ANSWERS[c.id] ?? []).includes(name)) continue;
     const k = deepTokens(name).join(' ');
     const now = p.c && /^Now /.test(p.c) ? p.c.replace(/^Now /, '').replace(/[.]$/, '').trim() : '';
     const score = Math.log(1 + p.nv) + 0.5 * Math.log(1 + booksNaming(i));
