@@ -1635,8 +1635,8 @@
   },
   {
    "id": "ported-aquinas-works",
-   "sha256": "58d80a5010237b878d4ef811f32da264e808b0f6f8a73ea0a73f6801edf8cb5a",
-   "answers": 58,
+   "sha256": "4af43c1678941edbf5b9533b19f7ec29f820808635b97ace0c88497b70f2516c",
+   "answers": 60,
    "status": "unreviewed"
   },
   {
