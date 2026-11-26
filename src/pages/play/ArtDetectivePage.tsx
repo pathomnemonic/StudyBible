@@ -1,3 +1,4 @@
+import { artSrc } from '../../lib/artSrc';
 import QuizPips from '../../components/QuizPips';
 import GameHelp from '../../components/GameHelp';
 import { useEffect, useMemo, useState } from 'react';
@@ -48,7 +49,7 @@ export default function ArtDetectivePage() {
       {!works ? <p className="muted">Loading…</p> : !done && q ? (
         <>
           <QuizPips at={i} total={qs.length} /><p className="muted small">Picture {i + 1} of {qs.length}. What scene is shown?</p>
-          <img className="ad-img" src={`${import.meta.env.BASE_URL}${q.w.file}`} alt="A painting or engraving of a Bible scene, title hidden" />
+          <img className="ad-img" src={artSrc(q.w.file)} alt="A painting or engraving of a Bible scene, title hidden" />
           <div className="ws-options" role="group" aria-label="Which scene?">
             {q.opts.map((o) => <button key={o} className={`btn ws-opt${solved && o === q.w.title ? ' right' : wrong.includes(o) ? ' wrong' : ''}`} disabled={wrong.includes(o) || solved} onClick={() => pick(o)}>{o}</button>)}
           </div>
