@@ -414,6 +414,28 @@ export function buildButler(report: Report) {
     }
   }
   for (let m = 1; m <= 12; m++) if (!covered.includes(m) && !missing.some((x) => x.month === m)) missing.push({ month: m, name: MONTHS[m - 1], reason: 'no public-domain digital text identified' });
+  // Corrections to the extracted name index, from the Nov 2026 audit of the name finder (issue 63). Butler's headings name
+  // some saints more than once (a life and a feast of the same man), spell some names in forms no one now uses, and give a
+  // feast of a saint a row of its own; the heading scan also leaves a bare first name behind when a heading mentions a
+  // saint in passing. One row per saint: fold the variants into the fullest form, drop the rows that are not saints, and
+  // add two saints who lived after Butler and are searched for constantly, with their present days.
+  const NAME_MERGES: Record<string, string> = {
+    'john baptist': 'john the baptist', // his Nativity (Jun 24) and his Beheading (Aug 29) stood as two saints
+    'john the apostle': 'john the apostle and evangelist',
+    'john joseph': 'john joseph of the cross',
+    'john damascen': 'john damascene', // Butler's spelling; his life stands at May 6 in Butler, and that day is kept
+    'john columbini': 'john colombini',
+  };
+  for (const [from, to] of Object.entries(NAME_MERGES)) {
+    if (!names[from]) continue;
+    for (const d of names[from]) if (!(names[to] ??= []).includes(d)) names[to].push(d);
+    names[to].sort();
+    delete names[from];
+  }
+  // a bare mention, and the Latin Gate: a feast of St John the Apostle, removed from the calendar in 1969, not a saint
+  for (const drop of ['john', 'john before the latin', 'john before the latin gate']) delete names[drop];
+  names['john paul ii'] = ['10-22'];
+  names['john vianney'] = ['08-04'];
   const sortedNames = Object.fromEntries(Object.entries(names).sort(([a], [b]) => a.localeCompare(b)));
   writeJson(join(OUT, 'names.json'), sortedNames);
   writeJson(join(OUT, 'index.json'), {

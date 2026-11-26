@@ -11,10 +11,10 @@ export default function SaintNamesPage() {
   return (
     <div className="page">
       <h1>Find a saint by name</h1>
-      <p className="lede">Your own name, a child’s, a confirmation name: see who shares it and when their day falls.</p>
+      <p className="lede">Your own name, a child’s, a confirmation name: see who shares it, and the day Butler’s calendar keeps for each of them.</p>
       <label className="sr-only" htmlFor="sn">A name</label>
       <input id="sn" type="search" value={q} placeholder="A name, such as Anne or Thomas" autoFocus autoCapitalize="words" onChange={(e) => setSp(e.target.value ? { q: e.target.value } : {}, { replace: true })} style={{ width: '100%', minHeight: 44 }} />
-      {q.trim().length >= 2 && hits && !hits.length && <p className="muted">No saint with that name in Butler’s calendar. Try another spelling, or the Latin form.</p>}
+      {q.trim().length >= 2 && hits && !hits.length && <p className="muted">No saint with that name in the list. Try another spelling, or the Latin form.</p>}
       <ul className="list">
         {(hits ?? []).map((h) => (
           <li key={h.name} className="row between" style={{ gap: 8 }}>
@@ -23,7 +23,7 @@ export default function SaintNamesPage() {
           </li>
         ))}
       </ul>
-      <p className="muted small">From Alban Butler’s Lives of the Saints, which uses older spellings. Some names appear more than once.</p>
+      <p className="muted small">The days are those of Alban Butler’s Lives of the Saints (1750s), whose calendar and spellings are older than ours: St. John Chrysostom is kept on January 27 there and on September 13 in the present Roman calendar, and St. John of the Cross on November 24 there and on December 14 now. A few saints who lived after Butler, such as St. John Paul II and St. John Vianney, are included with their present days.</p>
     </div>
   );
 }
