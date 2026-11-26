@@ -132,6 +132,39 @@ export async function importLectionary(json: string): Promise<number> {
   return n;
 }
 
+/**
+ * The bundled reference list is the USCCB's, and a few of its days belong to the United States calendar only.
+ * On a United States proper (Thanksgiving Day is the clear case) the listed readings replace the day's own readings,
+ * so they must not be shown at all under another calendar. A United States observance can also supply the day's
+ * title while the readings themselves stay the ordinary ones every Roman calendar shares (the Day of Prayer for the
+ * Legal Protection of Unborn Children; the United States memorials of Neumann, Seton, Kateri Tekakwitha and Cabrini):
+ * there the readings may be shown, but the title may not, since the header already names the day in the chosen calendar.
+ */
+const US_PROPER_TITLES = /^Thanksgiving Day$/;
+const US_ONLY_TITLES = /\[In the Dioceses of the United States\]|Day of Prayer for the Legal Protection of Unborn Children|Saint John Neumann|Saint Elizabeth Ann Seton|Saint Kateri Tekakwitha|Saint Frances Xavier Cabrini/;
+
+/** What the bundled (USCCB) list may contribute for the chosen calendar: whether its readings may be used, and whether its title may be shown. */
+export function bundledDayFor(nation: string, day: { t: string }): { use: boolean; title?: string } {
+  if (nation === 'US') return { use: true, title: day.t };
+  if (US_PROPER_TITLES.test(day.t)) return { use: false };
+  return { use: true, title: US_ONLY_TITLES.test(day.t) ? undefined : day.t };
+}
+
+const ORDINAL_WORDS: Record<string, number> = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5, sixth: 6, seventh: 7, eighth: 8, ninth: 9, tenth: 10, eleventh: 11, twelfth: 12, thirteenth: 13, fourteenth: 14, fifteenth: 15, sixteenth: 16, seventeenth: 17, eighteenth: 18, nineteenth: 19, twentieth: 20, thirtieth: 30 };
+/**
+ * The readings page names the day twice: from the computed calendar ("Thursday of the 34th week in Ordinary Time") and from the
+ * published list's title ("Thursday of the Thirty-fourth Week in Ordinary Time"). Those are one title in two styles; this
+ * recognises the match (spelled-out ordinals and capitalisation aside) so the page does not print the day twice.
+ */
+export function sameDayTitle(a: string, b: string): boolean {
+  const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9 -]/g, '').split(/\s+/).map((w) => {
+    const parts = w.split('-');
+    if (parts.length === 2 && ORDINAL_WORDS[parts[0]] !== undefined && ORDINAL_WORDS[parts[1]] !== undefined) return String(ORDINAL_WORDS[parts[0]] + ORDINAL_WORDS[parts[1]]);
+    return ORDINAL_WORDS[w] !== undefined ? String(ORDINAL_WORDS[w]) : w;
+  }).join(' ');
+  return norm(a) === norm(b);
+}
+
 export async function readingsFor(nation: string, isoDate: string): Promise<DayReadings> {
   const events = (await litDay(nation, isoDate)) ?? [];
   const user = (await getUserLectionary())[isoDate];
@@ -142,8 +175,11 @@ export async function readingsFor(nation: string, isoDate: string): Promise<DayR
   const lect = await getJson<{ days: Record<string, { t: string; r: Partial<Record<Slot, string>> }> }>(`lectionary/${isoDate.slice(0, 4)}.json`, true).catch(() => null);
   const day = lect?.days[isoDate];
   if (day) {
-    const items = (Object.keys(SLOT_LABEL) as Slot[]).filter((s) => day.r[s]).map((s) => toItem(s, day.r[s]!));
-    if (items.length) return { source: 'usccb-refs', title: day.t, sourceNote: 'Reading citations as listed by the USCCB (bible.usccb.org). The passages below are shown in your chosen translation, not the Lectionary wording.', items, events };
+    const bundled = bundledDayFor(nation, day);
+    if (bundled.use) {
+      const items = (Object.keys(SLOT_LABEL) as Slot[]).filter((s) => day.r[s]).map((s) => toItem(s, day.r[s]!));
+      if (items.length) return { source: 'usccb-refs', title: bundled.title, sourceNote: nation === 'US' ? 'Reading citations as listed by the USCCB (bible.usccb.org). The passages below are shown in your chosen translation, not the Lectionary wording.' : 'Reading citations from the USCCB list (bible.usccb.org), which gives the Church’s readings for this day; United States observances in that list are not applied to the calendar you chose. The passages below are shown in your chosen translation, not the Lectionary wording.', items, events };
+    }
   }
   // LitCal provides the readings of solemnities, feasts and some celebrations; ordinary weekdays and Sundays are not included.
   for (const e of events) {
