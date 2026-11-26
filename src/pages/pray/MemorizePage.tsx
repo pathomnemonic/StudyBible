@@ -9,7 +9,7 @@ import { getJson } from '../../data/loader';
 import { passageText } from '../../lib/bibleText';
 import { formatRef, parseRefId, refId } from '../../lib/refs';
 import { refsFromText } from '../../study/refData';
-import { clozeIndexes, DAY, isDue, newCard, normalize, schedule } from '../../lib/srs';
+import { clozeIndexes, DAY, isDue, newCard, normalize, schedule, type SrsState } from '../../lib/srs';
 import { useToast } from '../../components/Toast';
 import Icon from '../../components/Icon';
 import RefLink from '../../components/RefLink';
@@ -34,6 +34,7 @@ export default function MemorizePage() {
   const cards = useLiveQuery(() => db.memory.toArray(), []) ?? [];
   const [sets, setSets] = useState<SetDef[]>([]);
   const [reviewing, setReviewing] = useState(false);
+  const [sessionCards, setSessionCards] = useState<MemoryCard[]>([]);
   const [mode, setMode] = useState<Mode>('recall');
   const [text, setText] = useState('');
   const toast = useToast();
@@ -58,7 +59,9 @@ export default function MemorizePage() {
     toast(n ? `Added ${n} verse${n === 1 ? '' : 's'} to memorize.` : 'Already in your list (or not a valid reference).', n ? 'info' : 'error');
   };
 
-  if (reviewing && due.length) return <Review cards={due} mode={mode} onDone={() => setReviewing(false)} />;
+  // The review runs on a snapshot of the cards due when it started: grading moves due times, so the live due list
+  // would drop an Again card before its in session retry and end the session before the completion screen.
+  if (reviewing && sessionCards.length) return <Review cards={sessionCards} mode={mode} onDone={() => setReviewing(false)} />;
 
   const streakDays = new Set(cards.filter((c) => c.lastReviewed).map((c) => new Date(c.lastReviewed!).toLocaleDateString('en-CA')));
   const reviewedToday = streakDays.has(new Date().toLocaleDateString('en-CA'));
@@ -73,7 +76,7 @@ export default function MemorizePage() {
           <div>
             <strong>{due.length}</strong> due now · {cards.length} in your list · {known} well known{reviewedToday ? ' · reviewed today' : ''}
           </div>
-          <button className="btn primary" disabled={!due.length} onClick={() => setReviewing(true)}>
+          <button className="btn primary" disabled={!due.length} onClick={() => { setSessionCards(due); setReviewing(true); }}>
             <Icon name="play" size={14} /> Review {due.length ? `(${due.length})` : ''}
           </button>
         </div>
@@ -135,6 +138,8 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
   const { get, editions } = useEditions();
   const ed = get(s.defaultEdition === 'vulgate' ? 'dra' : s.defaultEdition) ?? editions[0];
   const [queue, setQueue] = useState(cards.map((c) => c.id!));
+  // Grades accumulate inside the session: a card retried after Again schedules from its latest state, not the snapshot it started with.
+  const [gradedStates, setGradedStates] = useState<Map<number, SrsState>>(new Map());
   const cur = cards.find((c) => c.id === queue[0]);
   const verseReq = useRef(latestRequest());
   const [verseText, setVerseText] = useState<string | null>(null);
@@ -180,8 +185,9 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
 
   const grade = async (g: 0 | 1 | 2 | 3) => {
     if (!cur) return;
-    const next = schedule(cur, g);
+    const next = schedule(gradedStates.get(cur.id!) ?? cur, g);
     await db.memory.update(cur.id!, { ...next, lastReviewed: Date.now() });
+    setGradedStates((m) => new Map(m).set(cur.id!, next));
     setDone((d) => d + 1);
     setQueue((q) => (g === 0 ? [...q.slice(1), q[0]] : q.slice(1)));
   };
