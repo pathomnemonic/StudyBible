@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { db } from '../../db/db';
 import { addDays, iso, liturgicalDay, parseIso, COLOR_NAME } from '../../liturgy/compute';
 import { gradeName, loadLitYear, NATIONS, type LitYear } from '../../liturgy/litcal';
-import { importLectionary, readingsFor, saveManualReadings, slotLabel, type DayReadings, type Slot } from '../../liturgy/readings';
+import { importLectionary, readingsFor, sameDayTitle, saveManualReadings, slotLabel, type DayReadings, type Slot } from '../../liturgy/readings';
 import { useSettings } from '../../lib/store';
 import { useT } from '../../lib/i18n';
 import { traditionOf } from '../../lib/tradition';
@@ -79,7 +79,7 @@ export default function ReadingsPage() {
       {s.tradition === 'byzantine' && <ByzantineDay date={date} />}
       <div className="card">
         <div className="row between"><h2>{lit.dayName}</h2><span className="chip" title="The color of the priest’s vestments today">Vestments: {COLOR_NAME[lit.color]}</span></div>
-        <div className="muted small">{lit.seasonName}{lit.week ? `, week ${lit.week}` : ''} · Sunday cycle {lit.sundayCycle} · weekday cycle {lit.weekdayCycle} (computed offline)</div>
+        <div className="muted small">{lit.seasonName}{lit.week ? `, week ${lit.week}` : ''} · Sunday cycle {lit.sundayCycle} · weekday cycle {lit.weekdayCycle}</div>
         {events.length > 0 && (
           <ul className="list small">
             {events.map((e) => <li key={e.event_key}>{e.name} <span className="chip">{gradeName(e.grade)}</span></li>)}
@@ -91,7 +91,7 @@ export default function ReadingsPage() {
       <div className="card">
         <h2>{s.tradition === 'latin' ? t('readings.mass') : 'Readings (Roman lectionary)'}</h2>
         {!rd && <div className="muted">Loading…</div>}
-        {rd && rd.title && <div className="muted small">{rd.title}</div>}
+        {rd && rd.title && !sameDayTitle(rd.title, lit.dayName) && <div className="muted small">{rd.title}</div>}
         {rd && rd.items.length > 0 && (
           <div className="reading-stack">
             {rd.items.map((i) => (
