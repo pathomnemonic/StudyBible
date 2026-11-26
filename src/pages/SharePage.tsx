@@ -1,3 +1,4 @@
+import { artSrc } from '../lib/artSrc';
 import { useEffect, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
@@ -141,7 +142,7 @@ export default function SharePage() {
       let img: HTMLImageElement | null = null;
       if (paint) {
         try {
-          img = await loadImage(import.meta.env.BASE_URL + paint.file);
+          img = await loadImage(artSrc(paint.file));
           setImgErr(false);
         } catch {
           setImgErr(true);
@@ -294,7 +295,7 @@ export default function SharePage() {
                 <div className="art-grid">
                   {shown.map((a) => (
                     <button key={a.id} className={'art-thumb' + (paint?.id === a.id ? ' on' : '')} onClick={() => { setPaint(a); setImgErr(false); }} aria-label={`${a.title}, ${a.artist}`} aria-pressed={paint?.id === a.id}>
-                      <img src={import.meta.env.BASE_URL + a.file} alt="" loading="lazy" />
+                      <img src={artSrc(a.file)} alt="" loading="lazy" />
                     </button>
                   ))}
                 </div>
