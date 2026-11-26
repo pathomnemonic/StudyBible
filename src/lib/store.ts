@@ -93,6 +93,8 @@ export interface Settings {
   kidMode: boolean;
   /** share anonymous error reports and page counts from the public web app (on unless turned off here, in Do Not Track, or in Kid mode) */
   telemetry: boolean;
+  /** the answer to the error reports and page counts question where one must be asked first (the EU, the UK and the EEA, judged by time zone); unset until answered there, and only 'granted' lets reports run there */
+  telemetryConsent?: 'granted' | 'denied';
   /** one chapter at a time, or an unbroken scroll through the chapters that follow */
   scrollMode: 'pages' | 'infinite';
   /** a quiet progress line in the corner while reading: minutes left in the chapter and how far */
