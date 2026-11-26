@@ -4,7 +4,7 @@ import { db, type EpisodeProgress } from '../db/db';
 export async function setPlayed(episodeId: string, completed: boolean, duration?: number) {
   await db.transaction('rw', db.episodeProgress, async () => {
     const old = await db.episodeProgress.get(episodeId);
-    await db.episodeProgress.put({ ...(old ?? { episodeId, position: 0 }), episodeId, position: 0, completed, duration: duration ?? old?.duration, updatedAt: Date.now() } as EpisodeProgress);
+    await db.episodeProgress.put({ ...(old ?? { episodeId, position: 0 }), episodeId, position: old?.position ?? 0, completed, duration: duration ?? old?.duration, updatedAt: Date.now() } as EpisodeProgress);
   });
 }
 
