@@ -2301,7 +2301,7 @@
   },
   {
    "id": "authored7-joseph-and-brothers",
-   "sha256": "50e4b865bf27b087d3ec3e7a8287282d6c8bbaa620d213cdb91f7257e681bcac",
+   "sha256": "5108708f6266042c3a492eeafe6616507a785a579bdccc8a51437d0113e99c97",
    "answers": 41,
    "status": "unreviewed"
   },
@@ -2361,7 +2361,7 @@
   },
   {
    "id": "authored7-offering-or-sacrifice-ot",
-   "sha256": "fbf4d008dafb4f6d254fdf4e3d280391665f5d1aa8a7e8387f32e59745cc2f99",
+   "sha256": "03d7f228803d4b0a0e083b8c4d1cad7c5b047555d42e256a1eccf9e0ad40856d",
    "answers": 37,
    "status": "unreviewed"
   },
@@ -2391,7 +2391,7 @@
   },
   {
    "id": "authored7-weapon-in-bible",
-   "sha256": "79d9245b207dd59686d1811dd8005a9429b26d655e3c3a4c0a210a23efc56dd2",
+   "sha256": "717318637edf3555469a66536cf46127183ba25e92f17c133ee6af9cce5ea5aa",
    "answers": 27,
    "status": "unreviewed"
   },
@@ -2439,13 +2439,13 @@
   },
   {
    "id": "authored7-miracle-in-ot",
-   "sha256": "ce74197b301bba1f2f4232a5f14a22cbc48c63684eba250bb19017cfe85a5e6c",
+   "sha256": "fd24e4ff1e1ba39fc872773925cd8ae87ec0d71c4cda32065474a7a3284eca11",
    "answers": 34,
    "status": "unreviewed"
   },
   {
    "id": "authored7-brothers-in-bible",
-   "sha256": "0be70c06ef8e06e88f876b2c419061ddf9ddf1db78073d287881481aae17b0a6",
+   "sha256": "08690431c2362f664af79df4aec820412416b18bbf2266feb5340a85e40d7bef",
    "answers": 25,
    "status": "unreviewed"
   },
@@ -2493,7 +2493,7 @@
   },
   {
    "id": "authored7-jacob-and-esau-story",
-   "sha256": "77fcffce5c98518d3e3e189c1177300d85b8786d11e1bae1a07d238149ff7769",
+   "sha256": "685843a333d9419427ada06e98ee04621a362ed4ad33ab33a6d5c42de590bc1f",
    "answers": 39,
    "status": "unreviewed"
   },
@@ -2505,7 +2505,7 @@
   },
   {
    "id": "authored7-joshua-jericho-story",
-   "sha256": "0c1658a60daf8c5231498eeea7cea7a4224adb9420ebb3373ca6e2c8337ed514",
+   "sha256": "3a0cdd731513d862563d7d7a979523782e1e6f60113b1e3bcbb07416c31325ed",
    "answers": 31,
    "status": "unreviewed"
   },
@@ -2541,7 +2541,7 @@
   },
   {
    "id": "authored7-rescued-by-god-ot",
-   "sha256": "765bd7176d06697634c33f2ecf8a815196eefdc8cb1ddf68434da3f61cd60250",
+   "sha256": "b0c869667a00521fa5716fa655fedaeb5516893abfd05a30a0041a2924b8c806",
    "answers": 30,
    "status": "unreviewed"
   },
@@ -2565,13 +2565,13 @@
   },
   {
    "id": "authored7-parable-item",
-   "sha256": "5ae932ccf586dd0b7fac6c76592735a116b61385ef6cfecf878222d143904e68",
+   "sha256": "353c454b81f08773d2e9136973e57bbeb0e8807cb11ea6c98cd7ce03e235f5e9",
    "answers": 41,
    "status": "unreviewed"
   },
   {
    "id": "authored7-sermon-on-the-mount",
-   "sha256": "4410c6d0d2d1af01b6ef2d086b0618d4c7758ed8777fa84a3c817660a027d77d",
+   "sha256": "0799be57464a94fc13bb075161f9820fbf17afe20fd304c928d10e740ff1d871",
    "answers": 44,
    "status": "unreviewed"
   },
@@ -3021,13 +3021,13 @@
   },
   {
    "id": "authored7-things-catholics-say",
-   "sha256": "3a4067bca176a331cfb01febd3ff395849d91b618f107912e898c8764b8cca41",
+   "sha256": "7732b89efa6d27bde145d3fd273a1d3bdf9190952aab184fcb163ff2a8d18083",
    "answers": 44,
    "status": "unreviewed"
   },
   {
    "id": "authored7-catholic-family-traditions",
-   "sha256": "028ec6231d1490e7de8dc84b5068cddb9ec794332853be8f2a849b9e8d885c94",
+   "sha256": "c6b7c033824a58a8e2ee6f32a9198d1b367d6a5f271052787698454b05760840",
    "answers": 39,
    "status": "unreviewed"
   },
@@ -3063,7 +3063,7 @@
   },
   {
    "id": "authored7-guadalupe-connections",
-   "sha256": "615bba4abd93a416543957d6483d43342b7a4c9c831bb3aa83fd2c15b1e8e06d",
+   "sha256": "e0a200f4797e3a7cca1298aaa0be3591ede48b654d40216be8b3cb30282efb13",
    "answers": 30,
    "status": "unreviewed"
   },
@@ -3099,7 +3099,7 @@
   },
   {
    "id": "authored7-parish-events",
-   "sha256": "2060aa0c9c4f5bb0201fc16100d5ad9e6f47dd14646ca336c4663ed2549c4495",
+   "sha256": "49e1fb2953bfa5a30c7bfd006b7af76e38ea6c41c894980f74716a7cfc8647e6",
    "answers": 45,
    "status": "unreviewed"
   },
