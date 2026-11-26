@@ -262,7 +262,7 @@ const TABLES: Record<string, Table> = {
   },
   encyclicals: {
     tags: {
-      jp2: ['Redemptor Hominis', 'Dives in Misericordia', 'Laborem Exercens', 'Sollicitudo Rei Socialis', 'Centesimus Annus', 'Redemptoris Missio', 'Ecclesia de Eucharistia', 'Dominum et Vivificantem', 'Redemptoris Mater', 'Veritatis Splendor', 'Fides et Ratio', 'Ut Unum Sint', 'Evangelium Vitae', 'Familiaris Consortio', 'Christifideles Laici', 'Pastores Dabo Vobis', 'Reconciliatio et Paenitentia', 'Catechesi Tradendae', 'Redemptoris Custos', 'Ecclesia in Europa', 'Novo Millennio Ineunte'],
+      jp2: ['Redemptor Hominis', 'Dives in Misericordia', 'Laborem Exercens', 'Sollicitudo Rei Socialis', 'Centesimus Annus', 'Redemptoris Missio', 'Ecclesia de Eucharistia', 'Dominum et Vivificantem', 'Redemptoris Mater', 'Veritatis Splendor', 'Fides et Ratio', 'Ut Unum Sint', 'Evangelium Vitae', 'Familiaris Consortio', 'Christifideles Laici', 'Pastores Dabo Vobis', 'Reconciliatio et Paenitentia', 'Catechesi Tradendae', 'Redemptoris Custos', 'Ecclesia in Europa'],
       benedict: ['Deus Caritas Est', 'Spe Salvi', 'Caritas in Veritate', 'Sacramentum Caritatis', 'Verbum Domini', 'Africae Munus'],
       francis: ['Lumen Fidei', 'Laudato Si', 'Fratelli Tutti', 'Dilexit Nos', 'Evangelii Gaudium', 'Amoris Laetitia', 'Gaudete et Exsultate', 'Christus Vivit', 'Querida Amazonia'],
       social: ['Rerum Novarum', 'Quadragesimo Anno', 'Mater et Magistra', 'Pacem in Terris', 'Laborem Exercens', 'Sollicitudo Rei Socialis', 'Centesimus Annus', 'Caritas in Veritate', 'Laudato Si', 'Fratelli Tutti'],

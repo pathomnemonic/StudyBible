@@ -4112,10 +4112,7 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
    },
    {
     "answer": "Fish",
-    "tier": 1,
-    "aliases": [
-     "Broiled fish"
-    ]
+    "tier": 1
    },
    {
     "answer": "Quail",
@@ -4293,6 +4290,10 @@ export const LONG_LIST_PROMPTS: DeepPrompt[] = [
    {
     "answer": "Cakes of figs",
     "tier": 6
+   },
+   {
+    "answer": "Broiled fish",
+    "tier": 3
    },
    {
     "answer": "Wafers",

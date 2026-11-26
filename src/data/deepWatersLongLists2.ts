@@ -2075,7 +2075,7 @@ Gravediggers|5
 Tentmakers|4|Tentmaker
 `),
   L('church-titles', 'church-history', 'Name a title, office or role in the Catholic Church.', 'Offices of clergy and bishops, ranks in religious life, and roles in a parish and the Vatican.', 'Hand-authored; Code of Canon Law and the Annuario Pontificio.', `
-Pontiff|2|Bishop of Rome;Holy Father;Supreme Pontiff;Pope
+Pontiff|2|Bishop of Rome;Holy Father;Supreme Pontiff
 Cardinal|1
 Archbishop|1
 Bishop|1

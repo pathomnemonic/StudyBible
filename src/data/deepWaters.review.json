@@ -423,8 +423,8 @@
   },
   {
    "id": "authored-foods",
-   "sha256": "0e160b78754b19977d20a021342aa89db98e5bf61ea27208793ea3fbb5ec029b",
-   "answers": 59,
+   "sha256": "922e87d906fd9e5a1c69103826c7f98b5ec5ec5d9f8065b9941831b895684ec7",
+   "answers": 60,
    "status": "unreviewed"
   },
   {
@@ -1569,7 +1569,7 @@
   },
   {
    "id": "authored2-church-titles",
-   "sha256": "5d213d2b1403c9d3da8f44a2a84c1bdedc950ec65b02756a72fdf724605c5865",
+   "sha256": "66d98598559dab7988a7cf3a7bec38468ccb1061f6c7e46183268ffc94d1784e",
    "answers": 103,
    "status": "unreviewed"
   },
@@ -1629,8 +1629,8 @@
   },
   {
    "id": "ported-augustine-works",
-   "sha256": "0302e979a1e36ebbeb0c419cae86574a198ec8fc675580b4860bb5daeb71406f",
-   "answers": 59,
+   "sha256": "c6130b0c0095d8c4d3e12266bed9911745c7f139be20ab1a389465e50db5c42f",
+   "answers": 60,
    "status": "unreviewed"
   },
   {
