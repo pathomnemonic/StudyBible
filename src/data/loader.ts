@@ -5,12 +5,40 @@ import { memoizePromise } from '../lib/promiseCache';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const cache = new Map<string, Promise<any>>();
 
+/** The app's own site, which serves every content file at the same paths (the web app is the same build). */
+const SITE = 'https://pathomnemonic.github.io/StudyBible/';
+
+/**
+ * Fetch one data file by its path under data/. The bundled copy is tried first. When this build does not
+ * carry the file (the store builds leave the downloadable packs out of the binary to stay small), a copy
+ * kept by an earlier download is used, and failing that the file is taken from the app's site. Callers
+ * that verify what they fetch (the pack and edition downloads) store the file themselves once it checks
+ * out; getJson passes keepRemote so what it fetched is kept and repeat reads work offline.
+ */
+async function fetchData(path: string, signal?: AbortSignal, keepRemote = false): Promise<Response> {
+  const local = `${base}data/${path}`;
+  let r: Response | null = null;
+  try { r = await fetch(local, { signal }); } catch (e) { if (signal?.aborted) throw e; }
+  if (r?.ok) return r;
+  if (typeof window !== 'undefined' && 'caches' in window) {
+    try {
+      const hit = await (await caches.open('studybible-data-v1')).match(new URL(local, location.href).href);
+      if (hit) return hit;
+    } catch { /* no cache API */ }
+  }
+  const remote = await fetch(`${SITE}data/${path}`, { signal });
+  if (remote.ok && keepRemote) {
+    try { await keep(local, await remote.clone().arrayBuffer()); } catch { /* keeping is best effort */ }
+  }
+  return remote;
+}
+
 /** Fetch a JSON content pack once per session. Missing packs resolve to `null` rather than throwing. */
 export function getJson<T>(path: string, optional = false): Promise<T | null> {
   let p = cache.get(path);
   if (!p) {
     let request: Promise<T | null>;
-    request = fetch(`${base}data/${path}`)
+    request = fetchData(path, undefined, true)
       .then((r) => {
         if (!r.ok) {
           if (optional || r.status === 404) {
@@ -82,7 +110,7 @@ export async function downloadEdition(edition: string, books: string[], onProgre
     while (queue.length && !signal?.aborted) {
       const b = queue.shift()!;
       try {
-        const r = await fetch(`${base}data/bible/${edition}/${b}.json`, { signal });
+        const r = await fetchData(`bible/${edition}/${b}.json`, signal);
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         const buf = await r.arrayBuffer();
         if (want && (buf.byteLength !== want.sizes[b] || (crypto?.subtle && hex(await crypto.subtle.digest('SHA-256', buf)).slice(0, 16) !== want.sums[b]))) bad.push(b);
@@ -164,7 +192,7 @@ export async function downloadPack(
       const f = pack.files[i];
       if ([...have].some((p) => p.endsWith(`/data/${f}`) || p.endsWith(`/${f}`))) { step(i); continue; }
       try {
-        const r = await fetch(`${base}data/${f}`, { signal });
+        const r = await fetchData(f, signal);
         if (!r.ok) throw new Error(`HTTP ${r.status}`);
         const buf = await r.arrayBuffer();
         if (pack.sizes && buf.byteLength !== pack.sizes[i]) res.corrupt.push(f);
