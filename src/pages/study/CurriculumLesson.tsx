@@ -1,3 +1,4 @@
+import { artSrc } from '../../lib/artSrc';
 import { useEffect, useMemo, useState } from 'react';
 import FinePrint from '../../components/FinePrint';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
@@ -384,7 +385,7 @@ export default function CurriculumLesson() {
               <div className="muted small">{v.channel}{fmtLength(vmeta?.get(v.id)?.[0]) ? ` · ${fmtLength(vmeta?.get(v.id)?.[0])}` : ''}. Watch it yourself first; it is a link to a creator’s video, not part of this program.</div>
             </div>
           ))}
-          {src.art.length > 0 && <div className="kids-art">{src.art.map((a) => <figure key={a.id}><img src={import.meta.env.BASE_URL + a.file} alt={a.title} loading="lazy" /><figcaption className="small muted">{a.title}, {a.artist}</figcaption></figure>)}</div>}
+          {src.art.length > 0 && <div className="kids-art">{src.art.map((a) => <figure key={a.id}><img src={artSrc(a.file)} alt={a.title} loading="lazy" /><figcaption className="small muted">{a.title}, {a.artist}</figcaption></figure>)}</div>}
         </section>
       )}
 
