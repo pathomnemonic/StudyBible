@@ -141,7 +141,7 @@ export async function importLectionary(json: string): Promise<number> {
  * there the readings may be shown, but the title may not, since the header already names the day in the chosen calendar.
  */
 const US_PROPER_TITLES = /^Thanksgiving Day$/;
-const US_ONLY_TITLES = /\[In the Dioceses of the United States\]|Day of Prayer for the Legal Protection of Unborn Children|Saint John Neumann|Saint Elizabeth Ann Seton|Saint Kateri Tekakwitha|Saint Frances Xavier Cabrini/;
+const US_ONLY_TITLES = /\[In the Dioceses of the United States\]|Day of Prayer for the Legal Protection of Unborn Children|(?:Saint|St\.) (?:John Neumann|Elizabeth Ann Seton|Kateri Tekakwitha|Frances Xavier Cabrini)/;
 
 /** What the bundled (USCCB) list may contribute for the chosen calendar: whether its readings may be used, and whether its title may be shown. */
 export function bundledDayFor(nation: string, day: { t: string }): { use: boolean; title?: string } {
@@ -158,6 +158,8 @@ const ORDINAL_WORDS: Record<string, number> = { first: 1, second: 2, third: 3, f
  */
 export function sameDayTitle(a: string, b: string): boolean {
   const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9 -]/g, '').split(/\s+/).map((w) => {
+    const num = /^(\d+)(?:st|nd|rd|th)$/.exec(w);
+    if (num) return num[1];
     const parts = w.split('-');
     if (parts.length === 2 && ORDINAL_WORDS[parts[0]] !== undefined && ORDINAL_WORDS[parts[1]] !== undefined) return String(ORDINAL_WORDS[parts[0]] + ORDINAL_WORDS[parts[1]]);
     return ORDINAL_WORDS[w] !== undefined ? String(ORDINAL_WORDS[w]) : w;
@@ -178,7 +180,7 @@ export async function readingsFor(nation: string, isoDate: string): Promise<DayR
     const bundled = bundledDayFor(nation, day);
     if (bundled.use) {
       const items = (Object.keys(SLOT_LABEL) as Slot[]).filter((s) => day.r[s]).map((s) => toItem(s, day.r[s]!));
-      if (items.length) return { source: 'usccb-refs', title: bundled.title, sourceNote: nation === 'US' ? 'Reading citations as listed by the USCCB (bible.usccb.org). The passages below are shown in your chosen translation, not the Lectionary wording.' : 'Reading citations from the USCCB list (bible.usccb.org), which gives the Church’s readings for this day; United States observances in that list are not applied to the calendar you chose. The passages below are shown in your chosen translation, not the Lectionary wording.', items, events };
+      if (items.length) return { source: 'usccb-refs', title: bundled.title, sourceNote: nation === 'US' ? 'Reading citations as listed by the USCCB (bible.usccb.org). The passages below are shown in your chosen translation, not the Lectionary wording.' : 'Reading citations from the USCCB list (bible.usccb.org), which gives the Church’s readings for this day; United States observances in that list are not applied to the calendar you chose. The passages are shown in your chosen translation, not the Lectionary wording.', items, events };
     }
   }
   // LitCal provides the readings of solemnities, feasts and some celebrations; ordinary weekdays and Sundays are not included.
