@@ -14,7 +14,7 @@ import { dayOfYear } from '../study/verseOfDay';
 import RefLink from './RefLink';
 import Icon from './Icon';
 import ShowSettings from './ShowSettings';
-import { startPlan } from '../lib/activePlan';
+import { calendarDaysSince, startPlan } from '../lib/activePlan';
 import Menu from './Menu';
 
 /** Progress ring: the Bible in a Year days you have finished, out of 365. */
@@ -46,7 +46,7 @@ export default function YearHero() {
   // listening to an episode to the end counts the day, whether or not the day was ticked: one place for "done"
   const heard = useLiveQuery(() => db.episodeProgress.filter((r) => !!r.completed).toArray(), []);
   // today's day in the plan: the reader's own count; before tracking starts it is day 1
-  const todayIdx = prog ? Math.max(0, Math.min(364, Math.floor((Date.now() - prog.startedAt) / 86400000) + prog.offsetDays)) : 0;
+  const todayIdx = prog ? Math.max(0, Math.min(364, calendarDaysSince(prog.startedAt) + prog.offsetDays)) : 0;
   const dayN = todayIdx + 1;
   const ep: BiayEpisode | null = biay?.dayEpisode.get(dayN) ?? null;
   const heardIds = new Set((heard ?? []).map((r) => r.episodeId));
