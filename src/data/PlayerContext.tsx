@@ -42,7 +42,21 @@ const Ctx = createContext<PlayerState | null>(null);
 /** audio files the reader added live in the browser's own storage; turn the reference into something an audio element can play */
 const blobUrls = new Map<string, string>();
 export async function audioUrl(src: string): Promise<string> {
-  if (!src.startsWith('idb:')) return (await savedUrl(src)) ?? src;
+  if (!src.startsWith('idb:')) {
+    const saved = await savedUrl(src);
+    if (saved) return saved;
+    // The music library is not inside the store binary (it would dwarf everything else in it): stream
+    // those tracks from the app's site. Publisher episodes already carry full web addresses and pass
+    // through unchanged, and a saved copy still wins above.
+    if (!/^https?:\/\//.test(src) || /localhost/.test(src)) {
+      try {
+        const p = new URL(src, location.href).pathname;
+        const i = p.indexOf('/audio/');
+        if (i >= 0 && p.endsWith('.mp3')) return `https://pathomnemonic.github.io/StudyBible${p.slice(i)}`;
+      } catch { /* keep the source as given */ }
+    }
+    return src;
+  }
   const id = src.slice(4);
   if (blobUrls.has(id)) return blobUrls.get(id)!;
   const row = await db.userAudio.get(id);
