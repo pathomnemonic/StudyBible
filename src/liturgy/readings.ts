@@ -150,7 +150,7 @@ export function bundledDayFor(nation: string, day: { t: string }): { use: boolea
   return { use: true, title: US_ONLY_TITLES.test(day.t) ? undefined : day.t };
 }
 
-const ORDINAL_WORDS: Record<string, number> = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5, sixth: 6, seventh: 7, eighth: 8, ninth: 9, tenth: 10, eleventh: 11, twelfth: 12, thirteenth: 13, fourteenth: 14, fifteenth: 15, sixteenth: 16, seventeenth: 17, eighteenth: 18, nineteenth: 19, twentieth: 20, thirtieth: 30 };
+const ORDINAL_WORDS: Record<string, number> = { first: 1, second: 2, third: 3, fourth: 4, fifth: 5, sixth: 6, seventh: 7, eighth: 8, ninth: 9, tenth: 10, eleventh: 11, twelfth: 12, thirteenth: 13, fourteenth: 14, fifteenth: 15, sixteenth: 16, seventeenth: 17, eighteenth: 18, nineteenth: 19, twentieth: 20, thirtieth: 30, twenty: 20, thirty: 30 };
 /**
  * The readings page names the day twice: from the computed calendar ("Thursday of the 34th week in Ordinary Time") and from the
  * published list's title ("Thursday of the Thirty-fourth Week in Ordinary Time"). Those are one title in two styles; this
