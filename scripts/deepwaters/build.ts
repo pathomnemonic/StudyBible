@@ -63,6 +63,9 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
     const aliases = [...l.aliases].filter((a) => a.toLowerCase() !== l.name.toLowerCase());
     return { answer: l.name, tier: o ? o.tier : tiers[i], ...(aliases.length ? { aliases } : {}) };
   });
+  // an override can lift an answer out of the band its score earned; the list is presented in tier order
+  // (the sort is stable, so answers keep their score order inside a tier)
+  answers.sort((a, b) => a.tier - b.tier);
   prompts.push({ id, theme, prompt, context, source, answers });
   sourceNotes.push({ id, from: source, rule });
 };
@@ -92,8 +95,10 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
       found.push({ name, aliases, score: Math.log(1 + p.nv) + 1.5 * Math.log(1 + inBook) });
     }
     if (found.length < 20) continue;
+    // the count in the note is the number of answers actually scored, after finish() merges names that share a comparison form
+    const answerCount = new Set(found.map((x) => deepTokens(x.name.replace(/['’]s$/, '')).join(' '))).size;
     finish(`places-${b}`, 'places', `Name a place mentioned in ${bn}.`,
-      `Scripture names towns, regions, rivers and mountains. This list has the ${new Set(found.map((x) => x.name)).size} places the app's map data finds in ${bn}; it is long but may not be complete.`,
+      `Scripture names towns, regions, rivers and mountains. This list has the ${answerCount} places the app's map data finds in ${bn}; it is long but may not be complete.`,
       'maps/places.json and maps/by-book (OpenBible geocoding, as shipped in the app\'s maps)', found,
       'places the app\'s own maps list for the book (by-book triples); tier ranks log(1+verses naming the place in the whole Bible) + 1.5 log(1+verses naming it in this book)');
   }
@@ -112,12 +117,20 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
 {
   interface S { name: string; aliases: string[]; score: number; month?: number; desc: string }
   const saints: S[] = [];
-  const modern: Record<string, string> = { Jerom: 'Jerome', Lewis: 'Louis', Catharine: 'Catherine', 'Francis of Assisium': 'Francis of Assisi', 'Thomas of Aquino': 'Thomas Aquinas', 'Catharine of Sienna': 'Catherine of Siena', 'Catharine de Ricci': 'Catherine de Ricci' };
+  const modern: Record<string, string> = { Jerom: 'Jerome', Lewis: 'Louis', Catharine: 'Catherine', 'Francis of Assisium': 'Francis of Assisi', 'Thomas of Aquino': 'Thomas Aquinas', 'Catharine of Sienna': 'Catherine of Siena', 'Catharine de Ricci': 'Catherine de Ricci', 'Thomas Ov Villanova': 'Thomas of Villanova', 'Gregory Vii': 'Gregory VII' };
+  // Basilion review (issue 26): these headings are garbled by the Butler OCR (Will Kd, Rom Ark', Die Ob Deodatus, Kilian Bishop)
+  // or are fragments of a longer heading (Chef, Cloud, Gal), and parse into entries that are not a saint's name.
+  // The saints themselves stand in the lists under their clean headings (Willehad, Gall), so the garbled entries are dropped.
+  const EXCLUDED_SAINT_NAMES = new Set(['Will Kd', 'Chef', 'Cloud', 'Gal', 'Die Ob Deodatus', "Rom Ark'", 'Kilian Bishop']);
+  // a corrected form whose Butler spelling is an OCR garble rather than a real spelling is not kept as an alias
+  const NO_RAW_ALIAS = new Set(['Thomas Ov Villanova']);
   const dir = 'public/data/saints/butler/';
   for (const f of readdirSync(ROOT + dir).filter((x) => /^\d\d\.json$/.test(x)).sort()) {
     const x = JSON.parse(track(dir + f)) as { month: string; days: Record<string, { heading: string; text: string[] }[]> };
     for (const arr of Object.values(x.days)) for (const e of arr) {
-      const h = e.heading.replace(/\.$/, '').trim();
+      // the OCR keeps the hyphen of a word broken across lines (CANTER- BURY, LINDIS- FARNE); join the word again
+      // (a fragment of at least two letters: a lone initial before the hyphen, as in "C- ARCHBISHOP", is not a broken word)
+      const h = e.heading.replace(/\.$/, '').trim().replace(/([A-Z][A-Z])-\s+([A-Z])/g, '$1$2');
       const m = /^(?:SAINTS?|SS?\.|ST\.|S\.)\s*([A-Z][A-Z'’\- ]+?)(?:,\s*(.*))?$/.exec(h);
       if (!m) continue;
       const base = m[1].trim();
@@ -134,8 +147,10 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
       // an alias "X of Place" is kept only if the place recurs in the entry text (an OCR slip in a heading does not)
       const placeWord = ofPlace?.[1].split(' ')[0].replace(/[^A-Za-z]/g, '') ?? '';
       const placeOk = !!ofPlace && placeWord.length >= 4 && (body.match(new RegExp(placeWord, 'gi')) ?? []).length >= 2;
-      const aliases = ofPlace && placeOk && !/\b(THE|HIS|HER|ALL|OUR)\b/.test(ofPlace[1]) && ofPlace[1].split(' ').length <= 2 ? [`${modern[nm] ?? nm} of ${title(ofPlace[1])}`] : [];
-      saints.push({ name: modern[nm] ?? nm, aliases: [...aliases, ...(modern[nm] ? [nm] : [])], score: Math.log(1 + words), month: +x.month, desc });
+      // an "of Place" alias that only repeats a word of the name itself (John Capistran of Capistran) adds nothing and is dropped
+      const placeWords = ofPlace ? title(ofPlace[1]).toLowerCase().split(' ') : [];
+      const aliases = ofPlace && placeOk && !/\b(THE|HIS|HER|ALL|OUR)\b/.test(ofPlace[1]) && ofPlace[1].split(' ').length <= 2 && !placeWords.some((w) => nm.toLowerCase().split(' ').includes(w)) ? [`${modern[nm] ?? nm} of ${title(ofPlace[1])}`] : [];
+      if (!EXCLUDED_SAINT_NAMES.has(modern[nm] ?? nm)) saints.push({ name: modern[nm] ?? nm, aliases: [...aliases, ...(modern[nm] && !NO_RAW_ALIAS.has(nm) ? [nm] : [])], score: Math.log(1 + words), month: +x.month, desc });
     }
   }
   inputs.push({ path: 'src/data/confirmationSaints.ts (names, feasts)', sha256: sha(NAME_SAINTS.map((n) => `${n.name}|${n.feast}`).join('\n')) });
@@ -189,7 +204,8 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
   const stepDir = 'public/data/reference/step/';
   const people: N[] = [];
   for (const f of readdirSync(ROOT + stepDir).filter((x) => /^names-\d+\.json$/.test(x)).sort((a, b) => parseInt(a.slice(6)) - parseInt(b.slice(6)))) {
-    for (const e of JSON.parse(track(stepDir + f)) as N[]) if (e.kind === 'person' && /^[A-Z][A-Za-z'\- ]{2,}$/.test(e.name)) people.push(e);
+    // Azariahu is STEPBible's variant form of Azariah, one man listed twice; the Basilion review (issue 26) keeps the Azariah entry only
+    for (const e of JSON.parse(track(stepDir + f)) as N[]) if (e.kind === 'person' && e.name !== 'Azariahu' && /^[A-Z][A-Za-z'\- ]{2,}$/.test(e.name)) people.push(e);
   }
   const src = 'STEP Bible (Tyndale House Cambridge) TIPNR names, CC BY 4.0, as shipped in public/data/reference/step; the one-line meanings are machine-written by STEPBible and are only used to sort names into roles';
   const scoreOf = (n: string) => Math.log(1 + countMentions(whole, n));
@@ -210,7 +226,7 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
   }
   // Roles such as "king" or "prophet" are not generated: STEPBible's one-line meanings describe namesakes as well as the famous bearer of a name (a prophet Ahab, a king Ishmael), and
   // leave out well-known kings, so a role list built from them would accept and reject the wrong answers. Only the objective field (Female) is used.
-  finish('roles-women', 'people', 'Name a woman in the Bible.', 'The Bible names many women, from Eve to the women at the tomb. This list follows STEPBible\'s name list; it is long but not complete.', src,
+  finish('roles-women', 'people', 'Name a woman in the Bible.', 'The Bible names many women, from the first generations to the women at the tomb. This list follows STEPBible\'s name list; it is long but not complete.', src,
     people.filter((x) => x.type === 'Female').map(entryOf), 'names STEPBible marks Female; tier ranks log(1+mentions in the WEB-C Bible)', 12);
 }
 
