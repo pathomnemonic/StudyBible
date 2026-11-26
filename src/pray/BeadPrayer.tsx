@@ -1,3 +1,4 @@
+import { artSrc } from '../lib/artSrc';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
@@ -57,7 +58,6 @@ export default function BeadPrayer({ plan, art, episode, back, backLabel, intro,
   const refs = useMemo(() => (step.refs ? toRefs(step.refs) : []), [step.refs]);
   const decade = step.decade;
   const pic = usePic(decade !== undefined ? art[decade] : null);
-  const base = import.meta.env.BASE_URL;
 
   // nothing is saved until the person has actually moved on from the start, so a fresh open never overwrites a spot waiting to be resumed
   useEffect(() => { reached.current = Math.max(reached.current, i); if (!finished && !resume && i > 0) save(plan.id, i); }, [i, finished, plan.id, resume]);
@@ -223,7 +223,7 @@ export default function BeadPrayer({ plan, art, episode, back, backLabel, intro,
         <div className="rosary-right">
           {decade !== undefined && (
             <figure className="rosary-art">
-              {pic ? <img src={`${base}${pic.file}`} alt={`${pic.title}, ${pic.artist}`} loading="lazy" decoding="async" /> : <div className="rosary-art-ph" aria-hidden />}
+              {pic ? <img src={artSrc(pic.file)} alt={`${pic.title}, ${pic.artist}`} loading="lazy" decoding="async" /> : <div className="rosary-art-ph" aria-hidden />}
               {pic && <figcaption className="muted small">{pic.title} · {pic.artist}{pic.date ? `, ${pic.date}` : ''} · <a href={pic.source ?? '#/study/gallery'} target={pic.source ? '_blank' : undefined} rel="noreferrer">source</a></figcaption>}
             </figure>
           )}

@@ -1,3 +1,4 @@
+import { artSrc } from '../lib/artSrc';
 import { useEffect, useMemo, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
@@ -31,7 +32,6 @@ export default function StepPrayer({ d, back, art, bells }: { d: Devotion; back:
   const last = ticks.length - 1;
   const refs = useMemo(() => (step.refs ? toRefs(step.refs) : []), [step.refs]);
   const pic = usePic(art?.(tick.step) ?? null);
-  const base = import.meta.env.BASE_URL;
   const go = (n: number) => { const c = Math.max(0, Math.min(last, n)); if (c !== t) { buzz(); setT(c); } };
   const next = () => (t >= last ? (setDone(true), setRunning(false)) : go(t + 1));
   useEffect(() => { if (ring && bells && tick.n === 0 && bells[tick.step]) bell(bells[tick.step]); }, [t, ring]);
@@ -89,7 +89,7 @@ export default function StepPrayer({ d, back, art, bells }: { d: Devotion; back:
       <div className="rosary-right" style={{ maxWidth: 680 }}>
         {pic && (
           <figure className="rosary-art">
-            <img src={`${base}${pic.file}`} alt={`${pic.title}, ${pic.artist}`} loading="lazy" decoding="async" />
+            <img src={artSrc(pic.file)} alt={`${pic.title}, ${pic.artist}`} loading="lazy" decoding="async" />
             <figcaption className="muted small">{pic.title} · {pic.artist}{pic.date ? `, ${pic.date}` : ''}</figcaption>
           </figure>
         )}

@@ -1,3 +1,4 @@
+import { artSrc } from '../../lib/artSrc';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { getJson } from '../../data/loader';
@@ -111,7 +112,7 @@ function StoryView({ story, stories }: { story?: Story; stories: Story[] }) {
         {ed && refs[0] && <button className="btn primary" onClick={() => nav(readerPath(ed, refs[0]))}>Read it in the Bible ({story.refs.join('; ')})</button>}
       </div>
       {art.length > 0 && (
-        <div className="kids-art">{art.map((a) => <figure key={a.id}><img src={import.meta.env.BASE_URL + (a as { file: string }).file} alt={a.title} loading="lazy" /><figcaption className="small muted">{a.title}, {a.artist}</figcaption></figure>)}</div>
+        <div className="kids-art">{art.map((a) => <figure key={a.id}><img src={artSrc((a as { file: string }).file)} alt={a.title} loading="lazy" /><figcaption className="small muted">{a.title}, {a.artist}</figcaption></figure>)}</div>
       )}
       {mem && <blockquote className="kids-verse"><p>{mem}</p><footer>{story.memory}</footer></blockquote>}
       <p><button className="btn primary big" onClick={() => { finishStory(story.id); setFinished(true); }}>{finished || storyDone(story.id) ? '⭐ You finished this story' : 'I read it! Get a sticker'}</button> {(finished || storyDone(story.id)) && <Link className="btn ghost" to="/kids/stickers">My stickers</Link>}</p>

@@ -1,3 +1,4 @@
+import { artSrc } from '../lib/artSrc';
 import { getJson } from '../data/loader';
 import { formatRef, parseRefId, refId, refsOverlap, type Ref } from '../lib/refs';
 import { moreArtFor } from './inlineArt';
@@ -200,7 +201,7 @@ MAKERS.art = {
   make: (e, sel) => {
     const w = artById.get(e.work as number);
     if (!w || !overlapsAny(sel, e.a)) return null;
-    return { ...base, id: e.id, section: 'art', title: e.title!, excerpt: e.note, kind: 'Painting', thumb: import.meta.env.BASE_URL + w.file, url: w.page, match: 'explicit-reference', why: `A painting of the scene in ${label(e.a)}. Public domain; artists show how the scene was imagined in their time, and are not evidence for how it looked.`, sourceName: 'The Metropolitan Museum of Art (open access, CC0)', ref: e.a?.[0] };
+    return { ...base, id: e.id, section: 'art', title: e.title!, excerpt: e.note, kind: 'Painting', thumb: artSrc(w.file), url: w.page, match: 'explicit-reference', why: `A painting of the scene in ${label(e.a)}. Public domain; artists show how the scene was imagined in their time, and are not evidence for how it looked.`, sourceName: 'The Metropolitan Museum of Art (open access, CC0)', ref: e.a?.[0] };
   },
 };
 
@@ -260,7 +261,7 @@ export async function lensItems(sel: Ref[]): Promise<StudyItem[]> {
   for (const w of await moreArtFor(sel).catch(() => [])) {
     if (dupe(w.title, w.file)) continue;
     have.add(key(w.title)); have.add('|' + key('', w.file).slice(1));
-    out.push({ ...base, id: `art-more-${w.id}`, section: 'art', title: w.title, excerpt: `${w.artist}, ${w.date}`, kind: String(w.id).startsWith('dore') ? 'Engraving' : 'Painting', thumb: import.meta.env.BASE_URL + w.file, url: w.source, match: 'explicit-reference', why: `A picture of the scene in ${w.refs[0]}. Public domain; artists show how the scene was imagined in their time, and are not evidence for how it looked.`, sourceName: w.credit.slice(0, 120) } as StudyItem);
+    out.push({ ...base, id: `art-more-${w.id}`, section: 'art', title: w.title, excerpt: `${w.artist}, ${w.date}`, kind: String(w.id).startsWith('dore') ? 'Engraving' : 'Painting', thumb: artSrc(w.file), url: w.source, match: 'explicit-reference', why: `A picture of the scene in ${w.refs[0]}. Public domain; artists show how the scene was imagined in their time, and are not evidence for how it looked.`, sourceName: w.credit.slice(0, 120) } as StudyItem);
   }
   const art = new Set<string>();
   return out.filter((i) => {

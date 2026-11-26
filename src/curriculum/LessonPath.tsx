@@ -1,3 +1,4 @@
+import { artSrc } from '../lib/artSrc';
 import { lookupTerm } from '../data/glossary';
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
@@ -109,7 +110,7 @@ export default function LessonPath(p: Props) {
     <div className="lp-pray"><h3>{src.prayer.title}</h3><p style={{ whiteSpace: 'pre-line' }}>{src.prayer.text}</p></div>
   );
   const pic = (i: number) => { const w = src.art?.[i]; return w ? (
-    <figure className="lp-figure"><img src={import.meta.env.BASE_URL + w.file} alt={w.title} loading="lazy" /><figcaption className="small muted">{i === 0 && lesson.visual?.caption ? lesson.visual.caption : w.title}, {w.artist}{(w as { credit?: string }).credit ? ` (${(w as { credit?: string }).credit})` : ''}</figcaption></figure>
+    <figure className="lp-figure"><img src={artSrc(w.file)} alt={w.title} loading="lazy" /><figcaption className="small muted">{i === 0 && lesson.visual?.caption ? lesson.visual.caption : w.title}, {w.artist}{(w as { credit?: string }).credit ? ` (${(w as { credit?: string }).credit})` : ''}</figcaption></figure>
   ) : null; };
   const picture = pic(0);
   const warm = p.warmup && <details className="lp-warm"><summary>Warm-up: what do you remember?</summary>{p.warmup}</details>;

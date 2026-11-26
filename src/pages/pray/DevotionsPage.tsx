@@ -1,3 +1,4 @@
+import { artSrc } from '../../lib/artSrc';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import FinePrint from '../../components/FinePrint';
 import { ANGELUS, MERCY, MYSTERIES, REGINA, SORROWS, STATIONS, todaysMysteries } from '../../data/devotions';
@@ -11,11 +12,10 @@ import { mercyPlan, rosaryPlan } from '../../pray/plan';
 import type { Mode } from '../../pray/useGuide';
 
 const iso = () => { const n = new Date(); return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`; };
-const base = import.meta.env.BASE_URL;
 
 function Thumb({ id, title }: { id: string; title: string }) {
   const pic = usePic(id);
-  return <figure className="thumb">{pic ? <img src={`${base}${pic.file}`} alt="" loading="lazy" decoding="async" /> : <div className="rosary-art-ph" aria-hidden />}<figcaption>{title}</figcaption></figure>;
+  return <figure className="thumb">{pic ? <img src={artSrc(pic.file)} alt="" loading="lazy" decoding="async" /> : <div className="rosary-art-ph" aria-hidden />}<figcaption>{title}</figcaption></figure>;
 }
 
 export default function DevotionsPage() {

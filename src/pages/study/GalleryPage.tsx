@@ -1,3 +1,4 @@
+import { artSrc } from '../../lib/artSrc';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getJson } from '../../data/loader';
@@ -45,7 +46,7 @@ export default function GalleryPage() {
         {list.map((p) => (
           <li key={p.id}>
             <button onClick={() => { setOpen(p); setPair(null); }} aria-label={`${p.title}, ${p.artist}`}>
-              <img src={`${import.meta.env.BASE_URL}${p.file}`} alt="" loading="lazy" decoding="async" />
+              <img src={artSrc(p.file)} alt="" loading="lazy" decoding="async" />
               <span>{p.title}</span>
             </button>
           </li>
@@ -56,8 +57,8 @@ export default function GalleryPage() {
           <div className="gallery-card" onClick={(e) => e.stopPropagation()}>
             <button className="galaxy-x" onClick={() => setOpen(null)} aria-label="Close">×</button>
             <div className={pair ? 'gallery-pair' : ''}>
-              <figure><img src={`${import.meta.env.BASE_URL}${open.file}`} alt={`${open.title}, ${open.artist}`} /></figure>
-              {pair && <figure><img src={`${import.meta.env.BASE_URL}${pair.file}`} alt={`${pair.title}, ${pair.artist}`} /></figure>}
+              <figure><img src={artSrc(open.file)} alt={`${open.title}, ${open.artist}`} /></figure>
+              {pair && <figure><img src={artSrc(pair.file)} alt={`${pair.title}, ${pair.artist}`} /></figure>}
             </div>
             <h2>{open.title}</h2>
             <p className="muted small">{[open.artist, open.date].filter(Boolean).join(' · ')}{where(open) ? ` · ${where(open)}` : ''}</p>
