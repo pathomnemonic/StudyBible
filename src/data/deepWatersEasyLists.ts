@@ -86,7 +86,7 @@ Justin|2
 Kevin|2
 Louis|1
 Lucia|1
-Mathilda|3|Matilda;Maud
+Matilda|3|Mathilda;Maud
 Odilia|5
 Olga|3
 Pancras|4
@@ -169,7 +169,7 @@ Magnus|4
 Marcellus|4
 Marcus|2
 Marinus|5
-Marta|2|Martha
+Martha|2|Marta
 Maurice|3
 Maximus|3
 Miguel|2
@@ -330,8 +330,8 @@ Mont Saint Michel|1|Mont-Saint-Michel
 Saint Hubert|5
 Sint Niklaas|5
 Sint Truiden|6
-Sao Gabriel|5
-Sao Sebastiao|4
+Sao Gabriel|5|São Gabriel
+Sao Sebastiao|4|São Sebastião
 San Joaquin|4
 San Anselmo|4
 San Dimas|4
@@ -571,7 +571,7 @@ Murcia|2
 Cartagena|3
 Alicante|2
 Benidorm|3
-Castellon|4
+Castellon|4|Castellón
 Tarragona|2
 Girona|2|Gerona
 Lleida|3|Lerida
@@ -625,8 +625,8 @@ Gandia|4|Gandía
 Xativa|4|Játiva
 Peniscola|4|Peñíscola
 Sagunto|4
-Cuellar|5
-Arevalo|5
+Cuellar|5|Cuéllar
+Arevalo|5|Arévalo
 Fontiveros|5
 Alba de Tormes|3
 Medina Sidonia|5
@@ -640,7 +640,7 @@ Burgo de Osma|5
 Astorga|3
 Ponferrada|3
 Sahagun|4
-Carrion de los Condes|4
+Carrion de los Condes|4|Carrión de los Condes
 Villafranca del Bierzo|5
 O Cebreiro|4
 Sarria|4

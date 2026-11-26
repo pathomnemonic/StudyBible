@@ -30,6 +30,10 @@ export interface Pool {
   part?: 'name' | 'word' | 'phrase' | 'title';
   /** the answers end in a Roman numeral ("Pius XII", "Lateran IV"): the numeral is not counted as letters */
   numerals?: boolean;
+  /** question texts that replace the rule template for one rule of this pool, keyed `kind|key` (Basilion review, issue 26) */
+  textOverride?: Record<string, string>;
+  /** the note shown to players, replacing the standard one for this pool (Basilion review, issue 26) */
+  contextOverride?: string;
   /** no letter or length rules for this pool (its questions are about facts or about how lists overlap) */
   noLetters?: boolean;
   /** how many questions this pool gives for each one a small pool gives (large pools get more) */
@@ -178,7 +182,7 @@ export function candidatesOf(pool: Pool, puzzle = false): Candidate[] {
   raw.sort((a, b) => b.answers.length - a.answers.length || (a.r.kind + a.r.key).localeCompare(b.r.kind + b.r.key));
   for (const { r, answers } of raw) {
     if (accepted >= PER_POOL_LIMIT) break;
-    consider(r.kind, r.key, r.text(pool.noun, pool.part ?? 'name'), answers);
+    consider(r.kind, r.key, pool.textOverride?.[`${r.kind}|${r.key}`] ?? r.text(pool.noun, pool.part ?? 'name'), answers);
   }
   const ordered: Candidate[] = [...factFirst];
   for (let i = 0; ; i++) {
@@ -199,7 +203,7 @@ export function promptOf(c: Candidate): DeepPrompt {
     id: `d.${SAFE(pool.id)}.${c.kind}.${SAFE(c.key)}`,
     theme: pool.theme,
     prompt: c.text,
-    context: pool.closed ? `A complete list: ${n} answers, and every one is on it.${pool.part === 'word' ? ' Little words (the, of, our, and, a) are not counted.' : ''}` : `Any ${pool.noun} on our list counts. The list is long, but it is not complete.`,
+    context: pool.contextOverride ?? (pool.closed ? `A complete list: ${n} answers, and every one is on it.${pool.part === 'word' ? ' Little words (the, of, our, and, a) are not counted.' : ''}` : `Any ${pool.noun} on our list counts. The list is long, but it is not complete.`),
     answers: c.answers,
     ...(pool.closed ? { closed: n } : {}),
     ...(pool.ignore?.length ? { ignore: pool.ignore } : {}),
@@ -266,7 +270,7 @@ export function materialize(pools: Pool[], entries: DerivedEntry[]): DeepPrompt[
     const r = RULE_BY.get(`${kind}|${key}`);
     if (!r) continue;
     const feats = featsOf(pool);
-    out.push(promptOf({ pool, kind, key, text: r.text(pool.noun, pool.part ?? 'name'), answers: pool.answers.filter((_, i) => r.test(feats[i])) }));
+    out.push(promptOf({ pool, kind, key, text: pool.textOverride?.[`${kind}|${key}`] ?? r.text(pool.noun, pool.part ?? 'name'), answers: pool.answers.filter((_, i) => r.test(feats[i])) }));
   }
   return out;
 }
