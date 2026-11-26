@@ -1,3 +1,4 @@
+import { artSrc, ART_LOCAL } from '../lib/artSrc';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useEditions } from '../data/EditionsContext';
@@ -71,6 +72,8 @@ export default function DayCardPage() {
     return () => { live = false; };
   }, [date, ld.dayName, s.defaultEdition]);
 
+  // the automatic pick comes from the pictures carried in the app when it can, so the card works offline
+  const pickPool = art.some((w) => ART_LOCAL.has(w.file)) ? art.filter((w) => ART_LOCAL.has(w.file)) : art;
   // the picture: the day's own pick if it has one, else the best fresh match; a user's choice is remembered for the day
   const hints = useMemo(() => base && ({ book: base.ref?.book, chapter: base.ref?.c1, words: [wordFor(date)?.word ?? '', base.spec.verse.text], saint: base.spec.father?.who, season: ld.season, seed: date }), [base, date, ld.season]);
   useEffect(() => {
@@ -78,7 +81,7 @@ export default function DayCardPage() {
     const picks = readPicks();
     if (picks[date] !== undefined && art.some((w) => String(w.id) === String(picks[date]))) { setArtId(picks[date]); return; }
     const used = Object.entries(picks).filter(([d]) => d !== date).sort().map(([, id]) => id);
-    const r = pickArt(art, hints, used, bookOf, 120);
+    const r = pickArt(pickPool, hints, used, bookOf, 120);
     setArtId(r ? r.work.id : null);
     if (r) writePicks({ ...picks, [date]: r.work.id });
   }, [hints, art, artId, date]);
@@ -89,7 +92,7 @@ export default function DayCardPage() {
     const skip = [...skipped, ...(artId != null ? [artId] : [])];
     const picks = readPicks();
     const used = Object.entries(picks).filter(([d]) => d !== date).sort().map(([, id]) => id);
-    const r = pickArt(art, hints, used, bookOf, 120, skip);
+    const r = pickArt(pickPool, hints, used, bookOf, 120, skip);
     if (r) { setSkipped(skip); choose(r.work.id); } else toast('No other matching picture. Use “Choose a picture”.');
   };
 
@@ -101,7 +104,7 @@ export default function DayCardPage() {
     let live = true;
     (async () => {
       let img: HTMLImageElement | null = null;
-      if (work) { try { img = await loadImage(import.meta.env.BASE_URL + work.file); } catch { img = null; } }
+      if (work) { try { img = await loadImage(artSrc(work.file)); } catch { img = null; } }
       if (!live) return;
       const { w, h } = SIZES[size];
       c.width = w; c.height = h;
@@ -154,7 +157,7 @@ export default function DayCardPage() {
                   <button className={'art-thumb' + (artId === null ? ' on' : '')} onClick={() => choose(null)} aria-pressed={artId === null}>Plain colour</button>
                   {shown.map((a) => (
                     <button key={a.id} className={'art-thumb' + (String(artId) === String(a.id) ? ' on' : '')} onClick={() => choose(a.id)} aria-label={`${a.title}, ${a.artist}`} aria-pressed={String(artId) === String(a.id)}>
-                      <img src={import.meta.env.BASE_URL + a.file} alt="" loading="lazy" />
+                      <img src={artSrc(a.file)} alt="" loading="lazy" />
                     </button>
                   ))}
                 </div>
