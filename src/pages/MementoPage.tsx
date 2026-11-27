@@ -1,8 +1,9 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import FinePrint from '../components/FinePrint';
 import { Link } from 'react-router-dom';
 import { updateSettings, useSettings } from '../lib/store';
 import { ESTIMATORS, lifeStats, lineOfTheDay, parseBirthday } from '../lib/memento';
+import { isoToday } from '../lib/day';
 
 const css = (n: string, fb: string) => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || fb;
 
@@ -30,6 +31,7 @@ function WeeksGrid({ lived, total }: { lived: number; total: number }) {
 
 /** Remember that you will die, as the saints did: a quiet look at the weeks of one life, held in hope. Opt-in, and private to this device. */
 export default function MementoPage() {
+  const [expText, setExpText] = useState<string | null>(null);
   const [s] = useSettings();
   const m = s.memento;
   const st = lifeStats(m.birthday, m.expectancy);
@@ -45,10 +47,10 @@ export default function MementoPage() {
         <label className="row between"><span><strong>Show my life as a progress bar</strong><br /><small className="muted">Off until you choose it. Nothing is sent anywhere.</small></span>
           <input type="checkbox" checked={m.on} onChange={(e) => set({ on: e.target.checked })} aria-label="Turn on Memento mori" /></label>
         {m.on && <>
-          <label className="row between" style={{ marginTop: 10 }}><span>Your birthday</span><input type="date" value={m.birthday} max={new Date().toISOString().slice(0, 10)} onChange={(e) => set({ birthday: e.target.value })} aria-label="Birthday" /></label>
+          <label className="row between" style={{ marginTop: 10 }}><span>Your birthday</span><input type="date" value={m.birthday} max={isoToday()} onChange={(e) => set({ birthday: e.target.value })} aria-label="Birthday" /></label>
           {badDate && <p className="small" role="alert">That date does not look right.</p>}
           <label className="row between" style={{ marginTop: 10 }}><span>Your own estimate of a full life (years)</span>
-            <input type="number" min={30} max={120} value={m.expectancy} onChange={(e) => set({ expectancy: Math.max(30, Math.min(120, +e.target.value || 80)) })} aria-label="Estimated years" style={{ width: 80 }} /></label>
+            <input type="number" min={30} max={120} value={expText ?? String(m.expectancy)} onChange={(e) => setExpText(e.target.value)} onBlur={(e) => { set({ expectancy: Math.max(30, Math.min(120, +e.target.value || 80)) }); setExpText(null); }} aria-label="Estimated years" style={{ width: 80 }} /></label>
           <p className="muted small">80 is a common round figure. Nobody knows their number: it is only a way to see time.</p>
           <details><summary>Get a better estimate</summary>
             <p className="small">These are outside websites. Open one, then come back and type the age it gives you above.</p>
