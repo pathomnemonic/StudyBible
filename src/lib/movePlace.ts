@@ -11,7 +11,7 @@ import { mergeBooks, rawBook, saveMerged } from './passport';
 export const FORMAT = 'studybible-place';
 const SLOW = 'sb:slowBible', PLAYS = 'sb:plays:v1', TROPHIES = 'sb:trophies:v1', STICKERS = 'sb:stickers:v1';
 export const SETUP_KEYS = ['theme', 'language', 'spelling', 'fontSize', 'lineHeight', 'margin', 'fontFamily', 'letterSpacing', 'wordSpacing', 'plainAlign', 'motion', 'haptics', 'layout',
-  'defaultEdition', 'parallelEdition', 'enabledEditions', 'showVerseNumbers', 'kidsAge', 'tradition', 'activePlan', 'weeklyGoal', 'refNumbering', 'showStreaks'] as const;
+  'defaultEdition', 'parallelEdition', 'enabledEditions', 'showVerseNumbers', 'kidsAge', 'tradition', 'activePlan', 'weeklyGoal', 'refNumbering', 'showStreaks', 'hideStreaks'] as const;
 
 type Plan = Pick<PlanProgress, 'planId' | 'startedAt' | 'status' | 'done' | 'offsetDays'>;
 type Card = Pick<MemoryCard, 'ref' | 'set' | 'ease' | 'interval' | 'reps' | 'lapses' | 'due' | 'lastReviewed' | 'createdAt'>;
@@ -70,7 +70,7 @@ export function parsePlace(text: string): Place {
   if (isObj(d.trophies)) p.trophies = Object.fromEntries(Object.entries(d.trophies).filter(([, v]) => typeof v === 'number')) as Record<string, number>;
   if (Array.isArray(d.stickers)) p.stickers = d.stickers.filter((x): x is string => typeof x === 'string').slice(0, 500);
   if (Array.isArray(d.favs)) p.favs = d.favs.filter(isObj).filter((r) => typeof r.date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(r.date)).slice(0, 3000).map((r) => ({ date: r.date as string, label: String(r.label ?? '').slice(0, 200) }));
-  if (isObj(d.setup)) p.setup = Object.fromEntries(Object.entries(d.setup).filter(([k]) => (SETUP_KEYS as readonly string[]).includes(k)));
+  if (isObj(d.setup)) { const cur = getSettings() as unknown as Record<string, unknown>; const kind = (x: unknown) => (Array.isArray(x) ? 'array' : typeof x); p.setup = Object.fromEntries(Object.entries(d.setup).filter(([k, v]) => (SETUP_KEYS as readonly string[]).includes(k) && k in cur && kind(cur[k]) === kind(v) && (typeof v !== 'number' || Number.isFinite(v)))); }
   return p;
 }
 
@@ -170,6 +170,7 @@ export async function placeToCode(p: Place): Promise<string> {
 }
 export async function codeToText(code: string): Promise<string> {
   const t = code.replace(/\s+/g, '');
+  if (t.startsWith(PREFIX) && typeof DecompressionStream === 'undefined') throw new Error('This browser cannot open compressed codes. Try a newer browser, or use the place file instead of the code.');
   try {
     if (t.startsWith('SBP0.')) return new TextDecoder().decode(fromB64(t.slice(5)));
     if (t.startsWith(PREFIX)) return new TextDecoder().decode(await pipe(fromB64(t.slice(PREFIX.length)), new DecompressionStream('deflate-raw')));
