@@ -27,14 +27,15 @@ export default function ZoomPage() {
 
   useEffect(() => {
     if (!g) return;
+    let live = true;
     setLevel(1); setPara(null); setAround([]); setLessons([]); setChains([]);
-    cccRange(g.ccc, g.ccc + 4).then((ps) => { setPara(ps.find((p) => p.n === g.ccc) ?? null); setAround(ps); });
+    cccRange(g.ccc, g.ccc + 4).then((ps) => { if (!live) return; setPara(ps.find((p) => p.n === g.ccc) ?? null); setAround(ps); });
     getGrade('YA').then((gr) => {
-      if (!gr) return;
+      if (!gr || !live) return;
       setLessons(flatLessons(gr).filter((l) => cccListSafe(l.ccc).some((n) => Math.abs(n - g.ccc) <= 1)).slice(0, 4).map((l) => ({ id: l.id, title: l.title, band: 'Adults', idea: l.idea })));
     });
-    Promise.all((['arguments', 'development', 'heresies', 'words'] as ChainMode[]).map((m) => loadChains(m).then((cs) => cs.map((c) => ({ ...c, mode: m }))))).then((all) =>
-      setChains(all.flat().filter((c) => [...c.steps, ...(c.objections ?? []).flatMap((o) => o.steps ?? [])].some((s) => s.ccc && Math.abs(s.ccc - g.ccc) <= 3) || (c.readNext ?? []).some((n) => Math.abs(n - g.ccc) <= 3)).slice(0, 5)));
+    Promise.all((['arguments', 'development', 'heresies', 'words'] as ChainMode[]).map((m) => loadChains(m).then((cs) => cs.map((c) => ({ ...c, mode: m }))))).then((all) => { if (live) setChains(all.flat().filter((c) => [...c.steps, ...(c.objections ?? []).flatMap((o) => o.steps ?? [])].some((s) => s.ccc && Math.abs(s.ccc - g.ccc) <= 3) || (c.readNext ?? []).some((n) => Math.abs(n - g.ccc) <= 3)).slice(0, 5)); });
+    return () => { live = false; };
   }, [g]);
 
   if (!g) {
