@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { loadLexicon, originalFor, parseGreek, parseHebrew, type LexEntry, type OriginalResult, type Word } from '../study/original';
 import type { Ref } from '../lib/refs';
 import { useEditions } from '../data/EditionsContext';
+import { useSettings } from '../lib/store';
 import { languageLinks } from '../study/languageTools';
 import { BOOKS } from '../lib/canon';
 import { Link } from 'react-router-dom';
@@ -81,6 +82,9 @@ function Pronounce({ word, say, rtl }: { word: string; say?: string; rtl: boolea
 
 /** Counts a word's appearances book by book, by reading the original-language text of every book on demand. */
 function WordJourney({ strongs, lang }: { strongs: string; lang: 'grc' | 'hbo' }) {
+  const { editions } = useEditions();
+  const [settings] = useSettings();
+  const readerEd = editions.find((x) => x.id === (settings.defaultEdition === 'vulgate' ? 'dra' : settings.defaultEdition)) ?? editions[0];
   const [rows, setRows] = useState<{ id: string; name: string; n: number; first?: [number, number] }[] | null>(null);
   const [done, setDone] = useState(0);
   const books = BOOKS.filter((b) => languageOf(b.id) === lang);
@@ -120,7 +124,7 @@ function WordJourney({ strongs, lang }: { strongs: string; lang: 'grc' | 'hbo' }
           <p className="small"><strong>{total}</strong> appearance{total === 1 ? '' : 's'} in {rows.filter((r) => r.n).length} book{rows.filter((r) => r.n).length === 1 ? '' : 's'}. Choose a book to read where it first appears.</p>
           <div className="wordjourney" role="list">
             {rows.filter((r) => r.n).map((r) => (
-              <Link key={r.id} role="listitem" className="wj-row" to={`/read/dra/${r.id}/${r.first![0]}`} title={`${r.name}: ${r.n}`}>
+              <Link key={r.id} role="listitem" className="wj-row" to={`/read/${readerEd?.id ?? 'dra'}/${r.id}/${r.first![0]}`} title={`${r.name}: ${r.n}`}>
                 <span className="wj-name">{r.name}</span>
                 <span className="wj-bar"><i style={{ width: `${Math.max(3, (r.n / max) * 100)}%` }} /></span>
                 <span className="wj-n">{r.n}</span>
