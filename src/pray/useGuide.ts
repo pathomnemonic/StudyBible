@@ -14,7 +14,7 @@ export function useGuide({ mode, running, index, last, seconds, speech, speed, l
   const next = useRef(onNext);
   next.current = onNext;
   useEffect(() => {
-    if (!running || index >= last) return;
+    if (!running || index > last) return;
     if (mode === 'pace') {
       const t = window.setTimeout(() => next.current(), (seconds(index) * 1000 * 3.2) / SPEEDS[speed].wps);
       return () => window.clearTimeout(t);

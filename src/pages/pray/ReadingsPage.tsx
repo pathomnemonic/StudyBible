@@ -37,12 +37,16 @@ export default function ReadingsPage() {
   const [view, setView] = useState<'day' | 'month'>('day');
 
   useEffect(() => {
+    let live = true;
     setRd(null);
-    readingsFor(s.diocese, date).then(setRd);
+    readingsFor(s.diocese, date).then((x) => { if (live) setRd(x); });
+    return () => { live = false; };
   }, [date, s.diocese]);
-  useEffect(() => { setFd(null); feedDay(date).then(setFd); }, [date]);
+  useEffect(() => { let live = true; setFd(null); feedDay(date).then((x) => { if (live) setFd(x); }); return () => { live = false; }; }, [date]);
   useEffect(() => {
-    loadLitYear(s.diocese, d.getUTCFullYear()).then(setMonth);
+    let live = true;
+    loadLitYear(s.diocese, d.getUTCFullYear()).then((x) => { if (live) setMonth(x); });
+    return () => { live = false; };
   }, [s.diocese, d.getUTCFullYear()]);
 
   const events = useMemo(() => (rd?.events ?? []).filter((e) => e.grade >= 2 || e.grade === 0).sort((a, b) => b.grade - a.grade), [rd]);

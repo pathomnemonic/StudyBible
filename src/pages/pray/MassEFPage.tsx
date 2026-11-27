@@ -8,6 +8,8 @@ import { useWakeLock } from '../../lib/wakeLock';
 const today = () => { const n = new Date(); return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`; };
 const get = (k: string, d: string) => { try { return localStorage.getItem(k) ?? d; } catch { return d; } };
 const put = (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } };
+const pruneDatedKeys = (prefix: string) => { try { const keys: string[] = []; for (let n = 0; n < localStorage.length; n++) { const k = localStorage.key(n); if (k && k.startsWith(prefix) && /^\d{4}-\d{2}-\d{2}$/.test(k.slice(prefix.length))) keys.push(k); } keys.sort(); while (keys.length > 7) localStorage.removeItem(keys.shift()!); } catch { /* storage unavailable */ } };
+
 interface B { k: string; t?: string; who?: string; name?: string; if?: string }
 
 const WHO: Record<string, string> = { P: 'Priest', S: 'Server', D: 'Deacon', M: 'Priest', V: 'Priest', R: 'Server', C: 'Choir', A: 'All' };
@@ -29,11 +31,12 @@ export default function MassEFPage() {
   const [ordo, setOrdo] = useState<B[]>([]);
   const [pref, setPref] = useState<Record<string, string>>({});
   const [i, setI] = useState(0);
+  const [stepTitle, setStepTitle] = useState<string | null>(null);
   const [size, setSize] = useState(() => +get('sb:mass:size', '22') || 22);
   const [awake, setAwake] = useState(() => get('sb:mass:awake', '1') === '1');
   useWakeLock(awake);
   useEffect(() => { getOrdo().then(setOrdo); getPrefaces().then(setPref); }, []);
-  useEffect(() => { setR(undefined); efDay(date).then((x) => { setR(x); setI(0); }); }, [date]);
+  useEffect(() => { let live = true; setR(undefined); setStepTitle(get(`sb:massef:${date}`, '') || null); efDay(date).then((x) => { if (live) setR(x); }); return () => { live = false; }; }, [date]);
 
   // steps: one per heading of the Order of Mass
   const steps = useMemo(() => {
@@ -46,7 +49,8 @@ export default function MassEFPage() {
   }, [ordo]);
   const flagOk = (b: B) => !b.if || (b.if === 'gloria' && !!r?.day.rule.gloria) || (b.if === 'credo' && !!r?.day.rule.credo) || (b.if === 'judica' && !r?.passiontide);
   const shown = steps.filter((s) => s.title !== 'Creed' || r?.day.rule.credo);
-  const idx = Math.min(i, Math.max(0, shown.length - 1));
+  const idxByTitle = stepTitle ? shown.findIndex((x) => x.title === stepTitle) : -1;
+  const idx = idxByTitle >= 0 ? idxByTitle : Math.min(i, Math.max(0, shown.length - 1));
   const step = shown[idx];
   const sec = (name: string) => {
     const x = r?.day; if (!x) return null;
@@ -59,9 +63,10 @@ export default function MassEFPage() {
     if (lat) return <><p className="muted small">Only the Latin text is in the source:</p><Text text={lat} /></>;
     return <p className="muted">This part is not in the source for this day. Use your missal.</p>;
   };
-  const go = (n: number) => setI(Math.max(0, Math.min(shown.length - 1, n)));
+  const go = (n: number) => { const c = Math.max(0, Math.min(shown.length - 1, n)); setI(c); const nx = shown[c]; if (nx) setStepTitle(nx.title); };
+  useEffect(() => { if (step) { put(`sb:massef:${date}`, step.title); pruneDatedKeys('sb:massef:'); } }, [step?.title, date]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
-    const k = (e: KeyboardEvent) => { if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(idx + 1); } else if (e.key === 'ArrowLeft') go(idx - 1); };
+    const k = (e: KeyboardEvent) => { const tgt = e.target as HTMLElement | null; if (tgt?.closest?.('input, select, textarea, button, a, summary, [contenteditable]')) return; if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(idx + 1); } else if (e.key === 'ArrowLeft') go(idx - 1); };
     window.addEventListener('keydown', k);
     return () => window.removeEventListener('keydown', k);
   }, [idx, shown.length]);

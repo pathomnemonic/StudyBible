@@ -35,13 +35,13 @@ export default function LectioPage() {
   // earlier times you prayed with this same passage: the reflection comes back to you
   const earlier = useLiveQuery(async () => (ref ? (await db.journal.toArray()).filter((j) => (j.refs ?? []).includes(refId(ref))).sort((a, b) => b.createdAt - a.createdAt).slice(0, 3) : []), [ref ? refId(ref) : ''], []) ?? [];
 
-  const choose = () => {
-    const r = parseRefs(input);
+  const choose = (raw?: string) => {
+    const r = parseRefs(raw ?? input);
     if (!r.ok) return setErr(r.error);
     setErr('');
     const a = r.refs[0].ref;
-    // typed numbers: English tradition unless the user's setting says Vulgate
-    const anchor = s.refNumbering === 'vulgate' ? a : convertRef(ed.scheme === 'vulgate' && s.refNumbering === 'edition' ? 'vulgate' : 'kjv', 'vulgate', a).ref;
+    const from = s.refNumbering === 'vulgate' ? 'vulgate' : s.refNumbering === 'english' ? 'english' : ed.scheme;
+    const anchor = from === 'vulgate' ? a : convertRef(from, 'vulgate', a).ref;
     setRef(anchor);
   };
   useEffect(() => {
@@ -51,11 +51,14 @@ export default function LectioPage() {
       if (p) {
         setRef(p);
         setInput(formatRef(p));
+      } else {
+        setInput(q);
+        choose(q);
       }
     } else choose();
   }, []);
   useEffect(() => {
-    if (ref) passageText(ed, ref, 40).then(setText);
+    if (!ref) return; let live = true; passageText(ed, ref, 40).then((x) => { if (live) setText(x); }); return () => { live = false; };
   }, [ref, ed.id]);
 
   const stepSecs = (minutes * 60) / 4;
@@ -94,7 +97,7 @@ export default function LectioPage() {
           <p className="lede">An ancient way of praying with Scripture in four movements.</p>
           <div className="row" style={{ marginBottom: 8 }}>
             <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && choose()} aria-label="Passage" style={{ flex: 1 }} />
-            <button className="btn" onClick={choose}>Use</button>
+            <button className="btn" onClick={() => choose()}>Use</button>
           </div>
           {err && <div className="notice">{err}</div>}
           <label className="row between" style={{ margin: '10px 0' }}>
