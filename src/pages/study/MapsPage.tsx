@@ -21,11 +21,11 @@ export default function MapsPage() {
   const sel = sp.get('place') != null ? +sp.get('place')! : null;
 
   useEffect(() => {
-    getPlaces().then((p) => setPlaces(p ?? []));
+    let live = true; getPlaces().then((p) => { if (live) setPlaces(p ?? []); }); return () => { live = false; };
   }, []);
   useEffect(() => {
     if (!book) return setInBook(null);
-    getPlacesByBook(book).then((l) => setInBook(new Set((l ?? []).map((e) => e[2]))));
+    let live = true; getPlacesByBook(book).then((l) => { if (live) setInBook(new Set((l ?? []).map((e) => e[2]))); }); return () => { live = false; };
   }, [book]);
 
   const visible = useMemo(() => {
