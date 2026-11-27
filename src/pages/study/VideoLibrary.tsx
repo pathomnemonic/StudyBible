@@ -104,7 +104,7 @@ export default function VideoLibrary({ embedded = false }: { embedded?: boolean 
         <button role="tab" aria-selected={view === 'later'} onClick={() => setView('later')}>Watch later ({later.length})</button>
         <button role="tab" aria-selected={view === 'watched'} onClick={() => setView('watched')}>Watched ({hist.length})</button>
       </div>
-      {view === 'all' && <FilterBar
+      {<FilterBar
         active={(ch >= 0 ? 1 : 0) + (full ? 1 : 0) + (sort ? 1 : 0)}
         search={<input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search titles: Eucharist, Genesis, purgatory…" aria-label="Search videos" />}
       >
