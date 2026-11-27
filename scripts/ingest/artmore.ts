@@ -15,8 +15,11 @@ export function buildArtMore(report: Report) {
   for (const f of files) {
     const d = readJson(join(CURATED, f));
     for (const w of d.works ?? []) {
-      if (!w.id || seen.has(w.id)) continue;
+      if (!w.id) { report.warn(`art-more: a work in ${f} has no id; skipped`); continue; }
+      if (seen.has(w.id)) { report.warn(`art-more: ${w.id}: duplicate id (in ${f}); skipped`); continue; }
       if (!exists(join(PUBLIC_DATA, '..', w.file))) { report.warn(`art-more: ${w.id}: image ${w.file} missing`); continue; }
+      const badRefs = (w.refs ?? []).filter((r: string) => !parseRefs(r).ok);
+      if (badRefs.length) report.warn(`art-more: ${w.id}: dropping refs that do not parse: ${badRefs.join(', ')}`);
       const refs = (w.refs ?? []).filter((r: string) => parseRefs(r).ok);
       if (!refs.length || !w.title || !w.credit) { report.warn(`art-more: ${w.id}: bad refs or missing title/credit`); continue; }
       seen.add(w.id);

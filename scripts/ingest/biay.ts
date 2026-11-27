@@ -64,11 +64,16 @@ function passagesFromSentence(desc: string): RawPassage[] {
       const c2 = m[4] ? (m[3] && !m[5] ? c1 : +m[4]) : c1;
       if (c1 < 1 || Math.max(c1, c2) > getBook(book).chapters) continue;
       out.push({ book, c1, c2: Math.max(c1, c2) });
-      // "Esther 4 and 14, 6-7": bare numbers after a chapter belong to the same book
-      const rest = sentence.slice((m.index ?? 0) + m[0].length);
-      for (const c of rest.matchAll(/^(?:,\s*(?:and\s+)?|\s+and\s+)(\d{1,3})(?:\s*[-–—]\s*(\d{1,3}))?(?![\d:]|\s*[A-Za-z])/g)) {
-        const a = +c[1], z = c[2] ? +c[2] : a;
+      // "Esther 4 and 14, 6-7": bare numbers after a chapter belong to the same book. They are consumed
+      // one at a time from the front of what is left: a ^-anchored match with the g flag can only ever
+      // take the first continuation, because ^ anchors at the start of the string, not after a match.
+      let tail = sentence.slice((m.index ?? 0) + m[0].length);
+      const cont = /^(?:,\s*(?:and\s+)?|\s+and\s+)(\d{1,3})(?:\s*[-–—]\s*(\d{1,3}))?(?![\d:]|\s*[A-Za-z])/;
+      let cm: RegExpExecArray | null;
+      while ((cm = cont.exec(tail)) !== null) {
+        const a = +cm[1], z = cm[2] ? +cm[2] : a;
         if (a >= 1 && Math.max(a, z) <= getBook(book).chapters) out.push({ book, c1: a, c2: Math.max(a, z) });
+        tail = tail.slice(cm[0].length);
       }
     }
     // books of one chapter are named without a number ("2 John, 3 John; 1 Timothy 4-6")
@@ -131,7 +136,8 @@ export function buildBiay(report: Report) {
     const pub = new Date(it.pubDate);
     const dur = String(it['itunes:duration'] ?? '');
     const dparts = dur.split(':').map(Number);
-    const seconds = dparts.length === 3 ? dparts[0] * 3600 + dparts[1] * 60 + dparts[2] : dparts.length === 2 ? dparts[0] * 60 + dparts[1] : null;
+    // itunes:duration is hh:mm:ss or mm:ss in most feeds, but some give plain seconds; those are a duration too
+    const seconds = dparts.length === 3 ? dparts[0] * 3600 + dparts[1] * 60 + dparts[2] : dparts.length === 2 ? dparts[0] * 60 + dparts[1] : dparts.length === 1 && dur.trim() !== '' && Number.isFinite(dparts[0]) ? dparts[0] : null;
     raw.push({
       id: String(it.guid?.['#text'] ?? it.guid),
       day: m ? +m[1] : null,
@@ -232,6 +238,7 @@ export function buildBiay(report: Report) {
     days[day] = { passages: sample.passages, title: sample.short };
   }
   const missingDays = Array.from({ length: 365 }, (_, i) => i + 1).filter((d) => !days[d] || !days[d].passages.length);
+  if (missingDays.length) report.warn(`biay: ${missingDays.length} of the 365 days have no resolvable passages (first: ${missingDays.slice(0, 12).join(', ')})`);
 
   writeJson(join(PUBLIC_DATA, 'media/biay.json'), {
     meta: {

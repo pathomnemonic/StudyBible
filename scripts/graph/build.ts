@@ -4,11 +4,12 @@
  * a step quotes a work, a work has an author, a topic names a related topic, a Catechism paragraph lies in a topic's range).
  *   npx tsx scripts/graph/build.ts
  */
-import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { BOOKS } from '../../src/lib/canon';
 
-const ROOT = process.cwd();
+// resolved from this file, not the caller's working directory: every path below is a repo path
+const ROOT = new URL('../../', import.meta.url).pathname;
 const rd = (p: string) => JSON.parse(readFileSync(join(ROOT, p), 'utf8'));
 
 export type Kind = 'topic' | 'argument' | 'claim' | 'development' | 'heresy' | 'word' | 'life' | 'situation' | 'passage' | 'catechism' | 'work' | 'author';
@@ -26,7 +27,7 @@ const bookName: Record<string, string> = Object.fromEntries(BOOKS.map((b) => [b.
 /** "JHN.6.53-56" or "MAT.26.26-29" -> the chapter node "passage:JHN.6" */
 function passage(ref: string): string | null {
   const m = /^([1-3A-Z][A-Z0-9]{2})\.(\d+)/.exec(ref);
-  if (!m) return null;
+  if (!m) { console.warn(`graph: cannot read passage ref "${ref}"; no node made`); return null; }
   const id = `passage:${m[1]}.${m[2]}`;
   return node({ id, kind: 'passage', label: `${bookName[m[1]] ?? m[1]} ${m[2]}`, to: `/read/webc/${m[1]}/${m[2]}` });
 }
@@ -48,7 +49,7 @@ const topicIds = new Set(doctrine.map((t) => `topic:${t.id}`));
 for (const t of doctrine) {
   const id = node({ id: `topic:${t.id}`, kind: 'topic', label: t.title, to: `/study/topics/${t.id}` });
   for (const r of t.scripture ?? []) { const p = passage(r); if (p) edge(id, p, 'lists passage'); }
-  for (const r of t.related ?? []) if (topicIds.has(`topic:${r}`)) edge(id, `topic:${r}`, 'related to');
+  for (const r of t.related ?? []) { if (topicIds.has(`topic:${r}`)) edge(id, `topic:${r}`, 'related to'); else console.warn(`graph: topic ${t.id} names related topic "${r}", which does not exist; no edge made`); }
 }
 
 // chains
@@ -69,7 +70,7 @@ for (const [mode, kind, base] of MODES) {
       for (const s of steps(c)) {
         if (s.ref) { const p = passage(s.ref); if (p) edge(id, p, 'cites passage'); }
         if (typeof s.ccc === 'number') { cited.add(s.ccc); edge(id, ccc(s.ccc), 'cites Catechism'); }
-        if (s.work && workInfo.has(s.work)) edge(id, work(s.work), 'quotes');
+        if (s.work) { if (workInfo.has(s.work)) edge(id, work(s.work), 'quotes'); else console.warn(`graph: ${c.id} quotes work "${s.work}", which is not in the library index; no edge made`); }
       }
       for (const n of c.readNext ?? []) if (typeof n === 'number') { cited.add(n); edge(id, ccc(n), 'read next'); }
     }
@@ -81,14 +82,14 @@ for (const f of chainFiles.filter((x) => x.startsWith('lives.'))) {
   for (const l of rd(`src/data/chains/${f}`)) {
     if (!l.id || !l.name) continue;
     const id = node({ id: `life:${l.id}`, kind: 'life', label: l.name, sub: l.lifespan, to: `/study/lives/${l.id}` });
-    for (const e of l.events ?? []) { const s = e.step; if (s?.work && workInfo.has(s.work)) edge(id, work(s.work), 'quotes'); if (s?.ref) { const p = passage(s.ref); if (p) edge(id, p, 'cites passage'); } }
+    for (const e of l.events ?? []) { const s = e.step; if (s?.work) { if (workInfo.has(s.work)) edge(id, work(s.work), 'quotes'); else console.warn(`graph: life ${l.id} quotes work "${s.work}", which is not in the library index; no edge made`); } if (s?.ref) { const p = passage(s.ref); if (p) edge(id, p, 'cites passage'); } }
   }
 }
 for (const f of chainFiles.filter((x) => x.startsWith('situations.'))) {
   for (const sit of rd(`src/data/chains/${f}`)) {
     if (!sit.id || !sit.title) continue;
     const id = node({ id: `situation:${sit.id}`, kind: 'situation', label: sit.title, to: `/study/mentors` });
-    for (const m of sit.mentors ?? []) { const s = m.step; if (s?.work && workInfo.has(s.work)) edge(id, work(s.work), 'quotes'); if (typeof s?.ccc === 'number') { cited.add(s.ccc); edge(id, ccc(s.ccc), 'cites Catechism'); } }
+    for (const m of sit.mentors ?? []) { const s = m.step; if (s?.work) { if (workInfo.has(s.work)) edge(id, work(s.work), 'quotes'); else console.warn(`graph: situation ${sit.id} quotes work "${s.work}", which is not in the library index; no edge made`); } if (typeof s?.ccc === 'number') { cited.add(s.ccc); edge(id, ccc(s.ccc), 'cites Catechism'); } }
     for (const n of sit.readNext ?? []) if (typeof n === 'number') { cited.add(n); edge(id, ccc(n), 'read next'); }
   }
 }
@@ -98,6 +99,13 @@ for (const t of doctrine) for (const n of cited) if ((t.ccc ?? []).some(([a, b])
 
 const counts: Record<string, number> = {};
 for (const n of nodes.values()) counts[n.kind] = (counts[n.kind] ?? 0) + 1;
-const graph: Graph = { generated: new Date().toISOString().slice(0, 10), nodes: [...nodes.values()], edges: [...edges.values()], counts };
-writeFileSync(join(ROOT, 'public/data/graph/graph.json'), JSON.stringify(graph));
-console.log('nodes', graph.nodes.length, 'edges', graph.edges.length, counts);
+// "generated" is the day the graph last CHANGED, not the day the script last ran: a rebuild whose
+// nodes, edges and counts come out the same leaves the stored file (and its date) exactly as it was,
+// so the file no longer diffs on every run
+const outPath = join(ROOT, 'public/data/graph/graph.json');
+const nodesOut = [...nodes.values()], edgesOut = [...edges.values()];
+const prev = existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) as Graph : null;
+const unchanged = !!prev && JSON.stringify([prev.nodes, prev.edges, prev.counts]) === JSON.stringify([nodesOut, edgesOut, counts]);
+const graph: Graph = { generated: unchanged ? prev!.generated : new Date().toISOString().slice(0, 10), nodes: nodesOut, edges: edgesOut, counts };
+if (!unchanged) writeFileSync(outPath, JSON.stringify(graph));
+console.log('nodes', graph.nodes.length, 'edges', graph.edges.length, counts, unchanged ? '(unchanged; file left as it was)' : '');
