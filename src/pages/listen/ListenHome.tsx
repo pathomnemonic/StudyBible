@@ -22,7 +22,8 @@ import { RecordedList } from '../../components/RecordedBooks';
 import PodcastView from './PodcastView';
 import ProgrammeView from './ProgrammeView';
 import EpisodeRow from './EpisodeRow';
-import { startPlan } from '../../lib/activePlan';
+import { calendarDaysSince, startPlan } from '../../lib/activePlan';
+import { setPlayed } from '../../lib/listening';
 import { useLocalFlag } from '../../lib/localFlag';
 import Menu, { type MenuItem } from '../../components/Menu';
 import Fold from '../../components/Fold';
@@ -59,8 +60,10 @@ function BiayListen() {
   const planStart = useLiveQuery(() => db.planProgress.get('biay'), []);
   // the queue and progress hold episodes from any show (podcasts, audiobooks, meditation), not only this plan
   const [other, setOther] = useState<Record<string, BiayEpisode>>({});
+  const [resolving, setResolving] = useState(false);
   const wantIds = (view === 'queue' ? queue.map((x) => x.episodeId) : view === 'progress' ? progress.filter((p) => p.completed || p.position > 0).map((p) => p.episodeId) : []).join(',');
-  useEffect(() => { let live = true; void Promise.all(wantIds.split(',').filter(Boolean).map(async (id) => [id, await resolveEpisode(id)] as const)).then((r) => live && setOther(Object.fromEntries(r.filter((x): x is [string, BiayEpisode] => !!x[1])))); return () => { live = false; }; }, [wantIds]);
+  useEffect(() => { let live = true; const ids = wantIds.split(',').filter(Boolean); if (!ids.length) { setOther({}); setResolving(false); return; } setResolving(true); void Promise.all(ids.map(async (id) => [id, await resolveEpisode(id)] as const)).then((r) => { if (!live) return; setOther(Object.fromEntries(r.filter((x): x is [string, BiayEpisode] => !!x[1]))); setResolving(false); }); return () => { live = false; }; }, [wantIds]);
+  useEffect(() => { setQ(''); }, [view]);
   const doneMap = useMemo(() => new Map(progress.map((p) => [p.episodeId, p])), [progress]);
   const refSearchUnverified = useMemo(() => { const parsed = parseRefs(q.trim()); return parsed.ok && parsed.refs.some(({ ref }) => !convertRef('kjv', 'vulgate', ref).exact); }, [q]);
 
@@ -76,7 +79,7 @@ function BiayListen() {
 
   const finishedIds = useMemo(() => new Set(progress.filter((p) => p.completed).map((p) => p.episodeId)), [progress]);
   const filtered = useMemo(() => {
-    const s = q.trim();
+    const s = view === 'plan' || view === 'extras' ? q.trim() : '';
     // finished episodes are tucked away (unless you are searching for one), so the list starts at where you are
     const base = !s && hideDone && (view === 'next' || view === 'plan' || view === 'extras') ? epsFor.filter((e) => !finishedIds.has(e.id)) : epsFor;
     if (!s) return base;
@@ -99,9 +102,7 @@ function BiayListen() {
 
   /** Marks days 1..n finished (every release's episode for each day) and moves the plan to day n+1. */
   const markThrough = async (n: number) => {
-    const rows = [];
-    for (let d = 1; d <= n; d++) for (const e of biay.releases.get(d) ?? [biay.dayEpisode.get(d)].filter(Boolean) as BiayEpisode[]) rows.push({ episodeId: e.id, position: 0, completed: true, updatedAt: Date.now(), duration: e.duration ?? undefined });
-    await db.episodeProgress.bulkPut(rows);
+    for (let d = 1; d <= n; d++) for (const e of biay.releases.get(d) ?? [biay.dayEpisode.get(d)].filter(Boolean) as BiayEpisode[]) await setPlayed(e.id, true, e.duration ?? undefined);
     const cur = await db.planProgress.get('biay');
     const done = [...new Set([...(cur?.done ?? []), ...Array.from({ length: n }, (_, i) => i)])];
     await startPlan('biay', { restart: true, done, offsetDays: n });
@@ -109,10 +110,16 @@ function BiayListen() {
   };
   const clearFinished = async () => {
     if (!confirm('Clear every finished mark on these episodes? Your queue and listening position are kept.')) return;
-    const ids = progress.filter((p) => p.completed).map((p) => p.episodeId);
-    await db.episodeProgress.where('episodeId').anyOf(ids).modify({ completed: false });
+    const planIds = new Set(biay.data.episodes.map((e) => e.id));
+    const ids = progress.filter((p) => p.completed && planIds.has(p.episodeId)).map((p) => p.episodeId);
+    if (ids.length) await db.episodeProgress.where('episodeId').anyOf(ids).modify({ completed: false });
+    const dayOf = new Map<string, number>();
+    for (const [d, eps] of biay.releases) for (const e of eps) dayOf.set(e.id, d);
+    for (const e of biay.data.episodes) if (e.day && !dayOf.has(e.id)) dayOf.set(e.id, e.day);
+    const clearedDays = new Set(ids.map((id) => dayOf.get(id)).filter((d): d is number => d !== undefined).map((d) => d - 1));
+    if (clearedDays.size) { const cur = await db.planProgress.get('biay'); if (cur) await db.planProgress.put({ ...cur, done: cur.done.filter((d) => !clearedDays.has(d)) }); }
   };
-  const todayDay = planStart ? Math.min(365, Math.max(1, Math.floor((Date.now() - planStart.startedAt) / 86400000) + 1 + planStart.offsetDays)) : null;
+  const todayDay = planStart ? Math.min(365, Math.max(1, calendarDaysSince(planStart.startedAt) + 1 + planStart.offsetDays)) : null;
   const todayEp = todayDay ? biay.dayEpisode.get(todayDay) : null;
   const resumeId = progress.filter((p) => !p.completed && p.position > 30).sort((a, b) => b.updatedAt - a.updatedAt)[0];
   const resumeEp = resumeId ? biay.byId.get(resumeId.episodeId) : null;
@@ -169,7 +176,7 @@ function BiayListen() {
         {rows.map((e) => <EpisodeRow page key={e.id} e={e} progress={doneMap.get(e.id)} inQueue={queue.some((x) => x.episodeId === e.id)} />)}
       </ul>
       {view === 'next' && filtered.length > shown && <button className="btn small" onClick={() => setShown(shown + 10)}>More</button>}
-      {view === 'queue' && !q && queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length > 0 && (
+      {view === 'queue' && !q && !resolving && queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length > 0 && (
         <button className="linklike small" onClick={() => void db.queue.bulkDelete(queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).map((x) => x.id!))}>Clear {queue.filter((x) => !filtered.some((e) => e.id === x.episodeId)).length} missing items</button>
       )}
       {cfgBiay && <ShowSettings showKey="biay" name="Bible in a Year" onClose={() => setCfgBiay(false)} />}
