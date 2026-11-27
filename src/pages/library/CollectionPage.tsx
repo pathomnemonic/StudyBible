@@ -1,7 +1,7 @@
 import { sameValue } from '../../lib/canonical';
 import { doneKeyMatches } from '../../lib/collections';
 import { beginSave } from '../../lib/dirty';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { parseTags, planDaysFromCollection } from '../../lib/collectionsView';
 import { useLiveQuery } from '../../lib/live';
@@ -42,13 +42,14 @@ export default function CollectionPage() {
   useEffect(() => { let live = true; if (c && ed) resolveAll(c, ed).then(async (r) => { if (!live) return; setItems(r); const t: Record<number, number> = {}; for (const x of r) if (x.missing) { const id = await trashedFor(x.target); if (id !== undefined) t[x.index] = id; } if (live) setTrashed(t); }); return () => { live = false; }; }, [key, ed?.id, tick]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /** `field` names which input this patch comes from, so only that input is acknowledged once the write has landed */
-  const save = async (patch: Partial<Collection>, field?: string) => { if (!c) return; const saved = field ? beginSave(`collection:${c.id}:${field}`) : null; await db.collections.put({ ...c, ...patch, updatedAt: Date.now() }); saved?.(); };
+  const saveChain = useRef<Promise<unknown>>(Promise.resolve());
+  const save = async (patch: Partial<Collection> | ((fresh: Collection) => Partial<Collection>), field?: string) => { if (!c) return; const saved = field ? beginSave(`collection:${c.id}:${field}`) : null; const id = c.id!; saveChain.current = saveChain.current.then(async () => { const fresh = await db.collections.get(id); if (!fresh) return; const p = typeof patch === 'function' ? (patch as (f: Collection) => Partial<Collection>)(fresh) : patch; await db.collections.put({ ...fresh, ...p, updatedAt: Date.now() }); }); await saveChain.current; saved?.(); };
   const add = async (t: Target) => {
     if (!c) return;
     const dup = c.items.some((x) => sameValue(x, t));
     if (dup) { setMsg('That is already in this collection.'); return; }
     setMsg('');
-    await save({ items: [...c.items, t] });
+    await save((fresh) => ({ items: [...fresh.items, t] }));
   };
   /** the reference by identity: an older record without one is given one first */
   const uidOf = async (table: 'notes' | 'highlights' | 'bookmarks', rowId: number) => {
@@ -74,7 +75,7 @@ export default function CollectionPage() {
       if (!c?.items.some((x) => sameValue(x, target)) && !targets.some((x) => sameValue(x, target))) targets.push(target);
     }
     if (!targets.length) setMsg('Those passages are already in this collection.');
-    else { await save({ items: [...(c?.items ?? []), ...targets] }); setMsg('Added verified passage references.'); }
+    else { await save((fresh) => ({ items: [...fresh.items, ...targets] })); setMsg('Added verified passage references.'); }
     setPass('');
   };
   const addQuestion = async () => {
@@ -86,8 +87,8 @@ export default function CollectionPage() {
     setQText('');
   };
   const isDone = (i: number) => (c.done ?? []).some((k) => doneKeyMatches(k, c.items[i]));
-  const toggleDone = (i: number) => { const item = c.items[i]; const d = c.done ?? []; const was = d.some((k) => doneKeyMatches(k, item)); void save({ done: was ? d.filter((k) => !doneKeyMatches(k, item)) : [...d, JSON.stringify(item)] }); };
-  const move = (from: number, to: number) => void save({ items: moveItem(c.items, from, to) });
+  const toggleDone = (i: number) => { const item = c.items[i]; if (!item) return; void save((fresh) => { const d = fresh.done ?? []; const was = d.some((k) => doneKeyMatches(k, item)); return { done: was ? d.filter((k) => !doneKeyMatches(k, item)) : [...d, JSON.stringify(item)] }; }); };
+  const move = (from: number, to: number) => void save((fresh) => ({ items: moveItem(fresh.items, from, to) }));
   const base = (n: string) => n.replace(/[^\w]+/g, '-').replace(/^-|-$/g, '').toLowerCase() || 'collection';
   const exportMd = () => download(`${base(c.name)}.md`, collectionMarkdown(c, items), 'text/markdown');
   const exportFile = async () => download(`${base(c.name)}.collection.json`, await exportCollections([c.id!]));
@@ -132,7 +133,7 @@ export default function CollectionPage() {
               <span className="row" style={{ gap: 4 }}>
                 <button className="icon-btn" aria-label={`Move ${r.title} up`} disabled={i === 0} onClick={() => move(i, i - 1)}>↑</button>
                 <button className="icon-btn" aria-label={`Move ${r.title} down`} disabled={i === items.length - 1} onClick={() => move(i, i + 1)}>↓</button>
-                <button className="icon-btn" aria-label={`Remove ${r.title} from this collection`} onClick={() => void save({ items: c.items.filter((_, k) => k !== i) })}>✕</button>
+                <button className="icon-btn" aria-label={`Remove ${r.title} from this collection`} onClick={() => { const target = c.items[i]; void save((fresh) => ({ items: fresh.items.filter((x) => x !== target) })); }}>✕</button>
               </span>
             </div>
             {r.missing && (
@@ -140,7 +141,7 @@ export default function CollectionPage() {
                 <p className="small" style={{ margin: 0 }}>No longer here: the original may have been deleted{trashed[i] !== undefined ? ', but it is still in Recently deleted' : ''}.</p>
                 <div className="row" style={{ gap: 6, marginTop: 6, flexWrap: 'wrap' }}>
                   {trashed[i] !== undefined && <button className="btn small" onClick={async () => { await restoreFromTrash(trashed[i]); setMsg('Restored from Recently deleted.'); setTick((n) => n + 1); }}>Restore from Recently deleted</button>}
-                  <button className="btn small" aria-label={`Remove ${r.title} from this collection`} onClick={() => void save({ items: c.items.filter((_, k) => k !== i) })}>Remove from this collection</button>
+                  <button className="btn small" aria-label={`Remove ${r.title} from this collection`} onClick={() => { const target = c.items[i]; void save((fresh) => ({ items: fresh.items.filter((x) => x !== target) })); }}>Remove from this collection</button>
                 </div>
               </div>
             )}
