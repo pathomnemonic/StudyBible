@@ -91,7 +91,7 @@ export function ShareSaintPage() {
 
 export function ShareTermPage() {
   const { term = '' } = useParams();
-  const g = GLOSSARY.find((x) => x.term.toLowerCase() === decodeURIComponent(term).toLowerCase());
+  const g = GLOSSARY.find((x) => x.term.toLowerCase() === term.toLowerCase());
   if (!g) return <div className="page" data-state="not-found"><p>That word could not be found. <Link to="/study/glossary">Open the glossary</Link></p></div>;
   return (
     <div className="page share-link">
