@@ -1,4 +1,4 @@
-// Records, for every Deep Waters question, a hash of what a person has to check (its text, whether it names a closed set, and every answer with its tier),
+// Records, for every Deep Waters question, a hash of what a person has to check (its text and context, whether it names a closed set, and every answer with its tier and aliases),
 // and whether a person has checked it. A question whose content changes loses its review.
 //   npx tsx scripts/deepwaters/review.ts            fail if src/data/deepWaters.review.json no longer matches the questions
 //   npx tsx scripts/deepwaters/review.ts --write    rewrite it (new and changed questions become "unreviewed"; unchanged reviewed ones stay reviewed)
@@ -11,20 +11,29 @@ import { DAILY_SIZE } from '../../src/lib/deepWatersSchedule';
 
 const FILE = new URL('../../src/data/deepWaters.review.json', import.meta.url).pathname;
 interface Entry { id: string; sha256: string; answers: number; status: 'unreviewed' | 'reviewed'; reviewedBy?: string; reviewedOn?: string; notes?: string }
-const hashOf = (p: (typeof DEEP_WATERS)[number]) => createHash('sha256').update(JSON.stringify({ id: p.id, prompt: p.prompt, closed: p.closed ?? null, ignore: p.ignore ?? [], answers: p.answers })).digest('hex');
+const hashOf = (p: (typeof DEEP_WATERS)[number]) => createHash('sha256').update(JSON.stringify({ id: p.id, prompt: p.prompt, context: p.context ?? null, closed: p.closed ?? null, ignore: p.ignore ?? [], answers: p.answers })).digest('hex');
+// the formula before context joined the hash (the derived-pool formula also left out aliases); kept for the one-off migration in keep()
+const hashOfOld = (p: (typeof DEEP_WATERS)[number]) => createHash('sha256').update(JSON.stringify({ id: p.id, prompt: p.prompt, closed: p.closed ?? null, ignore: p.ignore ?? [], answers: p.answers })).digest('hex');
 const prev: Entry[] = existsSync(FILE) ? (JSON.parse(readFileSync(FILE, 'utf8')) as { entries: Entry[] }).entries : [];
-const keep = (id: string, h: string, answers: number): Entry => {
+const keep = (id: string, h: string, oldH: string, answers: number): Entry => {
   const old = prev.find((e) => e.id === id);
-  return old && old.sha256 === h ? old : { id, sha256: h, answers, status: 'unreviewed' as const };
+  if (!old) return { id, sha256: h, answers, status: 'unreviewed' as const };
+  if (old.sha256 === h) return old;
+  // one-off migration: the hash formula changed, not the questions, so an entry whose stored hash still
+  // matches the old formula for the same content keeps its review under the new hash
+  if (old.sha256 === oldH) return { ...old, sha256: h, answers };
+  return { id, sha256: h, answers, status: 'unreviewed' as const };
 };
 // a question worked out by rule from a list is checked by checking its list and its rules (src/data/deepWatersPools.ts), so each list has one record, not each question
 const byPool = new Map<string, (typeof DEEP_WATERS)[number][]>();
 for (const p of DEEP_WATERS) if (p.derived) (byPool.get(p.derived.pool) ?? byPool.set(p.derived.pool, []).get(p.derived.pool)!).push(p);
+const poolHash = (list: (typeof DEEP_WATERS)[number][]) => createHash('sha256').update(JSON.stringify(list.map((p) => [p.id, p.prompt, p.context ?? null, p.answers.map((a) => [a.answer, a.tier, a.aliases ?? []])]))).digest('hex');
+const poolHashOld = (list: (typeof DEEP_WATERS)[number][]) => createHash('sha256').update(JSON.stringify(list.map((p) => [p.id, p.prompt, p.answers.map((a) => a.answer + a.tier)]))).digest('hex');
 const entries: Entry[] = [
-  ...DEEP_WATERS.filter((p) => !p.derived).map((p) => keep(p.id, hashOf(p), p.answers.length)),
-  ...[...byPool].sort(([a], [b]) => a.localeCompare(b)).map(([pool, list]) => keep(`derived:${pool}`, createHash('sha256').update(JSON.stringify(list.map((p) => [p.id, p.prompt, p.answers.map((a) => a.answer + a.tier)]))).digest('hex'), list.length)),
+  ...DEEP_WATERS.filter((p) => !p.derived).map((p) => keep(p.id, hashOf(p), hashOfOld(p), p.answers.length)),
+  ...[...byPool].sort(([a], [b]) => a.localeCompare(b)).map(([pool, list]) => keep(`derived:${pool}`, poolHash(list), poolHashOld(list), list.length)),
 ];
-const text = JSON.stringify({ about: 'Review records for the Deep Waters questions. A question whose answers or tiers change is unreviewed again. See scripts/deepwaters/review.ts.', entries }, null, 1) + '\n';
+const text = JSON.stringify({ about: 'Review records for the Deep Waters questions. A question whose text, context, answers, tiers or aliases change is unreviewed again. See scripts/deepwaters/review.ts.', entries }, null, 1) + '\n';
 
 if (process.argv.includes('--report')) {
   const answers = DEEP_WATERS.reduce((n, p) => n + p.answers.length, 0);
