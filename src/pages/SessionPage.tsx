@@ -42,6 +42,7 @@ export default function SessionPage() {
 
   // choose the passage: today's Gospel if the calendar service has it, otherwise the verse of the day
   useEffect(() => {
+    let live = true;
     (async () => {
       let r: Ref | null = null;
       let src = '';
@@ -62,22 +63,28 @@ export default function SessionPage() {
           src = 'Verse of the day';
         }
       }
+      if (!live) return;
       setRef(r);
       setSource(src);
     })();
+    return () => { live = false; };
   }, [s.diocese, dayKey]);
 
   useEffect(() => {
     if (!ref || !ed) return;
-    passageText(ed, ref, 40).then((vs) => setVerses(vs.map((v) => ({ n: v.v, text: v.text }))));
-    Promise.all([providers.commentary([ref]), providers.fathers([ref]), providers.catechism([ref])]).then(([c, f, k]) => setChurch([...k.slice(0, 1), ...c.slice(0, 2), ...f.slice(0, 1)]));
+    let live = true;
+    passageText(ed, ref, 40).then((vs) => { if (live) setVerses(vs.map((v) => ({ n: v.v, text: v.text }))); });
+    Promise.all([providers.commentary([ref]), providers.fathers([ref]), providers.catechism([ref])]).then(([c, f, k]) => { if (live) setChurch([...k.slice(0, 1), ...c.slice(0, 2), ...f.slice(0, 1)]); });
+    return () => { live = false; };
   }, [ref?.book, ref?.c1, ref?.v1, ed?.id]);
   useEffect(() => {
     if (!ed) return;
+    let live = true;
     const a = parseRefs('Psalm 119:18');
     const b = parseRefs('Matthew 6:9-13');
-    if (a.ok) passageText(ed, convertRef('kjv', 'vulgate', a.refs[0].ref).ref, 2).then((v) => setOpen(v.map((x) => x.text).join(' ')));
-    if (b.ok) passageText(ed, convertRef('kjv', 'vulgate', b.refs[0].ref).ref, 8).then((v) => setOurFather(v.map((x) => x.text).join(' ')));
+    if (a.ok) passageText(ed, convertRef('kjv', 'vulgate', a.refs[0].ref).ref, 2).then((v) => { if (live) setOpen(v.map((x) => x.text).join(' ')); });
+    if (b.ok) passageText(ed, convertRef('kjv', 'vulgate', b.refs[0].ref).ref, 8).then((v) => { if (live) setOurFather(v.map((x) => x.text).join(' ')); });
+    return () => { live = false; };
   }, [ed?.id]);
 
   const save = async () => {
