@@ -13,6 +13,8 @@ import { BOOK_PRAYERS } from '../../data/prayerbook';
 const today = () => { const n = new Date(); return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`; };
 const get = (k: string, d: string) => { try { return localStorage.getItem(k) ?? d; } catch { return d; } };
 const put = (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } };
+const pruneDatedKeys = (prefix: string) => { try { const keys: string[] = []; for (let n = 0; n < localStorage.length; n++) { const k = localStorage.key(n); if (k && k.startsWith(prefix) && /^\d{4}-\d{2}-\d{2}$/.test(k.slice(prefix.length))) keys.push(k); } keys.sort(); while (keys.length > 7) localStorage.removeItem(keys.shift()!); } catch { /* storage unavailable */ } };
+
 
 /** Which Catechism paragraph says what is happening at each part (CCC 1136-1144 and 1345-1355). Parts with no fitting paragraph have none. */
 const CCC_FOR: Record<string, number> = {
@@ -50,7 +52,9 @@ export default function MassAlongPage() {
   const [creed, setCreed] = useState(big);
   const [second, setSecond] = useState(big);
   const [explain, setExplain] = useState(() => get('sb:massalong:explain', '1') === '1');
-  const [i, setI] = useState(() => Math.max(0, +get(`sb:massalong:${date}`, '0') || 0));
+  const [savedStep] = useState(() => get(`sb:massalong:${date}`, ''));
+  const [i, setI] = useState(() => { const n = +savedStep; if (savedStep.trim() !== '' && Number.isFinite(n)) return Math.max(0, n); const k = OF_STEPS.findIndex((x) => x.id === savedStep); return k >= 0 ? k + 1 : 0; });
+  const [stepId, setStepId] = useState<string | null>(() => (savedStep === 'intro' || OF_STEPS.some((x) => x.id === savedStep) ? savedStep : null));
   const [list, setList] = useState(false);
   const [lines, setLines] = useState<Record<number, string>>({});
   useWakeLock(st.keepAwake);
@@ -58,10 +62,11 @@ export default function MassAlongPage() {
   const steps = useMemo(() => OF_STEPS.filter((s) => (s.only === 'gloria' ? gloria : s.only === 'creed' ? creed : s.only === 'second' ? second : true)), [gloria, creed, second]);
   // block 0 is the opening block; blocks 1..n are the parts of the Mass
   const total = steps.length + 1;
-  const idx = Math.min(i, total - 1);
+  const idxById = stepId === 'intro' ? 0 : stepId ? steps.findIndex((x) => x.id === stepId) + 1 : -1;
+  const idx = idxById >= 0 ? idxById : Math.min(i, total - 1);
   const step = idx === 0 ? null : steps[idx - 1];
-  useEffect(() => put(`sb:massalong:${date}`, String(idx)), [idx, date]);
-  const go = (n: number) => { setI(Math.max(0, Math.min(total - 1, n))); window.scrollTo?.({ top: 0 }); };
+  useEffect(() => { put(`sb:massalong:${date}`, idx === 0 ? 'intro' : (step?.id ?? 'intro')); pruneDatedKeys('sb:massalong:'); }, [idx, step?.id, date]);
+  const go = (n: number) => { const c = Math.max(0, Math.min(total - 1, n)); setI(c); setStepId(c === 0 ? 'intro' : (steps[c - 1]?.id ?? null)); window.scrollTo?.({ top: 0 }); };
   const want = step ? CCC_FOR[step.id] : INTRO_CCC;
   useEffect(() => {
     if (!explain || !want || lines[want]) return;
@@ -70,7 +75,7 @@ export default function MassAlongPage() {
   const touch = useRef<number | null>(null);
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
-      if ((e.target as HTMLElement | null)?.closest?.('input,select,textarea,summary')) return;
+      if ((e.target as HTMLElement | null)?.closest?.('input, select, textarea, button, a, summary, [contenteditable]')) return;
       if (e.key === 'ArrowRight') go(idx + 1); else if (e.key === 'ArrowLeft') go(idx - 1);
     };
     window.addEventListener('keydown', k);
