@@ -11,7 +11,7 @@ import { usePlayer } from '../../data/PlayerContext';
 import { loadBiay } from '../../data/biay';
 import PinButton from '../../components/PinButton';
 import { recordOpened } from '../../lib/pins';
-import { choosePlan, confirmSwitch, startPlan } from '../../lib/activePlan';
+import { calendarDaysSince, choosePlan, confirmSwitch, startPlan } from '../../lib/activePlan';
 
 export default function PlanPage() {
   const { id: rawId = '' } = useParams();
@@ -36,11 +36,11 @@ export default function PlanPage() {
   useEffect(() => { if (plan) recordOpened({ kind: 'plan', id, title: plan.name, to: `/pray/plans/${encodeURIComponent(id)}` }); }, [plan?.id, plan?.name]); // eslint-disable-line react-hooks/exhaustive-deps
   if (plan === undefined) return <div className="center-note">Loading plan…</div>;
   if (plan === null) return <div className="page" data-state="not-found"><Link to="/pray/plans" className="small">← Plans</Link><h1>Plan not found</h1><p>There is no reading plan with that address. It may have been deleted, or the link may be mistyped.</p><p><Link to="/pray/plans">See all plans</Link></p></div>;
-  const todayIdx = prog ? Math.max(0, Math.min(plan.days.length - 1, Math.floor((Date.now() - prog.startedAt) / 86400000) + prog.offsetDays)) : -1;
+  const todayIdx = prog ? Math.max(0, Math.min(plan.days.length - 1, calendarDaysSince(prog.startedAt, prog.status === 'paused' && prog.pausedAt ? prog.pausedAt : Date.now()) + prog.offsetDays)) : -1;
   const toggle = async (i: number) => {
     if (!prog) return;
     const done = prog.done.includes(i) ? prog.done.filter((x) => x !== i) : [...prog.done, i];
-    await db.planProgress.put({ ...prog, done, status: done.length >= plan.days.length ? 'finished' : prog.status });
+    await db.planProgress.put({ ...prog, done, status: done.length >= plan.days.length ? 'finished' : prog.status === 'finished' ? 'active' : prog.status });
   };
   // the first day not yet checked, if it lies before today: offer to pick up from there instead of skipping
   const firstUnread = prog ? plan.days.findIndex((_, i) => !prog.done.includes(i)) : -1;
