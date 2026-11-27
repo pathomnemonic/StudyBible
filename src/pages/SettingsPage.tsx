@@ -20,6 +20,7 @@ import DriveBackup from '../components/DriveBackup';
 import DriveSyncCard from '../components/DriveSyncCard';
 import TipCard from '../components/TipCard';
 import { deleteAllData, download, exportAll } from '../db/ops';
+import { isoToday } from '../lib/day';
 
 /** Timings the browser already keeps, shown only here. Nothing is sent anywhere. */
 function PerfInfo() {
@@ -48,7 +49,7 @@ export default function SettingsPage() {
   return (
     <div className="page">
       <h1>Settings</h1>
-      <input type="search" className="settings-search" placeholder="Find a setting (try “font”, “sound”, “offline”)" aria-label="Find a setting" onChange={(e) => { const q = e.target.value.trim().toLowerCase(); document.querySelectorAll<HTMLElement>('.page > .card').forEach((c) => { c.hidden = !!q && !(c.textContent ?? '').toLowerCase().includes(q) && !(c.querySelector('select,input') && [...c.querySelectorAll('[aria-label]')].some((n) => (n.getAttribute('aria-label') ?? '').toLowerCase().includes(q))); }); }} />
+      <input type="search" className="settings-search" placeholder="Find a setting (try “font”, “sound”, “offline”)" aria-label="Find a setting" onChange={(e) => { const q = e.target.value.trim().toLowerCase(); document.querySelectorAll<HTMLElement>('.page > .card, .page > details.fold').forEach((c) => { c.hidden = !!q && !(c.textContent ?? '').toLowerCase().includes(q) && !(c.querySelector('select,input') && [...c.querySelectorAll('[aria-label]')].some((n) => (n.getAttribute('aria-label') ?? '').toLowerCase().includes(q))); }); }} />
       <InstallCard />
       <div className="card more-links">
         <Link to="/downloads">Downloads and offline</Link>
@@ -123,7 +124,7 @@ export default function SettingsPage() {
       <Fold id="settings:Reminders (optional)" title="Reminders (optional)" open={true}>
         <p className="muted small">Entirely under your control. They work while the app is open or installed; nothing is sent from a server and no tracking is involved.</p>
         <label className="row between" style={{ margin: '8px 0' }}><span>Remind me daily</span><input type="checkbox" checked={s.reminders.enabled} onChange={async (e) => { if (e.target.checked) { const r = await enableReminders(); setRemMsg(r === 'granted' ? 'Reminders enabled while the app is running.' : r === 'denied' ? 'Notification permission was denied in the browser.' : 'This browser does not support notifications.'); set({ reminders: { ...s.reminders, enabled: r === 'granted' } }); } else set({ reminders: { ...s.reminders, enabled: false } }); setTimeout(scheduleReminder, 50); }} /></label>
-        <div className="row between" style={{ margin: '8px 0' }}><span>Time</span><input type="time" aria-label="Reminder time" value={s.reminders.time} onChange={(e) => { set({ reminders: { ...s.reminders, time: e.target.value } }); setTimeout(scheduleReminder, 50); }} /></div>
+        <div className="row between" style={{ margin: '8px 0' }}><span>Time</span><input type="time" aria-label="Reminder time" value={s.reminders.time} onChange={(e) => { if (!e.target.value) return; set({ reminders: { ...s.reminders, time: e.target.value } }); setTimeout(scheduleReminder, 50); }} /></div>
         <input type="text" value={s.reminders.message} onChange={(e) => set({ reminders: { ...s.reminders, message: e.target.value } })} style={{ width: '100%' }} aria-label="Reminder message" />
         {remMsg && <p className="small">{remMsg}</p>}
         <h3 style={{ marginTop: 14 }}>Prayer and verse reminders</h3>
@@ -131,7 +132,7 @@ export default function SettingsPage() {
           <div className="row between" key={r.id} style={{ margin: '6px 0' }}>
             <label className="row"><input type="checkbox" checked={r.enabled} onChange={async (e) => { if (e.target.checked && (await enableReminders()) !== 'granted') { setRemMsg('Notification permission is needed.'); return; } set({ prayerReminders: s.prayerReminders.map((x) => (x.id === r.id ? { ...x, enabled: e.target.checked } : x)) }); setTimeout(scheduleReminder, 50); }} /> {r.label}</label>
             <span className="row">
-              <input type="time" value={r.time} aria-label={`${r.label} time`} onChange={(e) => { set({ prayerReminders: s.prayerReminders.map((x) => (x.id === r.id ? { ...x, time: e.target.value } : x)) }); setTimeout(scheduleReminder, 50); }} />
+              <input type="time" value={r.time} aria-label={`${r.label} time`} onChange={(e) => { if (!e.target.value) return; set({ prayerReminders: s.prayerReminders.map((x) => (x.id === r.id ? { ...x, time: e.target.value } : x)) }); setTimeout(scheduleReminder, 50); }} />
               <button className="btn small ghost" onClick={() => { set({ prayerReminders: s.prayerReminders.filter((x) => x.id !== r.id) }); setTimeout(scheduleReminder, 50); }} aria-label={`Remove ${r.label}`}>Remove</button>
             </span>
           </div>
@@ -170,7 +171,7 @@ export default function SettingsPage() {
           </div>
         )}
         <div className="row">
-          <button className="btn" onClick={async () => download(`studybible-export-${new Date().toISOString().slice(0, 10)}.json`, await exportAll())}>Export everything</button>
+          <button className="btn" onClick={async () => { download(`studybible-export-${isoToday()}.json`, await exportAll()); set({ lastBackup: Date.now() }); }}>Export everything</button>
           <button className="btn danger" onClick={() => confirm('Delete ALL notes, highlights, bookmarks, journal entries and progress on this device? This cannot be undone.') && deleteAllData()}>Delete all my data</button>
         </div>
       </Fold>
