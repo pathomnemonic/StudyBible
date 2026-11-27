@@ -68,7 +68,17 @@ const FIXED: [number, number, string][] = [
   [1, 6, 'Theophany'], [2, 2, 'Meeting of the Lord'], [3, 25, 'Annunciation'], [8, 6, 'Transfiguration'], [8, 15, 'Dormition of the Theotokos'],
 ];
 export function byzantineFixed(year: number, oldCalendar: boolean): FeastDate[] {
-  return FIXED.map(([m, d, label]) => ({ label, date: addDays(utc(year, m, d), oldCalendar ? 13 : 0) })).sort((a, b) => a.date.getTime() - b.date.getTime());
+  // the feasts celebrated IN the year: on the old calendar a December feast falls 13 days later, in
+  // January of the next year, so the previous year's December feasts belong to this year's list and
+  // this year's December feasts to next year's. Building from the nominal year alone left the old
+  // calendar year with no Nativity in it at all.
+  const shift = oldCalendar ? 13 : 0;
+  const out: FeastDate[] = [];
+  for (const y of [year - 1, year]) for (const [m, d, label] of FIXED) {
+    const date = addDays(utc(y, m, d), shift);
+    if (date.getUTCFullYear() === year) out.push({ label, date });
+  }
+  return out.sort((a, b) => a.date.getTime() - b.date.getTime());
 }
 
 /**
