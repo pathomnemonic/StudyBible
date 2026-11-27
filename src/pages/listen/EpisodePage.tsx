@@ -1,11 +1,14 @@
 import { logHistory } from '../../db/log';
 import SaveOffline from '../../components/SaveOffline';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
 import { fmtDuration, useBiay } from '../../data/biay';
 import { rememberEpisode, usePlayer } from '../../data/PlayerContext';
+import { resolveAny } from '../../data/playlist';
+import { latestRequest } from '../../lib/latestRequest';
+import type { BiayEpisode } from '../../data/content';
 import { formatRef, parseRefId, type Ref } from '../../lib/refs';
 import RefLink from '../../components/RefLink';
 import NoteEditor from '../../components/NoteEditor';
@@ -21,21 +24,36 @@ export default function EpisodePage() {
   const [note, setNote] = useState(false);
   const [teach, setTeach] = useState<StudyItem[]>([]);
   const prog = useLiveQuery(() => db.episodeProgress.get(id), [id]);
-  const ep = biay?.byId.get(id);
+  const biayEp = biay?.byId.get(id);
+  const [extra, setExtra] = useState<BiayEpisode | null>(null);
+  const [extraDone, setExtraDone] = useState(false);
+  const epReq = useRef(latestRequest());
+  const teachReq = useRef(latestRequest());
+  useEffect(() => {
+    setExtra(null); setExtraDone(false);
+    if (!loaded || biayEp) { if (biayEp) setExtraDone(true); return; }
+    const ticket = epReq.current.next();
+    void resolveAny(id).then((found) => { if (ticket.isCurrent()) { setExtra(found ?? null); setExtraDone(true); } }).catch(() => { if (ticket.isCurrent()) setExtraDone(true); });
+    return () => epReq.current.cancel();
+  }, [id, loaded, biayEp]);
+  const ep = biayEp ?? extra;
   useEffect(() => {
     if (!ep) return;
+    setTeach([]);
+    const ticket = teachReq.current.next();
     logHistory({ ts: Date.now(), type: 'episode', ref: ep.id, label: ep.title });
     const refs = ep.passages.map((p) => parseRefId(p)).filter(Boolean) as Ref[];
-    if (refs.length) Promise.all([providers.catechism(refs.slice(0, 1)), providers.doctrine(refs.slice(0, 4))]).then(([a, b]) => setTeach([...a, ...b]));
+    if (refs.length) Promise.all([providers.catechism(refs.slice(0, 1)), providers.doctrine(refs.slice(0, 4))]).then(([a, b]) => { if (ticket.isCurrent()) setTeach([...a, ...b]); });
+    return () => teachReq.current.cancel();
   }, [ep?.id]);
-  if (!loaded) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
-  if (!ep || !biay) return <div className="page" data-state="not-found"><p>Episode not found. <Link to="/listen">Back</Link></p></div>;
-  const others = ep.day ? (biay.releases.get(ep.day) ?? []).filter((e) => e.id !== ep.id) : [];
+  if (!loaded || (loaded && !biayEp && !extraDone)) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
+  if (!ep) return <div className="page" data-state="not-found"><p>Episode not found. <Link to="/listen">Back</Link></p></div>;
+  const others = biayEp && ep.day && biay ? (biay.releases.get(ep.day) ?? []).filter((e) => e.id !== ep.id) : [];
   const isCurrent = player.current?.id === ep.id;
   return (
     <div className="page">
       <h1>{ep.title}</h1>
-      <div className="muted">{ep.date} · {fmtDuration(ep.duration)} · Fr. Mike Schmitz / Ascension</div>
+      <div className="muted">{ep.date} · {fmtDuration(ep.duration)}{biayEp ? ' · Fr. Mike Schmitz / Ascension' : ep.album ? ` · ${ep.album}` : ep.artist ? ` · ${ep.artist}` : ''}</div>
       <div className="row" style={{ margin: '12px 0' }}>
         <button className="btn primary" onClick={() => (isCurrent ? player.toggle() : player.play(ep))}>
           <Icon name={isCurrent && player.playing ? 'pause' : 'play'} size={16} /> {isCurrent && player.playing ? 'Pause' : prog && !prog.completed && prog.position > 30 ? `Resume (${Math.floor(prog.position / 60)} min)` : 'Play'}
@@ -46,6 +64,7 @@ export default function EpisodePage() {
         <button className="btn" onClick={() => setNote(true)}><Icon name="note" size={16} /> Note</button>
       </div>
 
+      {(biayEp || ep.passages.length > 0) && (
       <div className="card">
         <h3>Readings for this episode</h3>
         <p className="muted small">Taken from the show’s feed metadata ({ep.passageSource.replace(/-/g, ' ')}). Chapter-level; the show uses modern numbering and the app maps it to the Vulgate anchor.</p>
@@ -62,12 +81,13 @@ export default function EpisodePage() {
           })}
         </ul>
       </div>
+      )}
 
       <div className="card">
         <h3>About this episode</h3>
         <p style={{ whiteSpace: 'pre-wrap' }}>{ep.description}</p>
         <p className="muted small">Source: official feed metadata. <a href={ep.page} target="_blank" rel="noreferrer">Episode page ↗</a> · <a href={ep.audio} target="_blank" rel="noreferrer">Official audio file ↗</a></p>
-        <p className="muted small">Transcript: the official feed does not provide one. Ascension may publish captions on its YouTube channel: <a href="https://www.youtube.com/@AscensionPresents" target="_blank" rel="noreferrer">Ascension Presents ↗</a>.</p>
+        {biayEp && <p className="muted small">Transcript: the official feed does not provide one. Ascension may publish captions on its YouTube channel: <a href="https://www.youtube.com/@AscensionPresents" target="_blank" rel="noreferrer">Ascension Presents ↗</a>.</p>}
         {ep.player && (
           <>
             <button className="btn small" onClick={() => setEmbed(!embed)}>{embed ? 'Hide' : 'Show'} the publisher’s own embedded player</button>
