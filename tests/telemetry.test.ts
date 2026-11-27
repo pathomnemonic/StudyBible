@@ -68,14 +68,17 @@ describe('agreement first in the EU, the UK and the EEA', () => {
     expect(consentPromptNeeded(win())).toBe(false);
     updateSettings({ telemetryConsent: undefined });
   });
-  it('outside the region nothing changes: no answer is needed and none is asked for', async () => {
+  it('outside the region no answer is needed and none is asked for, but a stored no still stops reports', async () => {
     const { telemetryAllowed, consentPromptNeeded } = await import('../src/lib/telemetry');
     const { updateSettings } = await import('../src/lib/store');
     withTimeZone('America/New_York');
     updateSettings({ kidMode: false, telemetry: true, telemetryConsent: undefined });
     expect(telemetryAllowed(win())).toBe(true);
     expect(consentPromptNeeded(win())).toBe(false);
-    updateSettings({ telemetryConsent: 'denied' }); // an answer stored from the region does not gate anywhere else
+    updateSettings({ telemetryConsent: 'denied' }); // a refusal is honoured in every region, not only where the banner shows
+    expect(telemetryAllowed(win())).toBe(false);
+    expect(consentPromptNeeded(win())).toBe(false);
+    updateSettings({ telemetryConsent: 'granted' });
     expect(telemetryAllowed(win())).toBe(true);
     updateSettings({ telemetryConsent: undefined });
   });
