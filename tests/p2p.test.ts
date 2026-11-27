@@ -21,11 +21,12 @@ describe('a class with no server: the teacher’s device runs it, students reach
     const host = await link.createHost(content, sanitizeSettings({ shuffleOptions: false }), ['Ann Lee', 'Ben Cruz']);
     expect(host.via).toBe('p2p');
     expect(host.code).toMatch(/^\d{6}$/);
-    const info = await link.peekRoom(host.code);
+    expect(host.joinKey).toMatch(/^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{8}$/);
+    const info = await link.peekRoom(host.code, host.joinKey);
     expect(info).toMatchObject({ title: 'P2P', via: 'p2p', rosterOnly: true });
     expect(info.roster).toEqual(['Ann Lee', 'Ben Cruz']);
-    await expect(link.joinRoom(host.code, 'Nobody')).rejects.toThrow(/class list/);
-    const ann = await link.joinRoom(host.code, 'Ann Lee');
+    await expect(link.joinRoom(host.code, 'Nobody', undefined, undefined, host.joinKey)).rejects.toThrow(/class list/);
+    const ann = await link.joinRoom(host.code, 'Ann Lee', undefined, undefined, host.joinKey);
     await until(() => host.view?.players.length === 1);
     expect(ann.token).toBeTruthy();
     await host.act('quiz');
@@ -47,7 +48,7 @@ describe('a class with no server: the teacher’s device runs it, students reach
     const link = await import('../src/live/link');
     const { sanitizeSettings } = await import('../src/live/engine');
     const host = await link.createHost(content, sanitizeSettings({}), []);
-    const a = await link.joinRoom(host.code, 'Zed');
+    const a = await link.joinRoom(host.code, 'Zed', undefined, undefined, host.joinKey);
     await until(() => host.view?.players.length === 1);
     await host.act('quiz');
     const snap = store.get(`sb:live:snap:${host.code}`);
