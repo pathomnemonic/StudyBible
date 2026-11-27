@@ -32,11 +32,14 @@ export default function MorningPage() {
   const [phase, setPhase] = useState<'idle' | 'armed' | 'awake'>('idle');
   const [gospel, setGospel] = useState<{ label: string; verses: { v: number; text: string }[] } | null>(null);
   const timer = useRef<number | undefined>(undefined);
+  const ramp = useRef<number | undefined>(undefined);
+  const speechTimer = useRef<number | undefined>(undefined);
+  const clearWakeTimers = () => { window.clearInterval(ramp.current); window.clearTimeout(speechTimer.current); ramp.current = undefined; speechTimer.current = undefined; };
   const set = (patch: Partial<Prefs>) => setP((x) => { const n = { ...x, ...patch }; try { localStorage.setItem(KEY, JSON.stringify(n)); } catch { /* private mode */ } return n; });
   useWakeLock(armed);
 
-  const stop = () => { window.clearTimeout(timer.current); try { speechSynthesis.cancel(); } catch { /* none */ } stopAmbience(); setArmed(false); setPhase('idle'); };
-  useEffect(() => () => { window.clearTimeout(timer.current); try { speechSynthesis.cancel(); } catch { /* none */ } stopAmbience(); }, []);
+  const stop = () => { window.clearTimeout(timer.current); clearWakeTimers(); try { speechSynthesis.cancel(); } catch { /* none */ } stopAmbience(); setArmed(false); setPhase('idle'); };
+  useEffect(() => () => { window.clearTimeout(timer.current); clearWakeTimers(); try { speechSynthesis.cancel(); } catch { /* none */ } stopAmbience(); }, []);
 
   const todaysGospel = async (): Promise<{ label: string; refs: Ref[] } | null> => {
     const today = iso(new Date());
@@ -54,10 +57,11 @@ export default function MorningPage() {
 
   const wake = async () => {
     setPhase('awake');
+    clearWakeTimers();
     let v = 0.02;
     if (p.sound !== 'off') {
       setAmbience(p.sound, v);
-      const up = window.setInterval(() => { v = Math.min(p.volume, v + p.volume / 20); setAmbience(p.sound, v); if (v >= p.volume) window.clearInterval(up); }, 6000);
+      ramp.current = window.setInterval(() => { v = Math.min(p.volume, v + p.volume / 20); setAmbience(p.sound, v); if (v >= p.volume) { window.clearInterval(ramp.current); ramp.current = undefined; } }, 6000);
     }
     softBell();
     const g = await todaysGospel();
@@ -65,7 +69,7 @@ export default function MorningPage() {
       const verses = (await Promise.all(g.refs.map((r) => passageText(edition, r, 40)))).flat();
       setGospel({ label: g.label, verses });
       if (p.speak && 'speechSynthesis' in window) {
-        window.setTimeout(() => { const u = new SpeechSynthesisUtterance(verses.map((x) => x.text).join(' ')); u.lang = edition.language; u.rate = 0.9; speechSynthesis.speak(u); }, 90_000); // the sound rises first
+        speechTimer.current = window.setTimeout(() => { const u = new SpeechSynthesisUtterance(verses.map((x) => x.text).join(' ')); u.lang = edition.language; u.rate = 0.9; speechSynthesis.speak(u); }, 90_000); // the sound rises first
       }
     }
   };
