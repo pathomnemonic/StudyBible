@@ -97,7 +97,7 @@ export default function LectioPage() {
           <p className="lede">An ancient way of praying with Scripture in four movements.</p>
           <div className="row" style={{ marginBottom: 8 }}>
             <input type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && choose()} aria-label="Passage" style={{ flex: 1 }} />
-            <button className="btn" onClick={choose}>Use</button>
+            <button className="btn" onClick={() => choose()}>Use</button>
           </div>
           {err && <div className="notice">{err}</div>}
           <label className="row between" style={{ margin: '10px 0' }}>
