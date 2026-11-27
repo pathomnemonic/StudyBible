@@ -31,7 +31,21 @@ export default function VerbumPage() {
   const [cfg] = useSettings();
   const [valid, setValid] = useState<Set<string> | null>(null);
   const [practice, setPractice] = useState<string | null>(null);
-  const today = dayIndex();
+  const [today, setToday] = useState(dayIndex);
+  useEffect(() => {
+    const check = () => {
+      const d = dayIndex();
+      if (d === today) return;
+      const s = load();
+      setSt(s.day === d ? s : { ...s, day: d, guesses: [], counted: false });
+      setPractice(null); setPGuesses([]); setCur(''); setMsg('');
+      setToday(d);
+    };
+    const t = window.setInterval(check, 30000);
+    document.addEventListener('visibilitychange', check);
+    window.addEventListener('focus', check);
+    return () => { window.clearInterval(t); document.removeEventListener('visibilitychange', check); window.removeEventListener('focus', check); };
+  }, [today]);
   const [st, setSt] = useState<Saved>(() => { const s = load(); return s.day === today ? s : { ...s, day: today, guesses: [], counted: false }; });
   const [pGuesses, setPGuesses] = useState<string[]>([]);
   const [cur, setCur] = useState('');
