@@ -1,9 +1,9 @@
 import ShareButton from '../components/ShareButton';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { randomName, useCountdown } from './client';
 import { useHostLink, usePlayerLink } from './hooks';
-import { joinRoom, peekRoom, type HostLink, type PlayerLink } from './link';
+import { joinRoom, peekRoom, storedSecret, type HostLink, type PlayerLink } from './link';
 import type { CrownTrack, LiveSlide, LiveView } from './types';
 import InlinePlayer from '../components/InlinePlayer';
 import { recordSession, type HostMeta } from '../teach/store';
@@ -151,21 +151,23 @@ function Teams({ v }: { v: LiveView }) {
 /** ---------- the student's side ---------- */
 export function JoinPage() {
   const params = useParams();
+  const [search] = useSearchParams();
   const nav = useNavigate();
   const [code, setCode] = useState(params.code ?? '');
+  const [roomKeyIn, setRoomKeyIn] = useState(() => (search.get('k') ?? storedSecret(params.code ?? '')).toUpperCase());
   const [name, setName] = useState(read('sb:live:name'));
   const [err, setErr] = useState('');
   const [busy, setBusy] = useState(false);
   const [title, setTitle] = useState('');
   const [roster, setRoster] = useState<string[]>([]);
   const [rosterOnly, setRosterOnly] = useState(false);
-  useEffect(() => { if (/^\d{6}$/.test(code)) peekRoom(code).then((p) => { setTitle(p.title); setRoster(p.roster ?? []); setRosterOnly(!!p.rosterOnly); }, () => { setTitle(''); setRoster([]); }); else { setTitle(''); setRoster([]); } }, [code]);
+  useEffect(() => { if (/^\d{6}$/.test(code)) peekRoom(code, roomKeyIn).then((p) => { setTitle(p.title); setRoster(p.roster ?? []); setRosterOnly(!!p.rosterOnly); }, () => { setTitle(''); setRoster([]); }); else { setTitle(''); setRoster([]); } }, [code, roomKeyIn]);
   const submit = async (e: React.FormEvent) => {
     e.preventDefault(); setErr(''); setBusy(true);
     try {
       const c = code.replace(/\D/g, '');
       if (roster.length && rosterOnly && !roster.includes(name)) throw new Error('Tap your name in the list.');
-      const j = await joinRoom(c, name.trim() || randomName(), read(tokOf(c)) || undefined);
+      const j = await joinRoom(c, name.trim() || randomName(), read(tokOf(c)) || undefined, undefined, roomKeyIn || undefined);
       write(tokOf(c), j.token); j.close(); write('sb:live:name', name.trim());
       nav(`/play/${c}`);
     } catch (x) { setErr((x as Error).message); } finally { setBusy(false); }
@@ -173,9 +175,11 @@ export function JoinPage() {
   return (
     <div className="page live-join">
       <h1>Join a game or class</h1>
-      <p className="lede">Type the six-digit code the host is showing. No account needed.</p>
+      <p className="lede">Type the code and the room key the host is showing. No account needed.</p>
       <form onSubmit={submit} className="live-form">
         <label>Code<input inputMode="numeric" autoComplete="off" pattern="\d{6}" maxLength={6} value={code} onChange={(e) => setCode(e.target.value.replace(/\D/g, ''))} placeholder="123456" aria-label="Game code" className="live-code-input" autoFocus /></label>
+        <label>Room key<input autoComplete="off" maxLength={8} value={roomKeyIn} onChange={(e) => setRoomKeyIn(e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, ''))} placeholder="ABCD2345" aria-label="Room key" className="live-code-input" /></label>
+        <p className="muted small">The short word next to the code on the host screen. Opening the join link or scanning the QR code fills it in for you.</p>
         {title && <p className="muted small">Session: <strong>{title}</strong></p>}
         {roster.length > 0 ? (
           <fieldset className="live-roster"><legend>Tap your name</legend>
@@ -289,7 +293,7 @@ export function HostPage() {
     return () => clearTimeout(t);
   }, [v, meta]);
   const [copied, setCopied] = useState(false);
-  const joinUrl = useMemo(() => `${location.origin}${location.pathname}#/join/${code}`, [code]);
+  const joinUrl = useMemo(() => `${location.origin}${location.pathname}#/join/${code}${link?.joinKey ? `?k=${link.joinKey}` : ''}`, [code, link?.joinKey]);
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
       if ((e.target as HTMLElement).closest('input,textarea,select')) return;
@@ -323,6 +327,7 @@ export function HostPage() {
           <div className="lv-qrbox"><QrCode text={joinUrl} label={`QR code that opens the join page for game ${v.code}`} /></div>
           <div className="row" style={{ justifyContent: 'center', gap: 8, flexWrap: 'wrap', margin: '0 0 8px' }}><button type="button" className="btn" onClick={() => { const done = () => { setCopied(true); setTimeout(() => setCopied(false), 2000); }; try { void navigator.clipboard.writeText(joinUrl).then(done, done); } catch { done(); } }}>{copied ? 'Link copied ✓' : 'Copy link'}</button><ShareButton text={`Join my game on Cathology with the code ${v.code}`} path={`/join/${v.code}`} label="Share the invitation" className="btn" /></div>
           <div className="live-code" aria-label={`Game code ${v.code.split('').join(' ')}`}>{v.code}</div>
+          {link?.joinKey && <p className="muted">Room key <strong className="live-code-sm">{link.joinKey}</strong>: students who type the code type this word too. The join link and the QR code already carry it.</p>}
           <div className="row" style={{ gap: 8, justifyContent: 'center', flexWrap: 'wrap', margin: '12px 0' }}>
             <button className="btn primary big" onClick={() => act('start')} disabled={!v.slideCount && !v.qCount}>{v.settings.mode === 'exam' ? `Start the exam (${v.settings.examMinutes} min)` : v.settings.mode === 'race' ? 'Start the race' : v.settings.mode === 'crowns' ? 'Start the Trivia Chrism race' : v.settings.mode === 'whoami' ? 'Start Who Am I?' : v.settings.mode === 'build' ? 'Start building' : v.slideCount ? 'Start the lesson' : 'Start the game'}</button>
             {v.slideCount > 0 && v.qCount > 0 && v.settings.mode === 'game' && <button className="btn" onClick={() => act('quiz')}>Skip to the quiz</button>}

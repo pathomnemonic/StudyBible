@@ -1,5 +1,5 @@
 import { LiveRoom, sanitizeContent, sanitizeRoster, sanitizeSettings } from './engine';
-import { open as unseal, seal, topicRoot } from './crypt';
+import { newRoomSecret, open as unseal, playerTopic, roomKey, seal, topicRoot } from './crypt';
 import { Mqtt, brokers } from './mqtt';
 import { live } from './client';
 import type { LiveContent, LiveSettings, LiveView } from './types';
@@ -7,13 +7,13 @@ import type { LiveContent, LiveSettings, LiveView } from './types';
 /**
  * Two ways to carry a class session.
  *  - peer to peer (the default): the teacher's own device runs the session and students reach it through a public message relay, with every
- *    message sealed by a key made from the class code. Needs no server of ours, so it works from any copy of the app.
+ *    message sealed by a key made from the class code together with a random room secret the host device creates. Needs no server of ours, so it works from any copy of the app.
  *  - the Study Bible server, when there is one: the server runs the session and everyone connects to it.
  */
 /** 'lost': this device cannot reach the relay. 'away': the relay is fine but the host's device has gone quiet (asleep, or the app is in the background). */
 export type LinkState = 'connecting' | 'live' | 'lost' | 'away' | 'gone';
 interface Base { code: string; via: 'p2p' | 'server'; view: LiveView | null; state: LinkState; subscribe(fn: () => void): () => void; serverNow(): number; close(): void; /** drop the connection and make a fresh one now */ reconnect(): void; /** which relay is carrying the session, when known */ relayHost?: () => string }
-export interface HostLink extends Base { key: string; act(action: string, arg?: unknown): Promise<void>; csv(): Promise<string> }
+export interface HostLink extends Base { key: string; /** the room secret a student needs beside the code to join this class over the relays; empty for a server class, whose code the server itself checks */ joinKey: string; act(action: string, arg?: unknown): Promise<void>; csv(): Promise<string> }
 export interface PlayerLink extends Base { token: string; answer(value: unknown, q?: number): Promise<void>; submit(): Promise<void> }
 export interface RoomInfo { title: string; phase: string; locked: boolean; mode: LiveSettings['mode']; roster: string[]; rosterOnly: boolean }
 
@@ -35,6 +35,10 @@ export function onWake(fn: () => void): () => void {
 export const relayName = (mq: Mqtt) => { try { return new URL(mq.url).host; } catch { return ''; } };
 export function relay(): Mqtt { if (!shared || shared.state === 'closed') { try { shared?.close(); } catch { /* closed */ } shared = new Mqtt(brokers()); } return shared; }
 const rid = () => Math.random().toString(36).slice(2, 12);
+const SEC = (code: string) => `sb:live:sec:${code}`;
+/** The room secret for a class, kept on this device only: the host device made it, and a student device remembers it after joining so a reload can rejoin without typing it again. */
+export const storedSecret = (code: string): string => { try { return localStorage.getItem(SEC(code)) ?? ''; } catch { return ''; } };
+const keepSecret = (code: string, secret: string) => { try { localStorage.setItem(SEC(code), secret); } catch { /* storage unavailable */ } };
 
 interface InMsg { t: 'peek' | 'join' | 'hello' | 'ans'; n?: string; name?: string; token?: string; value?: unknown; q?: number; submit?: boolean; mid?: string }
 
@@ -42,41 +46,32 @@ interface InMsg { t: 'peek' | 'join' | 'hello' | 'ans'; n?: string; name?: strin
 export const hosts = new Map<string, HostLink>();
 const SNAP = (code: string) => `sb:live:snap:${code}`;
 
-async function newCode(mq: Mqtt): Promise<string> {
-  for (let i = 0; i < 6; i++) {
-    const code = String(100000 + Math.floor(Math.random() * 900000));
-    const root = await topicRoot(code);
-    const n = rid();
-    const taken = await new Promise<boolean>((res) => {
-      const off = mq.subscribe(`${root}/o/${n}`, () => { off(); res(true); });
-      void seal(code, { t: 'peek', n }).then((p) => mq.publish(`${root}/in`, p));
-      setTimeout(() => { off(); res(false); }, 1200);
-    });
-    if (!taken) return code;
-  }
-  throw new Error('Could not find a free class code. Try again.');
-}
+/** A fresh class code. Two classes may share a code without ever meeting: their topics and keys are made from the code together with each host room secret, so the code alone names nothing on the relays. */
+function newCode(): string { return String(100000 + Math.floor(Math.random() * 900000)); }
 
 export async function hostP2P(content: LiveContent, settings: LiveSettings, roster: string[], resume?: string): Promise<HostLink> {
   const mq = relay();
   await mq.ready();
-  const room = resume ? LiveRoom.restore(resume) : new LiveRoom(await newCode(mq), sanitizeContent(content), sanitizeSettings(settings), Date.now, sanitizeRoster(roster));
+  const room = resume ? LiveRoom.restore(resume) : new LiveRoom(newCode(), sanitizeContent(content), sanitizeSettings(settings), Date.now, sanitizeRoster(roster));
   const code = room.code;
-  const root = await topicRoot(code);
+  let secret = storedSecret(code);
+  if (!secret) { secret = newRoomSecret(); keepSecret(code, secret); }
+  const rk = roomKey(code, secret);
+  const root = await topicRoot(rk);
   const em = new Emitter();
   const seen = new Set<string>();
   let lastVersion = -1, lastBeat = 0, closed = false;
   const link: HostLink = {
-    code, key: room.hostKey, via: 'p2p', view: room.view('host'), state: mq.state === 'open' ? 'live' : 'connecting',
+    code, key: room.hostKey, joinKey: secret, via: 'p2p', view: room.view('host'), state: mq.state === 'open' ? 'live' : 'connecting',
     subscribe: (f) => em.subscribe(f), serverNow: () => Date.now(),
     act: async (a, arg) => { room.host(a, arg); flush(); },
     csv: async () => room.csv(),
     reconnect: () => { mq.reconnect(); }, relayHost: () => relayName(mq),
     close: () => { closed = true; clearInterval(timer); offWake(); off(); void sendAll({ t: 'gone' }); try { localStorage.removeItem(SNAP(code)); } catch { /* storage unavailable */ } hosts.delete(code); link.state = 'gone'; em.emit(); },
   };
-  const send = async (topic: string, data: unknown) => { mq.publish(topic, await seal(code, data)); };
-  const sendAll = async (msg: unknown) => { for (const t of room.tokens()) await send(`${root}/p/${t}`, msg); };
-  const pushPlayer = (t: string) => send(`${root}/p/${t}`, { t: 'view', view: room.view('player', t) });
+  const send = async (topic: string, data: unknown) => { mq.publish(topic, await seal(rk, data)); };
+  const sendAll = async (msg: unknown) => { for (const t of room.tokens()) await send(await playerTopic(root, t), msg); };
+  const pushPlayer = async (t: string) => send(await playerTopic(root, t), { t: 'view', view: room.view('player', t) });
   const flush = (force = false) => {
     if (closed) return;
     link.view = room.view('host');
@@ -85,7 +80,7 @@ export async function hostP2P(content: LiveContent, settings: LiveSettings, rost
     em.emit();
   };
   const off = mq.subscribe(`${root}/in`, async (payload) => {
-    const m = await unseal<InMsg>(code, payload);
+    const m = await unseal<InMsg>(rk, payload);
     if (!m || closed) return;
     if (m.mid) { if (seen.has(m.mid)) return; seen.add(m.mid); if (seen.size > 2000) seen.clear(); }
     if (m.t === 'peek' && m.n) { await send(`${root}/o/${m.n}`, { title: room.content.title, phase: room.phase, locked: room.locked, mode: room.settings.mode, roster: room.rosterFree(), rosterOnly: room.roster.length > 0 && room.settings.rosterOnly }); }
@@ -116,46 +111,50 @@ export async function hostP2P(content: LiveContent, settings: LiveSettings, rost
 }
 
 // ------------------------------------------------------------------ player, peer to peer
-function request<T>(mq: Mqtt, code: string, root: string, msg: InMsg, ms: number): Promise<T> {
+function request<T>(mq: Mqtt, rk: string, root: string, msg: InMsg, ms: number): Promise<T> {
   return new Promise((res, rej) => {
     const n = rid();
     let done = false;
-    const off = mq.subscribe(`${root}/o/${n}`, async (p) => { const r = await unseal<T>(code, p); if (r && !done) { done = true; off(); clearTimeout(t); res(r); } });
+    const off = mq.subscribe(`${root}/o/${n}`, async (p) => { const r = await unseal<T>(rk, p); if (r && !done) { done = true; off(); clearTimeout(t); res(r); } });
     const t = setTimeout(() => { if (!done) { done = true; off(); rej(new Error('No class answered to that code. Check the number, and that your teacher’s screen is still open.')); } }, ms);
-    void seal(code, { ...msg, n }).then((p) => { if (!mq.publish(`${root}/in`, p)) { /* the relay is still connecting; the timeout reports it */ } });
+    void seal(rk, { ...msg, n }).then((p) => { if (!mq.publish(`${root}/in`, p)) { /* the relay is still connecting; the timeout reports it */ } });
     // the first message can be sent before the relay's subscription is in place; ask again shortly
-    setTimeout(() => { if (!done) void seal(code, { ...msg, n }).then((p) => mq.publish(`${root}/in`, p)); }, 1500);
+    setTimeout(() => { if (!done) void seal(rk, { ...msg, n }).then((p) => mq.publish(`${root}/in`, p)); }, 1500);
   });
 }
 
-async function peekP2P(code: string): Promise<RoomInfo> {
+async function peekP2P(code: string, secret: string): Promise<RoomInfo> {
   const mq = relay(); await mq.ready();
-  return request<RoomInfo>(mq, code, await topicRoot(code), { t: 'peek' }, 5000);
+  const rk = secret ? roomKey(code, secret) : code;
+  return request<RoomInfo>(mq, rk, await topicRoot(rk), { t: 'peek' }, 5000);
 }
 
-async function joinP2P(code: string, name: string, token?: string): Promise<PlayerLink> {
+async function joinP2P(code: string, name: string, token: string | undefined, secret: string): Promise<PlayerLink> {
   const mq = relay(); await mq.ready();
-  const root = await topicRoot(code);
-  const r = await request<{ ok?: boolean; err?: string; token: string; id: string }>(mq, code, root, { t: 'join', name, token }, 8000);
+  const rk = roomKey(code, secret);
+  const root = await topicRoot(rk);
+  const r = await request<{ ok?: boolean; err?: string; token: string; id: string }>(mq, rk, root, { t: 'join', name, token }, 8000);
   if (!r.ok) throw new Error(r.err ?? 'Could not join.');
-  return playerP2P(code, r.token, mq, root);
+  return playerP2P(code, r.token, secret, mq, root);
 }
 
-export async function playerP2P(code: string, token: string, mq: Mqtt = relay(), rootIn?: string): Promise<PlayerLink> {
+export async function playerP2P(code: string, token: string, secret = '', mq: Mqtt = relay(), rootIn?: string): Promise<PlayerLink> {
   await mq.ready().catch(() => undefined);
-  const root = rootIn ?? await topicRoot(code);
+  const rk = secret ? roomKey(code, secret) : code;
+  const root = rootIn ?? await topicRoot(rk);
+  const pTopic = await playerTopic(root, token);
   const em = new Emitter();
   let last = Date.now(), skew = 0, closed = false;
   const link: PlayerLink = {
     code, token, via: 'p2p', view: null, state: 'connecting', subscribe: (f) => em.subscribe(f), serverNow: () => Date.now() + skew,
     reconnect: () => { mq.reconnect(); }, relayHost: () => relayName(mq),
-    answer: async (value, q) => { const mid = rid(); const p = await seal(code, { t: 'ans', token, value, q, mid }); mq.publish(`${root}/in`, p); setTimeout(() => mq.publish(`${root}/in`, p), 1500); },
-    submit: async () => { const mid = rid(); const p = await seal(code, { t: 'ans', token, submit: true, mid }); mq.publish(`${root}/in`, p); setTimeout(() => mq.publish(`${root}/in`, p), 1500); },
+    answer: async (value, q) => { const mid = rid(); const p = await seal(rk, { t: 'ans', token, value, q, mid }); mq.publish(`${root}/in`, p); setTimeout(() => mq.publish(`${root}/in`, p), 1500); },
+    submit: async () => { const mid = rid(); const p = await seal(rk, { t: 'ans', token, submit: true, mid }); mq.publish(`${root}/in`, p); setTimeout(() => mq.publish(`${root}/in`, p), 1500); },
     close: () => { closed = true; clearInterval(timer); offWake(); off(); },
   };
-  const hello = async () => { mq.publish(`${root}/in`, await seal(code, { t: 'hello', token })); };
-  const off = mq.subscribe(`${root}/p/${token}`, async (payload) => {
-    const m = await unseal<{ t: string; view?: LiveView }>(code, payload);
+  const hello = async () => { mq.publish(`${root}/in`, await seal(rk, { t: 'hello', token })); };
+  const off = mq.subscribe(pTopic, async (payload) => {
+    const m = await unseal<{ t: string; view?: LiveView }>(rk, payload);
     if (!m || closed) return;
     last = Date.now();
     if (m.t === 'gone') { link.state = 'gone'; em.emit(); return; }
@@ -188,7 +187,7 @@ function serverLink<T extends Base>(code: string, who: { key?: string; token?: s
   openStream();
   return Object.assign(base, extra(base)) as T;
 }
-export const hostServer = (code: string, key: string): HostLink => serverLink<HostLink>(code, { key }, () => ({ key, act: async (a, arg) => { await live.host(code, key, a, arg); }, csv: async () => (await fetch(live.exportUrl(code, key))).text() }));
+export const hostServer = (code: string, key: string): HostLink => serverLink<HostLink>(code, { key }, () => ({ key, joinKey: '', act: async (a, arg) => { await live.host(code, key, a, arg); }, csv: async () => (await fetch(live.exportUrl(code, key))).text() }));
 export const playerServer = (code: string, token: string): PlayerLink => serverLink<PlayerLink>(code, { token }, () => ({ token, answer: async (v, q) => { await live.answer(code, token, v, q); }, submit: async () => { await live.submit(code, token); } }));
 
 // ------------------------------------------------------------------ choosing
@@ -211,22 +210,25 @@ export function resumeHost(code: string): Promise<HostLink> | HostLink | null {
   } catch { /* storage unavailable */ }
   return null;
 }
-export async function peekRoom(code: string): Promise<RoomInfo & { via: 'p2p' | 'server' }> {
+export async function peekRoom(code: string, secret = ''): Promise<RoomInfo & { via: 'p2p' | 'server' }> {
   const viaServer = live.peek(code).then((p) => ({ ...p, via: 'server' as const }));
-  const viaP2P = peekP2P(code).then((p) => ({ ...p, via: 'p2p' as const }));
+  const viaP2P = peekP2P(code, secret).then((p) => ({ ...p, via: 'p2p' as const }));
   try { return await Promise.any([viaServer, viaP2P]); } catch { throw new Error('No class answered to that code. Check the number, and that your teacher’s screen is still open.'); }
 }
-export async function joinRoom(code: string, name: string, token?: string, via?: 'p2p' | 'server'): Promise<PlayerLink> {
+export async function joinRoom(code: string, name: string, token?: string, via?: 'p2p' | 'server', secret?: string): Promise<PlayerLink> {
   if (via !== 'p2p') {
     try { const j = await live.join(code, name, token); try { localStorage.setItem(`sb:live:via:${code}`, 'server'); } catch { /* storage unavailable */ } return playerServer(code, j.token); }
     catch (e) { if (via === 'server') throw e; if (/full|locked|already|class list|started|ended|taken/i.test((e as Error).message)) throw e; }
   }
-  const p = await joinP2P(code, name, token);
+  const sec = (secret ?? '').trim().toUpperCase() || storedSecret(code);
+  if (!sec) throw new Error('This class also needs its room key: the short word next to the code on the teacher screen. It travels in the join link and the QR code, so opening one of those fills it in for you.');
+  const p = await joinP2P(code, name, token, sec);
+  keepSecret(code, sec);
   try { localStorage.setItem(`sb:live:via:${code}`, 'p2p'); } catch { /* storage unavailable */ }
   return p;
 }
 export function rejoin(code: string, token: string): PlayerLink | Promise<PlayerLink> {
   let via = 'p2p';
   try { via = localStorage.getItem(`sb:live:via:${code}`) ?? 'p2p'; } catch { /* storage unavailable */ }
-  return via === 'server' ? playerServer(code, token) : playerP2P(code, token);
+  return via === 'server' ? playerServer(code, token) : playerP2P(code, token, storedSecret(code));
 }
