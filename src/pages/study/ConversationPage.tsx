@@ -3,6 +3,10 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { providers, type StudyItem } from '../../study/providers';
 import { parseRefId, parseRefs, formatRef, refId } from '../../lib/refs';
 import ShareLinkButton from '../../components/ShareLinkButton';
+import { convertRef } from '../../lib/versification';
+import { readerPath } from '../../lib/nav';
+import { useEditions } from '../../data/EditionsContext';
+import { useSettings } from '../../lib/store';
 
 /** Approximate date of writing for the authors the Catena and library quote most. Anything else falls back to its period. */
 const YEAR: Record<string, number> = {
@@ -41,10 +45,14 @@ export default function ConversationPage() {
   const [sp, setSp] = useSearchParams();
   const raw = sp.get('ref') ?? 'JHN.6.51';
   const [text, setText] = useState(raw.includes('.') ? (() => { const r = parseRefId(raw); return r ? formatRef(r) : raw; })() : raw);
+  const [textScheme, setTextScheme] = useState<'vulgate' | 'kjv'>(raw.includes('.') ? 'vulgate' : 'kjv');
+  const [err, setErr] = useState('');
+  const [settings] = useSettings();
+  const { get, editions } = useEditions();
   const [items, setItems] = useState<StudyItem[] | null>(null);
   const [era, setEra] = useState('');
   useEffect(() => {
-    const r = raw.includes('.') ? parseRefId(raw) : (() => { const p = parseRefs(raw); return p.ok ? p.refs[0].ref : null; })();
+    const r = raw.includes('.') ? parseRefId(raw) : (() => { const p = parseRefs(raw); if (!p.ok) return null; const m = convertRef('kjv', 'vulgate', p.refs[0].ref); return m.exact ? m.ref : null; })();
     if (!r) { setItems([]); return; }
     let live = true;
     setItems(null);
@@ -59,7 +67,10 @@ export default function ConversationPage() {
     const dated = (items ?? []).map((it) => ({ it, y: yearOf(it) })).sort((a, b) => a.y - b.y);
     return ERAS.map((e, i) => ({ ...e, list: dated.filter((d) => eraOf(d.y).id === e.id && (i === 0 || d.y > ERAS[i - 1].to)) }));
   }, [items]);
-  const go = (e: React.FormEvent) => { e.preventDefault(); const p = parseRefs(text); if (p.ok) setSp({ ref: refId(p.refs[0].ref) }); };
+  const go = (e: React.FormEvent) => { e.preventDefault(); const p = parseRefs(text); if (!p.ok) return setErr(p.error); const mapped = textScheme === 'vulgate' ? { ref: p.refs[0].ref, exact: true } : convertRef('kjv', 'vulgate', p.refs[0].ref); if (!mapped.exact) return setErr('This passage cannot be matched at a verified anchor address. No approximate result was opened.'); setErr(''); setSp({ ref: refId(mapped.ref) }); };
+  const currentRef = raw.includes('.') ? parseRefId(raw) : null;
+  const readerEd = get(settings.defaultEdition) ?? editions[0];
+  const readerLink = currentRef && readerEd ? <Link to={readerPath(readerEd, { book: currentRef.book, c1: currentRef.c1, c2: currentRef.c1 })}>read the chapter</Link> : null;
   const total = timeline.reduce((n, e) => n + e.list.length, 0);
   return (
     <div className="page conversation">
@@ -67,9 +78,10 @@ export default function ConversationPage() {
       <p className="lede">Read one passage through two thousand years of the Church’s commentators, in time order.</p>
       <form className="rowform" onSubmit={go} role="search">
         <label className="sr-only" htmlFor="cv-ref">Passage</label>
-        <input id="cv-ref" value={text} onChange={(e) => setText(e.target.value)} placeholder="John 6:51" />
+        <input id="cv-ref" value={text} onChange={(e) => { setText(e.target.value); setTextScheme('kjv'); }} placeholder="John 6:51" />
         <button className="btn primary" type="submit">Show</button>
       </form>
+      {err && <p className="notice" role="alert">{err}</p>}
       {items === null && <div className="center-note">Gathering the voices…</div>}
       {items && total === 0 && <p className="muted">No commentary in the library speaks to this passage. Try a nearby verse, or a Gospel verse, where the Catena Aurea is richest.</p>}
       {total > 0 && <>
@@ -99,7 +111,7 @@ export default function ConversationPage() {
           </section>
         ))}
         <p className="no-print"><ShareLinkButton path={`/study/conversation?ref=${raw}`} title={`${text} across the centuries`} /></p>
-        <p className="muted small">Dates are approximate and tell when the writer lived or wrote. This page lays the voices side by side; it does not judge between them, and an individual commentator’s opinion is not Church teaching. See the <Link to={`/study/fathers-on?ref=${raw}`}>Fathers on this passage</Link>, side by side, or <Link to={`/read/webc/${raw.split('.')[0]}/${raw.split('.')[1]}`}>read the chapter</Link>.</p>
+        <p className="muted small">Dates are approximate and tell when the writer lived or wrote. This page lays the voices side by side; it does not judge between them, and an individual commentator’s opinion is not Church teaching. See the <Link to={`/study/fathers-on?ref=${raw}`}>Fathers on this passage</Link>, side by side, or {readerLink}.</p>
       </>}
     </div>
   );
