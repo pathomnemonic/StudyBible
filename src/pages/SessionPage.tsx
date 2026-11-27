@@ -31,6 +31,14 @@ export default function SessionPage() {
   const [church, setChurch] = useState<StudyItem[]>([]);
   const [note, setNote] = useState('');
   const [aloud, setAloud] = useState(false);
+  const [dayKey, setDayKey] = useState(localIso);
+  useEffect(() => {
+    const check = () => { const d = localIso(); setDayKey((prev) => (prev === d ? prev : d)); };
+    const t = window.setInterval(check, 30000);
+    document.addEventListener('visibilitychange', check);
+    window.addEventListener('focus', check);
+    return () => { window.clearInterval(t); document.removeEventListener('visibilitychange', check); window.removeEventListener('focus', check); };
+  }, []);
 
   // choose the passage: today's Gospel if the calendar service has it, otherwise the verse of the day
   useEffect(() => {
@@ -57,7 +65,7 @@ export default function SessionPage() {
       setRef(r);
       setSource(src);
     })();
-  }, [s.diocese]);
+  }, [s.diocese, dayKey]);
 
   useEffect(() => {
     if (!ref || !ed) return;
@@ -78,6 +86,7 @@ export default function SessionPage() {
     toast('Saved to your notes.');
   };
 
+  if (!ed) return <div className="page"><p className="muted">Your translations could not be loaded, so this session cannot start. Try again once they are available.</p></div>;
   if (!ref) return <div className="page"><p className="muted">Choosing today’s passage…</p></div>;
   return (
     <div className="page">
