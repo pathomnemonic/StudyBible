@@ -146,6 +146,7 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
   const [revealed, setRevealed] = useState(false);
   const [answers, setAnswers] = useState<string[]>([]);
   const [done, setDone] = useState(0);
+  const [round, setRound] = useState(0);
   useEffect(() => {
     // A reply for a card we have already moved past must not overwrite the card on screen: only the latest request may answer.
     const ticket = verseReq.current.next();
@@ -153,9 +154,9 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
     setAnswers([]);
     setVerseText(null);
     const r = cur && parseRefId(cur.ref);
-    if (r) passageText(ed, r, 8).then((vs) => { if (ticket.isCurrent()) setVerseText(vs.map((v) => v.text).join(' ')); }, () => undefined);
+    if (r && ed) passageText(ed, r, 8).then((vs) => { if (ticket.isCurrent()) setVerseText(vs.map((v) => v.text).join(' ')); }, () => undefined);
     return () => verseReq.current.cancel();
-  }, [cur?.id, ed.id]);
+  }, [cur?.id, ed?.id, round]);
 
   const words = useMemo(() => (verseText ? verseText.split(/\s+/) : []), [verseText]);
   const blanks = useMemo(() => (cur ? clozeIndexes(words, cur.reps) : new Set<number>()), [words, cur?.reps]);
@@ -173,7 +174,7 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
     return idx;
   }, [chunks, cur?.id]);
   const [picked, setPicked] = useState<number[]>([]);
-  useEffect(() => setPicked([]), [cur?.id]);
+  useEffect(() => setPicked([]), [cur?.id, round]);
   const orderRight = picked.length === chunks.length && picked.every((x, i) => x === i);
   const speak = (t: string) => {
     if (typeof speechSynthesis === 'undefined') return;
@@ -189,6 +190,10 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
     await db.memory.update(cur.id!, { ...next, lastReviewed: Date.now() });
     setGradedStates((m) => new Map(m).set(cur.id!, next));
     setDone((d) => d + 1);
+    setRevealed(false);
+    setPicked([]);
+    setAnswers([]);
+    setRound((r) => r + 1);
     setQueue((q) => (g === 0 ? [...q.slice(1), q[0]] : q.slice(1)));
   };
 
@@ -200,6 +205,7 @@ function Review({ cards, mode, onDone }: { cards: MemoryCard[]; mode: Mode; onDo
         <button className="btn primary" onClick={onDone}>Back to my verses</button>
       </div>
     );
+  if (!ed) return (<div className="page"><h1>Memorize Scripture</h1><p className="muted">Your translations could not be loaded, so this review cannot start. Try again once they are available.</p><button className="btn" onClick={onDone}>Back to my verses</button></div>);
   const r = parseRefId(cur.ref)!;
   const label = formatRef(r);
 

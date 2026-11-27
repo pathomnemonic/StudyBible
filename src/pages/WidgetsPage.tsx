@@ -18,7 +18,17 @@ function useWidgetData() {
   const { get, editions } = useEditions();
   const ed = get(s.defaultEdition === 'vulgate' ? 'dra' : s.defaultEdition) ?? editions[0];
   const [d, setD] = useState<WidgetData | null>(readWidgetData());
-  useEffect(() => { if (ed) void publishWidgets(ed).then(setD); }, [ed?.id]); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (!ed) return;
+    let live = true;
+    const refresh = () => { void publishWidgets(ed).then((x) => { if (live) setD(x); }); };
+    refresh();
+    const t = window.setInterval(refresh, 20000);
+    window.addEventListener('focus', refresh);
+    window.addEventListener('storage', refresh);
+    document.addEventListener('visibilitychange', refresh);
+    return () => { live = false; window.clearInterval(t); window.removeEventListener('focus', refresh); window.removeEventListener('storage', refresh); document.removeEventListener('visibilitychange', refresh); };
+  }, [ed?.id]); // eslint-disable-line react-hooks/exhaustive-deps
   return d;
 }
 

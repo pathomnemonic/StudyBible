@@ -6,6 +6,7 @@ import { convertRef } from './versification';
 import { passageText } from './bibleText';
 import { verseForDay } from '../study/verseOfDay';
 import { currentStreak, playTotals } from './dailyGame';
+import { getSettings } from './store';
 import type { EditionRecord } from '../data/loader';
 
 export interface WidgetData {
@@ -36,7 +37,16 @@ export async function buildWidgetData(ed: EditionRecord): Promise<WidgetData> {
   }
   const memory = await db.memory.toArray().catch(() => []);
   const plans = await db.planProgress.filter((x) => x.status === 'active').toArray().catch(() => []);
-  const plan = plans[0] ? { name: plans[0].planId === 'biay' ? 'Bible in a Year' : plans[0].planId, done: plans[0].done.length } : null;
+  const reading = plans.filter((x) => !x.planId.startsWith('cur:'));
+  const wanted = getSettings().activePlan;
+  const chosen = (wanted ? reading.find((x) => x.planId === wanted) : undefined) ?? reading[0] ?? null;
+  let plan: WidgetData['plan'] = null;
+  if (chosen) {
+    let name = chosen.planId;
+    if (chosen.planId === 'biay') name = 'Bible in a Year';
+    else if (chosen.planId.startsWith('user:')) { const u = await db.userPlans.get(+chosen.planId.slice(5)).catch(() => undefined); name = u?.name ?? 'My reading plan'; }
+    plan = { name, done: chosen.done.length };
+  }
   return { date: widgetDay(), verse, reviewsDue: memory.filter((c) => isDue(c)).length, streak: currentStreak(), games: playTotals().games, plan };
 }
 

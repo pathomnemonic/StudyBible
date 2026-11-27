@@ -20,13 +20,23 @@ export default function WidgetPage() {
   const { get, editions } = useEditions();
   const ed = get(s.defaultEdition === 'vulgate' ? 'dra' : s.defaultEdition) ?? editions[0];
   const [v, setV] = useState<{ label: string; text: string } | null>(null);
+  const [dayKey, setDayKey] = useState(() => new Date().toLocaleDateString('en-CA'));
+  useEffect(() => {
+    const check = () => { const d = new Date().toLocaleDateString('en-CA'); setDayKey((prev) => (prev === d ? prev : d)); };
+    const t = window.setInterval(check, 30000);
+    document.addEventListener('visibilitychange', check);
+    window.addEventListener('focus', check);
+    return () => { window.clearInterval(t); document.removeEventListener('visibilitychange', check); window.removeEventListener('focus', check); };
+  }, []);
   const due = (useLiveQuery(() => db.memory.toArray(), []) ?? []).filter((c) => isDue(c)).length;
   const plans = useLiveQuery(() => db.planProgress.filter((p) => p.status === 'active').toArray(), []) ?? [];
   useEffect(() => {
+    if (!ed) return;
     const p = parseRefs(verseForDay());
     if (!p.ok) return;
     passageText(ed, convertRef('kjv', 'vulgate', p.refs[0].ref).ref, 5).then((vs) => setV({ label: formatRef(p.refs[0].ref, { noDual: true }), text: vs.map((x) => x.text).join(' ') }));
-  }, [ed.id]);
+  }, [ed?.id, dayKey]); // eslint-disable-line react-hooks/exhaustive-deps
+  if (!ed) return (<div className="page" style={{ maxWidth: 420, margin: '0 auto' }}><p className="muted">Your translations could not be loaded, so the widget cannot show today’s verse.</p></div>);
   return (
     <div className="page" style={{ maxWidth: 420, margin: '0 auto' }}>
       <h1 className="visually-hidden">{BRAND.name} widget</h1>
