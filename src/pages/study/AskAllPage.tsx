@@ -41,7 +41,7 @@ export default function AskAllPage() {
   useEffect(() => { let live = true; setWalks([]); if (q.trim()) loadConceptGraph().then((g) => live && g && setWalks(relatedQuestions(questionTerms(q), g.nodes))).catch(() => {}); return () => { live = false; }; }, [q]);
 
   useEffect(() => {
-    setCcc(null); setVerses(null); setVErr(''); setFathers(null);
+    setCcc(null); setVerses(null); setVErr(''); setFathers(null); setNoted(false); setSaved(false);
     if (!q.trim()) return;
     let live = true;
     askCatechism(q).then((a) => live && setCcc(a)).catch(() => live && setCcc({ terms: [], paras: [], topics: [] }));
@@ -63,7 +63,7 @@ export default function AskAllPage() {
     let live = true;
     eng.eng.search(q, loadWork, { bands: [], groups: [], authorIds: [] }).then((r) => live && setFathers(r)).catch(() => {});
     return () => { live = false; };
-  }, [wantFathers, q, eng.eng]);
+  }, [wantFathers, q, eng.eng, ed?.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const ask = (t: string) => { const v = t.trim(); setText(v); setWantFathers(false); setSaved(false); const sv = askSourcesParam(on); setSp(v ? (sv ? { q: v, src: sv } : { q: v }) : {}); };
   const saveQuestion = async () => { await db.notes.add({ body: q, kind: 'question', targets: [], tags: [], chapterKeys: [], createdAt: Date.now(), updatedAt: Date.now() } as never); setSaved(true); };
