@@ -13,6 +13,8 @@ import { BOOK_PRAYERS } from '../../data/prayerbook';
 const today = () => { const n = new Date(); return `${n.getFullYear()}-${String(n.getMonth() + 1).padStart(2, '0')}-${String(n.getDate()).padStart(2, '0')}`; };
 const get = (k: string, d: string) => { try { return localStorage.getItem(k) ?? d; } catch { return d; } };
 const put = (k: string, v: string) => { try { localStorage.setItem(k, v); } catch { /* private mode */ } };
+const pruneDatedKeys = (prefix: string) => { try { const keys: string[] = []; for (let n = 0; n < localStorage.length; n++) { const k = localStorage.key(n); if (k && k.startsWith(prefix) && /^\d{4}-\d{2}-\d{2}$/.test(k.slice(prefix.length))) keys.push(k); } keys.sort(); while (keys.length > 7) localStorage.removeItem(keys.shift()!); } catch { /* storage unavailable */ } };
+
 
 /** Mass mode: one large card at a time with the posture, what is happening, what the people say and today’s readings. */
 export default function MassModePage() {
@@ -24,7 +26,9 @@ export default function MassModePage() {
   const sunday = d.getUTCDay() === 0;
   const big = lit.rank === 'solemnity' || lit.rank === 'sunday' || lit.rank === 'triduum' || sunday;
   const [rd, setRd] = useState<DayReadings | null>(null);
-  const [i, setI] = useState(() => Math.max(0, Math.min(OF_STEPS.length - 1, +get(`sb:mass:${date}`, '0'))));
+  const [savedStep] = useState(() => get(`sb:mass:${date}`, ''));
+  const [i, setI] = useState(() => { const n = +savedStep; return savedStep.trim() !== '' && Number.isFinite(n) ? Math.max(0, Math.min(OF_STEPS.length - 1, n)) : 0; });
+  const [stepId, setStepId] = useState<string | null>(() => (OF_STEPS.some((x) => x.id === savedStep) ? savedStep : null));
   const [size, setSize] = useState(() => +get('sb:mass:size', '22') || 22);
   const [awake, setAwake] = useState(() => get('sb:mass:awake', '1') === '1');
   const [list, setList] = useState(false);
@@ -34,13 +38,14 @@ export default function MassModePage() {
   useWakeLock(awake);
   useEffect(() => { readingsFor(st.diocese, date).then(setRd); }, [date, st.diocese]);
   const steps = useMemo(() => OF_STEPS.filter((s) => (s.only === 'gloria' ? gloria : s.only === 'creed' ? creed : s.only === 'second' ? second : true)), [gloria, creed, second]);
-  const idx = Math.min(i, steps.length - 1);
+  const idxById = stepId ? steps.findIndex((x) => x.id === stepId) : -1;
+  const idx = idxById >= 0 ? idxById : Math.min(i, steps.length - 1);
   const step = steps[idx];
-  useEffect(() => put(`sb:mass:${date}`, String(idx)), [idx, date]);
-  const go = (n: number) => setI(Math.max(0, Math.min(steps.length - 1, n)));
+  useEffect(() => { if (step) { put(`sb:mass:${date}`, step.id); pruneDatedKeys('sb:mass:'); } }, [step?.id, date]); // eslint-disable-line react-hooks/exhaustive-deps
+  const go = (n: number) => { const c = Math.max(0, Math.min(steps.length - 1, n)); setI(c); const nx = steps[c]; if (nx) setStepId(nx.id); };
   const touch = useRef<number | null>(null);
   useEffect(() => {
-    const k = (e: KeyboardEvent) => { if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(idx + 1); } else if (e.key === 'ArrowLeft') go(idx - 1); };
+    const k = (e: KeyboardEvent) => { const tgt = e.target as HTMLElement | null; if (tgt?.closest?.('input, select, textarea, button, a, summary, [contenteditable]')) return; if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); go(idx + 1); } else if (e.key === 'ArrowLeft') go(idx - 1); };
     window.addEventListener('keydown', k);
     return () => window.removeEventListener('keydown', k);
   }, [idx, steps.length]);
