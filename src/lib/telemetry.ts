@@ -31,10 +31,13 @@ export const coarseRoute = (hashPath: string) => `/${hashPath.replace(/^\//, '')
 /** Atlantic time zones that belong to the region below although they do not start with "Europe/": Iceland (EEA), the Canaries and Madeira (EU), the Azores (EU) and the Faroes. */
 const CONSENT_ATLANTIC = ['Atlantic/Reykjavik', 'Atlantic/Canary', 'Atlantic/Madeira', 'Atlantic/Azores', 'Atlantic/Faeroe', 'Atlantic/Faroe'];
 
+/** Time zones in the region that start with neither "Europe/" nor "Atlantic/": Cyprus (EU), Ceuta and Melilla (EU), the French outermost regions in the Americas and the Indian Ocean (EU), and Svalbard (EEA). */
+const CONSENT_EXTRA = ['Asia/Nicosia', 'Asia/Famagusta', 'Africa/Ceuta', 'America/Guadeloupe', 'America/Marigot', 'America/St_Barthelemy', 'America/Martinique', 'America/Cayenne', 'Indian/Reunion', 'Indian/Mayotte', 'Arctic/Longyearbyen'];
+
 /** Whether a time zone is in the EU, the UK or the EEA, where an answer is required before any reports are sent. Judged by time zone only: nothing is looked up and no address leaves the device. */
 export function consentRegionFor(tz: string | undefined | null): boolean {
   if (!tz) return false;
-  return tz.startsWith('Europe/') || CONSENT_ATLANTIC.includes(tz);
+  return tz.startsWith('Europe/') || CONSENT_ATLANTIC.includes(tz) || CONSENT_EXTRA.includes(tz);
 }
 
 /** Whether this device sits in the region where reports need the person's agreement first. */
