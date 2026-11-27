@@ -427,7 +427,7 @@ function ExportTab() {
       </div>
       <div className="card">
         <h3>Privacy</h3>
-        <p className="muted small">Nothing leaves this device unless you sign in to a sync server you choose. There are no analytics. You can switch off all server contact:</p>
+        <p className="muted small">Nothing leaves this device unless you sign in to a sync server you choose. On the public website, the app can send anonymous error reports and page counts, which Settings can turn off. You can switch off all server contact:</p>
         <label className="row"><input type="checkbox" checked={s.localOnly} onChange={(e) => { set({ localOnly: e.target.checked }); setTimeout(() => location.reload(), 200); }} /> Local-only mode (never contact a sync server; hides sign-in)</label>
       </div>
     </>
