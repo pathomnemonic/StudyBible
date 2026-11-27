@@ -65,8 +65,8 @@ export default function WhichBookPage() {
     return () => { live = false; };
   }, [picks, edition?.id]); // eslint-disable-line react-hooks/exhaustive-deps
   const total = qs?.length ?? ROUNDS;
-  const done = !!qs && i >= qs.length;
-  useEffect(() => { if (done && daily) markDailyDone('whichbook', `${score}/${total * 2}`, score >= total * 2 - 1); }, [done]); // eslint-disable-line
+  const done = !!qs && qs.length > 0 && i >= qs.length;
+  useEffect(() => { if (done && daily && qs && qs.length > 0) markDailyDone('whichbook', `${score}/${total * 2}`, score >= total * 2 - 1); }, [done]); // eslint-disable-line
   const q = qs?.[i];
   const right = q && marks.length > i;
   const pick = (b: string) => {
