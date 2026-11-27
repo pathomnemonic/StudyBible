@@ -10,6 +10,7 @@ export interface QuietState {
 let state: QuietState = { endsAt: 0, finished: false };
 const listeners = new Set<() => void>();
 let timer: number | undefined;
+let resetTimer: number | undefined;
 const emit = (s: QuietState) => {
   state = s;
   listeners.forEach((l) => l());
@@ -17,18 +18,20 @@ const emit = (s: QuietState) => {
 
 export function startQuiet(minutes: number) {
   window.clearTimeout(timer);
+  window.clearTimeout(resetTimer);
   emit({ endsAt: minutes > 0 ? Date.now() + minutes * 60_000 : -1, finished: false });
   if (minutes > 0) {
     timer = window.setTimeout(() => {
       softBell();
       stopAmbience();
       emit({ endsAt: 0, finished: true });
-      window.setTimeout(() => emit({ endsAt: 0, finished: false }), 9000);
+      resetTimer = window.setTimeout(() => emit({ endsAt: 0, finished: false }), 9000);
     }, minutes * 60_000);
   }
 }
 export function endQuiet() {
   window.clearTimeout(timer);
+  window.clearTimeout(resetTimer);
   emit({ endsAt: 0, finished: false });
 }
 export const useQuiet = () =>
