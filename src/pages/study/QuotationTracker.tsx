@@ -31,10 +31,11 @@ export default function QuotationTracker() {
   const [verseWords, setVerseWords] = useState<Set<string>>(new Set());
   const [min, setMin] = useState<'all' | 'cites' | 'long'>('cites');
   useEffect(() => { getLibraryIndex().then((l) => setWorks(l?.works ?? [])); }, []);
-  const parsed = useMemo(() => {
+  const conversion = useMemo(() => {
     const p = parseRefs(sp.get('ref') ?? '');
-    return p.ok ? convertRef('kjv', 'vulgate', p.refs[0].ref).ref : null;
+    return p.ok ? convertRef('kjv', 'vulgate', p.refs[0].ref) : null;
   }, [sp]);
+  const parsed = conversion?.exact ? conversion.ref : null;
   useEffect(() => {
     if (!parsed) { setRows(null); return; }
     let live = true;
@@ -71,7 +72,8 @@ export default function QuotationTracker() {
         <input value={text} onChange={(e) => setText(e.target.value)} placeholder="John 6:51, Romans 8:28-30, Psalm 23…" aria-label="Passage" />
         <button className="btn primary" type="submit">Find quotations</button>
       </form>
-      {sp.get('ref') && !parsed && <p className="notice">That does not look like a Bible reference. Try “John 6:51”.</p>}
+      {sp.get('ref') && !parsed && !conversion && <p className="notice">That does not look like a Bible reference. Try “John 6:51”.</p>}
+      {sp.get('ref') && conversion && !conversion.exact && <p className="notice">This passage cannot be matched with verified numbering, so no quotations were shown.</p>}
       {parsed && (
         <>
           <div className="row" style={{ margin: '10px 0', gap: 6, flexWrap: 'wrap' }}>
