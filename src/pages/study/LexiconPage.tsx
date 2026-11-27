@@ -89,7 +89,7 @@ function Entry({ id, e, lang }: { id: string; e: LexEntry; lang: Lang }) {
   };
   const link = (r: { book: string; c: number; v: number }): string | null => {
     if (!ed) return null;
-    const mapped = convertRef('kjv', 'vulgate', { book: r.book, c1: r.c, c2: r.c, v1: r.v, v2: r.v });
+    const mapped = convertRef(lang === 'hbo' ? 'english' : 'kjv', 'vulgate', { book: r.book, c1: r.c, c2: r.c, v1: r.v, v2: r.v });
     return mapped.exact ? readerPath(ed, mapped.ref) : null;
   };
   return (
