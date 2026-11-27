@@ -67,13 +67,17 @@ export default function SleepPage() {
     const stopper = { v: false };
     stopRef.current = stopper;
     began.current = Date.now();
-    setRunning(true);
     setDim(1);
-    if (p.sound !== 'off') setAmbience(p.sound as never, p.volume);
     let n = p.psalm;
+    let started = false;
     while (!stopper.v) {
-      const ref: Ref = convertRef('kjv', 'vulgate', { book: 'PSA', c1: n, c2: n }).ref;
-      const vs = await passageText(edition, { ...ref, v1: undefined, v2: undefined }, 80);
+      const conv = convertRef('kjv', 'vulgate', { book: 'PSA', c1: n, c2: n });
+      if (!conv.exact) { n = n >= 150 ? 1 : n + 1; continue; }
+      const ref: Ref = conv.ref;
+      let vs: Awaited<ReturnType<typeof passageText>>;
+      try { vs = await passageText(edition, { ...ref, v1: undefined, v2: undefined }, 80); } catch { stopAmbience(); setRunning(false); return; }
+      if (!vs.length && !started) { stopAmbience(); setRunning(false); return; }
+      if (!started) { started = true; setRunning(true); if (p.sound !== 'off') setAmbience(p.sound as never, p.volume); }
       for (const v of vs) {
         if (stopper.v) return;
         setShown({ psalm: n, v: v.v, text: v.text });
