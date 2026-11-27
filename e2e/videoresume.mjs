@@ -11,6 +11,7 @@ const fail = (m) => { console.error('FAIL', m); process.exit(1); };
 await p.goto(`${BASE}/#/study/videos`); await p.waitForSelector('[aria-label="Continue watching"]');
 const txt = await p.locator('[aria-label="Continue watching"]').innerText();
 if (!/Where is the evidence/.test(txt) || !/10:00/.test(txt)) fail('resume row shows title and time: ' + txt);
+if (/Nearly done/.test(txt)) fail('the nearly finished video (1490 of 1500 seconds) should not be offered under Continue watching: ' + txt);
 await p.locator('[aria-label="Continue watching"] button:has-text("Resume")').click();
 // the player lives in the persistent media host (so it keeps playing across tabs), not inside the list
 await p.waitForSelector('.media-host iframe');

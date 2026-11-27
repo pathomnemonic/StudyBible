@@ -8,8 +8,10 @@ const biayRow = (p) => p.evaluate(() => new Promise((res) => { const r = indexed
 for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   // 1. a first visit starts the tour by itself; it points at real things and waits for the tap
   let ctx = await b.newContext({ viewport: vp });
-  let p = await ctx.newPage();
-  const errs = []; p.on('pageerror', (e) => errs.push(e.message));
+  const errs = [];
+  // every scenario's page is watched for errors, not only the first: an error in scenarios 2 to 5 used to go unseen
+  const mk = async () => { const pg = await ctx.newPage(); pg.on('pageerror', (e) => errs.push(e.message)); return pg; };
+  let p = await mk();
   const narrow = vp.width < 900;
   const card = async () => (await p.locator('.tour-card').textContent()) ?? '';
   const next = () => p.click('.tour-btns .btn:has-text("Next")');
@@ -82,7 +84,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   await ctx.close();
 
   // 2. not listened, would like to: day 1
-  ctx = await b.newContext({ viewport: vp }); p = await ctx.newPage();
+  ctx = await b.newContext({ viewport: vp }); p = await mk();
   await p.goto(`${BASE}/#/listen`); await p.waitForSelector('.tour-card');
   await p.evaluate(() => localStorage.setItem('sb:tourStep', String(4))); await p.reload(); await p.waitForSelector('.tour-card');
   await p.waitForFunction(() => /Tap Year|listened to Bible/.test(document.querySelector('.tour-card')?.textContent ?? ''), null, { timeout: 8000 }).catch(() => fail('resume at the Bible in a Year step'));
@@ -94,7 +96,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   await ctx.close();
 
   // 3. not interested: it is left out of Today and the tour shows where to pick other media
-  ctx = await b.newContext({ viewport: vp }); p = await ctx.newPage();
+  ctx = await b.newContext({ viewport: vp }); p = await mk();
   await p.goto(`${BASE}/#/listen`); await p.waitForSelector('.tour-card');
   await p.evaluate(() => localStorage.setItem('sb:tourStep', String(4))); await p.reload(); await p.waitForSelector('.tour-card');
   if (/Tap Year/.test(await card())) await p.click('[role=tab]:has-text("Year")');
@@ -115,7 +117,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   await ctx.close();
 
   // 3b. finished it: the same picker, worded for someone who is done
-  ctx = await b.newContext({ viewport: vp }); p = await ctx.newPage();
+  ctx = await b.newContext({ viewport: vp }); p = await mk();
   await p.goto(`${BASE}/#/listen`); await p.waitForSelector('.tour-card');
   await p.evaluate(() => localStorage.setItem('sb:tourStep', '4')); await p.reload(); await p.waitForSelector('.tour-card');
   if (/Tap Year/.test(await card())) await p.click('[role=tab]:has-text("Year")');
@@ -129,7 +131,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   await ctx.close();
 
   // 4. leave the tour from the first step: nothing else asks for anything
-  ctx = await b.newContext({ viewport: vp }); p = await ctx.newPage();
+  ctx = await b.newContext({ viewport: vp }); p = await mk();
   await p.goto(`${BASE}/#/today`); await p.waitForSelector('.tour-card');
   await p.click('.tour-btns .btn:has-text("End tour")');
   await p.waitForSelector('.tour-card', { state: 'detached' });
@@ -139,7 +141,7 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   // 5. readers who finished the older setup are not shown the intro
   ctx = await b.newContext({ viewport: vp });
   await ctx.addInitScript(() => { localStorage.setItem('sb:tour', '1'); localStorage.setItem('sb:setup', '2'); });
-  p = await ctx.newPage();
+  p = await mk();
   await p.goto(`${BASE}/#/today`); await p.waitForTimeout(1000);
   if (await p.locator('.tour-card').count()) fail('existing readers should not see the tour');
   if (errs.length) fail('page error: ' + errs[0]);

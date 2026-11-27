@@ -5,7 +5,9 @@ const b = await chromium.launch();
 const fail = (m) => { console.error('FAIL', m); process.exit(1); };
 for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   const ctx = await b.newContext({ viewport: vp });
-  await ctx.addInitScript(() => { if (!sessionStorage.getItem('init')) { sessionStorage.setItem('init', '1'); localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); } });
+  // seeded on every load, not only the first: the Amen scenario below clears localStorage on purpose,
+  // and a once-only seed left the app unseeded (tour, setup) on the reload that follows it
+  await ctx.addInitScript(() => { localStorage.setItem('sb:setup', '2'); localStorage.setItem('sb:tour', '1'); });
   const p = await ctx.newPage();
   await p.goto(`${BASE}/#/pray/devotions/rosary?set=glorious`);
   await p.waitForSelector('.rosary-svg');
@@ -25,8 +27,12 @@ for (const vp of [{ width: 390, height: 800 }, { width: 1280, height: 800 }]) {
   await p.evaluate(() => localStorage.clear());
   await p.reload(); await p.waitForSelector('.rosary-svg');
   if (/Amen/.test(await primary.innerText()) && !/Sign/.test(await p.locator('.rosary-card .card-title').innerText())) fail('rosary should not open on Amen');
-  // Year tab: one view switcher, plan change available
-  await p.goto(`${BASE}/#/listen`); await p.waitForTimeout(1200);
+  // Listen (the Year tab): one view switcher, and the plan view offers the plan's own controls
+  await p.goto(`${BASE}/#/listen`);
+  await p.waitForSelector('[role="tablist"][aria-label="Episodes"]', { timeout: 15000 });
+  if (await p.locator('[role="tablist"][aria-label="Episodes"]').count() !== 1) fail('listen should have exactly one view switcher');
+  await p.locator('[role="tablist"] button:has-text("All days")').click();
+  await p.waitForSelector('select[aria-label="Release year"]', { timeout: 15000 }); // the plan can be changed (release year) from the plan view
   await ctx.close();
 }
 await b.close();

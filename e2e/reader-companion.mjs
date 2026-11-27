@@ -21,7 +21,9 @@ for (const vp of [{ width: 360, height: 740, text: 1 }, { width: 320, height: 70
   await p.setViewportSize({ width: vp.width + 40, height: vp.height }); await p.waitForTimeout(300); await p.setViewportSize({ width: vp.width, height: vp.height }); await p.waitForTimeout(600);
   if (await isOpen()) fail(`${tag}: after a deliberate close it reopened (scroll or resize)`);
   // 2. opening the study panel and closing it does not reopen it
-  await p.locator('button[aria-label*="Open study panel"]').first().click().catch(() => {}); await p.waitForTimeout(500);
+  const studyBtn = p.locator('button[aria-label*="Open study panel"]').first();
+  if (!(await studyBtn.count())) fail(`${tag}: there is no study panel button to open`);
+  await studyBtn.click(); await p.waitForTimeout(500);
   await p.keyboard.press('Escape'); await p.waitForTimeout(400);
   if (await isOpen()) fail(`${tag}: closing the study panel reopened About this chapter`);
   // 3. it does not cover the first verse: the verse text sits below it
@@ -32,6 +34,7 @@ for (const vp of [{ width: 360, height: 740, text: 1 }, { width: 320, height: 70
   // 4. the toolbox dropdown layers above it and Escape closes the dropdown, not the page
   await p.locator('button[aria-label^="Toolbox"]').click(); await p.waitForTimeout(300);
   const z = await p.evaluate(() => { const m = document.querySelector('[role=menu], .menu-list, .tool-menu-list'); if (!m) return null; const r = m.getBoundingClientRect(); const top = document.elementFromPoint(r.left + r.width / 2, r.top + Math.min(20, r.height / 2)); return !!top && (m === top || m.contains(top)); });
+  if (z === null) fail(`${tag}: the toolbox menu did not appear at all`);
   if (z === false) fail(`${tag}: the toolbox menu is under other content`);
   await p.keyboard.press('Escape'); await p.waitForTimeout(300);
   if (!/\/read\/webc\/JHN\/1/.test(await p.evaluate(() => location.hash))) fail(`${tag}: Escape in the menu should not leave the chapter`);
@@ -39,6 +42,14 @@ for (const vp of [{ width: 360, height: 740, text: 1 }, { width: 320, height: 70
   await p.goto(`${BASE}/#/read/webc/JHN/2`); await p.waitForTimeout(1800);
   const open2 = await isOpen().catch(() => null);
   if (open2 === null) fail(`${tag}: the panel is missing on the next chapter`);
+  // a chapter with nothing to show: the companion's four feeds (places, parallels and themes,
+  // Catechism citations, the lectionary) are answered as a chapter no index covers answers, and
+  // the panel must stay shut rather than open an empty box
+  await ctx.route(/\/(maps|ccc\/scripture|lectionary|reference)\//, (r) => r.fulfill({ status: 404, body: '' }));
+  const p2 = await ctx.newPage(); p2.setDefaultTimeout(15000);
+  await p2.goto(`${BASE}/#/read/webc/2JN/1`); await p2.waitForSelector('details.chapter-companion'); await p2.waitForTimeout(1800);
+  if (await p2.locator('details.chapter-companion').evaluate((e) => e.open)) fail(`${tag}: a chapter with nothing to show opened the panel by itself`);
+  await p2.close();
   // 6. back and forward do not crash it, and the state is one of open / closed (never half-rendered)
   await p.goBack(); await p.waitForTimeout(800); await p.goForward(); await p.waitForTimeout(800);
   if ((await p.locator('details.chapter-companion').count()) !== 1) fail(`${tag}: after back/forward there should be exactly one About this chapter`);

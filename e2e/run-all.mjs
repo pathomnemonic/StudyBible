@@ -18,9 +18,10 @@ console.log(`runner configuration: shard ${si}/${sn} runs ${mine.length} of ${CH
 const failed = [];
 for (const c of mine) {
   const t = Date.now();
-  const r = spawnSync('node', [`e2e/${c}.mjs`], { stdio: 'inherit', env: c === 'sweep' ? { ...process.env, SWEEP_MODE: process.env.SWEEP_MODE ?? 'fast' } : process.env });
+  // a check that hangs must not hang the whole run: ten minutes each, then it is killed and counted as failed
+  const r = spawnSync('node', [`e2e/${c}.mjs`], { stdio: 'inherit', timeout: 10 * 60 * 1000, env: c === 'sweep' ? { ...process.env, SWEEP_MODE: process.env.SWEEP_MODE ?? 'fast' } : process.env });
   const ok = r.status === 0;
-  console.log(`${ok ? 'PASS' : 'FAIL'} ${c} (${Math.round((Date.now() - t) / 1000)}s)`);
+  console.log(`${ok ? 'PASS' : 'FAIL'} ${c} (${Math.round((Date.now() - t) / 1000)}s)${r.error?.code === 'ETIMEDOUT' ? ' — timed out after 10 minutes' : ''}`);
   if (!ok) failed.push(c);
 }
 if (failed.length) { console.error('\nFailed: ' + failed.join(', ')); process.exit(1); }
