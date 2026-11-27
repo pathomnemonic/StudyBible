@@ -8,7 +8,7 @@ import { parseRefs, refId } from '../../lib/refs';
 import { resolvePlanReferences } from '../../lib/planReferences';
 import { getLibraryIndex } from '../../data/content';
 import { confirmSwitch, startPlan } from '../../lib/activePlan';
-import { useSettings } from '../../lib/store';
+import { getSettings, updateSettings, useSettings } from '../../lib/store';
 import PlanBuilder from './PlanBuilder';
 import PinButton from '../../components/PinButton';
 
@@ -47,7 +47,15 @@ export default function PlansPage() {
       const refs = resolved.refs.map(refId);
       return { refs };
     });
+    if (!days.length) throw new Error('Add at least one day with a passage before saving. An empty plan has nothing to read.');
     return db.userPlans.add({ name: name.trim(), days, createdAt: Date.now() });
+  };
+  const deleteUserPlan = async (uid: number) => {
+    if (!confirm('Delete this plan?')) return;
+    const planId = 'user:' + uid;
+    await db.userPlans.delete(uid);
+    await db.planProgress.delete(planId);
+    if (getSettings().activePlan === planId) updateSettings({ activePlan: '' });
   };
   const show = plans.filter((p) => !cat || p.category === cat);
   return (
@@ -75,7 +83,7 @@ export default function PlansPage() {
       {user.map((u) => (
         <div className="card" key={'u' + u.id}>
           <div className="row between"><h3>{u.name}</h3><span className="chip">my plan · {u.days.length} days</span></div>
-          <div className="row"><Link className="btn small" to={`/pray/plans/${encodeURIComponent('user:' + u.id)}`}>Open</Link><PinButton entry={{ kind: 'plan', id: 'user:' + u.id, title: u.name, to: `/pray/plans/${encodeURIComponent('user:' + u.id)}` }} /><button className="btn small danger" onClick={() => confirm('Delete this plan?') && db.userPlans.delete(u.id!)}>Delete</button></div>
+          <div className="row"><Link className="btn small" to={`/pray/plans/${encodeURIComponent('user:' + u.id)}`}>Open</Link><PinButton entry={{ kind: 'plan', id: 'user:' + u.id, title: u.name, to: `/pray/plans/${encodeURIComponent('user:' + u.id)}` }} /><button className="btn small danger" onClick={() => void deleteUserPlan(u.id!)}>Delete</button></div>
         </div>
       ))}
       {show.map((p) => {
