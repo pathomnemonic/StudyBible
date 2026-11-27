@@ -30,6 +30,7 @@ export default function SynopsisPage() {
   const list = useMemo(() => rows.filter((r) => !q || r[0].toLowerCase().includes(q.toLowerCase())), [rows, q]);
   useEffect(() => {
     if (!row || !ed) return setTexts([]);
+    setTexts([]);
     let live = true;
     Promise.all(
       row.slice(1).map(async (c) => {
