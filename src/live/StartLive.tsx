@@ -22,6 +22,7 @@ export async function openRoom(o: RoomOpts): Promise<string> {
   const all = await questionsFor(grade, lessons);
   let qs = kind === 'lesson' ? [] : pick(all, o.count, o.diff);
   if (!qs.length && kind !== 'lesson') throw new Error('There are no questions for that choice.');
+  if (kind === 'lesson' && !o.slides.length) throw new Error('There are no slides for that lesson.');
   // which lesson each question came from, so the teacher dashboard can say what to teach again
   const owner: Record<string, string> = {};
   if (qs.length) for (const l of lessons) for (const q of await questionsFor(grade, [l])) if (!owner[q.q]) owner[q.q] = l.id;
@@ -31,7 +32,7 @@ export async function openRoom(o: RoomOpts): Promise<string> {
     qs = [...qs, ...extra];
   }
   const title = scope === 'lesson' ? lesson.title : scope === 'unit' ? `Unit ${lesson.unit.n}: ${lesson.unit.title}` : `${grade.name} review`;
-  const c = await createHost(toContent(title, qs, (kind === 'game' || kind === 'standing' || kind === 'lesson') && (kind === 'lesson' || o.withSlides) && scope === 'lesson' ? o.slides : [], o.time), { ...o.st, mode: kind === 'exam' ? 'exam' : kind === 'race' ? 'race' : kind === 'build' ? 'build' : 'game', elimination: kind === 'standing' }, cls && cls.students.length ? cls.students.map((x) => x.name) : []);
+  const c = await createHost(toContent(title, qs, kind === 'lesson' ? o.slides : (kind === 'game' || kind === 'standing') && o.withSlides && scope === 'lesson' ? o.slides : [], o.time), { ...o.st, mode: kind === 'exam' ? 'exam' : kind === 'race' ? 'race' : kind === 'build' ? 'build' : 'game', elimination: kind === 'standing' }, cls && cls.students.length ? cls.students.map((x) => x.name) : []);
   try {
     localStorage.setItem(`sb:teach:lesson:${c.code}`, JSON.stringify({ g: grade.id, lessons: [...new Set(Object.values(owner).concat(scope === 'lesson' ? [lesson.id] : []))], owner }));
     if (cls) { localStorage.setItem(`sb:live:meta:${c.code}`, JSON.stringify({ classId: cls.id, title, mode: kind === 'lesson' ? 'lesson' : kind === 'exam' ? 'exam' : 'game', date: today() })); localStorage.setItem('sb:teach:last', cls.id); }
