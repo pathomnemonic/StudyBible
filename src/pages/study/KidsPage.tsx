@@ -19,7 +19,7 @@ interface Story { id: string; title: string; testament: 'OT' | 'NT' | 'saint'; r
 const AGES: [Age, string, string][] = [['4-6', 'Ages 4 to 6', 'Short and simple'], ['7-9', 'Ages 7 to 9', 'The whole story'], ['10-12', 'Ages 10 to 12', 'Story and meaning']];
 let cache: Promise<Story[]> | null = null;
 const load = () => (cache ??= Promise.all([getJson<{ stories: Story[] }>('kids_stories.json', true), getJson<{ stories: Story[] }>('kids_stories2.json', true)]).then(([a, b]) => [...(a?.stories ?? []), ...(b?.stories ?? [])]));
-const anchorRefs = (s: Story): Ref[] => s.refs.flatMap((r) => { const p = parseRefs(r); return p.ok ? p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref).ref) : []; });
+const anchorRefs = (s: Story): Ref[] => s.refs.flatMap((r) => { const p = parseRefs(r); return p.ok ? p.refs.flatMap((x) => { const m = convertRef('kjv', 'vulgate', x.ref); return m.exact ? [m.ref] : []; }) : []; });
 /** stories whose passage overlaps this one, for the study panel */
 export async function kidsStoriesFor(sel: Ref[]): Promise<Story[]> {
   return (await load()).filter((s) => s.testament !== 'saint').filter((s) => anchorRefs(s).some((a) => sel.some((x) => x.book === a.book && x.c1 <= a.c2 && a.c1 <= x.c2)));
@@ -87,7 +87,9 @@ function StoryView({ story, stories }: { story?: Story; stories: Story[] }) {
     moreArtFor(refs).then((a) => setArt(a.slice(0, 2) as never)).catch(() => setArt([]));
     videosFor(refs, true).then(setVids);
     const m = story.memory ? parseRefs(story.memory) : null;
-    if (m?.ok && ed) passageText(ed, convertRef('kjv', 'vulgate', m.refs[0].ref).ref, 4).then((t) => setMem(t.map((v) => v.text).join(' ')));
+    const mappedMem = m?.ok ? convertRef('kjv', 'vulgate', m.refs[0].ref) : null;
+    if (mappedMem?.exact && ed) passageText(ed, mappedMem.ref, 4).then((t) => setMem(t.map((v) => v.text).join(' ')));
+    else setMem('');
     return () => { try { speechSynthesis.cancel(); } catch { /* none */ } };
   }, [story?.id, ed?.id]);
   if (!story) return <div className="page"><Link to="/study/kids">← Children’s Bible</Link><p>Loading…</p></div>;
