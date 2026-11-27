@@ -151,8 +151,8 @@ export default function PeoplePage() {
 }
 
 function OutlineNode({ n, depth, openIds, setOpenIds, sel, setSel, hl, mt, byId }: { n: Node; depth: number; openIds: Set<string>; setOpenIds: (s: Set<string>) => void; sel: string | null; setSel: (id: string | null) => void; hl: boolean; mt: Set<string>; byId: Map<string, Person> }) {
-  const open = openIds.has(n.p.id) || depth === 0;
-  const flip = () => { const x = new Set(openIds); x.has(n.p.id) ? x.delete(n.p.id) : x.add(n.p.id); setOpenIds(x); };
+  const open = depth === 0 ? !openIds.has(`closed:${n.p.id}`) : openIds.has(n.p.id);
+  const flip = () => { const x = new Set(openIds); if (depth === 0) { const k = `closed:${n.p.id}`; x.has(k) ? x.delete(k) : x.add(k); } else { x.has(n.p.id) ? x.delete(n.p.id) : x.add(n.p.id); } setOpenIds(x); };
   const line = hl && mt.has(n.p.id);
   return (
     <li className={`gen-node${line ? ' line' : ''}`}>
