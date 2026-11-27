@@ -2,7 +2,7 @@
  * Error reports (Sentry) and page counts (PostHog), on the public web app only. Deliberately small:
  *  - production builds on a real host only (never in development, tests, the native store apps or Kid mode);
  *  - off if the browser sends Do Not Track or Global Privacy Control, or the person turns it off in Settings;
- *  - in the EU, the UK and the EEA (judged by the device time zone) nothing runs until the person agrees; a banner asks, and Settings holds the same choice;
+ *  - in the EU, the UK and the EEA (judged by the device time zone) nothing runs until the person agrees; a banner asks, and Settings holds the same choice; a stored refusal stops reports in every region;
  *  - loaded lazily after the app is up, so it adds nothing to the first load;
  *  - no cookies or browser storage, no session recording, no click capture, no breadcrumbs, no tracing, no person profiles;
  *  - only the first part of the address is ever sent (for example "#/read", never the book, chapter, search words or notes).
@@ -55,6 +55,7 @@ export function telemetryAllowed(w: Win | undefined = typeof window === 'undefin
     if (nav.doNotTrack === '1' || (w as unknown as { doNotTrack?: string }).doNotTrack === '1' || nav.msDoNotTrack === '1' || nav.globalPrivacyControl === true) return false;
     const s = getSettings();
     if (s.kidMode || s.telemetry === false) return false;
+    if (s.telemetryConsent === 'denied') return false; // a stored refusal stops reports in every region, not only where agreement is required first
     if (inConsentRegion() && s.telemetryConsent !== 'granted') return false; // the EU, the UK and the EEA: agreement first
   } catch { return false; }
   return true;
