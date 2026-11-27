@@ -20,6 +20,7 @@ const track = (p: string) => { const t = read(p); inputs.push({ path: p, sha256:
 
 interface Override { prompt: string; answer: string; tier: 1 | 2 | 3 | 4 | 5 | 6; reason: string }
 const overrides: Override[] = existsSync(ROOT + 'scripts/deepwaters/overrides.json') ? JSON.parse(track('scripts/deepwaters/overrides.json')) : [];
+const usedOverrides = new Set<Override>();
 
 const SMALL = new Set(['of', 'the', 'de', 'di', 'da', 'del', 'van', 'von', 'and', 'in', 'le', 'la']);
 const title = (s: string) => s.toLowerCase().split(/(\s+)/).map((w, i) => (SMALL.has(w) && i > 0 ? w : w.replace(/(^|[-'’])([a-zà-ÿ])/g, (_m, a, b) => a + b.toUpperCase()))).join('');
@@ -60,6 +61,7 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
   const tiers = tiersByFamiliarity(list.map((l) => l.score));
   const answers: DeepAnswer[] = list.map((l, i) => {
     const o = overrides.find((x) => x.prompt === id && x.answer.toLowerCase() === l.name.toLowerCase());
+    if (o) usedOverrides.add(o);
     const aliases = [...l.aliases].filter((a) => a.toLowerCase() !== l.name.toLowerCase());
     return { answer: l.name, tier: o ? o.tier : tiers[i], ...(aliases.length ? { aliases } : {}) };
   });
@@ -209,21 +211,21 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
     const paren = /^(.*?)\s*\((.*)\)\s*$/.exec(n.name);
     saints.push({ name: paren ? paren[1] : n.name, aliases: paren ? [paren[2]] : [], score: Math.log(8000) + CURATED_BONUS * 0.25, month, desc: '' });
   }
-  // merge the variant spellings into their canonical saint before any list is built from the array
-  // (every entry carrying the variant name is folded in: Butler has two "Laurence" headings, for the martyr of Rome
-  // and for Laurence of Dublin, and both are the one scored "Lawrence" answer the review decided on)
+  // merge the variant spellings into their canonical saint before any list is built from the array:
+  // every entry carrying the variant name is renamed to the canonical name, not removed, so it keeps its
+  // own month and description (Butler has two "Laurence" headings, for the martyr of Rome and for Laurence
+  // of Dublin, and each must stand in its own month's list as the one scored "Lawrence" answer the review
+  // decided on; finish() pools same-named entries within any one list, aliases and best score included)
   {
     for (const [variant, canonical] of Object.entries(SAINT_VARIANT_OF)) {
       const vs = saints.filter((s) => s.name === variant);
       if (!vs.length) continue;
-      let c = saints.find((s) => s.name === canonical);
-      if (!c) { c = vs[0]; c.aliases.push(c.name); c.name = canonical; }
-      if (!c.aliases.includes(variant)) c.aliases.push(variant);
+      // a canonical entry standing on its own also accepts the variant form
+      const c = saints.find((s) => s.name === canonical);
+      if (c && !c.aliases.includes(variant)) c.aliases.push(variant);
       for (const v of vs) {
-        if (v === c) continue;
-        for (const a of v.aliases) if (!c.aliases.includes(a)) c.aliases.push(a);
-        c.score = Math.max(c.score, v.score);
-        saints.splice(saints.indexOf(v), 1);
+        if (!v.aliases.includes(variant)) v.aliases.push(variant);
+        v.name = canonical;
       }
     }
   }
@@ -311,6 +313,9 @@ const finish = (id: string, theme: DeepTheme, prompt: string, context: string, s
 }
 
 /* ---------- write ---------- */
+// an override that matched no answer in any list it names is reported, not silently dropped:
+// the name it was written for has changed (or the list is gone), and the correction no longer applies
+for (const o of overrides) if (!usedOverrides.has(o)) console.log(`override not applied: ${o.prompt} / ${o.answer} (tier ${o.tier}): ${o.reason}`);
 // one prompt per line: compact for the bundle, and a change to one prompt is one changed line in a diff
 const out = '[\n' + prompts.map((p) => JSON.stringify(p)).join(',\n') + '\n]\n';
 const srcOut = JSON.stringify({

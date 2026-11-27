@@ -29,9 +29,25 @@ describe('audit gate', () => {
     expect(r.out).toMatch(/PASS\s+a/);
   });
   it('reports a waived finding as WAIVED, not as passing, and names the owner and date', () => {
-    const r = run(hi('pptxgenjs'), '2026-12-01');
+    // pptxgenjs carries no advisory of its own: its finding names image-size, whose own entry is gated below
+    const r = run({ pptxgenjs: { severity: 'high', via: ['image-size'] } }, '2026-12-01');
     expect(r.code).toBe(0);
     expect(r.out).toMatch(/WAIVED\s+pptxgenjs.*until 2027-02-14.*owner pathomnemonic/);
+  });
+  it('waives a package only for the advisories its waiver names', () => {
+    const named = { 'image-size': { severity: 'high', via: [
+      { title: 'image-size has an unhandled exception in the ICNS parser', url: 'https://github.com/advisories/GHSA-w3rx-r6r6-pgpr' },
+      { title: 'image-size has an unhandled exception in the JXL parser', url: 'https://github.com/advisories/GHSA-5p2g-fcmc-qvqq' },
+    ] } };
+    const r = run(named, '2026-12-01');
+    expect(r.code).toBe(0);
+    expect(r.out).toMatch(/WAIVED\s+image-size/);
+  });
+  it('a new advisory in a waived package fails: the waiver does not name it', () => {
+    const fresh = { 'image-size': { severity: 'critical', via: [{ title: 'a new flaw', url: 'https://github.com/advisories/GHSA-aaaa-bbbb-cccc' }] } };
+    const r = run(fresh, '2026-12-01');
+    expect(r.code).toBe(1);
+    expect(r.out).toMatch(/FAIL\s+image-size.*waiver does not name GHSA-aaaa-bbbb-cccc/);
   });
   it('an expired waiver fails again', () => {
     const r = run(hi('pptxgenjs'), '2027-03-01');

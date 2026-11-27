@@ -17,7 +17,11 @@ const existingSets = BASE_PROMPTS.map((p) => new Set(p.answers.flatMap((a) => [a
 const out: Record<string, unknown>[] = []; const report: string[] = []; const usedIds = new Set(BASE_PROMPTS.map((p) => p.id));
 const usedPrompts = new Set<string>();
 let blocksSeen = 0;
-for (const f of readdirSync(dir).filter((x) => /^out\d+\.txt$/.test(x)).sort()) {
+const batchFiles = readdirSync(dir).filter((x) => /^out\d+\.txt$/.test(x)).sort();
+// an empty batch is always a mistake (the wrong directory, or the files not written yet): writing it
+// would replace deepWatersBatch.json with an empty array and lose every authored7 list
+if (!batchFiles.length) { console.error(`no out*.txt files in ${dir}; refusing to overwrite src/data/deepWatersBatch.json`); process.exit(1); }
+for (const f of batchFiles) {
   const text = readFileSync(`${dir}/${f}`, 'utf8').replace(/\r/g, '');
   for (const block of text.split(/\n(?=## )/)) {
     if (!block.startsWith('## ')) continue;
@@ -34,8 +38,12 @@ for (const f of readdirSync(dir).filter((x) => /^out\d+\.txt$/.test(x)).sort()) 
       else if (/^basis:/i.test(l)) basis = l.replace(/^basis:\s*/i, '');
       else if (/^closed:/i.test(l)) closed = Number(l.replace(/^closed:\s*/i, '').split(/\s/)[0]);
       else if (l.includes('|')) {
-        const [a, t, al] = l.split('|'); const tier = Math.max(1, Math.min(6, Math.round(Number(t) || 3)));
-        const aliases = al ? al.split(';').map((x) => x.trim()).filter(Boolean) : [];
+        // fields past the third are more aliases, not waste: "Answer|tier|alias1|alias2" keeps both
+        const [a, t, ...rest] = l.split('|');
+        const tierNum = Number(t);
+        if (!t || !Number.isFinite(tierNum) || tierNum === 0) report.push(`${f} ${head[0]}: answer "${a.trim()}" has no usable tier ("${t ?? ''}"), using 3`);
+        const tier = Math.max(1, Math.min(6, Math.round(tierNum || 3)));
+        const aliases = rest.flatMap((x) => x.split(';')).map((x) => x.trim()).filter(Boolean);
         if (a.trim()) answers.push({ answer: a.trim(), tier, ...(aliases.length ? { aliases } : {}) });
       }
     }
@@ -85,6 +93,7 @@ for (const k of [...kept].sort((a, b) => b.answers.length - a.answers.length)) {
   if (other) { drop.add(k.id); report.push(`${k.id}: near-duplicate of new "${other.prompt}" (${other.id}), skipped`); }
 }
 for (let i = out.length - 1; i >= 0; i--) if (drop.has(out[i].id as string)) out.splice(i, 1);
+if (!blocksSeen) { console.error(`no lists found in ${dir}; refusing to overwrite src/data/deepWatersBatch.json`); process.exit(1); }
 writeFileSync(new URL('../../src/data/deepWatersBatch.json', import.meta.url).pathname, JSON.stringify(out));
 console.log(`${out.length} lists kept of ${blocksSeen}; ${out.reduce((n, p) => n + (p.answers as unknown[]).length, 0)} answers`);
 writeFileSync(`${dir}/import-report.txt`, report.join('\n'));

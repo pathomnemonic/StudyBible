@@ -1,5 +1,5 @@
 {
-  "about": "Tracked waivers for the production dependency audit gate (scripts/audit-gate.mjs). A waiver needs an owner, a reason and an expiry date; after the date the gate fails again. Remove a waiver as soon as a fixed version exists.",
+  "about": "Tracked waivers for the production dependency audit gate (scripts/audit-gate.mjs). A waiver needs an owner, a reason and an expiry date; after the date the gate fails again. A waiver also names the advisories it covers (GHSA ids in its advisories list): a new advisory in a waived package is not covered and fails the gate. Remove a waiver as soon as a fixed version exists.",
   "waivers": [
     {
       "package": "pptxgenjs",
@@ -12,6 +12,7 @@
       "package": "image-size",
       "owner": "pathomnemonic",
       "reason": "Reached only through pptxgenjs (see that waiver): same reason, same expiry.",
+      "advisories": ["GHSA-w3rx-r6r6-pgpr", "GHSA-5p2g-fcmc-qvqq"],
       "expires": "2027-02-14",
       "added": "2026-11-14"
     }

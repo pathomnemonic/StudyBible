@@ -47,12 +47,12 @@ interface Cand { id: string; prompt: string; context: string; slots: Set<number>
 const EXCLUDED_ANSWERS: Record<string, string[]> = {
   'dir-east-in-prophets': ['Valley of Hamon-gog'],
   'dir-transjordan-in-prophets': ['Valley of Hamon-gog'],
-  // Class B batch 12: these records ask for places outside the Holy Land and Egypt, so Egyptian places are excluded
-  'dir-abroad': ['Pathros', 'Thebes', 'Syene', 'Pelusium', 'Hanes', 'Alexandria'],
-  'dir-abroad-in-prophets': ['Pathros', 'Thebes', 'Syene', 'Pelusium', 'Hanes', 'Alexandria'],
-  'dir-abroad-in-ot': ['Pathros', 'Thebes', 'Syene', 'Pelusium', 'Hanes', 'Alexandria'],
-  'dir-abroad-in-nt': ['Pathros', 'Thebes', 'Syene', 'Pelusium', 'Hanes', 'Alexandria'],
 };
+/* Class B batch 12: the dir-abroad records ask for places outside the Holy Land and Egypt, so Egyptian
+   places are excluded from every one of them. The box alone does not do it: it stops at latitude 29, so
+   Upper Egypt (Thebes at about 25.7) reads as "abroad". Applied by candidate id in the build loop below,
+   so a dir-abroad list generated for any book group gets the exclusion, not only the four named before. */
+const EGYPTIAN = ['Pathros', 'Thebes', 'Syene', 'Pelusium', 'Hanes', 'Alexandria'];
 /* Basilion review (issue 26), Class B batches 9 to 12: variant forms of one place are one answer, scored under the
    canonical name with the variant as an accepted form. Keys are comparison forms, so "Sidon the Great" and
    "Great Sidon" hit the same entry. Folds chain: Chinnereth folds to Sea of Chinnereth, which itself folds to
@@ -60,7 +60,7 @@ const EXCLUDED_ANSWERS: Record<string, string[]> = {
 const keyOf = (n: string) => deepTokens(n).join(' ');
 const foldMapOf = (pairs: [string, string][]) => new Map(pairs.map(([v, c]) => [keyOf(v), c] as const));
 const FOLD_PAIRS_X: [string, string][] = [
-  ['Bethlehem Ephrathah', 'Bethlehem'], ['Babel', 'Babylon'], ['Horeb', 'Sinai'], ['Mount Horeb', 'Sinai'],
+  ['Bethlehem Ephrathah', 'Bethlehem'], ['Babel', 'Babylon'], ['Horeb', 'Sinai'], ['Mount Horeb', 'Sinai'], ['Mount Sinai', 'Sinai'],
   ['Place of a Skull', 'Golgotha'], ['The Skull', 'Golgotha'], ['Akeldama', 'Field of Blood'], ['Olivet', 'Mount of Olives'],
   ['Hermon', 'Mount Hermon'], ['Kiriath-sepher', 'Debir'], ['Kiriath-sannah', 'Debir'], ['Raamses', 'Rameses'],
   ['Tehaphnehes', 'Tahpanhes'], ['Sea of Tiberias', 'Sea of Galilee'], ['Sea of Chinnereth', 'Sea of Galilee'], ['Chinnereth', 'Sea of Chinnereth'],
@@ -117,6 +117,7 @@ for (const g of ['law', 'history', 'prophets', 'gospels', 'letters']) for (const
   const a = slotsOf(GROUPS[g].ids), b = slotsOf(GROUPS[h].ids);
   cands.push({ id: `both-${g}-${h}`, prompt: `Name a place mentioned in both ${GROUPS[g].label} and ${GROUPS[h].label}.`, context: 'Counted from the app\'s map data: places found in at least one book of each group.', slots: new Set([...a].filter((i) => b.has(i))) });
   cands.push({ id: `only-${g}-${h}`, prompt: `Name a place mentioned in ${GROUPS[g].label} but not in ${GROUPS[h].label}.`, context: 'Counted from the app\'s map data: places found in the first group and in none of the books of the second.', slots: new Set([...a].filter((i) => !b.has(i))) });
+  cands.push({ id: `only-${h}-${g}`, prompt: `Name a place mentioned in ${GROUPS[h].label} but not in ${GROUPS[g].label}.`, context: 'Counted from the app\'s map data: places found in the first group and in none of the books of the second.', slots: new Set([...b].filter((i) => !a.has(i))) });
 }
 /* how often named */
 for (const n of [2, 3, 4, 5, 6, 8, 10]) cands.push({ id: `books-${n}`, prompt: `Name a place mentioned in at least ${n} different books of the Bible.`, context: 'Counted from the app\'s map data, which lists the places named in each book.', slots: new Set(places.map((_, i) => i).filter((i) => booksNaming(i) >= n)) });
@@ -145,19 +146,24 @@ const kept: Set<string>[] = [];
 for (const c of cands) {
   const folds = c.id.startsWith('dir-') ? FOLDS_DIR : c.id.startsWith('in-') ? FOLDS_IN : FOLDS_X;
   const excluded = c.id.startsWith('dir-') ? EXCLUDED_DIR : c.id.startsWith('in-') ? EXCLUDED_IN : EXCLUDED_X;
+  const excludedAnswers = [...(EXCLUDED_ANSWERS[c.id] ?? []), ...(c.id === 'dir-abroad' || c.id.startsWith('dir-abroad-in-') ? EGYPTIAN : [])];
+  // the anchor's own name, folded the way answers are folded: the exclusion must still bite when the map
+  // names the anchor by a folded form (Sinai, for the anchor listed as Mount Sinai; Horeb folds there too)
+  let excludeName = c.exclude;
+  if (excludeName) { const seenE = new Set<string>(); let n = excludeName; while (folds.has(keyOf(n)) && !seenE.has(keyOf(n))) { seenE.add(keyOf(n)); n = folds.get(keyOf(n))!; } excludeName = n; }
   const byKey = new Map<string, { name: string; aliases: string[]; score: number }>();
   for (const i of c.slots) {
     const p = places[i];
     if (!okName(p)) continue;
     const raw = nameOf(p).replace(/['’]s$/, '');
     if (c.exclude && raw === c.exclude) continue;
-    if ((EXCLUDED_ANSWERS[c.id] ?? []).includes(raw)) continue;
+    if (excludedAnswers.includes(raw)) continue;
     if (excluded.has(keyOf(raw))) continue;
     // fold variant forms to their canonical place, following the chain (Chinnereth to Sea of Chinnereth to Sea of Galilee)
     let name = raw;
     { const seen = new Set<string>(); let n = raw; while (folds.has(keyOf(n)) && !seen.has(keyOf(n))) { seen.add(keyOf(n)); n = folds.get(keyOf(n))!; } name = n; }
     // a variant of the anchor place folds into the anchor's name; the anchor itself is not scored in its own radius list
-    if (c.exclude && name === c.exclude) continue;
+    if (excludeName && name === excludeName) continue;
     const k = deepTokens(name).join(' ');
     const now = p.c && /^Now /.test(p.c) ? p.c.replace(/^Now /, '').replace(/[.]$/, '').trim() : '';
     const score = Math.log(1 + p.nv) + 0.5 * Math.log(1 + booksNaming(i));
