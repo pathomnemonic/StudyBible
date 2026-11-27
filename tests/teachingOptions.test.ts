@@ -30,7 +30,7 @@ describe('teaching options for every lesson', () => {
   });
   it('writes complete, readable steps with no template leftovers', () => {
     const bad: string[] = [];
-    for (const { g, l } of lessons) for (const s of ['voice', 'devices'] as Setup[]) {
+    for (const { g, l } of lessons) for (const s of SETS) { // every setup, paper and screen included, not only voice and devices
       const m = buildMenu(l, g.band, gl, s);
       for (const o of [...m.opening, ...m.concepts.flatMap((c) => c.options), ...m.closing]) {
         const text = [o.title, o.prep, ...o.steps, o.without ?? '', o.tip ?? ''].join(' ');
@@ -42,7 +42,17 @@ describe('teaching options for every lesson', () => {
     expect(bad.slice(0, 15)).toEqual([]);
   });
   it('mixes kinds of teaching within each idea', () => {
-    for (const { g, l } of lessons) { const m = buildMenu(l, g.band, gl, 'devices'); for (const c of m.concepts) expect(new Set(c.options.map((o) => o.move)).size, `${l.id} idea ${c.n}`).toBeGreaterThanOrEqual(2); }
+    // the full-kit setups: every idea of every lesson mixes kinds (this used to be checked on devices only)
+    for (const { g, l } of lessons) for (const s of ['screen', 'devices'] as Setup[]) { const m = buildMenu(l, g.band, gl, s); for (const c of m.concepts) expect(new Set(c.options.map((o) => o.move)).size, `${l.id} ${s} idea ${c.n}`).toBeGreaterThanOrEqual(2); }
+    // paper falls short for a handful of ideas; the count is pinned so a new one fails here instead of slipping in
+    const paperSingle: string[] = [];
+    for (const { g, l } of lessons) { const m = buildMenu(l, g.band, gl, 'paper'); for (const c of m.concepts) if (new Set(c.options.map((o) => o.move)).size < 2) paperSingle.push(`${l.id} idea ${c.n}`); }
+    expect(paperSingle.length).toBeLessThanOrEqual(9);
+    // the voice setup offers nothing but talk, by design; across the setups together every idea still mixes kinds
+    for (const { g, l } of lessons) {
+      const menus = SETS.map((s) => buildMenu(l, g.band, gl, s));
+      for (let n = 0; n < menus[0].concepts.length; n++) { const kinds = new Set(menus.flatMap((m) => m.concepts[n].options.map((o) => o.move))); expect(kinds.size, `${l.id} idea ${n}`).toBeGreaterThanOrEqual(2); }
+    }
   });
   it('feels different from lesson to lesson', () => {
     let same = 0, total = 0;
@@ -58,7 +68,9 @@ describe('teaching options for every lesson', () => {
   });
   it('uses the lesson’s own words in the steps', () => {
     let hit = 0;
-    for (const { g, l } of lessons) { const m = buildMenu(l, g.band, gl, 'paper'); const text = m.concepts.flatMap((c) => c.options.flatMap((o) => o.steps)).join(' ').toLowerCase(); if (text.includes(l.question.toLowerCase().slice(0, 20)) || m.concepts.some((c) => text.includes(c.term.toLowerCase()))) hit++; }
+    // the whole question, not its first 20 characters: a generic opening ("What do we mean by…") is
+    // shared by hundreds of lessons and proved nothing about this lesson's words being used
+    for (const { g, l } of lessons) { const m = buildMenu(l, g.band, gl, 'paper'); const text = m.concepts.flatMap((c) => c.options.flatMap((o) => o.steps)).join(' ').toLowerCase(); if (text.includes(l.question.toLowerCase().replace(/\?$/, '')) || m.concepts.some((c) => text.includes(c.term.toLowerCase()))) hit++; }
     expect(hit / lessons.length).toBeGreaterThan(0.95);
   });
   it('plans fit a sensible share of the class time', () => {

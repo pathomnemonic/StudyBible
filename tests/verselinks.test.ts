@@ -50,6 +50,13 @@ describe('the built index', () => {
     const { files } = buildIndex();
     const onDisk = readdirSync(DIR).filter((f) => f.endsWith('.json')).map((f) => f.replace('.json', '')).sort();
     expect(onDisk).toEqual([...files.keys()].sort());
+    // the contents too, not only the names: a stale file with the right name passed this test before.
+    // The writer drops trailing -1s to keep the files small (readers treat a missing value as -1),
+    // so the comparison applies that same trim to the fresh build.
+    for (const [book, built] of files) {
+      const trimmed = { ...built, r: Object.fromEntries(Object.entries(built.r).map(([c, rows]) => [c, rows.map((r) => { const a: number[] = [...r]; while (a.length > 5 && a[a.length - 1] === -1) a.pop(); return a; })])) };
+      expect(file(book), book).toEqual(trimmed);
+    }
   });
   it('has no dangling ranges: every range sits inside its chapter and every index points at a table entry', () => {
     const bad: string[] = [];
@@ -120,7 +127,8 @@ describe('expected links', () => {
     const arg = r.findIndex((i) => i.id === 'real-presence' && i.kind === 'argument');
     const les = r.findIndex((i) => i.kind === 'lesson');
     expect(arg).toBeGreaterThanOrEqual(0);
-    if (les >= 0) expect(arg).toBeLessThan(les);
+    expect(les).toBeGreaterThanOrEqual(0); // a lesson is there to be outranked; without one the comparison below says nothing
+    expect(arg).toBeLessThan(les);
   });
   it('caps the list and reports how many more there are', () => {
     const r = verseLinksFrom(file('JHN'), 'JHN', 6, 53, undefined, 4);
@@ -129,13 +137,16 @@ describe('expected links', () => {
   });
   it('no single kind fills the capped list when others are available', () => {
     const r = verseLinksFrom(file('JHN'), 'JHN', 6, 53, undefined, 8);
+    expect(r.total).toBeGreaterThan(8); // the cap is really being applied to a longer list
     const counts: Record<string, number> = {};
     for (const i of r.items) counts[i.kind] = (counts[i.kind] ?? 0) + 1;
-    if (r.total > 8) expect(Math.max(...Object.values(counts))).toBeLessThan(8);
+    expect(Math.max(...Object.values(counts))).toBeLessThan(8);
   });
   it('a verse with nothing returns an empty result, and a missing book file does too', () => {
     expect(verseLinksFrom(null, 'GEN', 1, 1).items).toEqual([]);
-    expect(at('NAM', 3, 19).total).toBeGreaterThanOrEqual(0);
+    const none = at('NAM', 3, 19); // the last verse of Nahum: nothing in the app points at it
+    expect(none.items).toEqual([]);
+    expect(none.total).toBe(0);
   });
   it('chapter roll-up includes chapter-level links and verse links', () => {
     const r = chapterLinksFrom(file('PHM'), 'PHM', 1, undefined, 50);

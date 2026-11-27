@@ -18,7 +18,13 @@ describe('Trivia Chrism rules', () => {
     const pool = [mk('a', 1), mk('b', 2), mk('c', 3)]; const used = new Set<string>(); const rnd = seeded(5); const seen: string[] = [];
     for (let i = 0; i < 3; i++) { const q = nextQuestion(pool, used, 'mixed', rnd)!; seen.push(q.id); used.add(q.id); }
     expect(new Set(seen).size).toBe(3);
-    expect(nextQuestion(pool, used, 'mixed', rnd)).toBeTruthy();
+    // starting over means the used set is emptied and a fresh round begins, not just that some question comes back
+    const again = nextQuestion(pool, used, 'mixed', rnd)!;
+    expect(pool.map((q) => q.id)).toContain(again.id);
+    expect(used.size).toBe(0);
+    used.add(again.id);
+    const next = nextQuestion(pool, used, 'mixed', rnd)!;
+    expect(next.id).not.toBe(again.id); // the new round does not repeat itself either
   });
   it('shuffles options and tracks the right answer', () => {
     for (let s = 1; s < 20; s++) { const r = shuffleOptions(mk('x', 1), seeded(s)); expect(r.options[r.answer]).toBe('c'); expect(new Set(r.options).size).toBe(4); }
@@ -29,6 +35,7 @@ describe('Trivia Chrism rules', () => {
     expect(rate('medium', 1)).toBeGreaterThan(rate('medium', 3));
   });
   it('wins at six crowns and the bot picks the category it is closest to finishing', () => {
+    expect(CATS.length).toBe(6); // the "six crowns" of the title, pinned: a seventh category would change the game
     const p = newPlayer('A'); expect(hasWon(p)).toBe(false);
     p.crowns = CATS.map((c) => c.id); expect(hasWon(p)).toBe(true);
     const q = newPlayer('B'); q.crowns = ['scripture']; q.progress = { saints: 2, doctrine: 1 }; expect(bestPick(q)).toBe('saints');

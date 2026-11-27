@@ -8,8 +8,12 @@ vi.stubGlobal('location', { origin: 'https://example.org' });
 /** every `type: '…'` of the Target union as written in src/db/db.ts */
 function targetTypesInDb(): string[] {
   const src = readFileSync('src/db/db.ts', 'utf8');
-  const block = /export type Target =([\s\S]*?);\n/.exec(src)![1];
-  return [...block.matchAll(/type:\s*'([a-z]+)'/g)].map((m) => m[1]);
+  // the union runs from its declaration to the `};` that closes its last member: taking everything up
+  // to the first `;` at a line end would cut it short the day a member is wrapped across lines, and
+  // [a-z]+ would silently drop a camelCase kind, so take the whole declaration and every letter case
+  const start = src.indexOf('export type Target =');
+  const block = src.slice(start, src.indexOf('};', start));
+  return [...new Set([...block.matchAll(/type:\s*'([A-Za-z]+)'/g)].map((m) => m[1]))];
 }
 
 describe('one table of every kind of target', () => {
@@ -40,5 +44,8 @@ describe('one table of every kind of target', () => {
     expect(targetMissing({ type: 'note', uid: 'gone' }, have)).toBe(true);
     expect(targetMissing({ type: 'note', uid: 'gone' })).toBe(false);
     expect(targetMissing({ type: 'link', url: 'javascript:alert(1)', label: 'x' })).toBe(true);
+    // and the link itself is never handed out for a script or data URL: the target resolves to nothing
+    expect(targetLink({ type: 'link', url: 'javascript:alert(1)', label: 'x' })).toEqual({});
+    expect(targetLink({ type: 'link', url: 'data:text/html,<b>x</b>', label: 'x' })).toEqual({});
   });
 });

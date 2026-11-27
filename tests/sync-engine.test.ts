@@ -62,7 +62,8 @@ describe('sync engine against the real server', () => {
       // a deletion travels as a tombstone
       const n = ((await db.notes.toArray()).find((x) => x.title === 'Hello ✝'))!;
       await db.notes.delete(n.id!);
-      await new Promise((r) => setTimeout(r, 400));
+      // the tombstone is written when the delete's transaction commits: wait for it, not for a fixed time
+      await vi.waitFor(async () => { expect(await db.tombs.filter((t) => t.tbl === 'notes' && t.uid === n.uid).count()).toBe(1); });
       const del = await runSync(uid);
       expect(del.rejected).toBe(0);
       db.close();
@@ -78,18 +79,31 @@ describe('sync engine against the real server', () => {
   }, 60000);
 
   it('keeps both versions when two devices edit the same note before syncing', async () => {
-    await freshDevice();
+    // its own account and its own note: this test used to sign in to the first test's account and
+    // edit whichever of its 30 notes came first, so it passed or failed with that test's leftovers
     const { api } = await import('../src/sync/api');
-    const uid = ((await api.login('sync-engine@example.com', 'correct horse battery')) as any).user.id;
+    const user = (await api.register('sync-two@example.com', 'correct horse battery', 'T')) as any;
+    const uid = user.user.id;
+    {
+      const { db } = await import('../src/db/db');
+      const { runSync } = await import('../src/sync/engine');
+      await db.notes.add({ kind: 'note', title: 'shared', body: 'original', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);
+      await runSync(uid); // the first device sends the note
+      db.close();
+    }
+    await freshDevice(); // the second device: it signs in and pulls the note down
     const { db } = await import('../src/db/db');
     const { runSync } = await import('../src/sync/engine');
-    await runSync(uid); // device B has the 30 notes
+    await runSync(uid);
     const mine = (await db.notes.toArray())[0];
     // this device edits the note, unsynced
     await db.notes.update(mine.id!, { body: 'edited on this device' });
-    // another device edited the same note and synced first, with a later time
+    // another device edited the same note and synced first, with a later time. The payload is the
+    // note's own fields only: a local row spread in whole would carry this device's bookkeeping
+    // (its id, its unsent mark) to the server as if the other device had sent it.
+    const { id: _id, _unsent: _mark, ...shared } = mine as any;
     const cur = (await api.sync(0, [])).cursor;
-    await api.sync(cur, [{ table: 'notes', uid: mine.uid!, updatedAt: Date.now() + 1000, payload: { ...mine, id: undefined, body: 'edited on the other device', updatedAt: Date.now() + 1000 } } as any]);
+    await api.sync(cur, [{ table: 'notes', uid: mine.uid!, updatedAt: Date.now() + 1000, payload: { ...shared, body: 'edited on the other device', updatedAt: Date.now() + 1000 } } as any]);
     await runSync(uid);
     const bodies = (await db.notes.toArray()).map((n) => n.body);
     expect(bodies).toContain('edited on the other device');
@@ -126,7 +140,8 @@ describe('sync engine against the real server', () => {
   it('reports rejected records and keeps them queued instead of calling the sync complete', async () => {
     await freshDevice();
     const { api } = await import('../src/sync/api');
-    const uid = ((await api.login('sync-fail@example.com', 'correct horse battery')) as any).user.id;
+    // its own account: this used to sign in to the network-failure test's account and inherit its state
+    const uid = ((await api.register('sync-rejected@example.com', 'correct horse battery', 'R')) as any).user.id;
     const { db } = await import('../src/db/db');
     const { runSync, pendingCount } = await import('../src/sync/engine');
     await runSync(uid);
@@ -147,7 +162,9 @@ describe('sync engine against the real server', () => {
     const id = await db.notes.add({ kind: 'note', title: 'keep', body: 'original', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1 } as any);
     await runSync(uid);
     const mine = (await db.notes.get(id))!;
-    await new Promise((r) => setTimeout(r, 20));
+    // the edit must be stamped strictly after the copy that was just synced: wait for the clock to
+    // move past it rather than for a fixed 20 ms that a slow machine may not even notice
+    await vi.waitFor(() => { expect(Date.now()).toBeGreaterThan(mine.updatedAt); });
     await db.notes.update(id, { body: 'my unsynced edit' }); // edited here, not yet synced
     // the other device deletes it later still
     const cur = (await api.sync(0, [])).cursor;
@@ -175,7 +192,8 @@ describe('sync engine against the real server', () => {
     const mine = (await db.notes.get(id))!;
     await db.notes.delete(id); // deleted here
     const cur = (await api.sync(0, [])).cursor;
-    await api.sync(cur, [{ table: 'notes', uid: mine.uid!, updatedAt: Date.now() + 5000, payload: { ...mine, id: undefined, body: 'edited on the other device', updatedAt: Date.now() + 5000 } } as any]);
+    const { id: _id, _unsent: _mark, ...kept } = mine as any; // the note's own fields only, no local bookkeeping (see the two-devices test)
+    await api.sync(cur, [{ table: 'notes', uid: mine.uid!, updatedAt: Date.now() + 5000, payload: { ...kept, body: 'edited on the other device', updatedAt: Date.now() + 5000 } } as any]);
     await runSync(uid);
     expect((await db.notes.toArray()).map((n) => n.body)).toEqual(['edited on the other device']);
   }, 60000);
@@ -189,7 +207,7 @@ describe('sync engine against the real server', () => {
     const { runSync, pendingCount } = await import('../src/sync/engine');
     await db.notes.add({ kind: 'note', title: 'x', body: 'unsent', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: Date.now() } as any);
     const saved = cookie; cookie = ''; // the session has expired
-    await expect(runSync(uid)).rejects.toThrow();
+    await expect(runSync(uid)).rejects.toThrow(/not signed in/i);
     expect(await pendingCount(uid)).toBeGreaterThan(0);
     cookie = saved;
     const r = await runSync(uid); // signing in again sends it
@@ -207,7 +225,7 @@ describe('sync engine against the real server', () => {
     await db.notes.add({ kind: 'note', title: 'x', body: 'unsent', tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: Date.now() } as any);
     const real = globalThis.fetch;
     vi.stubGlobal('fetch', async () => new Response('Service Unavailable', { status: 503 }));
-    await expect(runSync(uid)).rejects.toThrow();
+    await expect(runSync(uid)).rejects.toThrow(/No sync server is available here/); // a non-JSON error page is read as "no server", and the sync stops as unfinished
     vi.stubGlobal('fetch', real);
     expect(await pendingCount(uid)).toBeGreaterThan(0);
     expect((await runSync(uid)).rejected).toBe(0);

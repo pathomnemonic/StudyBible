@@ -23,6 +23,8 @@ describe('visual catechism content', () => {
       const used = v.groups.flatMap((g) => g.ids);
       for (const i of used) expect(ids.has(i), `${v.id}: ${i}`).toBe(true);
       expect(new Set(used).size, `${v.id} repeats a node`).toBe(used.length);
+      // and the groups cover the diagram: a node in no group at all was invisible to this test before
+      expect(new Set(used), `${v.id} leaves a node out of every group`).toEqual(ids);
     }
   });
   it('has at least twenty diagrams', () => expect(all.length).toBeGreaterThanOrEqual(20));

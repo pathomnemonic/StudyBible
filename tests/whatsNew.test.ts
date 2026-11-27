@@ -5,8 +5,13 @@ import { FEATURES } from '../src/lib/features';
 import { NEW_ITEMS } from '../src/lib/whatsNew';
 
 const app = readFileSync(join(__dirname, '../src/App.tsx'), 'utf8');
-const routes = [...app.matchAll(/<Route path="([^"]+)"/g)].map((m) => m[1]);
-const matches = (pattern: string, path: string) => new RegExp('^' + pattern.replace(/:[^/]+/g, '[^/]+').replace(/\*/g, '.*') + '$').test(path);
+// the catch-all route (path="*", the NotFound page) is not a destination: a link that only matches it
+// is a dead link wearing a disguise, so it is left out of the routes a link may match
+const routes = [...app.matchAll(/<Route path="([^"]+)"/g)].map((m) => m[1]).filter((r) => r !== '*');
+const matches = (pattern: string, path: string) => new RegExp('^' + pattern
+  .replace(/\/:[A-Za-z0-9_]+\?/g, '(?:/[^/]+)?') // an optional segment, as in /study/claims/:id?
+  .replace(/:[A-Za-z0-9_]+/g, '[^/]+')
+  .replace(/\*/g, '.*') + '$').test(path);
 
 describe("What's new links are real", () => {
   for (const i of NEW_ITEMS) {

@@ -202,6 +202,16 @@ describe('your writing survives', () => {
     expect(await db.tombs.filter((row) => row.tbl === 'planProgress' && row.uid === 'plan-removed').count()).toBe(1);
   });
 
+  it('tombstones notes omitted by a replace restore so sync cannot resurrect them', async () => {
+    const { db } = await import('../src/db/db');
+    const ops = await import('../src/db/ops');
+    await db.notes.add({ ...note('removed note'), uid: 'note-removed', updatedAt: 50 } as never);
+    const backup = JSON.stringify({ format: 'studybible-export', version: 2, notes: [] });
+    await ops.importAll(backup, 'replace');
+    expect(await db.notes.where('uid').equals('note-removed').count()).toBe(0);
+    expect(await db.tombs.filter((row) => row.tbl === 'notes' && row.uid === 'note-removed').count()).toBe(1);
+  });
+
   it('clears trash from the replaced dataset so old records cannot be restored afterward', async () => {
     const { db } = await import('../src/db/db');
     const ops = await import('../src/db/ops');
