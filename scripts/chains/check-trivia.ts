@@ -26,12 +26,16 @@ export function checkTrivia(cat: string, qs: TriviaQ[]): string[] {
       if (x.o[x.a]?.length === Math.max(...x.o.map((s) => s.length))) longest++;
     }
     if (!x.why || x.why.length < 20) bad.push(`${w}: why too short`);
-    if (!x.src) bad.push(`${w}: src missing`); else { if (!x.src.label) x.src.label = 'Source'; if (!x.src.note) x.src.note = x.why; bad.push(...verifyStep(x.src, w)); }
+    // the src is checked as written: filling a missing label or note in here first would repair the
+    // question on paper and verifyStep's own label and note checks could never fail
+    if (!x.src) bad.push(`${w}: src missing`); else bad.push(...verifyStep(x.src, w));
   }
   if (qs.length >= 30 && longest / qs.length > 0.4) bad.push(`${cat}: the correct answer is the longest option in ${Math.round((100 * longest) / qs.length)}% of questions (max 40%); lengthen distractors`);
   return bad;
 }
 if (process.argv[1] && process.argv[1].endsWith('check-trivia.ts')) {
+  // a mistyped category must fail, not load nothing and print "trivia ok"
+  if (process.argv[2] && !(TRIVIA_CATS as readonly string[]).includes(process.argv[2])) { console.error(`unknown category "${process.argv[2]}" (known: ${TRIVIA_CATS.join(', ')})`); process.exit(1); }
   const cats = process.argv[2] ? [process.argv[2]] : [...TRIVIA_CATS]; let n = 0;
   for (const c of cats) { const qs = loadTrivia(c); const bad = checkTrivia(c, qs); bad.forEach((b) => console.log(b)); n += bad.length; const dd = [1, 2, 3].map((d) => qs.filter((x) => x.d === d).length); console.log(`${c}: ${qs.length} questions (easy ${dd[0]}, medium ${dd[1]}, hard ${dd[2]})`); }
   console.log(n ? `${n} problems` : 'trivia ok'); process.exit(n ? 1 : 0);

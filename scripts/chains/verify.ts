@@ -5,7 +5,11 @@ import type { Chain, Life, Situation, Step } from '../../src/chains/types';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const DATA = join(ROOT, 'public', 'data');
-export const norm = (s: string) => s.toLowerCase().replace(/[’‘]/g, "'").replace(/[^a-z0-9]+/g, '');
+// letters and digits of every script are kept (Unicode classes, not [a-z0-9]): stripping accents and
+// Greek letters made unlike quotes collapse to the same string and match each other loosely. Both sides
+// are NFC-normalised first: the sources carry Greek in decomposed form and the quotes precomposed,
+// and those are the same letters, not a mismatch.
+export const norm = (s: string) => s.normalize('NFC').toLowerCase().replace(/[’‘]/g, "'").replace(/[^\p{L}\p{N}]+/gu, '');
 
 const workCache = new Map<string, any>();
 function work(id: string) {
@@ -49,6 +53,9 @@ export function verifyStep(s: Step, where: string): string[] {
   const bad: string[] = [];
   if (!s.note || s.note.length < 20) bad.push(`${where}: note missing or too short`);
   if (!s.label) bad.push(`${where}: no label`);
+  // a step with both a work and a ref is read from the work only (sourceText below): the ref would
+  // never be checked against its quote, so say so instead of letting it pass in silence
+  if (s.work && s.ref) bad.push(`${where}: step has both a work and a ref; the ref is never read`);
   const { text, err } = sourceText(s);
   if (err) { bad.push(`${where}: ${err}`); return bad; }
   if (s.quote) {

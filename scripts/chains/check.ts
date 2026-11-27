@@ -1,6 +1,9 @@
 import { loadChains, loadFiles, verifyChain, verifyLife, verifySituation } from './verify';
 import type { Life, Situation } from '../../src/chains/types';
 const mode = process.argv[2];
+// a mistyped mode must fail, not load nothing and print "all quotes verified"
+const KNOWN = ['arguments', 'development', 'heresies', 'words', 'claims', 'situations', 'lives'];
+if (mode && !KNOWN.includes(mode)) { console.error(`unknown mode "${mode}" (known: ${KNOWN.join(', ')})`); process.exit(1); }
 const modes = mode && !['situations', 'lives'].includes(mode) ? [mode] : mode ? [] : ['arguments', 'development', 'heresies', 'words', 'claims'];
 let bad = 0;
 for (const m of modes) {

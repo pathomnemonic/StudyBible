@@ -70,6 +70,7 @@ function buildJsonEdition(cfg: EditionConfig, src: any, report: Report): BuiltEd
   for (const b of src.books as any[]) {
     const code = bookIdByJsonName(b.name);
     if (!code) { report.warn(`[${cfg.id}] book “${b.name}” is not in the 73-book canon; skipped`); continue; }
+    if (books.has(code)) { report.error(`[${cfg.id}] book “${b.name}” (${code}) appears twice; the second copy is dropped`); continue; }
     const chapters: ChapterData[] = b.chapters.map((c: any) => ({
       n: c.chapter,
       blocks: [['p', c.verses.map((v: any) => [v.verse, String(v.text).replace(/\s+/g, ' ').trim()])]],
@@ -84,6 +85,12 @@ function buildJsonEdition(cfg: EditionConfig, src: any, report: Report): BuiltEd
     chapters[b.id] = bd.chapters.length;
     verseCounts[b.id] = bd.chapters.map(maxVerse);
     if (bd.chapters.length !== b.chapters) report.warn(`[${cfg.id}] ${b.id}: ${bd.chapters.length} chapters, canon table says ${b.chapters}`);
+    // the same structural checks the curated builder makes: a gap in the chapter numbers or a chapter
+    // with no verses in it is a broken edition, not a usable one
+    bd.chapters.forEach((c, i) => {
+      if (c.n !== i + 1) report.error(`[${cfg.id}] ${b.id}: chapter sequence broken at index ${i} (found ${c.n})`);
+      if (verseCounts[b.id][i] === 0) report.error(`[${cfg.id}] ${b.id} ${c.n}: chapter has no verses`);
+    });
   }
   const { source: _s, usfmPattern: _p, bookCodeMap: _m, ...pub } = cfg as any;
   return { edition: { ...pub, chapters, verseCounts }, books };
@@ -374,13 +381,19 @@ export function buildBible(report: Report) {
     const ref = (b.edition as any).alignTo ? built.find((x) => x.edition.id === (b.edition as any).alignTo) : null;
     if (!ref) continue;
     const dropped: string[] = [];
+    const keptPartial: string[] = [];
     for (const [code, data] of [...b.books]) {
       const want = ref.edition.verseCounts[code];
       const have = b.edition.verseCounts[code];
-      const same = !!want && !!have && have.length >= want.length && have.length <= want.length + 1 && want.filter((n, i) => n === have[i]).length / want.length >= 0.75;
+      const ratio = !!want && !!have && want.length ? want.filter((n, i) => n === have[i]).length / want.length : 0;
+      const same = !!want && !!have && have.length >= want.length && have.length <= want.length + 1 && ratio >= 0.75;
       if (!same) { b.books.delete(code); delete b.edition.chapters[code]; delete b.edition.verseCounts[code]; dropped.push(code); }
+      else if (ratio < 1) keptPartial.push(`${code} (${Math.round(ratio * 100)}% of chapters match)`);
     }
-    report.warn(`[${b.edition.id}] books left out because their numbering differs from ${ref.edition.id}: ${dropped.join(', ')}`);
+    // warn only when there is something to say: an edition that drops nothing is not a warning, and a
+    // book kept on a partial match (three chapters in four alike) should be visible, not silent
+    if (dropped.length) report.warn(`[${b.edition.id}] books left out because their numbering differs from ${ref.edition.id}: ${dropped.join(', ')}`);
+    if (keptPartial.length) report.warn(`[${b.edition.id}] books kept although their numbering only partly matches ${ref.edition.id}: ${keptPartial.join(', ')}`);
     delete (b.edition as any).alignTo;
   }
   built.forEach(writeEdition);
