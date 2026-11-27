@@ -55,8 +55,8 @@ export default function BellRingersPage() {
       {week.length > 0 && (
         <div className="print-sheet bell-sheet">
           <h2 style={{ margin: '0 0 6px' }}>Bell ringers: {gradeLabel(grade)}</h2>
-          <ol className="bell-week">{week.map((c, i) => <li key={i}><strong>{['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'][i]}.</strong> <em>{KIND[c.kind]}.</em> {c.text}{c.options && <span className="bell-inline"> {c.options.map((o, k) => `${'ABCD'[k]}) ${o}`).join('   ')}</span>}</li>)}</ol>
-          <p className="muted small">Answers: {week.map((c, i) => c.answer ? `${['Mon', 'Tue', 'Wed', 'Thu', 'Fri'][i]}: ${c.answer}` : '').filter(Boolean).join(' · ') || 'none this week'}</p>
+          <ol className="bell-week">{week.map((c, i) => <li key={i}><strong>{new Date(Date.now() + i * 864e5).toLocaleDateString(undefined, { weekday: 'long' })}.</strong> <em>{KIND[c.kind]}.</em> {c.text}{c.options && <span className="bell-inline"> {c.options.map((o, k) => `${'ABCD'[k]}) ${o}`).join('   ')}</span>}</li>)}</ol>
+          <p className="muted small">Answers: {week.map((c, i) => c.answer ? `${new Date(Date.now() + i * 864e5).toLocaleDateString(undefined, { weekday: 'short' })}: ${c.answer}` : '').filter(Boolean).join(' · ') || 'none this week'}</p>
         </div>
       )}
     </div>
