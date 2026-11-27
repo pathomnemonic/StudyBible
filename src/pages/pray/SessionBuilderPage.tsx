@@ -27,7 +27,7 @@ function unpack(s: string): Block[] | null {
     return ok.length ? ok : null;
   } catch { return null; }
 }
-const toRefs = (s: string): Ref[] => { const p = parseRefs(s); return p.ok ? p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref).ref) : []; };
+const toRefs = (s: string): Ref[] => { const p = parseRefs(s); return p.ok ? p.refs.map((x) => convertRef('kjv', 'vulgate', x.ref)).filter((c) => c.exact).map((c) => c.ref) : []; };
 
 function Silence({ min }: { min: number }) {
   const [left, setLeft] = useState(min * 60);
@@ -71,7 +71,7 @@ export default function SessionBuilderPage() {
           <h2 className="card-title">{label(cur)}</h2>
           {prayer && <p className="scripture" style={{ fontSize: '1.1rem', lineHeight: 1.6 }}>{prayer.text}</p>}
           {cur.t === 'scripture' && <ReadingBlock refs={refs} label="Scripture" text={cur.ref} max={20} />}
-          {cur.t === 'silence' && <Silence min={cur.min} />}
+          {cur.t === 'silence' && <Silence key={run} min={cur.min} />}
         </section>
         <div className="row between" style={{ marginTop: 12 }}>
           <button className="btn" disabled={run === 0} onClick={() => setRun(run - 1)}>Back</button>
