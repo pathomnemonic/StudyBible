@@ -115,6 +115,20 @@ describe('sync', () => {
     await db.exec(`update studybible.sync_state set bytes = 104857600 where user_id = '${d}'`);
     expect((await sync(d, 0, [note('first', 3, 'a bit more')])).rejected).toBe(1); // past the size limit
   });
+  it('treats a deletion of a record that was never held as a no-op that eats no quota', async () => {
+    const g = '00000000-0000-4000-8000-0000000000a1';
+    await db.exec(`insert into auth.users (id, email) values ('${g}', 'g@example.org')`);
+    await join(g);
+    const r = await sync(g, 0, [gone('ghost1', 1), gone('ghost2', 2)]);
+    expect(r.rejected).toBe(0); // accepted, but nothing is stored and neither counter moves
+    expect((await sync(g, 0, [])).changes).toEqual([]);
+    const st = (await db.query(`select records, bytes from studybible.sync_state where user_id = '${g}'`)).rows[0] as { records: number; bytes: string };
+    expect(st.records).toBe(0); expect(Number(st.bytes)).toBe(0);
+  });
+  it('counts a record’s size in bytes, not characters, for the per-record limit', async () => {
+    const wide = 'é'.repeat(140_000); // about 140,000 characters, but about 280,000 bytes once written out as JSON text
+    expect((await sync(B, 0, [note('wide1', 1, wide)])).rejected).toBe(1);
+  });
 });
 
 describe('who may do what', () => {

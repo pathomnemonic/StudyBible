@@ -82,6 +82,7 @@ end $$;
 --   * at most 1000 changes a call; a record over 256 KB, or a person over 100 MB or 200,000 records, is refused (counted in `rejected`)
 --   * a writer's clock set far ahead must not win every later conflict: timestamps are capped at the server's time plus 5 minutes
 --   * a newer copy already held wins (the sender receives it); a deletion is a row with deleted = true
+--   * a deletion of a record that was never held is a no-op: it stores no tombstone and counts against neither the record nor the byte quota (sizes are counted in bytes)
 --   * the answer is the person's rows after `p_cursor`, up to 2000, without the rows this call just wrote
 create or replace function studybible.sync(p_protocol integer, p_cursor bigint, p_changes jsonb)
 returns jsonb language plpgsql security definer set search_path = '' as $$
@@ -110,21 +111,22 @@ begin
     v_payload := coalesce(c -> 'payload', '{}'::jsonb);
     if not studybible.payload_ok(v_tbl, c -> 'payload', coalesce((c ->> 'deleted')::boolean, false)) then rejected := rejected + 1; continue; end if;
     v_body := v_payload::text;
-    if char_length(v_body) > 262144 then rejected := rejected + 1; continue; end if;
+    if octet_length(v_body) > 262144 then rejected := rejected + 1; continue; end if;
     stamp := least(floor((c ->> 'updatedAt')::numeric)::bigint, now_ms + 300000);
-    select r.updated_at, char_length(r.payload::text) as len into ex from studybible.records r where r.user_id = me and r.tbl = v_tbl and r.uid = v_uid;
+    select r.updated_at, octet_length(r.payload::text) as len into ex from studybible.records r where r.user_id = me and r.tbl = v_tbl and r.uid = v_uid;
     held := found; -- FOUND is reset by the next statement, so keep the answer
     if held and ex.updated_at > stamp then continue; end if; -- the held copy is newer: the sender gets it below
+    if not held and coalesce((c ->> 'deleted')::boolean, false) then continue; end if; -- deleting a record that was never held: nothing to store, and it must not eat into the record or byte quota
     if held then
-      if st.bytes - ex.len + char_length(v_body) > 104857600 then rejected := rejected + 1; continue; end if;
+      if st.bytes - ex.len + octet_length(v_body) > 104857600 then rejected := rejected + 1; continue; end if;
     else
-      if st.bytes + char_length(v_body) > 104857600 or st.records >= 200000 then rejected := rejected + 1; continue; end if;
+      if st.bytes + octet_length(v_body) > 104857600 or st.records >= 200000 then rejected := rejected + 1; continue; end if;
     end if;
     st.seq := st.seq + 1;
     insert into studybible.records (user_id, tbl, uid, updated_at, deleted, payload, seq)
       values (me, v_tbl, v_uid, stamp, coalesce((c ->> 'deleted')::boolean, false), v_payload, st.seq)
       on conflict (user_id, tbl, uid) do update set updated_at = excluded.updated_at, deleted = excluded.deleted, payload = excluded.payload, seq = excluded.seq;
-    if held then st.bytes := st.bytes - ex.len + char_length(v_body); else st.records := st.records + 1; st.bytes := st.bytes + char_length(v_body); end if;
+    if held then st.bytes := st.bytes - ex.len + octet_length(v_body); else st.records := st.records + 1; st.bytes := st.bytes + octet_length(v_body); end if;
     mine := mine || (v_tbl || '|' || v_uid);
   end loop;
   update studybible.sync_state s set seq = st.seq, records = st.records, bytes = st.bytes where s.user_id = me;
