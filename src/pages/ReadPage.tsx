@@ -155,6 +155,8 @@ export default function ReadPage() {
   const [aloud, setAloud] = useState(false);
   const [textSettings, setTextSettings] = useState(false);
   const [editionPicker, setEditionPicker] = useState(false);
+  const [editionPickerFor, setEditionPickerFor] = useState<'primary' | 'parallel'>('primary');
+  const restoredFor = useRef('');
   const lastClicked = useRef<number | null>(null);
   const [bookInfo, setBookInfo] = useState<BookInfo | undefined>();
   useEffect(() => {
@@ -298,27 +300,44 @@ export default function ReadPage() {
       setFlash([]);
     }
     setSelAnchor([]);
+    lastClicked.current = null;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [vParam, flat, edition.id, bk.id, chNum]);
 
   useEffect(() => {
-    setSettings({ last: { edition: edition.id, book: bk.id, chapter: chNum } });
+    const askedEdition = get(edId);
+    const askedBook = BOOK_BY_ID[book];
+    const chaptersHere = askedEdition && askedBook ? askedEdition.chapters[askedBook.id] : undefined;
+    const valid = !!askedEdition && !!askedBook && chaptersHere != null && /^\d+$/.test(chapter) && +chapter >= 1 && +chapter <= chaptersHere;
     const key = `${edition.id}.${bk.id}.${chNum}`;
-    (async () => {
-      const last = await db.history.orderBy('ts').last();
-      if (!last || last.ref !== `${bk.id}.${primaryAnchorChapter}`) {
-        logHistory({ ts: Date.now(), type: 'read', ref: `${bk.id}.${primaryAnchorChapter}`, label: `${bk.name} ${chNum}` });
-      }
-    })();
-    const saved = sessionStorage.getItem('scroll.' + key);
-    if (saved && !vParam) setTimeout(() => window.scrollTo(0, +saved), 80);
-    else if (!vParam) window.scrollTo(0, 0);
-    const onScroll = () => sessionStorage.setItem('scroll.' + key, String(window.scrollY));
+    restoredFor.current = '';
+    if (valid) {
+      setSettings({ last: { edition: edition.id, book: bk.id, chapter: chNum } });
+      (async () => {
+        const last = await db.history.orderBy('ts').last();
+        const sameDay = !!last && new Date(last.ts).toDateString() === new Date().toDateString();
+        if (!last || last.ref !== `${bk.id}.${primaryAnchorChapter}` || !sameDay) {
+          logHistory({ ts: Date.now(), type: 'read', ref: `${bk.id}.${primaryAnchorChapter}`, label: `${bk.name} ${chNum}` });
+        }
+      })();
+    }
+    const onScroll = () => { if (restoredFor.current === key) sessionStorage.setItem('scroll.' + key, String(window.scrollY)); };
     window.addEventListener('scroll', onScroll, { passive: true });
     document.title = pageTitle(`${bk.name} ${chNum}`);
     return () => window.removeEventListener('scroll', onScroll);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [edition.id, bk.id, chNum]);
+
+  useEffect(() => {
+    if (!flat.length) return;
+    const key = `${edition.id}.${bk.id}.${chNum}`;
+    if (restoredFor.current === key) return;
+    restoredFor.current = key;
+    if (vParam) return;
+    const saved = sessionStorage.getItem('scroll.' + key);
+    window.scrollTo(0, saved ? +saved : 0);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [flat.length, edition.id, bk.id, chNum]);
 
   // -------- user marks
   const highlights = useLiveQuery(async () => {
@@ -461,6 +480,7 @@ export default function ReadPage() {
   const clearSel = () => {
     setSelNative([]);
     setSelAnchor([]);
+    lastClicked.current = null;
     if (vParam) {
       sp.delete('v');
       setSp(sp, { replace: true });
@@ -471,14 +491,17 @@ export default function ReadPage() {
   const prev = () => {
     if (chNum > 1) go(bk.id, chNum - 1);
     else {
-      const pb = adjacentBook(bk.id, -1);
-      if (pb) go(pb.id, edition.chapters[pb.id]);
+      let pb = adjacentBook(bk.id, -1);
+      while (pb && edition.chapters[pb.id] == null) pb = adjacentBook(pb.id, -1);
+      const lastOfPrev = pb ? edition.chapters[pb.id] : undefined;
+      if (pb && lastOfPrev != null) go(pb.id, lastOfPrev);
     }
   };
   const next = () => {
     if (chNum < (edition.chapters[bk.id] ?? 1)) go(bk.id, chNum + 1);
     else {
-      const nb = adjacentBook(bk.id, 1);
+      let nb = adjacentBook(bk.id, 1);
+      while (nb && edition.chapters[nb.id] == null) nb = adjacentBook(nb.id, 1);
       if (nb) go(nb.id, 1);
     }
   };
@@ -516,6 +539,7 @@ export default function ReadPage() {
     setSettings({ parallelEdition: id });
     setSelNative([]);
     setSelAnchor([]);
+    lastClicked.current = null;
   };
 
   // -------- actions
@@ -555,9 +579,13 @@ export default function ReadPage() {
     await safeCopy(formatCopy(settings.copyStyle, verses, label, edition.shortName));
   };
   const copyLink = async () => {
-    const [a, b] = parallelMode ? [selAnchor[0], selAnchor[selAnchor.length - 1]] : [Math.min(...selNative), Math.max(...selNative)];
     const base = location.href.split('?')[0].split('#')[0];
-    await safeCopy(`${base}#/s/verse?ed=${edition.id}&b=${bk.id}&c=${chNum}&v=${a}${b !== a ? '-' + b : ''}`);
+    const links = selRefs.map((r) => {
+      const n = anchorToNative(edition, r);
+      const v = n.v1 ? `&v=${n.v1}${n.v2 && n.v2 !== n.v1 ? '-' + n.v2 : ''}` : '';
+      return `${base}#/s/verse?ed=${edition.id}&b=${bk.id}&c=${n.chapter}${v}`;
+    });
+    await safeCopy(links.join('\n'));
   };
 
   const markSpeaking = useCallback((n: number | null) => {
@@ -676,7 +704,7 @@ export default function ReadPage() {
         <span>Translation</span>
         <span className="ed-switch segmented" role="group" aria-label="Translation">
           {choosable.map((e) => <button key={e.id} aria-pressed={e.id === edition.id} onClick={() => { if (e.id !== edition.id) { setPicker(false); switchEdition(e.id); } }} title={e.name}>{e.shortName}</button>)}
-          <button onClick={() => { setPicker(false); setEditionPicker(true); }} title={t('reader.more')} aria-label={t('reader.more')}>⋯</button>
+          <button onClick={() => { setPicker(false); setEditionPickerFor('primary'); setEditionPicker(true); }} title={t('reader.more')} aria-label={t('reader.more')}>⋯</button>
         </span>
       </div>
       <OfflineLine edition={edition.id} name={edition.shortName} />
@@ -689,7 +717,7 @@ export default function ReadPage() {
               if (!l || !r) return null;
               return (
                 <span key={pairKey(pr)} className="row" style={{ gap: 2 }}>
-                  <button className="chip" onClick={() => { setPicker(false); const q = `?p=${pr.right}`; nav(`/read/${pr.left}/${bk.id}/${Math.min(chNum, l.chapters[bk.id] ?? chNum)}${q}`); setSettings({ defaultEdition: pr.left, parallelEdition: pr.right }); }} aria-label={`Read ${l.shortName} beside ${r.shortName}`}>{l.shortName} ‖ {r.shortName}</button>
+                  <button className="chip" onClick={() => { setPicker(false); const q = `?p=${pr.right}`; const targetChapter = anchorToNative(l, { book: bk.id, c1: primaryAnchorChapter, c2: primaryAnchorChapter }).chapter; nav(`/read/${pr.left}/${bk.id}/${targetChapter}${q}`); setSettings({ defaultEdition: pr.left, parallelEdition: pr.right }); }} aria-label={`Read ${l.shortName} beside ${r.shortName}`}>{l.shortName} ‖ {r.shortName}</button>
                   <button className="chip" onClick={() => setSettings({ savedPairs: removePair(settings.savedPairs ?? [], pr) })} aria-label={`Forget the pair ${l.shortName} and ${r.shortName}`} title="Forget this pair">×</button>
                 </span>
               );
@@ -752,7 +780,7 @@ export default function ReadPage() {
               {bk.name} {chNum}
             </button>
             {parallel && (
-              <button className="chip" onClick={() => setEditionPicker(true)} aria-label="Change parallel translation">
+              <button className="chip" onClick={() => { setEditionPickerFor('parallel'); setEditionPicker(true); }} aria-label="Change parallel translation">
                 ‖ {parallel.shortName}
               </button>
             )}
@@ -791,7 +819,7 @@ export default function ReadPage() {
             <h1 className="chapter-title has-art" data-reader-edition={edition.id} data-reader-book={bk.id} data-reader-chapter={chNum} data-reader-ready={chapterData ? "true" : "false"}>
               {bk.id === 'PSA' ? `Psalm ${chNum}` : `${bk.name} ${chNum}`}
               {chapterCount > 0 && dockOn && (
-                <button className="rm chapter-rm" title={`${chapterCount} notes about the whole chapter`} aria-label={`${chapterCount} notes about the whole chapter. Open study panel`} onClick={() => { setSelNative([]); setSelAnchor([]); setSettings({ studyDock: true }); }}>
+                <button className="rm chapter-rm" title={`${chapterCount} notes about the whole chapter`} aria-label={`${chapterCount} notes about the whole chapter. Open study panel`} onClick={() => { setSelNative([]); setSelAnchor([]); lastClicked.current = null; setSettings({ studyDock: true }); }}>
                   {chapterCount}
                 </button>
               )}
@@ -967,8 +995,9 @@ export default function ReadPage() {
               <div className="row">
                 {isOn(e.id) ? (
                   <>
-                    <button className="btn small primary" onClick={() => switchEdition(e.id)}>Read in {e.shortName}</button>
-                    {e.id !== edition.id && <button className="btn small" onClick={() => { setParallel(e.id); setEditionPicker(false); }}>Show alongside</button>}
+                    {editionPickerFor === 'parallel' ? <button className="btn small primary" onClick={() => { setParallel(e.id); setEditionPicker(false); }}>Show alongside</button> : <button className="btn small primary" onClick={() => switchEdition(e.id)}>Read in {e.shortName}</button>}
+                    {editionPickerFor === 'parallel' && e.id !== edition.id && <button className="btn small" onClick={() => switchEdition(e.id)}>Read in {e.shortName}</button>}
+                    {editionPickerFor !== 'parallel' && e.id !== edition.id && <button className="btn small" onClick={() => { setParallel(e.id); setEditionPicker(false); }}>Show alongside</button>}
                   </>
                 ) : (
                   <button className="btn small" onClick={() => { setEditionPicker(false); setEnabling(e); }}>Off by default · turn on…</button>
