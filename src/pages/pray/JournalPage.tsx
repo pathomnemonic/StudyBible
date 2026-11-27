@@ -7,6 +7,7 @@ import { renderMarkdown } from '../../lib/markdown';
 import { formatRef, parseRefId, parseRefs, refId } from '../../lib/refs';
 import RefLink from '../../components/RefLink';
 import { PRAYERS } from '../../data/prayers';
+import { convertRef } from '../../lib/versification';
 import { fold } from '../../search/engine';
 
 const todayIso = () => {
@@ -51,7 +52,7 @@ export default function JournalPage() {
           <textarea value={edit.body} onChange={(e) => setEdit({ ...edit, body: e.target.value })} placeholder={kind === 'intention' ? 'Whom or what are you praying for?' : kind === 'prayer' ? 'A prayer you want to keep' : 'What are you noticing in prayer?'} aria-label="Entry" style={{ marginTop: 8 }} />
           <div className="chips" style={{ margin: '8px 0' }}>
             {edit.refs.map((r, i) => <span key={i} className="chip">{formatRef(parseRefId(r)!)} <button style={{ border: 0, background: 'none' }} onClick={() => setEdit({ ...edit, refs: edit.refs.filter((_, j) => j !== i) })} aria-label="Remove passage">×</button></span>)}
-            <input type="text" placeholder="Link a passage…" value={refText} onChange={(e) => setRefText(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') { const p = parseRefs(refText); if (p.ok) { setEdit({ ...edit, refs: [...edit.refs, ...p.refs.map((x) => refId(x.ref))] }); setRefText(''); } } }} />
+            <input type="text" placeholder="Link a passage…" value={refText} onChange={(e) => setRefText(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') { const p = parseRefs(refText); if (p.ok) { setEdit({ ...edit, refs: [...edit.refs, ...p.refs.map((x) => refId(convertRef('kjv', 'vulgate', x.ref).ref))] }); setRefText(''); } } }} />
           </div>
           <div className="row"><button className="btn primary" onClick={save}>Save</button><button className="btn" onClick={() => setEdit(null)}>Cancel</button></div>
         </div>
