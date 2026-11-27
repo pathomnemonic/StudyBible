@@ -9,6 +9,7 @@ import InlinePlayer from '../components/InlinePlayer';
 import { recordSession, type HostMeta } from '../teach/store';
 import { useSaveResults } from '../teach/useSaveResults';
 import { embedFor } from '../lib/embed';
+import { copyText } from '../lib/clipboard';
 import { CATS } from '../lib/trivia';
 import QrCode from './QrCode';
 
@@ -52,7 +53,7 @@ function CrownsPlay({ v, link, now }: { v: LiveView; link: PlayerLink; now: () =
   const [text, setText] = useState('');
   const key = `${mine?.step}:${mine?.cat}:${mine?.feedback?.n}:${mine?.landed}`;
   useEffect(() => { setBusy(false); setText(''); }, [key]);
-  const send = async (val: unknown) => { setBusy(true); try { await link.answer(val); } catch { setBusy(false); } };
+  const send = async (val: unknown) => { setBusy(true); try { await link.answer(val); } catch { /* the timed clear in finally handles a rejected move */ } finally { setTimeout(() => setBusy(false), 1000); } };
   const fb = mine?.feedback, q = mine?.question, cat = mine?.cat ? catOf(mine.cat) : undefined;
   const open = c.cats.filter((x) => !mine?.crowns.includes(x));
   return (
@@ -161,12 +162,18 @@ export function JoinPage() {
   const [title, setTitle] = useState('');
   const [roster, setRoster] = useState<string[]>([]);
   const [rosterOnly, setRosterOnly] = useState(false);
-  useEffect(() => { if (/^\d{6}$/.test(code)) peekRoom(code, roomKeyIn).then((p) => { setTitle(p.title); setRoster(p.roster ?? []); setRosterOnly(!!p.rosterOnly); }, () => { setTitle(''); setRoster([]); }); else { setTitle(''); setRoster([]); } }, [code, roomKeyIn]);
+  useEffect(() => {
+    let live = true;
+    if (/^\d{6}$/.test(code)) peekRoom(code, roomKeyIn).then((p) => { if (!live) return; setTitle(p.title); setRoster(p.roster ?? []); setRosterOnly(!!p.rosterOnly); }, () => { if (!live) return; setTitle(''); setRoster([]); setRosterOnly(false); });
+    else { setTitle(''); setRoster([]); setRosterOnly(false); }
+    return () => { live = false; };
+  }, [code, roomKeyIn]);
+  const hasStoredToken = !!read(tokOf(code.replace(/\D/g, '')));
   const submit = async (e: React.FormEvent) => {
     e.preventDefault(); setErr(''); setBusy(true);
     try {
       const c = code.replace(/\D/g, '');
-      if (roster.length && rosterOnly && !roster.includes(name)) throw new Error('Tap your name in the list.');
+      if (roster.length && rosterOnly && !roster.includes(name) && !read(tokOf(c))) throw new Error('Tap your name in the list.');
       const j = await joinRoom(c, name.trim() || randomName(), read(tokOf(c)) || undefined, undefined, roomKeyIn || undefined);
       write(tokOf(c), j.token); j.close(); write('sb:live:name', name.trim());
       nav(`/play/${c}`);
@@ -190,7 +197,7 @@ export function JoinPage() {
           <label>Your name<div className="row" style={{ gap: 6 }}><input value={name} maxLength={20} onChange={(e) => setName(e.target.value)} placeholder="A name everyone will know" style={{ flex: 1 }} /><button type="button" className="btn small" onClick={() => setName(randomName())}>🎲 Surprise me</button></div></label>
         )}
         {err && <div className="notice warn" role="alert">{err}</div>}
-        <button className="btn primary big" disabled={busy || code.length !== 6 || (roster.length > 0 && rosterOnly && !roster.includes(name))}>{busy ? 'Joining…' : 'Join'}</button>
+        <button className="btn primary big" disabled={busy || code.length !== 6 || (roster.length > 0 && rosterOnly && !roster.includes(name) && !hasStoredToken)}>{busy ? 'Joining…' : 'Join'}</button>
       </form>
     </div>
   );
@@ -325,7 +332,7 @@ export function HostPage() {
           <p className="live-url">{joinUrl}</p>
           <p className="muted">and enter the code, or point a phone camera at this square.</p>
           <div className="lv-qrbox"><QrCode text={joinUrl} label={`QR code that opens the join page for game ${v.code}`} /></div>
-          <div className="row" style={{ justifyContent: 'center', gap: 8, flexWrap: 'wrap', margin: '0 0 8px' }}><button type="button" className="btn" onClick={() => { const done = () => { setCopied(true); setTimeout(() => setCopied(false), 2000); }; try { void navigator.clipboard.writeText(joinUrl).then(done, done); } catch { done(); } }}>{copied ? 'Link copied ✓' : 'Copy link'}</button><ShareButton text={`Join my game on Cathology with the code ${v.code}`} path={`/join/${v.code}`} label="Share the invitation" className="btn" /></div>
+          <div className="row" style={{ justifyContent: 'center', gap: 8, flexWrap: 'wrap', margin: '0 0 8px' }}><button type="button" className="btn" onClick={async () => { const ok = await copyText(joinUrl); if (ok) { setCopied(true); setTimeout(() => setCopied(false), 2000); } }}>{copied ? 'Link copied ✓' : 'Copy link'}</button><ShareButton text={`Join my game on Cathology with the code ${v.code}`} path={`/join/${v.code}`} label="Share the invitation" className="btn" /></div>
           <div className="live-code" aria-label={`Game code ${v.code.split('').join(' ')}`}>{v.code}</div>
           {link?.joinKey && <p className="muted">Room key <strong className="live-code-sm">{link.joinKey}</strong>: students who type the code type this word too. The join link and the QR code already carry it.</p>}
           <div className="row" style={{ gap: 8, justifyContent: 'center', flexWrap: 'wrap', margin: '12px 0' }}>
@@ -423,7 +430,7 @@ function ExamView({ v, link, now }: { v: LiveView; link: PlayerLink; now: () => 
   const left = useCountdown(ex.deadline, now);
   const q = ex.questions[i];
   useEffect(() => { setText(typeof mine[i]?.[0] === 'string' ? String(mine[i]![0]) : ''); }, [i]);
-  const save = (val: (number | string)[] | null) => { setMine((m) => m.map((x, k) => (k === i ? val : x))); if (val) void link.answer(val, i).catch(() => undefined); };
+  const save = (val: (number | string)[] | null) => { setMine((m) => m.map((x, k) => (k === i ? val : x))); void link.answer(val, i).catch(() => undefined); };
   const sel = (mine[i] ?? []).map(Number);
   const answeredCount = mine.filter(Boolean).length;
   const mm = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
@@ -438,7 +445,18 @@ function ExamView({ v, link, now }: { v: LiveView; link: PlayerLink; now: () => 
       </div>
     );
   }
-  const submit = async () => { if (answeredCount < ex.questions.length && !confirm(`${ex.questions.length - answeredCount} questions are blank. Hand in anyway?`)) return; setBusy(true); try { await link.submit(); } finally { setBusy(false); } };
+  const submit = async () => {
+    let effective = mine;
+    if (q.type === 'text') {
+      const val: (number | string)[] | null = text.trim() ? [text.trim()] : null;
+      effective = mine.map((x, k) => (k === i ? val : x));
+      setMine(effective);
+      try { await link.answer(val, i); } catch { /* handing in still goes ahead with the saved answers */ }
+    }
+    const count = effective.filter(Boolean).length;
+    if (count < ex.questions.length && !confirm(`${ex.questions.length - count} questions are blank. Hand in anyway?`)) return;
+    setBusy(true); try { await link.submit(); } finally { setBusy(false); }
+  };
   return (
     <div>
       <div className="live-timer" role="timer" aria-label={`${mm(left)} left`}><div className="live-timer-bar"><i style={{ width: `${Math.min(100, (left / Math.max(1, v.settings.examMinutes * 60)) * 100)}%` }} /></div><span style={{ minWidth: '4.5ch' }}>{mm(left)}</span></div>
@@ -498,7 +516,7 @@ function RunPlay({ v, link, now }: { v: LiveView; link: PlayerLink; now: () => n
   const fb = mine?.feedback;
   const key = `${mine?.steps}:${fb?.n}`;
   useEffect(() => { setSel([]); setText(''); setBusy(false); }, [key]);
-  const send = async (val: unknown) => { setBusy(true); try { await link.answer(val); } catch { setBusy(false); } };
+  const send = async (val: unknown) => { setBusy(true); try { await link.answer(val); } catch { /* the timed clear in finally handles a rejected move */ } finally { setTimeout(() => setBusy(false), 1000); } };
   const doneRace = v.settings.mode === 'race' && (mine?.steps ?? 0) >= r.goal;
   return (
     <div>
