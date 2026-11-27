@@ -102,6 +102,13 @@ export class LiveRoom {
   rosterFree(): string[] { const taken = new Set([...this.players.values()].map((p) => fold(p.name))); return this.roster.filter((r) => !taken.has(fold(r))); }
   private touch() { this.touched = this.now(); this.version++; }
   private ranked() { return [...this.players.values()].sort((a, b) => b.score - a.score || a.name.localeCompare(b.name)); }
+  private ordered() {
+    if (this.settings.mode !== 'exam') return this.ranked();
+    return [...this.players.values()].sort((a, b) => {
+      const ra = a.examResult ?? this.examScore(a), rb = b.examResult ?? this.examScore(b);
+      return rb.percent - ra.percent || rb.correct - ra.correct || a.name.localeCompare(b.name);
+    });
+  }
   private nameFree(name: string) { let n = name, k = 2; const taken = new Set([...this.players.values()].map((p) => p.name.toLowerCase())); while (taken.has(n.toLowerCase())) n = `${name} ${k++}`; return n; }
 
   join(rawName: string, token?: string): { id: string; token: string } {
@@ -210,6 +217,7 @@ export class LiveRoom {
   examAnswer(token: string, qi: number, value: unknown): boolean {
     const p = this.playerByToken(token);
     if (!p || this.phase !== 'exam' || p.submitted || !Number.isInteger(qi) || qi < 0 || qi >= this.content.questions.length) return false;
+    p.lastSeen = this.now();
     const q = this.content.questions[qi];
     let v: (number | string)[];
     if (q.type === 'text') v = [clean(Array.isArray(value) ? value[0] : value, 80)];
@@ -231,6 +239,7 @@ export class LiveRoom {
   runAnswer(token: string, value: unknown): boolean {
     const p = this.playerByToken(token);
     if (!p || this.phase !== 'run' || p.finishedAt) return false;
+    p.lastSeen = this.now();
     if (this.settings.mode === 'crowns') return this.crownAct(p, value);
     this.nextQuestion(p);
     const qi = p.queue[p.qi];
@@ -324,6 +333,8 @@ export class LiveRoom {
   submit(token: string): boolean { const p = this.playerByToken(token); if (!p || this.phase !== 'exam') return false; this.submitPlayer(p); this.touch(); return true; }
 
   answer(token: string, value: unknown): boolean {
+    const seen = this.playerByToken(token);
+    if (seen) seen.lastSeen = this.now();
     if (this.phase === 'slides') return this.vote(token, value);
     if (this.phase === 'run') return this.runAnswer(token, value);
     const p = this.playerByToken(token);
@@ -400,12 +411,19 @@ export class LiveRoom {
     this.touch();
   }
 
-  /** Scores as comma-separated rows, for the teacher to keep. */
+  /** Scores as comma separated rows, for the teacher to keep. */
   csv(): string {
     const q = this.content.questions;
     const esc = (s: string | number) => { const t = String(s); return /^[=+\-@]/.test(t) ? `'${t}` : t; };
     const q2 = (s: string | number) => `"${esc(s).replace(/"/g, '""')}"`;
     const rows = [['Rank', 'Name', 'Team', 'Score', 'Correct', ...q.map((_, i) => `Q${i + 1}`)].map(q2).join(',')];
+    if (this.settings.mode === 'exam') {
+      this.ordered().forEach((p, r) => {
+        const res = p.examResult ?? this.examScore(p);
+        rows.push([r + 1, p.name, p.team === undefined ? '' : p.team + 1, Math.round(res.percent * 10) / 10, res.correct, ...q.map((qq, i) => { const a = p.exam[i]; return a ? (isRight(qq, a) ? 'right' : 'wrong') : ''; })].map(q2).join(','));
+      });
+      return rows.join('\n');
+    }
     this.ranked().forEach((p, r) => rows.push([r + 1, p.name, p.team === undefined ? '' : p.team + 1, p.score, p.log.filter((l) => l.correct).length, ...q.map((_, i) => { const l = p.log.find((x) => x.q === i); return l ? (l.correct ? 'right' : 'wrong') : ''; })].map(q2).join(',')));
     return rows.join('\n');
   }
@@ -416,7 +434,7 @@ export class LiveRoom {
     const exam = this.settings.mode === 'exam';
     const run = this.settings.mode === 'race' || this.settings.mode === 'build' || this.settings.mode === 'crowns';
     const crowns = this.settings.mode === 'crowns';
-    const players = this.ranked().map((p): PlayerResult => {
+    const players = this.ordered().map((p): PlayerResult => {
       if (exam) { const r = p.examResult ?? this.examScore(p); return { id: p.id, name: p.name, score: Math.round(r.percent * 10) / 10, correct: r.correct, answered: p.exam.filter(Boolean).length, total: r.total, joinedAt: p.joinedAt, submitted: !!p.submitted, team: p.team }; }
       const done = p.log.length;
       if (run) return { id: p.id, name: p.name, score: crowns ? (p.cr?.crowns.length ?? 0) : p.steps, correct: p.steps, answered: p.ran, total: p.ran, joinedAt: p.joinedAt, submitted: true, team: p.team };
@@ -452,6 +470,7 @@ export class LiveRoom {
       board: ranked.slice(0, this.phase === 'ended' ? 10 : 5).map((p) => ({ id: p.id, name: p.name, score: p.score, rank: rankOf.get(p.id)!, streak: p.streak, team: p.team })),
     };
     if (role === 'player') v.players = v.players.map((p) => ({ ...p, name: this.settings.showNames ? p.name : '', answered: false, progress: undefined, submitted: undefined }));
+    if (role === 'player') v.board = v.board.map((p) => ({ ...p, name: this.settings.showNames ? p.name : '' }));
     const cur = this.content.slides[this.slideIndex];
     if (this.phase === 'slides' && cur?.poll) {
       const vs = this.votes[this.slideIndex] ?? {};
