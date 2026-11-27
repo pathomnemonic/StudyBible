@@ -13,6 +13,7 @@ const OUT: [string, string, string][] = [
   ['Bible in a Year, LibriVox and the Creedal recordings', 'The publishers’ own audio servers', 'Your IP address, as for any download.'],
   ['Back up to Google Drive (you turn it on)', 'Google', 'Your backup file, under your own Google account.'],
   ['Host or join a live class', 'Public message relays (such as EMQX, HiveMQ or Mosquitto)', 'Sealed messages and your IP address. The relays cannot read the contents.'],
+  ['Opening the public website', 'Sentry (error reports) and PostHog (page counts)', 'The error itself and the first part of the address only: that the reader was opened, for example, never which book, chapter, search or note. No cookies, no person profiles, no session recording. You can turn this off in Settings.'],
   ['Opening a link to another website', 'That website', 'Whatever the website collects.'],
 ];
 
@@ -29,7 +30,7 @@ export default function PrivacyPage() {
       <ul>
         <li>Notes, highlights, bookmarks, folders, journal, plans, memorization, your prayer list and prayer log, class rosters and scores, and every setting.</li>
         <li>It lives in this browser’s own storage (IndexedDB and local storage). Clearing site data removes it, so use <Link to="/library?tab=export">Export and backup</Link> first.</li>
-        <li>There is no advertising, no tracking and no analytics in this app.</li>
+        <li>There is no advertising in this app, and nothing you read, search for or write is tracked. On the public website only, the app can send anonymous error reports and a count of which section is opened; both are listed in the table below and can be turned off in Settings.</li>
         <li>The Bible text, the Catechism, the library and the lessons are part of the app, so reading them sends nothing anywhere.</li>
       </ul>
       <h2>When something leaves your device</h2>
@@ -43,6 +44,7 @@ export default function PrivacyPage() {
       <h2>Your choices</h2>
       <ul>
         <li>Everything above is optional. Without sync and Drive backup, your writing never leaves the device.</li>
+        <li>Error reports and page counts run only on the public website: never in the store apps, never in Kid mode, and never when your browser sends Do Not Track or Global Privacy Control. In the EU, the UK and the EEA nothing is sent until you agree, through the banner the app shows there or in Settings. The off switch is in Settings.</li>
         <li><Link to="/settings">Settings</Link> can delete all data on this device in one step.</li>
         <li>Live classes send messages through public relay servers while a class is running. The messages are sealed with a key made from the class code, so the relays cannot read them, but they can see that traffic exists. Anyone who has the class code can read the class, so treat it like a room key and do not post it publicly.</li>
         <li>Notifications are scheduled on this device. Nothing is sent from a server.</li>
