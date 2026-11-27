@@ -2,8 +2,8 @@ import { BRAND } from '../lib/brand';
 import { addDays, iso, liturgicalDay, type CalendarVariant } from './compute';
 import { dutiesOn } from './discipline';
 
-const esc = (t: string) => t.replace(/\\/g, '\\\\').replace(/;/g, '\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
-const fold = (l: string) => { const out: string[] = []; let s = l; while (s.length > 74) { out.push(s.slice(0, 74)); s = ' ' + s.slice(74); } out.push(s); return out.join('\r\n'); };
+const esc = (t: string) => t.replace(/\\/g, '\\\\').replace(/;/g, String.fromCharCode(92) + ';').replace(/,/g, '\\,').replace(/\n/g, '\\n');
+const fold = (l: string) => { const enc = new TextEncoder(); const out: string[] = []; let cur = ''; let bytes = 0; for (const ch of l) { const b = enc.encode(ch).length; if (bytes + b > 75 && cur) { let carry = ''; if (cur.endsWith(String.fromCharCode(92))) { carry = String.fromCharCode(92); cur = cur.slice(0, -1); } out.push(cur); cur = ' ' + carry + ch; bytes = 1 + carry.length + b; } else { cur += ch; bytes += b; } } out.push(cur); return out.join('\r\n'); };
 const ymd = (d: Date) => iso(d).replace(/-/g, '');
 
 export interface IcsOptions { from: Date; days: number; variant: CalendarVariant; sundays?: boolean; fasting?: boolean }

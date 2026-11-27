@@ -7,7 +7,7 @@ export function useWakeLock(on: boolean) {
     let lock: { release: () => Promise<void> } | null = null;
     let dead = false;
     const take = async () => {
-      try { if (!dead && document.visibilityState === 'visible') lock = await (navigator as any).wakeLock.request('screen'); } catch { /* denied, e.g. low battery */ }
+      try { if (!dead && document.visibilityState === 'visible') { const arrived = await (navigator as any).wakeLock.request('screen'); if (dead) { try { await arrived?.release(); } catch { /* already gone */ } } else lock = arrived; } } catch { /* denied, e.g. low battery */ }
     };
     void take();
     const vis = () => { if (document.visibilityState === 'visible') void take(); };

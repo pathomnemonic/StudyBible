@@ -19,17 +19,25 @@ function next(time: string): number {
   return t.getTime() - now.getTime();
 }
 
+async function deliver(id: string, text: string) {
+  try {
+    const reg = await navigator.serviceWorker?.getRegistration?.().catch(() => undefined);
+    if (reg) { await reg.showNotification(BRAND.name, { body: text, tag: `studybible-${id}` }); return; }
+  } catch { /* fall back to the constructor */ }
+  try {
+    new Notification(BRAND.name, { body: text, tag: `studybible-${id}` });
+  } catch {
+    /* notifications blocked */
+  }
+}
+
 function arm(id: string, time: string, body: () => string) {
   const old = timers.get(id);
   if (old) clearTimeout(old);
   timers.set(
     id,
     window.setTimeout(() => {
-      try {
-        new Notification(BRAND.name, { body: body(), tag: `studybible-${id}` });
-      } catch {
-        /* notifications blocked */
-      }
+      void deliver(id, body());
       arm(id, time, body);
     }, next(time)),
   );

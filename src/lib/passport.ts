@@ -12,7 +12,7 @@ export const MAX_STAMPS = 1500;
 const EVT = 'studybible:passport';
 const EVICT_FIRST: Kind[] = ['readings', 'feastcard', 'saint', 'work', 'catechism', 'lesson'];
 
-const keyOf = (k: string, i: string) => `${k}:${i}`;
+const keyOf = (k: string, i: string) => `${k}:${i.slice(0, 120)}`;
 const KINDS = new Set<string>(Object.keys(CATEGORY_OF));
 const clean = (raw: unknown): Book => {
   const out: Book = { v: 1, s: {} };
@@ -43,7 +43,7 @@ export function stamp(kind: Kind, id: string, label: string, now = Date.now()): 
   const b = read();
   const k = keyOf(kind, id);
   if (b.s[k]) return false;
-  b.s[k] = { k: kind, i: id, l: label, t: now };
+  b.s[k] = { k: kind, i: id.slice(0, 120), l: label, t: now };
   write(b);
   return true;
 }

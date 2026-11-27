@@ -144,7 +144,7 @@ function temporal(date: Date, variant: CalendarVariant): LiturgicalDay {
   // Lent
   const holyThursday = addDays(E, -3);
   if (date >= ash && date < holyThursday) {
-    if (diffDays(date, ash) < 4) return { ...base, season: 'lent', seasonName: 'Lent', week: 0, dayName: iso(date) === iso(ash) ? 'Ash Wednesday' : `${dn} after Ash Wednesday`, color: 'violet', rank: iso(date) === iso(ash) ? 'solemnity' : 'weekday' };
+    if (diffDays(date, ash) < 4) return { ...base, season: 'lent', seasonName: 'Lent', week: 0, dayName: iso(date) === iso(ash) ? 'Ash Wednesday' : `${dn} after Ash Wednesday`, color: 'violet', rank: iso(date) === iso(ash) ? 'feast' : 'weekday' };
     const firstSun = addDays(ash, 4);
     const wk = Math.floor(diffDays(date, firstSun) / 7) + 1;
     const palm = addDays(E, -7);

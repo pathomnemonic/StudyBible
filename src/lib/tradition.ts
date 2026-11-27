@@ -55,7 +55,7 @@ export function byzantineMovable(year: number, julian: boolean): FeastDate[] {
     { label: 'Palm Sunday (Entry into Jerusalem)', date: addDays(p, -7) },
     { label: 'Holy and Great Pascha', date: p },
     { label: 'Thomas Sunday', date: addDays(p, 7) },
-    { label: 'Mid-Pentecost', date: addDays(p, 25) },
+    { label: 'Mid-Pentecost', date: addDays(p, 24) },
     { label: 'Ascension of the Lord', date: addDays(p, 39) },
     { label: 'Pentecost', date: addDays(p, 49) },
     { label: 'All Saints', date: addDays(p, 56) },
