@@ -36,7 +36,16 @@ export default function CrosswordPage() {
   const [checks, setChecks] = useState(0);
   const started = useRef(Date.now());
   const input = useRef<HTMLInputElement>(null);
-  useEffect(() => { if (weekly) try { const prev = load(); localStorage.setItem(SAVE, JSON.stringify({ week: weekNo(), fill, done: prev?.week === weekNo() ? prev.done : undefined } satisfies Saved)); } catch { /* private mode */ } }, [fill, weekly]);
+  const fillDirty = useRef(false);
+  const prevIdx = useRef(idx);
+  useEffect(() => {
+    if (prevIdx.current === idx) return;
+    prevIdx.current = idx;
+    setRevealed(new Set()); setChecks(0); setChecked(false); setNote(''); setSel(null);
+    fillDirty.current = false;
+    if (idx === weekNo() % CROSSWORDS.length) { const s = load(); setFill(s && s.week === weekNo() ? s.fill : {}); }
+  }, [idx]);
+  useEffect(() => { if (!weekly || !fillDirty.current) return; try { const prev = load(); localStorage.setItem(SAVE, JSON.stringify({ week: weekNo(), fill, done: prev?.week === weekNo() ? prev.done : undefined } satisfies Saved)); } catch { /* private mode */ } }, [fill, weekly]);
   const solved = [...L.cells].every(([k, ch]) => fill[k] === ch);
   useEffect(() => {
     if (!solved) return;
@@ -60,9 +69,9 @@ export default function CrosswordPage() {
     const cs = cellsOf(w), at = cs.indexOf(k) + step;
     if (at >= 0 && at < cs.length) setSel(cs[at]);
   };
-  const type = (ch: string) => { if (!sel) return; setFill((f) => ({ ...f, [sel]: ch })); setChecked(false); setNote(''); move(sel, 1); };
-  const back = () => { if (!sel) return; if (fill[sel]) setFill((f) => { const g = { ...f }; delete g[sel]; return g; }); else { move(sel, -1); } };
-  const reveal = () => { if (!sel) { setNote('Tap a square first, then Reveal letter.'); return; } const ch = L.cells.get(sel); if (ch) { setFill((f) => ({ ...f, [sel]: ch })); setRevealed((r) => new Set(r).add(sel)); setNote(''); } };
+  const type = (ch: string) => { if (!sel) return; fillDirty.current = true; setFill((f) => ({ ...f, [sel]: ch })); setChecked(false); setNote(''); move(sel, 1); };
+  const back = () => { if (!sel) return; if (fill[sel]) { fillDirty.current = true; setFill((f) => { const g = { ...f }; delete g[sel]; return g; }); } else { move(sel, -1); } };
+  const reveal = () => { if (!sel) { setNote('Tap a square first, then Reveal letter.'); return; } const ch = L.cells.get(sel); if (ch) { fillDirty.current = true; setFill((f) => ({ ...f, [sel]: ch })); setRevealed((r) => new Set(r).add(sel)); setNote(''); } };
   const check = () => {
     const all = [...L.cells.keys()];
     const wrong = all.filter((k) => fill[k] && fill[k] !== L.cells.get(k)).length;
@@ -79,8 +88,8 @@ export default function CrosswordPage() {
       for (;;) { rr += arrows[e.key][0]; cc += arrows[e.key][1]; if (rr < 0 || cc < 0 || rr >= p.rows || cc >= p.cols) return; if (L.cells.has(`${rr},${cc}`)) break; }
       setDir(arrows[e.key][0] ? 'd' : 'a');
       document.querySelector<HTMLElement>(`[data-k="${rr},${cc}"]`)?.focus();
-    } else if (/^[a-zA-Z]$/.test(e.key)) { e.preventDefault(); setSel(k); setFill((f) => ({ ...f, [k]: e.key.toLowerCase() })); setChecked(false); setNote(''); }
-    else if (e.key === 'Backspace' || e.key === 'Delete') { e.preventDefault(); setFill((f) => { const g = { ...f }; delete g[k]; return g; }); }
+    } else if (/^[a-zA-Z]$/.test(e.key)) { e.preventDefault(); fillDirty.current = true; setSel(k); setFill((f) => ({ ...f, [k]: e.key.toLowerCase() })); setChecked(false); setNote(''); }
+    else if (e.key === 'Backspace' || e.key === 'Delete') { e.preventDefault(); fillDirty.current = true; setFill((f) => { const g = { ...f }; delete g[k]; return g; }); }
   };
   const mins = Math.max(1, Math.round((Date.now() - started.current) / 60000));
   const shareText = () => `Crossword, week ${weekNo()} ✏️ solved in about ${mins} min${revealed.size ? ` · ${revealed.size} letter${revealed.size === 1 ? '' : 's'} revealed` : ' · no reveals'}${checks ? ` · ${checks} check${checks === 1 ? '' : 's'}` : ''}\n` + Array.from({ length: p.rows }, (_, r) => Array.from({ length: p.cols }, (_, c) => { const k = `${r},${c}`; return !L.cells.has(k) ? '⬛' : revealed.has(k) ? '🟦' : '🟨'; }).join('')).join('\n');
@@ -109,7 +118,7 @@ export default function CrosswordPage() {
       <input ref={input} className="cw-input" inputMode="none" aria-label="Type a letter" autoCapitalize="none" autoCorrect="off" spellCheck={false} value="" onChange={(e) => { const ch = e.target.value.slice(-1).toLowerCase(); if (/^[a-z]$/.test(ch)) type(ch); }} onKeyDown={(e) => { if (e.key === 'Backspace') { e.preventDefault(); back(); } }} />
       {!solved && <div className="cw-kb" role="group" aria-label="Letter keys">{['qwertyuiop', 'asdfghjkl', 'zxcvbnm'].map((row, ri) => <div key={row} className="cw-kbrow">{[...row].map((ch) => <button key={ch} type="button" className="cw-key" onClick={() => type(ch)} aria-label={ch}>{ch}</button>)}{ri === 2 && <button type="button" className="cw-key wide" onClick={back} aria-label="Delete letter">⌫</button>}</div>)}</div>}
       {solved ? (
-        <div className="ws-end"><p className="ws-score">Solved</p><div className="row" style={{ justifyContent: 'center', gap: 8 }}><ShareButton text={shareText()} path="/play/crossword" label="Share my solve" className="btn" /><button className="btn ghost" onClick={() => { setIdx((x) => (x + 1) % CROSSWORDS.length); setFill({}); setSel(null); setChecked(false); }}>Another puzzle</button></div></div>
+        <div className="ws-end"><p className="ws-score">Solved</p><div className="row" style={{ justifyContent: 'center', gap: 8 }}><ShareButton text={shareText()} path="/play/crossword" label="Share my solve" className="btn" /><button className="btn ghost" onClick={() => { fillDirty.current = false; setIdx((x) => (x + 1) % CROSSWORDS.length); setFill({}); setSel(null); setChecked(false); setRevealed(new Set()); setChecks(0); setNote(''); }}>Another puzzle</button></div></div>
       ) : (
         <div className="row" style={{ gap: 8, margin: '10px 0' }}><button className="btn small" onClick={check}>Check</button><button className="btn small ghost" onClick={reveal}>Reveal letter</button></div>
       )}
