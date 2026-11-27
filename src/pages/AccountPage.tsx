@@ -233,7 +233,7 @@ export default function AccountPage() {
         <h2 className="card-title">How your data is handled</h2>
         <ul className="small bullets">
           <li><strong>Local first.</strong> The app works without an account, and your notes work offline; signing in only adds sync and backup. Scripture and study data you have not opened or downloaded need a connection.</li>
-          <li><strong>What is stored.</strong> Notes, highlights, bookmarks, folders, collections, journal, plans and progress, links you attach, and reading settings. No analytics, no tracking.</li>
+          <li><strong>What is stored.</strong> Notes, highlights, bookmarks, folders, collections, journal, plans and progress, links you attach, and reading settings. Nothing you write is tracked. On the public website only, the app can also send anonymous error reports and a count of which section is opened; the Privacy page describes them and Settings can turn them off.</li>
           {api.backend === 'supabase' ? (
             <>
               <li><strong>Security.</strong> Your sign-in is handled by the shared PathoMnemonic account service, and each person can read only their own StudyBible records. Notes are not end-to-end encrypted, so the people who run the service can technically read them. See the <a href="privacy.html">privacy policy</a>.</li>

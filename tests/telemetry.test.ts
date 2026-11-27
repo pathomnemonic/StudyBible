@@ -48,7 +48,7 @@ describe('agreement first in the EU, the UK and the EEA', () => {
 
   it('recognises the region by time zone', async () => {
     const { consentRegionFor } = await import('../src/lib/telemetry');
-    for (const tz of ['Europe/London', 'Europe/Dublin', 'Europe/Paris', 'Europe/Berlin', 'Europe/Madrid', 'Atlantic/Reykjavik', 'Atlantic/Canary', 'Atlantic/Madeira', 'Atlantic/Azores', 'Atlantic/Faeroe']) expect(consentRegionFor(tz), tz).toBe(true);
+    for (const tz of ['Europe/London', 'Europe/Dublin', 'Europe/Paris', 'Europe/Berlin', 'Europe/Madrid', 'Atlantic/Reykjavik', 'Atlantic/Canary', 'Atlantic/Madeira', 'Atlantic/Azores', 'Atlantic/Faeroe', 'Asia/Nicosia', 'Asia/Famagusta', 'Africa/Ceuta', 'America/Guadeloupe', 'America/Marigot', 'America/St_Barthelemy', 'America/Martinique', 'America/Cayenne', 'Indian/Reunion', 'Indian/Mayotte', 'Arctic/Longyearbyen']) expect(consentRegionFor(tz), tz).toBe(true);
     for (const tz of ['America/New_York', 'America/Phoenix', 'America/Toronto', 'Asia/Tokyo', 'Australia/Sydney', 'UTC', '', undefined, null]) expect(consentRegionFor(tz), String(tz)).toBe(false);
   });
   it('sends nothing from the region until the person agrees, and nothing after a no', async () => {
