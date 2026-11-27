@@ -13,7 +13,9 @@ export const useVideoMeta = (): VideoMeta | null => {
   return m;
 };
 
-export const youtubeId = (url: string) => /(?:youtube(?:-nocookie)?\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([\w-]{11})/.exec(url)?.[1];
+// watch links (v= anywhere in the query), embeds, shorts and live links, on any youtube host
+// (www., m., music., -nocookie), and youtu.be short links
+export const youtubeId = (url: string) => /(?:youtube(?:-nocookie)?\.com\/(?:watch\?[^#]*v=|embed\/|shorts\/|live\/)|youtu\.be\/)([\w-]{11})/.exec(url)?.[1];
 
 /** "25 min", "1 h 5 min", "45 sec": a length people can take in at a glance. Empty when unknown. */
 export function fmtLength(seconds: number | undefined): string {

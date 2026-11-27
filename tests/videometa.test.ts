@@ -17,4 +17,11 @@ describe('video lengths', () => {
     expect(youtubeId('https://youtu.be/shwMd1x-g1g')).toBe('shwMd1x-g1g');
     expect(youtubeId('https://www.catholic.com/audio/x')).toBeUndefined();
   });
+  it('finds the video id in shorts, live and mobile links, and watch links with other parameters first', () => {
+    expect(youtubeId('https://www.youtube.com/shorts/shwMd1x-g1g')).toBe('shwMd1x-g1g');
+    expect(youtubeId('https://www.youtube.com/live/shwMd1x-g1g?si=xyz')).toBe('shwMd1x-g1g');
+    expect(youtubeId('https://m.youtube.com/watch?v=shwMd1x-g1g')).toBe('shwMd1x-g1g');
+    expect(youtubeId('https://www.youtube.com/watch?t=42&v=shwMd1x-g1g')).toBe('shwMd1x-g1g');
+    expect(youtubeId('https://www.youtube.com/watch?list=PL123&v=shwMd1x-g1g&t=9')).toBe('shwMd1x-g1g');
+  });
 });

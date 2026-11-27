@@ -21,8 +21,16 @@ describe('Eastern calendar helpers', () => {
   });
   it('moves the fixed feasts 13 days on the old calendar', () => {
     expect(d(byzantineFixed(2026, false).find((x) => x.label === 'Nativity of the Lord')!.date)).toBe('2026-12-25');
-    expect(d(byzantineFixed(2026, true).find((x) => x.label === 'Nativity of the Lord')!.date)).toBe('2027-01-07');
     expect(d(byzantineFixed(2026, true).find((x) => x.label === 'Theophany')!.date)).toBe('2026-01-19');
+  });
+  it('gives the old calendar year the Nativity celebrated in it', () => {
+    // Dec 25 of 2025 on the old calendar is Jan 7 of 2026: the 2026 list must hold it, exactly once,
+    // and every feast in the list must fall inside 2026 (the year's own Dec 25 belongs to 2027's list)
+    const f = byzantineFixed(2026, true);
+    expect(f.filter((x) => x.label === 'Nativity of the Lord').map((x) => d(x.date))).toEqual(['2026-01-07']);
+    expect(f.every((x) => x.date.getUTCFullYear() === 2026)).toBe(true);
+    expect(f).toHaveLength(9);
+    expect(byzantineFixed(2026, false).every((x) => x.date.getUTCFullYear() === 2026)).toBe(true);
   });
   it('falls back to the Latin Church for an unknown id', () => {
     expect(traditionOf('nonsense').id).toBe('latin');

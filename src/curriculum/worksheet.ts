@@ -14,7 +14,7 @@ export function worksheetParts(l: LessonSpec) {
     goals,
     scripture: l.scripture,
     vocab: l.vocab ?? [],
-    questions: [l.question, ...(l.talk ?? []).slice(0, 2)].filter(Boolean),
+    questions: [l.question, ...(l.talk ?? [])].filter(Boolean),
     activity: l.activity,
     life: l.life,
     mem: l.mem,
