@@ -30,7 +30,7 @@ export default function PrivacyPage() {
       <ul>
         <li>Notes, highlights, bookmarks, folders, journal, plans, memorization, your prayer list and prayer log, class rosters and scores, and every setting.</li>
         <li>It lives in this browser’s own storage (IndexedDB and local storage). Clearing site data removes it, so use <Link to="/library?tab=export">Export and backup</Link> first.</li>
-        <li>There is no advertising in this app, and nothing you read, search for or write is tracked. On the public website only, the app can send anonymous error reports and a count of which section is opened; both are listed in the table below and can be turned off in Settings.</li>
+        <li>There is no advertising in this app, and nothing you read, search for or write is tracked. On the public website only, the app can send anonymous error reports and a count of which section is opened; both are named in the table of outside services on this page and can be turned off in Settings.</li>
         <li>The Bible text, the Catechism, the library and the lessons are part of the app, so reading them sends nothing anywhere.</li>
       </ul>
       <h2>When something leaves your device</h2>
