@@ -25,8 +25,19 @@ export default function SlowBiblePage() {
   const [view, setView] = useState<number | null>(null);
   const [fathers, setFathers] = useState<StudyItem[] | null>(null);
   const [mass, setMass] = useState<LitHit[] | null>(null);
+  const [dayKey, setDayKey] = useState(isoToday);
+  const [jump, setJump] = useState('');
+  useEffect(() => {
+    const check = () => { const d = isoToday(); setDayKey((prev) => (prev === d ? prev : d)); };
+    const t = window.setInterval(check, 30000);
+    document.addEventListener('visibilitychange', check);
+    window.addEventListener('focus', check);
+    return () => { window.clearInterval(t); document.removeEventListener('visibilitychange', check); window.removeEventListener('focus', check); };
+  }, []);
+  void dayKey;
   const today = st ? todayIndex(st) : 0;
   const day = view ?? today;
+  useEffect(() => { setJump(String(day + 1)); }, [day]);
   const segs = useMemo(() => segmentsOf(day), [day]);
   const set = (s: SlowState | null) => { setSt(s); saveSlow(s); };
 
@@ -100,7 +111,7 @@ export default function SlowBiblePage() {
         <ol className="list sb-years">{overview().map((y) => <li key={y.year}><strong>Year {y.year}</strong>: {y.books.map((b) => b.name).join(', ')}</li>)}</ol>
       </details>
       <details className="chain-obj"><summary>Jump to a day</summary>
-        <label>Day <input type="number" min={1} max={SLOW_TOTAL} defaultValue={day + 1} onChange={(e) => { const n = +e.target.value; if (n >= 1 && n <= SLOW_TOTAL) setView(n - 1); }} style={{ width: 90 }} /></label>
+        <label>Day <input type="number" min={1} max={SLOW_TOTAL} value={jump} onChange={(e) => { setJump(e.target.value); const n = +e.target.value; if (n >= 1 && n <= SLOW_TOTAL) setView(n - 1); }} style={{ width: 90 }} /></label>
         <p className="small muted">Years run {YEAR_DAYS} days each. <button className="linklike" onClick={() => { if (confirm('Stop the slow Bible and clear your progress on this device?')) set(null); }}>Stop and clear my progress</button></p>
       </details>
     </div>
