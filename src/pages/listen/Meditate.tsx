@@ -29,6 +29,7 @@ export default function Meditate() {
   const [tracks, setTracks] = useState<Track[] | null>(null);
   useEffect(() => { void loadTracks().then(setTracks); }, []);
   const queueAll = async (list: Track[], album: string) => {
+    await db.queue.clear();
     const eps = list.map((t) => asEpisode(t, album));
     await Promise.all([...new Map(eps.map((e) => [e.id, e])).values()].map((e) => rememberEpisode(e)));
     await p.play(eps[0]);
