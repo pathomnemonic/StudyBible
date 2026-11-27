@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { loadDaily } from '../../study/daily';
 import ShareButton from '../../components/ShareButton';
-import { dayIndex, markDailyDone, seeded, shuffled } from '../../lib/dailyGame';
+import { dayIndex, markDailyDone, seeded, setPractice, shuffled } from '../../lib/dailyGame';
 
 const ROUNDS = 5;
 interface Q { text: string; who: string; work?: string; options: string[] }
@@ -36,7 +36,7 @@ export default function WhoSaidPage() {
   const q = qs[i];
   const choose = (o: string) => { if (picked || !q) return; setPicked(o); const ok = o === q.who; if (ok) setScore((s) => s + 1); setMarks((m) => [...m, ok]); };
   const next = () => { setPicked(null); setI((n) => n + 1); };
-  const again = () => { setDaily(false); setSeed(Math.floor(Math.random() * 1e6)); setI(0); setScore(0); setMarks([]); setPicked(null); };
+  const again = () => { setPractice(true); setDaily(false); setSeed(Math.floor(Math.random() * 1e6)); setI(0); setScore(0); setMarks([]); setPicked(null); };
   const shareText = () => `Who Said It? ${daily ? '#' + dayIndex() : 'practice'} ${score}/${ROUNDS}\n${marks.map((m) => (m ? '🟨' : '⬛')).join('')}`;
 
   if (!pool) return <div className="page"><h1>Who Said It?</h1><p className="muted">Loading…</p></div>;

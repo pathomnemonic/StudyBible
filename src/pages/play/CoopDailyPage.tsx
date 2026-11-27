@@ -80,6 +80,18 @@ function Room({ code, name, leave }: { code: string; name: string; leave: () => 
   useEffect(() => {
     if (!over || counted.current) return;
     counted.current = true;
+    try {
+      const soloKey = 'sb:verbum:v1';
+      const prev = JSON.parse(localStorage.getItem(soloKey) ?? 'null') as { day: number; guesses: string[]; played: number; won: number; streak: number; best: number; last: number; counted?: boolean } | null;
+      const baseSave = prev && typeof prev === 'object' ? prev : { day: -1, guesses: [] as string[], played: 0, won: 0, streak: 0, best: 0, last: -1 };
+      const guesses = rows.map((g) => g.w);
+      if (baseSave.day === day && baseSave.counted) {
+        localStorage.setItem(soloKey, JSON.stringify({ ...baseSave, day, guesses }));
+      } else {
+        const streak = won ? (baseSave.last === day - 1 ? baseSave.streak + 1 : 1) : 0;
+        localStorage.setItem(soloKey, JSON.stringify({ ...baseSave, day, guesses, counted: true, played: (baseSave.played ?? 0) + 1, won: (baseSave.won ?? 0) + (won ? 1 : 0), streak, best: Math.max(baseSave.best ?? 0, streak), last: day }));
+      }
+    } catch { /* private mode */ }
     if (dailyDone('verbum') === null) markDailyDone('verbum', won ? `${rows.length}/${ROWS}` : 'missed', won && rows.length <= 3);
     buzz(won ? 30 : 10);
   }, [over, won, rows.length]);

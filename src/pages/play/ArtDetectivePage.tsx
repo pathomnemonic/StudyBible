@@ -31,10 +31,10 @@ export default function ArtDetectivePage() {
       return { w, opts };
     });
   }, [works, seed]);
-  const done = !!works && i >= qs.length;
+  const done = !!works && qs.length > 0 && i >= qs.length;
   const q = qs[i];
   const solved = !!q && marks.length > i;
-  useEffect(() => { if (done && daily) markDailyDone('artdetective', `${score}/${qs.length * 2}`, score >= qs.length * 2 - 1); }, [done]); // eslint-disable-line
+  useEffect(() => { if (done && daily && qs.length > 0) markDailyDone('artdetective', `${score}/${qs.length * 2}`, score >= qs.length * 2 - 1); }, [done]); // eslint-disable-line
   const pick = (t: string) => {
     if (!q || solved) return;
     if (t === q.w.title) { const pts = wrong.length === 0 ? 2 : wrong.length === 1 ? 1 : 0; setScore((s) => s + pts); setMarks((m) => [...m, pts]); } else setWrong((x) => [...x, t]);

@@ -14,7 +14,7 @@ export const isPractice = () => practiceOn;
 
 const key = (game: string) => `sb:daily:${game}`;
 /** Remember that today's puzzle of a game was finished, with a short result to show on the Games page. */
-export function markDailyDone(game: string, result: string, perfect = false) { if (practiceOn) return; try { localStorage.setItem(key(game), JSON.stringify({ day: dayIndex(), result })); } catch { /* private mode */ } recordPlay(game, { perfect }); }
+export function markDailyDone(game: string, result: string, perfect = false) { if (practiceOn) return; if (dailyDone(game) !== null) return; try { localStorage.setItem(key(game), JSON.stringify({ day: dayIndex(), result })); } catch { /* private mode */ } recordPlay(game, { perfect }); }
 export function dailyDone(game: string): string | null { try { const v = JSON.parse(localStorage.getItem(key(game)) ?? 'null') as { day: number; result: string } | null; return v && v.day === dayIndex() ? v.result : null; } catch { return null; } }
 export function useDailyDone(game: string) { const [r, setR] = useState(() => dailyDone(game)); useEffect(() => setR(dailyDone(game)), [game]); return r; }
 
