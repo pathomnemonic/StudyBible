@@ -130,7 +130,9 @@ export default function Tour() {
   const loc = useLocation();
   const [settings] = useSettings();
   const wide = typeof window !== 'undefined' && window.matchMedia('(min-width: 900px)').matches;
-  const steps = STEPS.filter((s) => (!s.wide || wide) && (!s.narrow || !wide) && (!s.when || s.when()));
+  const { editions, get } = useEditions();
+  const readerEd = get(settings.defaultEdition === 'vulgate' ? 'dra' : settings.defaultEdition) ?? editions[0];
+  const steps = STEPS.map((s) => (s.route && s.route.startsWith('/read/') ? { ...s, route: `/read/${readerEd?.id ?? 'webc'}/JHN/6` } : s)).filter((s) => (!s.wide || wide) && (!s.narrow || !wide) && (!s.when || s.when()));
   const step = steps[Math.min(i, steps.length - 1)];
   const last = i >= steps.length - 1;
   const done = useCallback(() => { put(DONE, '1'); put(STEP, '0'); put('sb:whatsNew', '2026-10b'); put('sb:welcomed', '1'); put('sb:setup', '2'); updateSettings({ onboarded: true }); setOn(false); }, []);
