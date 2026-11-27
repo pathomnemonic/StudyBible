@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
 import { useSettings } from '../lib/store';
+import { useEditions } from '../data/EditionsContext';
+import { anchorToNative } from '../lib/bibleText';
 
 type Kind = 'all' | 'read' | 'listen' | 'library' | 'catechism';
 const KIND_OF: Record<string, Kind> = { read: 'read', finished: 'read', episode: 'listen', video: 'listen', work: 'library', catechism: 'catechism' };
@@ -11,10 +13,11 @@ const FILTERS: [Kind, string][] = [['all', 'All'], ['read', 'Bible'], ['listen',
 /** Everything you opened recently, newest first, kept on this device. */
 export default function HistoryPage() {
   const [s] = useSettings();
+  const { get, editions } = useEditions();
   const [kind, setKind] = useState<Kind>('all');
   const rows = useLiveQuery(() => db.history.orderBy('ts').reverse().limit(400).toArray(), []);
   const link = (type: string, ref: string): string | null => {
-    if (type === 'read') { const [b, c] = ref.split('.'); return b && c ? `/read/${s.defaultEdition}/${b}/${c}` : null; }
+    if (type === 'read') { const [b, c] = ref.split('.'); if (!b || !c) return null; const ed = get(s.defaultEdition) ?? editions[0]; if (!ed) return `/read/${s.defaultEdition}/${b}/${c}`; return `/read/${ed.id}/${b}/${anchorToNative(ed, { book: b, c1: +c, c2: +c }).chapter}`; }
     if (type === 'episode') return `/listen/episode/${ref}`;
     if (type === 'catechism') return `/study/catechism/${ref}`;
     if (type === 'work') return `/room/work/${ref}`;
