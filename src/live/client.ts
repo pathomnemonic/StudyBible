@@ -38,11 +38,18 @@ export function useLive(code: string, who: { key?: string; token?: string }) {
       es.onmessage = (e) => { const v = JSON.parse(e.data) as LiveView; offset.current = v.now - Date.now(); tries = 0; setView(v); setState('live'); };
       es.onerror = () => {
         setState('lost');
-        // a closed stream is retried by the browser; if the session is gone for good the server answers 404 and we stop
         es?.close();
         if (stopped) return;
         tries++;
-        live.peek(code).then(() => { if (!stopped) setTimeout(open, Math.min(5000, 800 * tries)); }, () => { if (!stopped) setState('gone'); });
+        const check = (attempt: number) => {
+          if (stopped) return;
+          live.peek(code).then(() => { if (!stopped) setTimeout(open, Math.min(5000, 800 * tries)); }, () => {
+            if (stopped) return;
+            if (attempt < 4) setTimeout(() => check(attempt + 1), Math.min(5000, 800 * (attempt + 1)));
+            else setState('gone');
+          });
+        };
+        check(1);
       };
     };
     open();
