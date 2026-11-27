@@ -35,7 +35,7 @@ export default function SaintsPage() {
   const [hit, setHit] = useState(-1);
   const [works, setWorks] = useState<LibraryWorkMeta[]>([]);
   useEffect(() => { getLibraryIndex().then((x) => setWorks(x?.works ?? [])).catch(() => {}); }, []);
-  useEffect(() => { setList(null); butlerDay(day).then((l) => { setList(l); const w = nameTokens(sp.get('name') ?? ''); let i = -1, top = 0.6; l.forEach((e, k) => { const sc = nameScore(nameTokens(e.name), w); if (sc > top) { top = sc; i = k; } }); setOpen(i >= 0 ? i : l.length === 1 ? 0 : null); setHit(i); }); }, [day]);
+  useEffect(() => { setList(null); butlerDay(day).then((l) => { setList(l); const w = nameTokens(sp.get('name') ?? ''); let i = -1, top = 0.6; l.forEach((e, k) => { const sc = nameScore(nameTokens(e.name), w); if (sc > top) { top = sc; i = k; } }); setOpen(i >= 0 ? i : l.length === 1 ? 0 : null); setHit(i); }); }, [day, sp.get('name')]);
   return (
     <div className="page">
       <h1>Lives of the Saints <PrintButton /></h1>

@@ -19,7 +19,8 @@ export function daysUntil(m: string, from = new Date()): number {
 }
 const ics = (summary: string, m: string) => {
   const y = new Date().getFullYear() + (daysUntil(m) > 0 && new Date(Date.UTC(new Date().getFullYear(), +m.slice(0, 2) - 1, +m.slice(3))) < new Date() ? 1 : 0);
-  const d = `${y}${m.slice(0, 2)}${m.slice(3, 5)}`;
+  const dayNum = m.slice(0, 2) === '02' && m.slice(3, 5) === '29' && new Date(Date.UTC(y, 1, 29)).getUTCDate() !== 29 ? '28' : m.slice(3, 5);
+  const d = `${y}${m.slice(0, 2)}${dayNum}`;
   return `BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Cathology//EN\r\nBEGIN:VEVENT\r\nUID:${d}-${summary.length}@cathology\r\nDTSTAMP:${d}T090000Z\r\nDTSTART;VALUE=DATE:${d}\r\nRRULE:FREQ=YEARLY\r\nSUMMARY:${summary}\r\nEND:VEVENT\r\nEND:VCALENDAR\r\n`;
 };
 const download = (name: string, text: string) => { const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([text], { type: 'text/calendar' })); a.download = name; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); };

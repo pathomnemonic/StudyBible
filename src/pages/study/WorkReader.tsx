@@ -157,7 +157,8 @@ export default function WorkReader() {
 
   if (meta === undefined) return <div className="skeleton-list" aria-busy="true" role="status" aria-label="Loading"><i /><i /><i /></div>;
   if (meta === null) return <div className="page" data-state="not-found"><Link to="/room" className="small">← Reading room</Link><h1>That work is not in the library</h1><p>There is no text with that address. It may have been removed, or the link may be mistyped.</p><p><Link to="/room">Browse the reading room</Link></p></div>;
-  if (!work || !sec) return <div className="center-note">Loading text…</div>;
+  if (!work) return <div className="center-note">Loading text…</div>;
+  if (!sec) return <div className="page" data-state="not-found"><Link to="/room" className="small">← Reading room</Link><h1>That section is not in this work</h1><p>There is no section with that address in {meta?.title ?? 'this work'}. It may have been removed, or the link may be mistyped.</p></div>;
   const quiet = settings.scriptureOnly;
   const last = work.sections.length - 1;
   const highlight = async (quote: string, p: number, color: HighlightColor) => {
@@ -260,7 +261,7 @@ export default function WorkReader() {
       <LookUp />
       <WorkSelection onHighlight={highlight} onNote={(q) => setNote({ quote: q })} />
       {aloud && <ReadAloud key={`${workId}.${idx}`} verses={sec.paras.map((t, i) => ({ n: i + 1, text: t }))} lang="en" onVerse={setSpeaking} onClose={() => { setAloud(false); setSpeaking(null); }} onChapterEnd={() => go(idx + 1)} />}
-      {note && <NoteEditor initialTargets={[{ type: 'work', workId, section: String(idx), label: `${meta.title}: ${sec.title}` }]} onClose={() => setNote(null)} {...(note.quote ? { note: undefined } : {})} />}
+      {note && <NoteEditor note={note.quote ? ({ body: `> ${note.quote}`, kind: 'note', targets: [{ type: 'work', workId, section: String(idx), label: `${meta.title}: ${sec.title}` }], tags: [] } as never) : undefined} initialTargets={[{ type: 'work', workId, section: String(idx), label: `${meta.title}: ${sec.title}` }]} onClose={() => setNote(null)} />}
       {editing && <NoteEditor note={editing} onClose={() => setEditing(null)} />}
       {ts && <TextSettings onClose={() => setTs(false)} />}
     </div>

@@ -68,7 +68,7 @@ export default function WorldPage() {
       if (step === 0 && pts.length > 1) map.current.fitBounds(L.latLngBounds(pts).pad(0.25), { animate: !reduced() });
       else map.current.panTo([cur.lat, cur.lon], { animate: !reduced() });
     }
-  }, [journey, places, step]);
+  }, [journey, places, step, tab]);
 
   useEffect(() => {
     if (!playing || !journey) return;

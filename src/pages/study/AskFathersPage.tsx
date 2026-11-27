@@ -48,6 +48,7 @@ export default function AskFathersPage() {
   useEffect(() => {
     if (!q || !eng) return;
     let live = true;
+    setNoted(false);
     setBusy(true);
     eng.search(q, loadWork, { bands, groups, authorIds: author ? [author] : [], workIds: work ? [work] : [] }).then((r) => { if (live) { setRes(r); setBusy(false); } }).catch(() => live && setBusy(false));
     return () => { live = false; };

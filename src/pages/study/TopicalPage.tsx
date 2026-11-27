@@ -30,7 +30,8 @@ export default function TopicalPage() {
             <h2 className="card-title">{topic}</h2>
             <button className="btn small" onClick={() => setSp({})}>All topics</button>
           </div>
-          {!passages && <p className="muted">Loading…</p>}
+          {topics === null && <p className="muted">Loading…</p>}
+          {topics !== null && !passages && <p className="muted" data-state="not-found">That topic could not be found. <button className="linklike" onClick={() => setSp({})}>Browse all topics</button></p>}
           <ul className="list">
             {passages?.map(([id, score]) => (
               <li key={id}>

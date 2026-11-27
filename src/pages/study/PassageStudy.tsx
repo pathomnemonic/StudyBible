@@ -24,7 +24,7 @@ export default function PassageStudy() {
   const [noting, setNoting] = useState(false);
   const [text, setText] = useState<{ v: number; text: string }[]>([]);
   useEffect(() => {
-    if (r) passageText(ed, r, 14).then(setText);
+    if (!r) return; let live = true; passageText(ed, r, 14).then((x) => { if (live) setText(x); }); return () => { live = false; };
   }, [refId, ed.id]);
   if (!r) return <div className="page">Unrecognized passage.</div>;
   return (

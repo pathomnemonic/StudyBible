@@ -57,8 +57,8 @@ export default function CatechismPage() {
   const [s] = useSettings();
   const edition = get(s.defaultEdition) ?? editions[0];
   useEffect(() => { getCccIndex().then(setIdx); }, []);
-  useEffect(() => { setParas(null); cccRange(start, start + WINDOW - 1).then(setParas); logHistory({ ts: Date.now(), type: 'catechism', ref: String(target), label: `Catechism §${target}` }).catch(() => {}); }, [start, target]);
-  useEffect(() => { if (q.trim().length > 2 && !all) cccAll().then(setAll); }, [q, all]);
+  useEffect(() => { let live = true; setParas(null); cccRange(start, start + WINDOW - 1).then((x) => { if (live) setParas(x); }); logHistory({ ts: Date.now(), type: 'catechism', ref: String(target), label: `Catechism §${target}` }).catch(() => {}); return () => { live = false; }; }, [start, target]);
+  useEffect(() => { let live = true; if (q.trim().length > 2 && !all) cccAll().then((x) => { if (live) setAll(x); }); return () => { live = false; }; }, [q, all]);
   useEffect(() => { document.getElementById(`ccc-${target}`)?.scrollIntoView({ block: 'center' }); }, [paras, target]);
   const hits = useMemo(() => {
     const t = q.trim().toLowerCase();

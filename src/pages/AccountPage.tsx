@@ -14,13 +14,7 @@ import { ProviderButtons, SignInMethodsCard, signInMessage } from '../components
 
 
 export default function AccountPage() {
-  if (getSettings().localOnly)
-    return (
-      <div className="page">
-        <h1>Account &amp; sync</h1>
-        <div className="notice info">Local-only mode is on: this app never contacts a sync server. Your data stays on this device; back it up from Library → Export. Turn local-only mode off there (Privacy) to use an account.</div>
-      </div>
-    );
+  const localOnly = getSettings().localOnly;
   const s = useSync();
   const [pending, setPending] = useState<number | null>(null);
   useEffect(() => { if (s.user) pendingCount(s.user.id).then(setPending).catch(() => setPending(null)); }, [s.user?.id, s.status, s.lastSyncAt]);
@@ -78,6 +72,13 @@ export default function AccountPage() {
     else nav('/account', { replace: true });
   }, [returned, returnedError]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  if (localOnly)
+    return (
+      <div className="page">
+        <h1>Account &amp; sync</h1>
+        <div className="notice info">Local-only mode is on: this app never contacts a sync server. Your data stays on this device; back it up from Library → Export. Turn local-only mode off there (Privacy) to use an account.</div>
+      </div>
+    );
   if (s.server === 'unknown') return <div className="center-note">Checking for the sync server…</div>;
 
   return (

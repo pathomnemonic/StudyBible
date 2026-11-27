@@ -13,7 +13,8 @@ const TABS: [keyof IndexData, string, string][] = [
 /** Indexes of parables, miracles, prophecies and covenants (editorial). */
 export default function IndexPage() {
   const [sp, setSp] = useSearchParams();
-  const tab = (sp.get('tab') as keyof IndexData) || 'parables';
+  const tabRaw = sp.get('tab');
+  const tab = (TABS.some(([k]) => k === tabRaw) ? tabRaw : 'parables') as keyof IndexData;
   const [data, setData] = useState<IndexData | null>(null);
   const [q, setQ] = useState('');
   useEffect(() => {

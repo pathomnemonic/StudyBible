@@ -55,7 +55,7 @@ export default function OfflinePlanPage() {
       for (let i = 0; i < list.length; i++) {
         const k = list[i]; setProgress(`${i + 1} of ${list.length}`);
         if (k.startsWith('e:')) { await downloadEdition(k.slice(2), BOOKS.map((b) => b.id), () => {}, abort.current.signal); setHave((x) => ({ ...x, [k]: true })); }
-        else { const p = man.packs.find((x) => `p:${x.id}` === k)!; const r = await downloadPack(p, () => {}, abort.current.signal); if (r.storageFull) throw new Error('This device is out of room for this site. Free some space and try again.'); setHave((x) => ({ ...x, [k]: !r.failed.length && !r.cancelled })); }
+        else { const p = man.packs.find((x) => `p:${x.id}` === k)!; const r = await downloadPack(p, () => {}, abort.current.signal); if (r.storageFull) throw new Error('This device is out of room for this site. Free some space and try again.'); setHave((x) => ({ ...x, [k]: !r.failed.length && !r.cancelled && !r.corrupt.length })); }
         if (abort.current.signal.aborted) break;
       }
       setMsg(abort.current.signal.aborted ? 'Stopped. Start again to carry on where it left off.' : 'Done. Everything you chose is on this device and works without a connection.');

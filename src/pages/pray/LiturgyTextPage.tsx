@@ -18,7 +18,7 @@ export default function LiturgyTextPage() {
   const about = ABOUT[id];
   const [d, setD] = useState<Doc | null>(null);
   const [err, setErr] = useState('');
-  useEffect(() => { setD(null); setErr(''); if (about) getJson<Doc>(`liturgy/${id}.json`).then(setD).catch((e) => setErr(String(e.message ?? e))); }, [id]);
+  useEffect(() => { let live = true; setD(null); setErr(''); if (about) getJson<Doc>(`liturgy/${id}.json`).then((x) => { if (live) setD(x); }).catch((e) => { if (live) setErr(String(e.message ?? e)); }); return () => { live = false; }; }, [id]);
   if (!about) return <div className="page" data-state="not-found"><h1>Liturgy not found</h1><p><Link to="/pray/liturgies">See the Church’s liturgies</Link></p></div>;
   return (
     <div className="page office">

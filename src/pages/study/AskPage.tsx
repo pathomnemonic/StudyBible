@@ -14,7 +14,7 @@ export default function AskPage() {
   const [more, setMore] = useState<number | null>(null);
   useEffect(() => {
     setQ(asked); setMore(null);
-    if (!asked.trim()) { setAns(null); return; }
+    if (!asked.trim()) { setAns(null); setBusy(false); return; }
     let live = true;
     setBusy(true);
     askCatechism(asked).then((a) => { if (live) { setAns(a); setBusy(false); } });

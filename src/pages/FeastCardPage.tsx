@@ -1,6 +1,6 @@
 import { artSrc, ART_LOCAL } from '../lib/artSrc';
 import { useEffect, useState } from 'react';
-import { shiftDay } from '../lib/day';
+import { isoToday, shiftDay } from '../lib/day';
 import { Link, useParams } from 'react-router-dom';
 import { useLiveQuery } from '../lib/live';
 import { db } from '../db/db';
@@ -31,7 +31,7 @@ const themeFor = (name: string) => THEMES.find(([re]) => re.test(name))?.[1] ?? 
 /** A card for the day's feast or saint: a painting, a short life, the readings it points to, and a way to keep or share it. */
 export default function FeastCardPage() {
   const { date: dp } = useParams();
-  const date = dp && /^\d{4}-\d{2}-\d{2}$/.test(dp) ? dp : new Date().toISOString().slice(0, 10);
+  const date = dp && /^\d{4}-\d{2}-\d{2}$/.test(dp) ? dp : isoToday();
   const [s] = useSettings();
   const { get, editions } = useEditions();
   const edition = get(s.defaultEdition) ?? editions[0];
