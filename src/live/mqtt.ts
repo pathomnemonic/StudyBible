@@ -125,7 +125,11 @@ export class Mqtt {
 }
 
 export const DEFAULT_BROKERS = ['wss://broker.emqx.io:8084/mqtt', 'wss://broker.hivemq.com:8884/mqtt', 'wss://test.mosquitto.org:8081/mqtt', 'wss://mqtt.eclipseprojects.io:443/mqtt'];
-export function brokers(): string[] {
+export function brokers(code?: string): string[] {
   try { const o = localStorage.getItem('sb:live:brokers'); if (o) { const j = o.startsWith('[') ? JSON.parse(o) : [o]; if (Array.isArray(j) && j.length) return j; } } catch { /* storage unavailable */ }
-  return DEFAULT_BROKERS;
+  if (!code) return DEFAULT_BROKERS;
+  let h = 0;
+  for (const ch of code) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  const start = h % DEFAULT_BROKERS.length;
+  return [...DEFAULT_BROKERS.slice(start), ...DEFAULT_BROKERS.slice(0, start)];
 }

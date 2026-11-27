@@ -33,7 +33,12 @@ export function onWake(fn: () => void): () => void {
   return () => { document.removeEventListener('visibilitychange', vis); window.removeEventListener('pageshow', fn); window.removeEventListener('online', fn); window.removeEventListener('focus', fn); };
 }
 export const relayName = (mq: Mqtt) => { try { return new URL(mq.url).host; } catch { return ''; } };
-export function relay(): Mqtt { if (!shared || shared.state === 'closed') { try { shared?.close(); } catch { /* closed */ } shared = new Mqtt(brokers()); } return shared; }
+let sharedFor = '';
+export function relay(code?: string): Mqtt {
+  if (shared && code && sharedFor && code !== sharedFor && hosts.size === 0 && shared.state !== 'closed') { try { shared.close(); } catch { /* closed */ } shared = null; }
+  if (!shared || shared.state === 'closed') { try { shared?.close(); } catch { /* closed */ } shared = new Mqtt(brokers(code)); if (code) sharedFor = code; }
+  return shared;
+}
 const rid = () => Math.random().toString(36).slice(2, 12);
 const SEC = (code: string) => `sb:live:sec:${code}`;
 /** The room secret for a class, kept on this device only: the host device made it, and a student device remembers it after joining so a reload can rejoin without typing it again. */
@@ -50,9 +55,9 @@ const SNAP = (code: string) => `sb:live:snap:${code}`;
 function newCode(): string { return String(100000 + Math.floor(Math.random() * 900000)); }
 
 export async function hostP2P(content: LiveContent, settings: LiveSettings, roster: string[], resume?: string): Promise<HostLink> {
-  const mq = relay();
-  await mq.ready();
   const room = resume ? LiveRoom.restore(resume) : new LiveRoom(newCode(), sanitizeContent(content), sanitizeSettings(settings), Date.now, sanitizeRoster(roster));
+  const mq = relay(room.code);
+  await mq.ready();
   const code = room.code;
   let secret = storedSecret(code);
   if (!secret) { secret = newRoomSecret(); keepSecret(code, secret); }
@@ -124,13 +129,13 @@ function request<T>(mq: Mqtt, rk: string, root: string, msg: InMsg, ms: number):
 }
 
 async function peekP2P(code: string, secret: string): Promise<RoomInfo> {
-  const mq = relay(); await mq.ready();
+  const mq = relay(code); await mq.ready();
   const rk = secret ? roomKey(code, secret) : code;
   return request<RoomInfo>(mq, rk, await topicRoot(rk), { t: 'peek' }, 5000);
 }
 
 async function joinP2P(code: string, name: string, token: string | undefined, secret: string): Promise<PlayerLink> {
-  const mq = relay(); await mq.ready();
+  const mq = relay(code); await mq.ready();
   const rk = roomKey(code, secret);
   const root = await topicRoot(rk);
   const r = await request<{ ok?: boolean; err?: string; token: string; id: string }>(mq, rk, root, { t: 'join', name, token }, 8000);
@@ -138,7 +143,7 @@ async function joinP2P(code: string, name: string, token: string | undefined, se
   return playerP2P(code, r.token, secret, mq, root);
 }
 
-export async function playerP2P(code: string, token: string, secret = '', mq: Mqtt = relay(), rootIn?: string): Promise<PlayerLink> {
+export async function playerP2P(code: string, token: string, secret = '', mq: Mqtt = relay(code), rootIn?: string): Promise<PlayerLink> {
   await mq.ready().catch(() => undefined);
   const rk = secret ? roomKey(code, secret) : code;
   const root = rootIn ?? await topicRoot(rk);
@@ -168,7 +173,7 @@ export async function playerP2P(code: string, token: string, secret = '', mq: Mq
   };
   mq.onState = (s) => { if (s === 'open') { last = Date.now(); void hello(); } judge(); };
   const offWake = onWake(() => { mq.probe(); void hello(); setTimeout(judge, 1500); });
-  const timer = setInterval(() => { judge(); if (!closed && mq.state === 'open' && link.state !== 'live' && link.state !== 'gone') void hello(); }, 5000);
+  const timer = setInterval(() => { judge(); if (!closed && mq.state === 'open' && link.state !== 'gone') void hello(); }, 5000);
   void hello();
   setTimeout(() => { if (!link.view && !closed) void hello(); }, 1500);
   return link;
@@ -182,7 +187,18 @@ function serverLink<T extends Base>(code: string, who: { key?: string; token?: s
   const openStream = () => {
     es = new EventSource(live.eventsUrl(code, who));
     es.onmessage = (e) => { const v = JSON.parse(e.data) as LiveView; skew = v.now - Date.now(); tries = 0; base.view = v; base.state = 'live'; em.emit(); };
-    es.onerror = () => { base.state = 'lost'; em.emit(); es?.close(); if (stopped) return; tries++; live.peek(code).then(() => { if (!stopped) setTimeout(openStream, Math.min(5000, 800 * tries)); }, () => { base.state = 'gone'; em.emit(); }); };
+    es.onerror = () => {
+      base.state = 'lost'; em.emit(); es?.close(); if (stopped) return; tries++;
+      const check = (attempt: number) => {
+        if (stopped) return;
+        live.peek(code).then(() => { if (!stopped) setTimeout(openStream, Math.min(5000, 800 * tries)); }, () => {
+          if (stopped) return;
+          if (attempt < 4) setTimeout(() => check(attempt + 1), Math.min(5000, 800 * (attempt + 1)));
+          else { base.state = 'gone'; em.emit(); }
+        });
+      };
+      check(1);
+    };
   };
   openStream();
   return Object.assign(base, extra(base)) as T;
