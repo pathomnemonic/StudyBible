@@ -1,6 +1,6 @@
 import NoteBacklinks from '../../components/NoteBacklinks';
 import SafetyCopies from '../../components/SafetyCopies';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLiveQuery } from '../../lib/live';
 import { db, TRASH_DAYS, type Collection, type Note, type Target } from '../../db/db';
@@ -25,6 +25,14 @@ import { BOOK_ORDER } from '../../lib/canon';
 import GraphPage from './GraphPage';
 import { targetLink } from '../../lib/collections';
 import { restoreFromTrash } from '../../lib/trash';
+import { isoToday } from '../../lib/day';
+
+/** Serialized fresh record writes for collections, so rapid edits cannot revert each other. */
+let collectionWriteChain: Promise<unknown> = Promise.resolve();
+export function updateCollectionRecord(id: number, makePatch: (fresh: Collection) => Partial<Collection>): Promise<unknown> {
+  collectionWriteChain = collectionWriteChain.then(async () => { const fresh = await db.collections.get(id); if (!fresh) return; await db.collections.put({ ...fresh, ...makePatch(fresh), updatedAt: Date.now() }); });
+  return collectionWriteChain;
+}
 
 type Tab = 'notes' | 'graph' | 'highlights' | 'bookmarks' | 'collections' | 'review' | 'xrefs' | 'saved' | 'history' | 'export' | 'trash';
 const TABS: [Tab, string][] = [['notes', 'Notes'], ['highlights', 'Highlights'], ['bookmarks', 'Bookmarks'], ['collections', 'Collections'], ['review', 'Review']];
@@ -36,7 +44,9 @@ export default function LibraryHome() {
   const loc = useLocation();
   const nav = useNavigate();
   const noteIdFromUrl = /\/library\/notes\/(\d+)/.exec(loc.pathname)?.[1];
-  const [tab, setTab] = useState<Tab>(new URLSearchParams(loc.search).get('tab') === 'export' ? 'export' : 'notes');
+  const tabFromUrl = (): Tab => { const v = new URLSearchParams(loc.search).get('tab'); return [...TABS, ...MORE].some(([k]) => k === v) ? (v as Tab) : 'notes'; };
+  const [tab, setTab] = useState<Tab>(tabFromUrl);
+  useEffect(() => { setTab(tabFromUrl()); }, [loc.search]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className="page">
       <h1>Notes</h1>
@@ -74,7 +84,9 @@ function Notes({ openId }: { openId?: number }) {
   const [sort, setSort] = useState<NoteSort>('updated');
   const collections = useLiveQuery(() => db.collections.toArray(), []) ?? [];
   const [editing, setEditing] = useState<Note | 'new' | 'question' | null>(null);
-  const opened = openId ? notes.find((n) => n.id === openId) : undefined;
+  const [dismissedId, setDismissedId] = useState<number | undefined>(undefined);
+  useEffect(() => { setDismissedId(undefined); }, [openId ]);
+  const opened = openId && dismissedId !== openId ? notes.find((n) => n.id === openId) : undefined;
   const tags = useMemo(() => [...new Set(notes.flatMap((n) => n.tags))].sort(), [notes]);
   const list = sortNotes(notes, sort).filter((n) => (!q || fold(`${n.title ?? ''} ${n.body} ${n.tags.join(' ')} ${n.targets.map(targetLabel).join(' ')}`).includes(fold(q))) && (!tag || n.tags.includes(tag)) && (folder === '' || (folder === 'none' ? !n.folderId : n.folderId === folder)) && (!kind || n.kind === kind));
   return (
@@ -138,7 +150,7 @@ function Notes({ openId }: { openId?: number }) {
         </div>
       ))}
       {q.trim() && (() => { const hit = collections.filter((c) => matchesCollection(c, q, targetLabel)); return hit.length > 0 && <section className="card" aria-label="Collections that match"><h3>Collections that match “{q.trim()}” ({hit.length})</h3><ul className="list">{hit.map((c) => <li key={c.id}><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)}</span></li>)}</ul></section>; })()}
-      {(editing || opened) && <NoteEditor note={editing && typeof editing === 'object' ? editing : opened} kind={editing === 'question' ? 'question' : 'note'} onClose={() => setEditing(null)} />}
+      {(editing || opened) && <NoteEditor note={editing && typeof editing === 'object' ? editing : opened} kind={editing === 'question' ? 'question' : 'note'} onClose={() => { setEditing(null); if (opened) setDismissedId(opened.id); }} />}
     </>
   );
 }
@@ -218,16 +230,17 @@ function Collections() {
   const [fileMsg, setFileMsg] = useState('');
   const [passMsg, setPassMsg] = useState('');
   const [adding, setAdding] = useState<Record<number, string>>({});
-  const add = async (c: Collection, t: Target) => db.collections.put({ ...c, items: [...c.items, t], updatedAt: Date.now() });
+  const add = async (c: Collection, t: Target) => updateCollectionRecord(c.id!, (fresh) => ({ items: [...fresh.items, t] }));
   const addPassages = async (c: Collection, raw: string) => {
     const parsed = parseRefs(raw);
     if (!parsed.ok) { setPassMsg(parsed.error); return; }
     const checked = resolvePlanReferences(parsed.refs.map((x) => x.ref), editions);
     if (!checked.ok) { setPassMsg(`Passage not added: ${checked.reason}. English/KJV numbering is stored only when its Vulgate anchor is exact.`); return; }
-    const existing = new Set(c.items.filter((x): x is Extract<Target, { type: 'passage' }> => x.type === 'passage').map((x) => x.ref));
+    const freshNow = (await db.collections.get(c.id!)) ?? c;
+    const existing = new Set(freshNow.items.filter((x): x is Extract<Target, { type: 'passage' }> => x.type === 'passage').map((x) => x.ref));
     const targets = checked.refs.map((ref) => refId(ref)).filter((ref) => !existing.has(ref)).map((ref) => ({ type: 'passage' as const, ref }));
     if (!targets.length) { setPassMsg('Those passages are already in this collection.'); return; }
-    await db.collections.put({ ...c, items: [...c.items, ...targets], updatedAt: Date.now() });
+    await updateCollectionRecord(c.id!, (fresh) => ({ items: [...fresh.items, ...targets.filter((tg) => !fresh.items.some((x) => x.type === 'passage' && x.ref === tg.ref))] }));
     setPassMsg('Added verified passage references.');
   };
   return (
@@ -257,7 +270,7 @@ function Collections() {
       {cs.map((c) => (
         <div className="card" key={c.id}>
           <div className="row between"><h3><Link to={`/collection/${c.id}`}>{c.name}</Link> <span className="muted small">{collectionSummary(c)}{c.tags?.length ? ` · ${c.tags.join(', ')}` : ''} · changed {new Date(c.updatedAt).toLocaleDateString()}</span></h3><span className="row"><PinButton entry={{ kind: 'collection', id: c.uid ?? String(c.id), title: c.name, to: `/collection/${c.id}` }} /><button className="btn small" onClick={() => db.collections.add(copyOfCollection(c) as never)}>Duplicate</button><button className="btn small danger" onClick={() => confirm('Delete this collection (its items are not deleted elsewhere)?') && db.collections.delete(c.id!)}>Delete</button></span></div>
-          <div className="chips">{c.items.map((t, i) => <span key={i}><TargetChip t={t} /> <button aria-label="Remove item" style={{ border: 0, background: 'none' }} onClick={() => db.collections.put({ ...c, items: c.items.filter((_, j) => j !== i), updatedAt: Date.now() })}>×</button></span>)}</div>
+          <div className="chips">{c.items.map((t, i) => <span key={i}><TargetChip t={t} /> <button aria-label="Remove item" style={{ border: 0, background: 'none' }} onClick={() => { const target = c.items[i]; void updateCollectionRecord(c.id!, (fresh) => ({ items: fresh.items.filter((x) => x !== target) })); }}>×</button></span>)}</div>
           {c.items.length === 0 && <div className="empty">Nothing in this collection yet. Open any Bible passage and use “Add to collection”, or save a reading from the Pray section.</div>}
           <div className="row" style={{ marginTop: 6 }}>
             <input type="text" placeholder="Add passage, e.g. John 6:51-58" value={adding[c.id!] ?? ''} onChange={(e) => setAdding({ ...adding, [c.id!]: e.target.value })} onKeyDown={async (e) => { if (e.key === 'Enter') { const raw = adding[c.id!] ?? ''; await addPassages(c, raw); } }} style={{ flex: 1 }} aria-label="Add passage to collection" />
@@ -388,10 +401,10 @@ function ExportTab() {
         <h3>Export (backup)</h3>
         <p className="muted">Your data lives on this device. The JSON file contains everything (notes, highlights, bookmarks, collections, journal, plans, memorization, listening progress) and can be re-imported on any device; the other formats are readable copies for other apps. Scripture links use stable Vulgate-anchored ids, so they keep working across translations.</p>
         <div className="row">
-          <button className="btn primary" onClick={async () => { download(`studybible-export-${new Date().toISOString().slice(0, 10)}.json`, await exportAll()); set({ lastBackup: Date.now() }); }}>Export everything (JSON)</button>
+          <button className="btn primary" onClick={async () => { download(`studybible-export-${isoToday()}.json`, await exportAll()); set({ lastBackup: Date.now() }); }}>Export everything (JSON)</button>
           <span className="row" style={{ gap: 6 }}>
             <input type="password" value={pw} onChange={(e) => setPw(e.target.value)} placeholder="Password (8+ characters)" aria-label="Password for a protected backup" autoComplete="new-password" />
-            <button className="btn" disabled={pw.length < 8} onClick={async () => { try { download(`studybible-protected-${new Date().toISOString().slice(0, 10)}.json`, await encryptBackup(await exportAll(), pw)); set({ lastBackup: Date.now() }); setPw(''); setMsg('Protected backup saved. Keep the password: it cannot be recovered.'); } catch (err: any) { setMsg(err.message); } }}>Export with a password</button>
+            <button className="btn" disabled={pw.length < 8} onClick={async () => { try { download(`studybible-protected-${isoToday()}.json`, await encryptBackup(await exportAll(), pw)); set({ lastBackup: Date.now() }); setPw(''); setMsg('Protected backup saved. Keep the password: it cannot be recovered.'); } catch (err: any) { setMsg(err.message); } }}>Export with a password</button>
           </span>
           <button className="btn" onClick={async () => { const ex = await import('../../db/exporters'); if (!(await ex.printNotes())) setMsg('The print window was blocked. Allow pop-ups for this site and try again.'); }}>Notes (PDF: opens print, choose “Save as PDF”)</button>
           <button className="btn" onClick={async () => { const ex = await import('../../db/exporters'); const bytes = await ex.notesEpub(); const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([bytes as BlobPart], { type: 'application/epub+zip' })); a.download = 'studybible-notes.epub'; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); }}>Notes (e-book, EPUB)</button>
@@ -418,7 +431,7 @@ function ExportTab() {
             <p className="small">This file{pending.at ? ` (exported ${pending.at.slice(0, 10)})` : ''} contains: {Object.entries(pending.counts).map(([k, v]) => `${v} ${k}`).join(', ') || 'nothing'}.</p>
             <div className="row">
               <button className="btn primary" onClick={async () => { setMsg(`Imported ${await importAll(pending.text, 'merge')} items.`); setPending(null); }}>Merge into this device</button>
-              <button className="btn" onClick={async () => { if (confirm('Replace everything on this device with the file’s contents?\n\nYour current data will first be saved to a file in your downloads, so you can undo this.')) { download(`studybible-before-restore-${new Date().toISOString().slice(0, 10)}.json`, await exportAll()); setMsg(`Imported ${await importAll(pending.text, 'replace')} items.`); setPending(null); } }}>Replace everything</button>
+              <button className="btn" onClick={async () => { if (confirm('Replace everything on this device with the file’s contents?\n\nYour current data will first be saved to a file in your downloads, so you can undo this.')) { download(`studybible-before-restore-${isoToday()}.json`, await exportAll()); setMsg(`Imported ${await importAll(pending.text, 'replace')} items.`); setPending(null); } }}>Replace everything</button>
               <button className="btn ghost" onClick={() => setPending(null)}>Cancel</button>
             </div>
           </div>
