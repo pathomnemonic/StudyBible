@@ -44,7 +44,7 @@ export default function PrivacyPage() {
       <ul>
         <li>Everything above is optional. Without sync and Drive backup, your writing never leaves the device.</li>
         <li><Link to="/settings">Settings</Link> can delete all data on this device in one step.</li>
-        <li>Live classes send messages through public relay servers while a class is running. The messages are sealed with a key made from the class code, so the relays cannot read them, but they can see that traffic exists. Anyone who has the class code can read the class, so treat it like a room key and do not post it publicly.</li>
+        <li>Live classes send messages through public relay servers while a class is running. The messages are sealed with a key made from the class code together with a random room key that the host device creates; the room key appears only on the host screen and in the join link and QR code. The relays cannot read them, and neither can anyone who knows the code alone, but they can see that traffic exists. Anyone who has the full join link can read the class, so treat the link like a room key and do not post it publicly.</li>
         <li>Notifications are scheduled on this device. Nothing is sent from a server.</li>
       </ul>
       <p className="muted small">If you find something that does not match this page, please tell us so we can fix the page or the app.</p>
