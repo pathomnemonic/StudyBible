@@ -324,7 +324,7 @@ export function getSettings() {
 export const settingsChangeHooks: (() => void)[] = [];
 
 export function updateSettings(patch: Partial<Settings>) {
-  state = { ...state, ...patch };
+  state = sanitize({ ...state, ...patch });
   settingsChangeHooks.forEach((h) => h());
   try {
     localStorage.setItem(KEY, JSON.stringify(state));
