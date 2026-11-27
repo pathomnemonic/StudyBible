@@ -30,7 +30,14 @@ export default function TodayPage() {
   const { get, editions } = useEditions();
   const nav = useNavigate();
   const [params, setParams] = useSearchParams();
-  const today = localIso();
+  const [today, setToday] = useState(localIso);
+  useEffect(() => {
+    const check = () => { const d = localIso(); setToday((prev) => (prev === d ? prev : d)); };
+    const t = window.setInterval(check, 30000);
+    document.addEventListener('visibilitychange', check);
+    window.addEventListener('focus', check);
+    return () => { window.clearInterval(t); document.removeEventListener('visibilitychange', check); window.removeEventListener('focus', check); };
+  }, []);
   const date = /^\d{4}-\d{2}-\d{2}$/.test(params.get('d') ?? '') ? params.get('d')! : today;
   const ld = useMemo(() => liturgicalDay(parseIso(date), s.diocese === 'US' ? 'usa' : 'universal'), [date, s.diocese]);
   const edition = get(s.defaultEdition) ?? editions[0];
@@ -113,7 +120,7 @@ export default function TodayPage() {
   const random = () => {
     const vul = editions.find((e) => e.scheme === 'vulgate');
     if (!edition || !vul?.verseCounts) return nav(`/read/${s.defaultEdition}/JHN/1`);
-    const books = Object.entries(vul.verseCounts).filter(([b]) => edition.chapters[b] !== undefined || vul.chapters[b] !== undefined);
+    const books = Object.entries(vul.verseCounts).filter(([b]) => edition.chapters[b] !== undefined);
     const total = books.reduce((n, [, cs]) => n + cs.reduce((a, b) => a + b, 0), 0);
     let k = Math.floor(Math.random() * total);
     for (const [book, cs] of books) {
