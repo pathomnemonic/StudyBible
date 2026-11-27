@@ -7,6 +7,7 @@ import { anchorChapterText } from '../../lib/bibleText';
 import { alignVerses, diffWords, type AlignedRow, type Cell } from '../../lib/compareDiff';
 import { formatRef, parseRefId, parseRefs, refId, type Ref } from '../../lib/refs';
 import { convertRef } from '../../lib/versification';
+import { readerPath } from '../../lib/nav';
 
 const MAX_COLS = 3;
 const DEFAULT_REF = 'JHN.1.1-5';
@@ -37,11 +38,12 @@ export default function CompareTranslationsPage() {
   }, [sp, pickable]);
   const cols = ids.map((id) => get(id)).filter(Boolean) as EditionRecord[];
   const [text, setText] = useState('');
+  const [textScheme, setTextScheme] = useState<'vulgate' | 'english'>('vulgate');
   const [err, setErr] = useState('');
   const [enabling, setEnabling] = useState<EditionRecord | null>(null);
   const [state, setState] = useState<{ rows: AlignedRow[]; truncated: boolean } | null>(null);
 
-  useEffect(() => { if (ref) setText(formatRef(ref, { noDual: true })); }, [ref ? refId(ref) : '']);
+  useEffect(() => { if (ref) { setText(formatRef(ref, { noDual: true })); setTextScheme('vulgate'); } }, [ref ? refId(ref) : '']);
 
   useEffect(() => {
     if (!ref || !cols.length) { setState(null); return; }
@@ -69,7 +71,8 @@ export default function CompareTranslationsPage() {
     const r = parseRefs(text);
     if (!r.ok) { setErr(r.error + (r.suggestions.length ? ` Did you mean ${r.suggestions.join(', ')}?` : '')); return; }
     // Typed numbers follow the modern (English) numbering most readers use; the page works in the Vulgate anchor numbering.
-    const mapped = convertRef('english', 'vulgate', r.refs[0].ref);
+    // Text the page itself filled in is already in anchor numbering, so it is read back in that scheme.
+    const mapped = textScheme === 'vulgate' ? { ref: r.refs[0].ref, exact: true } : convertRef('english', 'vulgate', r.refs[0].ref);
     if (!mapped.exact) { setErr('This passage cannot be matched to the selected translations with verified numbering. No comparison was opened.'); return; }
     setErr('');
     update({ ref: refId(mapped.ref) });
@@ -88,7 +91,7 @@ export default function CompareTranslationsPage() {
       <p className="lede">One passage in up to three translations, verse by verse. Words that differ from the first column are marked.</p>
       <form className="ct-form no-print" onSubmit={go}>
         <label className="small">Passage
-          <input value={text} onChange={(e) => setText(e.target.value)} placeholder="John 1:1-5" aria-label="Passage" autoCapitalize="off" />
+          <input value={text} onChange={(e) => { setText(e.target.value); setTextScheme('english'); }} placeholder="John 1:1-5" aria-label="Passage" autoCapitalize="off" />
         </label>
         <button className="btn primary" type="submit">Compare</button>
       </form>
@@ -146,7 +149,7 @@ export default function CompareTranslationsPage() {
       {state?.truncated && <p className="notice">Only the first 60 verses are shown. Choose a shorter passage to see the rest.</p>}
       {cols.some((e) => base && e.language !== base.language) && <p className="small muted">Words are only marked between translations in the same language as the first column.</p>}
       {cols.length > 0 && <p className="small muted ct-note">Verse numbers shown are each translation’s own, so they can differ in the Psalms and a few other books. A question mark means the match is approximate. Sources: {cols.map((e) => e.attribution).join(' ')}</p>}
-      {ref && <p className="no-print"><Link className="btn small ghost" to={`/read/${base?.id ?? 'webc'}/${ref.book}/${ref.c1}`}>Read the whole chapter</Link></p>}
+      {ref && <p className="no-print"><Link className="btn small ghost" to={base ? readerPath(base, ref) : '/read'}>Read the whole chapter</Link></p>}
       {enabling && <EnableEditionDialog edition={enabling} onClose={() => setEnabling(null)} />}
       {!editions.length && !ready && <p className="muted">Loading…</p>}
     </div>
