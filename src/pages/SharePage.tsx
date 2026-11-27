@@ -106,11 +106,11 @@ export default function SharePage() {
     const q = quotes[qi];
     if (!q) return;
     setErr('');
-    setVerse({ text: q.text, label: `${q.who}${q.work ? `, ${q.work}` : ''}`, link: location.href.split('#')[0] });
+    setVerse({ text: q.text, label: `${q.who}${q.work ? `, ${q.work}` : ''}`, link: `${location.href.split('#')[0]}#/share?q=${encodeURIComponent(q.text)}&by=${encodeURIComponent(q.who)}` });
   }, [mode, quotes, qi]);
 
   useEffect(() => {
-    if (mode !== 'verse') return;
+    if (mode !== 'verse' || !ed) return;
     let live = true;
     (async () => {
       setErr('');
@@ -127,11 +127,11 @@ export default function SharePage() {
     return () => {
       live = false;
     };
-  }, [refText, ed.id, mode]);
+  }, [refText, ed?.id, mode]);
 
   useEffect(() => {
     const c = canvas.current;
-    if (!c || !verse) return;
+    if (!c || !verse || !ed) return;
     let live = true;
     (async () => {
       const { w: W, h: H } = SIZES[size];
@@ -226,7 +226,7 @@ export default function SharePage() {
     return () => {
       live = false;
     };
-  }, [verse, bg, font, size, align, thoughts, paint, dim, ed.id, cite]);
+  }, [verse, bg, font, size, align, thoughts, paint, dim, ed?.id, cite, imgErr]);
 
   const png = () =>
     canvas.current?.toBlob((b) => {
@@ -235,7 +235,7 @@ export default function SharePage() {
       a.href = URL.createObjectURL(b);
       a.download = 'verse.png';
       a.click();
-      URL.revokeObjectURL(a.href);
+      setTimeout(() => URL.revokeObjectURL(a.href), 2000);
     });
   const fullText = () => (verse ? `“${verse.text}” — ${verse.label}${cite && verse.edName ? ` (${verse.edName})` : ''}${thoughts.trim() ? `\n\n${thoughts.trim()}` : ''}` : '');
   const copy = async (t: string) => {
@@ -256,6 +256,7 @@ export default function SharePage() {
   };
   const themes = ['All', ...new Set(art.map((a) => a.theme))];
   const shown = art.filter((a) => theme === 'All' || a.theme === theme).sort((a, b) => Number(b.id === paint?.id) - Number(a.id === paint?.id)).slice(0, 96);
+  if (!ed) return <div className="page"><p>Loading…</p></div>;
   return (
     <div className="page share-page">
       <h1>{mode === 'quote' ? 'Share a saint’s words' : 'Share a verse'}</h1>
