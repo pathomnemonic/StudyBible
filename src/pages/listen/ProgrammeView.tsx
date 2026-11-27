@@ -1,8 +1,9 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLiveQuery } from '../../lib/live';
 import { db } from '../../db/db';
-import { usePlayer } from '../../data/PlayerContext';
+import { resolveEpisode, usePlayer } from '../../data/PlayerContext';
+import { latestRequest } from '../../lib/latestRequest';
 import { loadShow, lookupEpisode, type Show, type ShowData } from '../../data/podcasts';
 import type { BiayEpisode } from '../../data/content';
 import { fold } from '../../search/engine';
@@ -34,7 +35,11 @@ export default function ProgrammeView({ show }: { show: Show }) {
   const progress = useLiveQuery(() => db.episodeProgress.toArray(), []) ?? [];
   const queue = useLiveQuery(() => db.queue.orderBy('order').toArray(), []) ?? [];
   const doneMap = useMemo(() => new Map(progress.map((p) => [p.episodeId, p])), [progress]);
-  useEffect(() => { setData(undefined); setView('next'); setQ(''); loadShow(show.id).then(setData).catch(() => setData(null)); }, [show.id]);
+  const loadReq = useRef(latestRequest());
+  const [resolved, setResolved] = useState<Record<string, BiayEpisode>>({});
+  const wantIds = (view === 'queue' ? queue.map((x) => x.episodeId) : view === 'progress' ? progress.filter((p) => p.completed || p.position > 0).map((p) => p.episodeId) : []).join(',');
+  useEffect(() => { let live = true; const ids = wantIds.split(',').filter(Boolean); if (!ids.length) { setResolved({}); return; } void Promise.all(ids.map(async (id) => [id, await resolveEpisode(id)] as const)).then((r) => live && setResolved(Object.fromEntries(r.filter((x): x is [string, BiayEpisode] => !!x[1])))); return () => { live = false; }; }, [wantIds]);
+  useEffect(() => { const ticket = loadReq.current.next(); setData(undefined); setView('next'); setQ(''); loadShow(show.id).then((d) => { if (ticket.isCurrent()) setData(d); }).catch(() => { if (ticket.isCurrent()) setData(null); }); return () => loadReq.current.cancel(); }, [show.id]);
 
   const days = useMemo(() => {
     if (!data) return [] as BiayEpisode[];
@@ -44,8 +49,8 @@ export default function ProgrammeView({ show }: { show: Show }) {
   }, [data]);
   const finished = useMemo(() => new Set(progress.filter((p) => p.completed).map((p) => p.episodeId)), [progress]);
   const list = useMemo(() => {
-    if (view === 'queue') return queue.map((x) => lookupEpisode(x.episodeId)).filter(Boolean) as BiayEpisode[];
-    if (view === 'progress') return progress.filter((p) => p.completed || p.position > 0).sort((a, b) => b.updatedAt - a.updatedAt).map((p) => lookupEpisode(p.episodeId)).filter((e): e is BiayEpisode => !!e && e.id.startsWith(`pod-${show.id}-`));
+    if (view === 'queue') return queue.map((x) => lookupEpisode(x.episodeId) ?? resolved[x.episodeId]).filter(Boolean) as BiayEpisode[];
+    if (view === 'progress') return progress.filter((p) => p.completed || p.position > 0).sort((a, b) => b.updatedAt - a.updatedAt).map((p) => lookupEpisode(p.episodeId) ?? resolved[p.episodeId]).filter((e): e is BiayEpisode => !!e && e.id.startsWith(`pod-${show.id}-`));
     const s = q.trim();
     if (!s) return hideDone ? days.filter((e) => !finished.has(e.id)) : days;
     const num = /^(?:day\s*)?(\d{1,3})$/i.exec(s);
@@ -54,7 +59,7 @@ export default function ProgrammeView({ show }: { show: Show }) {
     if (num) return days.filter((e) => e.day === +num[1]);
     const f = fold(s);
     return days.filter((e) => fold(`${e.title} ${e.description}`).includes(f));
-  }, [view, queue, progress, days, q, hideDone, finished, show]);
+  }, [view, queue, progress, days, q, hideDone, finished, show, resolved]);
 
   const dayNo = (() => { const start = new Date(new Date().getFullYear(), 0, 1); return Math.floor((Date.now() - start.getTime()) / 86400000) + 1; })();
   const todaysEp = days.find((e) => e.day === dayNo);
