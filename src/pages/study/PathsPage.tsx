@@ -18,7 +18,7 @@ interface PathFile { id: string; title: string; blurb: string; minutes: number; 
 interface Meta { id: string; title: string; blurb: string; minutes: number; steps: number }
 
 const progressKey = (id: string) => `path:${id}`;
-const useProgress = (id?: string) => useLiveQuery(async () => (id ? ((await db.cache.get(progressKey(id)))?.value as number | undefined) ?? 0 : 0), [id]) ?? 0;
+const useProgress = (id?: string) => useLiveQuery(async () => (id ? ((await db.cache.get(progressKey(id)))?.value as number | undefined) ?? 0 : 0), [id]);
 
 /** Guided paths: a theme followed through Scripture in short steps with the Fathers and a question at each. */
 export function PathsIndex() {
@@ -51,7 +51,8 @@ export default function PathPage() {
   const { id = '' } = useParams();
   const nav = useNavigate();
   const [path, setPath] = useState<PathFile | null | undefined>(undefined);
-  const done = useProgress(id);
+  const doneLoaded = useProgress(id);
+  const done = doneLoaded ?? 0;
   const [i, setI] = useState<number | null>(null);
   const { get, editions } = useEditions();
   const [s] = useSettings();
@@ -59,7 +60,7 @@ export default function PathPage() {
   const [verses, setVerses] = useState<{ v: number; c: number; text: string }[] | null>(null);
   const [note, setNote] = useState(false);
   useEffect(() => { getJson<PathFile>(`paths/${id}.json`, true).then((p) => setPath(p ?? null)); }, [id]);
-  useEffect(() => { if (path && i === null) setI(Math.min(done, path.steps.length - 1)); }, [path, done]);
+  useEffect(() => { if (path && i === null && doneLoaded !== undefined) setI(Math.min(doneLoaded, path.steps.length - 1)); }, [path, doneLoaded]);
   const step = path && i !== null ? path.steps[i] : null;
   const parsed = step ? parseRefs(step.ref) : null;
   const mapped = parsed?.ok ? convertRef('kjv', 'vulgate', parsed.refs[0].ref) : null;

@@ -28,7 +28,7 @@ const loadImage = (src: string) => new Promise<HTMLImageElement>((res, rej) => {
 export default function DayCardPage() {
   const [params] = useSearchParams();
   const [s] = useSettings();
-  const { get } = useEditions();
+  const { get, ready } = useEditions();
   const toast = useToast();
   const today = localIso();
   const date = /^\d{4}-\d{2}-\d{2}$/.test(params.get('d') ?? '') ? params.get('d')! : today;
@@ -49,6 +49,8 @@ export default function DayCardPage() {
 
   // the day's content: the same pieces the Today screen carries
   useEffect(() => {
+    if (!ready) return;
+    setBase(null); setErr(''); setArtId(undefined); setSkipped([]); setTagIx(null);
     let live = true;
     (async () => {
       const [file, a, b] = await Promise.all([loadDaily(), getJson<{ works: ArtWork[] }>('art.json', true), getJson<{ works: ArtWork[] }>('art-more.json', true)]);
@@ -60,6 +62,7 @@ export default function DayCardPage() {
       const dra = get('dra') ?? get(s.defaultEdition);
       if (!ref || !dra) return setErr('Today’s verse is not available on this device yet.');
       const vs = await passageText(dra, ref, 12);
+      if (!live) return;
       const v = trimVerses(vs.map((x) => [x.v, x.text] as [number, string]), ref.v1 ?? 1, ref.v2 ?? ref.v1 ?? 999);
       if (!v) return setErr('Today’s verse is not available on this device yet.');
       const label = formatRef({ ...ref, v1: v.first, v2: v.last }, { noDual: true });
@@ -70,7 +73,7 @@ export default function DayCardPage() {
       setBase({ spec, ref, saintMissing: issues.length > 0 });
     })().catch(() => live && setErr('The card could not be prepared. Try again in a moment.'));
     return () => { live = false; };
-  }, [date, ld.dayName, s.defaultEdition]);
+  }, [date, ld.dayName, s.defaultEdition, ready]);
 
   // the automatic pick comes from the pictures carried in the app when it can, so the card works offline
   const pickPool = art.some((w) => ART_LOCAL.has(w.file)) ? art.filter((w) => ART_LOCAL.has(w.file)) : art;
@@ -111,10 +114,10 @@ export default function DayCardPage() {
       drawDayCard(c.getContext('2d')!, w, h, spec, { img, dim });
     })();
     return () => { live = false; };
-  }, [spec?.verse.text, spec?.tagline, spec?.credit, spec?.father?.text, spec?.question, work?.id, size, dim, artId]);
+  }, [spec?.verse.text, spec?.tagline, spec?.credit, spec?.father?.text, spec?.question, spec?.dateLine, spec?.dayName, spec?.color, date, work?.id, size, dim, artId]);
 
   const blob = () => new Promise<Blob | null>((res) => canvas.current?.toBlob(res, 'image/png'));
-  const download = async () => { const b = await blob(); if (!b) return toast('The picture could not be saved.', 'error'); const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `cathology-${date}.png`; a.click(); URL.revokeObjectURL(a.href); };
+  const download = async () => { const b = await blob(); if (!b) return toast('The picture could not be saved.', 'error'); const a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = `cathology-${date}.png`; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 2000); };
   const share = async () => {
     const b = await blob();
     if (!b) return;
