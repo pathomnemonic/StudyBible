@@ -75,6 +75,12 @@ describe('applying a remote change that conflicts with an unsynced local edit', 
       expect(copy.uid).toContain('~conflict~');
       const winner = all.find((n) => n.uid === 'n1')!;
       expect(winner.updatedAt).toBe(3000);
+      // and each version holds its own value for the field that differed: the winner the remote one, the copy the local one
+      // (the folder case travels as folderUid and is resolved back to a local folder id on the winner, so there the
+      // check is that the winner did not keep this device's folder while the copy did)
+      for (const k of Object.keys(rem)) { if (k !== 'folderUid') expect((winner as any)[k], `winner ${k}`).toEqual((rem as any)[k]); }
+      if ('folderUid' in rem) expect((winner as any).folderId).not.toBe(1);
+      for (const k of Object.keys(local)) { if (k === 'title') expect(copy.title, 'copy title').toContain(local.title); else expect((copy as any)[k], `copy ${k}`).toEqual((local as any)[k]); } // a kept copy's title is marked as the other version; the local title is in it
     });
   }
   it('same body, pinned on one device only: pinned wins, and no copy is made', async () => {
@@ -98,10 +104,15 @@ describe('applying a remote change that conflicts with an unsynced local edit', 
     // the same remote change delivered again (an interrupted batch, a retry): older or equal, nothing happens
     await eng.applyRemote('u', [remote({ title: 'Remote title' })]);
     expect((await notes()).length).toBe(after1);
-    // and a later re-delivery with a newer stamp finds the existing copy instead of making a second one
-    await dbm.db.notes.where('uid').equals('n1').modify({ title: 'Local title', updatedAt: 2500 });
+    // and a later re-delivery with a newer stamp finds the existing copy instead of making a second one.
+    // The local edit is put back quietly, with its unsent mark: an ordinary modify would stamp it with
+    // Date.now() through the database hook, far newer than the remote 3500, and the remote change would
+    // be skipped as older — the dedup path would never run and the count would stay 1 for the wrong reason.
+    await patchRow('n1', { title: 'Local title', updatedAt: 2500, _unsent: 1 });
     await eng.applyRemote('u', [remote({ title: 'Remote title' }, 3500)]);
-    expect((await notes()).filter((n) => (n.uid ?? '').includes('~conflict~')).length).toBe(1);
+    const copies = (await notes()).filter((n) => (n.uid ?? '').includes('~conflict~'));
+    expect(copies.length).toBe(1);
+    expect(copies[0].title).toContain('Local title');
   });
   it('a body difference still keeps the other text (as before)', async () => {
     await seed('notes', { ...base, body: 'local words', updatedAt: 2000 } as any);
@@ -166,7 +177,14 @@ describe('edit and delete', () => {
     await dbm.db.notes.delete(id);
     const tomb = await dbm.db.tombs.filter((t) => t.uid === 'n1').first();
     await eng.applyRemote('u', [remote({ title: 'edited after' }, tomb!.updatedAt + 5000)]);
-    expect((await notes()).length).toBe(1);
+    const all = await notes();
+    expect(all.length).toBe(1);
+    expect(all[0].title).toBe('edited after'); // the arriving edit itself, not just any row
+    expect(all[0].body).toBe(base.body);
+    // the deletion's tombstone is not removed, so it must be powerless: strictly older than the edit
+    // that brought the note back, which is what every reader of the tombstone compares it against
+    const left = await dbm.db.tombs.filter((t) => t.tbl === 'notes' && t.uid === 'n1').first();
+    expect(left!.updatedAt).toBeLessThan(all[0].updatedAt);
   });
 });
 
@@ -211,9 +229,12 @@ describe('nested conflict identity (audit second pass, item 2)', () => {
   it('applying the exact same conflict again does not duplicate it', async () => {
     await seed('notes', { ...base, targets: [{ type: 'passage', ref: 'JHN.1.1' }], updatedAt: 2000 } as any);
     await eng.applyRemote('u', [remote({ targets: [{ type: 'passage', ref: 'JHN.1.2' }] }, 3000)]);
-    await patchRow('n1', { targets: [{ type: 'passage', ref: 'JHN.1.1' }], updatedAt: 3200 });
+    // the local edit is restored WITH its unsent mark: without it the row reads as already synced, the
+    // second delivery simply replaces it, and the dedup this test is named for never runs
+    await patchRow('n1', { targets: [{ type: 'passage', ref: 'JHN.1.1' }], updatedAt: 3200, _unsent: 1 });
     await eng.applyRemote('u', [remote({ targets: [{ type: 'passage', ref: 'JHN.1.2' }] }, 3300)]);
     expect((await notes()).filter((n) => (n.uid ?? '').includes('~conflict~')).length).toBe(1);
+    expect(((await notes()).find((n) => n.uid === 'n1')!.targets[0] as any).ref).toBe('JHN.1.2'); // the winner took the remote value again
   });
   it('a third device reaching the same conflict derives the same id', () => {
     const lost = { targets: [{ type: 'passage', ref: 'JHN.1.1' }] };

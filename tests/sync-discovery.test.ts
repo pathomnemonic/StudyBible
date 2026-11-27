@@ -58,6 +58,8 @@ describe('session discovery', () => {
     const s = await load();
     await s.initSync();
     expect(s.getSync()).toMatchObject({ server: 'available', session: 'valid', user });
+    expect(calls.health).toBe(1); // the server was probed once to be found at all
+    expect(calls.me).toBe(1);
   });
 
   it('server up but /me answers 500 once: the session is found on the next try (was stuck signed out)', async () => {
@@ -125,12 +127,18 @@ describe('session discovery', () => {
     up = true;
     handlers['online'].forEach((f) => f()); await flush();
     expect(s.getSync()).toMatchObject({ server: 'available', user });
+    expect(calls.health).toBe(2); // probed again when the browser said it was back online
   });
 
   it('a static host answering 404 for /me is "no server here", not a session failure to retry', async () => {
     meImpl = async () => { throw new ApiErr(404); };
     const s = await load();
     await s.initSync();
+    expect(s.getSync().server).toBe('unavailable');
+    // no retry loop is set running: inside the ordinary 90-second cadence nothing asks again
+    await vi.advanceTimersByTimeAsync(60_000); await flush();
+    expect(calls.me).toBe(1);
+    expect(calls.health).toBe(1);
     expect(s.getSync().server).toBe('unavailable');
   });
 });
@@ -189,6 +197,15 @@ describe('deliberate sign-out and overlapping answers', () => {
     const eng: any = await import('../src/sync/engine');
     eng.runSync.mockImplementationOnce(async () => { throw new ApiErr(401); });
     await s.syncNow(); await flush();
+    expect(s.getSync()).toMatchObject({ user: null, session: 'none' });
+    // the next checks really run — coming back online, returning to the tab, an explicit retry —
+    // and while the server keeps answering 401 (the session really is gone) none of them restores it
+    meImpl = async () => { throw new ApiErr(401); };
+    const asked = calls.me;
+    handlers['online'].forEach((f) => f()); await flush();
+    handlers['visibilitychange'].forEach((f) => f()); await flush();
+    await s.retryDiscovery(); await flush();
+    expect(calls.me).toBeGreaterThan(asked); // the checks happened; this is not a pass by omission
     expect(s.getSync()).toMatchObject({ user: null, session: 'none' });
   });
 });

@@ -6,17 +6,29 @@ vi.stubEnv('PROD', true);
 
 const win = (over: Record<string, unknown> = {}, loc = { hostname: 'pathomnemonic.github.io', protocol: 'https:' }) => ({ location: loc, navigator: { doNotTrack: null }, ...over }) as never;
 
+const realIntl = Intl;
+const withTimeZone = (tz: string) => {
+  const fake = Object.create(realIntl) as typeof Intl;
+  fake.DateTimeFormat = (() => ({ resolvedOptions: () => ({ timeZone: tz }) })) as unknown as typeof Intl.DateTimeFormat;
+  vi.stubGlobal('Intl', fake);
+};
+afterEach(() => { vi.stubGlobal('Intl', realIntl); });
+
 describe('error reports and page counts', () => {
   it('sends only the first part of the address', async () => {
     const { coarseUrl, coarseRoute } = await import('../src/lib/telemetry');
     expect(coarseUrl('https://pathomnemonic.github.io/StudyBible/#/read/dra/JHN/3?x=1')).toBe('https://pathomnemonic.github.io/StudyBible/#/read');
     expect(coarseUrl('https://pathomnemonic.github.io/StudyBible/#/search?q=my%20private%20note')).toBe('https://pathomnemonic.github.io/StudyBible/#/search');
+    // a query string before the hash is dropped too, and so is an encoded page name after it
+    expect(coarseUrl('https://pathomnemonic.github.io/StudyBible/?session=abc123#/read/dra/JHN/3')).toBe('https://pathomnemonic.github.io/StudyBible/#/read');
+    expect(coarseUrl('https://pathomnemonic.github.io/StudyBible/#/search/my%20private%20note')).toBe('https://pathomnemonic.github.io/StudyBible/#/search');
     expect(coarseRoute('/library/notes/12')).toBe('/library');
     expect(coarseRoute('/')).toBe('/');
   });
   it('is allowed on the public website only, and not with Do Not Track, Kid mode, the Settings switch, a store app or a local host', async () => {
     const { telemetryAllowed } = await import('../src/lib/telemetry');
     const { updateSettings } = await import('../src/lib/store');
+    withTimeZone('America/New_York'); // outside the consent region, whatever zone the machine running this is in: inside it, "allowed" would rightly be false until the person agrees
     updateSettings({ kidMode: false, telemetry: true });
     expect(telemetryAllowed(win())).toBe(true);
     expect(telemetryAllowed(win({}, { hostname: 'localhost', protocol: 'http:' }))).toBe(false);
@@ -38,14 +50,6 @@ describe('error reports and page counts', () => {
 });
 
 describe('agreement first in the EU, the UK and the EEA', () => {
-  const realIntl = Intl;
-  const withTimeZone = (tz: string) => {
-    const fake = Object.create(realIntl) as typeof Intl;
-    fake.DateTimeFormat = (() => ({ resolvedOptions: () => ({ timeZone: tz }) })) as unknown as typeof Intl.DateTimeFormat;
-    vi.stubGlobal('Intl', fake);
-  };
-  afterEach(() => { vi.stubGlobal('Intl', realIntl); });
-
   it('recognises the region by time zone', async () => {
     const { consentRegionFor } = await import('../src/lib/telemetry');
     for (const tz of ['Europe/London', 'Europe/Dublin', 'Europe/Paris', 'Europe/Berlin', 'Europe/Madrid', 'Atlantic/Reykjavik', 'Atlantic/Canary', 'Atlantic/Madeira', 'Atlantic/Azores', 'Atlantic/Faeroe', 'Asia/Nicosia', 'Asia/Famagusta', 'Africa/Ceuta', 'America/Guadeloupe', 'America/Marigot', 'America/St_Barthelemy', 'America/Martinique', 'America/Cayenne', 'Indian/Reunion', 'Indian/Mayotte', 'Arctic/Longyearbyen']) expect(consentRegionFor(tz), tz).toBe(true);

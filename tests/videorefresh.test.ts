@@ -10,7 +10,8 @@ describe('daily video refresh', () => {
     expect(r.added).toEqual([['new1', 'Fresh talk', 4]]);
   });
   it('leaves out shorts, live streams and daily Mass', () => {
-    const r = mergeUploads(lib, 4, [{ id: 'n1', title: 'A clip #shorts' }, { id: 'n2', title: 'Daily Mass for today' }, { id: 'n3', title: 'Real teaching' }, { id: 'aaa', title: 'x' }]);
+    // a live stream is among the inputs this time: the title of the test claimed one all along without feeding one in
+    const r = mergeUploads(lib, 4, [{ id: 'n1', title: 'A clip #shorts' }, { id: 'n2', title: 'Daily Mass for today' }, { id: 'n4', title: 'Sunday homily — live stream' }, { id: 'n5', title: 'Live: morning prayer' }, { id: 'n3', title: 'Real teaching' }, { id: 'aaa', title: 'x' }]);
     expect(r.added.map((v) => v[0])).toEqual(['n3']);
   });
   it('skips a channel id that does not match the channel', () => {

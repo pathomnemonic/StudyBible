@@ -5,6 +5,9 @@ import { bookAlignmentNote, fromAnchor, loadVersification, toAnchor } from '../s
 import { chapterLinksFrom, verseLinksFrom, type BookFile } from '../src/lib/verseLinks';
 
 loadVersification(JSON.parse(readFileSync('public/data/versification.json', 'utf8')));
+const countsOf = (id: string) => JSON.parse(readFileSync('public/data/editions.json', 'utf8')).editions.find((e: any) => e.id === id).verseCounts as Record<string, number[]>;
+const webcCounts = countsOf('webc'); // the English numbering the anchors are built from
+const vulgateCounts = countsOf('vulgate'); // the numbering the anchors point into
 
 describe('versification across the whole canon', () => {
   it('the canon has all 73 books', () => expect(BOOKS.length).toBe(73));
@@ -13,16 +16,21 @@ describe('versification across the whole canon', () => {
     const bad: string[] = [];
     for (const b of BOOKS) for (let c = 1; c <= b.chapters; c++) for (const v of [1, 2]) {
       const a = toAnchor('english', b.id, c, v);
-      if (a.c < 1 || a.v1 < 1 || a.v2 < a.v1) bad.push(`${b.id} ${c}:${v} -> ${a.c}:${a.v1}-${a.v2}`);
+      // a real chapter at both ends: at least 1, and no more than the book has in that numbering
+      if (a.c < 1 || a.c > (vulgateCounts[b.id]?.length ?? 0) || a.v1 < 1 || a.v2 < a.v1) bad.push(`${b.id} ${c}:${v} -> ${a.c}:${a.v1}-${a.v2}`);
       const back = fromAnchor('english', b.id, a.c, a.v1);
-      if (back.c < 1 || back.v1 < 1) bad.push(`${b.id} back ${a.c}:${a.v1}`);
+      // the way back is bounded by the canon's own chapter count, not the webc text's: Esther's Greek
+      // chapters (11 to 16) are real chapters of the book in this app's canon although webc prints 10
+      if (back.c < 1 || back.c > b.chapters || back.v1 < 1) bad.push(`${b.id} back ${a.c}:${a.v1}`);
     }
     expect(bad.slice(0, 10)).toEqual([]);
   });
 
   it('every exact mapping returns to the verse it started from', () => {
     const drift: string[] = [];
-    for (const b of BOOKS) for (let c = 1; c <= b.chapters; c++) for (let v = 1; v <= 40; v++) {
+    // the whole chapter, not only its first 40 verses: Psalm 119 (Vulgate 118) has 176 verses, and
+    // the later verses of a long chapter are exactly where an offset would hide
+    for (const b of BOOKS) for (let c = 1; c <= b.chapters; c++) for (let v = 1; v <= (webcCounts[b.id]?.[c - 1] ?? 40); v++) {
       const a = toAnchor('english', b.id, c, v);
       if (!a.exact || a.v1 !== a.v2) continue;
       const back = fromAnchor('english', b.id, a.c, a.v1);

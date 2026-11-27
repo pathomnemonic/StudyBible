@@ -40,7 +40,8 @@ const fresh = async () => {
 };
 const note = (body: string, extra: Record<string, unknown> = {}) => ({ kind: 'note', title: '', body, tags: [], chapterKeys: [], targets: [], createdAt: 1, updatedAt: 1, ...extra }) as any;
 const wire = (uid: string, body: string, updatedAt: number) => ({ table: 'notes', uid, updatedAt, payload: { kind: 'note', title: '', body, tags: [], chapterKeys: [], targets: [], createdAt: 1 } });
-const settle = () => new Promise((r) => setTimeout(r, 30));
+/** wait until an assertion about committed side effects (tombstones, trash) holds, instead of sleeping a fixed 30 ms and hoping */
+const until = async (fn: () => Promise<void>) => { await vi.waitFor(fn, { timeout: 2000, interval: 10 }); };
 
 describe('S1: what the reader writes while a sync is being applied is still a local change', () => {
   it('a note created, a note edited and a note deleted during an apply are stamped, marked unsent, tombstoned and kept in Recently deleted', async () => {
@@ -58,7 +59,10 @@ describe('S1: what the reader writes while a sync is being applied is still a lo
     const edited = db.notes.update(editId, { body: 'edited during the sync' });
     const deleted = db.notes.delete(delId);
     await Promise.all([applying, created, edited, deleted]);
-    await settle();
+    await until(async () => {
+      expect(await db.tombs.filter((t) => t.tbl === 'notes' && t._unsent === 1).count()).toBe(1);
+      expect(await db.trash.count()).toBe(1);
+    });
     const mine = (await db.notes.toArray()).find((n) => n.body === 'written during the sync')!;
     expect(mine.uid, 'a note made during a sync must get an identity, or it can never sync').toBeTruthy();
     expect(mine._unsent).toBe(1);
@@ -80,6 +84,10 @@ describe('S1: what the reader writes while a sync is being applied is still a lo
     // the second "saved" row has the same unique key under another uid; it is matched to the first by key, so this page is fine
     await eng.applyRemote('u', bad as any);
     expect(await db.notes.count()).toBe(1);
+    expect((await db.notes.where('uid').equals('ok-1').first())!.body).toBe('fine'); // the note itself, not only the count
+    // and the two saved rows that share the key k have become the one row that holds it
+    expect((await db.saved.toArray()).filter((s: any) => s.key === 'k').length).toBe(1);
+    expect(await db.saved.count()).toBe(2); // that row, plus the unrelated one seeded above
     // a page that truly cannot be written (a row the store refuses) leaves nothing behind
     const impossible = [wire('ok-2', 'must not stay', 10), { table: 'planProgress', uid: 'p', updatedAt: 10, payload: { startedAt: 1 } }];
     await expect(eng.applyRemote('u', impossible as any)).rejects.toBeTruthy();
@@ -132,7 +140,7 @@ describe('S3: this device\'s clock is set back', () => {
     vi.spyOn(Date, 'now').mockImplementation(() => realNow - 3600_000);
     await db.notes.delete(id);
     vi.restoreAllMocks();
-    await settle();
+    await until(async () => { expect(await db.tombs.count()).toBe(1); });
     const tomb = (await db.tombs.toArray())[0];
     expect(tomb.updatedAt).toBeGreaterThan(row.updatedAt);
   });
@@ -159,7 +167,8 @@ describe('S4: a backup imported while signed in', () => {
     await db.notes.add(note('x'));
     await db.notes.delete((await db.notes.toArray())[0].id!);
     await db.notes.add(note('y'));
-    await settle();
+    // the tombstone must actually be recorded before exporting, or the check below could pass on an empty export
+    await until(async () => { expect(await db.tombs.count()).toBe(1); });
     const { exportAll } = await import('../src/db/ops');
     expect(await exportAll()).not.toContain('_unsent');
   });
@@ -170,19 +179,23 @@ describe('S5: a deletion that was rolled back', () => {
     const { db } = await fresh();
     const id = await db.notes.add(note('still here'));
     await expect(db.transaction('rw', db.notes, async () => { await db.notes.delete(id); throw new Error('changed my mind'); })).rejects.toThrow('changed my mind');
-    await settle();
-    expect(await db.notes.count()).toBe(1);
-    expect(await db.tombs.count(), 'a tombstone here would delete the note on every other device').toBe(0);
-    expect(await db.trash.count()).toBe(0);
+    // an absence can only be trusted once the commit pipeline has run past the rolled-back delete:
+    // a second delete, committed, lands its tombstone first (the callbacks run in transaction order)
+    const probe = await db.notes.add(note('probe'));
+    await db.notes.delete(probe);
+    await until(async () => { expect(await db.tombs.count()).toBe(1); });
+    expect((await db.notes.toArray()).map((n) => n.body)).toEqual(['still here']);
+    const tombs = await db.tombs.toArray();
+    expect(tombs.length, 'a tombstone here would delete the note on every other device').toBe(1);
+    expect(tombs[0].uid).not.toBe((await db.notes.toArray())[0].uid); // the one tombstone is the probe's, not the rolled-back note's
+    expect(await db.trash.count()).toBe(1); // likewise, only the probe is restorable
   });
 
   it('a deletion inside a larger transaction is recorded once that transaction commits', async () => {
     const { db } = await fresh();
     const id = await db.notes.add(note('going'));
     await db.transaction('rw', db.notes, db.bookmarks, async () => { await db.transaction('rw', db.notes, async () => { await db.notes.delete(id); }); await db.bookmarks.add({ ref: 'GEN.1.1', kind: 'bookmark', createdAt: 1 } as any); });
-    await settle();
-    expect(await db.tombs.count()).toBe(1);
-    expect(await db.trash.count()).toBe(1);
+    await until(async () => { expect(await db.tombs.count()).toBe(1); expect(await db.trash.count()).toBe(1); });
   });
 });
 

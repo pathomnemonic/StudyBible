@@ -23,8 +23,13 @@ beforeAll(async () => {
     insert into auth.users (id, email) values ('${A}', 'a@example.org'), ('${B}', 'b@example.org'), ('${ANON}', null);
   `);
   for (const m of MIGRATIONS) await db.exec(m);
-  // another app of the same project, standing in for the Dx family: a table in `public` that points at the shared sign-in
-  await db.exec(`create table public.other_app_data (user_id uuid references auth.users (id) on delete cascade, note text); insert into public.other_app_data values ('${A}', 'dx keeps this'), ('${B}', 'and this');`);
+  // another app of the same project, standing in for the Dx family: a table in `public` that points at the shared sign-in.
+  // It is fenced the way a real other app fences its table (row-level security, each person sees only their own rows),
+  // so the tests below can read it AS a person instead of as the superuser, where a count proves only that the fixture exists.
+  await db.exec(`create table public.other_app_data (user_id uuid references auth.users (id) on delete cascade, note text); insert into public.other_app_data values ('${A}', 'dx keeps this'), ('${B}', 'and this');
+    alter table public.other_app_data enable row level security;
+    create policy other_app_own on public.other_app_data for select to authenticated using (user_id = auth.uid());
+    grant select on public.other_app_data to authenticated;`);
   // each person has joined StudyBible on purpose (the account is created by an explicit call, not by signing in)
   for (const who of [A, B]) await as(who, () => call(who, 'create_account', null));
 }, 60_000);
@@ -89,6 +94,7 @@ describe('sync', () => {
     await sync(B, 0, [note('skew', far, 'from the future')]);
     const row = (await sync(B, 0, [])).changes.find((c: any) => c.uid === 'skew');
     expect(row.updatedAt).toBeLessThan(Date.now() + 6 * 60_000);
+    expect(row.updatedAt).toBeGreaterThan(Date.now() - 6 * 60_000); // capped to about now, not merely "not far ahead": a stamp thrown far into the past would lose every honest conflict instead
   });
   it('refuses more than 1000 changes in one call and a newer protocol', async () => {
     await fails(sync(B, 0, Array.from({ length: 1001 }, (_, i) => note(`big${i}`, 1))), /at most 1000/);
@@ -125,6 +131,27 @@ describe('sync', () => {
     const st = (await db.query(`select records, bytes from studybible.sync_state where user_id = '${g}'`)).rows[0] as { records: number; bytes: string };
     expect(st.records).toBe(0); expect(Number(st.bytes)).toBe(0);
   });
+  it('keeps the per-person counters in step with what sync actually stores', async () => {
+    const h = '00000000-0000-4000-8000-0000000000b1';
+    await db.exec(`insert into auth.users (id, email) values ('${h}', 'h@example.org')`);
+    await join(h);
+    const state = async () => (await db.query(`select records, bytes from studybible.sync_state where user_id = '${h}'`)).rows[0] as { records: number; bytes: string };
+    const held = async () => ((await db.query(`select count(*)::int as n from studybible.records where user_id = '${h}' and not deleted`)).rows[0] as { n: number }).n;
+    const stored = async () => ((await db.query(`select count(*)::int as n from studybible.records where user_id = '${h}'`)).rows[0] as { n: number }).n;
+    await sync(h, 0, [note('c1', 1, 'one'), note('c2', 2, 'two')]);
+    expect((await state()).records).toBe(2); expect(await held()).toBe(2); expect(await stored()).toBe(2); // inserts move the count
+    const afterAdd = Number((await state()).bytes); expect(afterAdd).toBeGreaterThan(0);
+    await sync(h, 0, [note('c1', 3, 'one, but written out longer than before')]);
+    expect((await state()).records).toBe(2); // an update is not a new record
+    expect(Number((await state()).bytes)).toBeGreaterThan(afterAdd); // but its bigger body is counted
+    const beforeDelete = Number((await state()).bytes);
+    await sync(h, 0, [gone('c2', 4)]);
+    expect(await held()).toBe(1); // the live record is gone
+    // its tombstone is still a stored row (it has to reach the other devices), and the counter counts stored rows:
+    // it stays at 2 and matches the table, while the body's bytes are given back
+    expect((await state()).records).toBe(2); expect(await stored()).toBe(2);
+    expect(Number((await state()).bytes)).toBeLessThan(beforeDelete);
+  });
   it('counts a record’s size in bytes, not characters, for the per-record limit', async () => {
     const wide = 'é'.repeat(140_000); // about 140,000 characters, but about 280,000 bytes once written out as JSON text
     expect((await sync(B, 0, [note('wide1', 1, wide)])).rejected).toBe(1);
@@ -156,6 +183,17 @@ describe('who may do what', () => {
   it('touches nothing outside its own schema', async () => {
     const r = await db.query(`select table_schema, table_name from information_schema.tables where table_schema not in ('information_schema','pg_catalog','auth','studybible') and table_schema not like 'pg_%' and table_name <> 'other_app_data'`); // the one table in `public` is this test's own stand-in for another app
     expect(r.rows).toEqual([]);
+    // and not only tables: a stray view, function, type, trigger or grant outside the schema would be just as much trespass
+    const views = await db.query(`select table_schema, table_name from information_schema.views where table_schema not in ('information_schema','pg_catalog','auth','studybible') and table_schema not like 'pg_%'`);
+    expect(views.rows).toEqual([]);
+    const routines = await db.query(`select routine_schema, routine_name from information_schema.routines where routine_schema not in ('information_schema','pg_catalog','auth','studybible') and routine_schema not like 'pg_%'`);
+    expect(routines.rows).toEqual([]);
+    const triggers = await db.query(`select trigger_schema, event_object_table from information_schema.triggers where trigger_schema not in ('information_schema','pg_catalog','auth','studybible') and event_object_table <> 'other_app_data'`);
+    expect(triggers.rows).toEqual([]);
+    const types = await db.query(`select n.nspname as schema, t.typname from pg_type t join pg_namespace n on n.oid = t.typnamespace where n.nspname not in ('information_schema','pg_catalog','auth','studybible') and n.nspname not like 'pg_%' and t.typtype in ('e','d')`); // enums and domains; every table's row type is a composite and is not counted
+    expect(types.rows).toEqual([]);
+    const grants = await db.query(`select table_schema, table_name from information_schema.role_table_grants where table_schema not in ('information_schema','pg_catalog','auth','studybible') and table_name <> 'other_app_data'`);
+    expect(grants.rows).toEqual([]);
   });
 });
 
@@ -182,14 +220,20 @@ describe('a StudyBible account is its own, created on purpose', () => {
   it('gives two people with accounts nothing of each other’s, and one person can hold an account here and none elsewhere', async () => {
     const x = await as(A, () => db.query('select user_id from studybible.accounts'));
     expect(x.rows.map((r: any) => r.user_id)).toEqual([A]);
-    expect((await db.query(`select count(*)::int as n from public.other_app_data where user_id = '${A}'`)).rows[0]).toEqual({ n: 1 });
+    const y = await as(B, () => db.query('select user_id from studybible.accounts'));
+    expect(y.rows.map((r: any) => r.user_id)).toEqual([B]); // B's isolation too, not only A's view of it
+    // read as the person, not as the superuser: A sees their own other-app row and none of B's
+    expect((await as(A, () => db.query('select note from public.other_app_data'))).rows).toEqual([{ note: 'dx keeps this' }]);
+    expect((await as(B, () => db.query('select note from public.other_app_data'))).rows).toEqual([{ note: 'and this' }]);
   });
 });
 
 describe('download and delete', () => {
   it('downloads everything a person has (live records, their profile) and nothing of anyone else’s', async () => {
     const e = await as(A, () => call(A, 'export_all'));
-    expect(e.format).toBe('studybible-supabase-export'); expect(e.user.email).toBe('a@example.org');
+    expect(e.format).toBe('studybible-supabase-export');
+    // the profile is the person's own, checked by more than its email: their id, no display name set yet, a real creation time
+    expect(e.user.id).toBe(A); expect(e.user.email).toBe('a@example.org'); expect(e.user.name).toBeNull(); expect(typeof e.user.createdAt).toBe('number');
     const uids = e.records.map((r: any) => r.uid);
     expect(uids).toContain('n1'); expect(uids).not.toContain('w1'); // deleted ones are not exported
     expect(JSON.stringify(e)).not.toContain('from the future');
@@ -211,7 +255,7 @@ describe('download and delete', () => {
     expect(out.ok).toBe(true); expect(out.recordsRemoved).toBeGreaterThan(0);
     for (const t of ['records', 'sync_state', 'accounts']) expect((await db.query(`select count(*)::int as n from studybible.${t} where user_id = '${A}'`)).rows[0]).toEqual({ n: 0 });
     expect((await db.query(`select count(*)::int as n from auth.users where id = '${A}'`)).rows[0]).toEqual({ n: 1 }); // the shared sign-in is untouched
-    expect((await db.query(`select note from public.other_app_data where user_id = '${A}'`)).rows).toEqual([{ note: 'dx keeps this' }]); // so is the other app's data
+    expect((await as(A, () => db.query('select note from public.other_app_data'))).rows).toEqual([{ note: 'dx keeps this' }]); // so is the other app's data, still readable by its owner afterwards
     expect(JSON.stringify((await sync(B, 0, [])).changes)).toContain('b stays'); // and everyone else's
   });
   it('after deleting the account, StudyBible refuses that person until they create a new one, which starts empty', async () => {

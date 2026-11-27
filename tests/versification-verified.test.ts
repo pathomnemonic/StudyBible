@@ -72,7 +72,7 @@ describe('Old Testament chapters where a verse belongs to the next chapter in th
     expect(to('kjv', '1SA', 24, 1, 7)).toBe('1SA.24.2-8');
     expect(to('kjv', 'JDG', 21, 25)).toBe('JDG.21.24 ~');
   });
-  it('the NABRE already numbers these as the Vulgate does, so the Lectionary citation is the same place', () => {
+  it('the NABRE numbers most of these as the Vulgate does, so the Lectionary citation is the same place (Numbers is a verse out)', () => {
     expect(to('nabre', 'JON', 2, 1, 11)).toBe('JON.2.1-11');
     expect(to('nabre', 'ECC', 5, 1, 2)).toBe('ECC.5.1-2');
     expect(to('nabre', 'HOS', 14, 2, 10)).toBe('HOS.14.2-10');
@@ -93,4 +93,19 @@ describe('the shipped file is what the generator produces', () => {
   it('outside data still treats the Greek-text books as compare-by-chapter', () => {
     expect(Object.keys(V.schemes.kjv.unalignedBooks).sort()).toEqual(['DAN', 'EST', 'JDT', 'SIR', 'TOB']);
   });
+  it('matches a fresh build of the whole file, not only the unaligned books', async () => {
+    // the same code and inputs scripts/versification/rebuild.ts runs, compared whole: drift anywhere
+    // in the three numbering tables fails here, where checking one list of keys could not see it
+    const { buildVersification } = await import('../scripts/ingest/bible');
+    const { Report } = await import('../scripts/ingest/lib/util');
+    const editions = JSON.parse(readFileSync('public/data/editions.json', 'utf8')).editions as any[];
+    const load = (id: string) => {
+      const edition = editions.find((e: any) => e.id === id);
+      const books = new Map<string, unknown>();
+      for (const code of Object.keys(edition.chapters)) books.set(code, JSON.parse(readFileSync(`public/data/bible/${id}/${code}.json`, 'utf8')));
+      return { edition, books } as any;
+    };
+    const fresh = buildVersification(load('dra'), load('vulgate'), load('webc'), new Report(), load('nabre'));
+    expect(JSON.stringify(fresh)).toBe(JSON.stringify(V));
+  }, 60_000);
 });
