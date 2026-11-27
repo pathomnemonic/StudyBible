@@ -38,17 +38,22 @@ async function scenario(offline) {
   return { seeded: seeded.names, left, offlineNote };
 }
 
+let checked = 0;
 const on = await scenario(false);
 if (on.skipped) console.log('online:', on.skipped);
 else {
+  checked++;
   for (const keep of ['studybible-data-v1', 'studybible-audio-v1', 'unrelated-site-cache']) if (!on.left?.includes(keep)) fail(`online recovery removed ${keep}; left: ${on.left}`);
   if (on.left?.includes('studybible-heavy-v1')) fail('online recovery should remove the app\'s own lazily cached code');
-  if (on.left?.some((n) => n.startsWith('workbox-precache') && n.includes('__nope'))) fail('precache not removed');
+  if (on.left?.includes(on.seeded[0])) fail('precache not removed'); // the seeded precache itself, by name: a pattern that matches nothing checks nothing
 }
 const off = await scenario(true);
 if (off.skipped) console.log('offline:', off.skipped);
 else {
+  checked++;
   for (const n of off.seeded) if (!off.left?.includes(n)) fail(`offline recovery must remove nothing, but ${n} is gone; left: ${off.left}`);
   if (!off.offlineNote) fail('offline: the person should be told nothing was changed');
 }
-await b.close(); console.log('recovery ok');
+await b.close();
+if (!checked) fail('both recovery scenarios were skipped (the app auto-reloaded each time); nothing was checked');
+console.log('recovery ok');

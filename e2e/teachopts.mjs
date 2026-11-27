@@ -27,7 +27,7 @@ for (const [w, h] of [[1100, 900], [320, 640]]) {
   const over = await p.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   if (over > 1) fail(`horizontal overflow ${over}px at ${w}`);
   if (errs.length) fail(errs.join('; '));
-  await p.screenshot({ path: `/tmp/teachopts-${w}.png`, fullPage: false });
+  if (process.env.SHOTS) await p.screenshot({ path: `${process.env.SHOTS}/teachopts-${w}.png`, fullPage: false }); // screenshots only when a directory is asked for, as in coop.mjs and online.mjs
   await ctx.close();
 }
 console.log('ok teachopts'); await b.close();

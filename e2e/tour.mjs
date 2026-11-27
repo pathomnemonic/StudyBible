@@ -12,10 +12,11 @@ for (const vp of [{ width: 390, height: 844 }, { width: 1280, height: 800 }]) {
   await p.waitForSelector('.home');
   await p.evaluate(() => window.dispatchEvent(new Event('studybible:tour')));
   await p.waitForSelector('.tour-card, [class*="tour-pop"], [class*=tour]');
+  let finished = false;
   for (let n = 0; n < 40; n++) {
     await p.waitForTimeout(700);
     const label = await p.evaluate(() => document.querySelector('[class*=tour] .tour-text, [class*=tour] p')?.textContent ?? '');
-    if (/Take this tour again/.test(label)) break;
+    if (/Take this tour again/.test(label)) { finished = true; break; }
     // a "Tap X" step names a tab: that tab must be visible and not covered
     const m = /^Tap (Media|Read|Pray|Learn|You|Bible)\.$/.exec(label.trim());
     if (m) {
@@ -33,6 +34,7 @@ for (const vp of [{ width: 390, height: 844 }, { width: 1280, height: 800 }]) {
     if (await next.count()) await next.click().catch(() => {});
     else break;
   }
+  if (!finished) fail(`${vp.width}px: the tour never reached its final step`);
   if (errs.length) fail(errs.join('; '));
   await ctx.close();
 }

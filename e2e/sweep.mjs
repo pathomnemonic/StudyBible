@@ -18,7 +18,7 @@ import { parseShard, parseConcurrency, pickSizes, pickRoutes } from './lib/confi
 
 const BASE = process.env.BASE ?? 'http://localhost:4173';
 const HOST = new URL(BASE).host;
-export const ROUTE_EXCLUSIONS = EXCLUDED;
+const ROUTE_EXCLUSIONS = EXCLUDED; // not exported: this file is a script that runs the sweep, and importing it would run it
 // the whole route manifest (e2e/lib/routes.mjs; tests/route-manifest.test.ts keeps it in step with src/App.tsx)
 const KIND = new Map(CRAWL.map((c) => [c.path, c.kind]));
 const ENTRY = new Map(CRAWL.map((c) => [c.path, c]));

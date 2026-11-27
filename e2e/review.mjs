@@ -228,8 +228,14 @@ await p.locator('[aria-label="Meanings"] button').first().click();
 const termBtns = p.locator('[aria-label="Terms"] button');
 if (await termBtns.count() !== 5) fail('five terms should be offered');
 // try every term for the chosen meaning until one locks in (the right one disables its button)
-for (let i = 0; i < 5; i++) { if (await p.locator('[aria-label="Meanings"] button:disabled').count()) break; await termBtns.nth(i).click(); }
+let clicks = 0;
+for (let i = 0; i < 5; i++) { if (await p.locator('[aria-label="Meanings"] button:disabled').count()) break; await termBtns.nth(i).click(); clicks++; await p.waitForTimeout(150); }
 if (await p.locator('[aria-label="Meanings"] button:disabled').count() !== 1) fail('exactly one pair should be matched');
+// every click before the one that locked was a wrong pair, and the game must have counted them
+const wrongs = clicks - 1;
+const status = await p.locator('p[role="status"]').innerText();
+if (wrongs > 0 && !new RegExp(`Misses so far: ${wrongs}\\b`).test(status)) fail(`wrong pairs should be counted: ${wrongs} wrong, status says: ${status}`);
+if (wrongs === 0 && /Misses so far/.test(status)) fail('no wrong pair was tried, but the status claims misses: ' + status);
 // 23. family ties: six questions, an answer shows its Scripture reference
 await p.goto(`${BASE}/#/play/familyties`); await p.waitForSelector('[aria-label="Choices"] button', { timeout: 20000 });
 await p.locator('[aria-label="Choices"] button').first().click(); await p.waitForTimeout(300);
@@ -259,6 +265,9 @@ if (!/Every saved file is readable|missing or unreadable/.test(await p.locator('
 await p.goto(`${BASE}/#/study/glossary`); await p.waitForSelector('[aria-label="Jump to a letter"] button', { timeout: 15000 });
 if (await p.locator('[aria-label="Jump to a letter"] button').count() < 10) fail('the glossary should offer many letters');
 await p.locator('[aria-label="Jump to a letter"] button', { hasText: /^T$/ }).click(); await p.waitForTimeout(400);
+// and the jump lands somewhere: the first glossary entry at the top of the view is a T term
+const landed = await p.evaluate(() => { const el = [...document.querySelectorAll('.page li[id]')].find((e) => { const r = e.getBoundingClientRect(); return r.top >= -2 && r.top < 160; }); return el?.id ?? null; });
+if (!landed || !/^T/i.test(landed)) fail('the letter jump should land on a T term, landed on: ' + landed);
 // 27. weekly review: a note set to come back to can be marked reviewed
 await p.evaluate(() => new Promise((res, rej) => { const r = indexedDB.open('studybible'); r.onsuccess = () => { const tx = r.result.transaction('notes', 'readwrite'); tx.objectStore('notes').add({ uid: 'due-probe', title: 'Due probe note', body: 'Come back to this one.', kind: 'note', targets: [], tags: [], chapterKeys: [], revisitAt: Date.now() - 1000, createdAt: Date.now(), updatedAt: Date.now() }); tx.oncomplete = res; tx.onerror = () => rej(tx.error); }; r.onerror = () => rej(r.error); }));
 await p.goto(`${BASE}/#/library`); await p.reload(); await p.waitForTimeout(900);

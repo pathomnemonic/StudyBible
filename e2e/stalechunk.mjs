@@ -11,5 +11,6 @@ await p.goto(`${BASE}/#/passport`);
 await p.waitForSelector('h1', { timeout: 15000 });
 const h = await p.locator('h1').first().innerText();
 if (/went wrong/i.test(h)) { console.error('FAIL stuck on the error page'); process.exit(1); }
+if (failed < 1) { console.error('FAIL the stale chunk was never blocked: the route pattern no longer matches the built asset names, so nothing was tested'); process.exit(1); }
 console.log('stalechunk ok, blocked requests:', failed);
 await b.close();
