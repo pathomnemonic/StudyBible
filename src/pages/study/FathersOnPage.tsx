@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { providers, type StudyItem } from '../../study/providers';
 import { parseRefId, parseRefs, formatRef, refId } from '../../lib/refs';
+import { convertRef } from '../../lib/versification';
 
 const clip = (t: string, n = 420) => (t.length > n ? `${t.slice(0, n).replace(/\s+\S*$/, '')}…` : t);
 
@@ -10,9 +11,11 @@ export default function FathersOnPage() {
   const [sp, setSp] = useSearchParams();
   const raw = sp.get('ref') ?? 'JHN.6.51';
   const [text, setText] = useState(raw.includes('.') ? (() => { const r = parseRefId(raw); return r ? formatRef(r) : raw; })() : raw);
+  const [textScheme, setTextScheme] = useState<'vulgate' | 'kjv'>(raw.includes('.') ? 'vulgate' : 'kjv');
+  const [err, setErr] = useState('');
   const [items, setItems] = useState<StudyItem[] | null>(null);
   useEffect(() => {
-    const r = raw.includes('.') ? parseRefId(raw) : (() => { const p = parseRefs(raw); return p.ok ? p.refs[0].ref : null; })();
+    const r = raw.includes('.') ? parseRefId(raw) : (() => { const p = parseRefs(raw); if (!p.ok) return null; const m = convertRef('kjv', 'vulgate', p.refs[0].ref); return m.exact ? m.ref : null; })();
     if (!r) { setItems([]); return; }
     let live = true;
     setItems(null);
@@ -22,15 +25,16 @@ export default function FathersOnPage() {
   // one card per Father, the nearest passage first
   const byAuthor = new Map<string, StudyItem[]>();
   for (const it of items ?? []) { const k = it.author ?? it.title; byAuthor.set(k, [...(byAuthor.get(k) ?? []), it]); }
-  const go = (e: React.FormEvent) => { e.preventDefault(); const p = parseRefs(text); if (p.ok) setSp({ ref: refId(p.refs[0].ref) }); };
+  const go = (e: React.FormEvent) => { e.preventDefault(); const p = parseRefs(text); if (!p.ok) return setErr(p.error); const mapped = textScheme === 'vulgate' ? { ref: p.refs[0].ref, exact: true } : convertRef('kjv', 'vulgate', p.refs[0].ref); if (!mapped.exact) return setErr('This passage cannot be matched at a verified anchor address. No approximate result was opened.'); setErr(''); setSp({ ref: refId(mapped.ref) }); };
   return (
     <div className="page fathers-on">
       <h1>The Fathers on a passage</h1>
       <form className="rowform" onSubmit={go} role="search">
         <label className="sr-only" htmlFor="fo-ref">Passage</label>
-        <input id="fo-ref" value={text} onChange={(e) => setText(e.target.value)} placeholder="John 6:51" />
+        <input id="fo-ref" value={text} onChange={(e) => { setText(e.target.value); setTextScheme('kjv'); }} placeholder="John 6:51" />
         <button className="btn primary" type="submit">Show</button>
       </form>
+      {err && <p className="notice" role="alert">{err}</p>}
       {items === null && <div className="center-note">Reading the Fathers…</div>}
       {items && items.length === 0 && <p className="muted">No Father in the library speaks to this passage yet. Try a nearby verse or a whole chapter.</p>}
       <div className="fo-cols">
