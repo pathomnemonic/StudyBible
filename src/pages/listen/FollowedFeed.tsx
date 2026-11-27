@@ -40,7 +40,7 @@ export default function FollowedFeed({ limit = 12, onAll }: { limit?: number; on
       setItems([...all.filter((x) => x.next), ...all.filter((x) => !x.next).sort((a, b) => b.ep.date.localeCompare(a.ep.date))]);
     });
     return () => { live = false; };
-  }, [followed, shows]);
+  }, [followed, shows, progress]);
   if (!followed) return null;
   if (!items) return <section className="sect"><h2 className="eyebrow-h">Latest from your podcasts</h2><div className="skeleton" style={{ height: 70 }} /></section>;
   if (items.length === 0) return null;
